@@ -1,0 +1,272 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "res"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "r"
+        ?prompt         "Resistance"
+        ?units          "resistance"
+        ?defValue       "1K"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1"
+        ?prompt         "Temperature coefficient 1"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2"
+        ?prompt         "Temperature coefficient 2"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "w"
+        ?prompt         "Width"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('w)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "trise"
+        ?prompt         "Temp rise from ambient"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('trise)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "resform"
+        ?prompt         "Resistance Form"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('resform)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "source"
+        ?prompt         "Source component"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('source)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "scale"
+        ?prompt         "Scale factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('scale)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ac"
+        ?prompt         "AC resistance"
+        ?units          "resistance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ac)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dtemp"
+        ?prompt         "Temperature difference"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dtemp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hrc"
+        ?prompt         "Capacitance connected"
+        ?units          "capacitance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('hrc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "rload"
+        ?prompt         "Load resistor"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('rload)"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        netlistProcedure  ansCdlCompPrim
+        instParameters    (R)
+        componentName     res
+        termOrder         (PLUS MINUS)
+        propMapping       (nil R r)
+        namePrefix        "R"
+        modelName         "RP"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        instParameters    (r)
+        componentName     res
+        termOrder         (PLUS MINUS)
+        permuteRule       "(p PLUS MINUS)"
+        namePrefix        "R"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (r tc1 tc2)
+        componentName     res
+        termOrder         (PLUS MINUS)
+        namePrefix        "R"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        componentName     r
+        skipOnReference   t
+        otherParameters   (rload)
+        instParameters    (r noise_temp)
+        typeMapping       (nil noise_temp temp)
+        propMapping       (nil noise_temp r)
+        termOrder         (PLUS MINUS)
+        current           port
+        termMapping       (nil PLUS "plus" MINUS "minus")
+        namePrefix        "R"
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        propMapping       nil
+        otherParameters   (model)
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (r tc1 tc2 scale m ac dtemp l w hrc)
+        componentName     hres
+        termOrder         (PLUS MINUS)
+        namePrefix        "R"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->libra = '( nil
+        propMapping       nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (r)
+        otherParameters   (source)
+        inst4Parameters   (r temp)
+        typeMapping       (nil temp temp)
+        componentName     RES
+        current           port
+        termOrder         (PLUS MINUS)
+        noPortDelimiter   t
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "R"
+    )
+    cdfId->simInfo->mharm = '( nil
+        propMapping       nil
+        netlistProcedure  ansMharmCompPrim
+        otherParameters   (source)
+        instParameters    (r)
+        componentName     res
+        current           port
+        termOrder         (PLUS MINUS)
+        noPortDelimiter   t
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "R"
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        otherParameters   (model)
+        instParameters    (r l w m trise tc1 tc2 resform)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "R"
+        componentName     resistor
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSResPrim
+        otherParameters   (model resform)
+        instParameters    (r l w m trise tc1 tc2)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "R"
+        componentName     resistor
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v i pwr"
+    cdfId->paramLabelSet           = "r tc1 tc2"
+    cdfSaveCDF( cdfId )
+)

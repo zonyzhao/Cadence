@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+temp/cdsSpice_Only_Index type="cell"
+temp/isffm type="cell"
+temp/nsoi type="cell"
+temp/psoi type="cell"
+temp/scr type="cell"
+temp/vsffm type="cell"

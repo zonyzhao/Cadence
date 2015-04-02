@@ -1,0 +1,40 @@
+FreePDK15(TM) Predictive Process Design Kit
+Copyright (c) 2014, W. Rhett Davis and Kirti Bhanushail 
+                    North Caroina State University, Raleigh, NC, USA
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer. 
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. SVRF Technology in this kit is licensed under the the agreement found
+   in the file SVRF_EULA_06Feb09.txt in this directory. 
+4. STANDARD CELL LIBRARIES. Any person or organization is allowed to use 
+   the FreePDK15 to design standard cell libraries for internal usage. 
+   However, access to any standard cell library to any 3rd party based on the 
+   FreePDK15 (or any later version or derivative PDK) is allowed only through 
+   NanGate and only with the prior written permission of NanGate. NanGate has 
+   sole right to distribute and sell access to standard cell libraries based 
+   on the FreePDK15. Any and all fees resulting from the distribution of such 
+   standard cell libraries shall belong to NanGate.  This standard cell 
+   library restriction is effective from the initial release of this kit 
+   until June 30, 2016.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies, 
+either expressed or implied, of the FreePDK Project.

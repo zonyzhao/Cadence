@@ -1,0 +1,41 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer fp;
+
+integer vdd;
+integer i;
+
+real start;
+real delay;
+
+initial begin 
+    vdd=500;	   	
+    fp=$fopen("/tmp2/Manchester_v.csv");
+    A0in[31:0] = 32'h00000000;
+    A1in[31:0] = 32'h00000000;
+    C0in = 1'b0;
+    CLK = 1'b0;
+
+    #490
+    A0in[31:0] = 32'hFFFFFFFF;
+    #10 
+    CLK = 1'b1;
+    
+    #500
+    CLK = 1'b0;
+    
+    #450
+    C0in = 1'b1;
+    #50
+    CLK = 1'b1; 
+    start=$time;
+    wait(Cout);
+    delay = $time - start;
+    $fdisplay(fp, "%t", delay);
+    $fclose(fp);
+    $finish;
+end 
+
+

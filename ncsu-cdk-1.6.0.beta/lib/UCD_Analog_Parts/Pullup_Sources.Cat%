@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+temp/pdc type="cell"
+temp/pexp type="cell"
+temp/ppulse type="cell"
+temp/ppwl type="cell"
+temp/ppwlf type="cell"
+temp/psin type="cell"

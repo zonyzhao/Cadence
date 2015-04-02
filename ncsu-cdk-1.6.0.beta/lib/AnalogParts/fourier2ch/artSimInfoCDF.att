@@ -1,0 +1,90 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "fourier2ch"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "harms"
+        ?prompt         "Harmonics of test"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('harms)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "refharms"
+        ?prompt         "Harmonics of ref"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('refharms)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "scale"
+        ?prompt         "Scale factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('scale)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        otherParameters   (model)
+        instParameters    (harms refharms scale)
+        termOrder         (p n pr nr)
+        termMapping       (nil p "" n "(FUNCTION minus(root(\"p\")))" pr "" nr "(FUNCTION minus(root(\"pr\")))")
+        namePrefix        "FOUR"
+        componentName     fourier
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        otherParameters   (model)
+        instParameters    (harms refharms scale)
+        termOrder         (p n pr nr)
+        termMapping       (nil p "" n "(FUNCTION minus(root(\"p\")))" pr "" nr "(FUNCTION minus(root(\"pr\")))")
+        namePrefix        "FOUR"
+        componentName     fourier
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "fund points active"
+    cdfId->paramLabelSet           = "harms refharms scale"
+    cdfSaveCDF( cdfId )
+)

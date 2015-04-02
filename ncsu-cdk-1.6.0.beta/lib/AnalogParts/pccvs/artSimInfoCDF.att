@@ -1,0 +1,445 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "pccvs"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "polyCoef"
+        ?prompt         "Number of Polynomial Coeffs"
+        ?defValue       4
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('polyCoef)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c1"
+        ?prompt         "Poly Coeff 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 1"
+        ?display        "artParameterInToolDisplay('c1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c2"
+        ?prompt         "Poly Coeff 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 2"
+        ?display        "artParameterInToolDisplay('c2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c3"
+        ?prompt         "Poly Coeff 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 3"
+        ?display        "artParameterInToolDisplay('c3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c4"
+        ?prompt         "Poly Coeff 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 4"
+        ?display        "artParameterInToolDisplay('c4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c5"
+        ?prompt         "Poly Coeff 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 5"
+        ?display        "artParameterInToolDisplay('c5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c6"
+        ?prompt         "Poly Coeff 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 6"
+        ?display        "artParameterInToolDisplay('c6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c7"
+        ?prompt         "Poly Coeff 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 7"
+        ?display        "artParameterInToolDisplay('c7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c8"
+        ?prompt         "Poly Coeff 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 8"
+        ?display        "artParameterInToolDisplay('c8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c9"
+        ?prompt         "Poly Coeff 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 9"
+        ?display        "artParameterInToolDisplay('c9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c10"
+        ?prompt         "Poly Coeff 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 10"
+        ?display        "artParameterInToolDisplay('c10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c11"
+        ?prompt         "Poly Coeff 11"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 11"
+        ?display        "artParameterInToolDisplay('c11)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c12"
+        ?prompt         "Poly Coeff 12"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 12"
+        ?display        "artParameterInToolDisplay('c12)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c13"
+        ?prompt         "Poly Coeff 13"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 13"
+        ?display        "artParameterInToolDisplay('c13)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c14"
+        ?prompt         "Poly Coeff 14"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 14"
+        ?display        "artParameterInToolDisplay('c14)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c15"
+        ?prompt         "Poly Coeff 15"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 15"
+        ?display        "artParameterInToolDisplay('c15)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c16"
+        ?prompt         "Poly Coeff 16"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 16"
+        ?display        "artParameterInToolDisplay('c16)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c17"
+        ?prompt         "Poly Coeff 17"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 17"
+        ?display        "artParameterInToolDisplay('c17)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c18"
+        ?prompt         "Poly Coeff 18"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 18"
+        ?display        "artParameterInToolDisplay('c18)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c19"
+        ?prompt         "Poly Coeff 19"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 19"
+        ?display        "artParameterInToolDisplay('c19)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c20"
+        ?prompt         "Poly Coeff 20"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->polyCoef->value >= 20"
+        ?display        "artParameterInToolDisplay('c20)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "probeCnt"
+        ?prompt         "Number of Probes"
+        ?defValue       4
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('probeCnt)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p1"
+        ?prompt         "Probe 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 1"
+        ?display        "artParameterInToolDisplay('p1)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p2"
+        ?prompt         "Probe 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 2"
+        ?display        "artParameterInToolDisplay('p2)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p3"
+        ?prompt         "Probe 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 3"
+        ?display        "artParameterInToolDisplay('p3)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p4"
+        ?prompt         "Probe 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 4"
+        ?display        "artParameterInToolDisplay('p4)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p5"
+        ?prompt         "Probe 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 5"
+        ?display        "artParameterInToolDisplay('p5)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p6"
+        ?prompt         "Probe 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 6"
+        ?display        "artParameterInToolDisplay('p6)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p7"
+        ?prompt         "Probe 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 7"
+        ?display        "artParameterInToolDisplay('p7)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p8"
+        ?prompt         "Probe 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 8"
+        ?display        "artParameterInToolDisplay('p8)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p9"
+        ?prompt         "Probe 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 9"
+        ?display        "artParameterInToolDisplay('p9)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p10"
+        ?prompt         "Probe 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 10"
+        ?display        "artParameterInToolDisplay('p10)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p11"
+        ?prompt         "Probe 11"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 11"
+        ?display        "artParameterInToolDisplay('p11)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p12"
+        ?prompt         "Probe 12"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 12"
+        ?display        "artParameterInToolDisplay('p12)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p13"
+        ?prompt         "Probe 13"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 13"
+        ?display        "artParameterInToolDisplay('p13)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p14"
+        ?prompt         "Probe 14"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 14"
+        ?display        "artParameterInToolDisplay('p14)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p15"
+        ?prompt         "Probe 15"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 15"
+        ?display        "artParameterInToolDisplay('p15)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p16"
+        ?prompt         "Probe 16"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 16"
+        ?display        "artParameterInToolDisplay('p16)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p17"
+        ?prompt         "Probe 17"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 17"
+        ?display        "artParameterInToolDisplay('p17)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p18"
+        ?prompt         "Probe 18"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 18"
+        ?display        "artParameterInToolDisplay('p18)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p19"
+        ?prompt         "Probe 19"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 19"
+        ?display        "artParameterInToolDisplay('p19)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p20"
+        ?prompt         "Probe 20"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->probeCnt->value >= 20"
+        ?display        "artParameterInToolDisplay('p20)"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSrcPrim_csrc
+        otherParameters   (polyCoef c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 c19 c20 probeCnt p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "H"
+        componentName     pccvs
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSPolyCntrlPrim
+        otherParameters   (polyCoef c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 c19 c20 probeCnt p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "H"
+        componentName     pccvs
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

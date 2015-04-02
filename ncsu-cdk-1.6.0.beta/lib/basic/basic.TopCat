@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+basic/Connectors.Cat type="category"
+basic/Misc.Cat type="category"
+basic/Pins.Cat type="category"
+basic/Saber.Cat type="category"
+basic/Supplies.Cat type="category"
+basic/TA.Cat type="category"
+basic/VHDLPins.Cat type="category"

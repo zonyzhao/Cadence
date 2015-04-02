@@ -1,0 +1,5 @@
+load( prependNCSUCDKInstallPath( "skill/cdf/libProp.il" ) )
+load( prependNCSUCDKInstallPath( "skill/cdf/setMosfetPropForm.il" ) )
+load( prependNCSUCDKInstallPath( "skill/cdf/fet_cdf.il" ) )
+load( prependNCSUCDKInstallPath( "skill/cdf/cap_cdf.il" ) )
+load( prependNCSUCDKInstallPath( "skill/cdf/contact_cdf.il" ) )

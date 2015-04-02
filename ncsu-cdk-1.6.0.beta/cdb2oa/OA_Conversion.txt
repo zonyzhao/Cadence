@@ -1,0 +1,124 @@
+This file documents the steps used to convert the CDK from CDB to OA.
+By Rhett Davis (rhett_davis@ncsu.edu) 7/12/2007
+
+1)  Exported the NCSU_CDK CVS tree with the command:
+      cvs export -D 2007-07-11 NCSU_CDK
+    Once a workable version of the NCSU_CDKOA is available, a new repository
+    will be created (so as not to conflict with the CDB files in the current
+    repository).
+
+2)  Added Virtuoso 6.1.1 to the environment.
+
+3)  Created the directory cdb2oa to run the conversion programs and archive
+    the results.  Set the CDK_DIR environment variable to the installation
+    directory and Copied the $CDK_DIR/cdssetup/.cdsinit file into the
+    cdb2oa directory.
+    
+
+4)  Ran cdb2oa on the basic library with the command
+
+      cdb2oa -cdslibpath $CDK_DIR/cdssetup/cds.lib -lib basic >& cdb2oa.basic.log
+
+    Also ran cdb2oa on NCSU_Analog_Parts and NCSU_Digital_Parts.
+
+5)  Deleted all files in the lib directory and moved the newly created basic,
+    NCSU_Analog_Parts, and NCSU_Digital_Parts libraries into that directory.
+    Modified the cdb2oa/cds.lib and lib.defs files accordingly.
+
+6)  Made the following changes to cdssetup/cdsenv:
+
+     - Commented out the lines beginning with cdsSpice, spectreS, and hspiceS.
+       It appears that these tools are no longer supported, and these lines give
+       the errors on startup like the following:
+       "*WARNING* Cannot find /local/ic611/tools.lnx86/dfII/etc/tools/cdsSpice 
+        directory to load environment variables"
+
+     - Changed the line 'asimenv.startup   simulator  string  "hspiceS"'
+       to "hspiceD".  It appears that hspiceD is supported, even though 
+       hspiceS is not.
+
+7)  Made the following changes to cdssetup/cdsinit:
+
+     - Commented out the loading of skill/config_files/schConfig.il.  For some
+       reason, got the following startup errors when loading this file:
+       "*WARNING* (icLic-3) Could not get license Virtuoso_Schematic_Editor_L"
+       Also spewed out about 300 lines of code from that file in the CIW.
+       Very annoying.  This is not a fix, but a measure to set aside the
+       errors for the moment.
+
+     - Commented out the lines that call awvSetOptionValue.  Not sure what these
+       lines are for, but they were causing the warning 
+       "*WARNING* There were no system .cdsplotinit files found."
+
+     - Commented out the lines with the command "asiSetEnvOptionVal".  These
+       lines were referring to the tools spectreS and hspiceS, which no longer
+       appear to be supported.  When changing these references to spectre and
+       hspiceD (which do appear to be supported, got the error
+       "*Error* asiEnvGetVar: Variable `envOpts modelPath' not declared for 
+        tool `spectre'"
+
+8)  Modified the file skill/menus/ciw/createLib.il, procdedure 
+    compileAllTechLibs(), to call compileTechLib() rather than 
+    createRuleViaLib().  (Also commented out the calls to ddDeleteObj in this
+    procedure, since the templib is never created and can't be deleted).
+    The createRuleViaLib() isn't working, because
+    LEF & DEF import and export appears to need some changes to the techfile.
+    This means that ruleVias will not be created, and LEF/DEF import/export
+    will not be supported until this is fixed.
+
+
+9)  Started Virtuoso with the command "virtuoso -log CDS.log.compileTech &"
+    Executed the command compileAllTechLibs() and exited.  There were a number
+    of errors that are captured in the log file.
+
+10) Moved the new libraries to the lib/ directory.
+
+11) Commented out the library MOSIS_Layout_Test from the cdssetup/cds.lib
+    file.  We'll get around to this later.  Also created the file
+    cdssetup/lib.defs file.
+
+12) Modified the skill/menus/triggers.il file as follows.  These changes
+    were necessary to make P-Cells work.  Many thanks to Matthew Guthaus
+    at UC Santa Cruz for finding this fix on 10/1/2006.
+
+     - added the following code to the NCSU_LayoutAppTrigger() procedure:
+            if( (not (boundp 'bag)) then
+            printf("Getting layout propert bag")
+            GetPropBag()
+            )
+ 
+     - Created the procedure NCSU_LayoutAppTrigger():
+         procedure( NCSU_SchematicAppTrigger( args )
+            if( (not (boundp 'bag)) then
+              printf("Getting schematic propert bag")
+              GetPropBag()
+            )
+         )
+
+     - Registered the new schematic trigger:
+
+           deRegUserTriggers( "schematic"  'NCSU_SchematicAppTrigger
+                                           'NCSU_MenuTrigger )
+
+13) Commented out the following lines from skill/cdf/fet_cdf.il, because
+    they kept giving "propset" errors.  Many thanks again to Matthew Guthaus
+    at UC Santa Cruz for finding this fix on 10/1/2006.
+
+	cdfgData->dleUseCell->value = strcat( TechLib " " Cell )
+	cdfgData->lxUseCell->value = strcat( TechLib " " Cell )
+
+
+14) Ran the script "linkem" to create symbolic links.  This script is
+    not distributed with CDK, but can be found in the directory
+    /afs/bp.ncsu.edu/dist/cadence_cdk/devel/linkem at NCSU.  The script
+    had to be modified to remove references to the MOSIS_Layout_Test
+    library, since this hasn't been converted, yet.
+
+15) Modified the README and NCSU_CDK_Version files.  Tar'ed and gz'ed the
+    archived for distribution.
+
+
+
+
+
+

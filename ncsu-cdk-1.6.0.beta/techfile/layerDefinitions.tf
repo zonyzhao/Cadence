@@ -1,0 +1,1391 @@
+;==========================================================================
+;
+; $Id: layerDefinitions.tf,v 1.1.1.1 2006/02/10 16:32:38 slipa Exp $
+; 
+;--------------------------------------------------------------------------
+
+layerDefinitions(
+
+let( (technology cwellAvailable polycapAvailable metal3Available 
+      metal4Available metal5Available metal6Available hvAvailable
+      metalcapAvailable npnAvailable ccdAvailable elecAvailable
+      sblockAvailable highresAvailable)
+
+ technology = techParam( "technology" )
+
+ if( NCSU_techData[ technology ] == nil then
+     hiGetAttention()
+     error( "Unrecognizable \"technology\" property!" )
+ )
+
+ cwellAvailable   = techParam( "cwellAvailable" )
+ polycapAvailable = techParam( "polycapAvailable" )
+ npnAvailable     = techParam( "npnAvailable" )
+ ccdAvailable     = techParam( "ccdAvailable" )
+ metal3Available  = techParam( "metal3Available" )
+ metal4Available  = techParam( "metal4Available" )
+ metal5Available  = techParam( "metal5Available" )
+ metal6Available  = techParam( "metal6Available" )
+ metalcapAvailable  = techParam( "metalcapAvailable" )
+ hvAvailable      = techParam( "hvAvailable" )
+ elecAvailable    = techParam( "elecAvailable" )
+ memsAvailable    = techParam( "memsAvailable" )
+ sblockAvailable  = techParam( "sblockAvailable" )
+ highresAvailable = techParam( "highresAvailable" )
+ egrcAvailable    = techParam( "egrcAvailable" )
+
+;---- techPurposes --------------------------------------------------------
+
+ techPurposes(
+ ;( PurposeName               Purpose#   Abbreviation )
+ ;( -----------               --------   ------------ )
+ ;User-Defined Purposes:
+ ;  none
+ ;System-Reserved Purposes:
+  ( warning                   234        wng          )
+  ( tool1                     235        tl1          )
+  ( tool0                     236        tl0          )
+  ( label                     237        lbl          )
+  ( flight                    238        flt          )
+  ( error                     239        err          )
+  ( annotate                  240        ant          )
+  ( drawing1                  241        dr1          )
+  ( drawing2                  242        dr2          )
+  ( drawing3                  243        dr3          )
+  ( drawing4                  244        dr4          )
+  ( drawing5                  245        dr5          )
+  ( drawing6                  246        dr6          )
+  ( drawing7                  247        dr7          )
+  ( drawing8                  248        dr8          )
+  ( drawing9                  249        dr9          )
+  ( boundary                  250        bnd          )
+  ( pin                       251        pin          )
+  ( drawing                   252        drw          )
+  ( net                       253        net          )
+  ( cell                      254        cel          )
+  ( all                       255        all          )
+ ) ;techPurposes
+
+
+;---- techLayers ----------------------------------------------------------
+
+ techLayers(
+ ;( LayerName                 Layer#     Abbreviation )
+ ;( ---------                 ------     ------------ )
+ ;User-Defined Layers:
+  ( default                   0          default      )
+  ( nactive                   1          nactive      )
+  ( pactive                   2          pactive      )
+  ( active                    3          active       )
+  ( pwell                     6          pwell        )
+  ( via                       8          via          )
+  ( nwell                     12         nwell        )
+  ( gwell                     18         gwell        )
+  ( pad                       29         pad          )
+  ( poly                      35         poly         )
+  ( glass                     36         glass        )
+  ( nselect                   39         nselect      )
+  ( pselect                   40         pselect      )
+  ( gselect                   41         gselect      )
+  ( metal1                    45         metal1       )
+  ( metal2                    50         metal2       )
+  ( ca                        56         ca           )
+  ( cp                        57         cp           )
+  ( cc                        59         cc           )
+  ( nodrc                     80         nodrc        )
+  ( cap_id                    81         cap_id       )
+  ( res_id                    82         res_id       )
+  ( nolpe                     83         nolpe        )
+  ( dio_id                    84         dio_id       )
+  ( hdrc                      126        hdrc         )
+ ;System-Reserved Layers:
+  ( Unrouted                  200        Unroute      )
+  ( Row                       201        Row          )
+  ( Group                     202        Group        )
+  ( Cannotoccupy              203        Cannoto      )
+  ( Canplace                  204        Canplac      )
+  ( hardFence                 205        hardFen      )
+  ( softFence                 206        softFen      )
+  ( y0                        207        y0           )
+  ( y1                        208        y1           )
+  ( y2                        209        y2           )
+  ( y3                        210        y3           )
+  ( y4                        211        y4           )
+  ( y5                        212        y5           )
+  ( y6                        213        y6           )
+  ( y7                        214        y7           )
+  ( y8                        215        y8           )
+  ( y9                        216        y9           )
+  ( designFlow                217        designF      )
+  ( stretch                   218        stretch      )
+  ( edgeLayer                 219        edgeLay      )
+  ( changedLayer              220        changed      )
+  ( unset                     221        unset        )
+  ( unknown                   222        unknown      )
+  ( spike                     223        spike        )
+  ( hiz                       224        hiz          )
+  ( resist                    225        resist       )
+  ( drive                     226        drive        )
+  ( supply                    227        supply       )
+  ( wire                      228        wire         )
+  ( pin                       229        pin          )
+  ( text                      230        text         )
+  ( device                    231        device       )
+  ( border                    232        border       )
+  ( snap                      233        snap         )
+  ( align                     234        align        )
+  ( prBoundary                235        prBound      )
+  ( instance                  236        instanc      )
+  ( annotate                  237        annotat      )
+  ( marker                    238        marker       )
+  ( select                    239        select       )
+  ( grid                      251        grid         )
+  ( axis                      252        axis         )
+  ( hilite                    253        hilite       )
+  ( background                254        backgro      )
+ ) ;techLayers
+
+  if( metal3Available then
+    techLayers(
+        ( via2                      7          via2         )
+        ( metal3                    46         metal3       )
+    )
+  )
+  if( metal4Available then
+    techLayers(
+        ( via3                      9          via3         )
+        ( metal4                    47         metal4       )
+    )
+  )
+  if( metal5Available then
+    techLayers(
+        ( via4                      10         via4         )
+        ( metal5                    48         metal5       )
+    )
+  )
+  if( metal6Available then
+    techLayers(
+        ( via5                      11         via5         )
+        ( metal6                    49         metal6       )
+    )
+  )
+  if( metalcapAvailable then
+    techLayers(
+        ( metalcap                  64         metalcap     )
+    )
+  )
+  if( hvAvailable then
+    techLayers(
+        ( tactive                    5         tactive      )
+    )
+  )
+  if( cwellAvailable then
+    techLayers(
+        ( cwell                     33         cwell        )
+    )
+  )
+  if( polycapAvailable then
+    techLayers(
+        ( polycap                   38         polycap      )
+    )
+  )
+  if( elecAvailable then
+    techLayers(
+        ( elec                      37         elec         )
+        ( ce                        58         ce           )
+    )
+  )
+  if( npnAvailable then
+    techLayers(
+        ( pbase                     61         pbase        )
+        ( cactive                   4          cactive      )
+    )
+  )
+  if( ccdAvailable then
+    techLayers(
+        ( ccd                       60         ccd          )
+    )
+  )
+  if( memsAvailable then
+    techLayers(
+        ( open                      71         open         )
+        ( pstop                     70         pstop        )
+    )
+  )
+  if( sblockAvailable then
+    techLayers(
+        ( sblock                    62         sblock       )
+    )
+  )
+  if( highresAvailable then
+    techLayers(
+        ( highres                   63         highres      )
+    )
+  )
+
+  if( egrcAvailable then
+    techLayers(
+        ( via3                      9          via3         )
+        ( ac_pad                    100        acpad        )
+        ( contact_pad               101        cpad         )
+        ( contact_ubm               102        cubm         )
+        ( mech0                     103        mech0        )
+        ( mech1                     104        mech1        )
+        ( sac0                      105        sac0         )
+        ( sac1                      106        sac1         )
+        ( bulk                      107        bulk         )
+        ( ground                    108        gnd          )
+        ( metal1_cut                110        m1_c         )
+        ( metal2_cut                111        m2_c         )
+        ( metal3_cut                112        m3_c         )
+        ( mech0_cut                 113        mch0_c       )
+        ( mech1_cut                 114        mch1_c       )
+        ( sac0_cut                  115        sac0_c       )
+        ( sac1_cut                  116        sac1_c       )
+        ( bulk_cut                  117        bulk_c       )
+        ( ground_cut                118        gnd_c        )
+    )
+  )
+
+;---- techLayerPurposePriorities ------------------------------------------
+;
+; The LPPs in this function must be in the order they will appear in the 
+; layout and LSW. There is no apparent way to conditionally include some
+; layers without appending them to the top of the LSW. Thus one complete
+; set that is preordered is loaded based on the options set. Note that
+; order matters here; stuff that is a superset should come first.
+;--------------------------------------------------------------------------
+
+cond(
+     ( egrcAvailable                                                    load( prependNCSUCDKInstallPath( "techfile/layerDefn.egrc") ) )
+     ( elecAvailable && npnAvailable && ccdAvailable && memsAvailable && metal5Available && hvAvailable && metal4Available && 
+       metal3Available && cwellAvailable && sblockAvailable && 
+       polycapAvailable && highresAvailable                             load( prependNCSUCDKInstallPath( "techfile/layerDefn.all") ) )
+     ( elecAvailable && npnAvailable && ccdAvailable && memsAvailable   load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.npn.ccd.mems") ) )
+     ( elecAvailable && npnAvailable                                    load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.npn" ) ) )
+     ( elecAvailable && metal4Available && hvAvailable                  load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.m4.hv" ) ) )
+     ( elecAvailable && metal3Available && hvAvailable                  load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.m3.hv" ) ) )
+     ( elecAvailable && metal3Available && highresAvailable             load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.m3.highres" ) ) )
+     ( elecAvailable && metal3Available                                 load( prependNCSUCDKInstallPath( "techfile/layerDefn.elec.m3" ) ) )
+     ( metal6Available && hvAvailable && sblockAvailable &&
+       metalcapAvailable                                                load( prependNCSUCDKInstallPath( "techfile/layerDefn.m6.hv.sblock.mcap" ) ) )
+     ( metal6Available && metalcapAvailable                             load( prependNCSUCDKInstallPath( "techfile/layerDefn.m6.mcap" ) ) )
+     ( metal5Available && hvAvailable && sblockAvailable &&
+       metalcapAvailable                                                load( prependNCSUCDKInstallPath( "techfile/layerDefn.m5.hv.sblock.mcap" ) ) )
+     ( metal5Available                                                  load( prependNCSUCDKInstallPath( "techfile/layerDefn.m5" ) ) )
+     ( metal4Available && hvAvailable && sblockAvailable                load( prependNCSUCDKInstallPath( "techfile/layerDefn.m4.hv.sblock" ) ) )
+     ( metal4Available                                                  load( prependNCSUCDKInstallPath( "techfile/layerDefn.m4" ) ) )
+     ( metal3Available && cwellAvailable && sblockAvailable             load( prependNCSUCDKInstallPath( "techfile/layerDefn.m3.cwell.sblock" ) ) )
+     ( metal3Available                                                  load( prependNCSUCDKInstallPath( "techfile/layerDefn.m3" ) ) )
+     ( polycapAvailable                                                 load( prependNCSUCDKInstallPath( "techfile/layerDefn.polycap" ) ) )
+     ( t                                                                load( prependNCSUCDKInstallPath( "techfile/layerDefn.basic" ) ) )
+)
+
+
+;---- techDisplays --------------------------------------------------------
+ 
+ techDisplays(
+ ;( LayerName    Purpose    Packet        Vis Sel Con2ChgLy DrgEnbl Valid )
+ ;( ---------    -------    ------        --- --- --------- ------- ----- )
+  ( default      drawing    default       t   t   t   t   nil )
+  ( hdrc         boundary   hdrcBnd       t   nil t   nil nil )
+  ( gwell        drawing    gwell         t   t   t   t   nil )
+  ( gwell        net        gwellNet      t   t   t   nil nil )
+  ( gwell        pin        gwellPin      t   t   t   nil nil )
+  ( nwell        drawing    nwell         t   t   t   t   t )
+  ( nwell        net        nwellNet      t   t   t   nil t )
+  ( nwell        pin        nwellPin      t   t   t   nil nil )
+  ( pwell        drawing    pwell         t   t   t   t   t )
+  ( pwell        net        pwellNet      t   t   t   nil t )
+  ( pwell        pin        pwellPin      t   t   t   nil nil )
+  ( active       drawing    active        t   t   t   t   t )
+  ( active       net        activeNet     t   t   t   nil t )
+  ( active       pin        activePin     t   t   t   nil nil )
+  ( nactive      drawing    nactive       t   t   t   t   t )
+  ( nactive      net        nactiveNet    t   t   t   nil t )
+  ( nactive      pin        nactivePin    t   t   t   nil nil )
+  ( pactive      drawing    pactive       t   t   t   t   t )
+  ( pactive      net        pactiveNet    t   t   t   nil t )
+  ( pactive      pin        pactivePin    t   t   t   nil nil )
+  ( gselect      drawing    gselect       t   t   t   t   nil )
+  ( nselect      drawing    nselect       t   t   t   t   t )
+  ( pselect      drawing    pselect       t   t   t   t   t )
+  ( poly         drawing    poly          t   t   t   t   t )
+  ( poly         net        polyNet       t   t   t   nil t )
+  ( poly         pin        polyPin       t   t   t   nil nil )
+  ( poly         label      polyLbl       t   t   t   nil nil )
+  ( poly         boundary   polyBnd       t   t   t   nil nil )
+  ( metal1       drawing    metal1        t   t   t   t   t )
+  ( metal1       net        metal1Net     t   t   t   nil t )
+  ( metal1       pin        metal1Pin     t   t   t   nil nil )
+  ( metal1       label      metal1Lbl     t   t   t   nil nil )
+  ( metal1       boundary   metal1Bnd     t   t   t   nil nil )
+  ( ca           drawing    ca            t   t   t   t   nil )
+  ( ca           net        caNet         t   t   t   nil nil )
+  ( ca           pin        caPin         t   t   t   nil nil )
+  ( ca           label      caLbl         t   t   t   nil nil )
+  ( ca           boundary   caBnd         t   t   t   nil nil )
+  ( cp           drawing    cp            t   t   t   t   nil )
+  ( cp           net        cpNet         t   t   t   nil nil )
+  ( cp           pin        cpPin         t   t   t   nil nil )
+  ( cp           label      cpLbl         t   t   t   nil nil )
+  ( cp           boundary   cpBnd         t   t   t   nil nil )
+  ( cc           drawing    cc            t   t   t   t   t )
+  ( cc           net        ccNet         t   t   t   nil t )
+  ( cc           pin        ccPin         t   t   t   nil nil )
+  ( cc           label      ccLbl         t   t   t   nil nil )
+  ( cc           boundary   ccBnd         t   t   t   nil nil )
+  ( metal2       drawing    metal2        t   t   t   t   t )
+  ( metal2       net        metal2Net     t   t   t   nil t )
+  ( metal2       pin        metal2Pin     t   t   t   nil nil )
+  ( metal2       label      metal2Lbl     t   t   t   nil nil )
+  ( metal2       boundary   metal2Bnd     t   t   t   nil nil )
+  ( via          drawing    via           t   t   t   t   t )
+  ( via          net        viaNet        t   t   t   nil t )
+  ( via          pin        viaPin        t   t   t   nil nil )
+  ( via          label      viaLbl        t   t   t   nil nil )
+  ( via          boundary   viaBnd        t   t   t   nil nil )
+  ( glass        drawing    glass         t   t   t   t   t )
+  ( pad          drawing    pad           t   t   t   t   t )
+  ( nodrc        drawing    nodrc         t   t   t   t   t )
+  ( nolpe        drawing    nolpe         t   t   t   t   t )
+  ( cap_id       drawing    cap_id        t   t   t   t   t )
+  ( res_id       drawing    res_id        t   t   t   t   t )
+  ( dio_id       drawing    dio_id        t   t   t   t   t )
+  ( background   drawing    background    t   nil t   nil nil )
+  ( grid         drawing    grid          t   nil t   nil nil )
+  ( grid         drawing1   grid1         t   nil t   nil nil )
+  ( axis         drawing    axis          t   nil t   t   nil )
+  ( instance     drawing    instance      t   t   t   t   nil )
+  ( instance     label      instanceLbl   t   t   t   t   nil )
+  ( prBoundary   drawing    prBoundary    t   t   t   t   nil )
+  ( prBoundary   boundary   prBoundaryBnd t   t   t   t   nil )
+  ( prBoundary   label      prBoundaryLbl t   t   t   t   nil )
+  ( align        drawing    align         t   t   t   t   nil )
+  ( hardFence    drawing    hardFence     t   t   t   t   nil )
+  ( softFence    drawing    softFence     t   t   t   t   nil )
+  ( text         drawing    text          t   t   t   t   t )
+  ( text         drawing1   text1         t   t   t   t   nil )
+  ( text         drawing2   text2         t   t   t   t   nil )
+  ( border       drawing    border        t   t   t   t   nil )
+  ( device       drawing    device        t   t   t   t   nil )
+  ( device       drawing2   device2       t   t   t   t   nil )
+  ( device       drawing1   device1       t   t   t   t   nil )
+  ( wire         drawing    wire          t   t   t   t   nil )
+  ( wire         label      wireLbl       t   t   t   t   nil )
+  ( wire         flight     wireFlt       t   t   t   t   nil )
+  ( device       annotate   deviceAnt     t   t   t   t   nil )
+  ( device       label      deviceLbl     t   t   t   t   nil )
+  ( pin          label      pinLbl        t   t   t   t   nil )
+  ( pin          drawing    pin           t   t   t   t   nil )
+  ( pin          annotate   pinAnt        t   t   t   t   nil )
+  ( annotate     drawing    annotate      t   t   t   t   nil )
+  ( annotate     drawing1   annotate1     t   t   t   t   nil )
+  ( annotate     drawing2   annotate2     t   t   t   t   nil )
+  ( annotate     drawing3   annotate3     t   t   t   t   nil )
+  ( annotate     drawing4   annotate4     t   t   t   t   nil )
+  ( annotate     drawing5   annotate5     t   t   t   t   nil )
+  ( annotate     drawing6   annotate6     t   t   t   t   nil )
+  ( annotate     drawing7   annotate7     t   t   t   t   nil )
+  ( annotate     drawing8   annotate8     t   t   t   t   nil )
+  ( annotate     drawing9   annotate9     nil t   t   t   nil )
+  ( edgeLayer    drawing    edgeLayer     t   t   t   t   nil )
+  ( edgeLayer    pin        edgeLayerPin  t   t   t   t   nil )
+  ( snap         drawing    snap          t   t   t   t   nil )
+  ( stretch      drawing    stretch       t   t   t   t   nil )
+  ( y0           drawing    y0            t   t   t   t   nil )
+  ( y1           drawing    y1            t   t   t   t   nil )
+  ( y2           drawing    y2            t   t   t   t   nil )
+  ( y3           drawing    y3            t   t   t   t   nil )
+  ( y4           drawing    y4            t   t   t   t   nil )
+  ( y5           drawing    y5            t   t   t   t   nil )
+  ( y6           drawing    y6            t   t   t   t   nil )
+  ( y7           drawing    y7            t   t   t   t   nil )
+  ( y8           drawing    y8            t   t   t   t   nil )
+  ( y9           drawing    y9            t   t   t   t   nil )
+  ( hilite       drawing    hilite        t   t   t   t   nil )
+  ( hilite       drawing1   hilite1       t   t   t   t   nil )
+  ( hilite       drawing2   hilite2       t   t   t   t   nil )
+  ( hilite       drawing3   hilite3       t   t   t   t   nil )
+  ( hilite       drawing4   hilite4       t   t   t   t   nil )
+  ( hilite       drawing5   hilite5       t   t   t   t   nil )
+  ( hilite       drawing6   hilite6       t   t   t   t   nil )
+  ( hilite       drawing7   hilite7       t   t   t   t   nil )
+  ( hilite       drawing8   hilite8       t   t   t   t   nil )
+  ( hilite       drawing9   hilite9       t   t   t   t   nil )
+  ( select       drawing    select        t   t   t   t   nil )
+  ( drive        drawing    drive         t   t   t   t   nil )
+  ( hiz          drawing    hiz           t   t   t   t   nil )
+  ( resist       drawing    resist        t   t   t   t   nil )
+  ( spike        drawing    spike         t   t   t   t   nil )
+  ( supply       drawing    supply        t   t   t   t   nil )
+  ( unknown      drawing    unknown       t   t   t   t   nil )
+  ( unset        drawing    unset         t   t   t   t   nil )
+  ( designFlow   drawing    designFlow    t   t   t   nil nil )
+  ( designFlow   drawing1   designFlow1   t   t   t   nil nil )
+  ( designFlow   drawing2   designFlow2   t   t   t   nil nil )
+  ( designFlow   drawing3   designFlow3   t   t   t   nil nil )
+  ( designFlow   drawing4   designFlow4   t   t   t   nil nil )
+  ( designFlow   drawing5   designFlow5   t   t   t   nil nil )
+  ( designFlow   drawing6   designFlow6   t   t   t   nil nil )
+  ( designFlow   drawing7   designFlow7   t   t   t   nil nil )
+  ( designFlow   drawing8   designFlow8   t   t   t   nil nil )
+  ( designFlow   drawing9   designFlow9   t   t   t   nil nil )
+  ( changedLayer tool0      changedLayerTl0 nil nil t   nil nil )
+  ( changedLayer tool1      changedLayerTl1 nil nil t   nil nil )
+  ( marker       warning    markerWarn    t   t   t   t   nil )
+  ( marker       error      markerErr     t   t   t   t   nil )
+  ( Row          drawing    Row           t   t   t   t   nil )
+  ( Row          label      RowLbl        t   nil t   t   nil )
+  ( Group        drawing    Group         t   t   t   t   nil )
+  ( Group        label      GroupLbl      t   nil t   t   nil )
+  ( Cannotoccupy drawing    Cannotoccupy  t   t   t   t   nil )
+  ( Cannotoccupy boundary   CannotoccupyBnd t   t   t   t   nil )
+  ( Canplace     drawing    Canplace      t   t   t   t   nil )
+  ( Unrouted     drawing    Unrouted      t   t   t   t   nil )
+  ( Unrouted     drawing1   Unrouted1     t   t   t   t   nil )
+  ( Unrouted     drawing2   Unrouted2     t   t   t   t   nil )
+  ( Unrouted     drawing3   Unrouted3     t   t   t   t   nil )
+  ( Unrouted     drawing4   Unrouted4     t   t   t   t   nil )
+  ( Unrouted     drawing5   Unrouted5     t   t   t   t   nil )
+  ( Unrouted     drawing6   Unrouted6     t   t   t   t   nil )
+  ( Unrouted     drawing7   Unrouted7     t   t   t   t   nil )
+  ( Unrouted     drawing8   Unrouted8     t   t   t   t   nil )
+  ( Unrouted     drawing9   Unrouted9     t   t   t   t   nil )
+ ) ;techDisplays
+
+  if( cwellAvailable then
+    techDisplays(
+        ( cwell        drawing    cwell         t   t   t   t   t )
+        ( cwell        net        cwellNet      t   t   t   nil nil )
+        ( cwell        pin        cwellPin      t   t   t   nil nil )
+    )
+  )
+  if( polycapAvailable then
+    techDisplays(
+        ( polycap       drawing   polycap       t   t   t   t   t )
+        ( polycap       net       polycapNet    t   t   t   nil t )
+        ( polycap       pin       polycapPin    t   t   t   nil nil )
+        ( polycap       label     polycapLbl    t   t   t   nil nil )
+        ( polycap       boundary  polycapBnd    t   t   t   nil nil )
+    )
+  )
+  if( elecAvailable then
+    techDisplays(
+        ( elec         drawing    elec          t   t   t   t   t )
+        ( elec         net        elecNet       t   t   t   nil t )
+        ( elec         pin        elecPin       t   t   t   nil nil )
+        ( elec         label      elecLbl       t   t   t   nil nil )
+        ( elec         boundary   elecBnd       t   t   t   nil nil )
+        ( ce           drawing    ce            t   t   t   t   nil )
+        ( ce           net        ceNet         t   t   t   nil nil )
+        ( ce           pin        cePin         t   t   t   nil nil )
+        ( ce           label      ceLbl         t   t   t   nil nil )
+        ( ce           boundary   ceBnd         t   t   t   nil nil )
+    )
+  )
+  if( metal3Available then
+    techDisplays(
+        ( metal3       drawing    metal3        t   t   t   t   t )
+        ( metal3       net        metal3Net     t   t   t   nil t )
+        ( metal3       pin        metal3Pin     t   t   t   nil nil )
+        ( metal3       label      metal3Lbl     t   t   t   nil nil )
+        ( metal3       boundary   metal3Bnd     t   t   t   nil nil )
+        ( via2         drawing    via2          t   t   t   t   t )
+        ( via2         net        via2Net       t   t   t   nil t )
+        ( via2         pin        via2Pin       t   t   t   nil nil )
+        ( via2         label      via2Lbl       t   t   t   nil nil )
+        ( via2         boundary   via2Bnd       t   t   t   nil nil )
+    )
+  )
+  if( metal4Available then
+    techDisplays(
+        ( metal4       drawing    metal4        t   t   t   t   t )
+        ( metal4       net        metal4Net     t   t   t   nil t )
+        ( metal4       pin        metal4Pin     t   t   t   nil nil )
+        ( metal4       label      metal4Lbl     t   t   t   nil nil )
+        ( metal4       boundary   metal4Bnd     t   t   t   nil nil )
+        ( via3         drawing    via3          t   t   t   t   t )
+        ( via3         net        via3Net       t   t   t   nil t )
+        ( via3         pin        via3Pin       t   t   t   nil nil )
+        ( via3         label      via3Lbl       t   t   t   nil nil )
+        ( via3         boundary   via3Bnd       t   t   t   nil nil )
+    )
+  )
+  if( metal5Available then
+    techDisplays(
+        ( metal5       drawing    metal5        t   t   t   t   t )
+        ( metal5       net        metal5Net     t   t   t   nil t )
+        ( metal5       pin        metal5Pin     t   t   t   nil nil )
+        ( metal5       label      metal5Lbl     t   t   t   nil nil )
+        ( metal5       boundary   metal5Bnd     t   t   t   nil nil )
+        ( via4         drawing    via4          t   t   t   t   t )
+        ( via4         net        via4Net       t   t   t   nil t )
+        ( via4         pin        via4Pin       t   t   t   nil nil )
+        ( via4         label      via4Lbl       t   t   t   nil nil )
+        ( via4         boundary   via4Bnd       t   t   t   nil nil )
+    )
+  )
+  if( metal6Available then
+    techDisplays(
+        ( metal6       drawing    metal6        t   t   t   t   t )
+        ( metal6       net        metal6Net     t   t   t   nil t )
+        ( metal6       pin        metal6Pin     t   t   t   nil nil )
+        ( metal6       label      metal6Lbl     t   t   t   nil nil )
+        ( metal6       boundary   metal6Bnd     t   t   t   nil nil )
+        ( via5         drawing    via5          t   t   t   t   t )
+        ( via5         net        via5Net       t   t   t   nil t )
+        ( via5         pin        via5Pin       t   t   t   nil nil )
+        ( via5         label      via5Lbl       t   t   t   nil nil )
+        ( via5         boundary   via5Bnd       t   t   t   nil nil )
+    )
+  )
+  if( metalcapAvailable then
+    techDisplays(
+        ( metalcap     drawing    metalcap        t   t   t   t   t )
+        ( metalcap     net        metalcapNet     t   t   t   nil t )
+        ( metalcap     pin        metalcapPin     t   t   t   nil nil )
+        ( metalcap     label      metalcapLbl     t   t   t   nil nil )
+        ( metalcap     boundary   metalcapBnd     t   t   t   nil nil )
+    )
+  )
+  if( hvAvailable then
+    techDisplays(
+        ( tactive      drawing    tactive       t   t   t   t   t )
+        ( tactive      net        tactiveNet    t   t   t   nil t )
+        ( tactive      pin        tactivePin    t   t   t   nil nil )
+    )
+  )
+  if( ccdAvailable then
+    techDisplays(
+        ( ccd          drawing    ccd           t   t   t   t   t )
+    )
+  )
+  if( npnAvailable then
+    techDisplays(
+        ( pbase        drawing    pbase         t   t   t   t   t )
+        ( pbase        net        pbaseNet      t   t   t   nil nil )
+        ( pbase        pin        pbasePin      t   t   t   nil nil )
+        ( cactive      drawing    cactive       t   t   t   t   t )
+        ( cactive      net        cactiveNet    t   t   t   nil nil )
+        ( cactive      pin        cactivePin    t   t   t   nil nil )
+    )
+  )
+  if( memsAvailable then
+    techDisplays(
+        ( open         drawing    open          t   t   t   t   t )
+        ( open         net        openNet       t   t   t   nil t )
+        ( open         pin        openPin       t   t   t   nil nil )
+        ( open         label      openLbl       t   t   t   nil nil )
+        ( open         boundary   openBnd       t   t   t   nil nil )
+        ( pstop        drawing    pstop         t   t   t   t   t )
+        ( pstop        net        pstopNet      t   t   t   nil t )
+        ( pstop        pin        pstopPin      t   t   t   nil nil )
+        ( pstop        label      pstopLbl      t   t   t   nil nil )
+        ( pstop        boundary   pstopBnd      t   t   t   nil nil )
+    )
+  )
+  if( sblockAvailable then 
+    techDisplays(
+        ( sblock       drawing    sblock        t   t   t   t   t )
+    )
+  )
+  if( highresAvailable then 
+    techDisplays(
+        ( highres      drawing    highres       t   t   t   t   t )
+    )
+  )
+  if( egrcAvailable then
+    techDisplays(
+;(      LayerName      Purpose    Packet        Vis Sel Con2ChgLy DrgEnbl Valid )
+;(      ---------      -------    ------        --- --- --------- ------- ----- )
+        ( via3         drawing    via3          t   t   t         t       t     )
+        ( via3         net        via3Net       t   t   t         nil     t     )
+        ( via3         pin        via3Pin       t   t   t         nil     nil   )
+        ( via3         label      via3Lbl       t   t   t         nil     nil   )
+        ( via3         boundary   via3Bnd       t   t   t         nil     nil   )
+        ( ac_pad       drawing    cwell         t   t   t         t       t     )     
+        ( contact_pad  drawing    polycap       t   t   t         t       t     ) 
+        ( contact_ubm  drawing    elec          t   t   t         t       t     ) 
+        ( mech0        drawing    metal4        t   t   t         t       t     ) 
+        ( mech1        drawing    metal5        t   t   t         t       t     ) 
+        ( sac0         drawing    metal6        t   t   t         t       t     ) 
+        ( sac1         drawing    via4          t   t   t         t       t     ) 
+        ( bulk         drawing    via5          t   t   t         t       t     ) 
+        ( ground       drawing    metalcap      t   t   t         t       t     ) 
+        ( metal1_cut   drawing    tactive       t   t   t         t       t     ) 
+        ( metal2_cut   drawing    ccd           t   t   t         t       t     ) 
+        ( metal3_cut   drawing    pbase         t   t   t         t       t     ) 
+        ( mech0_cut    drawing    open          t   t   t         t       t     ) 
+        ( mech1_cut    drawing    pstop         t   t   t         t       t     ) 
+        ( sac0_cut     drawing    sblock        t   t   t         t       t     ) 
+        ( sac1_cut     drawing    highres       t   t   t         t       t     ) 
+        ( bulk_cut     drawing    y0            t   t   t         t       t     ) 
+        ( ground_cut   drawing    y1            t   t   t         t       t     ) 
+     )
+  )
+
+;---- Parasitic capacitances ----------------------------------------------
+
+    ; NCSU_techFileID comes in from createLib.il
+    ; NOTE that all of these parasitics are in aF/um or aF/um^2
+    case( technology
+        ( ("HP_GMOS10QA")
+            ; HP GMOS10QA
+            ; run N88W
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap"  90) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap"  29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap"  44) ) 
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap"  67) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap"  13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap"  44) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap"  17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap"  37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap"   7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap"  18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap"  10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap"  14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap"  37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap"   5) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap"  10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap"   7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap"   9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap"  14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap"  48) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap"  42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap"  60) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap"  21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap"  39) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap"  62) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap"  19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap"  30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap"  36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap"  57) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap"  26) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap"  24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap"  27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap"  35) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap"  48) )
+
+            ; resistances, Ohms/sq.
+            techSetLayerProp( NCSU_techFileID "nwell" '("sheetResistance" 1355) )
+            techSetLayerProp( NCSU_techFileID "poly"  '("sheetResistance" 3) )
+        )
+        ( ("HP_AMOS14TB")
+            ; HP AMOS14TB
+            ; values are taken from manual (pp. 3-21 thru 3-31), worst-case
+            ; for m3 perim: spacing 2.0 um
+            ; for m1/m2/poly perim: spacing 1.2um
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 91) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 0) ) 
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 82) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 0) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 31) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 0) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 48) )
+            ; nominal value for linear capacitor
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "cwell"   '("areaCap" 2300))
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("perimeterCap" 39) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("perimeterCap" 0) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("perimeterCap" 0) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("perimeterCap" 0) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 36) )
+
+            ; resistances, Ohms/sq.
+            ; run N98R
+            techSetLayerProp( NCSU_techFileID "nwell"  '("sheetResistance" 728) )
+            ; run N74K
+            techSetLayerProp( NCSU_techFileID "poly"   '("sheetResistance" 2) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 130) )
+	    techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.05) )
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 1.95) )
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 1.7) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 0.75) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 0.55) )	
+	)
+        ( ("AMI_ABN")
+            ; AMI 1.6um
+            ; run N77H
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "active" "default" '("areaCap" 301) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 1168) )
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "active"  '("areaCap" 745) )
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "poly"    '("areaCap" 617) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 20) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 57) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "elec"    '("areaCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 28) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 44) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 55) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 65) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 47) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 44) )
+
+            ; resistances, Ohms/sq.
+            techSetLayerProp( NCSU_techFileID "nwell" '("sheetResistance" 1465) )
+            techSetLayerProp( NCSU_techFileID "poly"  '("sheetResistance" 35) )
+            techSetLayerProp( NCSU_techFileID "elec"  '("sheetResistance" 25) )
+	    techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.06) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.03) )        
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 68.5) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 16.4) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 34.8) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 0.05) )	
+        )
+        ( ("ORBIT_SCNA2")
+            ; Orbit 2.0um
+            ; run N91W
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 55) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 847) ) ; average of N+/P+
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "active"  '("areaCap" 623) ) ; average of N+/P+
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "poly"    '("areaCap" 462) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 45) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 41) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "elec"    '("areaCap" 42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 22) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 31) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 58) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 53) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 44) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 56) )
+
+            ; resistances, Ohms/sq.
+            techSetLayerProp( NCSU_techFileID "poly" '("sheetResistance" 22) )
+            techSetLayerProp( NCSU_techFileID "elec" '("sheetResistance" 22) )
+        )
+        ( ("AMI_CWL")
+            ; AMI 0.8um
+            ; run N87R
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 62) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 2046) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 58) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 25) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 32) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 43) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 57) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 33) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 40) )
+        )
+        ( ("AMI_C5N")
+            ; AMI 0.6um
+            ; run N8BN
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 93) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 2400) )
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "poly"    '("areaCap" 798) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 60) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 55) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "elec"    '("areaCap" 57) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 22) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 35) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 77) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 64) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 50) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 47) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 56) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 55) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 35) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 39) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 48) )
+
+            ; resistances, Ohms/sq.
+            techSetLayerProp( NCSU_techFileID "nwell"   '("sheetResistance" 819) )
+            techSetLayerProp( NCSU_techFileID "poly"    '("sheetResistance" 25) )
+            techSetLayerProp( NCSU_techFileID "elec"    '("sheetResistance" 26) )
+            techSetLayerProp( NCSU_techFileID "highres" '("sheetResistance" 1192) )   ; run N95X
+	    techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.09) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.09) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.05) )
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 92.3) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 17.0) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 17.7) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 0.71) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 0.81) )	
+	    
+	    
+	    
+        )
+        ( ("TSMC_CMOS035_3M2P")
+            ; TSMC035 0.35um (3M/2P option)
+            ; run N82L
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "active" "default" '("areaCap" 1413) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 107) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 4505) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 35) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 36) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 67) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 39) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 60) )
+
+            ; resistances, Ohms/sq. (run N88Y)
+            techSetLayerProp( NCSU_techFileID "nwell" '("sheetResistance" 1011) )
+            techSetLayerProp( NCSU_techFileID "poly"  '("sheetResistance" 7) )
+            techSetLayerProp( NCSU_techFileID "elec"  '("sheetResistance" 47) )
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.07) )
+	    
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 118.0) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 6.8) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 6.8) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 1.50) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 1.27) )	
+	)
+        ( ("TSMC_CMOS035_4M2P")
+            ; TSMC035 0.35um (4M/2P option)
+            ; run T02F (May 17, 2000)
+            ; elec-poly cap is an average of several runs
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "active" "default" '("areaCap" 1391) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 111) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 4497) )
+            techSetTwoLayerProp( NCSU_techFileID "elec"   "poly"    '("areaCap" 865) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 47) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 34) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "active" "default" '("perimeterCap" 377) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 45) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 61) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 44) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 28) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 58) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap" 40) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap" 28) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap" 55) )
+            ; metal resistances, Ohms/sq. 
+            techSetLayerProp( NCSU_techFileID "nwell" '("sheetResistance" 1048) )
+            techSetLayerProp( NCSU_techFileID "poly"  '("sheetResistance" 8.5) )
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.07) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.04) )	    
+	    ; contact resistances, Ohms/sq.
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 118.0) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 6.8) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 6.8) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 1.50) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 1.27) )	
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 1.16) )	
+	
+	)
+        ( ("TSMC_CMOS035_4M")
+            ; TSMC035 0.35um (4M/sblock option)
+            ; run N82L
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "active" "default" '("areaCap" 1413) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 107) )
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "active"  '("areaCap" 4505) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 12) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 35) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 36) )
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 67) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 39) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 60) )
+	; resistances, Ohms/sq. (run N88Y)
+            techSetLayerProp( NCSU_techFileID "nwell" '("sheetResistance" 1011) )
+            techSetLayerProp( NCSU_techFileID "poly"  '("sheetResistance" 7) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 190) )
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.07) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.04) )
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.  Same as above, but no "ce" (M1/P2 contact)
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 118.0) )
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 6.8) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 1.50) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 1.27) )
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 1.16) )
+	
+	
+	)
+        ( ("TSMC_CMOS025")
+            ; TSMC025 0.25um
+            ; run N94S
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 97) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 50) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 63) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 20) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "active"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("areaCap" 37) )
+            ; nominal value for metal4-metal4prime capacitor
+            ; (http://www.mosis.org/Technical/Processes/proc-tsmc-cmos025.html)
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metalcap"  '("areaCap" 1000))
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 70) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 60) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 56) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 49) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap" 42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("perimeterCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("perimeterCap" 65) )
+
+            ; resistances, Ohms/sq.
+            ;
+	    techSetLayerProp( NCSU_techFileID "nwell"  '("sheetResistance" 1191) )
+            techSetLayerProp( NCSU_techFileID "poly"   '("sheetResistance" 4) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 190) ) 
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.07) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.07) )	
+	    techSetLayerProp( NCSU_techFileID "metal5"  '("sheetResistance" 0.03) )	
+	    
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 5.8) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 5.3) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 5.3) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 2.51) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 4.78) )	
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 7.01) )
+	    techSetLayerProp( NCSU_techFileID "via4"  '("contactResistance" 9.88) )
+
+        )
+  
+   ( ("TSMC_CMOS020")
+            ; TSMC018 0.18um
+            ; run T28M
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 97) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 61) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "active"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("areaCap" 5) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("areaCap" 36) )
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "default" '("areaCap" 3) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "active"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "poly"    '("areaCap" 4) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal1"  '("areaCap" 5) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal2"  '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal3"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal4"  '("areaCap" 13) )
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "metal5"  '("areaCap" 33) )
+	    
+	    
+	    
+	    
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal5" "metalcap"  '("areaCap" 1000))
+            ; perimeter capacitances
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 66) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 58) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 49) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 53) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 28) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 46) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap" 41) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap" 45) ) ; 
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("perimeterCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("perimeterCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("perimeterCap" 26) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("perimeterCap" 57) )
+
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "default" '("perimeterCap" 15) ) ; 
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "poly"    '("perimeterCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal1"  '("perimeterCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal2"  '("perimeterCap" 22) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal3"  '("perimeterCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal4"  '("perimeterCap" 34) )
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "metal5"  '("perimeterCap" 47) )
+	   
+	    ; resistances, Ohms/sq.
+            ;
+	    techSetLayerProp( NCSU_techFileID "nwell"  '("sheetResistance" 933) )
+            techSetLayerProp( NCSU_techFileID "poly"   '("sheetResistance" 7.8) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 190) ) ; (p )
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.08) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.08) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.08) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.08) )	
+	    techSetLayerProp( NCSU_techFileID "metal5"  '("sheetResistance" 0.07) )	
+	    techSetLayerProp( NCSU_techFileID "metal6"  '("sheetResistance" 0.03) )
+	    
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 10.5) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 10.5) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 10.5) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 5.69) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 11.39) )	
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 16.73) )
+	    techSetLayerProp( NCSU_techFileID "via4"  '("contactResistance" 21.44) )
+            techSetLayerProp( NCSU_techFileID "via5"  '("contactResistance" 24.08) )
+        
+	)
+        
+	
+	
+	( ("TSMC_CMOS025_DEEP")
+            ; TSMC025 0.25um
+            ; run N94S
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 97) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 50) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 63) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 20) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 37) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 11) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "active"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("areaCap" 15) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("areaCap" 37) )
+            ; nominal value for metal4-metal4prime capacitor
+            ; (http://www.mosis.org/Technical/Processes/proc-tsmc-cmos025.html)
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metalcap"  '("areaCap" 1000))
+            ; perimeter capacitances
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 70) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 60) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 56) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 30) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 49) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap" 42) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("perimeterCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("perimeterCap" 24) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("perimeterCap" 29) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("perimeterCap" 65) )
+
+            ; resistances, Ohms/sq.
+            techSetLayerProp( NCSU_techFileID "nwell"  '("sheetResistance" 1191) )
+            techSetLayerProp( NCSU_techFileID "poly"   '("sheetResistance" 4) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 190) ) 
+	    techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.07) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.07) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.07) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.07) )	
+	    techSetLayerProp( NCSU_techFileID "metal5"  '("sheetResistance" 0.03) )	
+	    
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 5.8) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 5.3) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 5.3) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 2.51) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 4.78) )	
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 7.01) )
+	    techSetLayerProp( NCSU_techFileID "via4"  '("contactResistance" 9.88) )
+        )
+
+
+      ( ("TSMC_CMOS018_DEEP")
+            ; TSMC018 0.18um
+            ; run T28M
+            ; area capacitances
+            techSetTwoLayerProp( NCSU_techFileID "poly"   "default" '("areaCap" 97) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("areaCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "active"  '("areaCap" 51) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("areaCap" 61) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("areaCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "active"  '("areaCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("areaCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "active"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("areaCap" 36) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "active"  '("areaCap" 10) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("areaCap" 7) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("areaCap" 13) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("areaCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "active"  '("areaCap" 9) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("areaCap" 5) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("areaCap" 14) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("areaCap" 36) )
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "default" '("areaCap" 3) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "active"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "poly"    '("areaCap" 4) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal1"  '("areaCap" 5) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal2"  '("areaCap" 6) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal3"  '("areaCap" 8) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal4"  '("areaCap" 13) )
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "metal5"  '("areaCap" 33) )
+	    
+	    
+	    
+	    
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal5" "metalcap"  '("areaCap" 1000))
+            ; perimeter capacitances
+            
+	    techSetTwoLayerProp( NCSU_techFileID "metal1" "default" '("perimeterCap" 16) )
+            techSetTwoLayerProp( NCSU_techFileID "metal1" "poly"    '("perimeterCap" 66) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "default" '("perimeterCap" 58) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "poly"    '("perimeterCap" 38) )
+            techSetTwoLayerProp( NCSU_techFileID "metal2" "metal1"  '("perimeterCap" 49) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "default" '("perimeterCap" 53) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "poly"    '("perimeterCap" 28) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal1"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal3" "metal2"  '("perimeterCap" 46) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "default" '("perimeterCap" 41) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "poly"    '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal1"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal2"  '("perimeterCap" 45) ) 
+            techSetTwoLayerProp( NCSU_techFileID "metal4" "metal3"  '("perimeterCap" 52) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "default" '("perimeterCap" 23) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "poly"    '("perimeterCap" 19) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal1"  '("perimeterCap" 21) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal2"  '("perimeterCap" 26) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal3"  '("perimeterCap" 34) )
+            techSetTwoLayerProp( NCSU_techFileID "metal5" "metal4"  '("perimeterCap" 57) )
+
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "default" '("perimeterCap" 15) ) 
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "poly"    '("perimeterCap" 17) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal1"  '("perimeterCap" 18) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal2"  '("perimeterCap" 22) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal3"  '("perimeterCap" 27) )
+            techSetTwoLayerProp( NCSU_techFileID "metal6" "metal4"  '("perimeterCap" 34) )
+	    techSetTwoLayerProp( NCSU_techFileID "metal6" "metal5"  '("perimeterCap" 47) )
+	   
+	    ; resistances, Ohms/sq.
+            ;
+	    techSetLayerProp( NCSU_techFileID "nwell"  '("sheetResistance" 933) )
+            techSetLayerProp( NCSU_techFileID "poly"   '("sheetResistance" 7.8) )
+            techSetLayerProp( NCSU_techFileID "sblock" '("sheetResistance" 190) ) ; 
+            techSetLayerProp( NCSU_techFileID "metal1"  '("sheetResistance" 0.08) )
+            techSetLayerProp( NCSU_techFileID "metal2"  '("sheetResistance" 0.08) )        
+            techSetLayerProp( NCSU_techFileID "metal3"  '("sheetResistance" 0.08) )
+	    techSetLayerProp( NCSU_techFileID "metal4"  '("sheetResistance" 0.08) )	
+	    techSetLayerProp( NCSU_techFileID "metal5"  '("sheetResistance" 0.07) )	
+	    techSetLayerProp( NCSU_techFileID "metal6"  '("sheetResistance" 0.03) )
+	    
+	    ; contact resistances, Ohms/sq. - ca is average of m1-n+ and m1-p+ 
+	    ; this could be modified if needed.
+	    ;
+	    techSetLayerProp( NCSU_techFileID "ca"  '("contactResistance" 10.5) )
+            techSetLayerProp( NCSU_techFileID "ce"  '("contactResistance" 10.5) )        
+            techSetLayerProp( NCSU_techFileID "cp"  '("contactResistance" 10.5) )
+	    techSetLayerProp( NCSU_techFileID "via"  '("contactResistance" 5.69) )	
+	    techSetLayerProp( NCSU_techFileID "via2"  '("contactResistance" 11.39) )	
+	    techSetLayerProp( NCSU_techFileID "via3"  '("contactResistance" 16.73) )
+	    techSetLayerProp( NCSU_techFileID "via4"  '("contactResistance" 21.44) )
+            techSetLayerProp( NCSU_techFileID "via5"  '("contactResistance" 24.08) )
+        
+	)
+   
+   
+    ) ; case technology
+
+ ) ; let
+) ;layerDefinitions
+
+; vim:ts=4:columns=132:tw=0:

@@ -1,0 +1,4 @@
+TDMCHECKPOINT="1.0"
+NCSU_TechLib_tsmc03d/layout_macros.Cat type="category"
+NCSU_TechLib_tsmc03d/sym_contacts.Cat type="category"
+NCSU_TechLib_tsmc03d/sym_pins.Cat type="category"

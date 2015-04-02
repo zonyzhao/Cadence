@@ -1,0 +1,8 @@
+
+// Library name: EEC289O_Tests
+// Cell name: inv_tb
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=vdd
+I72 (nvtc Yvtc) inv_1xt
+V1 (nvtc 0) vsource type=pwl mag=1 phase=0 offset=900m wave=[ 0 0 100n vdd \
+        ]

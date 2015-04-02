@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+NCSU_Analog_Parts/cdsSpice_Only_Index type="cell"
+NCSU_Analog_Parts/isffm type="cell"
+NCSU_Analog_Parts/nsoi type="cell"
+NCSU_Analog_Parts/psoi type="cell"
+NCSU_Analog_Parts/scr type="cell"
+NCSU_Analog_Parts/vsffm type="cell"

@@ -1,0 +1,668 @@
+;==========================================================================
+;
+; $Id: divaEXT.rul,v 1.1.1.1 2006/02/10 16:32:38 slipa Exp $
+; 
+;--------------------------------------------------------------------------
+
+/********************************************************************************
+ *                                                                              *
+ *                                                                              *
+ *                             Diva Extraction Rules                            *
+ *                                                                              *
+ *                                                                              *
+ ********************************************************************************/
+
+
+let( ( lambda gridRes techdesc wellType submicronAvailable
+       cwellAvailable metal3Available metal4Available metal5Available
+       metal6Available metalcapAvailable npnAvailable ccdAvailable elecAvailable
+       sblockAvailable PadType highresAvailable stackedViasAvailable techfile
+       modelPrefix errMesg useCapIVPcell )
+
+load( prependNCSUCDKInstallPath( "techfile/divaTechdesc.il" ) )
+
+
+drcExtractRules(
+
+load( prependNCSUCDKInstallPath( "techfile/divaLayerDef.il" ) )
+
+
+    ;------------------------------------------------------------------------
+    ; mosfets
+    ;------------------------------------------------------------------------
+
+    extractMOS( nChannelTran poly("G") nDiff("S" "D") pBulk("B") "nmos4 ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+    saveProperty( nChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["nmos"] ) )
+    extractMOS( pChannelTran poly("G") pDiff("S" "D") nBulk("B") "pmos4 ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+    saveProperty( pChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["pmos"] ) )
+    if( hvAvailable then
+        extractMOS( hvnChannelTran poly("G") nDiff("S" "D") pBulk("B") "nmos4_hv ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+        saveProperty( hvnChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["nmos_hv"] ) )
+        extractMOS( hvpChannelTran poly("G") pDiff("S" "D") nBulk("B") "pmos4_hv ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+        saveProperty( hvpChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["pmos_hv"] ) )
+    )
+   
+    if( elecAvailable then
+        unless( member( techdesc list( "TSMC_CMOS035_4M2P"
+                                       "TSMC_CMOS035_3M2P"
+                                       "AMI_C5N"
+                                     ) )
+            extractMOS( nElecChannelTran elec( "G" ) nDiff( "S" "D" ) pBulk( "B" ) 
+                        "nmos4_elec ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+            saveProperty( nElecChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["nmos_elec"] ) )
+
+            extractMOS( pElecChannelTran elec( "G" ) nDiff( "S" "D" ) nBulk( "B" ) 
+                        "pmos4_elec ivpcell NCSU_Analog_Parts" "l" "w" 1.0e-6 )
+            saveProperty( pElecChannelTran "model" strcat( modelPrefix NCSU_modelSuffix["pmos_elec"] ) )
+        )
+    )
+          
+    nDiffArea = measureParasitic( area (nDiff not_over nolpe) 1.0e-12 figure )
+    attachParasitic( nDiffArea ("as" "S") ("ad" "D") nChannelTran shared )
+    pDiffArea = measureParasitic( area (pDiff not_over nolpe) 1.0e-12 figure )
+    attachParasitic( pDiffArea ("as" "S") ("ad" "D") pChannelTran shared )
+
+    if( hvAvailable then
+        attachParasitic( nDiffArea ("as" "S") ("ad" "D") hvnChannelTran shared )
+        attachParasitic( pDiffArea ("as" "S") ("ad" "D") hvpChannelTran shared )
+    )
+   
+    ; could have problem here if there's a process w/both elec and hv,
+    ; and it allows elec transistors
+
+    if( elecAvailable && (member( techdesc list( "TSMC_CMOS035_4M2P" "TSMC_CMOS035_3M2P" "AMI_C5N" ) ) == nil) then
+        attachParasitic( nDiffArea ("as" "S") ("ad" "D") nElecChannelTran shared )
+        attachParasitic( pDiffArea ("as" "S") ("ad" "D") pElecChannelTran shared )
+
+        nDiffPerimeter = measureParasitic( length (nDiff outside poly outside elec not_over nolpe) 1.0e-6 figure )
+        attachParasitic( nDiffPerimeter ("ps" "S") ("pd" "D") nChannelTran shared )
+        attachParasitic( nDiffPerimeter ("ps" "S") ("pd" "D") nElecChannelTran shared )
+
+        pDiffPerimeter = measureParasitic( length (pDiff outside poly outside elec not_over nolpe) 1.0e-6 figure )
+        attachParasitic( pDiffPerimeter ("ps" "S") ("pd" "D") pChannelTran shared )
+        attachParasitic( pDiffPerimeter ("ps" "S") ("pd" "D") pElecChannelTran shared )
+    else
+        nDiffPerimeter = measureParasitic( length (nDiff outside poly not_over nolpe) 1.0e-6 figure )
+        attachParasitic( nDiffPerimeter ("ps" "S") ("pd" "D") nChannelTran shared )
+
+        pDiffPerimeter = measureParasitic( length (pDiff outside poly not_over nolpe) 1.0e-6 figure )
+        attachParasitic( pDiffPerimeter ("ps" "S") ("pd" "D") pChannelTran shared )
+
+        if( hvAvailable then
+            attachParasitic( nDiffPerimeter ("ps" "S") ("pd" "D") hvnChannelTran shared )
+            attachParasitic( pDiffPerimeter ("ps" "S") ("pd" "D") hvpChannelTran shared )
+        )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; npns
+    ;------------------------------------------------------------------------
+
+    ; hardcode the NPN model name to "Generic_NPN", since generally
+    ; different models are used for different geometry BJTs the user
+    ; will have to edit the netlist and replace it with the correct
+    ; model name (a tip of the hat to John Galbraith at Arizona for his
+    ; help with this issue)
+
+    if( npnAvailable then
+        extractDevice( npnTran (npnCollector "C") (npnBaseTap "B") (npnEmitter "E") "npn ivpcell NCSU_Analog_Parts" )
+        saveProperty( npnTran "model" "Generic_NPN" )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; resistors
+    ;------------------------------------------------------------------------
+    
+    ; poly/elec
+
+    extractDevice( polyRes (poly "PLUS" "MINUS") "res ivpcell NCSU_Analog_Parts" )
+    if( sblockAvailable then
+        extractDevice( polySRes (poly "PLUS" "MINUS") "res ivpcell NCSU_Analog_Parts" )
+    )
+    if( elecAvailable then
+        extractDevice( elecRes (elec "PLUS" "MINUS") "res ivpcell NCSU_Analog_Parts" )
+    )
+    if( highresAvailable then
+        extractDevice( elecHighres (elec "PLUS" "MINUS") "res ivpcell NCSU_Analog_Parts" )
+    )
+
+    ; nwell
+
+    extractDevice( nwellRes (nBulk "PLUS" "MINUS") "res ivpcell NCSU_Analog_Parts" )
+
+    
+    ; resistor parameter extraction 
+
+    let( (sheetRes resWidth resPerim resLength res fullCorners)
+
+        ; for each full corner (ie, 90 degree turn), subtract 0.5 a square
+        ; of resistance (see W&E 2nd ed, p.178)
+
+        ; poly
+
+        sheetRes = techGetLayerProp( techfile list( "poly" "drawing") "sheetResistance" )
+        when( sheetRes
+            resWidth = measureParameter( length (polyRes butting poly) 1.0e-6 )
+            resPerim = measureParameter( perimeter polyRes 1.0e-6 )
+            resLength = calculateParameter( (resPerim - resWidth) / 2.0 )
+            fullCorners = measureParameter( bends_full polyRes )
+            res = calculateParameter( sheetRes * (resLength/(resWidth/2.0) - fullCorners*0.5) )
+            saveParameter( res "r" )
+        )
+
+        ; poly + sblock
+
+        if( sblockAvailable then
+            sheetRes = techGetLayerProp( techfile list( "sblock" "drawing") "sheetResistance" )
+            when( sheetRes
+                resWidth = measureParameter( length (polySRes butting poly) 1.0e-6 )
+                resPerim = measureParameter( perimeter polySRes 1.0e-6 )
+                resLength = calculateParameter( (resPerim - resWidth) / 2.0 )
+                fullCorners = measureParameter( bends_full polySRes )
+                res = calculateParameter( sheetRes * (resLength/(resWidth/2.0) - fullCorners*0.5) )
+                saveParameter( res "r" )
+            )
+        )
+
+        ; elec
+
+        if( elecAvailable then
+            ; regular
+            sheetRes = techGetLayerProp( techfile list( "elec" "drawing") "sheetResistance" )
+            when( sheetRes
+                resWidth = measureParameter( length (elecRes butting elec) 1.0e-6 )
+                resPerim = measureParameter( perimeter elecRes 1.0e-6 )
+                resLength = calculateParameter( (resPerim - resWidth) / 2.0 )
+                fullCorners = measureParameter( bends_full elecRes )
+                res = calculateParameter( sheetRes * (resLength/(resWidth/2.0) - fullCorners*0.5) )
+                saveParameter( res "r" )
+            )
+
+            ; high-resistance
+            if( highresAvailable then
+                sheetRes = techGetLayerProp( techfile list( "highres" "drawing") "sheetResistance" )
+                when( sheetRes
+                    resWidth = measureParameter( length (elecHighres butting elec) 1.0e-6 )
+                    resPerim = measureParameter( perimeter elecHighres 1.0e-6 )
+                    resLength = calculateParameter( (resPerim - resWidth) / 2.0 )
+                    fullCorners = measureParameter( bends_full elecHighres )
+                    res = calculateParameter( sheetRes * (resLength/(resWidth/2.0) - fullCorners*0.5) )
+                    saveParameter( res "r" )
+                )
+            )
+        )
+
+        ; nwell
+
+        sheetRes = techGetLayerProp( techfile list( "nwell" "drawing") "sheetResistance" )
+        when( sheetRes
+            resWidth = measureParameter( length (nwellRes butting nBulk) 1.0e-6 )
+            resPerim = measureParameter( perimeter nwellRes 1.0e-6 )
+            resLength = calculateParameter( (resPerim - resWidth) / 2.0 );
+            fullCorners = measureParameter( bends_full nwellRes )
+            res = calculateParameter( sheetRes * (resLength/(resWidth/2.0) - fullCorners*0.5) )
+            saveParameter( res "r" )
+        )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; capacitors
+    ;------------------------------------------------------------------------
+
+    ; first we do all the caps that use process-optional layers. we
+    ; always extract these, since we assume they're "intentional".
+
+    ; poly - polycap capacitors
+
+    if( polycapAvailable then
+        extractDevice( polycapCap (poly "PLUS") (polycap "MINUS") "cap ivpcell NCSU_Analog_Parts")
+        saveRecognition( polycapCap "poly" )
+        let( ( areaCap capacitance )
+            areaCap = techGetTwoLayerProp( techfile 
+                                           list( "polycap" "drawing") 
+                                           list( "poly" "drawing") 
+                                           "areaCap" )
+            when( areaCap
+                capacitance = measureParameter( area polycapCap 1.0e-18 * areaCap )
+                saveParameter( capacitance "c" )
+            )
+        )
+    )
+
+    ; metal - metalcap capacitors
+    
+    if( metalcapAvailable then
+        let( ( areaCap capacitance )
+            cond(
+                ( metal6Available
+                    extractDevice( metalcapCap (metalcap "PLUS") (metal5 "MINUS") "cap ivpcell NCSU_Analog_Parts")
+                    saveRecognition( metalcapCap "metalcap" )
+                    areaCap = techGetTwoLayerProp( techfile 
+                                                   list( "metal5" "drawing") 
+                                                   list( "metalcap" "drawing") 
+                                                   "areaCap" )
+                )
+                ( metal5Available
+                    extractDevice( metalcapCap (metalcap "PLUS") (metal4 "MINUS") "cap ivpcell NCSU_Analog_Parts")
+                    saveRecognition( metalcapCap "metalcap" )
+                    areaCap = techGetTwoLayerProp( techfile 
+                                                   list( "metal4" "drawing") 
+                                                   list( "metalcap" "drawing") 
+                                                   "areaCap" )
+                )
+            )
+            when( areaCap
+                capacitance = measureParameter( area metalcapCap 1.0e-18 * areaCap )
+                saveParameter( capacitance "c" )
+            )
+        )
+    )
+
+    ; poly - cwell thinox capacitors
+
+    if( cwellAvailable then 
+        extractDevice( lcCap (poly "PLUS") (lcDiff "MINUS") "cap ivpcell NCSU_Analog_Parts")
+        saveRecognition( lcCap "poly" )
+        let( ( areaCap capacitance )
+            areaCap = techGetTwoLayerProp( techfile 
+                                           list( "poly"  "drawing") 
+                                           list( "cwell" "drawing") 
+                                           "areaCap" )
+            when( areaCap
+                capacitance = measureParameter( area lcCap 1.0e-18 * areaCap )
+                saveParameter( capacitance "c" )
+            )
+        )
+    )
+
+    ; poly - elec caps
+
+    if( elecAvailable then
+        extractDevice( CapacitorElec (elec "PLUS") (poly "MINUS") "cap ivpcell NCSU_Analog_Parts" )
+        saveRecognition( CapacitorElec "elec" )
+        let( ( areaCap capacitance )
+            areaCap = techGetTwoLayerProp( techfile
+                                           list( "elec" "drawing")
+                                           list( "poly" "drawing")
+                                           "areaCap" )
+            when( areaCap
+                capacitance = measureParameter( area CapacitorElec 1.0e-18*areaCap )
+                saveParameter( capacitance "c" )
+            )
+        )
+
+    )
+
+    ; The rest of the capacitance extraction (including "intentional"
+    ; plain old metal caps and parasitic caps) is performed in the file
+    ; divaMultiLevel.il via the multiLevelParasitic command.
+    ;
+    ; The regular metal, poly, and other layers are modified below
+    ; according to the Extract_parasitic_caps switch.  It is these
+    ; modified layers on which the multiLevelParasitic command operates.
+    ;
+    ; Make scale factor specify values in aF/um^2 for areacaps and aF/um
+    ; for perimcaps. This will make it easier to read values straight
+    ; from MOSIS parametric reports and Magic tech files.
+    ;
+    ; See local/techfile/layerDefintions.tf for the actual value of the
+    ; parasitic capacitances.
+
+    ; "intentional" caps (i.e. metal with cap_id over it) are always extracted
+
+    if( metal6Available then
+        metal6_ext =    geomAnd( metal6 cap_id )
+    )
+    if( metal5Available then
+        metal5_ext =    geomAnd( metal5 cap_id )
+    )
+    if( metal4Available then
+        metal4_ext =    geomAnd( metal4 cap_id )
+    )
+    if( metal3Available then
+        metal3_ext =    geomAnd( metal3 cap_id )
+    )
+    if( elecAvailable then
+        elec_ext =      geomAnd( elec cap_id )
+    )
+    metal2_ext =    geomAnd( metal2 cap_id )
+    metal1_ext =    geomAnd( metal1 cap_id )
+    poly_ext =      geomAnd( poly cap_id )
+    nDiff_ext =     geomAnd( nDiff cap_id )
+    pDiff_ext =     geomAnd( pDiff cap_id )
+    nOhmic_ext =    geomAnd( nOhmic cap_id )
+    pOhmic_ext =    geomAnd( pOhmic cap_id )
+    nNotOhmic_ext = geomAnd( nNotOhmic cap_id )
+    pNotOhmic_ext = geomAnd( pNotOhmic cap_id )
+    nBulk_ext =     geomAnd( nBulk cap_id )
+    pBulk_ext =     geomAnd( pBulk cap_id )
+
+    useCapIVPcell = t
+
+    load( prependNCSUCDKInstallPath( "techfile/divaMultiLevel.il" ) )
+
+    ; for any time when Extract_parasitic_caps is selected. note that we
+    ; don't want to extract any "intentional" caps as parasitics
+
+    ivIf( switch("Extract_parasitic_caps") then
+
+        if( metal6Available then
+            metal6_ext =    geomAndNot( metal6 geomOr( nolpe cap_id ) )
+        )
+        if( metal5Available then
+            metal5_ext =    geomAndNot( metal5 geomOr( nolpe cap_id ) )
+        )
+        if( metal4Available then
+            metal4_ext =    geomAndNot( metal4 geomOr( nolpe cap_id ) )
+        )
+        if( metal3Available then
+            metal3_ext =    geomAndNot( metal3 geomOr( nolpe cap_id ) )
+        )
+        if( elecAvailable then
+            elec_ext =      geomAndNot( elec geomOr( nolpe cap_id ) )
+        )
+        metal2_ext =    geomAndNot( metal2 geomOr( nolpe cap_id ) )
+        metal1_ext =    geomAndNot( metal1 geomOr( nolpe cap_id ) )
+        poly_ext =      geomAndNot( poly geomOr( nolpe cap_id ) )
+        nDiff_ext =     geomAndNot( nDiff geomOr( nolpe cap_id ) )
+        pDiff_ext =     geomAndNot( pDiff geomOr( nolpe cap_id ) )
+        nOhmic_ext =    geomAndNot( nOhmic geomOr( nolpe cap_id ) )
+        pOhmic_ext =    geomAndNot( pOhmic geomOr( nolpe cap_id ) )
+        nNotOhmic_ext = geomAndNot( nNotOhmic geomOr( nolpe cap_id ) )
+        pNotOhmic_ext = geomAndNot( pNotOhmic geomOr( nolpe cap_id ) )
+        nBulk_ext =     geomAndNot( nBulk geomOr( nolpe cap_id ) )
+        pBulk_ext =     geomAndNot( pBulk geomOr( nolpe cap_id ) )
+
+        useCapIVPcell = nil
+
+        load( prependNCSUCDKInstallPath( "techfile/divaMultiLevel.il" ) )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; diodes 
+    ;------------------------------------------------------------------------
+    
+    ; nwell/psub
+    extractDevice( NwPdiode (pBulk "PLUS") (nwell "MINUS") "diode ivpcell NCSU_Analog_Parts" )
+    saveProperty( NwPdiode "model" strcat( modelPrefix NCSU_modelSuffix["nwpdiode"] ) )
+    nwpArea = measureParameter( area NwPdiode 1.0e-12 )
+    nwpPerimeter = measureParameter( perimeter NwPdiode 1.0e-12 )
+    saveParameter( nwpArea "area" )
+    saveParameter( nwpPerimeter "pj" )
+
+    ; n+/psub
+    extractDevice( NPdiode (pBulk "PLUS") (nDiff "MINUS") "diode ivpcell NCSU_Analog_Parts" )
+    saveProperty( NPdiode "model" strcat( modelPrefix NCSU_modelSuffix["npdiode"] ) )
+    npArea = measureParameter( area NPdiode 1.0e-12 )
+    npPerimeter = measureParameter( perimeter NPdiode 1.0e-12 )
+    saveParameter( npArea "area" )
+    saveParameter( npPerimeter "pj" )
+
+    ; p+/nwell
+    extractDevice( PNdiode (pDiff "PLUS") (nBulk "MINUS") "diode ivpcell NCSU_Analog_Parts" )
+    saveProperty( PNdiode "model" strcat( modelPrefix NCSU_modelSuffix["pndiode"] ) )
+    pnArea = measureParameter( area PNdiode 1.0e-12 )
+    pnPerimeter = measureParameter( perimeter PNdiode 1.0e-12 )
+    saveParameter( pnArea "area" )
+    saveParameter( pnPerimeter "pj" )
+
+
+    ;------------------------------------------------------------------------
+    ; old-style moscap extraction (deprecated)
+    ;------------------------------------------------------------------------
+
+    ivIf( switch("Use_old_moscap_extraction") then
+        extractDevice( nChannelCap (poly "G") (nDiff "S") (pBulk "B") "nmoscap ivpcell NCSU_Analog_Parts" )
+        let( ( capWidth capArea capLength )
+            capArea = measureParameter( area nChannelCap 1.0e-12 )
+            capWidth = measureParameter( length (nChannelCap coincident poly) 1.0e-6 )
+            capLength = calculateParameter( 2 * capArea / capWidth )
+
+            saveProperty( nChannelCap "m" 0.5)
+            saveParameter( capWidth  "w" )
+            saveParameter( capLength "l" )
+        )
+
+        extractDevice( pChannelCap (poly "G") (pDiff "S") (nBulk "B") "pmoscap ivpcell NCSU_Analog_Parts" )
+        let( ( capWidth capArea capLength )
+            capArea = measureParameter( area pChannelCap 1.0e-12 )
+            capWidth = measureParameter( length (pChannelCap coincident poly) 1.0e-6 )
+            capLength = calculateParameter( 2 * capArea / capWidth )
+
+            saveProperty( pChannelCap "m" 0.5)
+            saveParameter( capWidth  "w" )
+            saveParameter( capLength "l" )
+        )
+
+        if( !cwellAvailable then
+
+            saveProperty( nChannelCap "model" strcat( modelPrefix NCSU_modelSuffix["nmos"] ) )
+            saveProperty( pChannelCap "model" strcat( modelPrefix NCSU_modelSuffix["pmos"] ) )
+        )
+
+        if( elecAvailable then
+            extractDevice( nElecChannelCap (elec "G") (nDiff "S") (pBulk "B") "nmoscap ivpcell NCSU_Analog_Parts" )
+            let( ( capWidth capLength capArea )
+                capArea = measureParameter( area nElecChannelCap 1.0e-12 )
+                capWidth = measureParameter( length (nElecChannelCap coincident poly) 1.0e-6 )
+                capLength = calculateParameter( 2 * capArea / capWidth )
+
+                saveProperty( nElecChannelCap "m" 0.5)
+                saveParameter( capWidth "w" )
+                saveParameter( capLength "l" )
+            )
+            saveProperty( nElecChannelCap "model" strcat( modelPrefix NCSU_modelSuffix["nmos_elec"] ) )
+
+            extractDevice( pElecChannelCap (elec "G") (nDiff "S") (nBulk "B") "pmoscap ivpcell NCSU_Analog_Parts" )
+            let( ( capWidth capLength capArea )
+                capArea = measureParameter( area pElecChannelCap 1.0e-12 )
+                capWidth = measureParameter( length (pElecChannelCap coincident poly) 1.0e-6 )
+                capLength = calculateParameter( 2 * capArea / capWidth )
+
+                saveProperty( pElecChannelCap "m" 0.5 )
+                saveParameter( capWidth "w" )
+                saveParameter( capLength "l" )
+            )
+            saveProperty( pElecChannelCap "model" strcat( modelPrefix NCSU_modelSuffix["pmos_elec"] ) )
+        )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; saveRecognition and saveInterconnect statements for everything
+    ;------------------------------------------------------------------------
+
+    saveRecognition( nChannelTran "poly" )
+    saveRecognition( pChannelTran "poly" )
+
+    if( hvAvailable then
+        saveRecognition( hvnChannelTran "poly" )
+        saveRecognition( hvpChannelTran "poly" )
+    )
+
+    if( elecAvailable then
+        unless( member( techdesc list( "TSMC_CMOS035_4M2P"
+                                       "TSMC_CMOS035_3M2P"
+                                       "AMI_C5N"
+                                     ) )
+            saveRecognition( nElecChannelTran "elec" )
+            saveRecognition( pElecChannelTran "elec" )
+        )
+        saveInterconnect( (elec "elec") )
+        saveInterconnect( (ce "cc") )
+    )
+
+    if( npnAvailable then
+        saveInterconnect( (npnCollectorContact "cc") )
+        saveInterconnect( (npnCollector "nwell") )
+        saveInterconnect( (npnEmitterContact "cc") )
+        saveInterconnect( (npnBaseContact "cc") )
+        saveInterconnect( (npnBase "pbase") )
+    )
+
+    case( wellType
+        ( "P"
+            saveInterconnect( (pBulk "pwell")) )
+        ( "E"
+            saveInterconnect( (nBulk "nwell"))
+            saveInterconnect( (pBulk "pwell")) )
+        ( t
+            saveInterconnect( (nBulk "nwell")) )
+    )
+
+    saveInterconnect( (nOhmic "active") )
+    saveInterconnect( (pOhmic "active") )
+    saveInterconnect( (nDiff "active") )
+    saveInterconnect( (pDiff "active") )
+    saveInterconnect( (poly "poly") )
+    saveInterconnect( (metal1 "metal1") )
+    saveInterconnect( (nOhmicContact "cc") )
+    saveInterconnect( (pOhmicContact "cc") )
+    saveInterconnect( (nDiffContact "cc") )
+    saveInterconnect( (pDiffContact "cc") )
+    saveInterconnect( (cp "cc") )
+    saveInterconnect( (metal2 "metal2") )
+    saveInterconnect( (via "via") )
+    if( cwellAvailable then 
+        saveInterconnect( (lcDiff "active") )
+        saveInterconnect( (lcContact "cc") )
+    )
+    if( metal3Available then
+        saveInterconnect( (metal3 "metal3") )
+        saveInterconnect( (via2 "via2") )
+    )
+    if( metal4Available then
+        saveInterconnect( (metal4 "metal4") )
+        saveInterconnect( (via3 "via3") )
+    )
+    if( metal5Available then
+        saveInterconnect( (metal5 "metal5") )
+        saveInterconnect( (via4 "via4") )
+    )
+    if( metal6Available then
+        saveInterconnect( (metal6 "metal6") )
+        saveInterconnect( (via5 "via5") )
+    )
+    saveInterconnect( (nwellRes "res_id") )
+    saveInterconnect( (polyRes "res_id") )
+    if( sblockAvailable then
+        saveInterconnect( (polySRes "res_id") )
+    )
+    if( elecAvailable then
+        saveInterconnect( (elecRes "res_id") )
+    )
+    if( highresAvailable then
+        saveInterconnect( (elecHighres "res_id") )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; Add some layers to the "excell" view for hierarchical extraction.
+    ; This makes it easier to connect upper level "paint" to the pins
+    ; of a lower-level cell, since more of the lower-level cell shows
+    ; up in the upper-level cell's extracted cellview.
+    ;------------------------------------------------------------------------
+
+    saveDerived( metal1 ("metal1" "net") cell_view ) 
+    saveDerived( metal2 ("metal2" "net") cell_view ) 
+    saveDerived( via    ("via"    "net") cell_view )
+    if( metal3Available then
+        saveDerived( metal3 ("metal3" "net") cell_view ) 
+        saveDerived( via2   ("via2"   "net") cell_view )
+    )
+    if( metal4Available then
+        saveDerived( metal4 ("metal4" "net") cell_view ) 
+        saveDerived( via3   ("via3"   "net") cell_view )
+    )
+    if( metal5Available then
+        saveDerived( metal5 ("metal5" "net") cell_view ) 
+        saveDerived( via4   ("via4"   "net") cell_view )
+    )
+    if( metal6Available then
+        saveDerived( metal6 ("metal6" "net") cell_view ) 
+        saveDerived( via5   ("via5"   "net") cell_view )
+    )
+
+
+    ;------------------------------------------------------------------------
+    ; Some routines to convert back and forth between the mask layers
+    ; and convenience layers and to create select layers from the
+    ; convenience layers...
+    ;------------------------------------------------------------------------
+
+    ivIf( switch("Layer_create_select_around_field_poly") then
+        let( ( fieldpoly )
+            fieldpoly = geomSize( "poly" (lambda * 1.0) raw )
+            saveDerived( geomAnd( nBulk geomAndNot( fieldpoly geomOr( "pselect" "nselect" ) ) ) ("pselect" "drawing") )
+            saveDerived( geomAnd( pBulk geomAndNot( fieldpoly geomOr( "pselect" "nselect" ) ) ) ("nselect" "drawing") )
+        )
+    )
+
+    ivIf( switch("Layer_convert_[np]active_to_active") then
+        saveDerived( geomCat("nactive" "pactive") ("active" "drawing") )
+        geomErase( "nactive" "drawing")
+        geomErase( "pactive" "drawing")
+    )
+
+    ivIf( switch("Layer_create_nselect_around_nactive") then
+        let( ( nactive )
+            nactive = geomSize( "nactive" (lambda * 2.0) raw )
+            saveDerived( geomCat( geomOutside( nactive "pactive")
+                                  geomAndNot( geomStraddle( nactive "pactive") "pactive") )
+                         ("nselect" "drawing") )
+        )
+    )
+
+    ivIf( switch("Layer_create_pselect_around_pactive") then
+        let( ( pactive )
+            pactive = geomSize( "pactive" (lambda * 2.0) raw )
+            saveDerived( geomCat( geomOutside( pactive "nactive")
+                                  geomAndNot( geomStraddle( pactive "nactive") "nactive") )
+                         ("pselect" "drawing") )
+        )
+    )
+
+    ivIf( switch("Layer_convert_active_to_[np]active") then
+        case( wellType
+            ( "P"
+                saveDerived( geomCat( geomOutside( "active" "pselect")
+                                      geomAndNot( geomStraddle( "active" "pselect") "pselect") )
+                             ("nactive" "drawing") ) 
+            )
+            ( t
+                saveDerived( geomCat( geomInside( "active" "nselect")
+                                      geomAnd( geomStraddle( "active" "nselect") "nselect") )
+                             ("nactive" "drawing") )
+            )
+        )
+
+        case( wellType
+            ( "N"
+                saveDerived( geomCat( geomOutside( "active" "nselect")
+                                      geomAndNot( geomStraddle( "active" "nselect") "nselect") )
+                             ("pactive" "drawing") )
+            )
+            ( t
+                saveDerived( geomCat( geomInside( "active" "pselect")
+                                      geomAnd( geomStraddle( "active" "pselect") "pselect") )
+                             ("pactive" "drawing") )
+            )
+        )
+    )
+
+    ;------------------------------------------------------------------------
+    ; have (text) labels show up in extracted view
+    ;------------------------------------------------------------------------
+
+    ivIf( switch("Keep_labels_in_extracted_view") then
+        copyGraphics( ("text" "drawing") all )
+    )
+
+) ; drcExtractRules
+) ; let
+
+; vim:ts=4:columns=132:set tw=0:

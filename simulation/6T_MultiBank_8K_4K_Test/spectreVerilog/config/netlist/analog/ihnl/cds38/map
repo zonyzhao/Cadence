@@ -1,0 +1,39 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "a<3>" "a_3" )
+( "b<2>" "b_2" )
+( "c<0>" "c_0" )
+( "b<3>" "b_3" )
+( "d<0>" "d_0" )
+( "in<1>" "in_1" )
+( "in<3>" "in_3" )
+( "d<2>" "d_2" )
+( "b<1>" "b_1" )
+( "b<0>" "b_0" )
+( "d<3>" "d_3" )
+( "a<1>" "a_1" )
+( "d<1>" "d_1" )
+( "a<0>" "a_0" )
+( "c<3>" "c_3" )
+( "c<2>" "c_2" )
+( "a<2>" "a_2" )
+( "c<1>" "c_1" )
+( "in<2>" "in_2" )
+( "in<0>" "in_0" )
+ )
+( inst
+ )
+( model
+( "6T_1of4Split4" "_sub72" )
+ )
+( term
+ )
+( param
+ )
+ )

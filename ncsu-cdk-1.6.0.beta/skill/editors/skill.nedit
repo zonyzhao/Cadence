@@ -1,0 +1,24 @@
+# Skill highlighting syntax for NEdit
+#
+# Add these to the corresponding sections in your .nedit file.
+#
+
+nedit.highlightPatterns:
+ 
+	Skill:1:0{\n\
+		comment:"/\\*":"\\*/"::Escaped Items::\n\
+		skill comment:";":"$"::Escaped Items::\n\
+		string:"""":"""":"\\n":Storage Type::\n\
+		string escape chars:"\\\\(.|\\n)":::String:string:\n\
+		numeric constant:"<((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f)?>":::Preprocessor::D\n\
+		procedure calls:"<(procedure|return)\\(":::Plain::D\n\
+		procedure color:"\\1":""::Keyword:procedure calls:DC\n\
+		control calls:"<(if|when|unless|cond|case|caseq|while|for|foreach)\\(":::Plain::D\n\
+		control color:"\\1":""::Numeric Const:control calls:DC\n\
+		control then else:"<(then|else)>":::Numeric Const::D\n\
+		function calls:"<([a-zA-Z][a-zA-Z0-9_?]*)\\(":::Plain::D\n\
+		function color:"\\1":""::Double Quoted String:function calls:DC\n\
+		braces:"[{}]":::Comment::D\n\
+	}
+	
+nedit.languageModes: 	Skill:.il .tf::::4:4:\n\

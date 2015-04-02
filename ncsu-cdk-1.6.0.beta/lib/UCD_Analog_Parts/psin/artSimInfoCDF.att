@@ -1,0 +1,531 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "psin"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "noisefile"
+        ?prompt         "Noise file name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('noisefile)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "FNpairs"
+        ?prompt         "Number of noise/freq pairs"
+        ?defValue       0
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('FNpairs)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F1"
+        ?prompt         "Freq 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >= 1"
+        ?display        "artParameterInToolDisplay('F1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N1"
+        ?prompt         "Noise 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=1"
+        ?display        "artParameterInToolDisplay('N1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F2"
+        ?prompt         "Freq 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >= 2"
+        ?display        "artParameterInToolDisplay('F2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N2"
+        ?prompt         "Noise 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=2"
+        ?display        "artParameterInToolDisplay('N2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F3"
+        ?prompt         "Freq 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=3"
+        ?display        "artParameterInToolDisplay('F3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N3"
+        ?prompt         "Noise 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=3"
+        ?display        "artParameterInToolDisplay('N3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F4"
+        ?prompt         "Freq 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=4"
+        ?display        "artParameterInToolDisplay('F4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N4"
+        ?prompt         "Noise 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=4"
+        ?display        "artParameterInToolDisplay('N4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F5"
+        ?prompt         "Freq 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=5"
+        ?display        "artParameterInToolDisplay('F5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N5"
+        ?prompt         "Noise 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=5"
+        ?display        "artParameterInToolDisplay('N5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F6"
+        ?prompt         "Freq 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=6"
+        ?display        "artParameterInToolDisplay('F6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N6"
+        ?prompt         "Noise 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=6"
+        ?display        "artParameterInToolDisplay('N6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F7"
+        ?prompt         "Freq 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=7"
+        ?display        "artParameterInToolDisplay('F7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N7"
+        ?prompt         "Noise 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=7"
+        ?display        "artParameterInToolDisplay('N7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F8"
+        ?prompt         "Freq 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=8"
+        ?display        "artParameterInToolDisplay('F8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N8"
+        ?prompt         "Noise 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=8"
+        ?display        "artParameterInToolDisplay('N8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F9"
+        ?prompt         "Freq 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=9"
+        ?display        "artParameterInToolDisplay('F9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N9"
+        ?prompt         "Noise 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=9"
+        ?display        "artParameterInToolDisplay('N9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F10"
+        ?prompt         "Freq 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=10"
+        ?display        "artParameterInToolDisplay('F10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N10"
+        ?prompt         "Noise 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=10"
+        ?display        "artParameterInToolDisplay('N10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r"
+        ?prompt         "Resistance"
+        ?units          "resistance"
+        ?defValue       "50"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "num"
+        ?prompt         "Port number"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('num)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "vdc"
+        ?prompt         "DC voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vdc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sinedc"
+        ?prompt         "Sine DC level"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('sinedc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "va"
+        ?prompt         "Amplitude"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('va)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sinephase"
+        ?prompt         "Initial phase for Sinusoid"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('sinephase)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "freq"
+        ?prompt         "Frequency"
+        ?units          "frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('freq)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "fmmodindex"
+        ?prompt         "FM modulation index"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('fmmodindex)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "fmmodfreq"
+        ?prompt         "FM modulation frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('fmmodfreq)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ammodindex"
+        ?prompt         "AM modulation index"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ammodindex)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ammodfreq"
+        ?prompt         "AM modulation frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ammodfreq)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ammodphase"
+        ?prompt         "AM modulation phase"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ammodphase)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "theta"
+        ?prompt         "Damping factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('theta)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1"
+        ?prompt         "Temperature coefficient 1"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2"
+        ?prompt         "Temperature coefficient 2"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tnom"
+        ?prompt         "Nominal temperature"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tnom)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acm"
+        ?prompt         "AC magnitude"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acp"
+        ?prompt         "AC phase"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "pwr"
+        ?prompt         "Power"
+        ?units          "power"
+        ?defValue       "pwr"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('pwr)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a"
+        ?prompt         "Phase offset"
+        ?units          "angle"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hn"
+        ?prompt         "Harmonic number"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('hn)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsPortPrim
+        componentName     port
+        componentType     port
+        otherParameters   (pwr freq num r)
+        instParameters    ((expr cond((((iPar 'power) || (iPar 'freq)) '(num r p freq pwr)) (t '(num r)))))
+        propMapping       (nil p pwr)
+        typeMapping       (nil p nameOnly freq sourceFreq pwr power)
+        termOrder         (PLUS MINUS)
+        current           port
+        termMapping       (nil PLUS "plus" MINUS "minus")
+        namePrefix        "A"
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraPortPrim
+        ver4NetProc       ansLibra4PortPrim
+        componentName     (expr cond((((iPar 'power) || (iPar 'freq) || (iPar 'ang) || (iPar 'hn)) 'P) (t 'RES)))
+        component4Name    (expr cond((((iPar 'power) || (iPar 'freq) || (iPar 'ang) || (iPar 'hn)) 'PS) (t 'RES)))
+        componentType     port
+        otherParameters   (num r p f ang h)
+        instParameters    ((expr cond((((iPar 'power) || (iPar 'freq) || (iPar 'ang) || (iPar 'hn)) '(r p f ang h inst)) (t '(\ r)))))
+        inst4Parameters   ((expr cond((((iPar 'power) || (iPar 'freq) || (iPar 'ang) || (iPar 'hn)) '(p f ang h r inst)) (t '(\ r temp)))))
+        termOrderExpr     ((expr cond((((iPar 'power) || (iPar 'freq) || (iPar 'ang) || (iPar 'hn)) (termSplit 'MINUS)) (t '(PLUS MINUS)))))
+        propMapping       (nil p pwr f freq ang a h hn \ r r)
+        typeMapping       (nil p power f sourceFreq ang angle num portOrder r valueToRef inst referenceInst temp temp)
+        current           port
+        termOrder         (PLUS MINUS)
+        noPortDelimiter   t
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "R"
+    )
+    cdfId->simInfo->mharm = '( nil
+        propMapping       nil
+        netlistProcedure  ansMharmPortPrim
+        componentName     p
+        componentType     port
+        otherParameters   (pwr freq num r)
+        instParameters    ((expr cond((((iPar 'power) || (iPar 'freq)) '(num r pwr freq)) (t '(num r)))))
+        typeMapping       (nil freq sourceFreq)
+        termOrder         (PLUS MINUS)
+        current           port
+        noPortDelimiter   t
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "A"
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreCompPrim
+        instParameters    (r num dc delay sinedc ampl sinephase freq fmmodindex fmmodfreq ammodindex ammodfreq ammodphase damp m tc1 tc2 tnom mag phase)
+        otherParameters   (noisefile FNpairs F1 N1 F2 N2 F3 N3 F4 N4 F5 N5 F6 N6 F7 N7 F8 N8 F9 N9 F10 N10)
+        propMapping       (nil dc vdc mag acm phase acp delay td offset vo ampl va damp theta)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "PORT"
+        componentName     port
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSSrcPrim_sin
+        instParameters    (r num dc delay sinedc ampl sinephase freq fmmodindex fmmodfreq ammodindex ammodfreq ammodphase damp m tc1 tc2 tnom mag phase)
+        otherParameters   (noisefile FNpairs F1 N1 F2 N2 F3 N3 F4 N4 F5 N5 F6 N6 F7 N7 F8 N8 F9 N9 F10 N10)
+        propMapping       (nil dc vdc mag acm phase acp delay td offset vo ampl va damp theta)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "PORT"
+        componentName     port
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v i pwr"
+    cdfId->paramLabelSet           = "r num vdc"
+    cdfSaveCDF( cdfId )
+)

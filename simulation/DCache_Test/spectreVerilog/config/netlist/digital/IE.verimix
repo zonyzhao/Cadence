@@ -1,0 +1,87 @@
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.cdsNet0, "99999"); // /~Req
+	$vmx_define_export( test.top.cdsbus1[19], "99998"); // /~CPU_Addr<19>
+	$vmx_define_import( test.top.mixedNet99997, "99997"); // /~Ack
+	$vmx_define_export( test.top.cdsbus0[0], "99996"); // /~WData<0>
+	$vmx_define_export( test.top.cdsbus1[27], "99995"); // /~CPU_Addr<27>
+	$vmx_define_export( test.top.cdsbus1[26], "99994"); // /~CPU_Addr<26>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net052<6>
+	$vmx_define_export( test.top.cdsbus1[32], "99992"); // /~CPU_Addr<32>
+	$vmx_define_export( test.top.cdsbus1[25], "99991"); // /~CPU_Addr<25>
+	$vmx_define_export( test.top.cdsbus1[10], "99990"); // /~CPU_Addr<10>
+	$vmx_define_export( test.top.cdsbus1[24], "99989"); // /~CPU_Addr<24>
+	$vmx_define_export( test.top.cdsbus1[9], "99988"); // /~CPU_Addr<9>
+	$vmx_define_export( test.top.cdsbus1[1], "99987"); // /~CPU_Addr<1>
+	$vmx_define_export( test.top.cdsbus1[31], "99986"); // /~CPU_Addr<31>
+	$vmx_define_export( test.top.cdsbus1[0], "99985"); // /~CPU_Addr<0>
+	$vmx_define_export( test.top.cdsbus1[5], "99984"); // /~CPU_Addr<5>
+	$vmx_define_export( test.top.cdsbus1[14], "99983"); // /~CPU_Addr<14>
+	$vmx_define_export( test.top.cdsbus1[13], "99982"); // /~CPU_Addr<13>
+	$vmx_define_export( test.top.cdsbus1[29], "99981"); // /~CPU_Addr<29>
+	$vmx_define_export( test.top.cdsbus1[12], "99980"); // /~CPU_Addr<12>
+	$vmx_define_export( test.top.cdsbus1[28], "99979"); // /~CPU_Addr<28>
+	$vmx_define_export( test.top.cdsbus2[0], "99978"); // /~RW<0>
+	$vmx_define_export( test.top.cdsbus0[15], "99977"); // /~WData<15>
+	$vmx_define_export( test.top.cdsbus1[23], "99976"); // /~CPU_Addr<23>
+	$vmx_define_export( test.top.cdsbus1[16], "99975"); // /~CPU_Addr<16>
+	$vmx_define_export( test.top.cdsbus1[2], "99974"); // /~CPU_Addr<2>
+	$vmx_define_export( test.top.cdsbus1[18], "99973"); // /~CPU_Addr<18>
+	$vmx_define_export( test.top.cdsbus1[17], "99972"); // /~CPU_Addr<17>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /net0133
+	$vmx_define_export( test.top.net056, "99970"); // /net056
+	$vmx_define_export( test.top.cdsbus0[2], "99969"); // /~WData<2>
+	$vmx_define_export( test.top.cdsbus1[20], "99968"); // /~CPU_Addr<20>
+	$vmx_define_export( test.top.cdsbus1[6], "99967"); // /~CPU_Addr<6>
+	$vmx_define_export( test.top.cdsbus0[4], "99966"); // /~WData<4>
+	$vmx_define_import( test.top.mixedNet99965, "99965"); // /net052<7>
+	$vmx_define_export( test.top.cdsbus1[3], "99964"); // /~CPU_Addr<3>
+	$vmx_define_export( test.top.cdsbus1[4], "99963"); // /~CPU_Addr<4>
+	$vmx_define_export( test.top.cdsbus0[1], "99962"); // /~WData<1>
+	$vmx_define_export( test.top.cdsbus1[11], "99961"); // /~CPU_Addr<11>
+	$vmx_define_export( test.top.cdsbus0[14], "99960"); // /~WData<14>
+	$vmx_define_export( test.top.cdsbus0[3], "99959"); // /~WData<3>
+	$vmx_define_export( test.top.cdsbus0[13], "99958"); // /~WData<13>
+	$vmx_define_export( test.top.cdsbus1[15], "99957"); // /~CPU_Addr<15>
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /net052<0>
+	$vmx_define_import( test.top.mixedNet99955, "99955"); // /net052<1>
+	$vmx_define_export( test.top.cdsbus1[22], "99954"); // /~CPU_Addr<22>
+	$vmx_define_export( test.top.cdsbus1[7], "99953"); // /~CPU_Addr<7>
+	$vmx_define_export( test.top.cdsbus1[21], "99952"); // /~CPU_Addr<21>
+	$vmx_define_export( test.top.cdsbus1[30], "99951"); // /~CPU_Addr<30>
+	$vmx_define_import( test.top.mixedNet99950, "99950"); // /net052<2>
+	$vmx_define_export( test.top.cdsbus1[8], "99949"); // /~CPU_Addr<8>
+	$vmx_define_export( test.top.cdsbus0[12], "99948"); // /~WData<12>
+	$vmx_define_export( test.top.cdsbus0[11], "99947"); // /~WData<11>
+	$vmx_define_export( test.top.cdsbus0[10], "99946"); // /~WData<10>
+	$vmx_define_import( test.top.mixedNet99945, "99945"); // /net052<3>
+	$vmx_define_import( test.top.mixedNet99944, "99944"); // /net052<4>
+	$vmx_define_export( test.top.cdsbus0[9], "99943"); // /~WData<9>
+	$vmx_define_export( test.top.cdsbus0[8], "99942"); // /~WData<8>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /net052<5>
+	$vmx_define_export( test.top.cdsbus0[7], "99940"); // /~WData<7>
+	$vmx_define_export( test.top.cdsbus0[6], "99939"); // /~WData<6>
+	$vmx_define_export( test.top.cdsbus2[1], "99938"); // /~RW<1>
+	$vmx_define_export( test.top.cdsbus0[5], "99937"); // /~WData<5>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task

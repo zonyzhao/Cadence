@@ -1,0 +1,6 @@
+TDMCHECKPOINT="1.0"
+UCD_Digital_Parts/xor2 type="cell"
+UCD_Digital_Parts/xor3 type="cell"
+UCD_Digital_Parts/xor4 type="cell"
+UCD_Digital_Parts/xor5 type="cell"
+UCD_Digital_Parts/xor6 type="cell"

@@ -1,0 +1,8 @@
+    M4 (Y C vdd! vdd!) pfet w=80n l=16n m=1 region=off degradation=yes
+    M1 (Y B vdd! vdd!) pfet w=80n l=16n m=1 region=off degradation=yes
+    M0 (Y A vdd! vdd!) pfet w=80n l=16n m=1 region=off degradation=yes
+    M6 (net026 C 0 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+    M3 (net22 B net026 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+    M2 (Y A net22 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+ends nand3_1x
+// End of subcircuit definition.

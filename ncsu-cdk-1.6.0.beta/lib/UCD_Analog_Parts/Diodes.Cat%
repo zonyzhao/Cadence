@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+temp/Diodes_Index type="cell"
+temp/diode type="cell"
+temp/schottky type="cell"
+temp/zener type="cell"

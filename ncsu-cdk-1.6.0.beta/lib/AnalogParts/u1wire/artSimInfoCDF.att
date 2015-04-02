@@ -1,0 +1,71 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "u1wire"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "lumps"
+        ?prompt         "# of lumps in element"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('lumps)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (l lumps)
+        otherParameters   (model)
+        componentName     huwire
+        termOrder         (in refin out refout)
+        propMapping       (nil)
+        namePrefix        "U"
+        current           port
+        termMapping       (nil in "" out "(FUNCTION minus(root(\"in\")))" refin "" refout "(FUNCTION minus(root(\"refin\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "-model l lumps"
+    cdfSaveCDF( cdfId )
+)

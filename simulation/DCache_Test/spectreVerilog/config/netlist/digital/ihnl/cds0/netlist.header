@@ -1,0 +1,113 @@
+// Library - 16nm_Tests, Cell - DCache_Test, View - schematic
+// LAST TIME SAVED: Mar  6 17:39:14 2015
+// NETLIST TIME: Mar  6 17:54:39 2015
+`timescale 1ns / 1ns 
+
+module DCache_Test ( Ack, OutFIFOReq, WDataAck, CPU_Addr, Data1,
+     OutFIFOAck, RW, Req );
+
+output  Ack, OutFIFOReq;
+
+input  OutFIFOAck, Req;
+
+output [7:0]  WDataAck;
+
+input [32:0]  CPU_Addr;
+input [15:0]  Data1;
+input [1:0]  RW;
+
+// Buses in the design
+
+wire  [0:31]  net037;
+
+wire  [0:6]  net041;
+
+wire  [0:7]  net052;
+
+wire  [15:0]  cdsbus0;
+
+wire  [32:0]  cdsbus1;
+
+wire  [0:21]  net065;
+
+wire  [0:11]  net0104;
+
+wire  [1:0]  RWT;
+
+wire  [0:11]  net0123;
+
+wire  [0:31]  net055;
+
+wire  [32:0]  CPUT;
+
+wire  [0:11]  net0124;
+
+wire  [0:31]  net048;
+
+wire  [0:11]  net0127;
+
+wire  [0:31]  net049;
+
+wire  [0:7]  net0106;
+
+wire  [0:31]  net051;
+
+wire  [0:11]  net0128;
+
+wire  [0:31]  net053;
+
+wire  [31:0]  R0;
+
+wire  [31:0]  R1;
+
+wire  [15:0]  WDataT;
+
+wire  [0:11]  net087;
+
+wire  [1:0]  cdsbus2;
+
+wire  [0:15]  net084;
+
+wire  [0:6]  net045;
+
+wire  [0:6]  net035;
+
+wire  [0:6]  net044;
+
+wire  [0:21]  net088;
+
+// begin interface element definitions
+
+wire cdsNet1;
+wire net0133;
+reg mixedNet99997;
+reg mixedNet99993;
+reg mixedNet99971;
+reg mixedNet99965;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99950;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99941;
+assign cdsNet1 = mixedNet99997;
+assign net052[6] = mixedNet99993;
+assign net0133 = mixedNet99971;
+assign net052[7] = mixedNet99965;
+assign net052[0] = mixedNet99956;
+assign net052[1] = mixedNet99955;
+assign net052[2] = mixedNet99950;
+assign net052[3] = mixedNet99945;
+assign net052[4] = mixedNet99944;
+assign net052[5] = mixedNet99941;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "DCache_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

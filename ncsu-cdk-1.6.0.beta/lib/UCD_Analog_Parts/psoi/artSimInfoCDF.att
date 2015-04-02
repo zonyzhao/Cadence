@@ -1,0 +1,219 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "psoi"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "bn"
+        ?prompt         "Bulk node connection"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('bn)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "mtype"
+        ?prompt         "Model type"
+        ?units          "time"
+        ?defValue       "tfa"
+        ?choices        '("tfa" "tfd")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('mtype)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "w"
+        ?prompt         "Width"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('w)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ad"
+        ?prompt         "Drain diffusion area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ad)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "as"
+        ?prompt         "Source diffusion area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('as)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ab"
+        ?prompt         "Body contact area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ab)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "nrd"
+        ?prompt         "Drain diffusion res squares"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('nrd)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "nrs"
+        ?prompt         "Source diffusion res squares"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('nrs)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "nrb"
+        ?prompt         "Body diffusion resistor squares"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('nrb)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vds"
+        ?prompt         "Drain source initial voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vds)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vgfs"
+        ?prompt         "Front gate-source voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vgfs)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vgbs"
+        ?prompt         "Gate to bulk and src voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vgbs)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vbys"
+        ?prompt         "Body-source initial voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vbys)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        netlistProcedure  ansCdlCompPrim
+        instParameters    (m L W)
+        componentName     psoi
+        termOrder         (D G S B)
+        propMapping       (nil L l W w)
+        namePrefix        "M"
+        modelName         "PM"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        instParameters    (m l w)
+        componentName     psoi
+        termOrder         (D G S B progn(bn))
+        deviceTerminals   "D G S B X"
+        permuteRule       "(p D S)"
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (mtype m w l ad as ab nrd nrs nrb off vds vgfs vgbs vbys)
+        otherParameters   (model bn)
+        componentName     nsoi
+        termOrder         (D G S B progn(bn))
+        propMapping       (nil vds Vds vgfs Vgfs vgbs Vgbs vbys Vbys)
+        namePrefix        "Z"
+        current           port
+        dcSens            nil
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "vfbf vfbb toxf"
+    cdfId->opPointLabelSet         = "id vds vbs"
+    cdfId->paramLabelSet           = "mtype l w"
+    cdfSaveCDF( cdfId )
+)

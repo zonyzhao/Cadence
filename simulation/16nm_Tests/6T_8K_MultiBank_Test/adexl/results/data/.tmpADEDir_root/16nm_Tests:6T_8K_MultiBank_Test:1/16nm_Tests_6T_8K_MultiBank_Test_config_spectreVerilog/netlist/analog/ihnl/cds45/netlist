@@ -1,0 +1,25 @@
+    I1 (A_19 A_18 A_17 A_16 A_23 A_22 A_21 A_20 A_27 A_26 A_25 A_24 \
+        A_31 A_30 A_29 A_28 A_Ack_7 A_Ack_6 A_Ack_5 A_Ack_4 Asel B_19 \
+        B_18 B_17 B_16 B_23 B_22 B_21 B_20 B_27 B_26 B_25 B_24 B_31 \
+        B_30 B_29 B_28 B_Ack_7 B_Ack_6 B_Ack_5 B_Ack_4 Bsel C_19 C_18 \
+        C_17 C_16 C_23 C_22 C_21 C_20 C_27 C_26 C_25 C_24 C_31 C_30 \
+        C_29 C_28 C_Ack_7 C_Ack_6 C_Ack_5 C_Ack_4 Ack_7 Ack_6 Ack_5 \
+        Ack_4 Csel D_19 D_18 D_17 D_16 D_23 D_22 D_21 D_20 D_27 D_26 \
+        D_25 D_24 D_31 D_30 D_29 D_28 D_Ack_7 D_Ack_6 D_Ack_5 D_Ack_4 \
+        Dsel Out5_1of4_3 Out5_1of4_2 Out5_1of4_1 Out5_1of4_0 \
+        Out6_1of4_3 Out6_1of4_2 Out6_1of4_1 Out6_1of4_0 Out7_1of4_3 \
+        Out7_1of4_2 Out7_1of4_1 Out7_1of4_0 Out8_1of4_3 Out8_1of4_2 \
+        Out8_1of4_1 Out8_1of4_0) _sub141
+    I0 (A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 \
+        A_13 A_12 A_Ack_3 A_Ack_2 A_Ack_1 A_Ack_0 Asel B_3 B_2 B_1 B_0 \
+        B_7 B_6 B_5 B_4 B_11 B_10 B_9 B_8 B_15 B_14 B_13 B_12 B_Ack_3 \
+        B_Ack_2 B_Ack_1 B_Ack_0 Bsel C_3 C_2 C_1 C_0 C_7 C_6 C_5 C_4 \
+        C_11 C_10 C_9 C_8 C_15 C_14 C_13 C_12 C_Ack_3 C_Ack_2 C_Ack_1 \
+        C_Ack_0 Ack_3 Ack_2 Ack_1 Ack_0 Csel D_3 D_2 D_1 D_0 D_7 D_6 \
+        D_5 D_4 D_11 D_10 D_9 D_8 D_15 D_14 D_13 D_12 D_Ack_3 D_Ack_2 \
+        D_Ack_1 D_Ack_0 Dsel Out1_1of4_3 Out1_1of4_2 Out1_1of4_1 \
+        Out1_1of4_0 Out2_1of4_3 Out2_1of4_2 Out2_1of4_1 Out2_1of4_0 \
+        Out3_1of4_3 Out3_1of4_2 Out3_1of4_1 Out3_1of4_0 Out4_1of4_3 \
+        Out4_1of4_2 Out4_1of4_1 Out4_1of4_0) _sub141
+ends _sub142
+// End of subcircuit definition.

@@ -1,0 +1,18 @@
+
+// Library name: 16nm
+// Cell name: 6T_MultiBank_8K_4K
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub85 RData_15 RData_14 RData_13 RData_12 RData_11 RData_10 \
+        RData_9 RData_8 RData_7 RData_6 RData_5 RData_4 RData_3 RData_2 \
+        RData_1 RData_0 R_Address_11 R_Address_10 R_Address_9 \
+        R_Address_8 R_Address_7 R_Address_6 R_Address_5 R_Address_4 \
+        R_Address_3 R_Address_2 R_Address_1 R_Address_0 ReadAck Read_1 \
+        WData_15 WData_14 WData_13 WData_12 WData_11 WData_10 WData_9 \
+        WData_8 WData_7 WData_6 WData_5 WData_4 WData_3 WData_2 WData_1 \
+        WData_0 WDataAck_7 WDataAck_6 WDataAck_5 WDataAck_4 WDataAck_3 \
+        WDataAck_2 WDataAck_1 WDataAck_0 W_Address_11 W_Address_10 \
+        W_Address_9 W_Address_8 W_Address_7 W_Address_6 W_Address_5 \
+        W_Address_4 W_Address_3 W_Address_2 W_Address_1 W_Address_0 \
+        WriteAck Write_0

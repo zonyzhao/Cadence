@@ -1,0 +1,10 @@
+// "spectre" description for "ATSim", "L1_read_ctrl_rev3", "spectre2" 
+
+
+simulator lang=spectre
+
+subckt L1_read_ctrl_rev3 OutFIFOReq ReadFromL1Ack ReadWBFromL1Ack L1RAck L1RE \
+        L1RdRegAck L1RdRegReq L1WBRegAck L1WBRegReq OutFIFOAck ReadFromL1Req \
+        ReadWBFromL1Req
+
+ends L1_read_ctrl_rev3

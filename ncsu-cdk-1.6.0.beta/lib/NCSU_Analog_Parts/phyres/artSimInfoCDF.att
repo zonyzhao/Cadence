@@ -1,0 +1,156 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "phyres"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r"
+        ?prompt         "Resistance"
+        ?units          "resistance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "c"
+        ?prompt         "Capacitance"
+        ?units          "capacitance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('c)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "w"
+        ?prompt         "Width"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('w)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1"
+        ?prompt         "Temperature coefficient 1"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2"
+        ?prompt         "Temperature coefficient 2"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1c"
+        ?prompt         "Lin temp co of lin cap"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1c)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2c"
+        ?prompt         "Quad temp co of lin cap"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2c)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "trise"
+        ?prompt         "Temp rise from ambient"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('trise)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        instParameters    (r c l w tc1 tc2 tc1c tc2c trise m)
+        termOrder         (t1 t2 t0)
+        namePrefix        "PHYR"
+        componentName     phy_res
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (model)
+        instParameters    (r c l w tc1 tc2 tc1c tc2c trise m)
+        termOrder         (t1 t2 t0)
+        namePrefix        "PHYR"
+        componentName     phy_res
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "subtype rsh cj"
+    cdfId->opPointLabelSet         = "i pwr id1"
+    cdfId->paramLabelSet           = "r l w"
+    cdfSaveCDF( cdfId )
+)

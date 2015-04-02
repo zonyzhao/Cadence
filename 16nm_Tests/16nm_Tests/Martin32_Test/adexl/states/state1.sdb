@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<setupdb version="5">state1
+	<active>Active Setup
+		<corners>
+			<corner enabled="1">_default</corner>
+		</corners>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
+		<tests>
+			<test>16nm_Tests:Martin32_Test:1
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>Martin32_Test</value>
+					</option>
+					<option>lib
+						<value>16nm_Tests</value>
+					</option>
+					<option>sim
+						<value>spectreVerilog</value>
+					</option>
+					<option>view
+						<value>config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/states/state1/test_states</value>
+					</option>
+					<option>state
+						<value>16nm_Tests:Martin32_Test:1_active</value>
+					</option>
+				</tooloptions>
+			</test>
+		</tests>
+		<allcornersenabled>0</allcornersenabled>
+		<vars>
+			<var>vcc
+				<value>0.7</value>
+				<dependentTests>
+					<dependentTest omitted="0">16nm_Tests:Martin32_Test:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vdd
+				<value>0.7</value>
+				<dependentTests>
+					<dependentTest omitted="0">16nm_Tests:Martin32_Test:1</dependentTest>
+				</dependentTests>
+			</var>
+		</vars>
+	</active>
+	<history>History</history>
+</setupdb>

@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/Diodes_Index type="cell"
+UCD_Analog_Parts/diode type="cell"
+UCD_Analog_Parts/schottky type="cell"
+UCD_Analog_Parts/zener type="cell"

@@ -1,0 +1,7 @@
+
+// Library name: 16nm
+// Cell name: Decode_2to4
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Decode_2to4 En I_1 I_0 Sel_3 Sel_2 Sel_1 Sel_0

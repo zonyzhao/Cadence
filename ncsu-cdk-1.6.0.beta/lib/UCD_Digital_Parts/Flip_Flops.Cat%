@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+tempDigital/DFF type="cell"
+tempDigital/DFF_Clr type="cell"
+tempDigital/DFF_Pre type="cell"
+tempDigital/Dlatch type="cell"

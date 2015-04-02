@@ -1,0 +1,47 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "iprobe"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "IPRB"
+        componentName     iprobe
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "IPRB"
+        componentName     iprobe
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

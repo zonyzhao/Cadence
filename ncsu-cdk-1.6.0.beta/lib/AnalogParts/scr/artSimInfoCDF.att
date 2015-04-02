@@ -1,0 +1,113 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "scr"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "bn"
+        ?prompt         "Bulk node connection"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('bn)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vag"
+        ?prompt         "Anode gate voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vag)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vcg"
+        ?prompt         "Cathode gate voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vcg)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vbcc"
+        ?prompt         "Internal junction voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vbcc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        componentName     scr
+        termOrder         (NA NAG NCG NC progn(bn))
+        deviceTerminals   "NA NAG NGC NC X"
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area off vag vcg vbcc)
+        otherParameters   (model bn)
+        componentName     scr
+        termOrder         (NA NAG NCG NC progn(bn))
+        propMapping       (nil vag Vag vcg Vcg vbcc Vbcc)
+        namePrefix        "P"
+        current           nil
+        dcSens            nil
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "bfn bfp isn"
+    cdfId->opPointLabelSet         = "vac vag vcg"
+    cdfId->paramLabelSet           = "-model Vag Vcg"
+    cdfSaveCDF( cdfId )
+)

@@ -1,0 +1,5 @@
+load( prependNCSUCDKInstallPath( "skill/globalData.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/loadSkill.il" ) )
+load( prependNCSUCDKInstallPath( "skill/misc/loadSkill.il" ) )
+load( prependNCSUCDKInstallPath( "skill/cdf/loadSkill.il") )
+load( prependNCSUCDKInstallPath( "skill/pcells/loadSkill.il") )

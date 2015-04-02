@@ -1,0 +1,63 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "delay"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        instParameters    (td)
+        termOrder         (p n ps ns)
+        termMapping       (nil p "" n "(FUNCTION minus(root(\"p\")))" ps "" ns "(FUNCTION minus(root(\"ps\")))")
+        namePrefix        "DELAY"
+        componentName     delay
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        instParameters    (td)
+        termOrder         (p n ps ns)
+        termMapping       (nil p "" n "(FUNCTION minus(root(\"p\")))" ps "" ns "(FUNCTION minus(root(\"ps\")))")
+        namePrefix        "DELAY"
+        componentName     delay
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v"
+    cdfId->paramLabelSet           = "td"
+    cdfSaveCDF( cdfId )
+)

@@ -1,0 +1,178 @@
+// Library - 16nm_Tests, Cell - DCache_Test, View - schematic
+// LAST TIME SAVED: Mar  6 17:39:14 2015
+// NETLIST TIME: Mar  6 17:54:39 2015
+`timescale 1ns / 1ns 
+
+module DCache_Test ( Ack, OutFIFOReq, WDataAck, CPU_Addr, Data1,
+     OutFIFOAck, RW, Req );
+
+output  Ack, OutFIFOReq;
+
+input  OutFIFOAck, Req;
+
+output [7:0]  WDataAck;
+
+input [32:0]  CPU_Addr;
+input [15:0]  Data1;
+input [1:0]  RW;
+
+// Buses in the design
+
+wire  [0:31]  net037;
+
+wire  [0:6]  net041;
+
+wire  [0:7]  net052;
+
+wire  [15:0]  cdsbus0;
+
+wire  [32:0]  cdsbus1;
+
+wire  [0:21]  net065;
+
+wire  [0:11]  net0104;
+
+wire  [1:0]  RWT;
+
+wire  [0:11]  net0123;
+
+wire  [0:31]  net055;
+
+wire  [32:0]  CPUT;
+
+wire  [0:11]  net0124;
+
+wire  [0:31]  net048;
+
+wire  [0:11]  net0127;
+
+wire  [0:31]  net049;
+
+wire  [0:7]  net0106;
+
+wire  [0:31]  net051;
+
+wire  [0:11]  net0128;
+
+wire  [0:31]  net053;
+
+wire  [31:0]  R0;
+
+wire  [31:0]  R1;
+
+wire  [15:0]  WDataT;
+
+wire  [0:11]  net087;
+
+wire  [1:0]  cdsbus2;
+
+wire  [0:15]  net084;
+
+wire  [0:6]  net045;
+
+wire  [0:6]  net035;
+
+wire  [0:6]  net044;
+
+wire  [0:21]  net088;
+
+// begin interface element definitions
+
+wire cdsNet1;
+wire net0133;
+reg mixedNet99997;
+reg mixedNet99993;
+reg mixedNet99971;
+reg mixedNet99965;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99950;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99941;
+assign cdsNet1 = mixedNet99997;
+assign net052[6] = mixedNet99993;
+assign net0133 = mixedNet99971;
+assign net052[7] = mixedNet99965;
+assign net052[0] = mixedNet99956;
+assign net052[1] = mixedNet99955;
+assign net052[2] = mixedNet99950;
+assign net052[3] = mixedNet99945;
+assign net052[4] = mixedNet99944;
+assign net052[5] = mixedNet99941;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "DCache_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I42 ( cdsNet0, net0133);
+inv_1xT I40 ( net056, cdsNet1);
+inv_1xT I6 ( cdsNet0, Req);
+inv_1xT I12 ( Ack, cdsNet1);
+inv_1xT I15_1_ ( cdsbus2[1], RW[1]);
+inv_1xT I15_0_ ( cdsbus2[0], RW[0]);
+inv_1xT I18_32_ ( cdsbus1[32], CPU_Addr[32]);
+inv_1xT I18_31_ ( cdsbus1[31], CPU_Addr[31]);
+inv_1xT I18_30_ ( cdsbus1[30], CPU_Addr[30]);
+inv_1xT I18_29_ ( cdsbus1[29], CPU_Addr[29]);
+inv_1xT I18_28_ ( cdsbus1[28], CPU_Addr[28]);
+inv_1xT I18_27_ ( cdsbus1[27], CPU_Addr[27]);
+inv_1xT I18_26_ ( cdsbus1[26], CPU_Addr[26]);
+inv_1xT I18_25_ ( cdsbus1[25], CPU_Addr[25]);
+inv_1xT I18_24_ ( cdsbus1[24], CPU_Addr[24]);
+inv_1xT I18_23_ ( cdsbus1[23], CPU_Addr[23]);
+inv_1xT I18_22_ ( cdsbus1[22], CPU_Addr[22]);
+inv_1xT I18_21_ ( cdsbus1[21], CPU_Addr[21]);
+inv_1xT I18_20_ ( cdsbus1[20], CPU_Addr[20]);
+inv_1xT I18_19_ ( cdsbus1[19], CPU_Addr[19]);
+inv_1xT I18_18_ ( cdsbus1[18], CPU_Addr[18]);
+inv_1xT I18_17_ ( cdsbus1[17], CPU_Addr[17]);
+inv_1xT I18_16_ ( cdsbus1[16], CPU_Addr[16]);
+inv_1xT I18_15_ ( cdsbus1[15], CPU_Addr[15]);
+inv_1xT I18_14_ ( cdsbus1[14], CPU_Addr[14]);
+inv_1xT I18_13_ ( cdsbus1[13], CPU_Addr[13]);
+inv_1xT I18_12_ ( cdsbus1[12], CPU_Addr[12]);
+inv_1xT I18_11_ ( cdsbus1[11], CPU_Addr[11]);
+inv_1xT I18_10_ ( cdsbus1[10], CPU_Addr[10]);
+inv_1xT I18_9_ ( cdsbus1[9], CPU_Addr[9]);
+inv_1xT I18_8_ ( cdsbus1[8], CPU_Addr[8]);
+inv_1xT I18_7_ ( cdsbus1[7], CPU_Addr[7]);
+inv_1xT I18_6_ ( cdsbus1[6], CPU_Addr[6]);
+inv_1xT I18_5_ ( cdsbus1[5], CPU_Addr[5]);
+inv_1xT I18_4_ ( cdsbus1[4], CPU_Addr[4]);
+inv_1xT I18_3_ ( cdsbus1[3], CPU_Addr[3]);
+inv_1xT I18_2_ ( cdsbus1[2], CPU_Addr[2]);
+inv_1xT I18_1_ ( cdsbus1[1], CPU_Addr[1]);
+inv_1xT I18_0_ ( cdsbus1[0], CPU_Addr[0]);
+inv_1xT I25_7_ ( WDataAck[7], net052[0]);
+inv_1xT I25_6_ ( WDataAck[6], net052[1]);
+inv_1xT I25_5_ ( WDataAck[5], net052[2]);
+inv_1xT I25_4_ ( WDataAck[4], net052[3]);
+inv_1xT I25_3_ ( WDataAck[3], net052[4]);
+inv_1xT I25_2_ ( WDataAck[2], net052[5]);
+inv_1xT I25_1_ ( WDataAck[1], net052[6]);
+inv_1xT I25_0_ ( WDataAck[0], net052[7]);
+inv_1xT I28_15_ ( cdsbus0[15], Data1[15]);
+inv_1xT I28_14_ ( cdsbus0[14], Data1[14]);
+inv_1xT I28_13_ ( cdsbus0[13], Data1[13]);
+inv_1xT I28_12_ ( cdsbus0[12], Data1[12]);
+inv_1xT I28_11_ ( cdsbus0[11], Data1[11]);
+inv_1xT I28_10_ ( cdsbus0[10], Data1[10]);
+inv_1xT I28_9_ ( cdsbus0[9], Data1[9]);
+inv_1xT I28_8_ ( cdsbus0[8], Data1[8]);
+inv_1xT I28_7_ ( cdsbus0[7], Data1[7]);
+inv_1xT I28_6_ ( cdsbus0[6], Data1[6]);
+inv_1xT I28_5_ ( cdsbus0[5], Data1[5]);
+inv_1xT I28_4_ ( cdsbus0[4], Data1[4]);
+inv_1xT I28_3_ ( cdsbus0[3], Data1[3]);
+inv_1xT I28_2_ ( cdsbus0[2], Data1[2]);
+inv_1xT I28_1_ ( cdsbus0[1], Data1[1]);
+inv_1xT I28_0_ ( cdsbus0[0], Data1[0]);
+
+endmodule

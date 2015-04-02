@@ -1,0 +1,17 @@
+
+// Library name: EEC289O
+// Cell name: inv_1xt
+// View name: schematic
+subckt inv_1xt A Y
+    P0 (Y A vdd! vdd!) tsmc18dP w=1.035u l=180.0n m=1 region=sat
+    N0 (Y A 0 0) tsmc18dN w=360.0n l=180.0n m=1 region=sat
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: EEC289O_Tests
+// Cell name: inv_tb
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=vdd
+I72 (nvtc Yvtc) inv_1xt
+V1 (nvtc 0) vsource type=pwl mag=1 phase=0 offset=900m wave=[ 0 0 100n vdd \
+        ]

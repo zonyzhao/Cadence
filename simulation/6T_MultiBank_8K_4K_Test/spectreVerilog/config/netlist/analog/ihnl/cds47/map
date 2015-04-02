@@ -1,0 +1,60 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "In_4of16<0>" "In_4of16_0" )
+( "Ack<1>" "Ack_1" )
+( "In_4of16<1>" "In_4of16_1" )
+( "Out_4of16<9>" "Out_4of16_9" )
+( "In_4of16<10>" "In_4of16_10" )
+( "Ack<2>" "Ack_2" )
+( "Out_4of16<7>" "Out_4of16_7" )
+( "In_4of16<14>" "In_4of16_14" )
+( "In_Ack<1>" "In_Ack_1" )
+( "Out_4of16<11>" "Out_4of16_11" )
+( "Out_4of16<15>" "Out_4of16_15" )
+( "In_Ack<0>" "In_Ack_0" )
+( "In_4of16<8>" "In_4of16_8" )
+( "Out_4of16<8>" "Out_4of16_8" )
+( "In_4of16<11>" "In_4of16_11" )
+( "Out_4of16<13>" "Out_4of16_13" )
+( "In_4of16<13>" "In_4of16_13" )
+( "In_4of16<3>" "In_4of16_3" )
+( "Out_4of16<4>" "Out_4of16_4" )
+( "In_4of16<5>" "In_4of16_5" )
+( "In_4of16<12>" "In_4of16_12" )
+( "Out_4of16<1>" "Out_4of16_1" )
+( "Out_4of16<14>" "Out_4of16_14" )
+( "Out_4of16<2>" "Out_4of16_2" )
+( "Out_4of16<10>" "Out_4of16_10" )
+( "In_4of16<4>" "In_4of16_4" )
+( "In_Ack<3>" "In_Ack_3" )
+( "In_4of16<15>" "In_4of16_15" )
+( "In_4of16<9>" "In_4of16_9" )
+( "Ack<3>" "Ack_3" )
+( "Ack<0>" "Ack_0" )
+( "Out_4of16<12>" "Out_4of16_12" )
+( "In_4of16<2>" "In_4of16_2" )
+( "In_4of16<7>" "In_4of16_7" )
+( "In_4of16<6>" "In_4of16_6" )
+( "Out_4of16<5>" "Out_4of16_5" )
+( "In_Ack<2>" "In_Ack_2" )
+( "Out_4of16<0>" "Out_4of16_0" )
+( "Out_4of16<3>" "Out_4of16_3" )
+( "Out_4of16<6>" "Out_4of16_6" )
+ )
+( inst
+ )
+( model
+( "6T_1of4Latch" "_sub80" )
+( "6T_4of16Latch" "_sub81" )
+ )
+( term
+ )
+( param
+ )
+ )

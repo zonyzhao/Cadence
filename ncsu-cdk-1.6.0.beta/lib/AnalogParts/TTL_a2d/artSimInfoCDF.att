@@ -1,0 +1,84 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "TTL_a2d"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "macro"
+        ?prompt         "Macro name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('macro)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a2d_v0"
+        ?prompt         "Level 0 threshold"
+        ?units          "voltage"
+        ?defValue       "1.5"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a2d_v0)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a2d_v1"
+        ?prompt         "Level 1 threshold"
+        ?units          "voltage"
+        ?defValue       "3.5"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a2d_v1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a2d_tx"
+        ?prompt         "Time to x state"
+        ?units          "time"
+        ?defValue       "1m"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a2d_tx)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->cdsSpice = '( nil
+        propMapping       nil
+        namePrefix        ""
+        netlistProcedure  ansSpiceInterfaceElementPrim
+        otherParameters   (macro)
+        macroArguments    (a2d_v0 a2d_v1 a2d_tx)
+        termOrder         (digitalNet analogNet)
+        componentName     interfaceElement
+    )
+    cdfId->simInfo->spectre = '( nil
+        namePrefix        ""
+        netlistProcedure  ansSpectreInterfaceElementPrim
+        otherParameters   (macro)
+        instParameters    (timex vl vh)
+        propMapping       (nil vl a2d_v0 vh a2d_v1 timex a2d_tx)
+        componentName     interfaceElement
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

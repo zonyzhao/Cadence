@@ -1,0 +1,13 @@
+
+// Library name: 16nm
+// Cell name: 6T_DATA
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub43 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
+        R1_1of4_2 R1_1of4_1 R1_1of4_0 R2_1of4_3 R2_1of4_2 R2_1of4_1 \
+        R2_1of4_0 RW_1 RW_0 Reset ValAddr W0_3 W0_2 W0_1 W0_0 W1_3 W1_2 \
+        W1_1 W1_0 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 W2_1of4_3 \
+        W2_1of4_2 W2_1of4_1 W2_1of4_0 AckThruBot AckThruTop RAck_1 \
+        RAck_0 WAck_1 WAck_0 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_3 \~R1_2 \
+        \~R1_1 \~R1_0

@@ -1,0 +1,39 @@
+// Generated for: spectre
+// Generated on: Mar  6 10:03:25 2015
+// Design library name: EEC289O_Tests
+// Design cell name: inv_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters vdd=1.8V
+include "/root/Desktop/Cadence/ncsu-cdk-1.6.0.beta/models/spectre/PTM/PTM180nm_bulk.scs"
+
+// Library name: EEC289O
+// Cell name: inv_1xt
+// View name: schematic
+subckt inv_1xt A Y
+    P0 (Y A vdd! vdd!) tsmc18dP w=1.035u l=180.0n m=1 region=sat
+    N0 (Y A 0 0) tsmc18dN w=360.0n l=180.0n m=1 region=sat
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: EEC289O_Tests
+// Cell name: inv_tb
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=vdd
+I72 (nvtc Yvtc) inv_1xt
+V1 (nvtc 0) vsource type=pwl mag=1 phase=0 offset=900m wave=[ 0 0 100n vdd \
+        ]
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+ac ac start=100M stop=100G annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save nvtc Yvtc 
+saveOptions options save=allpub

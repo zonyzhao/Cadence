@@ -1,0 +1,37 @@
+
+// Library name: 16nm
+// Cell name: 6T_MultiBank_32K
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub101 RData_63 RData_62 RData_61 RData_60 RData_59 RData_58 \
+        RData_57 RData_56 RData_55 RData_54 RData_53 RData_52 RData_51 \
+        RData_50 RData_49 RData_48 RData_47 RData_46 RData_45 RData_44 \
+        RData_43 RData_42 RData_41 RData_40 RData_39 RData_38 RData_37 \
+        RData_36 RData_35 RData_34 RData_33 RData_32 RData_31 RData_30 \
+        RData_29 RData_28 RData_27 RData_26 RData_25 RData_24 RData_23 \
+        RData_22 RData_21 RData_20 RData_19 RData_18 RData_17 RData_16 \
+        RData_15 RData_14 RData_13 RData_12 RData_11 RData_10 RData_9 \
+        RData_8 RData_7 RData_6 RData_5 RData_4 RData_3 RData_2 RData_1 \
+        RData_0 R_Address_11 R_Address_10 R_Address_9 R_Address_8 \
+        R_Address_7 R_Address_6 R_Address_5 R_Address_4 R_Address_3 \
+        R_Address_2 R_Address_1 R_Address_0 ReadAck ReadEn WData_63 \
+        WData_62 WData_61 WData_60 WData_59 WData_58 WData_57 WData_56 \
+        WData_55 WData_54 WData_53 WData_52 WData_51 WData_50 WData_49 \
+        WData_48 WData_47 WData_46 WData_45 WData_44 WData_43 WData_42 \
+        WData_41 WData_40 WData_39 WData_38 WData_37 WData_36 WData_35 \
+        WData_34 WData_33 WData_32 WData_31 WData_30 WData_29 WData_28 \
+        WData_27 WData_26 WData_25 WData_24 WData_23 WData_22 WData_21 \
+        WData_20 WData_19 WData_18 WData_17 WData_16 WData_15 WData_14 \
+        WData_13 WData_12 WData_11 WData_10 WData_9 WData_8 WData_7 \
+        WData_6 WData_5 WData_4 WData_3 WData_2 WData_1 WData_0 \
+        WDataAck_31 WDataAck_30 WDataAck_29 WDataAck_28 WDataAck_27 \
+        WDataAck_26 WDataAck_25 WDataAck_24 WDataAck_23 WDataAck_22 \
+        WDataAck_21 WDataAck_20 WDataAck_19 WDataAck_18 WDataAck_17 \
+        WDataAck_16 WDataAck_15 WDataAck_14 WDataAck_13 WDataAck_12 \
+        WDataAck_11 WDataAck_10 WDataAck_9 WDataAck_8 WDataAck_7 \
+        WDataAck_6 WDataAck_5 WDataAck_4 WDataAck_3 WDataAck_2 \
+        WDataAck_1 WDataAck_0 W_Address_11 W_Address_10 W_Address_9 \
+        W_Address_8 W_Address_7 W_Address_6 W_Address_5 W_Address_4 \
+        W_Address_3 W_Address_2 W_Address_1 W_Address_0 WriteAck \
+        WriteEn

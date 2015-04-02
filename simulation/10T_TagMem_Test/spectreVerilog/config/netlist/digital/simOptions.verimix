@@ -1,0 +1,3 @@
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0

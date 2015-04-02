@@ -1,0 +1,21 @@
+//Revision 1
+//NOTE
+// Default template for spectreVerilog
+// Note:
+//      Please remember to replace Top Cell Library, Cell, and View
+//      fields with the actual names used by your design.
+//END_NOTE
+
+config LCFF_Test;
+design \16nm_Tests .LCFF_Test:schematic;
+
+const \default  spectre, spice, verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, \cmos.sch , cmos_sch, veriloga, ahdl;
+const digital verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, \cmos.sch , cmos_sch;
+const analog spectre, spice, schematic, \cmos.sch , cmos_sch, veriloga, ahdl;
+liblist myLib;
+
+viewlist $\default ;
+stoplist spectre, spice, verilog, verilogNetlist;
+
+
+endconfig

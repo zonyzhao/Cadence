@@ -1,0 +1,47 @@
+    I3 (TagRdRegAck TagRdRegAck_n) inv_1x
+    I5 (TagHit TagHit_n) inv_1x
+    I7 (TagRAck TagRAck_n) inv_1x
+    I6 (Write Write_n) inv_1x
+    I8 (FIFOReq FIFOReq_n) inv_1x
+    I9 (Read Read_n) inv_1x
+    I11 (WriteToL1Ack WriteToL1Ack_n) inv_1x
+    I10 (ReadFromL1Ack ReadFromL1Ack_n) inv_1x
+    I18 (y0 Y0_n) inv_1x
+    I14 (y3 Y3_n) inv_1x
+    I16 (y2 Y2_n) inv_1x
+    I17 (y1 Y1_n) inv_1x
+    I34 (FIFOReq_n y2 p23) nand_1x
+    I33 (TagRAck_n y3 p22) nand_1x
+    I31 (TagRdRegAck_n ReadFromL1Ack_n p20) nand_1x
+    I30 (TagRAck TagRAck p19) nand_1x
+    I29 (ReadFromL1Ack ReadFromL1Ack p18) nand_1x
+    I28 (FIFOReq FIFOReq p17) nand_1x
+    I27 (Write_n Y2_n p16) nand_1x
+    I26 (Read_n Y2_n p15) nand_1x
+    I21 (Read Y3_n p10) nand_1x
+    I19 (TagRAck Y1_n p9) nand_1x
+    I15 (TagHit Y1_n p8) nand_1x
+    I13 (Write Y3_n p7) nand_1x
+    I12 (TagRAck Y0_n p6) nand_1x
+    I4 (TagHit Y0_n p5) nand_1x
+    I1 (TagRAck_n Y2_n p3) nand_1x
+    I0 (TagHit_n Y2_n p2) nand_1x
+    I2 (FIFOReq TagRdRegAck p1) nand_1x
+    I39 (p18 p19 p21 FIFOAck) nand3_1x
+    I20 (Read_n Write_n Y2_n p4) nand3_1x
+    I43 (p11 p13 p20 p23 y2) nand4_1x
+    I42 (p1 p2 p3 p4 TagRE) nand4_1x
+    I32 (TagHit_n Write_n TagRAck_n WriteToL1Ack p21) nand4_1x
+    I25 (ReadFromL1Ack_n y0 Y1_n Y3_n p14) nand4_1x
+    I24 (FIFOReq_n TagHit Read TagRAck p13) nand4_1x
+    I23 (WriteToL1Ack_n Y0_n y1 Y3_n p12) nand4_1x
+    I22 (FIFOReq_n TagHit Write TagRAck p11) nand4_1x
+    I37 (p1 p2 p3 p5 p6 p7 p11 p12 p15 y1) nand9_1x
+    I36 (p1 p2 p3 p8 p9 p10 p13 p14 p16 y0) nand9_1x
+    I38 (p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p17 \
+        TagRdRegReq) nand14_1x
+    I41 (p5 p6 p7 p11 p12 WriteToL1Req) nand5_1x
+    I40 (p8 p9 p10 p13 p14 ReadFromL1Req) nand5_1x
+    I44 (p2 p4 p17 p20 p21 p22 y3) nand6_1x
+ends Simple_tag_read_ctrl2
+// End of subcircuit definition.

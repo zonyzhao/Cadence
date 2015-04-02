@@ -1,0 +1,113 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "pgen"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "rref"
+        ?prompt         "Reference resistance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('rref)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "pwr"
+        ?prompt         "Power"
+        ?units          "power"
+        ?defValue       "pwr"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('pwr)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "freq"
+        ?prompt         "Frequency"
+        ?units          "frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('freq)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a"
+        ?prompt         "Phase offset"
+        ?units          "angle"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hn"
+        ?prompt         "Harmonic number"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('hn)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        instParameters    (p freq pwr)
+        componentName     port
+        componentType     source
+        propMapping       (nil r rref p pwr)
+        typeMapping       (nil r reference p nameOnly freq sourceFreq pwr power)
+        termOrder         (PLUS MINUS)
+        current           port
+        termMapping       (nil PLUS "plus" MINUS "minus")
+        namePrefix        "A"
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (r p f ang h)
+        inst4Parameters   (p f ang h r)
+        componentName     p
+        component4Name    PS
+        componentType     source
+        termOrder         (PLUS MINUS)
+        propMapping       (nil r rref p pwr f freq ang a h hn)
+        typeMapping       (nil r instName p power f sourceFreq ang angle)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->mharm = '( nil
+        propMapping       nil
+        netlistProcedure  ansMharmCompPrim
+        componentName     p
+        componentType     source
+        instParameters    (rref pwr freq)
+        typeMapping       (nil rref reference freq sourceFreq)
+        termOrder         (PLUS MINUS)
+        termOrderExpr     ((expr (termMerge 'rref)))
+        namePrefix        "A"
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "rref pwr freq"
+    cdfSaveCDF( cdfId )
+)

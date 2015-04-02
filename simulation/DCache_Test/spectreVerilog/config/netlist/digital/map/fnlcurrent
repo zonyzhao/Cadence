@@ -1,0 +1,78 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "DCache_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/cerl/kstraube/Cadence/KramerSimulation/DCache_Test/spectreVerilog/config/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "net088" 0 21  "net088" 0 21  )
+( "net044" 0 6  "net044" 0 6  )
+( "net035" 0 6  "net035" 0 6  )
+( "net045" 0 6  "net045" 0 6  )
+( "net084" 0 15  "net084" 0 15  )
+( "~RW" 1 0  "cdsbus2" 1 0  )
+( "net087" 0 11  "net087" 0 11  )
+( "WDataT" 15 0  "WDataT" 15 0  )
+( "RW" 1 0  "RW" 1 0  )
+( "R1" 31 0  "R1" 31 0  )
+( "R0" 31 0  "R0" 31 0  )
+( "net053" 0 31  "net053" 0 31  )
+( "net0128" 0 11  "net0128" 0 11  )
+( "net051" 0 31  "net051" 0 31  )
+( "net0106" 0 7  "net0106" 0 7  )
+( "net049" 0 31  "net049" 0 31  )
+( "net0127" 0 11  "net0127" 0 11  )
+( "net048" 0 31  "net048" 0 31  )
+( "net0124" 0 11  "net0124" 0 11  )
+( "Data1" 15 0  "Data1" 15 0  )
+( "CPUT" 32 0  "CPUT" 32 0  )
+( "net055" 0 31  "net055" 0 31  )
+( "net0123" 0 11  "net0123" 0 11  )
+( "RWT" 1 0  "RWT" 1 0  )
+( "net0104" 0 11  "net0104" 0 11  )
+( "CPU_Addr" 32 0  "CPU_Addr" 32 0  )
+( "net065" 0 21  "net065" 0 21  )
+( "~CPU_Addr" 32 0  "cdsbus1" 32 0  )
+( "~WData" 15 0  "cdsbus0" 15 0  )
+( "net052" 0 7  "net052" 0 7  )
+( "net041" 0 6  "net041" 0 6  )
+( "net037" 0 31  "net037" 0 31  )
+( "WDataAck" 7 0  "WDataAck" 7 0  )
+( "<*12>net089" 0 11  "{net089, net089, net089, net089, net089, net089, net089, net089, net089, net089, net089, net089}" 0 11 t )
+( "<*7>net076" 0 6  "{net076, net076, net076, net076, net076, net076, net076}" 0 6 t )
+( "<*12>net019" 0 11  "{net019, net019, net019, net019, net019, net019, net019, net019, net019, net019, net019, net019}" 0 11 t )
+( "<*32>net076" 0 31  "{net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076, net076}" 0 31 t )
+( "<*22>ReadEnable" 0 21  "{ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable, ReadEnable}" 0 21 t )
+( "<*7>net059" 0 6  "{net059, net059, net059, net059, net059, net059, net059}" 0 6 t )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/DCache_Test/schematic" "DCache_Test" )
+ )
+( term
+ )
+( param
+( "vcc" "cds_globals.vcc" )
+( "vdd" "cds_globals.vdd" )
+ )
+( "DCache_Test" "ihnl/cds0/map" )
+ )

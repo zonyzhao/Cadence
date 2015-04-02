@@ -1,0 +1,21 @@
+
+// Library name: 16nm
+// Cell name: 6T_8of32Latch
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub145 Ack_7 Ack_6 Ack_5 Ack_4 Ack_3 Ack_2 Ack_1 Ack_0 \
+        In_4of16_3 In_4of16_2 In_4of16_1 In_4of16_0 In_4of16_7 \
+        In_4of16_6 In_4of16_5 In_4of16_4 In_4of16_11 In_4of16_10 \
+        In_4of16_9 In_4of16_8 In_4of16_15 In_4of16_14 In_4of16_13 \
+        In_4of16_12 In2_4of16_3 In2_4of16_2 In2_4of16_1 In2_4of16_0 \
+        In2_4of16_7 In2_4of16_6 In2_4of16_5 In2_4of16_4 In2_4of16_11 \
+        In2_4of16_10 In2_4of16_9 In2_4of16_8 In2_4of16_15 In2_4of16_14 \
+        In2_4of16_13 In2_4of16_12 In_Ack_7 In_Ack_6 In_Ack_5 In_Ack_4 \
+        In_Ack_3 In_Ack_2 In_Ack_1 In_Ack_0 Out1_1of4_3 Out1_1of4_2 \
+        Out1_1of4_1 Out1_1of4_0 Out1_1of4_7 Out1_1of4_6 Out1_1of4_5 \
+        Out1_1of4_4 Out1_1of4_11 Out1_1of4_10 Out1_1of4_9 Out1_1of4_8 \
+        Out1_1of4_15 Out1_1of4_14 Out1_1of4_13 Out1_1of4_12 Out2_1of4_3 \
+        Out2_1of4_2 Out2_1of4_1 Out2_1of4_0 Out2_1of4_7 Out2_1of4_6 \
+        Out2_1of4_5 Out2_1of4_4 Out2_1of4_11 Out2_1of4_10 Out2_1of4_9 \
+        Out2_1of4_8 Out2_1of4_15 Out2_1of4_14 Out2_1of4_13 Out2_1of4_12

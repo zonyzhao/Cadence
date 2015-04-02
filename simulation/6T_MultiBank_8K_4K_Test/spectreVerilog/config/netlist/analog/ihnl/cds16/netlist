@@ -1,0 +1,10 @@
+    M3 (Y B or_pd_ps vdd!) pfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M2 (or_pd_ps A vdd! vdd!) pfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M1 (Y B 0 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M0 (Y A 0 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+ends nor_1x
+// End of subcircuit definition.

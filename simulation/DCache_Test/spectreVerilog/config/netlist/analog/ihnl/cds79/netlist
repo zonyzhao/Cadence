@@ -1,0 +1,389 @@
+
+// Library name: 16nm_Tests
+// Cell name: DCache_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+V1 (vcc! 0) vsource type=dc dc=vcc
+V0 (vdd! 0) vsource type=dc dc=vdd
+I44_15 (\~WData_15 WDataT_15) inv_1xt
+I44_14 (\~WData_14 WDataT_14) inv_1xt
+I44_13 (\~WData_13 WDataT_13) inv_1xt
+I44_12 (\~WData_12 WDataT_12) inv_1xt
+I44_11 (\~WData_11 WDataT_11) inv_1xt
+I44_10 (\~WData_10 WDataT_10) inv_1xt
+I44_9 (\~WData_9 WDataT_9) inv_1xt
+I44_8 (\~WData_8 WDataT_8) inv_1xt
+I44_7 (\~WData_7 WDataT_7) inv_1xt
+I44_6 (\~WData_6 WDataT_6) inv_1xt
+I44_5 (\~WData_5 WDataT_5) inv_1xt
+I44_4 (\~WData_4 WDataT_4) inv_1xt
+I44_3 (\~WData_3 WDataT_3) inv_1xt
+I44_2 (\~WData_2 WDataT_2) inv_1xt
+I44_1 (\~WData_1 WDataT_1) inv_1xt
+I44_0 (\~WData_0 WDataT_0) inv_1xt
+I43 (\~Req OutFIFOReq) inv_1xt
+I41 (OutFIFOAck \~Ack) inv_1xt
+I27_7 (net0106_0 net052_0) inv_1xt
+I27_6 (net0106_1 net052_1) inv_1xt
+I27_5 (net0106_2 net052_2) inv_1xt
+I27_4 (net0106_3 net052_3) inv_1xt
+I27_3 (net0106_4 net052_4) inv_1xt
+I27_2 (net0106_5 net052_5) inv_1xt
+I27_1 (net0106_6 net052_6) inv_1xt
+I27_0 (net0106_7 net052_7) inv_1xt
+I7 (\~Req net016) inv_1xt
+I13 (AckT \~Ack) inv_1xt
+I16_1 (\~RW_1 RWT_1) inv_1xt
+I16_0 (\~RW_0 RWT_0) inv_1xt
+I19_32 (\~CPU_Addr_32 CPUT_32) inv_1xt
+I19_31 (\~CPU_Addr_31 CPUT_31) inv_1xt
+I19_30 (\~CPU_Addr_30 CPUT_30) inv_1xt
+I19_29 (\~CPU_Addr_29 CPUT_29) inv_1xt
+I19_28 (\~CPU_Addr_28 CPUT_28) inv_1xt
+I19_27 (\~CPU_Addr_27 CPUT_27) inv_1xt
+I19_26 (\~CPU_Addr_26 CPUT_26) inv_1xt
+I19_25 (\~CPU_Addr_25 CPUT_25) inv_1xt
+I19_24 (\~CPU_Addr_24 CPUT_24) inv_1xt
+I19_23 (\~CPU_Addr_23 CPUT_23) inv_1xt
+I19_22 (\~CPU_Addr_22 CPUT_22) inv_1xt
+I19_21 (\~CPU_Addr_21 CPUT_21) inv_1xt
+I19_20 (\~CPU_Addr_20 CPUT_20) inv_1xt
+I19_19 (\~CPU_Addr_19 CPUT_19) inv_1xt
+I19_18 (\~CPU_Addr_18 CPUT_18) inv_1xt
+I19_17 (\~CPU_Addr_17 CPUT_17) inv_1xt
+I19_16 (\~CPU_Addr_16 CPUT_16) inv_1xt
+I19_15 (\~CPU_Addr_15 CPUT_15) inv_1xt
+I19_14 (\~CPU_Addr_14 CPUT_14) inv_1xt
+I19_13 (\~CPU_Addr_13 CPUT_13) inv_1xt
+I19_12 (\~CPU_Addr_12 CPUT_12) inv_1xt
+I19_11 (\~CPU_Addr_11 CPUT_11) inv_1xt
+I19_10 (\~CPU_Addr_10 CPUT_10) inv_1xt
+I19_9 (\~CPU_Addr_9 CPUT_9) inv_1xt
+I19_8 (\~CPU_Addr_8 CPUT_8) inv_1xt
+I19_7 (\~CPU_Addr_7 CPUT_7) inv_1xt
+I19_6 (\~CPU_Addr_6 CPUT_6) inv_1xt
+I19_5 (\~CPU_Addr_5 CPUT_5) inv_1xt
+I19_4 (\~CPU_Addr_4 CPUT_4) inv_1xt
+I19_3 (\~CPU_Addr_3 CPUT_3) inv_1xt
+I19_2 (\~CPU_Addr_2 CPUT_2) inv_1xt
+I19_1 (\~CPU_Addr_1 CPUT_1) inv_1xt
+I19_0 (\~CPU_Addr_0 CPUT_0) inv_1xt
+I26_15 (\~WData_15 WDataT_15) inv_1xt
+I26_14 (\~WData_14 WDataT_14) inv_1xt
+I26_13 (\~WData_13 WDataT_13) inv_1xt
+I26_12 (\~WData_12 WDataT_12) inv_1xt
+I26_11 (\~WData_11 WDataT_11) inv_1xt
+I26_10 (\~WData_10 WDataT_10) inv_1xt
+I26_9 (\~WData_9 WDataT_9) inv_1xt
+I26_8 (\~WData_8 WDataT_8) inv_1xt
+I26_7 (\~WData_7 WDataT_7) inv_1xt
+I26_6 (\~WData_6 WDataT_6) inv_1xt
+I26_5 (\~WData_5 WDataT_5) inv_1xt
+I26_4 (\~WData_4 WDataT_4) inv_1xt
+I26_3 (\~WData_3 WDataT_3) inv_1xt
+I26_2 (\~WData_2 WDataT_2) inv_1xt
+I26_1 (\~WData_1 WDataT_1) inv_1xt
+I26_0 (\~WData_0 WDataT_0) inv_1xt
+I17 (ReadEnable WriteEnable TagReadeAck TagWriteAck R1_31 R1_30 R1_29 \
+        R1_28 R1_27 R1_26 R1_25 R1_24 R1_23 R1_22 R1_21 R1_20 R1_19 \
+        R1_18 R1_17 R1_16 R1_15 R1_14 R1_13 R1_12 R1_11 R1_10 R1_9 R1_8 \
+        R1_7 R1_6 R1_5 R1_4 R1_3 R1_2 R1_1 R1_0 net035_0 net035_1 \
+        net035_2 net035_3 net035_4 net035_5 net035_6 net036 net037_0 \
+        net037_1 net037_2 net037_3 net037_4 net037_5 net037_6 net037_7 \
+        net037_8 net037_9 net037_10 net037_11 net037_12 net037_13 \
+        net037_14 net037_15 net037_16 net037_17 net037_18 net037_19 \
+        net037_20 net037_21 net037_22 net037_23 net037_24 net037_25 \
+        net037_26 net037_27 net037_28 net037_29 net037_30 net037_31 \
+        net048_0 net048_1 net048_2 net048_3 net048_4 net048_5 net048_6 \
+        net048_7 net048_8 net048_9 net048_10 net048_11 net048_12 \
+        net048_13 net048_14 net048_15 net048_16 net048_17 net048_18 \
+        net048_19 net048_20 net048_21 net048_22 net048_23 net048_24 \
+        net048_25 net048_26 net048_27 net048_28 net048_29 net048_30 \
+        net048_31 net044_0 net044_1 net044_2 net044_3 net044_4 net044_5 \
+        net044_6 R0_31 R0_30 R0_29 R0_28 R0_27 R0_26 R0_25 R0_24 R0_23 \
+        R0_22 R0_21 R0_20 R0_19 R0_18 R0_17 R0_16 R0_15 R0_14 R0_13 \
+        R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 R0_6 R0_5 R0_4 R0_3 R0_2 R0_1 \
+        R0_0) Dcache_TagMem
+I8_6 (net059 CPUT_10 net035_0 net041_0) DFlop
+I8_5 (net059 CPUT_9 net035_1 net041_1) DFlop
+I8_4 (net059 CPUT_8 net035_2 net041_2) DFlop
+I8_3 (net059 CPUT_7 net035_3 net041_3) DFlop
+I8_2 (net059 CPUT_6 net035_4 net041_4) DFlop
+I8_1 (net059 CPUT_5 net035_5 net041_5) DFlop
+I8_0 (net059 CPUT_4 net035_6 net041_6) DFlop
+I20_6 (net076 CPUT_10 net044_0 net045_0) DFlop
+I20_5 (net076 CPUT_9 net044_1 net045_1) DFlop
+I20_4 (net076 CPUT_8 net044_2 net045_2) DFlop
+I20_3 (net076 CPUT_7 net044_3 net045_3) DFlop
+I20_2 (net076 CPUT_6 net044_4 net045_4) DFlop
+I20_1 (net076 CPUT_5 net044_5 net045_5) DFlop
+I20_0 (net076 CPUT_4 net044_6 net045_6) DFlop
+I22_31 (net076 net051_0 net048_0 net049_0) DFlop
+I22_30 (net076 net051_1 net048_1 net049_1) DFlop
+I22_29 (net076 net051_2 net048_2 net049_2) DFlop
+I22_28 (net076 net051_3 net048_3 net049_3) DFlop
+I22_27 (net076 net051_4 net048_4 net049_4) DFlop
+I22_26 (net076 net051_5 net048_5 net049_5) DFlop
+I22_25 (net076 net051_6 net048_6 net049_6) DFlop
+I22_24 (net076 net051_7 net048_7 net049_7) DFlop
+I22_23 (net076 net051_8 net048_8 net049_8) DFlop
+I22_22 (net076 net051_9 net048_9 net049_9) DFlop
+I22_21 (net076 net051_10 net048_10 net049_10) DFlop
+I22_20 (net076 net051_11 net048_11 net049_11) DFlop
+I22_19 (net076 net051_12 net048_12 net049_12) DFlop
+I22_18 (net076 net051_13 net048_13 net049_13) DFlop
+I22_17 (net076 net051_14 net048_14 net049_14) DFlop
+I22_16 (net076 net051_15 net048_15 net049_15) DFlop
+I22_15 (net076 net051_16 net048_16 net049_16) DFlop
+I22_14 (net076 net051_17 net048_17 net049_17) DFlop
+I22_13 (net076 net051_18 net048_18 net049_18) DFlop
+I22_12 (net076 net051_19 net048_19 net049_19) DFlop
+I22_11 (net076 net051_20 net048_20 net049_20) DFlop
+I22_10 (net076 net051_21 net048_21 net049_21) DFlop
+I22_9 (net076 net051_22 net048_22 net049_22) DFlop
+I22_8 (net076 net051_23 net048_23 net049_23) DFlop
+I22_7 (net076 net051_24 net048_24 net049_24) DFlop
+I22_6 (net076 net051_25 net048_25 net049_25) DFlop
+I22_5 (net076 net051_26 net048_26 net049_26) DFlop
+I22_4 (net076 net051_27 net048_27 net049_27) DFlop
+I22_3 (net076 net051_28 net048_28 net049_28) DFlop
+I22_2 (net076 net051_29 net048_29 net049_29) DFlop
+I22_1 (net076 net051_30 net048_30 net049_30) DFlop
+I22_0 (net076 net051_31 net048_31 net049_31) DFlop
+I23_31 (net076 net055_0 net037_0 net053_0) DFlop
+I23_30 (net076 net055_1 net037_1 net053_1) DFlop
+I23_29 (net076 net055_2 net037_2 net053_2) DFlop
+I23_28 (net076 net055_3 net037_3 net053_3) DFlop
+I23_27 (net076 net055_4 net037_4 net053_4) DFlop
+I23_26 (net076 net055_5 net037_5 net053_5) DFlop
+I23_25 (net076 net055_6 net037_6 net053_6) DFlop
+I23_24 (net076 net055_7 net037_7 net053_7) DFlop
+I23_23 (net076 net055_8 net037_8 net053_8) DFlop
+I23_22 (net076 net055_9 net037_9 net053_9) DFlop
+I23_21 (net076 net055_10 net037_10 net053_10) DFlop
+I23_20 (net076 net055_11 net037_11 net053_11) DFlop
+I23_19 (net076 net055_12 net037_12 net053_12) DFlop
+I23_18 (net076 net055_13 net037_13 net053_13) DFlop
+I23_17 (net076 net055_14 net037_14 net053_14) DFlop
+I23_16 (net076 net055_15 net037_15 net053_15) DFlop
+I23_15 (net076 net055_16 net037_16 net053_16) DFlop
+I23_14 (net076 net055_17 net037_17 net053_17) DFlop
+I23_13 (net076 net055_18 net037_18 net053_18) DFlop
+I23_12 (net076 net055_19 net037_19 net053_19) DFlop
+I23_11 (net076 net055_20 net037_20 net053_20) DFlop
+I23_10 (net076 net055_21 net037_21 net053_21) DFlop
+I23_9 (net076 net055_22 net037_22 net053_22) DFlop
+I23_8 (net076 net055_23 net037_23 net053_23) DFlop
+I23_7 (net076 net055_24 net037_24 net053_24) DFlop
+I23_6 (net076 net055_25 net037_25 net053_25) DFlop
+I23_5 (net076 net055_26 net037_26 net053_26) DFlop
+I23_4 (net076 net055_27 net037_27 net053_27) DFlop
+I23_3 (net076 net055_28 net037_28 net053_28) DFlop
+I23_2 (net076 net055_29 net037_29 net053_29) DFlop
+I23_1 (net076 net055_30 net037_30 net053_30) DFlop
+I23_0 (net076 net055_31 net037_31 net053_31) DFlop
+I38_11 (net019 net0127_0 net0104_0 net0128_0) DFlop
+I38_10 (net019 net0127_1 net0104_1 net0128_1) DFlop
+I38_9 (net019 net0127_2 net0104_2 net0128_2) DFlop
+I38_8 (net019 net0127_3 net0104_3 net0128_3) DFlop
+I38_7 (net019 net0127_4 net0104_4 net0128_4) DFlop
+I38_6 (net019 net0127_5 net0104_5 net0128_5) DFlop
+I38_5 (net019 net0127_6 net0104_6 net0128_6) DFlop
+I38_4 (net019 net0127_7 net0104_7 net0128_7) DFlop
+I38_3 (net019 net0127_8 net0104_8 net0128_8) DFlop
+I38_2 (net019 net0127_9 net0104_9 net0128_9) DFlop
+I38_1 (net019 net0127_10 net0104_10 net0128_10) DFlop
+I38_0 (net019 net0127_11 net0104_11 net0128_11) DFlop
+I35_11 (net089 net0124_0 net087_0 net0123_0) DFlop
+I35_10 (net089 net0124_1 net087_1 net0123_1) DFlop
+I35_9 (net089 net0124_2 net087_2 net0123_2) DFlop
+I35_8 (net089 net0124_3 net087_3 net0123_3) DFlop
+I35_7 (net089 net0124_4 net087_4 net0123_4) DFlop
+I35_6 (net089 net0124_5 net087_5 net0123_5) DFlop
+I35_5 (net089 net0124_6 net087_6 net0123_6) DFlop
+I35_4 (net089 net0124_7 net087_7 net0123_7) DFlop
+I35_3 (net089 net0124_8 net087_8 net0123_8) DFlop
+I35_2 (net089 net0124_9 net087_9 net0123_9) DFlop
+I35_1 (net089 net0124_10 net087_10 net0123_10) DFlop
+I35_0 (net089 net0124_11 net087_11 net0123_11) DFlop
+I2 (net059 net057 net058 net057) HS_Cordic
+I10 (net076 net061 net062 net061) HS_Cordic
+I37 (net019 net0121 net047 net0121) HS_Cordic
+I36 (net089 net050 net090 net050) HS_Cordic
+I24_21 (CPUT_32 net088_0 net065_0 ReadEnable) DR_encoder
+I24_20 (CPUT_31 net088_1 net065_1 ReadEnable) DR_encoder
+I24_19 (CPUT_30 net088_2 net065_2 ReadEnable) DR_encoder
+I24_18 (CPUT_29 net088_3 net065_3 ReadEnable) DR_encoder
+I24_17 (CPUT_28 net088_4 net065_4 ReadEnable) DR_encoder
+I24_16 (CPUT_27 net088_5 net065_5 ReadEnable) DR_encoder
+I24_15 (CPUT_26 net088_6 net065_6 ReadEnable) DR_encoder
+I24_14 (CPUT_25 net088_7 net065_7 ReadEnable) DR_encoder
+I24_13 (CPUT_24 net088_8 net065_8 ReadEnable) DR_encoder
+I24_12 (CPUT_23 net088_9 net065_9 ReadEnable) DR_encoder
+I24_11 (CPUT_22 net088_10 net065_10 ReadEnable) DR_encoder
+I24_10 (CPUT_21 net088_11 net065_11 ReadEnable) DR_encoder
+I24_9 (CPUT_20 net088_12 net065_12 ReadEnable) DR_encoder
+I24_8 (CPUT_19 net088_13 net065_13 ReadEnable) DR_encoder
+I24_7 (CPUT_18 net088_14 net065_14 ReadEnable) DR_encoder
+I24_6 (CPUT_17 net088_15 net065_15 ReadEnable) DR_encoder
+I24_5 (CPUT_16 net088_16 net065_16 ReadEnable) DR_encoder
+I24_4 (CPUT_15 net088_17 net065_17 ReadEnable) DR_encoder
+I24_3 (CPUT_14 net088_18 net065_18 ReadEnable) DR_encoder
+I24_2 (CPUT_13 net088_19 net065_19 ReadEnable) DR_encoder
+I24_1 (CPUT_12 net088_20 net065_20 ReadEnable) DR_encoder
+I24_0 (CPUT_11 net088_21 net065_21 ReadEnable) DR_encoder
+I9 (Hit Miss CAck R0_21 R0_20 R0_19 R0_18 R0_17 R0_16 R0_15 R0_14 R0_13 \
+        R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 R0_6 R0_5 R0_4 R0_3 R0_2 R0_1 \
+        R0_0 R1_21 R1_20 R1_19 R1_18 R1_17 R1_16 R1_15 R1_14 R1_13 \
+        R1_12 R1_11 R1_10 R1_9 R1_8 R1_7 R1_6 R1_5 R1_4 R1_3 R1_2 R1_1 \
+        R1_0 net088_0 net088_1 net088_2 net088_3 net088_4 net088_5 \
+        net088_6 net088_7 net088_8 net088_9 net088_10 net088_11 \
+        net088_12 net088_13 net088_14 net088_15 net088_16 net088_17 \
+        net088_18 net088_19 net088_20 net088_21 net065_0 net065_1 \
+        net065_2 net065_3 net065_4 net065_5 net065_6 net065_7 net065_8 \
+        net065_9 net065_10 net065_11 net065_12 net065_13 net065_14 \
+        net065_15 net065_16 net065_17 net065_18 net065_19 net065_20 \
+        net065_21) Compare22_DR
+I14 (Miss R0_31 MissInvalid) nor_1x
+I21 (net084_0 net084_1 net084_2 net084_3 net084_4 net084_5 net084_6 \
+        net084_7 net084_8 net084_9 net084_10 net084_11 net084_12 \
+        net084_13 net084_14 net084_15 net087_0 net087_1 net087_2 \
+        net087_3 net087_4 net087_5 net087_6 net087_7 net087_8 net087_9 \
+        net087_10 net087_11 net097 L1RE WDataT_15 WDataT_14 WDataT_13 \
+        WDataT_12 WDataT_11 WDataT_10 WDataT_9 WDataT_8 WDataT_7 \
+        WDataT_6 WDataT_5 WDataT_4 WDataT_3 WDataT_2 WDataT_1 WDataT_0 \
+        net0106_0 net0106_1 net0106_2 net0106_3 net0106_4 net0106_5 \
+        net0106_6 net0106_7 net0104_0 net0104_1 net0104_2 net0104_3 \
+        net0104_4 net0104_5 net0104_6 net0104_7 net0104_8 net0104_9 \
+        net0104_10 net0104_11 net0102 net0105) _sub199
+I5 (R1_31 Hit HitValid) and_1x
+I30 (RWT_0 WriteEnable net070) and_1x
+I29 (ReadEnable RWT_1 net074) and_1x
+I11 (CAck TagReadeAck TagRAck) _sub160
+I31 (AckT net016 net074 net095 net068 MissInvalid TagRAck ReadEnable \
+        net059 net058 net070 net071 net069) Simple_tag_read_ctrl2
+I32 (WriteEnable net079 net075 net073 net062 net093 net076 net072 \
+        net082) Tag_write_ctrl_rev3
+I34 (net0133 net095 net0114 net097 L1RE net089 net090 net091 net092 \
+        net056 net068 net098) L1_read_ctrl_rev3
+I39 (net0105 net071 net0125 net0122 net047 net069 net019 net0109 \
+        net0102) L1_write_ctrl_rev3
+// BEGIN Hierarchical Interface Elements
+_ie99937 (\~WData_5 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99938 (\~RW_1 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99939 (\~WData_6 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99940 (\~WData_7 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99941 (net052_5 0) a2d dest="99941" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99942 (\~WData_8 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99943 (\~WData_9 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99944 (net052_4 0) a2d dest="99944" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99945 (net052_3 0) a2d dest="99945" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99946 (\~WData_10 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99947 (\~WData_11 0) d2a src="99947" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99948 (\~WData_12 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99949 (\~CPU_Addr_8 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99950 (net052_2 0) a2d dest="99950" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99951 (\~CPU_Addr_30 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99952 (\~CPU_Addr_21 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99953 (\~CPU_Addr_7 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99954 (\~CPU_Addr_22 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99955 (net052_1 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99956 (net052_0 0) a2d dest="99956" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99957 (\~CPU_Addr_15 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99958 (\~WData_13 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99959 (\~WData_3 0) d2a src="99959" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99960 (\~WData_14 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99961 (\~CPU_Addr_11 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99962 (\~WData_1 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (\~CPU_Addr_4 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (\~CPU_Addr_3 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99965 (net052_7 0) a2d dest="99965" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99966 (\~WData_4 0) d2a src="99966" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99967 (\~CPU_Addr_6 0) d2a src="99967" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99968 (\~CPU_Addr_20 0) d2a src="99968" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99969 (\~WData_2 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (net056 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (net0133 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (\~CPU_Addr_17 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (\~CPU_Addr_18 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99974 (\~CPU_Addr_2 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99975 (\~CPU_Addr_16 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (\~CPU_Addr_23 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99977 (\~WData_15 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99978 (\~RW_0 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (\~CPU_Addr_28 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99980 (\~CPU_Addr_12 0) d2a src="99980" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99981 (\~CPU_Addr_29 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99982 (\~CPU_Addr_13 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99983 (\~CPU_Addr_14 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99984 (\~CPU_Addr_5 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99985 (\~CPU_Addr_0 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99986 (\~CPU_Addr_31 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99987 (\~CPU_Addr_1 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (\~CPU_Addr_9 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99989 (\~CPU_Addr_24 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99990 (\~CPU_Addr_10 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99991 (\~CPU_Addr_25 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99992 (\~CPU_Addr_32 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99993 (net052_6 0) a2d dest="99993" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99994 (\~CPU_Addr_26 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (\~CPU_Addr_27 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99996 (\~WData_0 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99997 (\~Ack 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99998 (\~CPU_Addr_19 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (\~Req 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+// END Hierarchical Interface Elements

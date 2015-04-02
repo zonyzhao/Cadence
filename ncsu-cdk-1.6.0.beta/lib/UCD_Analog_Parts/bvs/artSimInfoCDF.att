@@ -1,0 +1,51 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "bvs"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "vol"
+        ?prompt         "voltage eqn"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vol)"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (vol)
+        componentName     hbvs
+        termOrder         (PLUS MINUS)
+        propMapping       (nil)
+        namePrefix        "E"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "vol"
+    cdfSaveCDF( cdfId )
+)

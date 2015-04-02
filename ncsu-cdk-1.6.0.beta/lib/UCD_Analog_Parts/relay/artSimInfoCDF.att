@@ -1,0 +1,161 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "relay"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "vsw"
+        ?prompt         "Open/close voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vsw)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ts"
+        ?prompt         "Time interval for switching"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ts)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ro"
+        ?prompt         "Open switch resistance"
+        ?units          "resistance"
+        ?defValue       "1T"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ro)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "rc"
+        ?prompt         "Close switch resistance"
+        ?units          "resistance"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('rc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r"
+        ?prompt         "Resistance"
+        ?units          "resistance"
+        ?defValue       "1K"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "vt1"
+        ?prompt         "Open voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vt1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "vt2"
+        ?prompt         "Closed voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vt2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        namePrefix        ""
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (vsw td ts ro rc)
+        componentName     switch
+        termOrder         (N\+ N\- NC\+ NC\-)
+        propMapping       nil
+        namePrefix        "W"
+        current           port
+        termMapping       (nil N\+ "" N\- "(FUNCTION minus(root(\"N+\")))" NC\+ "(FUNCTION zero(root(\"N+\")))" NC\- "(FUNCTION zero(root(\"N+\")))")
+        noPortDelimiter   t
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreCompPrim
+        otherParameters   (ro r)
+        instParameters    (vt1 vt2 ropen rclosed m)
+        termOrder         (N\+ N\- NC\+ NC\-)
+        termMapping       (nil N\+ \:1 N\- "(FUNCTION minus(root(\"N+\")))" NC\+ "(FUNCTION zero(root(\"N+\")))" NC\- "(FUNCTION zero(root(\"N+\")))")
+        propMapping       (nil ropen ro rclosed rc)
+        namePrefix        "W"
+        componentName     relay
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSCompPrim
+        otherParameters   (ro r)
+        instParameters    (vt1 vt2 ropen rclosed m)
+        termOrder         (N\+ N\- NC\+ NC\-)
+        termMapping       (nil N\+ \:1 N\- "(FUNCTION minus(root(\"N+\")))" NC\+ "(FUNCTION zero(root(\"N+\")))" NC\- "(FUNCTION zero(root(\"N+\")))")
+        propMapping       (nil ropen ro rclosed rc)
+        namePrefix        "W"
+        componentName     relay
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v i"
+    cdfId->paramLabelSet           = "vsw td ts"
+    cdfSaveCDF( cdfId )
+)

@@ -1,0 +1,23 @@
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 14.1.0.303.isr3 32bit -- 16 Dec 2014
+Simulating `input.scs' on bull at 10:25:05 AM, Fri Mar 6, 2015 (process id: 10485).
+H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre6_30385_25" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0xea7c098 = H->sclGetCircuit(  "" )
+sclParam0xea7c098 = H->sclGetParameter( sclCkt0xea7c098 "vdd" )
+H->sclSetAttribute( sclParam0xea7c098 "value" ".636" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0xea7c098 = H->sclGetCircuit(  "" )
+sclParam0xea7c099 = H->sclGetParameter( sclCkt0xea7c098 "vdd" )
+H->sclSetAttribute( sclParam0xea7c099 "value" "1" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0xea7c098 = H->sclGetCircuit(  "" )
+sclParam0xea7c09a = H->sclGetParameter( sclCkt0xea7c098 "vdd" )
+H->sclSetAttribute( sclParam0xea7c09a "value" "1.6" )
+H->sclSetResultDir( "../psf" )
+H->sclRun( "all" )
+sclCkt0xea7c098 = H->sclGetCircuit(  "" )
+H->sclQuit(  )

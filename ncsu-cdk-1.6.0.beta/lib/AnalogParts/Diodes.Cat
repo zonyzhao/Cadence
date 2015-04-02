@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+NCSU_Analog_Parts/Diodes_Index type="cell"
+NCSU_Analog_Parts/diode type="cell"
+NCSU_Analog_Parts/schottky type="cell"
+NCSU_Analog_Parts/zener type="cell"

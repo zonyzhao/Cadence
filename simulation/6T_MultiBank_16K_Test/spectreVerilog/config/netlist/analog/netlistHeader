@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Mar  7 00:56:58 2015
+// Design library name: 16nm_Tests
+// Design cell name: 6T_MultiBank_16K_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vdd! vcc!

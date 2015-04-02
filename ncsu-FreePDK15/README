@@ -1,0 +1,55 @@
+FreePDK15(TM) Predictive Process Design Kit
+verion 1.0 (2014-07-22)
+(Git Repository Commit 2014-07-22)
+
+Copyright (c) 2014, W. Rhett Davis and Kirti Bhanushali 
+                    North Caroina State University, Raleigh, NC, USA
+
+Please see the file LICENSE in this directory for license.  
+You may not use these files except in compliance with the License.
+
+***** Welcome to the FreePDK 15nm Free, Open-Source Process Design Kit *****
+
+This initiative is brought to you by the NC State University, NanGate,
+and Mentor Graphics.
+
+This version of the kit was created by Rhett Davis and Kirti Bhanushali 
+of NCSU, with the guidance of Paul Franzon from NCSU and Alexandre Toniolo 
+from NanGate, and numerous bug fixes from Guilherme Schlinker (NanGate),
+Tarek Ramadan (Mentor Graphics), Ahmed Hammed Fathy (Mentor Graphics), 
+Omar El-Sewefy (Mentor Graphics), Ahmed El-Kordy (Mentor Graphics), and
+Hend Wagieh (Mentor Graphics).
+
+***** Contents *****
+
+cdslib/           Technology libraires for Cadence Virtuoso
+calibre/          SVRF rules for Mentor Graphics Calibre
+
+Documentation for this kit can be found at http://www.eda.ncsu.edu/wiki/FreePDK
+Please send all questions and comments to eda_help@ncsu.edu
+
+***** Quick Design Kit Usage Instructions *****
+
+  1) Change the environment variable $PDK_DIR in the file
+     $PDK_DIR/cdslib/setup/setup.csh to reflect the FreePDK
+     installation path.
+     
+  2) Source your setup scripts for Cadence Virtuoso, Mentor Graphics
+     Calibre, and Synopsys PyCell Studio.  
+
+  3) Change to the directory where you want to start Virtuoso and
+     source the file $PDK_DIR/cdslib/setup/setup.csh.  Note that
+     this script copies all of the required user files (.cdsinit,
+     cds.lib, and Calibre runset files) to the current working directory 
+     if they do not already exist.
+
+  4) Start Cadence Virtuoso ( % virtuoso &  for example ) 
+
+***** Documentation and Support *****
+
+Documentation for this kit is under development.  All documentation can 
+currently by found by following the FreePDK15 link at
+
+   http://www.eda.ncsu.edu/wiki/FreePDK
+
+***** Please send all questions and comments to eda_help@ncsu.edu *****

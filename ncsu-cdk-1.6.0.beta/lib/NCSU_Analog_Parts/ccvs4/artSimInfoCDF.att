@@ -1,0 +1,115 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "ccvs4"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "hgain"
+        ?prompt         "Transresistance"
+        ?units          "resistance"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('hgain)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a"
+        ?prompt         "Phase offset"
+        ?units          "angle"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('a)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r1"
+        ?prompt         "Input resistance"
+        ?units          "resistance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r2"
+        ?prompt         "Output resistance"
+        ?units          "resistance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "f3db"
+        ?prompt         "3dB frequency"
+        ?units          "frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('f3db)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        instParameters    (m ang t)
+        componentName     CDVS
+        termOrder         (NC\+ NC\- MINUS PLUS)
+        propMapping       (nil m hgain ang a t td)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (m a r1 r2 f t)
+        freqParameters    (f)
+        componentName     CCVS
+        termOrder         (NC\+ PLUS NC\- MINUS)
+        propMapping       (nil m hgain f f3db t td)
+        namePrefix        ""
+    )
+    cdfId->simInfo->mharm = '( nil
+        netlistProcedure  ansMharmCompPrim
+        instParameters    (r r1 r2 f t)
+        componentName     cvg
+        termOrder         (NC\+ PLUS NC\- MINUS)
+        propMapping       (nil r hgain f f3db t td)
+        namePrefix        ""
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

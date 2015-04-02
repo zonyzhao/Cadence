@@ -1,0 +1,280 @@
+    I77_3 (net0117_0 We_7) inv_1x
+    I77_2 (net0117_1 We_6) inv_1x
+    I77_1 (net0117_2 We_5) inv_1x
+    I77_0 (net0117_3 We_4) inv_1x
+    I76_3 (net0118_0 We_3) inv_1x
+    I76_2 (net0118_1 We_2) inv_1x
+    I76_1 (net0118_2 We_1) inv_1x
+    I76_0 (net0118_3 We_0) inv_1x
+    I75_3 (net0115_0 Re2_7) inv_1x
+    I75_2 (net0115_1 Re2_6) inv_1x
+    I75_1 (net0115_2 Re2_5) inv_1x
+    I75_0 (net0115_3 Re2_4) inv_1x
+    I73_3 (\~KRe_7 net0115_0) inv_1x
+    I73_2 (\~KRe_6 net0115_1) inv_1x
+    I73_1 (\~KRe_5 net0115_2) inv_1x
+    I73_0 (\~KRe_4 net0115_3) inv_1x
+    I72_3 (\~KRe_3 net0116_0) inv_1x
+    I72_2 (\~KRe_2 net0116_1) inv_1x
+    I72_1 (\~KRe_1 net0116_2) inv_1x
+    I72_0 (\~KRe_0 net0116_3) inv_1x
+    I71_3 (\~KWe_7 net0117_0) inv_1x
+    I71_2 (\~KWe_6 net0117_1) inv_1x
+    I71_1 (\~KWe_5 net0117_2) inv_1x
+    I71_0 (\~KWe_4 net0117_3) inv_1x
+    I70_3 (\~KWe_3 net0118_0) inv_1x
+    I70_2 (\~KWe_2 net0118_1) inv_1x
+    I70_1 (\~KWe_1 net0118_2) inv_1x
+    I70_0 (\~KWe_0 net0118_3) inv_1x
+    I66 (KRve_0 \~KRe_0) inv_1x
+    I63 (KRve_1 \~KRe_1) inv_1x
+    I59 (KRve_2 \~KRe_2) inv_1x
+    I56 (KRve_3 \~KRe_3) inv_1x
+    I52 (KRve_4 \~KRe_4) inv_1x
+    I49 (KRve_5 \~KRe_5) inv_1x
+    I45 (KRve_6 \~KRe_6) inv_1x
+    I42 (KRve_7 \~KRe_7) inv_1x
+    I37 (KWve_7 \~KWe_7) inv_1x
+    I36 (KWve_6 \~KWe_6) inv_1x
+    I35 (KWve_5 \~KWe_5) inv_1x
+    I34 (KWve_4 \~KWe_4) inv_1x
+    I33 (KWve_3 \~KWe_3) inv_1x
+    I32 (KWve_2 \~KWe_2) inv_1x
+    I31 (KWve_1 \~KWe_1) inv_1x
+    I30 (KWve_0 \~KWe_0) inv_1x
+    I74_3 (net0116_0 Re2_3) inv_1x
+    I74_2 (net0116_1 Re2_2) inv_1x
+    I74_1 (net0116_2 Re2_1) inv_1x
+    I74_0 (net0116_3 Re2_0) inv_1x
+    I3_31 (\~R1_31 R1_31) inv_1x
+    I3_30 (\~R1_30 R1_30) inv_1x
+    I3_29 (\~R1_29 R1_29) inv_1x
+    I3_28 (\~R1_28 R1_28) inv_1x
+    I3_27 (\~R1_27 R1_27) inv_1x
+    I3_26 (\~R1_26 R1_26) inv_1x
+    I3_25 (\~R1_25 R1_25) inv_1x
+    I3_24 (\~R1_24 R1_24) inv_1x
+    I3_23 (\~R1_23 R1_23) inv_1x
+    I3_22 (\~R1_22 R1_22) inv_1x
+    I3_21 (\~R1_21 R1_21) inv_1x
+    I3_20 (\~R1_20 R1_20) inv_1x
+    I3_19 (\~R1_19 R1_19) inv_1x
+    I3_18 (\~R1_18 R1_18) inv_1x
+    I3_17 (\~R1_17 R1_17) inv_1x
+    I3_16 (\~R1_16 R1_16) inv_1x
+    I3_15 (\~R1_15 R1_15) inv_1x
+    I3_14 (\~R1_14 R1_14) inv_1x
+    I3_13 (\~R1_13 R1_13) inv_1x
+    I3_12 (\~R1_12 R1_12) inv_1x
+    I3_11 (\~R1_11 R1_11) inv_1x
+    I3_10 (\~R1_10 R1_10) inv_1x
+    I3_9 (\~R1_9 R1_9) inv_1x
+    I3_8 (\~R1_8 R1_8) inv_1x
+    I3_7 (\~R1_7 R1_7) inv_1x
+    I3_6 (\~R1_6 R1_6) inv_1x
+    I3_5 (\~R1_5 R1_5) inv_1x
+    I3_4 (\~R1_4 R1_4) inv_1x
+    I3_3 (\~R1_3 R1_3) inv_1x
+    I3_2 (\~R1_2 R1_2) inv_1x
+    I3_1 (\~R1_1 R1_1) inv_1x
+    I3_0 (\~R1_0 R1_0) inv_1x
+    I2_31 (\~R0_31 R0_31) inv_1x
+    I2_30 (\~R0_30 R0_30) inv_1x
+    I2_29 (\~R0_29 R0_29) inv_1x
+    I2_28 (\~R0_28 R0_28) inv_1x
+    I2_27 (\~R0_27 R0_27) inv_1x
+    I2_26 (\~R0_26 R0_26) inv_1x
+    I2_25 (\~R0_25 R0_25) inv_1x
+    I2_24 (\~R0_24 R0_24) inv_1x
+    I2_23 (\~R0_23 R0_23) inv_1x
+    I2_22 (\~R0_22 R0_22) inv_1x
+    I2_21 (\~R0_21 R0_21) inv_1x
+    I2_20 (\~R0_20 R0_20) inv_1x
+    I2_19 (\~R0_19 R0_19) inv_1x
+    I2_18 (\~R0_18 R0_18) inv_1x
+    I2_17 (\~R0_17 R0_17) inv_1x
+    I2_16 (\~R0_16 R0_16) inv_1x
+    I2_15 (\~R0_15 R0_15) inv_1x
+    I2_14 (\~R0_14 R0_14) inv_1x
+    I2_13 (\~R0_13 R0_13) inv_1x
+    I2_12 (\~R0_12 R0_12) inv_1x
+    I2_11 (\~R0_11 R0_11) inv_1x
+    I2_10 (\~R0_10 R0_10) inv_1x
+    I2_9 (\~R0_9 R0_9) inv_1x
+    I2_8 (\~R0_8 R0_8) inv_1x
+    I2_7 (\~R0_7 R0_7) inv_1x
+    I2_6 (\~R0_6 R0_6) inv_1x
+    I2_5 (\~R0_5 R0_5) inv_1x
+    I2_4 (\~R0_4 R0_4) inv_1x
+    I2_3 (\~R0_3 R0_3) inv_1x
+    I2_2 (\~R0_2 R0_2) inv_1x
+    I2_1 (\~R0_1 R0_1) inv_1x
+    I2_0 (\~R0_0 R0_0) inv_1x
+    I1_31 (W1_31 \~W1_31) inv_1x
+    I1_30 (W1_30 \~W1_30) inv_1x
+    I1_29 (W1_29 \~W1_29) inv_1x
+    I1_28 (W1_28 \~W1_28) inv_1x
+    I1_27 (W1_27 \~W1_27) inv_1x
+    I1_26 (W1_26 \~W1_26) inv_1x
+    I1_25 (W1_25 \~W1_25) inv_1x
+    I1_24 (W1_24 \~W1_24) inv_1x
+    I1_23 (W1_23 \~W1_23) inv_1x
+    I1_22 (W1_22 \~W1_22) inv_1x
+    I1_21 (W1_21 \~W1_21) inv_1x
+    I1_20 (W1_20 \~W1_20) inv_1x
+    I1_19 (W1_19 \~W1_19) inv_1x
+    I1_18 (W1_18 \~W1_18) inv_1x
+    I1_17 (W1_17 \~W1_17) inv_1x
+    I1_16 (W1_16 \~W1_16) inv_1x
+    I1_15 (W1_15 \~W1_15) inv_1x
+    I1_14 (W1_14 \~W1_14) inv_1x
+    I1_13 (W1_13 \~W1_13) inv_1x
+    I1_12 (W1_12 \~W1_12) inv_1x
+    I1_11 (W1_11 \~W1_11) inv_1x
+    I1_10 (W1_10 \~W1_10) inv_1x
+    I1_9 (W1_9 \~W1_9) inv_1x
+    I1_8 (W1_8 \~W1_8) inv_1x
+    I1_7 (W1_7 \~W1_7) inv_1x
+    I1_6 (W1_6 \~W1_6) inv_1x
+    I1_5 (W1_5 \~W1_5) inv_1x
+    I1_4 (W1_4 \~W1_4) inv_1x
+    I1_3 (W1_3 \~W1_3) inv_1x
+    I1_2 (W1_2 \~W1_2) inv_1x
+    I1_1 (W1_1 \~W1_1) inv_1x
+    I1_0 (W1_0 \~W1_0) inv_1x
+    I0_31 (W0_31 \~W0_31) inv_1x
+    I0_30 (W0_30 \~W0_30) inv_1x
+    I0_29 (W0_29 \~W0_29) inv_1x
+    I0_28 (W0_28 \~W0_28) inv_1x
+    I0_27 (W0_27 \~W0_27) inv_1x
+    I0_26 (W0_26 \~W0_26) inv_1x
+    I0_25 (W0_25 \~W0_25) inv_1x
+    I0_24 (W0_24 \~W0_24) inv_1x
+    I0_23 (W0_23 \~W0_23) inv_1x
+    I0_22 (W0_22 \~W0_22) inv_1x
+    I0_21 (W0_21 \~W0_21) inv_1x
+    I0_20 (W0_20 \~W0_20) inv_1x
+    I0_19 (W0_19 \~W0_19) inv_1x
+    I0_18 (W0_18 \~W0_18) inv_1x
+    I0_17 (W0_17 \~W0_17) inv_1x
+    I0_16 (W0_16 \~W0_16) inv_1x
+    I0_15 (W0_15 \~W0_15) inv_1x
+    I0_14 (W0_14 \~W0_14) inv_1x
+    I0_13 (W0_13 \~W0_13) inv_1x
+    I0_12 (W0_12 \~W0_12) inv_1x
+    I0_11 (W0_11 \~W0_11) inv_1x
+    I0_10 (W0_10 \~W0_10) inv_1x
+    I0_9 (W0_9 \~W0_9) inv_1x
+    I0_8 (W0_8 \~W0_8) inv_1x
+    I0_7 (W0_7 \~W0_7) inv_1x
+    I0_6 (W0_6 \~W0_6) inv_1x
+    I0_5 (W0_5 \~W0_5) inv_1x
+    I0_4 (W0_4 \~W0_4) inv_1x
+    I0_3 (W0_3 \~W0_3) inv_1x
+    I0_2 (W0_2 \~W0_2) inv_1x
+    I0_1 (W0_1 \~W0_1) inv_1x
+    I0_0 (W0_0 \~W0_0) inv_1x
+    I5_31 (\~R0_31 \~R1_31 Rnand_31) nand_1x
+    I5_30 (\~R0_30 \~R1_30 Rnand_30) nand_1x
+    I5_29 (\~R0_29 \~R1_29 Rnand_29) nand_1x
+    I5_28 (\~R0_28 \~R1_28 Rnand_28) nand_1x
+    I5_27 (\~R0_27 \~R1_27 Rnand_27) nand_1x
+    I5_26 (\~R0_26 \~R1_26 Rnand_26) nand_1x
+    I5_25 (\~R0_25 \~R1_25 Rnand_25) nand_1x
+    I5_24 (\~R0_24 \~R1_24 Rnand_24) nand_1x
+    I5_23 (\~R0_23 \~R1_23 Rnand_23) nand_1x
+    I5_22 (\~R0_22 \~R1_22 Rnand_22) nand_1x
+    I5_21 (\~R0_21 \~R1_21 Rnand_21) nand_1x
+    I5_20 (\~R0_20 \~R1_20 Rnand_20) nand_1x
+    I5_19 (\~R0_19 \~R1_19 Rnand_19) nand_1x
+    I5_18 (\~R0_18 \~R1_18 Rnand_18) nand_1x
+    I5_17 (\~R0_17 \~R1_17 Rnand_17) nand_1x
+    I5_16 (\~R0_16 \~R1_16 Rnand_16) nand_1x
+    I5_15 (\~R0_15 \~R1_15 Rnand_15) nand_1x
+    I5_14 (\~R0_14 \~R1_14 Rnand_14) nand_1x
+    I5_13 (\~R0_13 \~R1_13 Rnand_13) nand_1x
+    I5_12 (\~R0_12 \~R1_12 Rnand_12) nand_1x
+    I5_11 (\~R0_11 \~R1_11 Rnand_11) nand_1x
+    I5_10 (\~R0_10 \~R1_10 Rnand_10) nand_1x
+    I5_9 (\~R0_9 \~R1_9 Rnand_9) nand_1x
+    I5_8 (\~R0_8 \~R1_8 Rnand_8) nand_1x
+    I5_7 (\~R0_7 \~R1_7 Rnand_7) nand_1x
+    I5_6 (\~R0_6 \~R1_6 Rnand_6) nand_1x
+    I5_5 (\~R0_5 \~R1_5 Rnand_5) nand_1x
+    I5_4 (\~R0_4 \~R1_4 Rnand_4) nand_1x
+    I5_3 (\~R0_3 \~R1_3 Rnand_3) nand_1x
+    I5_2 (\~R0_2 \~R1_2 Rnand_2) nand_1x
+    I5_1 (\~R0_1 \~R1_1 Rnand_1) nand_1x
+    I5_0 (\~R0_0 \~R1_0 Rnand_0) nand_1x
+    I4_31 (\~W0_31 \~W1_31 Wnand_31) nand_1x
+    I4_30 (\~W0_30 \~W1_30 Wnand_30) nand_1x
+    I4_29 (\~W0_29 \~W1_29 Wnand_29) nand_1x
+    I4_28 (\~W0_28 \~W1_28 Wnand_28) nand_1x
+    I4_27 (\~W0_27 \~W1_27 Wnand_27) nand_1x
+    I4_26 (\~W0_26 \~W1_26 Wnand_26) nand_1x
+    I4_25 (\~W0_25 \~W1_25 Wnand_25) nand_1x
+    I4_24 (\~W0_24 \~W1_24 Wnand_24) nand_1x
+    I4_23 (\~W0_23 \~W1_23 Wnand_23) nand_1x
+    I4_22 (\~W0_22 \~W1_22 Wnand_22) nand_1x
+    I4_21 (\~W0_21 \~W1_21 Wnand_21) nand_1x
+    I4_20 (\~W0_20 \~W1_20 Wnand_20) nand_1x
+    I4_19 (\~W0_19 \~W1_19 Wnand_19) nand_1x
+    I4_18 (\~W0_18 \~W1_18 Wnand_18) nand_1x
+    I4_17 (\~W0_17 \~W1_17 Wnand_17) nand_1x
+    I4_16 (\~W0_16 \~W1_16 Wnand_16) nand_1x
+    I4_15 (\~W0_15 \~W1_15 Wnand_15) nand_1x
+    I4_14 (\~W0_14 \~W1_14 Wnand_14) nand_1x
+    I4_13 (\~W0_13 \~W1_13 Wnand_13) nand_1x
+    I4_12 (\~W0_12 \~W1_12 Wnand_12) nand_1x
+    I4_11 (\~W0_11 \~W1_11 Wnand_11) nand_1x
+    I4_10 (\~W0_10 \~W1_10 Wnand_10) nand_1x
+    I4_9 (\~W0_9 \~W1_9 Wnand_9) nand_1x
+    I4_8 (\~W0_8 \~W1_8 Wnand_8) nand_1x
+    I4_7 (\~W0_7 \~W1_7 Wnand_7) nand_1x
+    I4_6 (\~W0_6 \~W1_6 Wnand_6) nand_1x
+    I4_5 (\~W0_5 \~W1_5 Wnand_5) nand_1x
+    I4_4 (\~W0_4 \~W1_4 Wnand_4) nand_1x
+    I4_3 (\~W0_3 \~W1_3 Wnand_3) nand_1x
+    I4_2 (\~W0_2 \~W1_2 Wnand_2) nand_1x
+    I4_1 (\~W0_1 \~W1_1 Wnand_1) nand_1x
+    I4_0 (\~W0_0 \~W1_0 Wnand_0) nand_1x
+    I68 (Rnand_0 Rnand_1 Rnand_2 Rnand_3 Rv_0) TH44
+    I65 (Rnand_4 Rnand_5 Rnand_6 Rnand_7 Rv_1) TH44
+    I62 (\~KRe_0 \~KRe_1 \~KRe_2 \~KRe_3 net088) TH44
+    I61 (Rnand_8 Rnand_9 Rnand_10 Rnand_11 Rv_2) TH44
+    I58 (Rnand_12 Rnand_13 Rnand_14 Rnand_15 Rv_3) TH44
+    I54 (Rnand_16 Rnand_17 Rnand_18 Rnand_19 Rv_4) TH44
+    I51 (Rnand_20 Rnand_21 Rnand_22 Rnand_23 Rv_5) TH44
+    I48 (\~KRe_4 \~KRe_5 \~KRe_6 \~KRe_7 net087) TH44
+    I47 (Rnand_24 Rnand_25 Rnand_26 Rnand_27 Rv_6) TH44
+    I44 (Rnand_28 Rnand_29 Rnand_30 Rnand_31 Rv_7) TH44
+    I39 (\~KWe_4 \~KWe_5 \~KWe_6 \~KWe_7 net089) TH44
+    I38 (\~KWe_0 \~KWe_1 \~KWe_2 \~KWe_3 net090) TH44
+    I13 (Wnand_28 Wnand_29 Wnand_30 Wnand_31 Wv_7) TH44
+    I12 (Wnand_24 Wnand_25 Wnand_26 Wnand_27 Wv_6) TH44
+    I11 (Wnand_20 Wnand_21 Wnand_22 Wnand_23 Wv_5) TH44
+    I10 (Wnand_16 Wnand_17 Wnand_18 Wnand_19 Wv_4) TH44
+    I9 (Wnand_12 Wnand_13 Wnand_14 Wnand_15 Wv_3) TH44
+    I8 (Wnand_8 Wnand_9 Wnand_10 Wnand_11 Wv_2) TH44
+    I7 (Wnand_4 Wnand_5 Wnand_6 Wnand_7 Wv_1) TH44
+    I6 (Wnand_0 Wnand_1 Wnand_2 Wnand_3 Wv_0) TH44
+    I67 (KRv Rv_0 KRve_0) TH22
+    I64 (KRv Rv_1 KRve_1) TH22
+    I60 (KRv Rv_2 KRve_2) TH22
+    I57 (KRv Rv_3 KRve_3) TH22
+    I55 (net088 net087 KRe) TH22
+    I53 (KRv Rv_4 KRve_4) TH22
+    I50 (KRv Rv_5 KRve_5) TH22
+    I46 (KRv Rv_6 KRve_6) TH22
+    I43 (KRv Rv_7 KRve_7) TH22
+    I41 (net090 net089 KWe) TH22
+    I23 (Wv_1 KWv KWve_1) TH22
+    I24 (Wv_2 KWv KWve_2) TH22
+    I25 (Wv_3 KWv KWve_3) TH22
+    I26 (Wv_4 KWv KWve_4) TH22
+    I22 (Wv_0 KWv KWve_0) TH22
+    I27 (Wv_5 KWv KWve_5) TH22
+    I28 (Wv_6 KWv KWve_6) TH22
+    I29 (Wv_7 KWv KWve_7) TH22
+ends _sub0
+// End of subcircuit definition.

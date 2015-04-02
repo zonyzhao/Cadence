@@ -1,0 +1,214 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "pdiode"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vd"
+        ?prompt         "Initial diode voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vd)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "trise"
+        ?prompt         "Temp rise from ambient"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('trise)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "region"
+        ?prompt         "Estimated operating region"
+        ?defValue       "on"
+        ?choices        '("off" "on")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('region)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "pj"
+        ?prompt         "Periphery of junction"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('pj)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wp"
+        ?prompt         "Width of polysilicon"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('wp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "lp"
+        ?prompt         "Length of polysilicon"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('lp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wm"
+        ?prompt         "Width of metal capacitor"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('wm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "lm"
+        ?prompt         "Length of metal capacitor"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('lm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dtemp"
+        ?prompt         "Temperature difference"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dtemp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        propMapping       nil
+        netlistProcedure  ansCdlCompPrim
+        componentName     pdiode
+        termOrder         (PLUS MINUS)
+        namePrefix        "D"
+        modelName         "DP"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        componentName     pdiode
+        termOrder         (PLUS MINUS)
+        namePrefix        "D"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area off vd)
+        otherParameters   (model)
+        componentName     diode
+        termOrder         (PLUS MINUS)
+        propMapping       (nil vd Vd)
+        namePrefix        "D"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area pj wp lp wm lm off Vd m dtemp)
+        otherParameters   (model)
+        componentName     hdiode
+        termOrder         (PLUS MINUS)
+        propMapping       (nil vd Vd)
+        namePrefix        "D"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        instParameters    (area m trise region)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:a MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "D"
+        componentName     diode
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (model region)
+        instParameters    (area m trise)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:a MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "D"
+        componentName     diode
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

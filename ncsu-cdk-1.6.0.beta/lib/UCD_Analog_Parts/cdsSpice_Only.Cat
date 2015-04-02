@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/cdsSpice_Only_Index type="cell"
+UCD_Analog_Parts/isffm type="cell"
+UCD_Analog_Parts/nsoi type="cell"
+UCD_Analog_Parts/psoi type="cell"
+UCD_Analog_Parts/scr type="cell"
+UCD_Analog_Parts/vsffm type="cell"

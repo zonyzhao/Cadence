@@ -1,0 +1,3 @@
+projectDir = '"/net/bull/apps/Cadence/simulation"
+designInfo = '("16nm_Tests" "10T_TagMem_Test" "config" "spectreVerilog")
+descriptionText = "None"

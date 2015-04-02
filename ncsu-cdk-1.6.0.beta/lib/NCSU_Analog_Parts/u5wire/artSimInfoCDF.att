@@ -1,0 +1,71 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "u5wire"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "lumps"
+        ?prompt         "# of lumps in element"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('lumps)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (l lumps)
+        otherParameters   (model)
+        componentName     huwire
+        termOrder         (in1 in2 in3 in4 in5 refin out1 out2 out3 out4 out5 refout)
+        propMapping       (nil)
+        namePrefix        "U"
+        current           port
+        termMapping       (nil in1 "" out1 "(FUNCTION minus(root(\"in1\")))" in2 "" out2 "(FUNCTION minus(root(\"in2\")))" in3 "" out3 "(FUNCTION minus(root(\"in3\")))" in4 "" out4 "(FUNCTION minus(root(\"in4\")))" in5 "" out5 "(FUNCTION minus(root(\"in5\")))" refin "" refout "(FUNCTION minus(root(\"refin\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "-model l lumps"
+    cdfSaveCDF( cdfId )
+)

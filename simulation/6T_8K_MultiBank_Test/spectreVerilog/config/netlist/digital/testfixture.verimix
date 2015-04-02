@@ -1,0 +1,112 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+integer start;
+reg[11:0] lastWriteAddr;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+
+initial
+begin 
+
+   seed = 5;
+   start = 0;
+   rLog=$fopen("/tmp2/8k_RLog.csv");
+   $fdisplay(rLog, "R_Address, RData[15:0], total_time(ps), read_delay(ps)");
+
+   wLog=$fopen("/tmp2/8K_WLog.csv"); 
+   $fdisplay(wLog, "W_Address, Data1[15:0], , total_time(ps), write_delay(ps)");
+
+   Data1[15:0]     = 16'h0000;
+   W_Address[11:0] = 12'h000;
+   R_Address[11:0] = 12'h000;
+   ReadEn          = 1'b0;
+   WriteEn         = 1'b0;
+   lastWriteAddr[11:0] = 12'hFFF;
+   #1000;
+
+// Perform Read
+   R_Address[11:0] = lastWriteAddr[11:0];
+   ReadEn          = 1'b1;
+   wait(ReadAck);
+
+// Null Read
+   ReadEn = 1'b0;
+   R_Address[11:0] = 12'h000;
+   wait(~ReadAck);
+
+// Perform Write
+   WriteEn         = 1'b1;
+   Data1[15:0]     = $random;
+   W_Address[11:0] = 12'h000;
+   wait(WriteAck);
+
+//Null Write
+   WriteEn = 1'b0;
+   Data1[15:0] = 16'h0000;
+   wait(~WriteAck);
+
+// Start read + write simultaneously
+   start           = 1;
+   Data1[15:0]     = $random;
+   W_Address[11:0] = 12'h000;
+   R_Address[11:0] = lastWriteAddr[11:0];
+   ReadEn          =  1'b1;
+   WriteEn         =  1'b1;
+
+end 
+
+
+always @(posedge WriteAck) begin
+   if (start==1) begin
+   	  wDelay = $time - wStart;
+   	  $fdisplay(wLog, "%h, %h, %t, %t", W_Address[11:0], Data1[15:0], $time, wDelay);
+          lastWriteAddr[11:0] <= W_Address[11:0];
+   	  Data1[15:0] = 16'h0000;
+   	  WriteEn  = 1'b0;  
+          wStart   = $time;
+   end
+end
+
+always @(negedge WriteAck) begin
+   if (start==1) begin
+   	   wDelay = $time - wStart;
+   	   $fdisplay(wLog, "%h, %h, %t, %t", W_Address[11:0], Data1[15:0], $time, wDelay);   	   
+           Data1[15:0]     = $random;
+   	   W_Address[11:0] = $random;
+           WriteEn   = 1'b1;  
+	   wStart    = $time;
+   end
+end
+
+always @(negedge ReadAck) begin
+   if (start==1) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %t, %t", R_Address[11:0], RData[15:0], $time, rDelay);   	   
+   	   R_Address[11:0] = lastWriteAddr[11:0];
+           if (R_Address[11:9] == W_Address[11:9]) begin
+	       R_Address[11:9] = ~R_Address[11:9];
+           end
+           ReadEn      = 1'b1;
+	   rStart      = $time;
+   end
+end
+
+always @(posedge ReadAck) begin
+   if (start==1) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %t, %t", R_Address[11:0], RData[15:0], $time, rDelay);   	   
+           ReadEn         = 1'b0; 
+           R_Address[11:0] = 12'h000;
+	   rStart        = $time;
+   end
+end

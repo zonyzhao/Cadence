@@ -1,0 +1,38 @@
+"#INPUTS"
+((name "A") 
+    (nodes 
+	("A" "/gnd!")
+    ) 
+    (enabled nil) 
+    (tranType "dc") 
+    (srcType "Voltage")
+    (instParameters nil) 
+    (otherParameters nil)
+)
+((name "B1") 
+    (nodes 
+	("B1" "/gnd!")
+    ) 
+    (enabled nil) 
+    (tranType "bit") 
+    (srcType "Voltage")
+    (instParameters nil) 
+    (otherParameters nil)
+)
+((name "B0") 
+    (nodes 
+	("B0" "/gnd!")
+    ) 
+    (enabled nil) 
+    (tranType "bit") 
+    (srcType "Voltage")
+    (instParameters nil) 
+    (otherParameters nil)
+)
+"#GLOBALS"
+((name "vdd!") 
+    (nodes 
+	("vdd!" "/gnd!")
+    ) 
+    (enabled nil)
+)

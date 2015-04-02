@@ -1,0 +1,164 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "userpnp"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "bn"
+        ?prompt         "Bulk node connection"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('bn)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vbe"
+        ?prompt         "Base-emitter voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vbe)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vce"
+        ?prompt         "Collector-emitter voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vce)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "le"
+        ?prompt         "Emitter length"
+        ?defValue       "15"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('le)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "we"
+        ?prompt         "Emitter width"
+        ?defValue       "25"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('we)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "lc"
+        ?prompt         "Collector length"
+        ?defValue       "25"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('lc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        propMapping       nil
+        netlistProcedure  ansCdlCompPrim
+        componentName     userpnp
+        termOrder         (C B E)
+        namePrefix        "Q"
+        modelName         "PN"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        componentName     userpnp
+        termOrder         (C B E)
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area vbe vce off)
+        otherParameters   (model bn)
+        modelArguments    (le we lc)
+        componentName     bjt
+        termOrder         (C B E progn(bn))
+        propMapping       (nil vbe Vbe vce Vce)
+        namePrefix        "Q"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area vbe vce off)
+        otherParameters   (model bn)
+        modelArguments    (le we lc)
+        componentName     bjt
+        termOrder         (C B E progn(bn))
+        propMapping       (nil vbe Vbe vce Vce)
+        namePrefix        "Q"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area vbe vce off)
+        otherParameters   (model bn)
+        modelArguments    (le we lc)
+        componentName     bjt
+        termOrder         (C B E progn(bn))
+        propMapping       (nil vbe Vbe vce Vce)
+        namePrefix        "Q"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "bf is va"
+    cdfId->opPointLabelSet         = "betadc ic Vce"
+    cdfId->paramLabelSet           = "le we lc"
+    cdfSaveCDF( cdfId )
+)

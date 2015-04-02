@@ -1,0 +1,231 @@
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0      2180          0          0             1             1       no
+MessageId: 1074 (ABS-1074):      720     360     630       0      2180          0          0             1             1       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0      2180          0          0             1             1      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0      2180          0          0             1             1      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0      2180          0          0             1             1      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0      2180          0          0             1             1      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     630       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     630     315     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     720       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     720     360     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     810       0     22180          0          0             0             0      yes
+MessageId: 1074 (ABS-1074):      810       0     810     405     20120          0          2             0             0      yes
+MessageId: 1074 (ABS-1074):      810       0     900       0     12180          0          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810       0     900     450     10120          0          2             0             1      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     16420         88         11             8             8       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     18850         69         11             8             8       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     92450        232         11             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    101660         28         11             0             8      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     34930        112         11             6             8      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0     35420        137         11             6             8      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     14400        138         11             8             8      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     14000        158         11             8             8      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     64560        130         11             3             8      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     63970        159         11             3             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    101660         28         11             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     99720         28         58             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0    101100         28         39             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360     99620         28         63             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0    177620         28        163             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405    173490         28         16             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0    100900         28         49             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     91630         28        109             0             8      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     17560        116         13             8             8       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     19670         60         13             8             8       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     92720        254         13             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    102310         28         13             0             8      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     15860        150         13             8             8      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0     16650        109         13             8             8      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     23520        163         13             7             8      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     26480        170         13             7             8      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     65810        153         13             3             8      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     63540        163         13             3             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    102310         28         13             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     99250         28         65             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0    100830         28         36             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360    100070         28         75             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0    177050         28        175             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405    174180         28         16             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0    100550         28         50             0             8      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     92080         28        121             0             8      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0      4500         69          4             1             1       no
+MessageId: 1074 (ABS-1074):      720     360     630       0      4220         30          4             1             1       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     12120        137          4             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     15680          8          4             0             1      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0      4420         73          4             1             1      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0      3760         53          4             1             1      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     13300         77          4             0             1      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     13960         95          4             0             1      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0      4040         92          4             1             1      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0      3460         70          4             1             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     15680          8          4             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     14040          8         35             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0     14320          8         21             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360     15000          8         38             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0     22840          8         95             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405     25720          8          2             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0     14160          8         29             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     14680          8         54             0             1      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     13590         34          2             0             1       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     14470         41          2             0             1       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     11880        119          2             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     15120          8          2             0             1      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0      4040         63          2             1             1      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0      4300         49          2             1             1      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0      3120         58          2             1             1      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0      2560         85          2             1             1      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     13040         62          2             0             1      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     12740         77          2             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     15120          8          2             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     14640          8         26             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0     14800          8         18             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360     14680          8         24             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0     23680          8         74             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405     25120          8          2             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0     14680          8         24             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     14360          8         40             0             1      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     16390         59          3             1             2       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     17640         47          3             1             2       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     22960        178          3             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     28330         12          3             0             2      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0      5660         96          3             2             2      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0      6010         77          3             2             2      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0      4530        100          3             2             2      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0      5280        114          3             2             2      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     25960         81          3             0             2      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     23980        128          3             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     28330         12          3             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     27630         12         38             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0     27850         12         27             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360     27650         12         37             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0     46150         12        112             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405     48310         12          4             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0     27690         12         35             0             2      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     27130         12         63             0             2      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     43410        131         11            11            13       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     50780        120         11            11            13       no
+MessageId: 1074 (ABS-1074):      810       0     630       0    146600        366         11             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    162650         74         11             0            13      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     20040        249         11            13            13      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0     27810        166         11            13            13      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     17440        275         11            13            13      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     23180        245         11            13            13      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0    109570        222         11             4            13      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0    109640        268         11             4            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    162650         74         11             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315    157060         74         89             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0    162150         74         36             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360    157920         74        101             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0    284460         74        222             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405    283260         74         27             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0    160590         74         62             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450    149490         74        169             0            13      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     43410        131         11            11            13       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     50780        120         11            11            13       no
+MessageId: 1074 (ABS-1074):      810       0     630       0    146600        366         11             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    162650         74         11             0            13      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     20040        249         11            13            13      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0     27810        166         11            13            13      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     17440        275         11            13            13      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     23180        245         11            13            13      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0    109570        222         11             4            13      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0    109640        268         11             4            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0    162650         74         11             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315    157060         74         89             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0    162150         74         36             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360    157920         74        101             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0    284460         74        222             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405    283260         74         27             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0    160590         74         62             0            13      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450    149490         74        169             0            13      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0       820         12          0             1             1       no
+MessageId: 1074 (ABS-1074):      720     360     630       0      2040          2          0             1             1       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     10640         21          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     10900          8          0             0             1      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0       740         16          0             1             1      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0      1900          9          0             1             1      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0       520         26          0             1             1      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0      1880         10          0             1             1      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0       740         16          0             1             1      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0       780         14          0             1             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     10900          8          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     630     315     10820          8          4             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720       0     10900          8          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     720     360     10800          8          7             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     810       0     20720          8         11             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     810     405     20860          8          2             0             0      yes
+MessageId: 1074 (ABS-1074):      810     405     900       0     10900          8          0             0             1      yes
+MessageId: 1074 (ABS-1074):      810     405     900     450     10680          8         13             0             1      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     46760         44         44            11            13       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     34480        259         44            11            13       no
+MessageId: 1074 (ABS-1074):      810       0     630       0     26090        176         44            12            13      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0     34570        104         44            12            13      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0    143250        268         44             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0    156600         52         44             0            13      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0     23970        232         44            12            13      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0     33510        108         44            12            13      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0     15020        229         44            13            13      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0     14350        216         44            13            13      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0    156600         52         44             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     630     315    159790         52         35             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     720       0    155000         52         73             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     720     360    150810         52         76             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     810       0    152850         52         76             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     810     405    149680         52         87             0            13      yes
+MessageId: 1074 (ABS-1074):      900     450     900       0    279720         52        129             0             0      yes
+MessageId: 1074 (ABS-1074):      900     450     900     450    281510         52         46             0             0      yes
+MessageId: 1074 (ABS-1074):   Metal2  Metal2  Metal1  Metal1     Score   Geometry   Geometry Cell Boundary Cell Boundary Diagonal
+MessageId: 1074 (ABS-1074):    Pitch  Offset   Pitch  Offset           off x grid off y grid      x adjust      y adjust  Vias Ok
+MessageId: 1074 (ABS-1074):    =====  ======   =====  ======     ===== ========== ==========      ========      ========  =======
+MessageId: 1074 (ABS-1074):      720       0     630       0     16540          0          0             2             3       no
+MessageId: 1074 (ABS-1074):      720     360     630       0     16540          0          0             2             3       no
+MessageId: 1074 (ABS-1074):      810       0     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):      810     405     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900     450     630       0     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      990       0     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):      990     495     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):     1080       0     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):     1080     540     630       0      6540          0          0             3             3      yes
+MessageId: 1074 (ABS-1074):      900       0     630       0     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     630     315     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     720       0     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     720     360     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     810       0     36540          0          0             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     810     405     30360          0          6             0             3      yes
+MessageId: 1074 (ABS-1074):      900       0     900       0     66540          0          0             0             0      yes
+MessageId: 1074 (ABS-1074):      900       0     900     450     60360          0          6             0             0      yes

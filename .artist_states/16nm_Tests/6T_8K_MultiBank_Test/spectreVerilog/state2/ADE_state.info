@@ -1,0 +1,3 @@
+projectDir = '"/net/bull/apps/Cadence/simulation/16nm_Tests/6T_8K_MultiBank_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:6T_8K_MultiBank_Test:2/simulation"
+designInfo = '("16nm_Tests" "6T_8K_MultiBank_Test" "config" "spectreVerilog")
+descriptionText = "None"

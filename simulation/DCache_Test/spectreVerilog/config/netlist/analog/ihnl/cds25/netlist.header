@@ -1,0 +1,21 @@
+
+// Library name: 16nm
+// Cell name: Mux_128to32
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Mux_128to32 En S_1 S_0 X1_31 X1_30 X1_29 X1_28 X1_27 X1_26 X1_25 \
+        X1_24 X1_23 X1_22 X1_21 X1_20 X1_19 X1_18 X1_17 X1_16 X1_15 \
+        X1_14 X1_13 X1_12 X1_11 X1_10 X1_9 X1_8 X1_7 X1_6 X1_5 X1_4 \
+        X1_3 X1_2 X1_1 X1_0 X2_31 X2_30 X2_29 X2_28 X2_27 X2_26 X2_25 \
+        X2_24 X2_23 X2_22 X2_21 X2_20 X2_19 X2_18 X2_17 X2_16 X2_15 \
+        X2_14 X2_13 X2_12 X2_11 X2_10 X2_9 X2_8 X2_7 X2_6 X2_5 X2_4 \
+        X2_3 X2_2 X2_1 X2_0 X3_31 X3_30 X3_29 X3_28 X3_27 X3_26 X3_25 \
+        X3_24 X3_23 X3_22 X3_21 X3_20 X3_19 X3_18 X3_17 X3_16 X3_15 \
+        X3_14 X3_13 X3_12 X3_11 X3_10 X3_9 X3_8 X3_7 X3_6 X3_5 X3_4 \
+        X3_3 X3_2 X3_1 X3_0 X4_31 X4_30 X4_29 X4_28 X4_27 X4_26 X4_25 \
+        X4_24 X4_23 X4_22 X4_21 X4_20 X4_19 X4_18 X4_17 X4_16 X4_15 \
+        X4_14 X4_13 X4_12 X4_11 X4_10 X4_9 X4_8 X4_7 X4_6 X4_5 X4_4 \
+        X4_3 X4_2 X4_1 X4_0 Y_31 Y_30 Y_29 Y_28 Y_27 Y_26 Y_25 Y_24 \
+        Y_23 Y_22 Y_21 Y_20 Y_19 Y_18 Y_17 Y_16 Y_15 Y_14 Y_13 Y_12 \
+        Y_11 Y_10 Y_9 Y_8 Y_7 Y_6 Y_5 Y_4 Y_3 Y_2 Y_1 Y_0

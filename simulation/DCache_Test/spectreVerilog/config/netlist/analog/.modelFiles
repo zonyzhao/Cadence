@@ -1,0 +1,4 @@
+include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+include "/cerl/kstraube/Cadence/ATSim/Tag_write_ctrl_rev3/spectreText/spectre.scs"
+include "/cerl/kstraube/Cadence/ATSim/L1_write_ctrl_rev3/spectreText/spectre.scs"
+include "/cerl/kstraube/Cadence/ATSim/L1_read_ctrl_rev3/spectreText/spectre.scs"

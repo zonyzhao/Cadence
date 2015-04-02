@@ -1,0 +1,47 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+wire  Ack, OutFIFOReq;
+
+reg  OutFIFOAck, Req;
+
+wire [7:0]  WDataAck;
+
+reg [32:0]  CPU_Addr;
+reg [15:0]  Data1;
+reg [1:0]  RW;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+DCache_Test top(Ack, OutFIFOReq, WDataAck, CPU_Addr, Data1, OutFIFOAck
+     , RW, Req); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 

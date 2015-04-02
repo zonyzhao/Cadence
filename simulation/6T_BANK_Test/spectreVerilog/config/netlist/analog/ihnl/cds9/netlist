@@ -1,0 +1,4 @@
+    I15 (A B C D net1) nand4_1x
+    I16 (net1 Y) inv_1x
+ends and4_1x
+// End of subcircuit definition.

@@ -1,0 +1,79 @@
+;==========================================================================
+;
+; $Id: simrc,v 1.1.1.1 2006/02/10 16:32:38 slipa Exp $
+; 
+; Revision History
+;
+; $Log: simrc,v $
+; Revision 1.1.1.1  2006/02/10 16:32:38  slipa
+; starting CDK v1.5.0rc1 source file
+;
+; Revision 1.2  2000/09/20 04:24:21  awglaser
+; commented out verilogSimBinary, since it's not necessary with 445
+;
+; Revision 1.1  1997/12/18 20:07:33  astanas
+; Initial revision
+;
+;
+;--------------------------------------------------------------------------
+;
+; NCSU site .simrc file.
+;
+; This file sets some better default values for simulations at NCSU.
+;
+; User customization files:
+;
+;     ./.simrc               - the working directory
+;     ~/.simrc               - the user's home directory
+;     $CLASS_LOCKER/.cdsinit - for class setups
+;
+;
+;##########################################################################
+
+;---- for Verilog----
+; this may not be necessary with 445
+;verilogSimBinary = "/afs/eos.ncsu.edu/dist/cadence/tools/bin/verilog"
+
+verilogSimViewList = '("behavioral" "functional" "schematic" "symbol")
+verilogSimStopList = '("behavioral" "functional" "symbol")
+
+;---- for Hspice ----
+hspiceSimViewList = '( "hspice" "cmos_sch" "schematic" "spectre" "symbol")
+hspiceSimStopList = '( "hspice" "symbol" )
+hnlMaxNameLength = 16
+
+hspiceSSimViewList = '( "hspice" "cmos_sch" "schematic" "spectre" "symbol")
+hspiceSSimStopList = '( "hspice" "symbol" )
+
+;---- for LVS ----
+lvsLayoutViewList = '("auLvs" "extracted")
+lvsLayoutStopList = '("auLvs")
+lvsSchematicViewList = '("auLvs" "cmos_sch" "schematic" "symbol")
+lvsSchematicStopList = '("auLvs")
+
+;##########################################################################
+;#                                           
+;# LOAD USER CUSTOMIZATION FILES
+;#
+;##########################################################################
+;
+;The site customization file is going to load the user customization file(s).
+;
+if( !boundp( 'NCSU_alreadyLoaded ) && isFile( "./.simrc" ) then
+    NCSU_alreadyLoaded = t
+    printf( "Loading %s/.simrc file.\n" getWorkingDir() )
+    loadi( "./.simrc" )
+  )
+;
+if( (getShellEnvVar("PWD") != getShellEnvVar("HOME")) && isFile( "~/.simrc" ) then
+    printf( "Loading ~/.simrc file.\n" )
+    loadi( "~/.simrc" )
+  )
+;
+let( (classLocker)
+if( (classLocker = getShellEnvVar("CLASS_LOCKER")) != nil then
+	if( (getWorkingDir() != classLocker) && isFile( strcat( classLocker "/.simrc" ) ) then
+    	printf( "Loading %s/.simrc init file.\n" classLocker)
+    	loadi( strcat( classLocker "/.simrc" ) )
+	  )
+))

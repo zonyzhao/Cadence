@@ -1,0 +1,121 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "winding"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "turn"
+        ?prompt         "Num of turns on winding"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('turn)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "resis"
+        ?prompt         "Res of the winding"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('resis)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "core"
+        ?prompt         "Name of core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('core)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ic"
+        ?prompt         "Initial condition"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ic)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "r"
+        ?prompt         "Resistance"
+        ?units          "resistance"
+        ?defValue       "1K"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (turn r ic)
+        componentName     hwinding
+        termOrder         (t b)
+        namePrefix        "L"
+        current           port
+        termMapping       (nil t "" b "(FUNCTION minus(root(\"t\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            nil
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        instParameters    (turn resis m core ic)
+        termOrder         (t b)
+        termMapping       (nil t "" b "(FUNCTION minus(root(\"t\")))")
+        namePrefix        "WIND"
+        componentName     winding
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        instParameters    (turn resis m core ic)
+        termOrder         (t b)
+        termMapping       (nil t "" b "(FUNCTION minus(root(\"t\")))")
+        namePrefix        "WIND"
+        componentName     winding
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "turn resis core"
+    cdfSaveCDF( cdfId )
+)

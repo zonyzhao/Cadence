@@ -1,0 +1,5 @@
+
+// Library name: EEC289O
+// Cell name: inv_1xt
+// View name: schematic
+subckt inv_1xt A Y

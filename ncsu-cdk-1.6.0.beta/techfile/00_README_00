@@ -1,0 +1,8 @@
+This directory contains the NCSU Cadence technology files. The original
+versions of some of these files were obtained from MIT. As such the MIT
+copyright might apply to those files.
+
+All of the technology files in this directory are maintained under the
+GNU RCS system. After making changes be sure to check out the file in
+the unlocked mode, co -u, or use ci -u to check in and out at the same
+time.

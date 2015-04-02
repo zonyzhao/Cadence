@@ -1,0 +1,12 @@
+#Layer Name     Layer Purpose  Layer Stream Number  Datatype Stream Number
+
+elec           drawing        56                   0              
+elec           label          56                   0              
+elec           net            56                   0              
+elec           pin            56                   0              
+elec           boundary       56                   0              
+ce             drawing        25                   0              
+ce             label          25                   0              
+ce             net            25                   0              
+ce             pin            25                   0              
+ce             boundary       25                   0              

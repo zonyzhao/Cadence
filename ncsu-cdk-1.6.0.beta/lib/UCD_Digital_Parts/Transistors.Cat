@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+UCD_Digital_Parts/nfet type="cell"
+UCD_Digital_Parts/nfet_elec type="cell"
+UCD_Digital_Parts/pfet type="cell"
+UCD_Digital_Parts/pfet_elec type="cell"
+UCD_Digital_Parts/rnmos1 type="cell"
+UCD_Digital_Parts/rpmos1 type="cell"
+UCD_Digital_Parts/tx_gate type="cell"

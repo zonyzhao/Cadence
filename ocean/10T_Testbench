@@ -1,0 +1,68 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+
+initial
+begin 
+   seed = 5;
+   rLog=$fopen("/tmp2/rLog.csv");
+   $fdisplay(wLog, "R_Addr, R1[31:0], R0[31:0], total_time, read_delay");
+
+   wLog=$fopen("/tmp2/wLog.csv"); 
+   $fdisplay(wLog, "W_Addr, W1[31:0], W0[31:0], total_time, write_delay");
+   
+   Reset       = 1'b0;
+   KWv         = 1'b0;
+   GoW         = 1'b0;
+   KRv         = 1'b0;
+   GoR         = 1'b0;
+   Re          = 1'b0;
+   R_Addr[4:0] = 5'b00000;
+   W_Addr[4:0] = 5'b00000;
+   W0[31:0]    = 32'h00000000;
+   W1[31:0]    = 32'h00000000;
+
+   #2000 //wait 2ns, measure leakage
+   W1[31:0] = 32'hAAAAAAAA;
+   W0[31:0] = ~W1[31:0];
+   GoW      = 1'b1;  
+   KWv      = 1'b1;
+   wStart=$time;
+
+   always @(negedge W_Ack) begin
+   	wDelay = $time - wStart;
+        #250
+   	$fdisplay(wLog, "%h, %h, %h, %t, %t", W_Addr, W1, W0, $time, wDelay);
+        W0[31:0] = 32'h00000000;
+   	W1[31:0] = 32'h00000000;
+   	GoW      = 1'b0;  
+   	KWv      = 1'b0;
+
+        wStart   = $time;
+   end
+
+   always @(posedge R_Ack) begin
+   	   wDelay = $time - wStart;
+   	   $fdisplay(wLog, "%h, %h, %h, %t, %t", W_Addr, W1, W0, $time, wDelay);
+   	   
+           W1[31:0]    = $random;
+           W0[31:0]    = ~W1[31:0];
+   	   W_Addr[4:0] = $random;
+           GoW         = 1'b1;  
+   	   KWv         = 1'b1;
+
+	   wStart      = $time;
+   end
+//$finish;
+end 

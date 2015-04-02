@@ -1,0 +1,4 @@
+    I8 (ntYbar Y) inv_1x
+    I7 (A B ntYbar) nand_1x
+ends and2
+// End of subcircuit definition.

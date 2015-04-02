@@ -1,0 +1,726 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "zvccs"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "spec"
+        ?prompt         "Specification type"
+        ?defValue       "polynomial"
+        ?choices        '("pole-zero" "polynomial")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('spec)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "order"
+        ?prompt         "Order of transfer function"
+        ?defValue       1
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('order)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a0"
+        ?prompt         "Coef. of num. const. term"
+        ?defValue       "1"
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 0"
+        ?display        "artParameterInToolDisplay('a0)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a1"
+        ?prompt         "Coef. of num. 1st term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('a1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a2"
+        ?prompt         "Coef. of num. 2nd term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('a2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a3"
+        ?prompt         "Coef. of num. 3rd term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('a3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a4"
+        ?prompt         "Coef. of num. 4th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('a4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a5"
+        ?prompt         "Coef. of num. 5th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('a5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a6"
+        ?prompt         "Coef. of num. 6th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('a6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a7"
+        ?prompt         "Coef. of num. 7th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('a7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a8"
+        ?prompt         "Coef. of num. 8th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('a8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a9"
+        ?prompt         "Coef. of num. 9th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('a9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "a10"
+        ?prompt         "Coef. of num. 10th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('a10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b0"
+        ?prompt         "Coef. of den. const. term"
+        ?defValue       "1"
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 0"
+        ?display        "artParameterInToolDisplay('b0)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b1"
+        ?prompt         "Coef. of den. 1st term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('b1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b2"
+        ?prompt         "Coef. of den. 2nd term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('b2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b3"
+        ?prompt         "Coef. of den. 3rd term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('b3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b4"
+        ?prompt         "Coef. of den. 4th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('b4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b5"
+        ?prompt         "Coef. of den. 5th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('b5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b6"
+        ?prompt         "Coef. of den. 6th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('b6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b7"
+        ?prompt         "Coef. of den. 7th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('b7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b8"
+        ?prompt         "Coef. of den. 8th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('b8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b9"
+        ?prompt         "Coef. of den. 9th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('b9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "b10"
+        ?prompt         "Coef. of den. 10th term"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"polynomial\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('b10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z1r"
+        ?prompt         "1st Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('z1r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z2r"
+        ?prompt         "2nd Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('z2r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z3r"
+        ?prompt         "3rd Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('z3r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z4r"
+        ?prompt         "4th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('z4r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z5r"
+        ?prompt         "5th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('z5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z6r"
+        ?prompt         "6th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('z6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z7r"
+        ?prompt         "7th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('z7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z8r"
+        ?prompt         "8th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('z8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z9r"
+        ?prompt         "9th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('z9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z10r"
+        ?prompt         "10th Zero real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('z10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z1i"
+        ?prompt         "1st Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('z1i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z2i"
+        ?prompt         "2nd Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('z2i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z3i"
+        ?prompt         "3rd Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('z3i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z4i"
+        ?prompt         "4th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('z4i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z5i"
+        ?prompt         "5th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('z5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z6i"
+        ?prompt         "6th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('z6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z7i"
+        ?prompt         "7th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('z7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z8i"
+        ?prompt         "8th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('z8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z9i"
+        ?prompt         "9th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('z9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "z10i"
+        ?prompt         "10th Zero imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('z10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p1r"
+        ?prompt         "1st Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('p1r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p2r"
+        ?prompt         "2nd Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('p2r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p3r"
+        ?prompt         "3rd Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('p3r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p4r"
+        ?prompt         "4th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('p4r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p5r"
+        ?prompt         "5th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('p5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p6r"
+        ?prompt         "6th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('p6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p7r"
+        ?prompt         "7th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('p7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p8r"
+        ?prompt         "8th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('p8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p9r"
+        ?prompt         "9th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('p9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p10r"
+        ?prompt         "10th Pole real part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('p10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p1i"
+        ?prompt         "1st Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 1"
+        ?display        "artParameterInToolDisplay('p1i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p2i"
+        ?prompt         "2nd Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 2"
+        ?display        "artParameterInToolDisplay('p2i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p3i"
+        ?prompt         "3rd Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 3"
+        ?display        "artParameterInToolDisplay('p3i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p4i"
+        ?prompt         "4th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 4"
+        ?display        "artParameterInToolDisplay('p4i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p5i"
+        ?prompt         "5th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 5"
+        ?display        "artParameterInToolDisplay('p5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p6i"
+        ?prompt         "6th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 6"
+        ?display        "artParameterInToolDisplay('p6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p7i"
+        ?prompt         "7th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 7"
+        ?display        "artParameterInToolDisplay('p7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p8i"
+        ?prompt         "8th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 8"
+        ?display        "artParameterInToolDisplay('p8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p9i"
+        ?prompt         "9th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 9"
+        ?display        "artParameterInToolDisplay('p9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "p10i"
+        ?prompt         "10th Pole imag part"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->spec->value == \"pole-zero\" && cdfgData->order->value >= 10"
+        ?display        "artParameterInToolDisplay('p10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "gain"
+        ?prompt         "Gain"
+        ?defValue       "1.0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('gain)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tsamp"
+        ?prompt         "Sampling period"
+        ?units          "time"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tsamp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tt"
+        ?prompt         "Transition time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tt)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreSZPrim
+        otherParameters   (spec order a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 z1r z2r z3r z4r z5r z6r z7r z8r z9r z10r z1i z2i z3i z4i z5i z6i z7i z8i z9i z10i p1r p2r p3r p4r p5r p6r p7r p8r p9r p10r p1i p2i p3i p4i p5i p6i p7i p8i p9i p10i)
+        instParameters    (gain ts td tt)
+        propMapping       (nil ts tsamp)
+        namePrefix        "G"
+        componentName     zvccs
+        termOrder         (PLUS MINUS NC\+ NC\-)
+        termMapping       (nil PLUS sink MINUS src NC\+ ps NC\- ns)
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSSZCompPrim
+        otherParameters   (spec order a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 z1r z2r z3r z4r z5r z6r z7r z8r z9r z10r z1i z2i z3i z4i z5i z6i z7i z8i z9i z10i p1r p2r p3r p4r p5r p6r p7r p8r p9r p10r p1i p2i p3i p4i p5i p6i p7i p8i p9i p10i)
+        instParameters    (gain ts td tt)
+        propMapping       (nil ts tsamp)
+        namePrefix        "G"
+        componentName     zvccs
+        termOrder         (PLUS MINUS NC\+ NC\-)
+        termMapping       (nil PLUS sink MINUS src NC\+ ps NC\- ns)
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "i"
+    cdfId->paramLabelSet           = "order tsamp td"
+    cdfSaveCDF( cdfId )
+)

@@ -1,0 +1,1853 @@
+;==========================================================================
+;
+; $Id: divaDRC.rul,v 1.54 2003/05/29 14:33:06 gma2 Exp $
+; 
+;--------------------------------------------------------------------------
+
+/********************************************************************************
+ *                                                                              *
+ *                                                                              *
+ *                                Diva DRC Rules                                *
+ *                                                                              *
+ *                                                                              *
+ ********************************************************************************/
+
+
+let( ( lambda gridRes techdesc wellType submicronAvailable deepAvailable
+       cwellAvailable metal3Available metal4Available metal5Available metal6Available
+       metalcapAvailable hvAvailable npnAvailable ccdAvailable elecAvailable sblockAvailable 
+       stackedViasAvailable highresAvailable PadType techfile modelPrefix errMesg )
+
+load( prependNCSUCDKInstallPath( "techfile/divaTechdesc.il" ) )
+
+
+drcExtractRules(
+
+load( prependNCSUCDKInstallPath( "techfile/divaLayerDef.il" ) )
+
+
+
+    /***************************
+     ***************************
+
+           SCMOS DRC RULES
+
+     ***************************
+     ***************************/
+
+    ivIf( ( !switch( "hier?" ) || !switch( "topCell?" ) ) then
+
+    /* DBM rules - not listed in the official SCMOS rules but should be followed anyway... */
+
+        if( wellType == "E" then
+            saveDerived( geomAndNot( active geomOr( nwell pwell ) ) "(DBM Rule 1.0) Active must be inside well")
+        )
+
+        cond(
+            ( ccdAvailable && cwellAvailable 
+                saveDerived( geomAndNot( active geomOr( nselect pselect ccd cwell ) )
+                    "(DBM Rule 1.1) Active must be inside select, ccd or cwell") 
+            )
+            ( cwellAvailable
+                saveDerived( geomAndNot( active geomOr( nselect pselect cwell ) )
+                    "(DBM Rule 1.1) Active must be inside select or cwell") 
+            )
+            ( ccdAvailable
+                saveDerived( geomAndNot( active geomOr( nselect pselect ccd ) )
+                    "(DBM Rule 1.1) Active must be inside select or ccd") 
+            )
+            ( t
+                saveDerived( geomAndNot( active geomOr( nselect pselect ) )
+                    "(DBM Rule 1.1) Active must be inside select") 
+            )
+        )
+        if( cwellAvailable then
+            saveDerived( geomAnd( cwell pselect ) "(DBM Rule 1.2) Pselect not allowed inside cwell" )
+        )
+
+        saveDerived( geomAnd( poly nOhmic ) "(DBM Rule 2.0) Poly cannot overlap ohmic diffusion" )
+        saveDerived( geomAnd( poly pOhmic ) "(DBM Rule 2.0) Poly cannot overlap ohmic diffusion" )
+
+        if( elecAvailable then
+            saveDerived( geomAnd( elec nOhmic ) "(DBM Rule 2.1) Elec cannot overlap ohmic diffusion" )
+            saveDerived( geomAnd( elec pOhmic ) "(DBM Rule 2.1) Elec cannot overlap ohmic diffusion" )
+        )
+
+        saveDerived( geomAnd( pactive nselect ) "(DBM Rule 3.1) Pactive and Nselect may not overlap" )
+        saveDerived( geomAnd( nactive pselect ) "(DBM Rule 3.2) Nactive and Pselect may not overlap" )
+
+        /*
+         * Can't use elec in these processes to make transistors
+         * From http://www.mosis.org/Whatsnew/1999/990301-ami-c5.html:
+         *
+         * "The AMI C5N poly2 can be used to build capacitors in a style identical to
+         * SCNE (as for AMI 1.2u, Orbit 2u and TSMC 0.35u), but not transistors (same as
+         * TSMC 0.35u)."
+         */
+        if( member( techdesc list( "TSMC_CMOS035_4M2P" "TSMC_CMOS035_3M2P" ) ) then
+            saveDerived( geomAnd( active elec ) "(DBM Rule 4.0, TSMC 0.4um) Elec and active may not overlap" )
+        )
+        if( techdesc == "AMI_C5N" then
+            saveDerived( geomAnd( active elec ) "(DBM Rule 4.0, AMI 0.6um) Elec and active may not overlap" )
+        )
+
+        /* 
+         * From http://www.mosis.org/Faqs/faq-design.html#4.0: "Active
+         * overlapped by Thick_Active will have the thicker gate oxide.
+         * Thick_Active by itself does nothing."
+         */
+        if( hvAvailable then
+            saveDerived( geomOutside( tactive active) "(DBM Rule 5.0) Thick-active without active does nothing" )
+        )
+    )
+
+    /* official SCMOS rules */
+
+    ;; SCMOS 1. WELL (NWELL, PWELL)
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 1.1 - modified for DEEP
+        if( ( submicronAvailable || deepAvailable ) then
+            sprintf( errMesg "(SCMOS_SUBM Rule 1.1) well width: %.2f um" (lambda*12.0) )
+            drc( nwellEdge width < (lambda * 12.0) errMesg )
+            drc( pwellEdge width < (lambda * 12.0) errMesg ) 
+        else
+            sprintf( errMesg "(SCMOS Rule 1.1) well width: %.2f um" (lambda*10.0) )
+            drc( nwellEdge width < (lambda * 10.0) errMesg )
+            drc( pwellEdge width < (lambda * 10.0) errMesg ) 
+        )
+
+        ;; 1.2 - modified for DEEP
+        if( ( submicronAvailable || deepAvailable ) then
+            sprintf( errMesg "(SCMOS_SUBM Rule 1.2) well spacing, different potential: %.2f um" (lambda*18.0))
+            drc( nwell sep < (lambda * 18.0) diffNet errMesg )
+            drc( pwell sep < (lambda * 18.0) diffNet errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 1.2) well spacing, different potential: %.2f um" (lambda*9.0))
+            drc( nwell sep < (lambda * 9.0) diffNet errMesg )
+            drc( pwell sep < (lambda * 9.0) diffNet errMesg )
+        )
+
+        ;; 1.3
+        sprintf( errMesg "(SCMOS Rule 1.3) well spacing, same potential: 0 or %.2f um" (lambda*6.0))
+        drc( nwell sep < (lambda * 6.0) sameNet errMesg )
+        drc( pwell sep < (lambda * 6.0) sameNet errMesg )
+        drc( nwellEdge notch < (lambda * 6.0) errMesg )
+        drc( pwellEdge notch < (lambda * 6.0) errMesg )
+
+        ;; 1 note
+        saveDerived( geomAnd( nwell pwell) "(SCMOS Rule 1 note) n-wells and p-wells may not overlap")
+
+    )
+
+    ;; SCMOS 2. ACTIVE
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 2.1
+        if( techdesc == "AMI_ABN" then
+           sprintf( errMesg "(SCMOS Rule 2.1) active width: %.2f um" (lambda*5.0))
+           drc( activeEdge width < (lambda * 5.0)  errMesg )
+        else 
+           sprintf( errMesg "(SCMOS Rule 2.1) active width: %.2f um" (lambda*3.0))
+           drc( activeEdge width < (lambda * 3.0)  errMesg )
+        )
+        
+        ;; 2.2
+        sprintf( errMesg "(SCMOS Rule 2.2) active spacing: %.2f um" (lambda*3.0))
+        drc( activeEdge sep < (lambda * 3.0) errMesg )
+        drc( activeEdge notch < (lambda * 3.0) errMesg )
+
+        ;; 2.3 - modified for DEEP
+        if( ( submicronAvailable || deepAvailable ) then
+            sprintf( errMesg "(SCMOS_SUBM Rule 2.3) source/drain active to well edge: %.2f um" (lambda*6.0))
+            drc( nNotOhmicEdge nBulkEdge sep < (lambda * 6.0) errMesg )
+            drc( pNotOhmicEdge pBulkEdge sep < (lambda * 6.0) errMesg )
+            drc( pBulkEdge nNotOhmicEdge enc < (lambda * 6.0) errMesg )
+            drc( nBulkEdge pNotOhmicEdge enc < (lambda * 6.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 2.3) source/drain active to well edge: %.2f um" (lambda*5.0))
+            drc( nNotOhmicEdge nBulkEdge sep < (lambda * 5.0) errMesg )
+            drc( pNotOhmicEdge pBulkEdge sep < (lambda * 5.0) errMesg )
+            drc( pBulkEdge nNotOhmicEdge enc < (lambda * 5.0) errMesg )
+            drc( nBulkEdge pNotOhmicEdge enc < (lambda * 5.0) errMesg )
+        )
+
+        ;; 2.4
+        sprintf( errMesg "(SCMOS Rule 2.4) substrate/well contact active to well edge: %.2f um" (lambda*3.0))
+        drc( nBulkEdge nOhmicEdge enc < (lambda * 3.0) errMesg )
+        drc( nOhmicEdge pBulkEdge sep < (lambda * 3.0) errMesg )
+        drc( pOhmicEdge nBulkEdge sep < (lambda * 3.0) errMesg )
+        drc( pBulkEdge pOhmicEdge enc < (lambda * 3.0) errMesg )
+
+        ;; 2.5
+        sprintf( errMesg "(SCMOS Rule 2.5) active of different implant spacing: 0 or %.2f um" (lambda*4.0))
+        drc( nNotOhmicEdge pOhmicEdge 0 < sep < (lambda * 4.0) errMesg )
+        drc( pNotOhmicEdge nOhmicEdge 0 < sep < (lambda * 4.0) errMesg )
+
+    )
+
+    ;; SCMOS 3. POLY
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 3.1
+        sprintf( errMesg "(SCMOS Rule 3.1) poly width: %.2f um" (lambda*2.0))
+        drc( polyEdge width < (lambda * 2.0)  errMesg )
+
+        ;; 3.2 - modified for DEEP
+        if( submicronAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 3.2) poly spacing: %.2f um" (lambda*3.0))
+            drc( polyEdge sep < (lambda * 3.0) errMesg )
+            drc( polyEdge notch < (lambda * 3.0) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 3.2) poly spacing: %.2f um" (lambda*4.0))
+            drc( polyEdge sep < (lambda * 4.0) errMesg )
+            drc( polyEdge notch < (lambda * 4.0) errMesg )
+	else
+            sprintf( errMesg "(SCMOS Rule 3.2) poly spacing: %.2f um" (lambda*2.0))
+            drc( polyEdge sep < (lambda * 2.0) errMesg )
+            drc( polyEdge notch < (lambda * 2.0) errMesg )
+        ) ) ;;
+
+        ;; 3.3 - modified for DEEP
+        if( (cwellAvailable && deepAvailable) then
+            sprintf( errMesg "(SCMOS Rule 3.3) gate enclosure of active: %.2f um" (lambda*2.5))
+            drc( polyEdge geomGetEdge( activeEdge outside cwell) enc < (lambda * 2.5) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 3.3) gate enclosure of active: %.2f um" (lambda*2.5))
+            drc( polyEdge activeEdge enc < (lambda * 2.5) errMesg )
+
+        else if( cwellAvailable then
+            sprintf( errMesg "(SCMOS Rule 3.3) gate enclosure of active: %.2f um" (lambda*2.0))
+            drc( polyEdge geomGetEdge( activeEdge outside cwell) enc < (lambda * 2.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 3.3) gate enclosure of active: %.2f um" (lambda*2.0))
+            drc( polyEdge activeEdge enc < (lambda * 2.0) errMesg )
+        ) ) )
+
+        ;; 3.4 - modified for DEEP
+        if( (cwellAvailable && deepAvailable) then
+            sprintf( errMesg "(SCMOS Rule 3.4) active enclosure of gate: %.2f um" (lambda*4.0))
+            drc( geomGetEdge( activeEdge outside cwell) polyEdge enc < (lambda * 4.0) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 3.4) active enclosure of gate: %.2f um" (lambda*4.0))
+            drc( activeEdge polyEdge enc < (lambda * 4.0) errMesg )
+
+        else if( cwellAvailable then
+            sprintf( errMesg "(SCMOS Rule 3.4) active enclosure of gate: %.2f um" (lambda*3.0))
+            drc( geomGetEdge( activeEdge outside cwell) polyEdge enc < (lambda * 3.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 3.4) active enclosure of gate: %.2f um" (lambda*3.0))
+            drc( activeEdge polyEdge enc < (lambda * 3.0) errMesg )
+        ) ) );;
+
+        ;; 3.5
+        sprintf( errMesg "(SCMOS Rule 3.5) field poly to active spacing: %.2f um" (lambda*1.0))
+        drc( polyEdge activeEdge sep < (lambda * 1.0) errMesg )
+
+    )
+
+    ;; SCMOS 4. SELECT (PSELECT, NSELECT)
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 4.1
+        sprintf( errMesg "(SCMOS Rule 4.1) n select to channel spacing: %.2f um" (lambda*3.0))
+        drc( nselectEdge geomGetEdge( polyEdge inside pNotOhmic) sep < (lambda * 3.0) app > 0 errMesg )
+        drc( nselectEdge geomGetEdge( polyEdge inside nNotOhmic) enc < (lambda * 3.0) app > 0 errMesg )
+        sprintf( errMesg "(SCMOS Rule 4.1) p select to channel spacing: %.2f um" (lambda*3.0))
+        drc( pselectEdge geomGetEdge( polyEdge inside nNotOhmic) sep < (lambda * 3.0) app > 0 errMesg )
+        drc( pselectEdge geomGetEdge( polyEdge inside pNotOhmic) enc < (lambda * 3.0) app > 0 errMesg )
+
+        ;; 4.2
+        sprintf( errMesg "(SCMOS Rule 4.2) select overlap of active: %.2f um" (lambda*2.0))
+        drc( geomOr( nselectEdge pselectEdge ) activeEdge sep < (lambda * 2.0) errMesg )
+        drc( geomOr( nselectEdge pselectEdge ) activeEdge enc < (lambda * 2.0) errMesg )
+
+           ;; 4.3 - modified for DEEP
+        if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 4.3) n select to active contact spacing: %.2f um" (lambda*1.5))
+            drc( nselectEdge caEdge sep < (lambda * 1.5) errMesg )
+            drc( nselectEdge caEdge enc < (lambda * 1.5) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.3) p select to active contact spacing: %.2f um" (lambda*1.5))
+            drc( pselectEdge caEdge sep < (lambda * 1.5) errMesg )
+            drc( pselectEdge caEdge enc < (lambda * 1.5) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.3) select overlap of active contact: %.2f um" (lambda*1.5))
+            saveDerived( geomButting( geomAnd( ca nselect ) geomAnd( ca pselect ) ) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 4.3) n select to active contact spacing: %.2f um" (lambda*1.0))
+            drc( nselectEdge caEdge sep < (lambda * 1.0) errMesg )
+            drc( nselectEdge caEdge enc < (lambda * 1.0) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.3) p select to active contact spacing: %.2f um" (lambda*1.0))
+            drc( pselectEdge caEdge sep < (lambda * 1.0) errMesg )
+            drc( pselectEdge caEdge enc < (lambda * 1.0) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.3) select overlap of active contact: %.2f um" (lambda*1.0))
+            saveDerived( geomButting( geomAnd( ca nselect ) geomAnd( ca pselect ) ) errMesg )
+        )
+
+        ;; 4.4 - modified for DEEP
+        if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 4.4) n select width: %.2f um" (lambda*4.0))
+            drc( nselectEdge width < (lambda * 4.0)  errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.4) p select width: %.2f um" (lambda*4.0))
+            drc( pselectEdge width < (lambda * 4.0)  errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 4.4) n select spacing: %.2f um" (lambda*4.0))
+            drc( nselectEdge sep < (lambda * 4.0) errMesg )
+            drc( nselectEdge notch < (lambda * 2.0) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.4) p select spacing: %.2f um" (lambda*4.0))
+            drc( pselectEdge sep < (lambda * 4.0) errMesg )
+            drc( pselectEdge notch < (lambda * 4.0) errMesg )
+
+        else
+            sprintf( errMesg "(SCMOS Rule 4.4) n select width: %.2f um" (lambda*2.0))
+            drc( nselectEdge width < (lambda * 2.0)  errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.4) p select width: %.2f um" (lambda*2.0))
+            drc( pselectEdge width < (lambda * 2.0)  errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 4.4) n select spacing: %.2f um" (lambda*2.0))
+            drc( nselectEdge sep < (lambda * 2.0) errMesg )
+            drc( nselectEdge notch < (lambda * 2.0) errMesg )
+            sprintf( errMesg "(SCMOS Rule 4.4) p select spacing: %.2f um" (lambda*2.0))
+            drc( pselectEdge sep < (lambda * 2.0) errMesg )
+            drc( pselectEdge notch < (lambda * 2.0) errMesg )
+        )
+
+        sprintf( errMesg "(SCMOS Rule 4.4) n select and p select may not overlap" )
+        saveDerived( geomAnd( nselect pselect ) errMesg )
+     )
+
+    ;; SCMOS 5B. DENSER CONTACT TO POLY
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 5.1
+        sprintf( errMesg "(SCMOS Rule 5.1) poly contact size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+        drc( cpEdge width < (lambda * 2.0) errMesg )
+        drc( cp area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+        ;; 5.2.b
+        sprintf( errMesg "(SCMOS Rule 5.2.b) poly enclosure of contact: %.2f um" (lambda*1.0))
+        drc( polyEdge cpEdge enc < (lambda * 1.0) errMesg )
+        saveDerived( geomAndNot( cp poly) errMesg )
+        
+	;; 5.3 - modified for DEEP
+        if( submicronAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 5.3) poly contact spacing: %.2f um" (lambda*3.0))
+            drc( cpEdge sep < (lambda * 3.0) errMesg )
+            drc( cpEdge notch < (lambda * 3.0) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 5.3) poly contact spacing: %.2f um" (lambda*4.0))
+            drc( cpEdge sep < (lambda * 4.0) errMesg )
+            drc( cpEdge notch < (lambda * 4.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 5.3) poly contact spacing: %.2f um" (lambda*2.0))
+            drc( cpEdge sep < (lambda * 2.0) errMesg )
+            drc( cpEdge notch < (lambda * 2.0) errMesg )
+        ) ) ;;
+
+
+        ;; 5.4
+        sprintf( errMesg "(SCMOS Rule 5.4) poly contact to gate spacing: %.2f um" (lambda*2.0))
+        drc( cpEdge GateEdge sep < (lambda * 2.0) errMesg )
+
+        ;; 5.5.b
+
+        /*         
+         * ftp://ftp.mosis.org/pub/mosis/magic/new/beta/CHANGELOG
+         *
+         * 990318 release 99c:
+         *
+         *        SCN5M_SUBM.15.*tech27:
+         *
+         *          removed the poly-to-poly-contact spacing rule:
+         *
+         *                    Poly spacing to Poly contact < 4 (Mosis #5.5.b)
+         *
+         *          since rule 5.5.b is not actually required for the tsmc25
+         *          process.  Again (see 5.5.b discussion below), you would need
+         *          to add this rule to create full SCMOS_SUBM rule-conforming
+         *          layout.
+         *
+         * Also:
+         *
+         * SCN3M*.tech27: (all techfiles for HP cmos26 and cmos14 processes)
+         *
+         *         Commented out the poly-to-poly-contact spacing rule:
+         *
+         *             Poly spacing to Poly contact < 4 (Mosis #5.5.b)
+         *
+         *         (see lines starting with #PSC (for "poly space-to contact"))
+         *         since rule 5.5.b is only actually required for hpcmos10
+         *         processes.  Again, you would need to uncomment this rule to
+         *         create full SCMOS rule-conforming layout.
+         */
+
+        if( submicronAvailable then
+            unless( member( techdesc list( "HP_AMOS14TB"
+                                           "HP_CMOS26G"
+                                           "TSMC_CMOS025" 
+                                         ) )
+                sprintf( errMesg "(SCMOS Rule 5.5.b) poly contact to poly spacing: %.2f um" (lambda*5.0))
+                drc( cpEdge polyEdge sep < (lambda * 5.0) errMesg )
+            )
+        else
+            sprintf( errMesg "(SCMOS Rule 5.5.b) poly contact to poly spacing: %.2f um" (lambda*4.0))
+            drc( cpEdge polyEdge sep < (lambda * 4.0) errMesg )
+        )
+
+        ;; 5.6.b
+        sprintf( errMesg "(SCMOS Rule 5.6.b) poly contact to active spacing: %.2f um" (lambda*2.0))
+        drc( cpEdge activeEdge sep < (lambda * 2.0) errMesg )
+        saveDerived( geomAnd( cp active) errMesg )
+
+        ;; 5.7.b
+        sprintf( errMesg "(SCMOS Rule 5.7.b) poly contact to active spacing, many contacts: %.2f um" (lambda*3.0))
+        saveDerived( geomGetLength( drc(cpEdge activeEdge sep < (lambda * 3.0)) length > (lambda * 7.0) fig ) errMesg )
+    )
+
+    ;; SCMOS 6B. DENSER CONTACT TO ACTIVE
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 6.1
+        sprintf( errMesg "(SCMOS Rule 6.1) active contact size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+        drc( caEdge width < (lambda * 2.0) errMesg )
+        drc( ca area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+        ;; 6.2.b
+        sprintf( errMesg "(SCMOS Rule 6.2.b) active enclosure of contact: %.2f um" (lambda*1.0))
+        drc( activeEdge caEdge enc < (lambda * 1.0) errMesg )
+        if( npnAvailable then
+            saveDerived( geomAnd( geomAndNot( ca cactive ) geomAndNot( ca active ) ) errMesg )
+        else
+            saveDerived( geomAndNot( ca active) errMesg )
+        )
+
+         ;; 6.3 - modified for DEEP
+        if( submicronAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 6.3) active contact spacing: %.2f um" (lambda*3.0))
+            drc( caEdge sep < (lambda * 3.0) errMesg )
+            drc( caEdge notch < (lambda * 3.0) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 6.3) active contact spacing: %.2f um" (lambda*4.0))
+            drc( caEdge sep < (lambda * 4.0) errMesg )
+            drc( caEdge notch < (lambda * 4.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 6.3) active contact spacing: %.2f um" (lambda*2.0))
+            drc( caEdge sep < (lambda * 2.0) errMesg )
+            drc( caEdge notch < (lambda * 2.0) errMesg )
+        ) ) ;;
+	
+        ;; 6.4
+        sprintf( errMesg "(SCMOS Rule 6.4) active contact to transistor gate spacing: %.2f um" (lambda*2.0) )
+        drc( caEdge GateEdge sep < (lambda * 2.0) errMesg )
+        saveDerived( geomAnd( ca Gate) errMesg )
+
+        ;; 6.5.b
+        sprintf( errMesg "(SCMOS Rule 6.5.b) active contact to active spacing: %.2f um" (lambda*5.0))
+        drc( caEdge activeEdge sep < (lambda * 5.0) errMesg )
+
+        ;; 6.6.b
+        sprintf( errMesg "(SCMOS Rule 6.6.b) active contact to field poly spacing: %.2f um" (lambda*2.0))
+        drc( caEdge fieldPolyEdge sep < (lambda * 2.0) errMesg )
+        saveDerived( geomAnd( ca fieldPoly) errMesg )
+
+        ;; 6.7.b
+        sprintf( errMesg "(SCMOS Rule 6.7.b) active contact to field poly spacing, many contacts: %.2f um" (lambda*3.0))
+        saveDerived( geomGetLength( drc(caEdge fieldPolyEdge sep < (lambda * 3.0)) length > (lambda * 7.0) fig ) errMesg )
+
+        ;; 6.8.b
+        sprintf( errMesg "(SCMOS Rule 6.8.b) active contact to poly contact spacing: %.2f um" (lambda*4.0))
+        drc( caEdge cpEdge sep < (lambda * 4.0) errMesg )
+        saveDerived( geomAnd( ca cp) errMesg )
+
+    )
+
+
+    ;; SCMOS 7. METAL1
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 7.1
+        sprintf( errMesg "(SCMOS Rule 7.1) metal1 width: %.2f um" (lambda*3.0))
+        drc( metal1Edge width < (lambda * 3.0)  errMesg )
+
+        ;; 7.2 - modified for DEEP
+        if( ( submicronAvailable || deepAvailable ) then
+            sprintf( errMesg "(SCMOS Rule 7.2) metal1 spacing: %.2f um" (lambda*3.0))
+            drc( metal1Edge sep < (lambda * 3.0) errMesg )
+            drc( metal1Edge notch < (lambda * 3.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 7.2) metal1 spacing: %.2f um" (lambda*2.0))
+            drc( metal1Edge sep < (lambda * 2.0) errMesg )
+            drc( metal1Edge notch < (lambda * 2.0) errMesg )
+        )
+
+        ;; 7.3
+        sprintf( errMesg "(SCMOS Rule 7.3) metal1 enclosure of contact: %.2f um" (lambda*1.0))
+        drc( metal1Edge cpEdge enc < (lambda * 1.0) errMesg )
+        drc( metal1Edge caEdge enc < (lambda * 1.0) errMesg )
+        saveDerived( geomAndNot( cp metal1) errMesg )
+        saveDerived( geomAndNot( ca metal1) errMesg )
+        
+        ;; 7.4
+        ;; Metal1 wide metal (>10*lambda) rule not implemented
+
+	;; Metal1 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem1= geomSize( geomSize(metal1 (lambda * -5.0)) (lambda * 5.0))
+	if( ( submicronAvailable || deepAvailable ) then
+		sprintf( errMesg "(SCMOS Rule 7.4) wide (>10*lambda) metal1 spacing: %.2f um" (lambda*6.0))
+		drc( widem1 metal1Edge sep < (lambda * 6.0) errMesg )
+		drc( widem1 notch < (lambda * 6.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	else
+		sprintf( errMesg "(SCMOS Rule 7.4) wide (>10*lambda) metal1 spacing: %.2f um" (lambda*4.0))
+		drc( widem1 metal1Edge sep < (lambda * 4.0) errMesg )
+		drc( widem1 notch < (lambda * 4.0) errMesg )
+	)
+    )
+
+    ;; SCMOS 8. VIA
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 8.1 - modified for DEEP
+        if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 8.1) via size, exactly: %.2f x %.2f um" (lambda*3.0) (lambda*3.0))
+            drc( viaEdge width < (lambda * 3.0) errMesg )
+            drc( via area > ( (lambda * 3.0) * (lambda * 3.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 8.1) via size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+            drc( viaEdge width < (lambda * 2.0) errMesg )
+            drc( via area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+        )
+
+        ;; 8.2
+        sprintf( errMesg "(SCMOS Rule 8.2) via spacing: %.2f um" (lambda*3.0))
+        drc( viaEdge sep < (lambda * 3.0) errMesg )
+
+        ;; 8.3
+        sprintf( errMesg "(SCMOS Rule 8.3) metal1 enclosure of via: %.2f um" (lambda*1.0))
+        drc( metal1Edge viaEdge enc < (lambda * 1.0) errMesg )
+        saveDerived( geomAndNot( via metal1) errMesg )
+
+        ;; 8.4
+        unless( stackedViasAvailable
+            sprintf( errMesg "(SCMOS Rule 8.4) via to contact spacing: %.2f um" (lambda*2.0))
+            drc( viaEdge caEdge sep < (lambda * 2.0) errMesg )
+            drc( viaEdge cpEdge sep < (lambda * 2.0) errMesg )
+            saveDerived( geomAnd( via geomOr( ca cp)) errMesg )
+        )
+
+        ;; 8.5 (doesn't apply to SCMOS_SUBM; see Table 4 in SCMOS Rules Manual, v.7.3) - modified for DEEP
+        unless( ( submicronAvailable || deepAvailable )
+            sprintf( errMesg "(SCMOS Rule 8.5) via to poly edge spacing: %.2f um" (lambda*2.0))
+            drc( polyEdge viaEdge sep < (lambda * 2.0) errMesg )
+            drc( polyEdge viaEdge enc < (lambda * 2.0) errMesg )
+            saveDerived( geomStraddle( via poly) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 8.5) via to active edge spacing: %.2f um" (lambda*2.0))
+            drc( activeEdge viaEdge sep < (lambda * 2.0) errMesg )
+            drc( activeEdge viaEdge enc < (lambda * 2.0) errMesg )
+            saveDerived( geomStraddle( via active) errMesg )
+            if( npnAvailable then
+                sprintf( errMesg "(SCMOS Rule 8.5) via to cactive edge spacing: %.2f um" (lambda*2.0))
+                drc( cactiveEdge viaEdge sep < (lambda * 2.0) errMesg )
+                drc( cactiveEdge viaEdge enc < (lambda * 2.0) errMesg )
+                saveDerived( geomStraddle( via cactive) errMesg )
+            )
+        )
+    )
+
+    ;; SCMOS 9. METAL2
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        ;; 9.1
+        sprintf( errMesg "(SCMOS Rule 9.1) metal2 width: %.2f um" (lambda*3.0))
+        drc( metal2Edge width < (lambda * 3.0)  errMesg )
+
+        ;; 9.2 - modified for DEEP
+        if( submicronAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 9.2.b) metal2 spacing: %.2f um" (lambda*3.0))
+            drc( metal2Edge sep < (lambda * 3.0) errMesg )
+            drc( metal2Edge notch < (lambda * 3.0) errMesg )
+        else if( deepAvailable then
+            sprintf( errMesg "(SCMOS_SUBM Rule 9.2.b) metal2 spacing: %.2f um" (lambda*4.0))
+            drc( metal2Edge sep < (lambda * 4.0) errMesg )
+            drc( metal2Edge notch < (lambda * 4.0) errMesg )
+        else
+            sprintf( errMesg "(SCMOS Rule 9.2.a) metal2 spacing: %.2f um" (lambda*4.0))
+            drc( metal2Edge sep < (lambda * 4.0) errMesg )
+            drc( metal2Edge notch < (lambda * 4.0) errMesg )
+        ) ) ;;
+
+        ;; 9.3
+        sprintf( errMesg "(SCMOS Rule 9.3) metal2 enclosure of via: %.2f um" (lambda*1.0))
+        drc( metal2Edge viaEdge enc < (lambda * 1.0) errMesg )
+        saveDerived( geomAndNot( via metal2) errMesg )
+ 
+        ;; 9.4
+        ;; Metal2 wide metal (>10*lambda) rule not implemented
+
+	;; Metal2 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem2= geomSize( geomSize(metal2 (lambda * -5.0)) (lambda * 5.0))
+	if( deepAvailable then
+		sprintf( errMesg "(SCMOS Rule 9.4) wide (>10*lambda) metal2 spacing: %.2f um" (lambda*8.0))
+		drc( widem2 metal2Edge sep < (lambda * 8.0) errMesg )
+		drc( widem2 notch < (lambda * 8.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	else
+		sprintf( errMesg "(SCMOS Rule 9.4) wide (>10*lambda) metal2 spacing: %.2f um" (lambda*6.0))
+		drc( widem2 metal2Edge sep < (lambda * 6.0) errMesg )
+		drc( widem2 notch < (lambda * 6.0) errMesg )
+	)
+
+    )
+
+
+    ;; SCMOS 10. OVERGLASS
+
+    ivIf( !switch("allowTinyPads?") &&
+          !switch("AreaPads?") &&
+          ( !switch("hier?") || switch("topCell?") ) then
+
+        saveDerived( geomStraddle( glass pad))
+
+        BondingGlass = geomInside( glass pad)
+        ProbeGlass = geomOutside( glass pad)
+
+        BondingPad = geomAndNot( geomSize( BondingGlass 6.0) geomHoles( BondingGlass))
+        ProbePad = geomAndNot( geomSize( ProbeGlass 6.0) geomHoles( ProbeGlass))
+        Pad = geomOr( BondingPad ProbePad)
+
+        BondingPadEdge = geomGetEdge( BondingPad not_over "nodrc")
+        ProbePadEdge = geomGetEdge( ProbePad not_over "nodrc")
+        PadEdge = geomGetEdge( Pad not_over "nodrc")
+
+        if( metal6Available then
+            Metal6EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal6" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal5Available then
+            Metal5EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal5" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal4Available then
+            Metal4EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal4" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal3Available then
+            Metal3EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal3" "glass" 36.0)) not_over "nodrc")
+        )
+        Metal2EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal2" "glass" 36.0)) not_over "nodrc")
+        Metal1EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal1" "glass" 21.0)) not_over "nodrc")
+        PolyEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "poly" "glass" 21.0)) not_over "nodrc")
+        ActiveEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "active" "glass" 21.0)) not_over "nodrc")
+        if( elecAvailable then
+            ElecEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "elec" "glass" 21.0)) not_over "nodrc")
+        )
+
+        ;; 10.1
+        drc( BondingPadEdge width < 60.0 "(SCMOS Rule 10.1) bonding pad width: 60 um")
+
+        ;; 10.2
+        drc( ProbePadEdge width < 20.0 "(SCMOS Rule 10.2) probe pad width: 20 um")
+
+        ;; 10.3
+        cond( 
+            ( metal6Available 
+                drc( Metal6EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal6) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal5Available 
+                drc( Metal5EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal5) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal4Available 
+                drc( Metal4EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal4) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal3Available
+                drc( Metal3EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal3) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( t
+                drc( Metal2EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal2) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+        )
+
+        ;; 10.4
+        if( metal6Available then
+            drc( PadEdge Metal6EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal6 spacing: 30 um")
+        )
+        if( metal5Available then
+            drc( PadEdge Metal5EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal5 spacing: 30 um")
+        )
+        if( metal4Available then
+            drc( PadEdge Metal4EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal4 spacing: 30 um")
+        )
+        if( metal3Available then
+            drc( PadEdge Metal3EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal3 spacing: 30 um")
+        )
+        drc( PadEdge Metal2EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal2 spacing: 30 um")
+
+        ;; 10.5
+        drc( PadEdge Metal1EdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated metal1 spacing: 15 um")
+        drc( PadEdge PolyEdgeNearPad   sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated poly spacing: 15 um")
+        drc( PadEdge ActiveEdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated active spacing: 15 um")
+        if( elecAvailable then
+            drc( PadEdge ElecEdgeNearPad   sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated elec spacing: 15 um")
+        )
+
+        ; HP10QA doesn't allow any metal or via layers under the pads
+        if( techdesc == "HP_GMOS10QA" then
+            saveDerived( geomGetByLayer( "metal3" BondingGlass ) 
+                         "(HP GMOS10QA) Metal3 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "metal2" BondingGlass ) 
+                         "(HP GMOS10QA) Metal2 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "metal1" BondingGlass ) 
+                         "(HP GMOS10QA) Metal1 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via3" BondingGlass ) 
+                         "(HP GMOS10QA) Via3 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via2" BondingGlass ) 
+                         "(HP GMOS10QA) Via2 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via" BondingGlass ) 
+                         "(HP GMOS10QA) Via not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "ca" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "cp" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "cc" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+        )
+    )
+
+    ;; This set of overglass rules allows for very small probe pads
+    ;; also for area array pads
+
+    ivIf( ( switch("allowTinyPads?") || switch("AreaPads?") ) &&
+          ( !switch("hier?") || switch("topCell?") ) then
+
+        saveDerived( geomStraddle( glass pad))
+
+        if( (padType == "Area array") then
+            cond( 
+                ( metal6Available BondingGlass = geomInside( glass metal6) )
+                ( metal5Available BondingGlass = geomInside( glass metal5) )
+                ( metal4Available BondingGlass = geomInside( glass metal4) )
+                ( metal3Available BondingGlass = geomInside( glass metal3) )
+                ( t BondingGlass = geomInside( glass metal2) )
+            )
+        else
+            BondingGlass = geomInside( glass pad)
+        )
+        BondingPad = geomAndNot( geomSize( BondingGlass 6.0) geomHoles( BondingGlass))
+        BondingPadEdge = geomGetEdge( BondingPad not_over "nodrc")
+
+        if( metal6Available then
+            Metal6EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal6" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal5Available then
+            Metal5EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal5" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal4Available then
+            Metal4EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal4" "glass" 36.0)) not_over "nodrc")
+        )
+        if( metal3Available then
+            Metal3EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal3" "glass" 36.0)) not_over "nodrc")
+        )
+        Metal2EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal2" "glass" 36.0)) not_over "nodrc")
+        Metal1EdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "metal1" "glass" 21.0)) not_over "nodrc")
+        PolyEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "poly" "glass" 21.0)) not_over "nodrc")
+        ActiveEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "active" "glass" 21.0)) not_over "nodrc")
+        if( elecAvailable then
+            ElecEdgeNearPad = geomGetEdge( geomOr( geomGetByLayer( "elec" "glass" 21.0)) not_over "nodrc")
+        )
+        if( (padType == "Area array") then
+            drc( pad area > 0.0 "Area array: no wirebond pads allowed" )
+            saveDerived( geomOr( pad) "Area array: no wirebond pads allowed")
+
+            ;; area array bumps must be >= 45u diameter
+            ;; rounding errors? 1.59e3 should work, but need 1.57e3
+            drc( BondingGlass area < 1.57e3 "Area array: solder bump glass diameter: 45 um" )
+
+        else
+            ;; 10.1
+            drc( BondingPadEdge width < 60.0 "(SCMOS Rule 10.1) bonding pad width: 60 um")
+        )
+
+        ;; 10.3
+        cond(
+            ( metal6Available
+                drc( Metal5EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal6) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal5Available
+                drc( Metal5EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal5) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal4Available
+                drc( Metal4EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal4) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( metal3Available
+                drc( Metal3EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal3) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+            ( t
+                drc( Metal2EdgeNearPad glassEdge enc < 6.0 "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+                saveDerived( geomAndNot( glass metal2) "(SCMOS Rule 10.3) pad enclosure of glass: 6 um")
+            )
+        )
+
+        ;; 10.4
+        if( (padType == "Perimeter") then
+            if( metal6Available then
+                drc( BondingPadEdge Metal6EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal6 spacing: 30 um")
+            )
+            if( metal5Available then
+                drc( BondingPadEdge Metal5EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal5 spacing: 30 um")
+            )
+            if( metal4Available then
+                drc( BondingPadEdge Metal4EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal4 spacing: 30 um")
+            )
+            if( metal3Available then
+                drc( BondingPadEdge Metal3EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal3 spacing: 30 um")
+            )
+            drc( BondingPadEdge Metal2EdgeNearPad sep < 30.0 "(SCMOS Rule 10.4) pad to unrelated metal2 spacing: 30 um")
+        )
+
+        ;; 10.5
+        if( (padType == "Perimeter") then
+            drc( BondingPadEdge Metal1EdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated metal1 spacing: 15 um")
+            drc( BondingPadEdge PolyEdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated poly spacing: 15 um")
+            drc( BondingPadEdge ActiveEdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated active spacing: 15 um")
+            if( elecAvailable then
+                drc( BondingPadEdge PolyEdgeNearPad sep < 15.0 "(SCMOS Rule 10.5) pad to unrelated poly spacing: 15 um")
+            )
+        )
+
+        ; HP10QA doesn't allow any metal or via layers under the pads
+        if( (padType == "Perimeter") && techdesc == "HP_GMOS10QA" then
+            saveDerived( geomGetByLayer( "metal3" BondingGlass ) 
+                         "(HP GMOS10QA) Metal3 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "metal2" BondingGlass ) 
+                         "(HP GMOS10QA) Metal2 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "metal1" BondingGlass ) 
+                         "(HP GMOS10QA) Metal1 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via3" BondingGlass ) 
+                         "(HP GMOS10QA) Via3 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via2" BondingGlass ) 
+                         "(HP GMOS10QA) Via2 not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "via" BondingGlass ) 
+                         "(HP GMOS10QA) Via not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "ca" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "cp" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+            saveDerived( geomGetByLayer( "cc" BondingGlass ) 
+                         "(HP GMOS10QA) Contact not allowed under bond pad glass cut" )
+        )
+    )
+
+    ;; SCMOS 11. ELECTRODE for CAPACITORS
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( elecAvailable then  
+            ;; 11.1 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 11.1) capacitor electrode width: %.2f um" (lambda*7.0))
+                drc( CapacitorElecEdge width < (lambda * 7.0)  errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 11.1) capacitor electrode width: %.2f um" (lambda*3.0))
+                drc( CapacitorElecEdge width < (lambda * 3.0)  errMesg )
+            )
+
+            ;; 11.2
+            sprintf( errMesg "(SCMOS Rule 11.2) capacitor electrode spacing: %.2f um" (lambda*3.0))
+            drc( CapacitorElecEdge sep < (lambda * 3.0) errMesg )
+            drc( CapacitorElecEdge notch < (lambda * 3.0) errMesg )
+
+            ;; 11.3 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 11.3) poly enclosure of capacitor electrode: %.2f um" (lambda*5.0))
+                drc( polyEdge CapacitorElecEdge enc < (lambda * 5.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 11.3) poly enclosure of capacitor electrode: %.2f um" (lambda*2.0))
+                drc( polyEdge CapacitorElecEdge enc < (lambda * 2.0) errMesg )
+            )
+
+            ;; 11.4
+            sprintf( errMesg "(SCMOS Rule 11.4) capacitor electrode to bulk spacing: %.2f um" (lambda*2.0))
+            drc( CapacitorElecEdge nBulkEdge sep < (lambda * 2.0) errMesg )
+            drc( CapacitorElecEdge pBulkEdge sep < (lambda * 2.0) errMesg )
+            saveDerived( geomStraddle( CapacitorElec nBulk) errMesg )
+            saveDerived( geomStraddle( CapacitorElec pBulk) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 11.4) bulk enclosure of capacitor electrode: %.2f um" (lambda*2.0))
+            drc( nBulkEdge CapacitorElecEdge enc < (lambda * 2.0) errMesg )
+            drc( pBulkEdge CapacitorElecEdge enc < (lambda * 2.0) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 11.4) capacitor electrode to active spacing: %.2f um" (lambda*2.0))
+            drc( CapacitorElecEdge activeEdge sep < (lambda * 2.0) errMesg )
+            saveDerived( geomAnd( CapacitorElec active) errMesg )
+
+            ;; 11.5 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 11.5) capacitor electrode to poly contact spacing: %.2f um" (lambda*6.0))
+                drc( CapacitorElecEdge cpEdge sep < (lambda * 6.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 11.5) capacitor electrode to poly contact spacing: %.2f um" (lambda*3.0))
+                drc( CapacitorElecEdge cpEdge sep < (lambda * 3.0) errMesg )
+            )
+
+            ;; 11.6
+            if( metal6Available then
+                sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal6 spacing: %.2f um" (lambda*2.0))
+                drc( geomGetEdge( "elec" ) geomGetEdge( "metal6" ) sep < (lambda * 2.0) errMesg ) 
+                saveDerived( geomOverlap( metal6 elec diffNet ) errMesg )
+            )
+            if( metal5Available then
+                sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal5 spacing: %.2f um" (lambda*2.0))
+                drc( geomGetEdge( "elec" ) geomGetEdge( "metal5" ) sep < (lambda * 2.0) errMesg )
+                saveDerived( geomOverlap( metal5 elec diffNet ) errMesg )
+            )
+            if( metal4Available then
+                sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal4 spacing: %.2f um" (lambda*2.0))
+                drc( geomGetEdge( "elec" ) geomGetEdge( "metal4" ) sep < (lambda * 2.0) errMesg )
+                saveDerived( geomOverlap( metal4 elec diffNet ) errMesg )
+            )
+            if( metal3Available then
+                sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal3 spacing: %.2f um" (lambda*2.0))
+                drc( geomGetEdge( "elec" ) geomGetEdge( "metal3" ) sep < (lambda * 2.0) errMesg )
+                saveDerived( geomOverlap( metal3 elec diffNet ) errMesg )
+            )
+            sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal2 spacing: %.2f um" (lambda*2.0))
+            drc( geomGetEdge( "elec" ) geomGetEdge( "metal2" ) sep < (lambda * 2.0) errMesg )
+            saveDerived( geomOverlap( metal2 elec diffNet ) errMesg )
+           
+            sprintf( errMesg "(SCMOS Rule 11.6) poly2 to unrelated metal1 spacing: %.2f um" (lambda*2.0))
+            drc( geomGetEdge( "elec" ) geomGetEdge( "metal1" ) sep < (lambda * 2.0) errMesg )
+            saveDerived( geomOverlap( metal1 elec diffNet ) errMesg )
+        )
+    )
+
+    ;; SCMOS 12. ELECTRODE for TRANSISTORS
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( elecAvailable then  
+            ;; 12.1
+            sprintf( errMesg "(SCMOS Rule 12.1) transistor electrode width: %.2f um" (lambda*2.0))
+            drc( TransistorElecEdge width < (lambda * 2.0)  errMesg )
+
+            ;; 12.2
+            sprintf( errMesg "(SCMOS Rule 12.2) transistor electrode spacing: %.2f um" (lambda*3.0))
+            drc( TransistorElecEdge sep < (lambda * 3.0) errMesg )
+            drc( TransistorElecEdge notch < (lambda * 3.0) errMesg )
+
+            ;; 12.3
+            sprintf( errMesg "(SCMOS Rule 12.3) gate enclosure of active: %.2f um" (lambda*2.0))
+            drc( TransistorElecEdge activeEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 12.4
+            sprintf( errMesg "(SCMOS Rule 12.4) transistor electrode to active spacing: %.2f um" (lambda*1.0))
+            drc( TransistorElecEdge activeEdge sep < (lambda * 1.0) errMesg )
+
+            ;; 12.5
+            sprintf( errMesg "(SCMOS Rule 12.5) transistor electrode to poly spacing: %.2f um" (lambda*2.0))
+            drc( TransistorElecEdge polyEdge sep < (lambda * 2.0) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 12.5) transistor electrode overlap of poly: %.2f um" (lambda*2.0))
+            drc( TransistorElecEdge polyEdge ovlp < (lambda * 2.0) errMesg )
+
+            ;; 12.6
+            sprintf( errMesg "(SCMOS Rule 12.6) transistor electrode to poly contact spacing: %.2f um" (lambda*3.0))
+            drc( TransistorElecEdge cpEdge sep < (lambda * 3.0) errMesg )
+            saveDerived( geomAnd( TransistorElec cp) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 12.6) transistor electrode to active contact spacing: %.2f um" (lambda*3.0))
+            drc( TransistorElecEdge caEdge sep < (lambda * 3.0) errMesg )
+            saveDerived( geomAnd( TransistorElec ca) errMesg )
+        )
+    )
+
+    ;; SCMOS 13. ELECTRODE CONTACT
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( elecAvailable then  
+            ;; 13.1
+            sprintf( errMesg "(SCMOS Rule 13.1) contact size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+            drc( ceEdge width < (lambda * 2.0) errMesg )
+            drc( ce area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+            ;; 13.2
+            if( submicronAvailable then
+                sprintf( errMesg "(SCMOS Rule 13.2) contact spacing: %.2f um" (lambda*3.0))
+                drc( ceEdge sep < (lambda * 3.0) errMesg )
+                drc( ceEdge notch < (lambda * 3.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 13.2) contact spacing: %.2f um" (lambda*2.0))
+                drc( ceEdge sep < (lambda * 2.0) errMesg )
+                drc( ceEdge notch < (lambda * 2.0) errMesg )
+            )
+            ;; 13.3
+            sprintf( errMesg "(SCMOS Rule 13.3) capacitor electrode enclosure of contact: %.2f um" (lambda*3.0))
+            drc( CapacitorElecEdge ceEdge enc < (lambda * 3.0) errMesg )
+
+            ;; 13.4
+            sprintf( errMesg "(SCMOS Rule 13.4) electrode enclosure of contact (not on capacitor): %.2f um" (lambda*2.0))
+            drc( TransistorElecEdge ceEdge enc < (lambda * 2.0) errMesg )
+            saveDerived( geomAndNot( ce elec) "(SCMOS Rules 13.3,13.4) electrode enclosure of contact" )
+
+            ;; 13.5
+            sprintf( errMesg "(SCMOS Rule 13.5) electrode contact to poly spacing: %.2f um" (lambda*3.0))
+            drc( ceEdge polyEdge sep < (lambda * 3.0) errMesg )
+            saveDerived( geomOutside( geomAnd( ce poly) CapacitorElec) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 13.5) electrode contact to active spacing: %.2f um" (lambda*3.0))
+            drc( ceEdge activeEdge sep < (lambda * 3.0) errMesg )
+            saveDerived( geomAnd( ce active) errMesg )
+        )
+    )
+
+    ;; SCMOS 14. VIA2
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal3Available then  
+            ;; 14.1 - modified for DEEP
+            if( deepAvailable then
+                sprintf( errMesg "(SCMOS Rule 14.1) via2 size, exactly: %.2f x %.2f um" (lambda*3.0) (lambda*3.0))
+                drc( via2Edge width < (lambda * 3.0) errMesg )
+                drc( via2 area > ( (lambda * 3.0) * (lambda * 3.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 14.1) via2 size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+                drc( via2Edge width < (lambda * 2.0) errMesg )
+                drc( via2 area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            )
+            ;; 14.2
+            sprintf( errMesg "(SCMOS Rule 14.2) via2 spacing: %.2f um" (lambda*3.0))
+            drc( via2Edge sep < (lambda * 3.0) errMesg )
+
+            ;; 14.3
+            sprintf( errMesg "(SCMOS Rule 14.3) metal2 enclosure of via2: %.2f um" (lambda*1.0))
+            drc( metal2Edge via2Edge enc < (lambda * 1.0) errMesg )
+            saveDerived( geomAndNot( via2 metal2) errMesg )
+
+            ;; 14.4
+            unless( stackedViasAvailable
+                sprintf( errMesg "(SCMOS Rule 14.4) via2 to via spacing: %.2f um" (lambda*2.0))
+                drc( via2Edge viaEdge sep < (lambda * 2.0) errMesg )
+                saveDerived( geomAnd( geomOutside( via2 glass) geomOutside( via glass)) errMesg )
+            )
+        )
+    )
+
+    ;; SCMOS 15. METAL3
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal3Available then  
+            ;; 15.1 - modified for DEEP 
+            cond(
+                ( metal4Available
+                    sprintf( errMesg "(SCMOS_SUBM Rule 15.1) metal3 width: %.2f um" (lambda*3.0))
+                    drc( metal3Edge width < (lambda * 3.0) errMesg )
+                )
+                ( ( submicronAvailable || deepAvailable )
+                    sprintf( errMesg "(SCMOS_SUBM Rule 15.1) metal3 width: %.2f um" (lambda*5.0))
+                    drc( metal3Edge width < (lambda * 5.0)  errMesg )
+                )
+                ( t
+                    sprintf( errMesg "(SCMOS Rule 15.1) metal3 width: %.2f um" (lambda*6.0))
+                    drc( metal3Edge width < (lambda * 6.0)  errMesg )
+                )
+            )
+
+            ;; 15.2 - modified for DEEP
+            if( submicronAvailable then
+                sprintf( errMesg "(SCMOS_SUBM Rule 15.2) metal3 spacing: %.2f um" (lambda*3.0))
+                drc( metal3Edge sep < (lambda * 3.0) errMesg )
+                drc( metal3Edge notch < (lambda * 3.0) errMesg )
+            else if( ( deepAvailable && metal4Available ) then
+                sprintf( errMesg "(SCMOS_SUBM Rule 15.2) metal3 spacing: %.2f um" (lambda*4.0))
+                drc( metal3Edge sep < (lambda * 4.0) errMesg )
+                drc( metal3Edge notch < (lambda * 4.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 15.2) metal3 spacing: %.2f um" (lambda*4.0))
+                drc( metal3Edge sep < (lambda * 4.0) errMesg )
+                drc( metal3Edge notch < (lambda * 4.0) errMesg )
+            ) ) ;;
+	    
+            ;; 15.3
+            if( metal4Available then
+                sprintf( errMesg "(SCMOS Rule 15.3) metal3 enclosure of via2: %.2f um" (lambda*1.0))
+                drc( metal3Edge via2Edge enc < (lambda *1.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 15.3) metal3 enclosure of via2: %.2f um" (lambda*2.0))
+                drc( metal3Edge via2Edge enc < (lambda * 2.0) errMesg )
+            )
+            saveDerived( geomAndNot( via2 metal3) errMesg )
+
+            ;; 15.4
+            ;; Metal3 wide metal (>10*lambda) rule not implemented
+
+	;; Metal3 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem3= geomSize( geomSize(metal3 (lambda * -5.0)) (lambda * 5.0))
+	if( deepAvailable then
+		sprintf( errMesg "(SCMOS Rule 15.4) wide (>10*lambda) metal3 spacing: %.2f um" (lambda*8.0))
+		drc( widem3 metal3Edge sep < (lambda * 8.0) errMesg )
+		drc( widem3 notch < (lambda * 8.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	else
+		sprintf( errMesg "(SCMOS Rule 15.4) wide (>10*lambda) metal3 spacing: %.2f um" (lambda*6.0))
+		drc( widem3 metal3Edge sep < (lambda * 6.0) errMesg )
+		drc( widem3 notch < (lambda * 6.0) errMesg )
+	)
+
+        )
+    )
+
+
+    ;; SCMOS 16. NPN BIPOLAR TRANSISTOR (ANALOG OPTION)
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( npnAvailable then
+            ;; 16.1
+            sprintf( errMesg "(SCMOS Rule 16.1) collector contact, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+            drc( npnCollectorContactEdge width < (lambda * 2.0) errMesg )
+            drc( npnCollectorContact area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 16.1) emitter contact, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+            drc( npnEmitterContactEdge width < (lambda * 2.0) errMesg )
+            drc( npnEmitterContact area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 16.1) base contact, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+            drc( npnBaseContactEdge width < (lambda * 2.0) errMesg )
+            drc( npnBaseContact area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+            ;; 16.2
+            sprintf( errMesg "(SCMOS Rule 16.2) emitter sel enclosure of contact: %.2f um" (lambda*3.0) )
+            drc( npnEmitterEdge npnEmitterContactEdge enc < (lambda * 3.0) errMesg )
+
+            ;; 16.3
+            sprintf( errMesg "(SCMOS Rule 16.3) pbase enclosure of emitter select: %.2f um" (lambda*2.0) )
+            drc( pbaseEdge npnEmitterEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 16.4
+            sprintf( errMesg "(SCMOS Rule 16.4) emitter sel to base sel spacing: %.2f um" (lambda*4.0) )
+            drc( npnEmitterEdge npnBaseTapEdge sep < (lambda * 4.0) errMesg )
+
+            ;; 16.5
+            sprintf( errMesg "(SCMOS Rule 16.5) pbase enclosure of base select: %.2f um" (lambda*2.0) )
+            drc( pbaseEdge npnBaseTapEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 16.6
+            sprintf( errMesg "(SCMOS Rule 16.6) base sel enclosure of contact: %.2f um" (lambda*2.0) )
+            drc( npnBaseTapEdge npnBaseContactEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 16.7
+            sprintf( errMesg "(SCMOS Rule 16.7) nwell enclosure of pbase: %.2f um" (lambda*6.0) )
+            drc( nwellEdge pbaseEdge enc < (lambda * 6.0) errMesg )
+            saveDerived( geomAndNot( pbase nwell ) errMesg )
+
+            ;; 16.8
+            sprintf( errMesg "(SCMOS Rule 16.8) pbase to collector active spacing: %.2f um" (lambda*4.0) )
+            drc( npnCollectorEdge pbaseEdge sep < (lambda * 4.0) errMesg )
+
+            ;; 16.9 
+            sprintf( errMesg "(SCMOS Rule 16.9) coll active enclosure of contact: %.2f um" (lambda*2.0) )
+            drc( npnCollectorEdge npnCollectorContactEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 16.10
+            sprintf( errMesg "(SCMOS Rule 16.10) nwell enclosure of coll active: %.2f um" (lambda*3.0) )
+            drc( nwellEdge npnCollectorEdge enc < (lambda * 3.0) errMesg )
+            saveDerived( geomAndNot( cactive nwell ) errMesg )
+
+            ;; 16.11
+            sprintf( errMesg "(SCMOS Rule 16.11) nselect enclosure of coll active: %.2f um" (lambda*2.0) )
+            drc( nselectEdge npnCollectorEdge enc < (lambda * 2.0) errMesg )
+            saveDerived( geomAndNot( cactive nselect ) errMesg )
+        )
+    )
+
+    ;; SCMOS 17. CAPACITOR WELL
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( cwellAvailable then
+            ;; 17.1 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 17.1) well width: %.2f um" (lambda*12.0))
+                drc( cwellEdge width < (lambda * 12.0)  errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 17.1) well width: %.2f um" (lambda*10.0))
+                drc( cwellEdge width < (lambda * 10.0)  errMesg )
+            )
+
+            ;; 17.2 - modified for DEEP
+              if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 17.2) well spacing: %.2f um" (lambda*18.0))
+                drc( cwell sep < (lambda * 18.0)  errMesg )
+                drc( cwell notch < (lambda * 18.0)  errMesg )
+                drc( cwell nwell sep < (lambda * 18.0)  errMesg )
+                drc( cwell pwell sep < (lambda * 18.0)  errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 17.2) well spacing: %.2f um" (lambda*9.0))
+                drc( cwell sep < (lambda * 9.0)  errMesg )
+                drc( cwell notch < (lambda * 9.0)  errMesg )
+                drc( cwell nwell sep < (lambda * 9.0)  errMesg )
+                drc( cwell pwell sep < (lambda * 9.0)  errMesg )
+            )
+
+            ;; 17.3 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 17.3) capacitor diffusion to outside active: %.2f um" (lambda*6.0))
+                drc( cwellEdge activeEdge sep < (lambda * 6.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 17.3) capacitor diffusion to outside active: %.2f um" (lambda*5.0))
+                drc( cwellEdge activeEdge sep < (lambda * 5.0) errMesg )
+            )
+
+            ;; 17.4 - modified for DEEP
+            if( ( submicronAvailable || deepAvailable ) then
+                sprintf( errMesg "(SCMOS Rule 17.4) well enclosure of capacitor active: %.2f um" (lambda*6.0))
+                drc( cwellEdge lcDiffEdge enc < (lambda * 6.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 17.4) well enclosure of capacitor active: %.2f um" (lambda*5.0))
+                drc( cwellEdge lcDiffEdge enc < (lambda * 5.0) errMesg )
+            )
+            saveDerived( geomStraddle( active cwell ) errMesg )
+        )
+    )
+
+    ;; SCMOS 18. LINEAR CAPACITOR (POLY TO N-DIFFUSION) 
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( cwellAvailable then
+            ;; 18.1
+            sprintf( errMesg "(SCMOS Rule 18.1) capacitor width: %.2f um" (lambda*3.0))
+            drc( lcCapEdge width < (lambda * 3.0)  errMesg )
+
+            ;; 18.2
+            sprintf( errMesg "(SCMOS Rule 18.2) poly enclosure of capacitor active: %.2f um" (lambda*2.0))
+            drc( polyEdge lcDiffEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 18.3   
+            sprintf( errMesg "(SCMOS Rule 18.3) capacitor active enclosure of poly: %.2f um" (lambda*3.0))
+            drc( lcDiffEdge polyEdge enc < (lambda * 3.0) errMesg )
+            
+            ;; 18.4
+            sprintf( errMesg "(SCMOS Rule 18.4) poly contact to capacitor spacing: %.2f um" (lambda*2.0))
+            drc( cpEdge lcCapEdge sep < (lambda * 2.0) errMesg )
+
+            ;; 18.5 
+            sprintf( errMesg "(SCMOS Rule 18.5) active contact to capacitor spacing: %.2f um" (lambda*6.0))
+            drc( caEdge lcCapEdge sep < (lambda * 6.0) errMesg )
+        )
+    )
+
+    ;; SCMOS 19. BURIED CHANNEL CCD
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( ccdAvailable then
+            ;; 19.1
+            sprintf( errMesg "(SCMOS Rule 19.1) ccd channel active width: %.2f um" (lambda*4.0))
+            drc( ccdDiffEdge width < (lambda * 4.0) errMesg )
+
+            ;; 19.2
+            sprintf( errMesg "(SCMOS Rule 19.2) ccd channel active spacing: %.2f um" (lambda*4.0))
+            drc( ccdDiffEdge sep < (lambda * 4.0) errMesg )
+            drc( ccdDiffEdge notch < (lambda * 4.0) errMesg )
+
+            ;; 19.3
+            sprintf( errMesg "(SCMOS Rule 19.3) ccd implant enclosure of active: %.2f um" (lambda*2.0))
+            drc( ccdEdge ccdDiffEdge enc < (lambda * 2.0) errMesg )
+
+            ;; 19.4
+            sprintf( errMesg "(SCMOS Rule 19.4) outside contact to ccd implant: %.2f um" (lambda*3.0))
+            drc( geomOr( cpEdge ceEdge ) ccdEdge sep < (lambda*3.0) errMesg )
+
+            ;; 19.5
+            sprintf( errMesg "(SCMOS Rule 19.5) n-select overlap of poly: %.2f um" (lambda*2.0))
+            drc( geomGetEdge( geomAnd( nselect ccd) not_over "nodrc") polyEdge ovlp < (lambda * 2.0) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 19.5) n-select overlap of electrode: %.2f um" (lambda*2.0))
+            drc( geomGetEdge( geomAnd( nselect ccd) not_over "nodrc") elecEdge ovlp < (lambda * 2.0) errMesg )
+
+            ;; 19.6
+            sprintf( errMesg "(SCMOS Rule 19.6) poly-electrode overlap within channel active: %.2f um" (lambda*2.0))
+            drc( geomGetEdge( geomAnd( ccd geomAnd( poly elec ) ) not_over "nodrc" ) width < (lambda * 2.0) errMesg )
+
+            ;; 19.7
+            sprintf( errMesg "(SCMOS Rule 19.7) contact to channel poly: %.2f um" (lambda*2.0))
+            drc(ccdContactEdge geomGetEdge( geomAnd( geomAnd( nselect ccd ) poly ) not_over "nodrc" ) sep < (lambda * 2.0) errMesg)
+
+            sprintf( errMesg "(SCMOS Rule 19.7) contact to channel elec: %.2f um" (lambda*2.0))
+            drc(ccdContactEdge geomGetEdge( geomAnd( geomAnd( nselect ccd ) elec ) not_over "nodrc" ) sep < (lambda * 2.0) errMesg)
+        )
+    )
+
+
+    ;; SCMOS 20. SILICIDE BLOCK
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( sblockAvailable then  
+            ;; 20.1
+            sprintf( errMesg "(SCMOS Rule 20.1) sblock width: %.2f um" (lambda*4.0) )
+            drc( sblockEdge width < (lambda * 4.0) errMesg )
+
+            ;; 20.2
+            sprintf( errMesg "(SCMOS Rule 20.2) sblock spacing: %.2f um" (lambda*4.0) )
+            drc( sblockEdge sep < (lambda * 4.0) errMesg )
+            drc( sblockEdge notch < (lambda * 4.0) errMesg )
+
+            ;; 20.3
+            sprintf( errMesg "(SCMOS Rule 20.3) sblock to contact spacing: %.2f um" (lambda*2.0) )
+            drc( sblockEdge caEdge sep < (lambda * 2.0) errMesg )
+            drc( sblockEdge cpEdge sep < (lambda * 2.0) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 20.3) no contacts allowed inside sblock" )
+            saveDerived( geomAnd( sblock ca ) errMesg )
+            saveDerived( geomAnd( sblock cp ) errMesg )
+
+            ;; 20.4
+            sprintf( errMesg "(SCMOS Rule 20.4) sblock to external active spacing: %.2f um" (lambda*2.0) )
+            drc( sblockEdge activeEdge sep < (lambda * 2.0) errMesg )
+
+            ;; 20.5
+            sprintf( errMesg "(SCMOS Rule 20.5) sblock to external poly spacing: %.2f um" (lambda*2.0) )
+            drc( sblockEdge geomGetEdge( geomAndNot( poly geomButting( poly polySRes ) ) ) sep < (lambda * 2.0) errMesg )
+
+            ;; 20.6
+            sprintf( errMesg "(SCMOS Rule 20.6) Resistor is poly inside sblock; poly ends stick out" )
+            saveDerived( geomButting( polySRes geomAndNot( poly polySRes ) ignore == 2 ) errMesg )
+
+            ;; 20.7
+            sprintf( errMesg "(SCMOS Rule 20.7) poly resistor width: %.2f um" (lambda*5.0) )
+            drc( polySResEdge width < (lambda * 5.0) errMesg )
+
+            ;; 20.8
+            sprintf( errMesg "(SCMOS Rule 20.8) poly resistor spacing, same sblock: %.2f um" (lambda*7.0) )
+            drc( polySResEdge sep < (lambda * 7.0) errMesg )
+            drc( polySResEdge notch < (lambda * 7.0) errMesg )
+
+            ;; 20.9
+            sprintf( errMesg "(SCMOS Rule 20.9) sblock enclosure of poly resistor: %.2f um" (lambda*2.0) )
+            drc( sblockEdge polySResEdge enc < (lambda * 2.0) errMesg )
+        )
+    )
+
+    ;; SCMOS 21. VIA3
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal4Available then  
+            ;; 21.1 - modified for DEEP
+            if( deepAvailable then
+                sprintf( errMesg "(SCMOS Rule 21.1) via3 size, exactly: %.2f x %.2f um" (lambda*3.0) (lambda*3.0))
+                drc( via3Edge width < (lambda * 3.0) errMesg )
+                drc( via3 area > ( (lambda * 3.0) * (lambda * 3.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 21.1) via3 size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+                drc( via3Edge width < (lambda * 2.0) errMesg )
+                drc( via3 area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            )
+
+            ;; 21.2 
+            if( deepAvailable then
+                sprintf( errMesg "(SCMOS Rule 21.2) via3 spacing: %.2f um" (lambda*3.0))
+                drc( via3Edge sep < (lambda * 3.0) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 21.2) via3 spacing: %.2f um" (lambda*4.0))
+                drc( via3Edge sep < (lambda * 4.0) errMesg )
+            )
+            ;; exception for HP GMOS10QA (SCN4M_SUBM) not implemented since this process
+            ;; is inactive (i.e. Last multi-project run Dec 13, 1999 according to
+            ;; http://www.mosis.com/Technical/Processes/menu-processes.html)
+            
+            ;; 21.3
+            sprintf( errMesg "(SCMOS Rule 21.3) metal3 enclosure of via3: %.2f um" (lambda*1.0))
+            drc( metal3Edge via3Edge enc < (lambda * 1.0) errMesg )
+            saveDerived( geomAndNot( via3 metal3) errMesg )
+        )
+    )
+
+    ;; SCMOS 22. METAL4
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        cond(
+            ( metal5Available
+             ;; 22.1
+             sprintf( errMesg "(SCMOS Rule 22.1) metal4 width: %.2f um" (lambda*3.0))
+             drc( metal4Edge width < (lambda * 3.0) errMesg )
+
+             ;; 22.2 - modified for DEEP
+             if( deepAvailable then
+                 sprintf( errMesg "(SCMOS Rule 22.2) metal4 spacing: %.2f um" (lambda*4.0))
+                 drc( metal4Edge sep < (lambda * 4.0) errMesg )
+                 drc( metal4Edge notch < (lambda * 4.0) errMesg )
+             else
+                 sprintf( errMesg "(SCMOS Rule 22.2) metal4 spacing: %.2f um" (lambda*3.0))
+                 drc( metal4Edge sep < (lambda * 3.0) errMesg )
+                 drc( metal4Edge notch < (lambda * 3.0) errMesg )
+             )
+
+             ;; 22.3
+             sprintf( errMesg "(SCMOS Rule 22.3) metal4 enclosure of via3: %.2f um" (lambda*1.0))
+             drc( metal4Edge via3Edge enc < (lambda * 1.0) errMesg )
+             saveDerived( geomAndNot( via3 metal4) errMesg )
+            )
+
+            ( metal4Available
+             ;; 22.1
+             sprintf( errMesg "(SCMOS Rule 22.1) metal4 width: %.2f um" (lambda*6.0))
+             drc( metal4Edge width < (lambda * 6.0) errMesg )
+
+             ;; 22.2
+             sprintf( errMesg "(SCMOS Rule 22.2) metal4 spacing: %.2f um" (lambda*6.0))
+             drc( metal4Edge sep < (lambda * 6.0) errMesg )
+             drc( metal4Edge notch < (lambda * 6.0) errMesg )
+
+             ;; 22.3
+             sprintf( errMesg "(SCMOS Rule 22.3) metal4 enclosure of via3: %.2f um" (lambda*2.0))
+             drc( metal4Edge via3Edge enc < (lambda * 2.0) errMesg )
+             saveDerived( geomAndNot( via3 metal4) errMesg )
+            )
+
+            ;; 22.4
+            ;; Metal4 wide metal (>10*lambda) rule not implemented
+
+	;; Metal4 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem4= geomSize( geomSize(metal4 (lambda * -5.0)) (lambda * 5.0))
+	if( deepAvailable then
+		sprintf( errMesg "(SCMOS Rule 22.4) wide (>10*lambda) metal4 spacing: %.2f um" (lambda*8.0))
+		drc( widem4 metal4Edge sep < (lambda * 8.0) errMesg )
+		drc( widem4 notch < (lambda * 8.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	else
+		sprintf( errMesg "(SCMOS Rule 22.4) wide (>10*lambda) metal4 spacing: %.2f um" (lambda*6.0))
+		drc( widem4 metal4Edge sep < (lambda * 6.0) errMesg )
+		drc( widem4 notch < (lambda * 6.0) errMesg )
+	)
+        )
+    )
+
+    ;; SCMOS 23. SCNPC WITH POLYCAP
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( polycapAvailable then
+        ;; 23.1
+        sprintf( errMesg "(SCMOS Rule 23.1) minimum polycap width: %.2f um" (lambda*8.0) )
+        drc( polycapEdge width < (lambda * 8.0) errMesg )
+
+        ;; 23.2
+        sprintf( errMesg "(SCMOS Rule 23.2) polycap spacing: %.2f um" (lambda*4.0) )
+        drc( polycapEdge sep < (lambda * 4.0) errMesg )
+        drc( polycapEdge notch < (lambda * 4.0) errMesg )
+
+        ;; 23.3
+        sprintf( errMesg "(SCMOS Rule 23.3) polycap to active spacing: %.2f um" (lambda*8.0) )
+        drc( polycapEdge activeEdge sep < (lambda * 8.0) errMesg )
+        sprintf( errMesg "(SCMOS Rule 23.3) all capacitors must be over field" )
+        saveDerived( geomAnd( polycap active ) errMesg )
+
+        ;; 23.4
+        sprintf( errMesg "(SCMOS Rule 23.4) polycap enclosure of poly: %.2f um" (lambda*3.0) )
+        drc( polycapEdge polyEdge enc < (lambda * 3.0) errMesg )
+
+        ;; 23.5
+        sprintf( errMesg "(SCMOS Rule 23.5) polycap enclosure of contact: %.2f um" (lambda*2.0) )
+        drc( polycapEdge cpolycapEdge enc < (lambda * 2.0) errMesg )
+
+        ;; 23.6
+        sprintf( errMesg "(SCMOS Rule 23.6) poly enclosure of contact in capacitor: %.2f um" (lambda*2.0) )
+        drc( polycapCapEdge cpEdge enc < (lambda * 2.0) errMesg )
+
+        ;; 23.7
+        sprintf( errMesg "(SCMOS Rule 23.7) poly to polycap-contact spacing: %.2f um" (lambda*2.0) )
+        drc( polycapCapEdge cpolycapEdge sep < (lambda * 2.0) errMesg )
+
+        ;; 23.8
+        sprintf( errMesg "(SCMOS Rule 23.8) polycap to metal1 spacing: %.2f um" (lambda*4.0) )
+        drc( polycapEdge metal1Edge sep < (lambda * 4.0) diffNet errMesg )
+        saveDerived( geomOverlap( metal1 polycap diffNet ) errMesg )
+
+        ;; 23.9
+        sprintf( errMesg "(SCMOS Rule 23.9) polycap to metal2 spacing: %.2f um" (lambda*2.0) )
+        drc( polycapEdge metal2Edge sep < (lambda * 2.0) errMesg )
+        saveDerived( geomOverlap( metal2 polycap diffNet ) errMesg )
+        )
+    )
+
+
+    ;; SCMOS 24. THICK ACTIVE
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( hvAvailable then
+            ;; 24.1
+            sprintf( errMesg "(SCMOS Rule 24.1) thick active width: %.2f um" (lambda*4.0))
+            drc( tactiveEdge width < (lambda * 4.0)  errMesg )
+
+            ;; 24.2
+            sprintf( errMesg "(SCMOS Rule 24.2) thick active spacing: %.2f um" (lambda*4.0))
+            drc( tactiveEdge sep < (lambda * 4.0) errMesg )
+            drc( tactiveEdge notch < (lambda * 4.0) errMesg )
+
+            ;; 24.3
+            sprintf( errMesg "(SCMOS Rule 24.3) thick active enclosure of active: %.2f um" (lambda*4.0))
+            drc( tactiveEdge activeEdge enc < (lambda * 4.0) errMesg )
+
+            ;; 24.4
+            sprintf( errMesg "(SCMOS Rule 24.4) thick active spacing to active: %.2f um" (lambda*4.0))
+            drc( tactiveEdge activeEdge sep < (lambda * 4.0) errMesg )
+
+            ;; 24.5
+            sprintf( errMesg "(SCMOS Rule 24.5) poly width in HV gate: %.2f um" (lambda*3.0))
+            drc( geomAnd( tactive geomAnd( geomOr( nNotOhmic pNotOhmic) poly ) ) width < (lambda*3.0) errMesg )
+
+            ;; 24.6
+            saveDerived( geomStraddle( active tactive ) "(SCMOS Rule 24.6) active may not straddle tactive" )
+        )
+    )
+
+
+    ;; SCMOS 25. VIA4
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal5Available then  
+            ;; 25.1 - modified for DEEP
+            if( deepAvailable then
+                sprintf( errMesg "(SCMOS Rule 25.1) via4 size, exactly: %.2f x %.2f um" (lambda*3.0) (lambda*3.0))
+                drc( via4Edge width < (lambda * 3.0) errMesg )
+                drc( via4 area > ( (lambda * 3.0) * (lambda * 3.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            else
+                sprintf( errMesg "(SCMOS Rule 25.1) via4 size, exactly: %.2f x %.2f um" (lambda*2.0) (lambda*2.0))
+                drc( via4Edge width < (lambda * 2.0) errMesg )
+                drc( via4 area > ( (lambda * 2.0) * (lambda * 2.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+            )
+
+            ;; 25.2
+            sprintf( errMesg "(SCMOS Rule 25.2) via4 spacing: %.2f um" (lambda*3.0))
+            drc( via4Edge sep < (lambda * 3.0) errMesg )
+
+            ;; 25.3
+            sprintf( errMesg "(SCMOS Rule 25.3) metal4 enclosure of via4: %.2f um" (lambda*1.0))
+            drc( metal4Edge via4Edge enc < (lambda * 1.0) errMesg )
+            saveDerived( geomAndNot( via4 metal4) errMesg )
+        )
+    )
+
+    ;; SCMOS 26. METAL5
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        cond( 
+            ( metal6Available
+             ;; 26.1 - modified for DEEP
+             if( metal6Available then
+                 sprintf( errMesg "(SCMOS Rule 26.1) metal5 width: %.2f um" (lambda*3.0))
+                 drc( metal5Edge width < (lambda * 3.0) errMesg )
+             else
+                 sprintf( errMesg "(SCMOS Rule 26.1) metal5 width: %.2f um" (lambda*4.0))
+                 drc( metal5Edge width < (lambda * 4.0) errMesg )
+             )
+
+             ;; 26.2
+             sprintf( errMesg "(SCMOS Rule 26.2) metal5 spacing: %.2f um" (lambda*3.0))
+             drc( metal5Edge sep < (lambda * 3.0) errMesg )
+             drc( metal5Edge notch < (lambda * 3.0) errMesg )
+
+             ;; 26.3
+             sprintf( errMesg "(SCMOS Rule 26.3) metal5 enclosure of via4: %.2f um" (lambda*1.0))
+             drc( metal5Edge via4Edge enc < (lambda * 1.0) errMesg )
+             saveDerived( geomAndNot( via4 metal5) errMesg )
+            )
+
+            ( metal5Available
+             ;; 26.1
+             sprintf( errMesg "(SCMOS Rule 26.1) metal5 width: %.2f um" (lambda*4.0))
+             drc( metal5Edge width < (lambda * 4.0) errMesg )
+
+             ;; 26.2
+             sprintf( errMesg "(SCMOS Rule 26.2) metal5 spacing: %.2f um" (lambda*4.0))
+             drc( metal5Edge sep < (lambda * 4.0) errMesg )
+             drc( metal5Edge notch < (lambda * 4.0) errMesg )
+
+             ;; 26.3
+             sprintf( errMesg "(SCMOS Rule 26.3) metal5 enclosure of via4: %.2f um" (lambda*1.0))
+             drc( metal5Edge via4Edge enc < (lambda * 1.0) errMesg )
+             saveDerived( geomAndNot( via4 metal5) errMesg )
+            )
+
+            ;; 26.4
+            ;; Metal5 wide metal (>10*lambda) rule not implemented
+
+	;; Metal5 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem5= geomSize( geomSize(metal5 (lambda * -5.0)) (lambda * 5.0))
+	if( deepAvailable then
+		sprintf( errMesg "(SCMOS Rule 26.4) wide (>10*lambda) metal5 spacing: %.2f um" (lambda*8.0))
+		drc( widem5 metal5Edge sep < (lambda * 8.0) errMesg )
+		drc( widem5 notch < (lambda * 8.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	else
+		sprintf( errMesg "(SCMOS Rule 26.4) wide (>10*lambda) metal5 spacing: %.2f um" (lambda*6.0))
+		drc( widem5 metal5Edge sep < (lambda * 6.0) errMesg )
+		drc( widem5 notch < (lambda * 6.0) errMesg )
+	)
+        )
+    )
+
+    ;; SCMOS 27. HIGHRES POLY
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( highresAvailable && elecAvailable then  
+            ;; 27.1
+            sprintf( errMesg "(SCMOS Rule 27.1) highres width: %.2f um" (lambda*4.0) )
+            drc( highresEdge width < (lambda * 4.0) errMesg )
+
+            ;; 27.2
+            sprintf( errMesg "(SCMOS Rule 27.2) highres spacing: %.2f um" (lambda*4.0) )
+            drc( highresEdge sep < (lambda * 4.0) errMesg )
+            drc( highresEdge notch < (lambda * 4.0) errMesg )
+
+            ;; 27.3
+            sprintf( errMesg "(SCMOS Rule 27.3) highres to contact spacing: %.2f um" (lambda*2.0) )
+            drc( highresEdge caEdge sep < (lambda * 2.0) errMesg )
+            drc( highresEdge cpEdge sep < (lambda * 2.0) errMesg )
+
+            sprintf( errMesg "(SCMOS Rule 27.3) no contacts allowed inside highres" )
+            saveDerived( geomAnd( highres ca ) errMesg )
+            saveDerived( geomAnd( highres cp ) errMesg )
+
+            ;; 27.4
+            sprintf( errMesg "(SCMOS Rule 27.4) highres to external active spacing: %.2f um" (lambda*2.0) )
+            drc( highresEdge activeEdge sep < (lambda * 2.0) errMesg )
+
+            ;; 27.5
+            sprintf( errMesg "(SCMOS Rule 27.5) highres to external elec spacing: %.2f um" (lambda*2.0) )
+            drc( highresEdge geomGetEdge( geomAndNot( elec geomButting( elec elecHighres ) ) ) sep < (lambda * 2.0) errMesg )
+
+            ;; 27.6
+            sprintf( errMesg "(SCMOS Rule 27.6) Resistor is elec inside highres; elec ends stick out" )
+            saveDerived( geomButting( elecHighres geomAndNot( elec elecHighres ) ignore == 2 ) errMesg )
+            saveDerived( geomAnd( elecHighres nwell ) "(SCMOS Rule 27.6) resistor must be outside well and over field" )
+            saveDerived( geomAnd( elecHighres active ) "(SCMOS Rule 27.6) resistor must be outside well and over field" )
+
+            ;; 27.7
+            sprintf( errMesg "(SCMOS Rule 27.7) elec resistor width: %.2f um" (lambda*5.0) )
+            drc( elecHighresEdge width < (lambda * 5.0) errMesg )
+
+            ;; 27.8
+            sprintf( errMesg "(SCMOS Rule 27.8) elec resistor spacing, same highres: %.2f um" (lambda*7.0) )
+            drc( elecHighresEdge sep < (lambda * 7.0) errMesg )
+            drc( elecHighresEdge notch < (lambda * 7.0) errMesg )
+
+            ;; 27.9
+            sprintf( errMesg "(SCMOS Rule 27.9) highres enclosure of elec resistor: %.2f um" (lambda*2.0) )
+            drc( highresEdge elecHighresEdge enc < (lambda * 2.0) errMesg )
+        )
+    )
+
+    ;; SCMOS 28. METALCAP (MOSIS CAP_TOP_METAL)
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metalcapAvailable then
+            ;; 28.1
+            sprintf( errMesg "(SCMOS Rule 28.1) metalcap minimum width: %.2f um" (lambda*50.0))
+            drc( metalcapCapEdge width < (lambda * 50.0) errMesg )
+
+            ;; 28.2
+            sprintf( errMesg "(SCMOS Rule 28.2) metalcap spacing: %.2f um" (lambda*2.0))
+            drc( metalcapCapEdge sep < (lambda * 2.0) errMesg )
+            drc( metalcapCapEdge notch < (lambda * 2.0) errMesg )
+
+            ;; 28.3
+            cond( 
+                ( metal6Available
+                    sprintf( errMesg "(SCMOS Rule 28.3) metal5 enclosure of metalcap: %.2f um" (lambda*5.0))
+                    saveDerived( geomAndNot( metalcap metal5 ) errMesg )
+                )
+                ( metal5Available
+                    sprintf( errMesg "(SCMOS Rule 28.3) metal4 enclosure of metalcap: %.2f um" (lambda*5.0))
+                    saveDerived( geomAndNot( metalcap metal4 ) errMesg )
+                )
+            )
+            drc( metalcapBottomEdge metalcapCapEdge enc < (lambda * 5.0) errMesg )
+
+            ;; 28.4
+            cond( 
+                ( metal6Available
+                    sprintf( errMesg "(SCMOS Rule 28.4) metalcap enclosure of via5: %.2f um" (lambda*3.0))
+                    drc( metalcapCapEdge via5metalcapEdge enc < (lambda * 3.0) errMesg )
+                )
+                ( metal5Available
+                    sprintf( errMesg "(SCMOS Rule 28.4) metalcap enclosure of via4: %.2f um" (lambda*3.0))
+                    drc( metalcapCapEdge via4metalcapEdge enc < (lambda * 3.0) errMesg )
+                )
+            )
+
+            ;; 28.5
+            cond( 
+                ( metal6Available
+                    sprintf( errMesg "(SCMOS Rule 28.5) metalcap spacing to via5: %.2f um" (lambda*5.0))
+                    drc( metalcapCapEdge via5Edge sep < (lambda * 5.0) errMesg )
+                    sprintf( errMesg "(SCMOS Rule 28.5) metalcap spacing to via4: %.2f um" (lambda*5.0))
+                    drc( metalcapCapEdge via4Edge sep < (lambda * 5.0) errMesg )
+                    saveDerived( geomAnd( metalcap via4 ) errMesg )
+                )
+                ( metal5Available
+                    sprintf( errMesg "(SCMOS Rule 28.5) metalcap spacing to via4: %.2f um" (lambda*5.0))
+                    drc( metalcapCapEdge via4Edge sep < (lambda * 5.0) errMesg )
+                    sprintf( errMesg "(SCMOS Rule 28.5) metalcap spacing to via3: %.2f um" (lambda*5.0))
+                    drc( metalcapCapEdge via3Edge sep < (lambda * 5.0) errMesg )
+                    saveDerived( geomAnd( metalcap via3 ) errMesg )
+                )
+            )
+
+            ;; 28.6
+            cond( 
+                ( metal6Available
+                    sprintf( errMesg "(SCMOS Rule 28.6) metal5 enclosure of via5 (on cap): %.2f um" (lambda*5.0))
+                    drc( metalcapBottomEdge via5Edge enc < (lambda*5.0) errMesg)
+                    sprintf( errMesg "(SCMOS Rule 28.6) metal5 enclosure of via4 (on cap): %.2f um" (lambda*5.0))
+                    drc( metalcapBottomEdge via4Edge enc < (lambda*5.0) errMesg)
+                )
+                ( metal5Available
+                    sprintf( errMesg "(SCMOS Rule 28.6) metal4 enclosure of via4 (on cap): %.2f um" (lambda*5.0))
+                    drc( metalcapBottomEdge via4Edge enc < (lambda*5.0) errMesg)
+                    sprintf( errMesg "(SCMOS Rule 28.6) metal4 enclosure of via3 (on cap): %.2f um" (lambda*5.0))
+                    drc( metalcapBottomEdge via3Edge enc < (lambda*5.0) errMesg)
+                )
+            )
+        )
+    )
+
+    ;; SCMOS 29. VIA5
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal6Available then  
+            ;; 29.1 - modified for DEEP
+            if( deepAvailable then
+            sprintf( errMesg "(SCMOS Rule 29.1) via5 size, exactly: %.2f x %.2f um" (lambda*4.0) (lambda*4.0))
+            drc( via5Edge width < (lambda * 4.0) errMesg )
+            drc( via5 area > ( (lambda * 4.0) * (lambda * 4.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+
+            else
+            sprintf( errMesg "(SCMOS Rule 29.1) via5 size, exactly: %.2f x %.2f um" (lambda*3.0) (lambda*3.0))
+            drc( via5Edge width < (lambda * 3.0) errMesg )
+            drc( via5 area > ( (lambda * 3.0) * (lambda * 3.0) + (lambda * 0.1) * (lambda * 0.1) ) errMesg )
+             )
+
+            ;; 29.2
+            sprintf( errMesg "(SCMOS Rule 29.2) via5 spacing: %.2f um" (lambda*4.0))
+            drc( via5Edge sep < (lambda * 4.0) errMesg )
+
+            ;; 29.3
+            sprintf( errMesg "(SCMOS Rule 29.3) metal5 enclosure of via5: %.2f um" (lambda*1.0))
+            drc( metal5Edge via5Edge enc < (lambda * 1.0) errMesg )
+            saveDerived( geomAndNot( via5 metal5) errMesg )
+        )
+    )
+
+    ;; SCMOS 30. METAL6
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( metal6Available then
+             ;; 30.1
+             sprintf( errMesg "(SCMOS Rule 30.1) metal6 width: %.2f um" (lambda*4.0))
+             drc( metal6Edge width < (lambda * 4.0) errMesg )
+
+             ;; 30.2
+             sprintf( errMesg "(SCMOS Rule 30.2) metal6 spacing: %.2f um" (lambda*4.0))
+             drc( metal6Edge sep < (lambda * 4.0) errMesg )
+             drc( metal6Edge notch < (lambda * 4.0) errMesg )
+
+             ;; 30.3 - modified for DEEP
+             if( deepAvailable then
+             sprintf( errMesg "(SCMOS Rule 30.3) metal6 enclosure of via5: %.2f um" (lambda*2.0))
+             drc( metal6Edge via5Edge enc < (lambda * 2.0) errMesg )
+             saveDerived( geomAndNot( via5 metal6) errMesg )
+
+             else
+             sprintf( errMesg "(SCMOS Rule 30.3) metal6 enclosure of via5: %.2f um" (lambda*1.0))
+             drc( metal6Edge via5Edge enc < (lambda * 1.0) errMesg )
+             saveDerived( geomAndNot( via5 metal6) errMesg )
+            )
+
+             ;; 30.4
+             ;; Metal6 wide metal (>10*lambda) rule not implemented
+
+	;; Metal6 wide metal (>10*lambda) rule added - jsiebert (4/18/05)
+	widem6= geomSize( geomSize(metal6 (lambda * -5.0)) (lambda * 5.0))
+	if( ( submicronAvailable || deepAvailable ) then
+		sprintf( errMesg "(SCMOS Rule 30.4) wide (>10*lambda) metal6 spacing: %.2f um" (lambda*10.0))
+		drc( widem6 metal6Edge sep < (lambda * 10.0) errMesg )
+		drc( widem6 notch < (lambda * 10.0) errMesg ) ;; This seems like a redundant check. jsiebert
+	)
+        )
+    )
+
+    ;; SCMOS EXP-98. MEMS OPEN
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( memsAvailable then
+            ;; 98.1
+            sprintf( errMesg "(SCMOS Rule exp-98.1) open width: 5 um" )
+            drc( openEdge width < 5 errMesg )
+
+            ;; 98.2
+            sprintf( errMesg "(SCMOS Rule exp-98.2) open spacing: 8 um" )
+            drc( openEdge sep < 8 errMesg )
+            drc( openEdge notch < 8 errMesg )
+
+            sprintf( errMesg "(SCMOS Rule exp-98.3) open spacing to any metal layer: 8 um" )
+            if( metal3Available then
+                drc( openEdge metal3Edge sep < 8 errMesg )
+                drc( openEdge metal3Edge notch < 8 errMesg )
+            )
+            drc( openEdge metal2Edge sep < 8 errMesg )
+            drc( openEdge metal2Edge notch < 8 errMesg )
+            drc( openEdge metal1Edge sep < 8 errMesg )
+            drc( openEdge metal1Edge notch < 8 errMesg )
+
+            sprintf( errMesg "(SCMOS Rule exp-98.3) open spacing to poly: 8 um" )
+            drc( openEdge polyEdge sep < 8 errMesg )
+            drc( openEdge polyEdge notch < 8 errMesg )
+
+            if( elecAvailable then
+                sprintf( errMesg "(SCMOS Rule exp-98.3) open spacing to elec: 8 um" )
+                drc( openEdge elecEdge sep < 8 errMesg )
+                drc( openEdge elecEdge notch < 8 errMesg )
+            )
+        )
+    )
+
+    ;; SCMOS EXP-99. MEMS PSTOP
+
+    ivIf( ( !switch("hier?") || !switch("topCell?") ) then
+
+        if( memsAvailable then
+            ;; 99.1
+            sprintf( errMesg "(SCMOS Rule exp-99.1) pstop width: 5 um" )
+            drc( pstopEdge width < 5 errMesg )
+        )
+    )
+
+) ; drcExtractRules
+) ; let
+
+; vim:ts=4:columns=132:set tw=0:

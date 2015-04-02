@@ -1,0 +1,126 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "iam"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dc"
+        ?prompt         "DC source"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acm"
+        ?prompt         "AC magnitude"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acp"
+        ?prompt         "AC phase"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sa"
+        ?prompt         "Signal amplitude"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('sa)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "fc"
+        ?prompt         "Carrier frequency"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('fc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "fm"
+        ?prompt         "Modulation frequency"
+        ?defValue       "1.0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('fm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "oc"
+        ?prompt         "Offset constant"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('oc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  anshspiceSSrcPrim_iam
+        instParameters    (m dc acm acp sa fc fm oc td)
+        componentName     hiam
+        termOrder         (PLUS MINUS)
+        propMapping       (nil)
+        namePrefix        "I"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

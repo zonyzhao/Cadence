@@ -1,0 +1,16 @@
+//Revision 3
+//NOTE
+//VXL Configuration
+//END_NOTE
+
+config nand2;
+design NCSU_Digital_Parts.nand2:cmos_sch;
+liblist NCSU_Digital_Parts;
+
+viewlist physConfig, schematic, symbol;
+
+constraintviewlist constraint;
+stoplist layout, abstract;
+
+
+endconfig

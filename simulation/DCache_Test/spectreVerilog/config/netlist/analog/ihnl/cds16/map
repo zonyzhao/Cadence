@@ -1,0 +1,20 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "Sel<0>" "Sel_0" )
+( "Sel<1>" "Sel_1" )
+ )
+( inst
+ )
+( model
+ )
+( term
+ )
+( param
+ )
+ )

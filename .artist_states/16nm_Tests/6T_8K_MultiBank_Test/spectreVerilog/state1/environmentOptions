@@ -1,0 +1,45 @@
+(envOpts analysisOrder) ("tran")
+(envOpts autoDisplay) t
+(envOpts cpfIsPommardEnabled) t
+(envOpts emLayerMap) ""
+(envOpts emTechFile) ""
+(envOpts emirEnable) nil
+(envOpts emirEnable_static) nil
+(envOpts emirSumList) nil
+(envOpts enableArclength) nil
+(envOpts firstRun) t
+(envOpts mspSetupHNLNetlistGndNets) "gnd! gnda! gndd! vss! vssa! vssd! vee! veea! veed!"
+(envOpts mspSetupHNLNetlistPwrNets) "vdd! vdda! vddd! vcc! vcca! vccd!"
+(envOpts mspSetupNetlistAssignForAlias) nil
+(envOpts mspSetupNetlistBus) t
+(envOpts mspSetupNetlistDeclareGlobalLocally) nil
+(envOpts mspSetupNetlistDropPortRange) t
+(envOpts mspSetupNetlistEscapeName) nil
+(envOpts mspSetupNetlistExplicit) nil
+(envOpts mspSetupNetlistIncreNetlistConfig) nil
+(envOpts mspSetupNetlistLaiLmsi) nil
+(envOpts mspSetupNetlistNullPort) nil
+(envOpts mspSetupNetlistOverWriteSchTimeScale) nil
+(envOpts mspSetupNetlistOverWriteVerimix) nil
+(envOpts mspSetupNetlistPinMap) nil
+(envOpts mspSetupNetlistSimPrecisionUnit) "ps"
+(envOpts mspSetupNetlistSimPrecisionValue) 1
+(envOpts mspSetupNetlistSimTimeUnit) "ps"
+(envOpts mspSetupNetlistSimTimeValue) 1
+(envOpts mspSetupNetlistSkipTimingInfo) nil
+(envOpts mspSetupNetlistStopSymbolImplicit) nil
+(envOpts mspSetupNetlistSwitchRC) t
+(envOpts mspSetupNetlistTemplate) "Verimix"
+(envOpts mspSetupNetlistUpCase) nil
+(envOpts mspSetupNetlistUseLib) nil
+(envOpts mspSetupNetlistUseTestfixture) t
+(envOpts paramRangeCheckFile) ""
+(envOpts pllPlugin) ""
+(envOpts pllWizardinfo) ""
+(envOpts printComments) (nil nil)
+(envOpts restart) ""
+(envOpts savestate) ""
+(envOpts setTopLevelAsSubckt) nil
+(envOpts sst2usecolon) nil
+(envOpts userCmdLineOption) "+multithread -64"
+(envOpts vcoType) ""

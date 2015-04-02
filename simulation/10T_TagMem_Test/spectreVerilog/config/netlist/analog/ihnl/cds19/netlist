@@ -1,0 +1,7 @@
+    I1 (\~R1 Pch vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    I0 (\~R0 Pch vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    I3 (Re2 Re Pch) TH22
+ends _sub5
+// End of subcircuit definition.

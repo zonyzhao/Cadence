@@ -1,0 +1,14 @@
+    M4 (Y C vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=off
+    M1 (Y B vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=off
+    M0 (Y A vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=off
+    M6 (net026 C 0 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M3 (net22 B net026 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M2 (Y A net22 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+ends nand3_1x
+// End of subcircuit definition.

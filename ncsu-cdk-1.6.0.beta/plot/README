@@ -1,0 +1,7 @@
+The ps.prologue file was modified to allow correct printing on both HP LaserJet series printers and the Tektronix 550. Basically comment out line 13.
+
+/gis  {
+%  setpage
+  save
+  mark
+  newpath

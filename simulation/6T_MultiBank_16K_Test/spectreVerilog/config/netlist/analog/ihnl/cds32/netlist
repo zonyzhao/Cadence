@@ -1,0 +1,24 @@
+    I13 (net31 net29 net27 net25 b_ack) nand4_1x
+    I12 (net26 net28 net30 net32 a_ack) nand4_1x
+    I11 (net42 ack out_0) TH22
+    I10 (net41 ack out_1) TH22
+    I9 (net40 ack out_2) TH22
+    I8 (net39 ack out_3) TH22
+    I7 (b_0 bsel net21 net31) _sub46
+    I6 (b_1 bsel net22 net29) _sub46
+    I5 (b_2 bsel net23 net27) _sub46
+    I4 (b_3 bsel net24 net25) _sub46
+    I3 (a_3 asel net24 net32) _sub46
+    I2 (a_2 asel net23 net30) _sub46
+    I1 (a_1 asel net22 net28) _sub46
+    I0 (a_0 asel net21 net26) _sub46
+    I17 (net32 net25 net39) nand_1x
+    I16 (net30 net27 net40) nand_1x
+    I15 (net28 net29 net41) nand_1x
+    I14 (net26 net31 net42) nand_1x
+    I21 (out_0 net21) inv_1x
+    I20 (out_1 net22) inv_1x
+    I19 (out_2 net23) inv_1x
+    I18 (out_3 net24) inv_1x
+ends _sub47
+// End of subcircuit definition.

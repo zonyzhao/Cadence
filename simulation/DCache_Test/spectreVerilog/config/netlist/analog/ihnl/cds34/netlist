@@ -1,0 +1,40 @@
+    I16 (a0_19 a0_18 a0_17 a0_16 a1_19 a1_18 a1_17 a1_16 b0_19 b0_18 \
+        b0_17 b0_16 b1_19 b1_18 b1_17 b1_16 _5y0_3 _5y0_2 _5y0_1 _5y0_0 \
+        _5y1_3 _5y1_2 _5y1_1 _5y1_0) Compare4_DR
+    I11 (a0_7 a0_6 a0_5 a0_4 a1_7 a1_6 a1_5 a1_4 b0_7 b0_6 b0_5 b0_4 \
+        b1_7 b1_6 b1_5 b1_4 _2y0_3 _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 \
+        _2y1_1 _2y1_0) Compare4_DR
+    I10 (a0_3 a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 b0_1 b0_0 \
+        b1_3 b1_2 b1_1 b1_0 _1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 \
+        _1y1_1 _1y1_0) Compare4_DR
+    I14 (a0_11 a0_10 a0_9 a0_8 a1_11 a1_10 a1_9 a1_8 b0_11 b0_10 b0_9 \
+        b0_8 b1_11 b1_10 b1_9 b1_8 _3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 \
+        _3y1_2 _3y1_1 _3y1_0) Compare4_DR
+    I13 (a0_15 a0_14 a0_13 a0_12 a1_15 a1_14 a1_13 a1_12 b0_15 b0_14 \
+        b0_13 b0_12 b1_15 b1_14 b1_13 b1_12 _4y0_3 _4y0_2 _4y0_1 _4y0_0 \
+        _4y1_3 _4y1_2 _4y1_1 _4y1_0) Compare4_DR
+    I2 (a0_21 a1_21 b0_21 b1_21 net39 net60 net42) Compare_DR
+    I0 (a0_20 a1_20 b0_20 b1_20 net40 net41 net43) Compare_DR
+    I37 (net56 net53 net55 net57 net59) nand4_1x
+    I27 (net49 net47 net46 net48 net52) nand4_1x
+    I3 (a0_21 a1_21 b0_21 b1_21 net39) Valid_DR
+    I1 (a0_20 a1_20 b0_20 b1_20 net40) Valid_DR
+    I21 (_5y1_0 _5y1_1 _5y1_2 _5y1_3 net61) and4_1x
+    I23 (_4y1_0 _4y1_1 _4y1_2 _4y1_3 net48) and4_1x
+    I24 (_3y1_0 _3y1_1 _3y1_2 _3y1_3 net46) and4_1x
+    I25 (_2y1_0 _2y1_1 _2y1_2 _2y1_3 net47) and4_1x
+    I26 (_1y1_0 _1y1_1 _1y1_2 _1y1_3 net49) and4_1x
+    I22 (net43 net42 net45) and_1x
+    I38 (net54 net50 net58) nand_1x
+    I28 (net61 net45 net51) nand_1x
+    I35 (net41 net60 net50) nor_1x
+    I29 (net52 net51 Hit) nor_1x
+    I34 (_5y0_0 _5y0_1 _5y0_2 _5y0_3 net54) nor4_1x
+    I33 (_4y0_0 _4y0_1 _4y0_2 _4y0_3 net57) nor4_1x
+    I32 (_3y0_0 _3y0_1 _3y0_2 _3y0_3 net55) nor4_1x
+    I31 (_2y0_0 _2y0_1 _2y0_2 _2y0_3 net53) nor4_1x
+    I30 (_1y0_0 _1y0_1 _1y0_2 _1y0_3 net56) nor4_1x
+    I40 (Hit Miss Valid) or2_1x
+    I39 (net59 net58 Miss) or2_1x
+ends Compare22_DR
+// End of subcircuit definition.

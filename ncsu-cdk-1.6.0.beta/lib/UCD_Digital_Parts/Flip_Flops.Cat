@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+UCD_Digital_Parts/DFF type="cell"
+UCD_Digital_Parts/DFF_Clr type="cell"
+UCD_Digital_Parts/DFF_Pre type="cell"
+UCD_Digital_Parts/Dlatch type="cell"

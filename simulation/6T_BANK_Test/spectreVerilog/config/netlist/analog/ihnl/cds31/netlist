@@ -1,0 +1,329 @@
+
+// Library name: 16nm_Tests
+// Cell name: 6T_BANK_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+V1 (vdd! 0) vsource type=dc dc=vdd
+V0 (vcc! 0) vsource type=dc dc=vcc
+I10 (AT_19 AT_18 AT_17 AT_16 AT_15 AT_14 AT_13 AT_12 AT_11 AT_10 AT_9 \
+        AT_8 AT_7 AT_6 AT_5 AT_4 AT_3 AT_2 AT_1 AT_0 AckT net018_0 \
+        net018_1 net018_2 net018_3 net018_4 ReaDataT_31 ReaDataT_30 \
+        ReaDataT_29 ReaDataT_28 ReaDataT_27 ReaDataT_26 ReaDataT_25 \
+        ReaDataT_24 ReaDataT_23 ReaDataT_22 ReaDataT_21 ReaDataT_20 \
+        ReaDataT_19 ReaDataT_18 ReaDataT_17 ReaDataT_16 ReaDataT_15 \
+        ReaDataT_14 ReaDataT_13 ReaDataT_12 ReaDataT_11 ReaDataT_10 \
+        ReaDataT_9 ReaDataT_8 ReaDataT_7 ReaDataT_6 ReaDataT_5 \
+        ReaDataT_4 ReaDataT_3 ReaDataT_2 ReaDataT_1 ReaDataT_0 RAckT_7 \
+        RAckT_6 RAckT_5 RAckT_4 RAckT_3 RAckT_2 RAckT_1 RAckT_0 RWT_1 \
+        RWT_0 WriteDataT_31 WriteDataT_30 WriteDataT_29 WriteDataT_28 \
+        WriteDataT_27 WriteDataT_26 WriteDataT_25 WriteDataT_24 \
+        WriteDataT_23 WriteDataT_22 WriteDataT_21 WriteDataT_20 \
+        WriteDataT_19 WriteDataT_18 WriteDataT_17 WriteDataT_16 \
+        WriteDataT_15 WriteDataT_14 WriteDataT_13 WriteDataT_12 \
+        WriteDataT_11 WriteDataT_10 WriteDataT_9 WriteDataT_8 \
+        WriteDataT_7 WriteDataT_6 WriteDataT_5 WriteDataT_4 \
+        WriteDataT_3 WriteDataT_2 WriteDataT_1 WriteDataT_0 WAck_7 \
+        WAck_6 WAck_5 WAck_4 WAck_3 WAck_2 WAck_1 WAck_0) _sub53
+I9_7 (\~RAck_7 RAckT_7) inv_1xt
+I9_6 (\~RAck_6 RAckT_6) inv_1xt
+I9_5 (\~RAck_5 RAckT_5) inv_1xt
+I9_4 (\~RAck_4 RAckT_4) inv_1xt
+I9_3 (\~RAck_3 RAckT_3) inv_1xt
+I9_2 (\~RAck_2 RAckT_2) inv_1xt
+I9_1 (\~RAck_1 RAckT_1) inv_1xt
+I9_0 (\~RAck_0 RAckT_0) inv_1xt
+I7_7 (WAck_7 \~WAck_7) inv_1xt
+I7_6 (WAck_6 \~WAck_6) inv_1xt
+I7_5 (WAck_5 \~WAck_5) inv_1xt
+I7_4 (WAck_4 \~WAck_4) inv_1xt
+I7_3 (WAck_3 \~WAck_3) inv_1xt
+I7_2 (WAck_2 \~WAck_2) inv_1xt
+I7_1 (WAck_1 \~WAck_1) inv_1xt
+I7_0 (WAck_0 \~WAck_0) inv_1xt
+I16_1 (\~RW_1 RWT_1) inv_1xt
+I16_0 (\~RW_0 RWT_0) inv_1xt
+I15_19 (\~A_19 AT_19) inv_1xt
+I15_18 (\~A_18 AT_18) inv_1xt
+I15_17 (\~A_17 AT_17) inv_1xt
+I15_16 (\~A_16 AT_16) inv_1xt
+I15_15 (\~A_15 AT_15) inv_1xt
+I15_14 (\~A_14 AT_14) inv_1xt
+I15_13 (\~A_13 AT_13) inv_1xt
+I15_12 (\~A_12 AT_12) inv_1xt
+I15_11 (\~A_11 AT_11) inv_1xt
+I15_10 (\~A_10 AT_10) inv_1xt
+I15_9 (\~A_9 AT_9) inv_1xt
+I15_8 (\~A_8 AT_8) inv_1xt
+I15_7 (\~A_7 AT_7) inv_1xt
+I15_6 (\~A_6 AT_6) inv_1xt
+I15_5 (\~A_5 AT_5) inv_1xt
+I15_4 (\~A_4 AT_4) inv_1xt
+I15_3 (\~A_3 AT_3) inv_1xt
+I15_2 (\~A_2 AT_2) inv_1xt
+I15_1 (\~A_1 AT_1) inv_1xt
+I15_0 (\~A_0 AT_0) inv_1xt
+I5 (AckT \~Ack) inv_1xt
+I11_31 (ReaDataT_31 \~ReadData_31) inv_1xt
+I11_30 (ReaDataT_30 \~ReadData_30) inv_1xt
+I11_29 (ReaDataT_29 \~ReadData_29) inv_1xt
+I11_28 (ReaDataT_28 \~ReadData_28) inv_1xt
+I11_27 (ReaDataT_27 \~ReadData_27) inv_1xt
+I11_26 (ReaDataT_26 \~ReadData_26) inv_1xt
+I11_25 (ReaDataT_25 \~ReadData_25) inv_1xt
+I11_24 (ReaDataT_24 \~ReadData_24) inv_1xt
+I11_23 (ReaDataT_23 \~ReadData_23) inv_1xt
+I11_22 (ReaDataT_22 \~ReadData_22) inv_1xt
+I11_21 (ReaDataT_21 \~ReadData_21) inv_1xt
+I11_20 (ReaDataT_20 \~ReadData_20) inv_1xt
+I11_19 (ReaDataT_19 \~ReadData_19) inv_1xt
+I11_18 (ReaDataT_18 \~ReadData_18) inv_1xt
+I11_17 (ReaDataT_17 \~ReadData_17) inv_1xt
+I11_16 (ReaDataT_16 \~ReadData_16) inv_1xt
+I11_15 (ReaDataT_15 \~ReadData_15) inv_1xt
+I11_14 (ReaDataT_14 \~ReadData_14) inv_1xt
+I11_13 (ReaDataT_13 \~ReadData_13) inv_1xt
+I11_12 (ReaDataT_12 \~ReadData_12) inv_1xt
+I11_11 (ReaDataT_11 \~ReadData_11) inv_1xt
+I11_10 (ReaDataT_10 \~ReadData_10) inv_1xt
+I11_9 (ReaDataT_9 \~ReadData_9) inv_1xt
+I11_8 (ReaDataT_8 \~ReadData_8) inv_1xt
+I11_7 (ReaDataT_7 \~ReadData_7) inv_1xt
+I11_6 (ReaDataT_6 \~ReadData_6) inv_1xt
+I11_5 (ReaDataT_5 \~ReadData_5) inv_1xt
+I11_4 (ReaDataT_4 \~ReadData_4) inv_1xt
+I11_3 (ReaDataT_3 \~ReadData_3) inv_1xt
+I11_2 (ReaDataT_2 \~ReadData_2) inv_1xt
+I11_1 (ReaDataT_1 \~ReadData_1) inv_1xt
+I11_0 (ReaDataT_0 \~ReadData_0) inv_1xt
+I14_31 (\~WriteData_31 WriteDataT_31) inv_1xt
+I14_30 (\~WriteData_30 WriteDataT_30) inv_1xt
+I14_29 (\~WriteData_29 WriteDataT_29) inv_1xt
+I14_28 (\~WriteData_28 WriteDataT_28) inv_1xt
+I14_27 (\~WriteData_27 WriteDataT_27) inv_1xt
+I14_26 (\~WriteData_26 WriteDataT_26) inv_1xt
+I14_25 (\~WriteData_25 WriteDataT_25) inv_1xt
+I14_24 (\~WriteData_24 WriteDataT_24) inv_1xt
+I14_23 (\~WriteData_23 WriteDataT_23) inv_1xt
+I14_22 (\~WriteData_22 WriteDataT_22) inv_1xt
+I14_21 (\~WriteData_21 WriteDataT_21) inv_1xt
+I14_20 (\~WriteData_20 WriteDataT_20) inv_1xt
+I14_19 (\~WriteData_19 WriteDataT_19) inv_1xt
+I14_18 (\~WriteData_18 WriteDataT_18) inv_1xt
+I14_17 (\~WriteData_17 WriteDataT_17) inv_1xt
+I14_16 (\~WriteData_16 WriteDataT_16) inv_1xt
+I14_15 (\~WriteData_15 WriteDataT_15) inv_1xt
+I14_14 (\~WriteData_14 WriteDataT_14) inv_1xt
+I14_13 (\~WriteData_13 WriteDataT_13) inv_1xt
+I14_12 (\~WriteData_12 WriteDataT_12) inv_1xt
+I14_11 (\~WriteData_11 WriteDataT_11) inv_1xt
+I14_10 (\~WriteData_10 WriteDataT_10) inv_1xt
+I14_9 (\~WriteData_9 WriteDataT_9) inv_1xt
+I14_8 (\~WriteData_8 WriteDataT_8) inv_1xt
+I14_7 (\~WriteData_7 WriteDataT_7) inv_1xt
+I14_6 (\~WriteData_6 WriteDataT_6) inv_1xt
+I14_5 (\~WriteData_5 WriteDataT_5) inv_1xt
+I14_4 (\~WriteData_4 WriteDataT_4) inv_1xt
+I14_3 (\~WriteData_3 WriteDataT_3) inv_1xt
+I14_2 (\~WriteData_2 WriteDataT_2) inv_1xt
+I14_1 (\~WriteData_1 WriteDataT_1) inv_1xt
+I14_0 (\~WriteData_0 WriteDataT_0) inv_1xt
+// BEGIN Hierarchical Interface Elements
+_ie99897 (\~ReadData_26 0) a2d dest="99897" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99898 (\~ReadData_3 0) a2d dest="99898" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99899 (\~A_18 0) d2a src="99899" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99900 (\~WriteData_27 0) d2a src="99900" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99901 (\~ReadData_27 0) a2d dest="99901" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99902 (\~ReadData_31 0) a2d dest="99902" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99903 (\~ReadData_21 0) a2d dest="99903" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99904 (\~A_9 0) d2a src="99904" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99905 (\~ReadData_25 0) a2d dest="99905" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99906 (\~RW_0 0) d2a src="99906" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99907 (\~A_10 0) d2a src="99907" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99908 (\~WriteData_20 0) d2a src="99908" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99909 (\~A_1 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99910 (\~WAck_4 0) a2d dest="99910" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99911 (\~A_11 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99912 (\~Ack 0) a2d dest="99912" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99913 (\~WriteData_23 0) d2a src="99913" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99914 (\~WriteData_24 0) d2a src="99914" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99915 (\~WriteData_28 0) d2a src="99915" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99916 (\~WriteData_22 0) d2a src="99916" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99917 (\~ReadData_6 0) a2d dest="99917" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99918 (\~WriteData_25 0) d2a src="99918" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99919 (\~A_12 0) d2a src="99919" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99920 (\~WAck_0 0) a2d dest="99920" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99921 (\~RW_1 0) d2a src="99921" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99922 (\~WriteData_6 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99923 (\~ReadData_0 0) a2d dest="99923" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99924 (\~WriteData_17 0) d2a src="99924" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99925 (\~WAck_1 0) a2d dest="99925" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99926 (\~ReadData_1 0) a2d dest="99926" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99927 (\~WAck_2 0) a2d dest="99927" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99928 (\~WAck_3 0) a2d dest="99928" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99929 (\~WriteData_15 0) d2a src="99929" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99930 (\~WriteData_14 0) d2a src="99930" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99931 (\~WAck_7 0) a2d dest="99931" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99932 (\~A_2 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99933 (\~RAck_7 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99934 (\~WriteData_16 0) d2a src="99934" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99935 (\~WriteData_7 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99936 (\~RAck_3 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99937 (\~WriteData_2 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99938 (\~WAck_6 0) a2d dest="99938" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99939 (\~WriteData_3 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99940 (\~A_15 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99941 (\~ReadData_23 0) a2d dest="99941" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99942 (\~WriteData_21 0) d2a src="99942" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99943 (\~ReadData_13 0) a2d dest="99943" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99944 (\~A_16 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99945 (\~WriteData_19 0) d2a src="99945" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99946 (\~WriteData_31 0) d2a src="99946" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99947 (\~WriteData_30 0) d2a src="99947" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99948 (\~ReadData_8 0) a2d dest="99948" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99949 (\~ReadData_22 0) a2d dest="99949" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99950 (\~RAck_0 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99951 (\~WriteData_9 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99952 (\~ReadData_5 0) a2d dest="99952" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99953 (\~WAck_5 0) a2d dest="99953" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99954 (\~ReadData_9 0) a2d dest="99954" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99955 (\~WriteData_10 0) d2a src="99955" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99956 (\~ReadData_18 0) a2d dest="99956" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99957 (\~WriteData_13 0) d2a src="99957" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99958 (\~A_14 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99959 (\~ReadData_2 0) a2d dest="99959" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99960 (\~A_0 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99961 (\~ReadData_30 0) a2d dest="99961" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99962 (\~WriteData_0 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (\~WriteData_1 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (\~WriteData_8 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99965 (\~WriteData_4 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99966 (\~WriteData_5 0) d2a src="99966" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99967 (\~ReadData_10 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99968 (\~ReadData_11 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99969 (\~ReadData_12 0) a2d dest="99969" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99970 (\~ReadData_14 0) a2d dest="99970" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99971 (\~ReadData_15 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99972 (\~A_5 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99973 (\~A_6 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99974 (\~ReadData_4 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99975 (\~ReadData_7 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99976 (\~ReadData_24 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99977 (\~A_7 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99978 (\~WriteData_18 0) d2a src="99978" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99979 (\~ReadData_19 0) a2d dest="99979" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99980 (\~ReadData_20 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99981 (\~ReadData_28 0) a2d dest="99981" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99982 (\~RAck_1 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99983 (\~WriteData_11 0) d2a src="99983" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99984 (\~WriteData_12 0) d2a src="99984" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99985 (\~A_13 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99986 (\~ReadData_29 0) a2d dest="99986" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99987 (\~A_3 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99988 (\~A_4 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99989 (\~A_19 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99990 (\~A_8 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99991 (\~RAck_2 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99992 (\~ReadData_17 0) a2d dest="99992" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99993 (\~ReadData_16 0) a2d dest="99993" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99994 (\~A_17 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (\~RAck_4 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99996 (\~WriteData_26 0) d2a src="99996" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99997 (\~WriteData_29 0) d2a src="99997" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99998 (\~RAck_5 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (\~RAck_6 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+// END Hierarchical Interface Elements

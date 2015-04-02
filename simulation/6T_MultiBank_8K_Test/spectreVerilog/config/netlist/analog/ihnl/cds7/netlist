@@ -1,0 +1,14 @@
+    M6 (net18 Go 0 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M5 (\~R0 SM0_0 net18 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M3 (\~R0 SM0_1 net18 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M2 (net12 Go 0 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M1 (\~R1 SM1_1 net12 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0 (\~R1 SM1_0 net12 0) nfet w=40n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+ends _sub231
+// End of subcircuit definition.

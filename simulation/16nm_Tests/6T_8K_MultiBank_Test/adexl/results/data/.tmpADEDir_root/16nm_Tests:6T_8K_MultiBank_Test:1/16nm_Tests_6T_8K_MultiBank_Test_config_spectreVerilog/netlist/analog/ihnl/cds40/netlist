@@ -1,0 +1,13 @@
+    I21 (d_1 a_1 c_1 b_1 net55) nor4_1x
+    I20 (d_0 a_0 c_0 b_0 net54) nor4_1x
+    I19 (in_0 csel c_ack c_0) TH33
+    I18 (in_1 csel c_ack c_1) TH33
+    I15 (in_0 dsel d_ack d_0) TH33
+    I14 (in_1 dsel d_ack d_1) TH33
+    I0 (in_0 asel a_ack a_0) TH33
+    I1 (in_1 asel a_ack a_1) TH33
+    I7 (in_0 bsel b_ack b_0) TH33
+    I6 (in_1 bsel b_ack b_1) TH33
+    I24 (net55 net54 ack) nand_1x
+ends _sub137
+// End of subcircuit definition.

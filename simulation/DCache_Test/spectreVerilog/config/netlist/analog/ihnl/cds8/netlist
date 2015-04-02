@@ -1,0 +1,6 @@
+    I3 (JRi JWi \~R0_0 \~R1_0 \~W0_0 \~W1_0) _sub162
+    I2 (JRi JWi \~R0_1 \~R1_1 \~W0_1 \~W1_1) _sub162
+    I1 (JRi JWi \~R0_2 \~R1_2 \~W0_2 \~W1_2) _sub162
+    I0 (JRi JWi \~R0_3 \~R1_3 \~W0_3 \~W1_3) _sub162
+ends _sub163
+// End of subcircuit definition.

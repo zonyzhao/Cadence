@@ -1,0 +1,60 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "n2port"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        termOrder         (t1 b1 t2 b2)
+        termMapping       (nil t1 "" b1 "(FUNCTION minus(root(\"t1\")))" t2 "" b2 "(FUNCTION minus(root(\"t2\")))")
+        namePrefix        "NPORT"
+        componentName     nport
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (model)
+        termOrder         (t1 b1 t2 b2)
+        termMapping       (nil t1 "" b1 "(FUNCTION minus(root(\"t1\")))" t2 "" b2 "(FUNCTION minus(root(\"t2\")))")
+        namePrefix        "NPORT"
+        componentName     nport
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "file scale"
+    cdfSaveCDF( cdfId )
+)

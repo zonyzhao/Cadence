@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/corefragment type="cell"
+UCD_Analog_Parts/delay type="cell"
+UCD_Analog_Parts/fourier type="cell"
+UCD_Analog_Parts/fourier2ch type="cell"
+UCD_Analog_Parts/iprobe type="cell"
+UCD_Analog_Parts/msline type="cell"
+UCD_Analog_Parts/phyres type="cell"

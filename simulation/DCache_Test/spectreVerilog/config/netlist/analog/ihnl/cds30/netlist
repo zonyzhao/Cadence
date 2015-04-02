@@ -1,0 +1,5 @@
+    I1 (d req q1) and_1x
+    I0 (net10 req q0) and_1x
+    I2 (d net10) inv_1x
+ends DR_encoder
+// End of subcircuit definition.

@@ -1,0 +1,22 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "~R1" "\\~R1" )
+( "~R0" "\\~R0" )
+( "vdd!" "vdd!" )
+ )
+( inst
+ )
+( model
+( "10T_RPrecharge" "_sub166" )
+ )
+( term
+ )
+( param
+ )
+ )

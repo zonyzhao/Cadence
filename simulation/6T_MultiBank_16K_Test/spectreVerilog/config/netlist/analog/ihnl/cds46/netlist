@@ -1,0 +1,21 @@
+    I7 (nx_0 ack xo_0) TH22
+    I6 (nx_1 ack xo_1) TH22
+    I5 (nx_2 ack xo_2) TH22
+    I4 (nx_3 ack xo_3) TH22
+    I3 (in_3 nxa n_3) TH22
+    I2 (in_2 nxa n_2) TH22
+    I1 (in_1 nxa n_1) TH22
+    I0 (in_0 nxa n_0) TH22
+    I18 (xa nxa) inv_1x
+    I17 (xo_0 out_0) inv_1x
+    I16 (xo_1 out_1) inv_1x
+    I15 (xo_2 out_2) inv_1x
+    I14 (xo_3 out_3) inv_1x
+    I11 (n_3 nx_3) inv_1x
+    I10 (n_2 nx_2) inv_1x
+    I9 (n_1 nx_1) inv_1x
+    I8 (n_0 nx_0) inv_1x
+    I12 (n_0 n_1 n_2 n_3 nina) nor4_1x
+    I13 (xo_3 xo_2 xo_1 xo_0 xa) nand4_1x
+ends _sub60
+// End of subcircuit definition.

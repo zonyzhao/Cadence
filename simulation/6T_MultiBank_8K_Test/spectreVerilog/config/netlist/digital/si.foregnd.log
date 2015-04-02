@@ -1,0 +1,806 @@
+si: simSetDef().... simHost is initialized to "localhost" .
+si: simSetDef().... simLoginName is initialized to "root" .
+si: simSetDef().... simHostDiffers is initialized to "nil".
+si: simSetDef().... simInteractiveSimulatorList is initialized to ("verilog") .
+si: simSetDef().... simPostAnalysisProcessingFunc is initialized to "nil".
+si: simSetDef().... simNotifyKillActionFunc is initialized to "nil".
+si: simSetDef().... simDoNotDisplayDialogBox is initialized to "nil".
+si: simSetDef().... simNetlistFileName is initialized to "netlist" .
+si: simSetDef().... simUserDefineDefaultRunDirFunc is initialized to "nil".
+si: simSetDef().... simNlpGlobalLibName is initialized to "basic" .
+si: simSetDef().... simNlpGlobalCellName is initialized to "nlpglobals" .
+si: simSetDef().... simCommand is already set to prog((status remoteDirName
+message fileName dir) simDeleteRunDirFile("raw/waves")
+simDeleteRunDirFile("raw/waves.tmp") (runDirName = simGetLocalSimrun(simRunDir))
+sprintf(fileName "%s/modelFilePaths" runDirName) when(isFile(fileName) (filePort
+= infile(fileName)) unless(filePort sprintf(s "si: Can't open the file
+'modelFilePaths' for reading. Please check the permissions on the file\n")
+simPrintError(s) return()) (simCmdLineOptions = "") foreach(dir
+parseString((car(lineread(filePort)) || "")) sprintf(simCmdLineOptions "%s -I%s"
+simCmdLineOptions simplifyFilename(dir))) close(filePort)) if((simHost !=
+"localhost") then simInitEqivRemoteSim() if((boundp('simCmdLineOptions) &&
+simCmdLineOptions && parseString(simCmdLineOptions)) then sprintf(spectreCommand
+"exec %s %s si.inp >& simout.tmp" spectreBinary simCmdLineOptions) else
+sprintf(spectreCommand "exec %s si.inp >& simout.tmp" spectreBinary)) else
+if((boundp('simCmdLineOptions) && simCmdLineOptions &&
+parseString(simCmdLineOptions)) then sprintf(spectreCommand "cd %s; exec %s %s
+si.inp > simout.tmp 2>&1" runDirName spectreBinary simCmdLineOptions) else
+sprintf(spectreCommand "cd %s; exec %s si.inp > simout.tmp 2>&1" runDirName
+spectreBinary))) if((simHost != "localhost") then (remoteDirName =
+makeTempFileName("/tmp/siXXXXXX")) simCreateRemoteCommands(simSimulator
+spectreCommand "NOTUSED" remoteDirName simRunDir) sprintf(message "si: Running
+simulation on host \"%s\".\n" simHost) simPrintError(message) (status =
+simRunEqivRemoteSim(simHost)) sprintf(fullPathName "%s/remote.out" runDirName)
+if(!fileLength(fullPathName) then simDeleteRunDirFile("remote.tmp")
+simDeleteRunDirFile("remote.out") else (simExecute sprintf(s "exec cat %s"
+fullPathName)) simDeleteRunDirFile("remote.tmp")
+simDeleteRunDirFile("remote.out") sprintf(fullPathName "%s/remote.err"
+runDirName) when(probef(fullPathName) simDeleteRunDirFile("remote.err") (status
+= nil))) else (status = (simExecute spectreCommand))) unless(status
+sprintf(message "si: spectre did not complete without errors.%s%s\n" "\tCheck
+si.out file in the simulation run directory\n" "\tfor spectre error
+messages.\n") simPrintError(message) return()) return(t)). Redefinition to "" is
+ignored.
+si: simSetDef().... simSedFile is already set to
+"/apps/cadence/IC616/tools.lnx86/dfII/etc/si/hiersed.spectre". Redefinition to
+"" is ignored.
+si: simSetDef().... simDefaultSimulator is initialized to "nil".
+si: simSetDef().... simDefaultRunDir is already set to "spice.run1".
+Redefinition to nil is ignored.
+si: simSetDef().... simSymbolModifiedAction is initialized to "ignore" .
+si: simSetDef().... simOtherInfo is initialized to "nil".
+si: simSetDef().... simIsFlattenP is initialized to "nil".
+si: simSetDef().... simStlInputFile is initialized to "input.stl" .
+si: simSetDef().... simDiffInputFile is initialized to "simdiff.stl" .
+si: simSetDef().... simNoSimdiff is initialized to "nil".
+si: simSetDef().... simDefaultControl is initialized to "nil".
+si: simSetDef().... simControlFile is initialized to "nil".
+si: simSetDef().... simTimeUnit is initialized to 1e-09 .
+si: simSetDef().... simCapUnit is initialized to 1e-15 .
+si: simSetDef().... simDoNetlist is initialized to t .
+si: simSetDef().... simNetlistHier is already set to t. Redefinition to nil is
+ignored.
+si: simSetDef().... simGlobalPrefix is initialized to "nil".
+si: simSetDef().... simHierarchyPrefix is initialized to "nil".
+si: simSetDef().... simNoLeadingHierarchyDelim is initialized to "nil".
+si: simSetDef().... simPrefixHierarchyWithCV is initialized to "nil".
+si: simSetDef().... simNetNamePrefix is initialized to "nil".
+si: simSetDef().... simInstNamePrefix is initialized to "nil".
+si: simSetDef().... simModelNamePrefix is initialized to "nil".
+si: simSetDef().... simTermNamePrefix is initialized to "nil".
+si: simSetDef().... simCheckTermMismatchAction is initialized to "error" .
+si: simSetDef().... simLoadNetlister is initialized to t .
+si: simSetDef().... simCleanFileList is initialized to "nil".
+si: simSetDef().... simSimulatorSaveVars is initialized to "nil".
+si: simSetDef().... simApplicationOptionsForm is initialized to "nil".
+si: simSetDef().... simSimulatorSaveFiles is initialized to "nil".
+si: simSetDef().... simDontCopyFileNetlistToRemoteRunDir is already set to t.
+Redefinition to nil is ignored.
+si: simSetDef().... simRsh is initialized to "nil".
+si: simSetDef().... simNotIncremental is already set to t. Redefinition to nil
+is ignored.
+si: simSetDef().... simReNetlistAll is already set to t. Redefinition to nil is
+ignored.
+si: simSetDef().... simUnbindVars is initialized to (interactiveTAP
+SilosTimeScale simActions simApplicationOptionsForm simCapFileDir simCapUnit
+simCellName simCheckTermMismatchAction simCleanFileList simControlFile
+simDefaultControl simDefaultSimulator simDiffInputFile simDoNetlist
+simDoNotDisplayDialogBox simDoPostLayout simExceptionTerms simFlattenSchType
+simHierarchyPrefix simNoLeadingHierarchyDelim simPrefixHierarchyWithCV
+simGlobalPrefix simHost simHostDiffers simInitRunActions simInstNamePrefix
+simInstStopListTable simInstViewListTable simInteractiveSimulatorList
+simIsFlattenP simLibName simLoadNetlister simLoginName simModelNamePrefix
+simNetNamePrefix simNetlistFileName simNetlistHier simNlpGlobalLibName
+simNlpGlobalCellName simNlpGlobalViewName simNoSimdiff simNotIncremental
+simNowRunningRemoteSimulation simOtherInfo SIMPASSWORD
+simPostAnalysisProcessingFunc simPrintSilosCap simReNetlistAll simRetainFterms
+simStlInputFile simSimulatorSaveFiles simSimulatorSaveVars
+simSymbolModifiedAction simTermNamePrefix simTimeUnit simViewList simViewName)
+.
+si: simSetDef().... simUnbindFuncs is initialized to STLsimin(cat netlist runsim
+sim simCatErrorFile simCheckExist simCheckHeader simCheckVariables
+simCreateRemoteCommands simDateStamp simDeleteRunDirFile simDoHiloTranslation
+simDoSilosTranslation simDoTaTranslation simErrHandler simExecuteWithStatus
+simExecute simGetSiFileLocation simGetTermList simIfNoProcedure simin
+simInitControl simInitEqivRemoteSim simInitRaw simInitRunDir simInitSimulator
+simInitSpiceIncludes simIoHandler simLoadNetlisterFiles simLoadSimulatorFiles
+simNoNetlist simout simout1 simPostFunc simPrintEnvironment simPrintTermList
+simPrintTermListWithOption simRunDirInfile simRunDirLoad simRunDirOutfile
+simRunSimdiff simRunEqivRemoteSim simRunStl simSetDef simSetDefWithNoWarn
+simGetSiFileLocation) .
+si: simSetDef().... simSaveVars is already set to (simLibName simCellName
+simViewName simSimulator simNotIncremental simReNetlistAll simViewList
+simStopList simNetlistHier nlFormatterClass nlCreateAmap nlDesignVarNameList).
+Redefinition to (simLibName simCellName simViewName simSimulator
+simNotIncremental simReNetlistAll) is ignored.
+si: simSetDef().... simDoNotForkNetlist is already set to t. Redefinition to nil
+is ignored.
+si: simSetDef().... interactiveTAP is initialized to "nil".
+si: simSetDef().... simPrintSilosCap is initialized to "nil".
+si: simSetDef().... simDoPostLayout is initialized to "nil".
+si: simSetDef().... fnlFormatterUnbindFuncs is initialized to
+(fnlVerilogPrintNetlistHeader fnlVerilogCreateHeaderFile
+fnlVerilogPrintNormalHeader fnlVerilogCreateSTLFiles fnlVerilogCheckNetlistVars
+fnlVerilogPrintNetlistFooter fnlVerilogPrintInst fnlVerilogPrintResistive
+fnlVerilogPrintStrength fnlVerilogPrintImpDelays fnlVerilogFormatDelays
+fnlVerilogPrintListDelays fnlVerilogPrintTimeProp fnlScaleTimeUnit
+fnlVerilogExtractDelays fnlVerilogUtilGetStringUptoChar
+fnlVerilogTempListOfWords fnlVerilogPrintInstPorts fnlVerilogPrintNetOnTerm
+fnlVerilogSetBlockConsts fnlVerilogCheckSupplyGlobals
+fnlVerilogCreateGlobalsFile fnlVerilogPrintBehaveModelWithTerm
+fnlVerilogPrintBehaveModelNoTerm fnlVerilogFormatInstError
+fnlVerilogCreateHDLFilesDir fnlVerilogDoHdlPart fnlVerilogSortStopCells
+fnlVerilogGetHdlFileName fnlVerilogWriteLCVDPLToFile fnlVerilogProcViewName
+fnlVerilogCreateListOfAllLibs fnlCurrentBlock fnlVerilogIsFloatingPort
+fnlVerilogIsRCType fnlVerilogPrintLenWidRC fnlVerilogPrintInstAlgTechRC
+fnlVerilogProcessNet fnlVerilogPrintSignalProps fnlVerilogInitPM
+fnlVerilogInitTopLevelPM fnlVerilogAddPMEntry fnlVerilogSavePM
+fnlVerilogSaveTopLevelPM fnlVerilogAddInstMap fnlVerilogCreateInstMapFile
+fnlVerilogPrintStarsToStdout fnlVerilogIsSimpleBusName
+mspiVerilogMapInputPinConnectedToIE fnlUnique fnlUnion fnlDifference fnlDisjoint
+fnlVerilogCallFormatFunc fnlVerilogUtilPrintObjParams fnlVerilogUtilPrintHBInfo
+fnlVerilogPrintInstLenWidRC fnlVerilogPrintLogGate fnlVerilogPrintPrimGate
+fnlVerilogPrintPrimGateWithTerm fnlVerilogPrintPrimGateNoTerm
+fnlVerilogPrintBehaveModel fnlVerilogPrintBufif0Notif0
+fnlVerilogPrintLibraryModel) .
+si: simSetDef().... fnlFormatterUnbindVars is initialized to (fnlBlockOutputs
+fnlBlockBidirs fnlBlockInputs fnlBlockAllIO fnlBlockPower fnlBlockGround
+fnlCurrentInTerms fnlCurrentOutTerms fnlCurrentOtherTerms
+fnlVerilogDefaultPwrNets fnlVerilogDefaultGndNets fnlVerilogIncludeFileName
+fnlVerilogLCVDPLFileName fnlVerilogImportHdlFilesList fnlVerilogImportingHdl
+fnlVerilogUtilPrintHBInfo fnlVerilogPMList fnlVerilogPinMapErrors
+fnlVerilogTopLevelPM fnlVerilogCreatePMInternal fnlVerilogPMModule fnlVerilogPM
+fnlVerilogUnbindFuncs fnlVerilogInstMapTable fnlVerilogInstMapFileName
+simVerilogLibraryFile simVerilogLibraryDirectory xxxInternalHDLDirName
+xxxInternalNumPrefix xxxInternalGlobalsFileName xxxInternalGlobalsModuleName) .
+si: simSetDef().... hnlDriverUnbindFuncs is initialized to
+(hnlCellInAllStopCells hnlCloseCellFiles hnlCloseMasterList hnlDoNetBased
+hnlFindAllCells hnlGenIncludeFile hnlIfNoProcedure hnlIgnoreTerm
+hnlIsAStoppingCell hnlIsCellNetlistable hnlLibName hnlGetPropVal hnlGetRoundProp
+hnlGetScaleCapacitance hnlGetScaleMarginalDelay hnlGetScaleTimeUnit
+hnlGetSymbolPropVal hnlNetNameOnTerm hnlPrintDevices hnlPrintMacroCell
+hnlPrintMessage hnlPrintNetlist hnlPrintNotNumber hnlPrintSignal hnlPrintTopCell
+hnlProcInst hnlRoundProp hnlRunNetlister hnlScaleCapacitance
+hnlScaleMarginalDelay hnlScaleTimeUnit hnlSetCellFiles hnlSetDef hnlSetDefNoWarn
+hnlSetUpCellList hnlSetVars hnlSortTermsToNets hnlStartNetlist hnlStopNetlist
+hnlStringToList hnlSubTreeInsts hnlWriteRlist hnlEMHSetupDigitalNetlistFile
+hnlEMHProcTopInst hnlEMHPrintModuleHeader hnlEMHPrintInst
+hnlEMHPrintModuleFooter hnlEMHPrintNetlistFooter hnlEMHProcStandardCell) .
+si: simSetDef().... hnlDriverUnbindVars is initialized to (hnlAllGlobals
+hnlAllSignalInCell hnlAllTermNames hnlAllTerms hnlBusCapability hnlCapability
+hnlCellInputs hnlCellInTerms hnlCellNetsOnTerms hnlCellOtherTerms hnlCellOthers
+hnlCellOutputs hnlModCellInputs hnlModCellOutputs hnlModCellOthers
+hnlCellOutTerms hnlCellSeenList hnlCommentStr hnlCurrentCell
+hnlCurrentCellViewList hnlCurrentCellPath hnlCurrentCellConfigLibname
+hnlCurrentCellConfigCellname hnlCurrentCellConfigViewname hnlIsTopConfigCell
+hnlCurrentInputs hnlCurrentInst hnlCurrentInstName hnlCurrentInstPort
+hnlCurrentInstPortIndex hnlCurrentInstPortName hnlCurrentInTerms
+hnlCurrentInTermsSize hnlCurrentIteration hnlCurrentMaster
+hnlCurrentMasterViewList hnlCurrentOthers hnlCurrentOtherTerms
+hnlCurrentOtherTermsSize hnlCurrentOutputs hnlCurrentOutTerms
+hnlCurrentOutTermsSize hnlCurrentSignal hnlCurrentSignalName
+hnlCurrentSignalTerms hnlCurrentTermsOnInst hnlCurrentType hnlDefaultSwitchViews
+hnlDefaultStopViews hnlDefaultTarget hnlDriverWillPrint hnlDrvIlLoaded hnlError
+hnlFormatFuncsLoaded hnlFullNetlistName hnlGlobalNetPrefix hnlGlobalParamPrefix
+hnlHierarchyDelimeter hnlHierarchyDelimiter hnlIncludeFile hnlIncludeFileName
+hnlIncremental hnlIncrementalDirectory hnlIncrementalMode hnlIncrementalOnly
+simSupportNewConfig hnlInstBased hnlInstMasterPort hnlInstNameDifferentFrom
+hnlInvalidInstNames hnlInvalidModelNames hnlInvalidNames hnlInvalidNetNames
+hnlInvalidTermNames hnlInvalidParamNames hnlInvalidFunctionNames hnlLastTarget
+hnlLinePostfix hnlLinePrefix hnlListOfAllCells hnlListOfAllStopCells
+hnlListOfInstOnSignal hnlMacroCellFuncs hnlMapBusFirstChar hnlMapBusInName
+hnlMapDirName hnlMapFileName hnlMapIfFirstChar hnlMapIfInName
+hnlMapInstFirstChar hnlMapInstInName hnlMapModelFirstChar hnlMapModelInName
+hnlMapNetFirstChar hnlMapNetInName hnlMapTermFirstChar hnlMapTermInName
+hnlMaxInstNameLength hnlMaxLineLength hnlMaxModelNameLength hnlMaxNameLength
+hnlMaxNetNameLength hnlMaxTermNameLength hnlModelNameDifferentFrom
+hnlModulePrefix hnlNamePrefix hnlNetlistConfig hnlNetlistDirectory
+hnlNetlistFile hnlNetlistFileList hnlNetlistFileName hnlNetNameDifferentFrom
+hnlOverrideViewList hnlPreviousError hnlReNetlistAll hnlRlistString
+hnlslistString hnlSoftLineLength hnlStopList hnlTarget hnlTermNameDifferentFrom
+hnlParamNameDifferentFrom hnlTopCell hnlTopCellFuncs hnlViewList
+hnlInvalidLineBreakChars hnlHonorLxRemoveDevice hnlCurrentSourceFilePath
+hnlCurrentSourceFileModel hnlStoppingPropName hnlVerilogViewName
+hnlCurrentInstHdbProps hnlCurrentInstOverCellHdbProps hnlLastInvalidInstNames
+hnlLastInvalidModelNames hnlLastInvalidNames hnlLastInvalidNetNames
+hnlLastInvalidTermNames hnlLastInvalidParamNames hnlLastInvalidFunctionNames
+hnlLastMapBusFirstChar hnlLastMapBusInName hnlLastMapIfFirstChar
+hnlLastMapIfInName hnlLastMapInstFirstChar hnlLastMapInstInName
+hnlLastMapModelFirstChar hnlLastMapModelInName hnlLastMapNetFirstChar
+hnlLastMapNetInName hnlLastMapTermFirstChar hnlLastMapTermInName
+hnlLastTermNameDifferentFrom hnlLastParamNameDifferentFrom
+hnlLastMapParamFirstChar hnlLastMapParamInName hnlEMH) .
+si: simSetDef().... simTermNamePrefix is initialized to "nil".
+si: simSetDef().... simParamNamePrefix is already set to "_par". Redefinition to
+nil is ignored.
+si: simSetDef().... hnlCellOutputs is initialized to "nil".
+si: simSetDef().... hnlModCellOutputs is initialized to "nil".
+si: simSetDef().... hnlCellInputs is initialized to "nil".
+si: simSetDef().... hnlModCellInputs is initialized to "nil".
+si: simSetDef().... hnlCellOthers is initialized to "nil".
+si: simSetDef().... hnlModCellOthers is initialized to "nil".
+si: simSetDef().... hnlCellOutTerms is initialized to "nil".
+si: simSetDef().... hnlCellInTerms is initialized to "nil".
+si: simSetDef().... hnlCellOtherTerms is initialized to "nil".
+si: simSetDef().... hnlCellNetsOnTerms is initialized to "nil".
+si: simSetDef().... hnlCurrentOutputs is initialized to "nil".
+si: simSetDef().... hnlCurrentInputs is initialized to "nil".
+si: simSetDef().... hnlCurrentOthers is initialized to "nil".
+si: simSetDef().... hnlCurrentType is initialized to "nil".
+si: simSetDef().... hnlCurrentInst is initialized to "nil".
+si: simSetDef().... hnlCurrentInstName is initialized to "nil".
+si: simSetDef().... hnlCurrentMaster is initialized to "nil".
+si: simSetDef().... hnlCurrentIteration is initialized to "nil".
+si: simSetDef().... hnlCurrentCell is initialized to "nil".
+si: simSetDef().... hnlCurrentCellViewList is initialized to "nil".
+si: simSetDef().... hnlCurrentCellPath is initialized to "nil".
+si: simSetDef().... hnlCurrentCellConfigLibname is initialized to "nil".
+si: simSetDef().... hnlCurrentCellConfigCellname is initialized to "nil".
+si: simSetDef().... hnlCurrentCellConfigViewname is initialized to "nil".
+si: simSetDef().... hnlIsTopConfigCell is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterViewList is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterPathString is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterConfigLibName is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterConfigCellName is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterConfigViewName is initialized to "nil".
+si: simSetDef().... hnlCurrentMasterIsTopCellConfig is initialized to "nil".
+si: simSetDef().... hnlOverrideViewList is initialized to "" .
+si: simSetDef().... hnlCurrentTermsOnInst is initialized to "nil".
+si: simSetDef().... hnlCurrentOutTerms is initialized to "nil".
+si: simSetDef().... hnlCurrentInTerms is initialized to "nil".
+si: simSetDef().... hnlCurrentOtherTerms is initialized to "nil".
+si: simSetDef().... hnlCurrentOutTermsSize is initialized to "nil".
+si: simSetDef().... hnlCurrentInTermsSize is initialized to "nil".
+si: simSetDef().... hnlCurrentOtherTermsSize is initialized to "nil".
+si: simSetDef().... hnlTopCell is initialized to "nil".
+si: simSetDef().... hnlAllGlobals is initialized to "nil".
+si: simSetDef().... hnlInvalidNames is initialized to "nil".
+si: simSetDef().... hnlInvalidNetNames is initialized to "nil".
+si: simSetDef().... hnlInvalidInstNames is initialized to "nil".
+si: simSetDef().... hnlInvalidModelNames is initialized to "nil".
+si: simSetDef().... hnlInvalidTermNames is initialized to "nil".
+si: simSetDef().... hnlInvalidParamNames is initialized to "nil".
+si: simSetDef().... hnlInvalidFunctionNames is initialized to "nil".
+si: simSetDef().... hnlInvalidLineBreakChars is initialized to "nil".
+si: simSetDef().... hnlMapIfFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapIfInName is initialized to "nil".
+si: simSetDef().... hnlMapNetFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapNetInName is initialized to "nil".
+si: simSetDef().... hnlMapInstFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapInstInName is initialized to "nil".
+si: simSetDef().... hnlMapModelFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapModelInName is initialized to "nil".
+si: simSetDef().... hnlMapTermInName is initialized to "nil".
+si: simSetDef().... hnlMapTermFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapParamInName is initialized to "nil".
+si: simSetDef().... hnlMapParamFirstChar is initialized to "nil".
+si: simSetDef().... hnlMapBusInName is initialized to "nil".
+si: simSetDef().... hnlMapBusFirstChar is initialized to "nil".
+si: simSetDef().... hnlViewList is initialized to "nil".
+si: simSetDef().... hnlStopList is initialized to "nil".
+si: simSetDef().... hnlError is initialized to "nil".
+si: simSetDef().... hnlPreviousError is initialized to "nil".
+si: simSetDef().... hnlListOfAllStopCells is initialized to "nil".
+si: simSetDef().... hnlListOfAllCells is initialized to "nil".
+si: simSetDef().... hnlNetlistFile is initialized to "nil".
+si: simSetDef().... hnlNetlistFileName is initialized to "netlist" .
+si: simSetDef().... hnlMapDirName is initialized to "map" .
+si: simSetDef().... hnlMapFileName is initialized to "current" .
+si: simSetDef().... hnlNamePrefix is initialized to "hnl_" .
+si: simSetDef().... hnlDriverWillPrint is initialized to "nil".
+si: simSetDef().... hnlLinePrefix is initialized to "nil".
+si: simSetDef().... hnlLinePostfix is initialized to "nil".
+si: simSetDef().... hnlCommentStr is initialized to "nil".
+si: simSetDef().... hnlSoftLineLength is initialized to "nil".
+si: simSetDef().... hnlFormatFuncsLoaded is initialized to "nil".
+si: simSetDef().... hnlDrvIlLoaded is initialized to "nil".
+si: simSetDef().... hnlInstBased is initialized to t .
+si: simSetDef().... hnlLastTarget is initialized to "nil".
+si: simSetDef().... hnlFullNetlistName is initialized to "netlist" .
+si: simSetDef().... hnlNetlistDirectory is initialized to "nil".
+si: simSetDef().... hnlFullMasterName is already set to
+"6T_MultiBank_8K_Test/config/current". Redefinition to nil is ignored.
+si: simSetDef().... hnlIncremental is initialized to "nil".
+si: simSetDef().... hnlIncrementalOnly is initialized to "nil".
+si: simSetDef().... simSupportNewConfig is initialized to "nil".
+si: simSetDef().... hnlIncrementalMode is initialized to "nil".
+si: simSetDef().... hnlReNetlistAll is initialized to "nil".
+si: simSetDef().... hnlModulePrefix is initialized to "nil".
+si: simSetDef().... hnlGlobalNetPrefix is initialized to "nil".
+si: simSetDef().... hnlGlobalParamPrefix is initialized to "nil".
+si: simSetDef().... hnlIncludeFileName is initialized to "netlist" .
+si: simSetDef().... hnlIncludeFile is initialized to "nil".
+si: simSetDef().... hnlNetlistFileList is initialized to "nil".
+si: simSetDef().... hnlIncrementalDirectory is initialized to "ihnl" .
+si: simSetDef().... hnlCurrentInstPortName is initialized to "nil".
+si: simSetDef().... hnlCurrentInstPortIndex is initialized to 0 .
+si: simSetDef().... hnlCurrentInstPort is initialized to "nil".
+si: simSetDef().... hnlInstMasterPort is initialized to "nil".
+si: simSetDef().... hnlAllTerms is initialized to "nil".
+si: simSetDef().... hnlAllTermNames is initialized to "nil".
+si: simSetDef().... hnlAllSignalInCell is initialized to "nil".
+si: simSetDef().... hnlCurrentSignal is initialized to "nil".
+si: simSetDef().... hnlCurrentSignalName is initialized to "nil".
+si: simSetDef().... hnlSignalTerms is initialized to "nil".
+si: simSetDef().... hnlListOffInstOnSignal is initialized to "nil".
+si: simSetDef().... hnlNetBased is initialized to "nil".
+si: simSetDef().... hnlRlistString is initialized to "nil".
+si: simSetDef().... hnlNetlistConfig is initialized to "nil".
+si: simSetDef().... hnlTopCellFuncs is initialized to ("hnlSetCellFiles()"
+"hnlPrintTopCellHeader()" "hnlPrintDevices()" "hnlPrintTopCellFooter()"
+"hnlCloseCellFiles()") .
+si: simSetDef().... hnlMacroCellFuncs is initialized to ("hnlSetCellFiles()"
+"hnlPrintDeviceHeader()" "hnlPrintPorts()" "hnlPrintDevices()"
+"hnlPrintDeviceFooter()" "hnlCloseCellFiles()") .
+Loading the file
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/verilog.ile'.si: simSetDef().... hnlFormatterUnbindFuncs is initialized to
+(hnlVerilogSetUnion hnlGenIncludeFile hnlPrintDeviceFooter hnlPrintDeviceHeader
+_hnlVerilogPrintDeviceHeader hnlPrintInst hnlPrintNetlistFooter
+hnlPrintNetlistHeader hnlPrintPortHeader hnlPrintPortFooter hnlPrintPorts
+hnlPrintTopCellFooter hnlPrintTopCellHeader _hnlVerilogPrintTopCellHeader
+hnlSetOutputVars hnlSaveNameMap hnlVerilogAddPMEntry hnlVerilogCheckNetlistVars
+hnlVerilogCollectNetlistConfig hnlVerilogCreateLCVDPL
+hnlVerilogConcatHDLFileToNetlist hnlVerilogDeclareAliasedSigs
+hnlVerilogDeclareBundles hnlVerilogDeclareBundlesNBuses
+hnlVerilogDeclareBusStuff hnlVerilogDeclareCellPorts hnlVerilogDeclarePorts
+hnlVerilogDeclarePrimaryAliasedSigs hnlVerilogDeclareSigStuff
+hnlVerilogExtractDelays hnlVerilogExtractPortNames hnlVerilogFormatDelays
+hnlVerilogFormatInstError hnlVerilogGenTestFixtureTemplate hnlVerilogGetBaseName
+hnlVerilogGetHdlFileName hnlVerilogGetKeyword hnlVerilogImportHDLToNetlist
+hnlVerilogInitPM hnlVerilogInitTopLevelPM hnlVerilogListNPrintTimeScaleToFile
+hnlVerilogPrependInoutPrefix hnlVerilogPrintBehaveModel
+hnlVerilogPrintBehaveModelNoTerm hnlVerilogPrintBehaveModelWithTerm
+hnlVerilogPrintBehavePortOrder hnlVerilogPrintBidiXfr
+hnlVerilogPrintBufif0Notif0 hnlVerilogPrintBufif1Notif1 hnlVerilogPrintCellPorts
+hnlVerilogPrintCmos hnlVerilogPrintConcatHDLPart hnlVerilogPrintDefaultCellPorts
+hnlVerilogPrintDotFilesForStl hnlVerilogPrintDotFiles
+hnlVerilogPrintExplicitNetlist hnlVerilogPrintGlobalNets
+hnlVerilogPrintHDLFileName hnlVerilogPrintHDLPart hnlVerilogPrintImpDelays
+hnlVerilogPrintInitStimulus hnlVerilogPrintInstPorts hnlVerilogPrintOutInstPort
+hnlVerilogPrintLibraryModel hnlVerilogPrintListDelays hnlVerilogPrintLogGate
+hnlVerilogPrintMacroRef hnlVerilogPrintNetOnTerm hnlVerilogPrintNetlistConfig
+hnlVerilogPrintNetsOfInstance hnlVerilogPrintNmosPmos hnlVerilogPrintPorts
+hnlVerilogPrintPortsInUserOrder hnlVerilogPrintPrimGate
+hnlVerilogPrintPrimGateNoTerm hnlVerilogPrintPrimGateWithTerm
+hnlVerilogPrintResistive hnlVerilogPrintStoppingRef hnlVerilogPrintStrength
+hnlVerilogPrintString hnlVerilogPrintTimeProp hnlVerilogPrintTopIOAssigns
+hnlVerilogPrintTopModulePart hnlVerilogSavePM hnlVerilogSaveTopLevelPM
+hnlVerilogSetInternalTestFixtureFlag hnlVerilogSortStopCells
+hnlVerilogTempListOfWords hnlVerilogUtilConvertTime
+hnlVerilogUtilGetDefaultTopInstName hnlVerilogUtilGetDefaultTopModName
+hnlVerilogUtilGetFixtureNTopModule hnlVerilogUtilGetStringUptoChar
+hnlVerilogUtilGetWidthFromRange hnlVerilogUtilPrintHBInfo
+hnlVerilogUtilPrintModuleComment hnlVerilogUtilPrintObjParams
+hnlVerilogUtilPrintTimeScale hnlVerilogUtilResetFormatVar
+hnlVerilogUtilStrCmpGreaterp hnlVerilogUtilStrCmpLessp hnlVerilogValidatePinMap
+hnlVerilogVerifyGlobalNets hnlVerilogWriteLCVDPLToFile
+hnlVerilogCreateTestFixtureFile hnlVeritimeCreateTestFixtureFile
+hnlVerifaultCreateTestFixtureFile hnlVerifaultGenerateStrobe
+hnlVerilogPrintTimeScaleofSch hnlVerilogNeedAliasGlobals
+hnlVerilogParseShEscapes hnlVerilogCheckReNetlistAll hnlVerilogCheckInstNMaster
+hnlVerilogFindRefHdlLibs hnlVerilogPrintUseLibDefines hnlVerilogPrintUseLibs
+hnlVerilogResetUselib hnlVerilogIsSimpleBusName hnlVerilogDropCellNetsInMap
+hnlVerilogTestNSetTestFixtureFile hnlVerilogExtractOmitsFromLCVDPL
+hnlVerilogCheckAliasProp hnlVerilogIsAliasNeeded hnlVerilogPrintAliasModule
+hnlVerilogHandleCsiGlobalNets hnlVerilogPrintMapTab
+hnlVerilogPrintStimulusNameMap hnlVerilogIsFloatingPort
+hnlVerilogMasterTermIsFlatten hnlVerilogCallFormatFunc
+hnlVerilogAuxFilesForStopCells hnlVerilogCollectAuxCellData
+hnlVerilogPrintAuxCellData hnlVerilogProcessGivenInfo
+hnlVerilogProcessIncludeFileInfo hnlVerilogProcessOtherFileInfo
+hnlVerilogResolveFileName hnlVerilogCopyAuxFilesToWorkingDir
+hnlVerilogPrintAuxFile hnlVerilogIsRCType hnlVerilogPrintInstAlgTechRC
+hnlVerilogStringIsFloat hnlVerilogGetInstWidRC hnlVerilogGetInstLenRC
+hnlVerilogPrintInstLenWidRC hnlVerilogPrintNetProps hnlVerilogRCDeclareTriRegs
+hnlVerilogPrintVhdlImport hnlVerilogExplicitMapTermName
+_hnlVerilogExplicitMapTermNameFast _hnlVerilogExplicitMapTermNameSuperFast
+hnlVerilogUtilGetTimeScale hnlVerilogIsEscapeString hnlVerilogSwitchMasterIsFunc
+hnlVerilogRemoveStringSpace hnlVerilogGetInstCDFPropDelayValue
+hnlVerilogScaleTimeUnit hnlVerilogScaleSimTimeUnit hnlVerilogIsNumber
+hnlVerilogStrIsFloatNum hnlVerilogUtilPrintCDFParams
+hnlVerilogPrintCellCDFDefault hnlVerilogEvaluateStrExpr
+hnlVerilogGetCellCDFDefaultValue hnlVerilogIsEmptyString
+hnlVerilogLegalArithExpr hnlVerilogGetInstCDFPropValue hnlVerilogIsMeterNumber
+hnlVerilogOneBitBusName hnlVerilogWriteFuncCellToFile hnlVerilogValidIdentifier
+hnlVerilogValidDesignInstPath hnlVerilogPrintHDLModuleFormattingPorts
+hnlVerilogGetModulePortList hnlVerilogFormatModuleName hnlVerilogNeedEscapeName
+hnlVerilogUtilPrintRefHDLFile hnlVerilogPrintStlNameFile
+hnlVerilogPrintNameFilesForStl hnlVerilogInitScalarInBundle
+hnlVerilogConvertToBinary hnlVerilogPrintInitStimulusValue
+hnlVerilogTapTerminalFromSameNet hnlVerilogIsSplitBusModule
+hnlVerilogPrintPinmapConfig hnlVerilogFuncCellWithPortRange
+hnlVerilogFormatInstCellWithPortRange hnlVerilogExplicitExtractTermName
+hnlVerilogExplicitTermName hnlVerilogGetlmoName hnlVeriloglmoModelName
+hnlVerilogIgnorePort hnlVerilogUnbindFuncs hnlVerilogWriteVHDLToFile
+hnlVerilogGetVhdlName hnlVerilogDeleteVhdlFiles hnlVerilogCollectVhdlCells
+hnlVerilogHandleVhdlCell hnlVerilogCreateVhdlImportEncapFile
+hnlVerilogGetVhdlEntityFromCVResult hnlVerilogGetVhdlUnitFromCVResult
+hnlVerilogPrintVhdlImportPortArg hnlVerilogPrintVhdlImportPortDecl
+hnlVerilogCrossViewCheck hnlVerilogGetInstCDFPropLenWidValue
+hnlVerilogNetBitSelect hnlVerilogCreateMSTestFixtureFile
+hnlVerilogPrintMSTopModulePart hnlVerilogDeclareMStype
+hnlVerilogPrintModuleMSHierIE hnlVerilogMSDeclareIEs hnlVerilogGetModuleHierIE
+hnlVerilogGetAnalogPort hnlVerilogIsBinaryHexNum hnlVerilogPrintITTNetProps
+hnlVerilogPortCount hnlVerilogCellInhPortList hnlVerilogDeclareInhConPorts
+hnlVerilogInstInhPortList hnlVerilogCollectPrimitiveTerms
+hnlVerilogIsSplitBusInst hnlVerilogWriteVhdlSupportFile
+hnlVerilogGetCellInhPortList hnlVerilogGetInstInhPortList
+hnlVerilogIgnoreMasterTerm _hnlVerilogIgnoreMasterTermFast
+_hnlVerilogIgnoreSymbolTermFast _hnlVerilogAuxFilesForNonStopCells
+_hnlVerilogFixFilename _hnlVerilogHandleLargeCommentOutput
+_hnlVerilogHandleLargeStringOutput _hnlSetMappingVariables
+_hnlVerilogInitializeCache _hnlVerilogGetHnlVerilogFormatInst
+_hnlVerilogGetVerilogFormatProc _hnlVerilogGetTerminals
+_hnlVerilogGetTerminalNames _hnlVerilogGetTr _hnlVerilogGetTd _hnlVerilogGetTf
+_hnlVerilogGetTz _hnlVerilogGetLowStrength _hnlVerilogGetHighStrength
+_hnlVerilogGetModelName _hnlVerilogGetDefparam _hnlVerilogGetVerilogPinOrder
+_hnlVerilogGetParamOrder _hnlVerilogGetAlgorithm _hnlVerilogGetTechnology
+_hnlVerilogGetNets _hnlVerilogGetNlAction _hnlVerilogGetTimescale
+_hnlVerilogGetSlot _hnlVerilogIsAStoppingCell _hnlVerilogGetMasterTermList
+_hnlVerilogDumpCellViewCounter _hnlMapInternalInstTermBusName
+_hnlVerilogUtilPrintObjParamValue _hnlVerilogUtilIsNotPrimInstance
+_hnlVerilogUtilSortParams _hnlVerilogUtilPrintObjParamAttributes
+_hnlVerilogProcessCellPorts _hnlVerilogUtilRearrangeParams
+_hnlVerilogUtilPrintKeywordAgain _hnlVerilogUtilPrintAttributes
+_hnlVerilogUtilValidateAttributes _hnlVerilogIsAttributesSame
+_hnlVerilogUtilPrintSigned _hnlVerilogCollectTerminalInfo _hnlVerilogUpdateHash
+_hnlVerilogGetMappedName) .
+si: simSetDef().... hnlFormatterUnbindVars is initialized to (hnlBusNamePrefix
+hnlCommentStr hnlFormatFuncsLoaded hnlGlobalNetPrefix hnlHierarchyDelimeter
+hnlIncludeFileName hnlIncremental hnlIncrementalOnly hnlMapBusFirstChar
+hnlMapBusInName hnlMapIfFirstChar hnlMapInstFirstChar hnlMapInstInName
+hnlMapModelFirstChar hnlMapModelInName hnlMapNetFirstChar hnlMapNetInName
+hnlMapTermFirstChar hnlMapTermInName hnlMaxLineLength hnlMaxNameLength
+hnlModulePrefix simCheckTermMismatchAction simNetNamePrefix simInstNamePrefix
+simTermNamePrefix simModelNamePrefix hnlNamePrefix simSupportNewConfig
+hnlSupportIterInst _hnlLicenseError hnlTextViewTypeList
+hnlVerilogIgnoreModelForBehaveModel vlogifCurrentTestFixture
+vlogifCurrentStimulus hnlRetainInstanceNetsInShorting) .
+si: simSetDef().... hnlMaxNameLength is already set to 16. Redefinition to 50 is
+ignored.
+si: simSetDef().... hnlMapIfFirstChar is initialized to ("0" "1" "2" "3" "4" "5"
+"6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")" "-"
+"+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapInstFirstChar is initialized to ("0" "1" "2" "3" "4"
+"5" "6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")"
+"-" "+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapTermFirstChar is initialized to ("0" "1" "2" "3" "4"
+"5" "6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")"
+"-" "+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapNetFirstChar is initialized to ("0" "1" "2" "3" "4"
+"5" "6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")"
+"-" "+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapModelFirstChar is initialized to ("0" "1" "2" "3" "4"
+"5" "6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")"
+"-" "+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapIfInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "$" "@" ("/" "_") "!" "#" "%" "^" "&" "(" ")" "-" "+" "="
+"~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapTermInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "$" "@" ("/" "_") "!" "#" "%" "^" "&" "(" ")" "-" "+" "="
+"~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapInstInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "$" "@" ("/" "_") "!" "#" "%" "^" "&" "(" ")" "-" "+" "="
+"~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapNetInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "$" "@" ("/" "_") ("!" "_") "#" "%" "^" "&" "(" ")" "-"
+"+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapModelInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "@" ("/" "_") "!" "#" "%" "^" "&" "(" ")" "-" "+" "=" "~"
+"`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapBusFirstChar is initialized to ("0" "1" "2" "3" "4"
+"5" "6" "7" "8" "9" "*" "." "," ";" ":" "$" "@" "/" "!" "#" "%" "^" "&" "(" ")"
+"-" "+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... hnlMapBusInName is initialized to (("<" "_") (">" "_") "*"
+("." "_") "," ";" ":" "$" "@" ("/" "_") ("!" "_") "#" "%" "^" "&" "(" ")" "-"
+"+" "=" "~" "`" "[" "]" "{" "}" "|" "?" "\\") .
+si: simSetDef().... simModelNamePrefix is initialized to "hdl_" .
+si: simSetDef().... simInstNamePrefix is initialized to "Inst_" .
+si: simSetDef().... simSupportNewConfig is initialized to t .
+si: simSetDef().... hnlHierarchyDelimeter is initialized to "." .
+si: simSetDef().... hnlCommentStr is initialized to "//" .
+si: simSetDef().... hnlLinePrefix is initialized to "     " .
+si: simSetDef().... hnlIncremental is initialized to t .
+si: simSetDef().... hnlIncrementalOnly is initialized to t .
+si: simSetDef().... hnlModulePrefix is initialized to "cdsModule_" .
+si: simSetDef().... hnlGlobalNetPrefix is initialized to "global_" .
+si: simSetDef().... simVerilogFlattenBuses is initialized to "nil".
+si: simSetDef().... simNetNamePrefix is initialized to "cdsNet" .
+si: simSetDef().... simTermNamePrefix is initialized to "cdsTerm" .
+si: simSetDef().... hnlMSCreateTestFixtureFlag is already set to t. Redefinition
+to nil is ignored.
+si: simSetDef().... hnlVerilogCreateTestFixtureFlag is initialized to t .
+si: simSetDef().... hnlVeritimeCreateTestFixtureFlag is initialized to t .
+si: simSetDef().... hnlVerifaultCreateTestFixtureFlag is initialized to t .
+si: simSetDef().... vtoolsUseUpperCaseFlag is initialized to "nil".
+si: simSetDef().... simVerilogNetlistExplicit is initialized to "nil".
+si: simSetDef().... hnlVerilogNetlistExplicit is initialized to "nil".
+si: simSetDef().... simVerilogLaiLmsiNetlisting is initialized to "nil".
+si: simSetDef().... hnlVerilogEnableInstSwitching is initialized to "nil".
+si: simSetDef().... hnlVerilogGetAuxFilesToPwd is initialized to "nil".
+si: simSetDef().... xxxInternalForceAliasModuleGen is initialized to "nil".
+si: simSetDef().... simGlobalPrefix is initialized to "cds_globals." .
+si: simSetDef().... xxxInternalInstSpecificViews is initialized to "nil".
+si: simSetDef().... simVerilogPwrNetList is already set to ("vdd!" "vdda!"
+"vddd!" "vcc!" "vcca!" "vccd!"). Redefinition to nil is ignored.
+si: simSetDef().... simVerilogGndNetList is already set to ("gnd!" "gnda!"
+"gndd!" "vss!" "vssa!" "vssd!" "vee!" "veea!" "veed!"). Redefinition to nil is
+ignored.
+si: simSetDef().... simVerilogGlobalNetList is initialized to "nil".
+si: simSetDef().... hnlVerilogCreatePM is initialized to "nil".
+si: simSetDef().... hnlVerilogTopLevelPM is initialized to "nil".
+si: simSetDef().... hnlVerilogPMList is initialized to "nil".
+si: simSetDef().... hnlVerilogPM is initialized to "nil".
+si: simSetDef().... hnlVerilogCreatePMInternal is initialized to "nil".
+si: simSetDef().... hnlVerilogPMModule is initialized to "nil".
+si: simSetDef().... hnlVerilogPMModuleList is initialized to "nil".
+si: simSetDef().... hnlVerilogPMCellList is initialized to "nil".
+si: simSetDef().... hnlVerilogCheckPMModule is initialized to "nil".
+si: simSetDef().... hnlVerilogCellSimTimeUnit is already set to 1e-12.
+Redefinition to nil is ignored.
+si: simSetDef().... hnlVerilogIgnorePortRange is already set to t. Redefinition
+to nil is ignored.
+si: simSetDef().... xxxInternalTapTerminalCellList is initialized to "nil".
+si: simSetDef().... hnlVerilogSplitBusModule is initialized to "nil".
+si: simSetDef().... hnlVerilogAllowUnresolvedInstance is initialized to "nil".
+si: simSetDef().... hnlVerilogLenWidRCScale is initialized to "nil".
+si: simSetDef().... hnlVerilogRCTriRegNetList is initialized to "nil".
+si: simSetDef().... hnlVerilogITTtrireg is initialized to "nil".
+si: simSetDef().... hnlVerilogITTbusList is initialized to "nil".
+si: simSetDef().... hnlVerilogTriregbusList is initialized to "nil".
+si: simSetDef().... hnlVerilogPartialNet is initialized to "nil".
+si: simSetDef().... hnlVerilogTriregStrengthList is initialized to "nil".
+Loading the file
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Mar  7 19:37:06 2015
+si: simSetDef().... hnlInvalidNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlMaxNameLength is already set to 16. Redefinition to 50 is
+ignored.
+si: simSetDef().... hnlInvalidNetNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlInvalidInstNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlInvalidTermNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlInvalidModelNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlInvalidParamNames is initialized to (("always" "always_")
+("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
+"bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
+"casez_") ("cmos" "cmos_") ("deassign" "deassign_") ("default" "default_")
+("defparam" "defparam_") ("disable" "disable_") ("edge" "edge_") ("else"
+"else_") ("end" "end_") ("endcase" "endcase_") ("endfunction" "endfunction_")
+("endmodule" "endmodule_") ("endprimitive" "endprimitive_") ("endspecify"
+"endspecify_") ("endtable" "endtable_") ("endtask" "endtask_") ("event"
+"event_") ("for" "for_") ("force" "force_") ("forever" "forever_") ("fork"
+"fork_") ("function" "function_") ("highz0" "highz0_") ("highz1" "highz1_")
+("if" "if_") ("initial" "initial_") ("inout" "inout_") ("input" "input_")
+("integer" "integer_") ("join" "join_") ("large" "large_") ("macromodule"
+"macromodule_") ("medium" "medium_") ("module" "module_") ("nand" "nand_")
+("negedge" "negedge_") ("nmos" "nmos_") ("nor" "nor_") ("not" "not_") ("notif0"
+"notif0_") ("notif1" "notif1_") ("or" "or_") ("output" "output_") ("parameter"
+"parameter_") ("pmos" "pmos_") ("posedge" "posedge_") ("primitive" "primitive_")
+("pull0" "pull0_") ("pull1" "pull1_") ("pulldown" "pulldown_") ("pullup"
+"pullup_") ("rcmos" "rcmos_") ("real" "real_") ("realtime" "realtime_") ("reg"
+"reg_") ("release" "release_") ("repeat" "repeat_") ("rnmos" "rnmos_") ("rpmos"
+"rpmos_") ("rtran" "rtran_") ("rtranif0" "rtranif0_") ("rtranif1" "rtranif1_")
+("scalered" "scalered_") ("signed" "signed_") ("small" "small_") ("specify"
+"specify_") ("specparam" "specparam_") ("strength" "strength_") ("strong0"
+"strong0_") ("strong1" "strong1_") ("supply0" "supply0_") ("supply1" "supply1_")
+("table" "table_") ("task" "task_") ("time" "time_") ("tran" "tran_") ("tranif0"
+"tranif0_") ("tranif1" "tranif1_") ("tri" "tri_") ("tri0" "tri0_") ("tri1"
+"tri1_") ("triand" "triand_") ("trior" "trior_") ("trireg" "trireg_")
+("vectored" "vectored_") ("wait" "wait_") ("wand" "wand_") ("weak0" "weak0_")
+("weak1" "weak1_") ("when" "when_") ("while" "while_") ("wire" "wire_") ("wor"
+"wor_") ("xnor" "xnor_") ("xor" "xor_")) .
+si: simSetDef().... hnlCapability is initialized to "nil".
+si: simSetDef().... hnlBusCapability is initialized to "nil".
+INFO (VLOGNET-188): While generating implicit netlist, it is recommended to set
+the Terminal SyncUp option on the Netlist Setup form as 'Honor Switch
+Master'.
+Alternatively, you can set the hnlVerilogTermSyncUp variable as
+'honorSM'.
+This option automatically resolves any mismatch between the terminals
+of an instance and its switch master while generating an implicit netlist.
+
+INFO (VLOGNET-60): The stimulus name mapped table will not be printed in the
+
+"/net/bull/apps/Cadence/simulation/6T_MultiBank_8K_Test/spectreVerilog/config/netlist/digital/testfixture.verilog" file. To print the stimulus name mapped
+table, set 
+simVerilogPrintStimulusNameMappingTable = t either in CIW or the
+.simrc file 
+before invoking Verilog netlister.
+ 
+INFO (VLOGNET-62): Database internal net names will be printed for floating
+instance ports. To prevent 
+them from being printed, set
+simVerilogProcessNullPorts = t either in CIW or 
+the .simrc file.
+ 
+INFO (VLOGNET-64): All cellviews in the design will be printed in the Netlist
+Configuration list. 
+If you want to print only those cellviews that need to be
+re-netlisted in the 
+list, set simVerilogIncrementalNetlistConfigList = t either
+in CIW or the 
+.simrc file.
+ 
+INFO (VLOGNET-66): Module ports will be printed without the port ranges. If you
+have split busses 
+across module ports you may get an incorrect netlist. To
+print module ports 
+with the port ranges, set simVerilogDropPortRange = nil
+either in CIW or the 
+.simrc file.
+ 
+INFO (VLOGNET-68): The initial state of stimulus of all inout pins is set to
+"z". To get inout 
+pins with initial state of "0", set
+hnlVerilogIOInitStimulusStr = "0" 
+either in CIW or the .simrc file.
+ 
+INFO (VLOGNET-116): Netlisting the resistive-switch properties.
+
+INFO (VLOGNET-117): Re-netlisting the entire design.
+
+INFO (VLOGNET-120): Using connection by order (implicit connections) for all the
+stopping cells.
+
+INFO (VLOGNET-169): Module port ordering for lib '16nm', cell 'inv_1xT', view
+'functional' will be
+ done using the user specified port order as follows:
+
+ => ("Y" "A")
+
+INFO (VLOGNET-126): ---------- Beginning netlist configuration information
+----------
+
+
+
+CELL NAME                   VIEW NAME            NOTE             
+---------                   ---------            ----             
+
+inv_1xT                     functional           *Stopping View*  
+6T_8K_MultiBank_Test        schematic                             
+
+---------- End of netlist configuration information   ----------
+INFO (VLOGNET-80): The library '16nm_Tests', cell '6T_MultiBank_8K_Test', and
+view 'config' has been netlisted successfully.
+
+End netlisting Mar  7 19:37:06 2015
+End MS Netlisting: Mar  7 19:37:06 2015

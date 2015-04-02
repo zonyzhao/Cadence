@@ -1,0 +1,27 @@
+    I6 (net010 Y) inv_1x
+    M5 (net010 net5 0 0) nfet w=48n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M4 (net5 net010 net9 0) nfet w=48n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M3 (net9 B 0 0) nfet w=48n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M2 (net9 A 0 0) nfet w=48n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M1 (net5 B net17 0) nfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0 (net17 A 0 0) nfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n as=9.45e-15 \
+        ad=9.45e-15 ps=300n pd=300n m=1
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M8 (net037 B vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M7 (net037 A vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M6 (net5 net010 net037 vdd!) pfet w=80n l=16n as=9.45e-15 \
+        ad=9.45e-15 ps=300n pd=300n m=1
+ends _sub77
+// End of subcircuit definition.

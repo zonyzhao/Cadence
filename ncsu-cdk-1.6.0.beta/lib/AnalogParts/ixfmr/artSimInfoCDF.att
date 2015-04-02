@@ -1,0 +1,52 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "ixfmr"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "k"
+        ?prompt         "Coupling coefficient"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('k)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceCompPrimRef
+        instParameters    (k)
+        componentName     hixfmr
+        termOrder         (n\+ n\-)
+        refTermOrder      (in\+ in\-)
+        propMapping       (nil)
+        namePrefix        "E"
+        current           port
+        termMapping       (nil in\+ "" in\- "(FUNCTION minus(root(\"in+\")))" n\+ "" n\- "(FUNCTION minus(root(\"n+\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

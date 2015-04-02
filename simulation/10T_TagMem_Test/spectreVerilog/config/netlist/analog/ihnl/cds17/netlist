@@ -1,0 +1,18 @@
+    M5 (net017 C net21 vdd!) pfet w=288n l=20n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M4 (Y D net017 vdd!) pfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M3 (net21 B net018 vdd!) pfet w=288n l=20n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M2 (net018 A vdd! vdd!) pfet w=288n l=20n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M7 (Y D 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n pd=300n \
+        m=1
+    M6 (Y C 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n pd=300n \
+        m=1
+    M1 (Y A 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n pd=300n \
+        m=1
+    M0 (Y B 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n pd=300n \
+        m=1
+ends nor4_1x
+// End of subcircuit definition.

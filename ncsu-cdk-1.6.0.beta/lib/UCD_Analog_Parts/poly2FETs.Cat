@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/nmos4_elec type="cell"
+UCD_Analog_Parts/nmos_elec type="cell"
+UCD_Analog_Parts/pmos4_elec type="cell"
+UCD_Analog_Parts/pmos_elec type="cell"

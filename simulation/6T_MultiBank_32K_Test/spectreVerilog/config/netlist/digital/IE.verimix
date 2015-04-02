@@ -1,0 +1,212 @@
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.cdsNet1, "99999"); // /~WriteEn
+	$vmx_define_export( test.top.cdsbus0[6], "99998"); // /~W_Address<6>
+	$vmx_define_export( test.top.cdsbus0[7], "99997"); // /~W_Address<7>
+	$vmx_define_export( test.top.cdsbus0[8], "99996"); // /~W_Address<8>
+	$vmx_define_export( test.top.cdsbus0[9], "99995"); // /~W_Address<9>
+	$vmx_define_export( test.top.cdsbus0[10], "99994"); // /~W_Address<10>
+	$vmx_define_export( test.top.cdsbus0[11], "99993"); // /~W_Address<11>
+	$vmx_define_export( test.top.cdsbus0[0], "99992"); // /~W_Address<0>
+	$vmx_define_export( test.top.cdsNet3, "99991"); // /~ReadEn
+	$vmx_define_export( test.top.cdsbus0[1], "99990"); // /~W_Address<1>
+	$vmx_define_export( test.top.cdsbus0[2], "99989"); // /~W_Address<2>
+	$vmx_define_export( test.top.cdsbus0[3], "99988"); // /~W_Address<3>
+	$vmx_define_export( test.top.cdsbus0[4], "99987"); // /~W_Address<4>
+	$vmx_define_export( test.top.cdsbus0[5], "99986"); // /~W_Address<5>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /~RData<13>
+	$vmx_define_import( test.top.mixedNet99984, "99984"); // /~RData<14>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /~RData<15>
+	$vmx_define_import( test.top.mixedNet99982, "99982"); // /~RData<16>
+	$vmx_define_import( test.top.mixedNet99981, "99981"); // /~RData<17>
+	$vmx_define_import( test.top.mixedNet99980, "99980"); // /~RData<18>
+	$vmx_define_import( test.top.mixedNet99979, "99979"); // /~RData<19>
+	$vmx_define_import( test.top.mixedNet99978, "99978"); // /~RData<20>
+	$vmx_define_import( test.top.mixedNet99977, "99977"); // /~RData<21>
+	$vmx_define_import( test.top.mixedNet99976, "99976"); // /~RData<22>
+	$vmx_define_import( test.top.mixedNet99975, "99975"); // /~RData<23>
+	$vmx_define_import( test.top.mixedNet99974, "99974"); // /~RData<24>
+	$vmx_define_import( test.top.mixedNet99973, "99973"); // /~RData<25>
+	$vmx_define_import( test.top.mixedNet99972, "99972"); // /~RData<26>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /~RData<27>
+	$vmx_define_import( test.top.mixedNet99970, "99970"); // /~RData<28>
+	$vmx_define_import( test.top.mixedNet99969, "99969"); // /~RData<29>
+	$vmx_define_import( test.top.mixedNet99968, "99968"); // /~RData<30>
+	$vmx_define_import( test.top.mixedNet99967, "99967"); // /~RData<31>
+	$vmx_define_import( test.top.mixedNet99966, "99966"); // /~RData<32>
+	$vmx_define_import( test.top.mixedNet99965, "99965"); // /~RData<33>
+	$vmx_define_import( test.top.mixedNet99964, "99964"); // /~RData<34>
+	$vmx_define_import( test.top.mixedNet99963, "99963"); // /~RData<35>
+	$vmx_define_import( test.top.mixedNet99962, "99962"); // /~RData<36>
+	$vmx_define_import( test.top.mixedNet99961, "99961"); // /~RData<37>
+	$vmx_define_import( test.top.mixedNet99960, "99960"); // /~RData<38>
+	$vmx_define_import( test.top.mixedNet99959, "99959"); // /~RData<39>
+	$vmx_define_import( test.top.mixedNet99958, "99958"); // /~RData<40>
+	$vmx_define_import( test.top.mixedNet99957, "99957"); // /~RData<41>
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /~RData<42>
+	$vmx_define_import( test.top.mixedNet99955, "99955"); // /~RData<43>
+	$vmx_define_import( test.top.mixedNet99954, "99954"); // /~RData<44>
+	$vmx_define_import( test.top.mixedNet99953, "99953"); // /~RData<45>
+	$vmx_define_import( test.top.mixedNet99952, "99952"); // /~RData<46>
+	$vmx_define_import( test.top.mixedNet99951, "99951"); // /~RData<47>
+	$vmx_define_import( test.top.mixedNet99950, "99950"); // /~RData<48>
+	$vmx_define_import( test.top.mixedNet99949, "99949"); // /~RData<49>
+	$vmx_define_import( test.top.mixedNet99948, "99948"); // /~RData<50>
+	$vmx_define_import( test.top.mixedNet99947, "99947"); // /~RData<51>
+	$vmx_define_import( test.top.mixedNet99946, "99946"); // /~RData<52>
+	$vmx_define_import( test.top.mixedNet99945, "99945"); // /~RData<53>
+	$vmx_define_import( test.top.mixedNet99944, "99944"); // /~RData<54>
+	$vmx_define_import( test.top.mixedNet99943, "99943"); // /~RData<55>
+	$vmx_define_import( test.top.mixedNet99942, "99942"); // /~RData<56>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /~RData<57>
+	$vmx_define_import( test.top.mixedNet99940, "99940"); // /~RData<58>
+	$vmx_define_import( test.top.mixedNet99939, "99939"); // /~RData<59>
+	$vmx_define_import( test.top.mixedNet99938, "99938"); // /~RData<60>
+	$vmx_define_import( test.top.mixedNet99937, "99937"); // /~RData<61>
+	$vmx_define_import( test.top.mixedNet99936, "99936"); // /~RData<62>
+	$vmx_define_import( test.top.mixedNet99935, "99935"); // /~RData<63>
+	$vmx_define_import( test.top.mixedNet99934, "99934"); // /~RData<0>
+	$vmx_define_import( test.top.mixedNet99933, "99933"); // /~WDataAck<9>
+	$vmx_define_import( test.top.mixedNet99932, "99932"); // /~WDataAck<10>
+	$vmx_define_import( test.top.mixedNet99931, "99931"); // /~WDataAck<11>
+	$vmx_define_import( test.top.mixedNet99930, "99930"); // /~WDataAck<12>
+	$vmx_define_import( test.top.mixedNet99929, "99929"); // /~WDataAck<13>
+	$vmx_define_import( test.top.mixedNet99928, "99928"); // /~WDataAck<14>
+	$vmx_define_import( test.top.mixedNet99927, "99927"); // /~WDataAck<15>
+	$vmx_define_import( test.top.mixedNet99926, "99926"); // /~WDataAck<16>
+	$vmx_define_import( test.top.mixedNet99925, "99925"); // /~WDataAck<17>
+	$vmx_define_import( test.top.mixedNet99924, "99924"); // /~WDataAck<18>
+	$vmx_define_import( test.top.mixedNet99923, "99923"); // /~WDataAck<19>
+	$vmx_define_import( test.top.mixedNet99922, "99922"); // /~WDataAck<20>
+	$vmx_define_import( test.top.mixedNet99921, "99921"); // /~WDataAck<21>
+	$vmx_define_import( test.top.mixedNet99920, "99920"); // /~WDataAck<22>
+	$vmx_define_import( test.top.mixedNet99919, "99919"); // /~WDataAck<23>
+	$vmx_define_import( test.top.mixedNet99918, "99918"); // /~WDataAck<24>
+	$vmx_define_import( test.top.mixedNet99917, "99917"); // /~WDataAck<25>
+	$vmx_define_import( test.top.mixedNet99916, "99916"); // /~WDataAck<26>
+	$vmx_define_import( test.top.mixedNet99915, "99915"); // /~WDataAck<27>
+	$vmx_define_import( test.top.mixedNet99914, "99914"); // /~WDataAck<28>
+	$vmx_define_import( test.top.mixedNet99913, "99913"); // /~RData<6>
+	$vmx_define_import( test.top.mixedNet99912, "99912"); // /~RData<7>
+	$vmx_define_import( test.top.mixedNet99911, "99911"); // /~RData<8>
+	$vmx_define_import( test.top.mixedNet99910, "99910"); // /~RData<9>
+	$vmx_define_import( test.top.mixedNet99909, "99909"); // /~RData<10>
+	$vmx_define_import( test.top.mixedNet99908, "99908"); // /~RData<11>
+	$vmx_define_import( test.top.mixedNet99907, "99907"); // /~RData<12>
+	$vmx_define_export( test.top.cdsbus2[56], "99906"); // /~WData<56>
+	$vmx_define_export( test.top.cdsbus2[57], "99905"); // /~WData<57>
+	$vmx_define_export( test.top.cdsbus2[58], "99904"); // /~WData<58>
+	$vmx_define_export( test.top.cdsbus2[59], "99903"); // /~WData<59>
+	$vmx_define_export( test.top.cdsbus2[60], "99902"); // /~WData<60>
+	$vmx_define_export( test.top.cdsbus2[61], "99901"); // /~WData<61>
+	$vmx_define_export( test.top.cdsbus2[62], "99900"); // /~WData<62>
+	$vmx_define_export( test.top.cdsbus2[63], "99899"); // /~WData<63>
+	$vmx_define_export( test.top.cdsbus3[0], "99898"); // /~R_Address<0>
+	$vmx_define_export( test.top.cdsbus3[1], "99897"); // /~R_Address<1>
+	$vmx_define_export( test.top.cdsbus3[2], "99896"); // /~R_Address<2>
+	$vmx_define_export( test.top.cdsbus3[3], "99895"); // /~R_Address<3>
+	$vmx_define_export( test.top.cdsbus3[4], "99894"); // /~R_Address<4>
+	$vmx_define_export( test.top.cdsbus3[5], "99893"); // /~R_Address<5>
+	$vmx_define_export( test.top.cdsbus3[6], "99892"); // /~R_Address<6>
+	$vmx_define_export( test.top.cdsbus3[7], "99891"); // /~R_Address<7>
+	$vmx_define_export( test.top.cdsbus3[8], "99890"); // /~R_Address<8>
+	$vmx_define_export( test.top.cdsbus3[9], "99889"); // /~R_Address<9>
+	$vmx_define_export( test.top.cdsbus3[10], "99888"); // /~R_Address<10>
+	$vmx_define_export( test.top.cdsbus3[11], "99887"); // /~R_Address<11>
+	$vmx_define_export( test.top.cdsbus2[25], "99886"); // /~WData<25>
+	$vmx_define_import( test.top.mixedNet99885, "99885"); // /~RData<3>
+	$vmx_define_import( test.top.mixedNet99884, "99884"); // /~RData<5>
+	$vmx_define_import( test.top.mixedNet99883, "99883"); // /~RData<1>
+	$vmx_define_export( test.top.cdsbus2[24], "99882"); // /~WData<24>
+	$vmx_define_export( test.top.cdsbus2[23], "99881"); // /~WData<23>
+	$vmx_define_export( test.top.cdsbus2[22], "99880"); // /~WData<22>
+	$vmx_define_export( test.top.cdsbus2[21], "99879"); // /~WData<21>
+	$vmx_define_export( test.top.cdsbus2[19], "99878"); // /~WData<19>
+	$vmx_define_export( test.top.cdsbus2[18], "99877"); // /~WData<18>
+	$vmx_define_import( test.top.mixedNet99876, "99876"); // /~RData<4>
+	$vmx_define_import( test.top.mixedNet99875, "99875"); // /~RData<2>
+	$vmx_define_export( test.top.cdsbus2[26], "99874"); // /~WData<26>
+	$vmx_define_export( test.top.cdsbus2[17], "99873"); // /~WData<17>
+	$vmx_define_export( test.top.cdsbus2[16], "99872"); // /~WData<16>
+	$vmx_define_export( test.top.cdsbus2[55], "99871"); // /~WData<55>
+	$vmx_define_export( test.top.cdsbus2[20], "99870"); // /~WData<20>
+	$vmx_define_import( test.top.mixedNet99869, "99869"); // /~WDataAck<6>
+	$vmx_define_import( test.top.mixedNet99868, "99868"); // /~WDataAck<7>
+	$vmx_define_import( test.top.mixedNet99867, "99867"); // /~WDataAck<8>
+	$vmx_define_import( test.top.mixedNet99866, "99866"); // /~WDataAck<1>
+	$vmx_define_import( test.top.mixedNet99865, "99865"); // /~WDataAck<0>
+	$vmx_define_import( test.top.mixedNet99864, "99864"); // /~WDataAck<3>
+	$vmx_define_import( test.top.mixedNet99863, "99863"); // /~WDataAck<2>
+	$vmx_define_import( test.top.mixedNet99862, "99862"); // /~WDataAck<4>
+	$vmx_define_import( test.top.mixedNet99861, "99861"); // /~WDataAck<5>
+	$vmx_define_export( test.top.cdsbus2[11], "99860"); // /~WData<11>
+	$vmx_define_export( test.top.cdsbus2[12], "99859"); // /~WData<12>
+	$vmx_define_export( test.top.cdsbus2[13], "99858"); // /~WData<13>
+	$vmx_define_export( test.top.cdsbus2[14], "99857"); // /~WData<14>
+	$vmx_define_export( test.top.cdsbus2[15], "99856"); // /~WData<15>
+	$vmx_define_export( test.top.cdsbus2[10], "99855"); // /~WData<10>
+	$vmx_define_export( test.top.cdsbus2[9], "99854"); // /~WData<9>
+	$vmx_define_export( test.top.cdsbus2[4], "99853"); // /~WData<4>
+	$vmx_define_export( test.top.cdsbus2[5], "99852"); // /~WData<5>
+	$vmx_define_export( test.top.cdsbus2[6], "99851"); // /~WData<6>
+	$vmx_define_export( test.top.cdsbus2[7], "99850"); // /~WData<7>
+	$vmx_define_export( test.top.cdsbus2[8], "99849"); // /~WData<8>
+	$vmx_define_export( test.top.cdsbus2[3], "99848"); // /~WData<3>
+	$vmx_define_export( test.top.cdsbus2[45], "99847"); // /~WData<45>
+	$vmx_define_export( test.top.cdsbus2[46], "99846"); // /~WData<46>
+	$vmx_define_export( test.top.cdsbus2[47], "99845"); // /~WData<47>
+	$vmx_define_export( test.top.cdsbus2[48], "99844"); // /~WData<48>
+	$vmx_define_export( test.top.cdsbus2[49], "99843"); // /~WData<49>
+	$vmx_define_export( test.top.cdsbus2[50], "99842"); // /~WData<50>
+	$vmx_define_export( test.top.cdsbus2[51], "99841"); // /~WData<51>
+	$vmx_define_export( test.top.cdsbus2[52], "99840"); // /~WData<52>
+	$vmx_define_export( test.top.cdsbus2[53], "99839"); // /~WData<53>
+	$vmx_define_export( test.top.cdsbus2[54], "99838"); // /~WData<54>
+	$vmx_define_export( test.top.cdsbus2[41], "99837"); // /~WData<41>
+	$vmx_define_export( test.top.cdsbus2[31], "99836"); // /~WData<31>
+	$vmx_define_export( test.top.cdsbus2[30], "99835"); // /~WData<30>
+	$vmx_define_export( test.top.cdsbus2[29], "99834"); // /~WData<29>
+	$vmx_define_export( test.top.cdsbus2[28], "99833"); // /~WData<28>
+	$vmx_define_export( test.top.cdsbus2[27], "99832"); // /~WData<27>
+	$vmx_define_export( test.top.cdsbus2[40], "99831"); // /~WData<40>
+	$vmx_define_export( test.top.cdsbus2[35], "99830"); // /~WData<35>
+	$vmx_define_export( test.top.cdsbus2[36], "99829"); // /~WData<36>
+	$vmx_define_export( test.top.cdsbus2[37], "99828"); // /~WData<37>
+	$vmx_define_export( test.top.cdsbus2[38], "99827"); // /~WData<38>
+	$vmx_define_export( test.top.cdsbus2[39], "99826"); // /~WData<39>
+	$vmx_define_export( test.top.cdsbus2[0], "99825"); // /~WData<0>
+	$vmx_define_export( test.top.cdsbus2[1], "99824"); // /~WData<1>
+	$vmx_define_export( test.top.cdsbus2[2], "99823"); // /~WData<2>
+	$vmx_define_export( test.top.cdsbus2[34], "99822"); // /~WData<34>
+	$vmx_define_export( test.top.cdsbus2[33], "99821"); // /~WData<33>
+	$vmx_define_export( test.top.cdsbus2[32], "99820"); // /~WData<32>
+	$vmx_define_export( test.top.cdsbus2[44], "99819"); // /~WData<44>
+	$vmx_define_export( test.top.cdsbus2[43], "99818"); // /~WData<43>
+	$vmx_define_export( test.top.cdsbus2[42], "99817"); // /~WData<42>
+	$vmx_define_import( test.top.mixedNet99816, "99816"); // /~WDataAck<29>
+	$vmx_define_import( test.top.mixedNet99815, "99815"); // /~WDataAck<30>
+	$vmx_define_import( test.top.mixedNet99814, "99814"); // /~WDataAck<31>
+	$vmx_define_import( test.top.mixedNet99813, "99813"); // /~WAck
+	$vmx_define_import( test.top.mixedNet99812, "99812"); // /~RAck
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task

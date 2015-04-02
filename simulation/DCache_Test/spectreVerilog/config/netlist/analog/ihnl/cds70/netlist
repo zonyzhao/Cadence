@@ -1,0 +1,13 @@
+    I7 (nx_0 ack xo_0) TH22
+    I6 (nx_1 ack xo_1) TH22
+    I1 (in_1 nxa n_1) TH22
+    I0 (in_0 nxa n_0) TH22
+    I18 (xa nxa) inv_1x
+    I17 (xo_0 out_0) inv_1x
+    I16 (xo_1 out_1) inv_1x
+    I9 (n_1 nx_1) inv_1x
+    I8 (n_0 nx_0) inv_1x
+    I13 (xo_1 xo_0 xa) nand_1x
+    I12 (n_0 n_1 nina) nor_1x
+ends _sub197
+// End of subcircuit definition.

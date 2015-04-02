@@ -1,0 +1,16 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+initial
+begin 
+
+   Data1[15:0] = 16'b0000000000000000;
+
+   R_Address[11:0] = 12'b000000000000;
+
+   ReadEn = 1'b0;
+   W_Address[11:0] = 12'b000000000000;
+
+   WriteEn = 1'b0;
+end 

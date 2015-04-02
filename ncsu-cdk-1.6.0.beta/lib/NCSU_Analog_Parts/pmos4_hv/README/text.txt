@@ -1,0 +1,2 @@
+"pmos4" is a four-terminal PFET representation. If you want a
+three-terminal PFET, use "pmos".

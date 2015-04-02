@@ -1,0 +1,239 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "tline"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "zo"
+        ?prompt         "Characteristic impedance"
+        ?units          "resistance"
+        ?defValue       "50"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('zo)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "freq"
+        ?prompt         "Frequency"
+        ?units          "frequency"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('freq)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "nl"
+        ?prompt         "Normalized length"
+        ?defValue       "0.25"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('nl)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v1"
+        ?prompt         "Voltage 1"
+        ?units          "voltage"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('v1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i1"
+        ?prompt         "Current 1"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('i1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v2"
+        ?prompt         "Voltage 2"
+        ?units          "voltage"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('v2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i2"
+        ?prompt         "Current 2"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('i2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "vel"
+        ?prompt         "Propagation velocity normalized to c"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vel)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "len"
+        ?prompt         "Physical length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('len)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sloss"
+        ?prompt         "Series Loss per meter"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('sloss)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ploss"
+        ?prompt         "Shunt Loss per meter"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ploss)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        namePrefix        ""
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (zo td freq nl v1 i1 v2 i2)
+        componentName     tline
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        propMapping       nil
+        namePrefix        "T"
+        current           nil
+        termMapping       (nil IN\+ "" IN\- "" OUT\+ "" OUT\- "")
+        dcSens            nil
+        acSens            t
+    )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        instParameters    (z l v sloss f ploss)
+        componentName     tl
+        propMapping       (nil z zo v vel f freq)
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        namePrefix        "T"
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (zo td freq nl v1 i1 v2 i2)
+        componentName     tline
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        propMapping       nil
+        namePrefix        "T"
+        current           nil
+        termMapping       (nil IN\+ "" IN\- "" OUT\+ "" OUT\- "")
+        dcSens            nil
+        acSens            t
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (z e f)
+        componentName     TLIN4
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        propMapping       (nil z zo e nl f freq)
+        namePrefix        ""
+    )
+    cdfId->simInfo->mharm = '( nil
+        netlistProcedure  ansMharmCompPrim
+        instParameters    (zo nl freq)
+        componentName     trl
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        propMapping       (nil z zo e nl f freq)
+        namePrefix        ""
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreCompPrim
+        otherParameters   (zo freq model)
+        instParameters    (z0 td f nl vel len)
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        termMapping       (nil IN\+ t1 IN\- b1 OUT\+ t2 OUT\- b2)
+        propMapping       (nil z0 zo f freq)
+        namePrefix        "T"
+        componentName     tline
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSCompPrim
+        otherParameters   (zo freq model)
+        instParameters    (z0 td f nl vel len)
+        termOrder         (IN\+ IN\- OUT\+ OUT\-)
+        termMapping       (nil IN\+ t1 IN\- b1 OUT\+ t2 OUT\- b2)
+        propMapping       (nil z0 zo f freq)
+        namePrefix        "T"
+        componentName     tline
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "zo td freq"
+    cdfSaveCDF( cdfId )
+)

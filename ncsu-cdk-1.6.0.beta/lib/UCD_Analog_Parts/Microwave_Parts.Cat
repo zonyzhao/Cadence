@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/Microwave_Only_Index type="cell"
+UCD_Analog_Parts/Microwave_Parts_Index type="cell"
+UCD_Analog_Parts/cccs4 type="cell"
+UCD_Analog_Parts/ccvs4 type="cell"
+UCD_Analog_Parts/noise type="cell"
+UCD_Analog_Parts/pgen type="cell"
+UCD_Analog_Parts/psin type="cell"

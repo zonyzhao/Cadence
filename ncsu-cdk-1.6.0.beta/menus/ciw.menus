@@ -1,0 +1,65 @@
+; from "/ncsu/cadence/tools/dfII/etc/tools/menus/ciw.menus"
+
+unless( getShellEnvVar( "CDS_SITE" ) == nil
+
+ciwFilePulldown = '(ciwFileMenu "File" (
+    (NewSlider          "New" (
+        (LibraryItem    "Library ..."   "hiDisplayForm( NCSU_createLibForm )")
+        (OtherItem      "Cellview ..."  "deNew()")
+    ))
+    (OpenItem           "Open ..."      "deOpen()")
+    (ImportItem         "Import" (
+        (EDIFIn         "EDIF ..."      "edifinDisplay(transEdifInForm)")
+        (VerilogIn      "Verilog ..."   "impHdlDisplay(impHdlOptionsForm)")
+        (VHDLIn         "VHDL ..."      "vhdlHiImport()")
+        (CALMPIn        "CALMP ..."     "calmpDisplay(transCalmpForm)")
+        (SDLIn          "SDL ..."       "transSdlInDisplay()")
+        (CDLIn          "CDL ..."       "transCdlInDisplay()")
+        (DEFIn          "DEF ..."       "prtDEFInCB()")
+        (LEFIn          "LEF ..."       "prtLEFInCB()")
+        (TEGASIn        "TEGAS ..."     "transTegasInDisplay()")
+        (SILOSIn        "SILOS ..."     "transSilosInDisplay()")
+        (StreamIn       "Stream ..."    "setPIPOForm(\"StreamIn\")")
+        (AppliconI      "Applicon ..."  "pipoDisplay(transAplInForm)")
+        (CIFIn          "CIF ..."       "setPIPOForm(\"CIFin\")")
+    ) )
+    (ExportItem         "Export" (
+        (EDIFOut        "EDIF ..."      "edifDisplay(transEdifOutForm)")
+        (PRFlattenOut   "PRFlatten ..." "adpFlatten()")
+        (CDLOut         "CDL ..."       "transCdlOutDisplay(transCdlOutForm)")
+        (DEFOut         "DEF ..."       "prtDEFOutCB()")
+        (LEFOut         "LEF ..."       "prtLEFOutCB()")
+        (StreamOut      "Stream ..."    "setPIPOForm(\"StreamOut\")")
+        (AppliconOut    "Applicon ..."  "pipoDisplay(transAplOutForm)")
+        (CIFOut         "CIF ..."       "setPIPOForm(\"CIFout\")")
+    ) )
+    (RefreshItem        "Refresh ..."           "ddsHiRefresh()")
+    (ReadOnlyItem       "Make Read Only ..."    "ddsHiMakeReadOnly()")
+    (NewsItem           "What's New ..."        "ddsWhatsNew()")
+    (ExitItem           "Exit ..."              "ciwHiExit()")
+))
+
+tfNew      = '(newItem		"New ..."          "tcDisplayNewTechForm()")
+tfLoad     = '(loadItem		"Load ..."         "tcDisplayLoadTechForm()")
+tfDump     = '(dumpItem		"Dump ..."         "tcDisplayDumpTechForm()")
+tfDiscard  = '(discardItem      "Discard ..."      "tcDisplayDiscardTechForm()")
+tfCheck    = '(checkItem	"Check ..."        "tcDisplayCheckTechForm()")
+tfSave     = '(SaveItem         "Save ..."         "tcDisplaySaveTechForm()")
+; tfAttach   = '(attachItem	"Attach To ..."    "tcDisplayAttachTechForm()")
+tfAttach   = '(attachItem	"Attach To ..."    "NCSU_attachTechForm()")
+tfLayers   = '(layersItem	"Edit Layers ..."  "hiLayerDispMainForm()")
+
+ciwTechFilePulldown = '(ciwTechFile "Technology File" (
+    tfNew
+    tfLoad
+    tfDump
+    tfDiscard
+    tfCheck
+    tfSave
+    tfAttach
+    tfLayers
+    ;tfLayersSlider
+    ;tfShowInfo
+))
+
+)

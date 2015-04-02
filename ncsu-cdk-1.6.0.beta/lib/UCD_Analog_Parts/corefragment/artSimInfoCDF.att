@@ -1,0 +1,117 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "corefragment"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "len"
+        ?prompt         "Physical length"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('len)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "idiam"
+        ?prompt         "Inner diam of toroidal core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('idiam)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "od"
+        ?prompt         "Outer diam of toroidal core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('od)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "gap"
+        ?prompt         "Gap length"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('gap)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        instParameters    (area len id od gap m)
+        propMapping       (nil id idiam)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "CORE"
+        componentName     core
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (model)
+        instParameters    (area len id od gap m)
+        propMapping       (nil id idiam)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:1 MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        namePrefix        "CORE"
+        componentName     core
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "br bm hc"
+    cdfId->paramLabelSet           = "area len gap"
+    cdfSaveCDF( cdfId )
+)

@@ -1,0 +1,24 @@
+;==========================================================================
+;
+; $Id: divaLVS.rul,v 1.1.1.1 2006/02/10 16:32:38 slipa Exp $
+;
+;--------------------------------------------------------------------------
+
+printf( "Compiling Diva LVS rules...\n" )
+
+; see local/skill/menus/ncsu/makeLVSRules.il for more options...
+lvsRules(
+    permuteDevice( parallel "nfet" )
+    permuteDevice( parallel "pfet" )
+    permuteDevice( parallel "nmos" )
+    permuteDevice( parallel "pmos" )
+    permuteDevice( parallel "nmos4" )
+    permuteDevice( parallel "pmos4" )
+    permuteDevice( parallel "cap" )
+    permuteDevice( MOS "nfet" )
+    permuteDevice( MOS "pfet" )
+    permuteDevice( MOS "nmos" )
+    permuteDevice( MOS "pmos" )
+    permuteDevice( MOS "nmos4" )
+    permuteDevice( MOS "pmos4" )
+)

@@ -1,0 +1,226 @@
+;==========================================================================
+;
+; $Id: cap.il,v 1.1.1.1 2006/02/10 16:33:46 slipa Exp $
+; 
+; Revision History
+;
+;--------------------------------------------------------------------------
+
+procedure( createCAPpcell( libName )
+    pcDefinePCell(list(ddGetObj(libName) "cap" "layout") 
+        ((caRows float 1.0) 
+        (pcRows float 1.0) 
+        (h_microns float 2.85) 
+        (w_microns float 1.8)
+        ) 
+        let((w_microns w_microns0 w_microns0offset h_microns h_microns1
+            h_microns1offset _pcEnc _pcEnc2 _pcEnc2offset _caEnc
+            _caEnc3 _caEnc3offset pcMember pcStretchGroup stretchOffsetX
+            stretchOffsetY pcRows caRows pcLib pcMaster
+            pcInst pcTerm pcPin pcPinName pcNet
+            pcTermNet pcNetName pcTermNetName pcMosaicInst tpcParameters
+            pcParamProp pcStep pcStepX pcStepY pcRepeat
+            pcRepeatX pcRepeatY pcIndexX pcIndexY pcLayer
+            pcPurpose pcLabelText pcLabelHeight pcPropText pcParamText
+            pcCoords pcPathWidth pcPolygonMargin
+        ) 
+        (pcLib = (pcCellView~>lib)) 
+        (pcParameters = ((pcCellView~>parameters)~>value)) 
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "pcRows")
+            )
+            )) 
+        (pcRows = (pcParamProp~>value))
+        if(((pcParamProp~>valueType) == "boolean") 
+            (pcRows = (pcRows == "TRUE"))
+        ) 
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "w_microns")
+            )
+            )) 
+        (w_microns = (pcParamProp~>value)) 
+        if(((pcParamProp~>valueType) == "boolean") 
+            (w_microns = (w_microns == "TRUE"))
+        ) 
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "caRows")
+            )
+            ))
+        (caRows = (pcParamProp~>value)) 
+        if(((pcParamProp~>valueType) == "boolean") 
+            (caRows = (caRows == "TRUE"))
+        ) 
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "h_microns")
+            )
+            )) 
+        (h_microns = (pcParamProp~>value)) 
+        if(((pcParamProp~>valueType) == "boolean") 
+            (h_microns = (h_microns == "TRUE"))
+        )
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "_pcEnc")
+            )
+            )) 
+        (_pcEnc = (pcParamProp~>value)) 
+        if(((pcParamProp~>valueType) == "boolean") 
+            (_pcEnc = (_pcEnc == "TRUE"))
+        ) 
+        (pcParamProp = car(exists(prop pcParameters 
+                ((prop~>name) == "_caEnc")
+            )
+            )) 
+        (_caEnc = (pcParamProp~>value))
+        if(((pcParamProp~>valueType) == "boolean") 
+            (_caEnc = (_caEnc == "TRUE"))
+        ) 
+        (w_microns0 = w_microns) 
+        (h_microns1 = h_microns) 
+        (_pcEnc2 = _pcEnc) 
+        (_caEnc3 = _caEnc)
+        if(!numberp(_pcEnc2) 
+            (_pcEnc2 = 1.2)
+        ) 
+        (pcStepX = 1.5) 
+        (pcStepY = -1.5) 
+        (pcRepeatX = (((w_microns - 1.79) / pcStepX) + 2)) 
+        (pcRepeatY = pcRows)
+        (_pcEnc2 = (_pcEnc2 + -((fix(pcRepeatY) - 1) * pcStepY))) 
+        if(!numberp(_caEnc3) 
+            (_caEnc3 = 1.2)
+        ) 
+        (pcStepX = 1.5) 
+        (pcStepY = 1.5) 
+        (pcRepeatX = (((w_microns - 1.79) / pcStepX) + 1))
+        (pcRepeatY = caRows) 
+        (_caEnc3 = (_caEnc3 + ((fix(pcRepeatY) - 1) * pcStepY))) 
+        if((w_microns0 < 1.8) then 
+            (w_microns0 = 1.8)
+        ) 
+        (w_microns0offset = (w_microns0 - 1.8)) 
+        if((h_microns1 < 2.85) then 
+            (h_microns1 = 2.85)
+        )
+        (h_microns1offset = (h_microns1 - 2.85)) 
+        (_pcEnc2offset = (_pcEnc2 - 1.2)) 
+        (_caEnc3offset = (_caEnc3 - 1.2)) 
+        dbReplaceProp(pcCellView "viewSubType" "string" "maskLayoutParamCell") 
+        (pcRepeat = (pcRepeatX = (pcRepeatY = 1.0))) 
+        (pcStep = (pcStepX = (pcStepY = 0.0))) 
+        (pcStepX = car(errset(1.5))) 
+        (pcStepY = car(errset(-1.5)))
+        (pcRepeatX = (((w_microns - 1.79) / pcStepX) + 2)) 
+        (pcRepeatY = pcRows) 
+        (pcStepX = 1.5) 
+        (pcStepY = -1.5) 
+        for(pcIndexX 0 
+            (fix(pcRepeatX) - 1) 
+            for(pcIndexY 0 
+            (fix(pcRepeatY) - 1) nil 
+            (pcLayer = "cc")
+            (pcPurpose = "drawing") 
+            (pcInst = dbCreateRect(pcCellView 
+                list(pcLayer pcPurpose) 
+                list(((2.4 + (pcIndexX * pcStepX)):(3.3 + (pcIndexY * pcStepY))) 
+                    ((3 + (pcIndexX * pcStepX)):(3.9 + (pcIndexY * pcStepY)))
+                )
+                ))
+            )
+        )
+        (pcRepeat = (pcRepeatX = (pcRepeatY = 1.0))) 
+        (pcStep = (pcStepX = (pcStepY = 0.0))) 
+        (pcStepX = car(errset(1.5))) 
+        (pcStepY = car(errset(1.5))) 
+        (pcRepeatX = (((w_microns - 1.79) / pcStepX) + 1))
+        (pcRepeatY = caRows) 
+        (pcStepX = 1.5) 
+        (pcStepY = 1.5) 
+        for(pcIndexX 0 
+            (fix(pcRepeatX) - 1) 
+            for(pcIndexY 0 
+            (fix(pcRepeatY) - 1) nil 
+            (pcLayer = "cc")
+            (pcPurpose = "drawing") 
+            (pcInst = dbCreateRect(pcCellView 
+                list(pcLayer pcPurpose) 
+                list(((3.15 + (pcIndexX * pcStepX)):(9.15 + h_microns1offset + (pcIndexY * pcStepY))) 
+                    ((3.75 + (pcIndexX * pcStepX)):(9.75 + h_microns1offset + (pcIndexY * pcStepY)))
+                )
+                ))
+            )
+        ) 
+        (pcLayer = "changedLayer")
+        (pcPurpose = "tool0") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((0.749:(3.149 - _pcEnc2offset)) 
+                ((6.151 + w_microns0offset):3.151)
+            )
+            )) 
+        (pcLayer = "changedLayer") 
+        (pcPurpose = "tool0") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((0.749:(9.899 + h_microns1offset)) 
+                ((6.151 + w_microns0offset):(9.901 + h_microns1offset + _caEnc3offset))
+            )
+            ))
+        (pcLayer = "poly") 
+        (pcPurpose = "drawing") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((1.95:(3 - _pcEnc2offset)) 
+                ((4.95 + w_microns0offset):(7.35 + h_microns1offset))
+            )
+            )) 
+        (pcLayer = "active") 
+        (pcPurpose = "drawing")
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((2.55:(7.35 + h_microns1offset)) 
+                ((4.35 + w_microns0offset):(10.05 + h_microns1offset + _caEnc3offset))
+            )
+            )) 
+        (pcLayer = "metal1") 
+        (pcPurpose = "drawing") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((2.55:(8.85 + h_microns1offset)) 
+                ((4.35 + w_microns0offset):(10.05 + h_microns1offset + _caEnc3offset))
+            )
+            )) 
+        (pcLayer = "metal1")
+        (pcPurpose = "drawing") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((1.95:(3 - _pcEnc2offset)) 
+                ((4.95 + w_microns0offset):4.2)
+            )
+            )) 
+        (pcLayer = "cwell") 
+        (pcPurpose = "drawing") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((0.75:(1.2 - _pcEnc2offset)) 
+                ((6.15 + w_microns0offset):(11.85 + h_microns1offset + _caEnc3offset))
+            )
+            ))
+        (pcLayer = "active") 
+        (pcPurpose = "drawing") 
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((3:(8.85 + h_microns1offset)) 
+                ((3.9 + w_microns0offset):(10.05 + h_microns1offset + _caEnc3offset))
+            )
+            )) 
+        (pcLayer = "active") 
+        (pcPurpose = "drawing")
+        (pcInst = dbCreateRect(pcCellView 
+            list(pcLayer pcPurpose) 
+            list((2.55:4.5) 
+                ((4.35 + w_microns0offset):(10.05 + h_microns1offset + _caEnc3offset))
+            )
+            )) t
+        )
+    )
+)

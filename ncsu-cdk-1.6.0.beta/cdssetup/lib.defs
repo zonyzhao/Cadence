@@ -1,0 +1,24 @@
+DEFINE      basic                   $CDK_DIR/lib/basic
+ASSIGN      basic                   libMode shared
+DEFINE      NCSU_Analog_Parts 	    $CDK_DIR/lib/NCSU_Analog_Parts
+ASSIGN      NCSU_Analog_Parts 	    libMode shared
+DEFINE      NCSU_Digital_Parts 	    $CDK_DIR/lib/NCSU_Digital_Parts
+ASSIGN      NCSU_Digital_Parts 	    libMode shared
+#DEFINE      MOSIS_Layout_Test       $CDK_DIR/lib/MOSIS_Layout_Test
+#ASSIGN      MOSIS_Layout_Test       libMode shared
+DEFINE      NCSU_TechLib_ami06      $CDK_DIR/lib/NCSU_TechLib_ami06
+ASSIGN      NCSU_TechLib_ami06      libMode shared
+DEFINE      NCSU_TechLib_ami16      $CDK_DIR/lib/NCSU_TechLib_ami16
+ASSIGN      NCSU_TechLib_ami16      libMode shared
+DEFINE      NCSU_TechLib_hp06       $CDK_DIR/lib/NCSU_TechLib_hp06
+ASSIGN      NCSU_TechLib_hp06       libMode shared
+DEFINE      NCSU_TechLib_tsmc02     $CDK_DIR/lib/NCSU_TechLib_tsmc02
+ASSIGN      NCSU_TechLib_tsmc02     libMode shared
+DEFINE      NCSU_TechLib_tsmc02d    $CDK_DIR/lib/NCSU_TechLib_tsmc02d
+ASSIGN      NCSU_TechLib_tsmc02d    libMode shared
+DEFINE      NCSU_TechLib_tsmc03     $CDK_DIR/lib/NCSU_TechLib_tsmc03
+ASSIGN      NCSU_TechLib_tsmc03     libMode shared
+DEFINE      NCSU_TechLib_tsmc03d    $CDK_DIR/lib/NCSU_TechLib_tsmc03d
+ASSIGN      NCSU_TechLib_tsmc03d    libMode shared
+DEFINE      NCSU_TechLib_tsmc04_4M2P    $CDK_DIR/lib/NCSU_TechLib_tsmc04_4M2P
+ASSIGN      NCSU_TechLib_tsmc04_4M2P    libMode shared

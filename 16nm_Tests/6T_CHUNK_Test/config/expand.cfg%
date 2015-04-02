@@ -1,0 +1,78 @@
+//Revision 28
+//NOTE
+// Default template for spectreVerilog
+// Note:
+//      Please remember to replace Top Cell Library, Cell, and View
+//      fields with the actual names used by your design.
+//END_NOTE
+
+config \6T_CHUNK_Test ;
+design \16nm_Tests .\6T_CHUNK_Test :schematic;
+
+const \default  spectre, spice, verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, cmos_sch, veriloga, ahdl;
+const digital verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, cmos_sch;
+const analog spectre, spice, schematic, cmos_sch, veriloga, ahdl;
+liblist myLib;
+
+viewlist $\default ;
+stoplist spectre, spice, verilog, verilogNetlist;
+
+
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I5[3:0] binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I6[3:0] binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I7[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I8[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I19[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I20[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I26[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I28 binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I29 binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I32 binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I33[7:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I35 binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I34[7:0] binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I31 binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I30 binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I22[3:0] binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I21[3:0] binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I25[3:0] binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I37 binding :schematic;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).I36 binding :functional;
+inst (\16nm_Tests .\6T_CHUNK_Test :schematic).Ictrl binding :schematic;
+
+cell \16nm .Decode_4to16 binding :schematic;
+inst (\16nm .Decode_4to16:schematic).I8 binding :schematic;
+inst (\16nm .Decode_4to16:schematic).I9 binding :schematic;
+inst (\16nm .Decode_4to16:schematic).I10 binding :schematic;
+inst (\16nm .Decode_4to16:schematic).I44 binding :schematic;
+inst (\16nm .Decode_4to16:schematic).I11 binding :schematic;
+cell \16nm .and2 binding :schematic;
+inst (\16nm .and2:schematic).I8 binding :schematic;
+cell \16nm .Demux_4to8 binding :schematic;
+inst (\16nm .Demux_4to8:schematic).I3 binding :schematic;
+cell \16nm .or2_1x binding :schematic;
+inst (\16nm .or2_1x:schematic).I7 binding :schematic;
+cell \16nm .and3 binding :schematic;
+inst (\16nm .and3:schematic).I7 binding :schematic;
+inst (\16nm .\6T_CHUNK_CTRL :schematic).I9 binding :schematic;
+inst (\16nm .\6T_CHUNK_CTRL :schematic).I10 binding :schematic;
+inst (\16nm .\6T_CHUNK_CTRL :schematic).I16 binding :schematic;
+cell \16nm .Decode_2to4 binding :schematic;
+inst (\16nm .Decode_2to4:schematic).I4 binding :schematic;
+inst (\16nm .Decode_2to4:schematic).I5 binding :schematic;
+inst (\16nm .Decode_2to4:schematic).I6 binding :schematic;
+inst (\16nm .Decode_2to4:schematic).I7 binding :schematic;
+cell \16nm .\6T  binding :schematic;
+cell \16nm .\6T_32x  binding :schematic;
+cell \16nm .\6T_32x4  binding :schematic;
+cell \16nm .\6T_32x_CTRL  binding :schematic;
+cell \16nm .\6T_4x  binding :schematic;
+cell \16nm .\6T_64Read1  binding :schematic;
+cell \16nm .\6T_CHUNK  binding :schematic;
+cell \16nm .nand3_1x binding :schematic;
+cell \16nm .nand_1x binding :schematic;
+cell \16nm .nand4_1x binding :schematic;
+cell \16nm .nor_1x binding :schematic;
+
+
+endconfig

@@ -1,0 +1,93 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+integer start;
+reg[11:0] lastWriteAddr;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+
+initial
+begin 
+
+   seed = 5;
+   start = 0;
+   rLog=$fopen("/tmp2/mem16k_RLog.csv");
+   $fdisplay(rLog, "R_Addr, R1[31:0], total_time(ps), read_delay(ps)");
+
+   wLog=$fopen("/tmp2/mem16k_WLog.csv"); 
+   $fdisplay(wLog, "W_Addr, W1[31:0],  total_time(ps), write_delay(ps)");
+
+   start           = 0
+   Data1[31:0]     = 0;
+   R_Address[11:0] = 0;
+   W_Address[11:0] = 0;
+   ReadEn 	   = 0;
+   WriteEn 	   = 0;
+   lastWriteAddr   = 1;
+	
+   #1000;
+   start = 1;
+   Data1[31:0]     = $random;
+   W_Address[11:0] = $random;
+   WriteEn 	   = 1;
+   wStart           = $time;
+
+   R_Address[11:0] = lastWriteAddr;
+   ReadEn 	   = 1;
+   rStart          = $time;
+end 
+
+
+
+always @(posedge WriteAck) begin
+   if (start==1) begin
+   	  wDelay = $time - wStart;
+   	  $fdisplay(wLog, "%h, %h, %t, %t", W_Address, Data1, $time, wDelay);
+          lastWriteAddr <= W_Address[11:0];
+   	  Data1    = 0;
+   	  WriteEn  = 1'b0;  
+          wStart   = $time;
+   end
+end
+
+always @(negedge WriteAck) begin
+   if (start==1) begin
+   	   wDelay = $time - wStart;
+   	   $fdisplay(wLog, "%h, %h, %t, %t", W_Address, Data1, $time, wDelay);   	   
+           Data1     = $random;
+   	   W_Address = $random;
+           WriteEn   = 1'b1;  
+	   wStart    = $time;
+   end
+end
+
+always @(negedge ReadAck) begin
+   if (start==1) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %t, %t", R_Address, RData, $time, rDelay);   	   
+   	   R_Address = lastWriteAddr;
+           if (R_Address[11:9] == W_Address[11:9]) begin
+	       R_Address[11:9] = ~R_Address[11:9];
+           end
+           ReadEn      = 1'b1;
+	   rStart      = $time;
+   end
+end
+
+always @(posedge ReadAck) begin
+   if (start==1) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %t, %t", R_Address, RData, $time, rDelay);   	   
+           ReadEn         = 1'b0; 
+	   rStart        = $time;
+   end
+end

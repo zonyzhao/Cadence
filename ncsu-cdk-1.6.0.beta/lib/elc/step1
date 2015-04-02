@@ -1,0 +1,17 @@
+# Open a new database named foo
+db_open foo
+
+# Set some variables to define how ELC does its stuff
+set_var EC_SPICE_SIMPLIFY true
+set_var EC_HALF_WIDTH_HOLD_FLAG true
+set_var EC_SIM_NAME "spectre"
+set_var EC_SIM_TYPE "spectre"
+set_var EC_SPICE_SUPPLY1_NAMES "vdd"
+set_var EC_SPICE_SUPPLY0_NAMES "gnd"
+
+# run through the steps that read and parse the subckt file (defined
+# in elccfg), and extracts the functionality of each cell
+db_prepare -force
+db_gate 
+db_close
+exit

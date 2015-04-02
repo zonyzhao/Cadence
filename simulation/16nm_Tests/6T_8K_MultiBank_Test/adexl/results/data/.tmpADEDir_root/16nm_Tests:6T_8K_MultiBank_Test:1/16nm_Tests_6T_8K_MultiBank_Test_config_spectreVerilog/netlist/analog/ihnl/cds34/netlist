@@ -1,0 +1,14 @@
+    I11 (net42 ack out_0) TH22
+    I10 (net41 ack out_1) TH22
+    I7 (b_0 bsel net21 net31) _sub129
+    I6 (b_1 bsel net22 net29) _sub129
+    I1 (a_1 asel net22 net28) _sub129
+    I0 (a_0 asel net21 net26) _sub129
+    I15 (net28 net29 net41) nand_1x
+    I14 (net26 net31 net42) nand_1x
+    I13 (net31 net29 b_ack) nand_1x
+    I12 (net26 net28 a_ack) nand_1x
+    I21 (out_0 net21) inv_1x
+    I20 (out_1 net22) inv_1x
+ends _sub132
+// End of subcircuit definition.

@@ -1,0 +1,5 @@
+#Layer Name     Layer Purpose  Layer Stream Number  Datatype Stream Number
+
+highres        drawing        34                   0              
+highres        net            34                   0              
+highres        pin            34                   0              

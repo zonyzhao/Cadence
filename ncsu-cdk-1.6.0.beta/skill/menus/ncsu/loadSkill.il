@@ -1,0 +1,6 @@
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/ncsuMenu.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/selobj.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/makeLVSRules.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/setLVSForm.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/align.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/makePubSchem.il" ) )

@@ -1,0 +1,1558 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "ipwl"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "tvpairs"
+        ?prompt         "Number of pairs of points"
+        ?defValue       2
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('tvpairs)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acm"
+        ?prompt         "AC magnitude"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acm)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "acp"
+        ?prompt         "AC phase"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('acp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t1"
+        ?prompt         "Time 1"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('t1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i1"
+        ?prompt         "Current 1"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('i1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t2"
+        ?prompt         "Time 2"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 2"
+        ?display        "artParameterInToolDisplay('t2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i2"
+        ?prompt         "Current 2"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 2"
+        ?display        "artParameterInToolDisplay('i2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t3"
+        ?prompt         "Time 3"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 3"
+        ?display        "artParameterInToolDisplay('t3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i3"
+        ?prompt         "Current 3"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 3"
+        ?display        "artParameterInToolDisplay('i3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t4"
+        ?prompt         "Time 4"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 4"
+        ?display        "artParameterInToolDisplay('t4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i4"
+        ?prompt         "Current 4"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 4"
+        ?display        "artParameterInToolDisplay('i4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t5"
+        ?prompt         "Time 5"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 5"
+        ?display        "artParameterInToolDisplay('t5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i5"
+        ?prompt         "Current 5"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 5"
+        ?display        "artParameterInToolDisplay('i5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t6"
+        ?prompt         "Time 6"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 6"
+        ?display        "artParameterInToolDisplay('t6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i6"
+        ?prompt         "Current 6"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 6"
+        ?display        "artParameterInToolDisplay('i6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t7"
+        ?prompt         "Time 7"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 7"
+        ?display        "artParameterInToolDisplay('t7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i7"
+        ?prompt         "Current 7"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 7"
+        ?display        "artParameterInToolDisplay('i7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t8"
+        ?prompt         "Time 8"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 8"
+        ?display        "artParameterInToolDisplay('t8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i8"
+        ?prompt         "Current 8"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 8"
+        ?display        "artParameterInToolDisplay('i8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t9"
+        ?prompt         "Time 9"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 9"
+        ?display        "artParameterInToolDisplay('t9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i9"
+        ?prompt         "Current 9"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 9"
+        ?display        "artParameterInToolDisplay('i9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t10"
+        ?prompt         "Time 10"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 10"
+        ?display        "artParameterInToolDisplay('t10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i10"
+        ?prompt         "Current 10"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 10"
+        ?display        "artParameterInToolDisplay('i10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t11"
+        ?prompt         "Time 11"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 11"
+        ?display        "artParameterInToolDisplay('t11)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i11"
+        ?prompt         "Current 11"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 11"
+        ?display        "artParameterInToolDisplay('i11)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t12"
+        ?prompt         "Time 12"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 12"
+        ?display        "artParameterInToolDisplay('t12)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i12"
+        ?prompt         "Current 12"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 12"
+        ?display        "artParameterInToolDisplay('i12)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t13"
+        ?prompt         "Time 13"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 13"
+        ?display        "artParameterInToolDisplay('t13)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i13"
+        ?prompt         "Current 13"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 13"
+        ?display        "artParameterInToolDisplay('i13)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t14"
+        ?prompt         "Time 14"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 14"
+        ?display        "artParameterInToolDisplay('t14)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i14"
+        ?prompt         "Current 14"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 14"
+        ?display        "artParameterInToolDisplay('i14)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t15"
+        ?prompt         "Time 15"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 15"
+        ?display        "artParameterInToolDisplay('t15)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i15"
+        ?prompt         "Current 15"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 15"
+        ?display        "artParameterInToolDisplay('i15)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t16"
+        ?prompt         "Time 16"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 16"
+        ?display        "artParameterInToolDisplay('t16)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i16"
+        ?prompt         "Current 16"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 16"
+        ?display        "artParameterInToolDisplay('i16)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t17"
+        ?prompt         "Time 17"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 17"
+        ?display        "artParameterInToolDisplay('t17)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i17"
+        ?prompt         "Current 17"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 17"
+        ?display        "artParameterInToolDisplay('i17)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t18"
+        ?prompt         "Time 18"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 18"
+        ?display        "artParameterInToolDisplay('t18)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i18"
+        ?prompt         "Current 18"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 18"
+        ?display        "artParameterInToolDisplay('i18)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t19"
+        ?prompt         "Time 19"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 19"
+        ?display        "artParameterInToolDisplay('t19)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i19"
+        ?prompt         "Current 19"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 19"
+        ?display        "artParameterInToolDisplay('i19)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t20"
+        ?prompt         "Time 20"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 20"
+        ?display        "artParameterInToolDisplay('t20)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i20"
+        ?prompt         "Current 20"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 20"
+        ?display        "artParameterInToolDisplay('i20)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t21"
+        ?prompt         "Time 21"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 21"
+        ?display        "artParameterInToolDisplay('t21)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i21"
+        ?prompt         "Current 21"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 21"
+        ?display        "artParameterInToolDisplay('i21)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t22"
+        ?prompt         "Time 22"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 22"
+        ?display        "artParameterInToolDisplay('t22)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i22"
+        ?prompt         "Current 22"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 22"
+        ?display        "artParameterInToolDisplay('i22)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t23"
+        ?prompt         "Time 23"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 23"
+        ?display        "artParameterInToolDisplay('t23)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i23"
+        ?prompt         "Current 23"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 23"
+        ?display        "artParameterInToolDisplay('i23)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t24"
+        ?prompt         "Time 24"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 24"
+        ?display        "artParameterInToolDisplay('t24)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i24"
+        ?prompt         "Current 24"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 24"
+        ?display        "artParameterInToolDisplay('i24)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t25"
+        ?prompt         "Time 25"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 25"
+        ?display        "artParameterInToolDisplay('t25)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i25"
+        ?prompt         "Current 25"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 25"
+        ?display        "artParameterInToolDisplay('i25)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t26"
+        ?prompt         "Time 26"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 26"
+        ?display        "artParameterInToolDisplay('t26)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i26"
+        ?prompt         "Current 26"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 26"
+        ?display        "artParameterInToolDisplay('i26)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t27"
+        ?prompt         "Time 27"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 27"
+        ?display        "artParameterInToolDisplay('t27)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i27"
+        ?prompt         "Current 27"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 27"
+        ?display        "artParameterInToolDisplay('i27)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t28"
+        ?prompt         "Time 28"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 28"
+        ?display        "artParameterInToolDisplay('t28)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i28"
+        ?prompt         "Current 28"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 28"
+        ?display        "artParameterInToolDisplay('i28)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t29"
+        ?prompt         "Time 29"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 29"
+        ?display        "artParameterInToolDisplay('t29)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i29"
+        ?prompt         "Current 29"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 29"
+        ?display        "artParameterInToolDisplay('i29)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t30"
+        ?prompt         "Time 30"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 30"
+        ?display        "artParameterInToolDisplay('t30)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i30"
+        ?prompt         "Current 30"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 30"
+        ?display        "artParameterInToolDisplay('i30)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t31"
+        ?prompt         "Time 31"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 31"
+        ?display        "artParameterInToolDisplay('t31)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i31"
+        ?prompt         "Current 31"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 31"
+        ?display        "artParameterInToolDisplay('i31)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t32"
+        ?prompt         "Time 32"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 32"
+        ?display        "artParameterInToolDisplay('t32)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i32"
+        ?prompt         "Current 32"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 32"
+        ?display        "artParameterInToolDisplay('i32)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t33"
+        ?prompt         "Time 33"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 33"
+        ?display        "artParameterInToolDisplay('t33)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i33"
+        ?prompt         "Current 33"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 33"
+        ?display        "artParameterInToolDisplay('i33)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t34"
+        ?prompt         "Time 34"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 34"
+        ?display        "artParameterInToolDisplay('t34)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i34"
+        ?prompt         "Current 34"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 34"
+        ?display        "artParameterInToolDisplay('i34)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t35"
+        ?prompt         "Time 35"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 35"
+        ?display        "artParameterInToolDisplay('t35)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i35"
+        ?prompt         "Current 35"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 35"
+        ?display        "artParameterInToolDisplay('i35)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t36"
+        ?prompt         "Time 36"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 36"
+        ?display        "artParameterInToolDisplay('t36)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i36"
+        ?prompt         "Current 36"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 36"
+        ?display        "artParameterInToolDisplay('i36)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t37"
+        ?prompt         "Time 37"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 37"
+        ?display        "artParameterInToolDisplay('t37)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i37"
+        ?prompt         "Current 37"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 37"
+        ?display        "artParameterInToolDisplay('i37)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t38"
+        ?prompt         "Time 38"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 38"
+        ?display        "artParameterInToolDisplay('t38)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i38"
+        ?prompt         "Current 38"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 38"
+        ?display        "artParameterInToolDisplay('i38)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t39"
+        ?prompt         "Time 39"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 39"
+        ?display        "artParameterInToolDisplay('t39)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i39"
+        ?prompt         "Current 39"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 39"
+        ?display        "artParameterInToolDisplay('i39)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t40"
+        ?prompt         "Time 40"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 40"
+        ?display        "artParameterInToolDisplay('t40)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i40"
+        ?prompt         "Current 40"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 40"
+        ?display        "artParameterInToolDisplay('i40)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t41"
+        ?prompt         "Time 41"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 41"
+        ?display        "artParameterInToolDisplay('t41)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i41"
+        ?prompt         "Current 41"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 41"
+        ?display        "artParameterInToolDisplay('i41)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t42"
+        ?prompt         "Time 42"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 42"
+        ?display        "artParameterInToolDisplay('t42)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i42"
+        ?prompt         "Current 42"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 42"
+        ?display        "artParameterInToolDisplay('i42)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t43"
+        ?prompt         "Time 43"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 43"
+        ?display        "artParameterInToolDisplay('t43)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i43"
+        ?prompt         "Current 43"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 43"
+        ?display        "artParameterInToolDisplay('i43)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t44"
+        ?prompt         "Time 44"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 44"
+        ?display        "artParameterInToolDisplay('t44)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i44"
+        ?prompt         "Current 44"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 44"
+        ?display        "artParameterInToolDisplay('i44)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t45"
+        ?prompt         "Time 45"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 45"
+        ?display        "artParameterInToolDisplay('t45)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i45"
+        ?prompt         "Current 45"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 45"
+        ?display        "artParameterInToolDisplay('i45)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t46"
+        ?prompt         "Time 46"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 46"
+        ?display        "artParameterInToolDisplay('t46)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i46"
+        ?prompt         "Current 46"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 46"
+        ?display        "artParameterInToolDisplay('i46)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t47"
+        ?prompt         "Time 47"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 47"
+        ?display        "artParameterInToolDisplay('t47)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i47"
+        ?prompt         "Current 47"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 47"
+        ?display        "artParameterInToolDisplay('i47)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t48"
+        ?prompt         "Time 48"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 48"
+        ?display        "artParameterInToolDisplay('t48)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i48"
+        ?prompt         "Current 48"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 48"
+        ?display        "artParameterInToolDisplay('i48)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t49"
+        ?prompt         "Time 49"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 49"
+        ?display        "artParameterInToolDisplay('t49)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i49"
+        ?prompt         "Current 49"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 49"
+        ?display        "artParameterInToolDisplay('i49)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "t50"
+        ?prompt         "Time 50"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 50"
+        ?display        "artParameterInToolDisplay('t50)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i50"
+        ?prompt         "Current 50"
+        ?units          "current"
+        ?defValue       "0"
+        ?type           "string"
+        ?use            "cdfgData->tvpairs->value >= 50"
+        ?display        "artParameterInToolDisplay('i50)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "idc"
+        ?prompt         "DC current"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('idc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "srcType"
+        ?prompt         "Source type"
+        ?defValue       "pwl"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "noisefile"
+        ?prompt         "Noise file name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('noisefile)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "FNpairs"
+        ?prompt         "Number of noise/freq pairs"
+        ?defValue       0
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('FNpairs)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F1"
+        ?prompt         "Freq 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >= 1"
+        ?display        "artParameterInToolDisplay('F1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N1"
+        ?prompt         "Noise 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=1"
+        ?display        "artParameterInToolDisplay('N1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F2"
+        ?prompt         "Freq 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >= 2"
+        ?display        "artParameterInToolDisplay('F2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N2"
+        ?prompt         "Noise 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=2"
+        ?display        "artParameterInToolDisplay('N2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F3"
+        ?prompt         "Freq 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=3"
+        ?display        "artParameterInToolDisplay('F3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N3"
+        ?prompt         "Noise 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=3"
+        ?display        "artParameterInToolDisplay('N3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F4"
+        ?prompt         "Freq 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=4"
+        ?display        "artParameterInToolDisplay('F4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N4"
+        ?prompt         "Noise 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=4"
+        ?display        "artParameterInToolDisplay('N4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F5"
+        ?prompt         "Freq 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=5"
+        ?display        "artParameterInToolDisplay('F5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N5"
+        ?prompt         "Noise 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=5"
+        ?display        "artParameterInToolDisplay('N5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F6"
+        ?prompt         "Freq 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=6"
+        ?display        "artParameterInToolDisplay('F6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N6"
+        ?prompt         "Noise 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=6"
+        ?display        "artParameterInToolDisplay('N6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F7"
+        ?prompt         "Freq 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=7"
+        ?display        "artParameterInToolDisplay('F7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N7"
+        ?prompt         "Noise 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=7"
+        ?display        "artParameterInToolDisplay('N7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F8"
+        ?prompt         "Freq 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=8"
+        ?display        "artParameterInToolDisplay('F8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N8"
+        ?prompt         "Noise 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=8"
+        ?display        "artParameterInToolDisplay('N8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F9"
+        ?prompt         "Freq 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=9"
+        ?display        "artParameterInToolDisplay('F9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N9"
+        ?prompt         "Noise 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=9"
+        ?display        "artParameterInToolDisplay('N9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "F10"
+        ?prompt         "Freq 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=10"
+        ?display        "artParameterInToolDisplay('F10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "N10"
+        ?prompt         "Noise 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->FNpairs->value >=10"
+        ?display        "artParameterInToolDisplay('N10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "td"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('td)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "io"
+        ?prompt         "Offset current"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('io)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "scale"
+        ?prompt         "Scale factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('scale)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "stretch"
+        ?prompt         "Time scale factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('stretch)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "pwlperiod"
+        ?prompt         "Period of the PWL"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('pwlperiod)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "twidth"
+        ?prompt         "Transition width"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('twidth)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1"
+        ?prompt         "Temperature coefficient 1"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2"
+        ?prompt         "Temperature coefficient 2"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tnom"
+        ?prompt         "Nominal temperature"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tnom)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dc"
+        ?prompt         "DC source"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dc)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "rpt"
+        ?prompt         "Repeated function"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('rpt)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        namePrefix        ""
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceSrcPrim_pwl
+        instParameters    (tvpairs acm acp t1 i1 t2 i2 t3 i3 t4 i4 t5 i5 t6 i6 t7 i7 t8 i8 t9 i9 t10 i10 t11 i11 t12 i12 t13 i13 t14 i14 t15 i15 t16 i16 t17 i17 t18 i18 t19 i19 t20 i20 t21 i21 t22 i22 t23 i23 t24 i24 t25 i25 t26 i26 t27 i27 t28 i28 t29 i29 t30 i30 t31 i31 t32 i32 t33 i33 t34 i34 t35 i35 t36 i36 t37 i37 t38 i38 t39 i39 t40 i40 t41 i41 t42 i42 t43 i43 t44 i44 t45 i45 t46 i46 t47 i47 t48 i48 t49 i49 t50 i50)
+        componentName     isrc
+        termOrder         (PLUS MINUS)
+        propMapping       nil
+        namePrefix        "I"
+        source            t
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  anshspiceSSrcPrim_ipwl
+        instParameters    (dc m rpt td tvpairs acm acp t1 i1 t2 i2 t3 i3 t4 i4 t5 i5 t6 i6 t7 i7 t8 i8 t9 i9 t10 i10 t11 i11 t12 i12 t13 i13 t14 i14 t15 i15 t16 i16 t17 i17 t18 i18 t19 i19 t20 i20 t21 i21 t22 i22 t23 i23 t24 i24 t25 i25 t26 i26 t27 i27 t28 i28 t29 i29 t30 i30 t31 i31 t32 i32 t33 i33 t34 i34 t35 i35 t36 i36 t37 i37 t38 i38 t39 i39 t40 i40 t41 i41 t42 i42 t43 i43 t44 i44 t45 i45 t46 i46 t47 i47 t48 i48 t49 i49 t50 i50)
+        componentName     isrc
+        termOrder         (PLUS MINUS)
+        propMapping       nil
+        namePrefix        "I"
+        source            t
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreSrcPrim_pwl
+        otherParameters   (idc srcType tvpairs acm acp m t1 i1 t2 i2 t3 i3 t4 i4 t5 i5 t6 i6 t7 i7 t8 i8 t9 i9 t10 i10 t11 i11 t12 i12 t13 i13 t14 i14 t15 i15 t16 i16 t17 i17 t18 i18 t19 i19 t20 i20 t21 i21 t22 i22 t23 i23 t24 i24 t25 i25 t26 i26 t27 i27 t28 i28 t29 i29 t30 i30 t31 i31 t32 i32 t33 i33 t34 i34 t35 i35 t36 i36 t37 i37 t38 i38 t39 i39 t40 i40 t41 i41 t42 i42 t43 i43 t44 i44 t45 i45 t46 i46 t47 i47 t48 i48 t49 i49 t50 i50 noisefile FNpairs F1 N1 F2 N2 F3 N3 F4 N4 F5 N5 F6 N6 F7 N7 F8 N8 F9 N9 F10 N10)
+        instParameters    (dc type mag phase m delay offset scale stretch pwlperiod twidth tc1 tc2 tnom)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:sink MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        propMapping       (nil dc idc mag acm phase acp delay td offset io type srcType)
+        namePrefix        "I"
+        componentName     isource
+        noPortDelimiter   t
+        current           port
+        source            t
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSSrcPrim_pwl
+        otherParameters   (tvpairs t1 i1 t2 i2 t3 i3 t4 i4 t5 i5 t6 i6 t7 i7 t8 i8 t9 i9 t10 i10 t11 i11 t12 i12 t13 i13 t14 i14 t15 i15 t16 i16 t17 i17 t18 i18 t19 i19 t20 i20 t21 i21 t22 i22 t23 i23 t24 i24 t25 i25 t26 i26 t27 i27 t28 i28 t29 i29 t30 i30 t31 i31 t32 i32 t33 i33 t34 i34 t35 i35 t36 i36 t37 i37 t38 i38 t39 i39 t40 i40 t41 i41 t42 i42 t43 i43 t44 i44 t45 i45 t46 i46 t47 i47 t48 i48 t49 i49 t50 i50 noisefile FNpairs F1 N1 F2 N2 F3 N3 F4 N4 F5 N5 F6 N6 F7 N7 F8 N8 F9 N9 F10 N10)
+        instParameters    (dc mag phase m delay offset scale stretch pwlperiod twidth tc1 tc2 tnom)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:sink MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        propMapping       (nil dc idc mag acm phase acp delay td offset io)
+        namePrefix        "I"
+        componentName     isource
+        noPortDelimiter   t
+        current           port
+        source            t
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v"
+    cdfId->paramLabelSet           = "t1 i1 tvpairs"
+    cdfSaveCDF( cdfId )
+)

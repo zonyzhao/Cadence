@@ -1,0 +1,1480 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "noise"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "nSources"
+        ?prompt         "Number of sources"
+        ?defValue       1
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('nSources)"
+        ?callback       "when( cdfgData->nSources->value < 1 \t   cdfgData->nSources->value = 1 )        when( cdfgData->nSources->value > 10 cdfgData->nSources->value = 10 )"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType1"
+        ?prompt         "Source type 1"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?display        "artParameterInToolDisplay('sourceType1)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v1"
+        ?prompt         "Voltage 1 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->sourceType1->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i1"
+        ?prompt         "Current 1 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->sourceType1->value == \"current\""
+        ?display        "artParameterInToolDisplay('i1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType2"
+        ?prompt         "Source type 2"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 2"
+        ?display        "artParameterInToolDisplay('sourceType2)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v2"
+        ?prompt         "Voltage 2 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 2 && cdfgData->sourceType2->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i2"
+        ?prompt         "Current 2 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 2 && cdfgData->sourceType2->value == \"current\""
+        ?display        "artParameterInToolDisplay('i2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType3"
+        ?prompt         "Source type 3"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 3"
+        ?display        "artParameterInToolDisplay('sourceType3)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v3"
+        ?prompt         "Voltage 3 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3 && cdfgData->sourceType3->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i3"
+        ?prompt         "Current 3 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3 && cdfgData->sourceType3->value == \"current\""
+        ?display        "artParameterInToolDisplay('i3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType4"
+        ?prompt         "Source type 4"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('sourceType4)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v4"
+        ?prompt         "Voltage 4 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4 && cdfgData->sourceType4->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i4"
+        ?prompt         "Current 4 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4 && cdfgData->sourceType4->value == \"current\""
+        ?display        "artParameterInToolDisplay('i4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType5"
+        ?prompt         "Source type 5"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('sourceType5)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v5"
+        ?prompt         "Voltage 5 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5 && cdfgData->sourceType5->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i5"
+        ?prompt         "Current 5 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5 && cdfgData->sourceType5->value == \"current\""
+        ?display        "artParameterInToolDisplay('i5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType6"
+        ?prompt         "Source type 6"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('sourceType6)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v6"
+        ?prompt         "Voltage 6 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6 && cdfgData->sourceType6->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i6"
+        ?prompt         "Current 6 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6 && cdfgData->sourceType6->value == \"current\""
+        ?display        "artParameterInToolDisplay('i6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType7"
+        ?prompt         "Source type 7"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('sourceType7)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v7"
+        ?prompt         "Voltage 7 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7 && cdfgData->sourceType7->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i7"
+        ?prompt         "Current 7 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7 && cdfgData->sourceType7->value == \"current\""
+        ?display        "artParameterInToolDisplay('i7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType8"
+        ?prompt         "Source type 8"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('sourceType8)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v8"
+        ?prompt         "Voltage 8 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8 && cdfgData->sourceType8->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i8"
+        ?prompt         "Current 8 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8 && cdfgData->sourceType8->value == \"current\""
+        ?display        "artParameterInToolDisplay('i8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType9"
+        ?prompt         "Source type 9"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('sourceType9)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v9"
+        ?prompt         "Voltage 9 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9 && cdfgData->sourceType9->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i9"
+        ?prompt         "Current 9 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9 && cdfgData->sourceType9->value == \"current\""
+        ?display        "artParameterInToolDisplay('i9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "sourceType10"
+        ?prompt         "Source type 10"
+        ?defValue       "voltage"
+        ?choices        '("voltage" "current")
+        ?type           "radio"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('sourceType10)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "v10"
+        ?prompt         "Voltage 10 (Volt/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10 && cdfgData->sourceType10->value == \"voltage\""
+        ?display        "artParameterInToolDisplay('v10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "i10"
+        ?prompt         "Current 10 (Amp/sqrt(Hz))"
+        ?defValue       "0.0"
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10 && cdfgData->sourceType10->value == \"current\""
+        ?display        "artParameterInToolDisplay('i10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_2r"
+        ?prompt         "Re(Correllation 1 2)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 2"
+        ?display        "artParameterInToolDisplay('corr1_2r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_2i"
+        ?prompt         "Im(Correllation 1 2)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 2"
+        ?display        "artParameterInToolDisplay('corr1_2i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_3r"
+        ?prompt         "Re(Correllation 1 3)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3"
+        ?display        "artParameterInToolDisplay('corr1_3r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_3i"
+        ?prompt         "Im(Correllation 1 3)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3"
+        ?display        "artParameterInToolDisplay('corr1_3i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_3r"
+        ?prompt         "Re(Correllation 2 3)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3"
+        ?display        "artParameterInToolDisplay('corr2_3r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_3i"
+        ?prompt         "Im(Correllation 2 3)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 3"
+        ?display        "artParameterInToolDisplay('corr2_3i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_4r"
+        ?prompt         "Re(Correllation 1 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr1_4r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_4i"
+        ?prompt         "Im(Correllation 1 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr1_4i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_4r"
+        ?prompt         "Re(Correllation 2 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr2_4r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_4i"
+        ?prompt         "Im(Correllation 2 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr2_4i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_4r"
+        ?prompt         "Re(Correllation 3 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr3_4r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_4i"
+        ?prompt         "Im(Correllation 3 4)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 4"
+        ?display        "artParameterInToolDisplay('corr3_4i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_5r"
+        ?prompt         "Re(Correllation 1 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr1_5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_5i"
+        ?prompt         "Im(Correllation 1 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr1_5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_5r"
+        ?prompt         "Re(Correllation 2 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr2_5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_5i"
+        ?prompt         "Im(Correllation 2 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr2_5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_5r"
+        ?prompt         "Re(Correllation 3 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr3_5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_5i"
+        ?prompt         "Im(Correllation 3 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr3_5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_5r"
+        ?prompt         "Re(Correllation 4 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr4_5r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_5i"
+        ?prompt         "Im(Correllation 4 5)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 5"
+        ?display        "artParameterInToolDisplay('corr4_5i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_6r"
+        ?prompt         "Re(Correllation 1 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr1_6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_6i"
+        ?prompt         "Im(Correllation 1 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr1_6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_6r"
+        ?prompt         "Re(Correllation 2 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr2_6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_6i"
+        ?prompt         "Im(Correllation 2 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr2_6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_6r"
+        ?prompt         "Re(Correllation 3 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr3_6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_6i"
+        ?prompt         "Im(Correllation 3 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr3_6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_6r"
+        ?prompt         "Re(Correllation 4 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr4_6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_6i"
+        ?prompt         "Im(Correllation 4 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr4_6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_6r"
+        ?prompt         "Re(Correllation 5 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr5_6r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_6i"
+        ?prompt         "Im(Correllation 5 6)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 6"
+        ?display        "artParameterInToolDisplay('corr5_6i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_7r"
+        ?prompt         "Re(Correllation 1 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr1_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_7i"
+        ?prompt         "Im(Correllation 1 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr1_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_7r"
+        ?prompt         "Re(Correllation 2 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr2_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_7i"
+        ?prompt         "Im(Correllation 2 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr2_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_7r"
+        ?prompt         "Re(Correllation 3 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr3_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_7i"
+        ?prompt         "Im(Correllation 3 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr3_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_7r"
+        ?prompt         "Re(Correllation 4 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr4_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_7i"
+        ?prompt         "Im(Correllation 4 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr4_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_7r"
+        ?prompt         "Re(Correllation 5 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr5_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_7i"
+        ?prompt         "Im(Correllation 5 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr5_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_7r"
+        ?prompt         "Re(Correllation 6 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr6_7r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_7i"
+        ?prompt         "Im(Correllation 6 7)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 7"
+        ?display        "artParameterInToolDisplay('corr6_7i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_8r"
+        ?prompt         "Re(Correllation 1 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr1_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_8i"
+        ?prompt         "Im(Correllation 1 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr1_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_8r"
+        ?prompt         "Re(Correllation 2 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr2_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_8i"
+        ?prompt         "Im(Correllation 2 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr2_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_8r"
+        ?prompt         "Re(Correllation 3 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr3_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_8i"
+        ?prompt         "Im(Correllation 3 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr3_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_8r"
+        ?prompt         "Re(Correllation 4 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr4_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_8i"
+        ?prompt         "Im(Correllation 4 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr4_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_8r"
+        ?prompt         "Re(Correllation 5 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr5_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_8i"
+        ?prompt         "Im(Correllation 5 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr5_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_8r"
+        ?prompt         "Re(Correllation 6 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr6_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_8i"
+        ?prompt         "Im(Correllation 6 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr6_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_8r"
+        ?prompt         "Re(Correllation 7 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr7_8r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_8i"
+        ?prompt         "Im(Correllation 7 8)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 8"
+        ?display        "artParameterInToolDisplay('corr7_8i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_9r"
+        ?prompt         "Re(Correllation 1 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr1_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_9i"
+        ?prompt         "Im(Correllation 1 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr1_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_9r"
+        ?prompt         "Re(Correllation 2 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr2_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_9i"
+        ?prompt         "Im(Correllation 2 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr2_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_9r"
+        ?prompt         "Re(Correllation 3 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr3_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_9i"
+        ?prompt         "Im(Correllation 3 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr3_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_9r"
+        ?prompt         "Re(Correllation 4 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr4_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_9i"
+        ?prompt         "Im(Correllation 4 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr4_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_9r"
+        ?prompt         "Re(Correllation 5 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr5_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_9i"
+        ?prompt         "Im(Correllation 5 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr5_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_9r"
+        ?prompt         "Re(Correllation 6 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr6_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_9i"
+        ?prompt         "Im(Correllation 6 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr6_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_9r"
+        ?prompt         "Re(Correllation 7 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr7_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_9i"
+        ?prompt         "Im(Correllation 7 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr7_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr8_9r"
+        ?prompt         "Re(Correllation 8 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr8_9r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr8_9i"
+        ?prompt         "Im(Correllation 8 9)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 9"
+        ?display        "artParameterInToolDisplay('corr8_9i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_10r"
+        ?prompt         "Re(Correllation 1 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr1_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr1_10i"
+        ?prompt         "Im(Correllation 1 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr1_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_10r"
+        ?prompt         "Re(Correllation 2 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr2_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr2_10i"
+        ?prompt         "Im(Correllation 2 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr2_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_10r"
+        ?prompt         "Re(Correllation 3 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr3_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr3_10i"
+        ?prompt         "Im(Correllation 3 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr3_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_10r"
+        ?prompt         "Re(Correllation 4 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr4_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr4_10i"
+        ?prompt         "Im(Correllation 4 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr4_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_10r"
+        ?prompt         "Re(Correllation 5 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr5_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr5_10i"
+        ?prompt         "Im(Correllation 5 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr5_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_10r"
+        ?prompt         "Re(Correllation 6 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr6_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr6_10i"
+        ?prompt         "Im(Correllation 6 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr6_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_10r"
+        ?prompt         "Re(Correllation 7 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr7_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr7_10i"
+        ?prompt         "Im(Correllation 7 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr7_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr8_10r"
+        ?prompt         "Re(Correllation 8 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr8_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr8_10i"
+        ?prompt         "Im(Correllation 8 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr8_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr9_10r"
+        ?prompt         "Re(Correllation 9 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr9_10r)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "corr9_10i"
+        ?prompt         "Im(Correllation 9 10)"
+        ?defValue       "0."
+        ?type           "string"
+        ?use            "cdfgData->nSources->value >= 10"
+        ?display        "artParameterInToolDisplay('corr9_10i)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy024"
+        ?prompt         ""
+        ?defValue       "1.e+21*iPar(\"corr1_2i\")/(iPar(\"v2\")*iPar(\"i1\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy023"
+        ?prompt         ""
+        ?defValue       "1.e+21*iPar(\"corr1_2r\")/(iPar(\"v2\")*iPar(\"i1\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy022"
+        ?prompt         ""
+        ?defValue       "1.e+21*iPar(\"corr1_2i\")/(iPar(\"v1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy021"
+        ?prompt         ""
+        ?defValue       "1.e+21*iPar(\"corr1_2r\")/(iPar(\"v1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy020"
+        ?prompt         ""
+        ?defValue       "1.e+18*pow(iPar(\"v2\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy019"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr2_3i\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy018"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr2_3r\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy017"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr1_3i\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy016"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr1_3r\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy015"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr1_2i\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy014"
+        ?prompt         ""
+        ?defValue       "1.e+24*iPar(\"corr1_2r\")*(iPar(\"i1\")*iPar(\"i2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy013"
+        ?prompt         ""
+        ?defValue       "1.e+24*pow(iPar(\"i3\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy012"
+        ?prompt         ""
+        ?defValue       "1.e+24*pow(iPar(\"i2\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy011"
+        ?prompt         ""
+        ?defValue       "1.e+24*pow(iPar(\"i1\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy010"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr2_3i\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy009"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr2_3r\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy008"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr1_3i\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy007"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr1_3r\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy006"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr1_2i\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy005"
+        ?prompt         ""
+        ?defValue       "1.e+18*iPar(\"corr1_2r\")*(iPar(\"v1\")*iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy004"
+        ?prompt         ""
+        ?defValue       "1.e+18*pow(iPar(\"v3\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy003"
+        ?prompt         ""
+        ?defValue       "1.e+18*pow(iPar(\"v2\"))"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy002"
+        ?prompt         ""
+        ?defValue       "1.e+18*pow(iPar(\"v1\"),2)"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy001"
+        ?prompt         ""
+        ?defValue       "1.e12*iPar(\"i1\")"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy000"
+        ?prompt         ""
+        ?defValue       "1e9*iPar(\"v1\")"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hpmns = '( nil
+        propMapping       nil
+        netlistProcedure  ansHpmnsCompPrim
+        componentName     (expr let((nSources i key) for(i 1 (nSources = (iPar 'nSources)) (key = cons((iPar concat('sourceType i)) key))) (key = cons(nSources key)) (key = cons('_noise key)) (macroName key)))
+        otherParameters   (nSources sourceType1 v1 i1 sourceType2 v2 i2 sourceType3 v3 i3 sourceType4 v4 i4 sourceType5 v5 i5 sourceType6 v6 i6 sourceType7 v7 i7 sourceType8 v8 i8 sourceType9 v9 i9 sourceType10 v10 i10 corr1_2r corr1_2i corr1_3r corr1_3i corr2_3r corr2_3i corr1_4r corr1_4i corr2_4r corr2_4i corr3_4r corr3_4i corr1_5r corr1_5i corr2_5r corr2_5i corr3_5r corr3_5i corr4_5r corr4_5i corr1_6r corr1_6i corr2_6r corr2_6i corr3_6r corr3_6i corr4_6r corr4_6i corr5_6r corr5_6i corr1_7r corr1_7i corr2_7r corr2_7i corr3_7r corr3_7i corr4_7r corr4_7i corr5_7r corr5_7i corr6_7r corr6_7i corr1_8r corr1_8i corr2_8r corr2_8i corr3_8r corr3_8i corr4_8r corr4_8i corr5_8r corr5_8i corr6_8r corr6_8i corr7_8r corr7_8i corr1_9r corr1_9i corr2_9r corr2_9i corr3_9r corr3_9i corr4_9r corr4_9i corr5_9r corr5_9i corr6_9r corr6_9i corr7_9r corr7_9i corr8_9r corr8_9i corr1_10r corr1_10i corr2_10r corr2_10i corr3_10r corr3_10i corr4_10r corr4_10i corr5_10r corr5_10i corr6_10r corr6_10i corr7_10r corr7_10i corr8_10r corr8_10i corr9_10r corr9_10i)
+        instParameters    ((expr let((insts nSources type i j) (i = ((nSources = (iPar 'nSources)) + 1)) while((--i > 0) (j = i) while((--j > 0) (insts = cons(concat('corr j '_ i 'i) insts)) (insts = cons(concat('corr j '_ i 'r) insts)))) (i = (nSources + 1)) while((--i > 0) (type = (iPar concat('sourceType i))) case(type ("current" (insts = cons(concat('i i) insts))) (t (insts = cons(concat('v i) insts))))) insts)))
+        termOrderExpr     ((expr let((terms i) for(i 1 (2 * (iPar 'nSources)) (terms = tconc(terms concat('n i)))) car(terms))))
+        macroProc         ansHpmnsMacroNoise
+        namePrefix        "N"
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        componentName     (expr let((n select) (n = (iPar 'nSources)) for(i 1 n (select = tconc(select (iPar concat('sourceType i))))) (select = cons(n car(select))) case(select (((1 "voltage")) "VNOISE") (((1 "current")) "INOISE") (((2 "voltage" "voltage")) "VNCOR2") (((2 "current" "current")) "INCOR2") (((2 "voltage" "current")) "VINCOR") (((2 "current" "voltage")) "VINCOR") (((3 "voltage" "voltage" "VOLTAGE")) "VNCOR3") (((3 "current" "current" "current")) "INCOR3") (t (unsupported (ncons 'nSources cdr(select))) "VNOISE"))))
+        otherParameters   (nSources sourceType1 sourceType2 sourceType3 v i v1 v2 v3 i1 i2 i3 corr1_2r corr1_2i corr1_3r corr1_3i corr2_3r corr2_3i v1sq v2sq v3sq v12r v12i v13r v13i v23r v23i i1sq i2sq i3sq i12r i12i i13r i13i i23r i23i vsq isq vsq\  isq\  vir vii vir\  vii\ )
+        instParameters    ((expr let((n select) (n = (iPar 'nSources)) for(i 1 n (select = tconc(select (iPar concat('sourceType i))))) (select = cons(n car(select))) case(select (((1 "voltage")) '(v)) (((1 "current")) '(i)) (((2 "voltage" "voltage")) '(v1sq v2sq v12r v12i)) (((2 "current" "current")) '(i1sq i2sq i12r i12i)) (((2 "voltage" "current")) '(vsq isq vir vii)) (((2 "current" "voltage")) '(vsq\  isq\  vir\  vii\ )) (((3 "voltage" "voltage" "voltage")) '(v1sq v2sq v3sq v12r v12i v13r v13i v23r v23i)) (((3 "current" "current" "current")) '(i1sq i2sq i3sq i12r i12i i13r i13i i23r i23i)) (t (unsupported (ncons 'nSources cdr(select))) "vnoise")))))
+        propMapping       (nil v _dummy000 i _dummy001 v1sq _dummy002 v2sq _dummy003 v3sq _dummy004 v12r _dummy005 v12i _dummy006 v13r _dummy007 v13i _dummy008 v23r _dummy009 v23i _dummy010 i1sq _dummy011 i2sq _dummy012 i3sq _dummy013 i12r _dummy014 i12i _dummy015 i13r _dummy016 i13i _dummy017 i23r _dummy018 i23i _dummy019 vsq _dummy002 isq _dummy012 vsq\  _dummy020 isq\  _dummy011 vir _dummy021 vii _dummy022 vir\  _dummy023 vii\  _dummy024)
+        termOrderExpr     ((expr let((n select terms i n) (n = (iPar 'nSources)) for(i 1 n (select = tconc(select (iPar concat('sourceType i))))) for(i 1 (n = (iPar 'nSources)) (terms = tconc(terms concat('n i))) (terms = tconc(terms concat('n (i + n))))) when((select == '(2 "current" "voltage")) (terms = list('(n2 n4 n1 n3)))) car(terms))))
+        namePrefix        "N"
+    )
+    cdfId->simInfo->mharm = '( nil
+        netlistProcedure  ansMharmCompPrim
+        componentName     NSRC
+        otherParameters   (nSources sourceType1 v1 i1 sourceType2 v2 i2 sourceType3 v3 i3 sourceType4 v4 i4 sourceType5 v5 i5 sourceType6 v6 i6 sourceType7 v7 i7 sourceType8 v8 i8 sourceType9 v9 i9 sourceType10 v10 i10 corr1_2r corr1_2i corr1_3r corr1_3i corr2_3r corr2_3i corr1_4r corr1_4i corr2_4r corr2_4i corr3_4r corr3_4i corr1_5r corr1_5i corr2_5r corr2_5i corr3_5r corr3_5i corr4_5r corr4_5i corr1_6r corr1_6i corr2_6r corr2_6i corr3_6r corr3_6i corr4_6r corr4_6i corr5_6r corr5_6i corr1_7r corr1_7i corr2_7r corr2_7i corr3_7r corr3_7i corr4_7r corr4_7i corr5_7r corr5_7i corr6_7r corr6_7i corr1_8r corr1_8i corr2_8r corr2_8i corr3_8r corr3_8i corr4_8r corr4_8i corr5_8r corr5_8i corr6_8r corr6_8i corr7_8r corr7_8i corr1_9r corr1_9i corr2_9r corr2_9i corr3_9r corr3_9i corr4_9r corr4_9i corr5_9r corr5_9i corr6_9r corr6_9i corr7_9r corr7_9i corr8_9r corr8_9i corr1_10r corr1_10i corr2_10r corr2_10i corr3_10r corr3_10i corr4_10r corr4_10i corr5_10r corr5_10i corr6_10r corr6_10i corr7_10r corr7_10i corr8_10r corr8_10i corr9_10r corr9_10i)
+        instParameters    ((expr let((insts nSources type i j) (i = ((nSources = (iPar 'nSources)) + 1)) while((--i > 0) (j = i) while((--j > 0) (insts = cons(concat('c j i 'i) insts)) (insts = cons(concat('c j i 'r) insts)))) (i = (nSources + 1)) while((--i > 0) (type = (iPar concat('sourceType i))) case(type ("current" (insts = cons(concat('in i) insts))) (t (insts = cons(concat('vn i) insts))))) insts)))
+        propMapping       (nil vn1 v1 in1 i1 vn2 v2 in2 i2 vn3 v3 in3 i3 vn4 v4 in4 i4 vn5 v5 in5 i5 vn6 v6 in6 i6 vn7 v7 in7 i7 vn8 v8 in8 i8 vn9 v9 in9 i9 vn10 v10 in10 i10 c12r corr1_2r c12i corr1_2i c13r corr1_3r c13i corr1_3i c23r corr2_3r c23i corr2_3i c14r corr1_4r c14i corr1_4i c24r corr2_4r c24i corr2_4i c34r corr3_4r c34i corr3_4i c15r corr1_5r c15i corr1_5i c25r corr2_5r c25i corr2_5i c35r corr3_5r c35i corr3_5i c45r corr4_5r c45i corr4_5i c16r corr1_6r c16i corr1_6i c26r corr2_6r c26i corr2_6i c36r corr3_6r c36i corr3_6i c46r corr4_6r c46i corr4_6i c56r corr5_6r c56i corr5_6i c17r corr1_7r c17i corr1_7i c27r corr2_7r c27i corr2_7i c37r corr3_7r c37i corr3_7i c47r corr4_7r c47i corr4_7i c57r corr5_7r c57i corr5_7i c67r corr6_7r c67i corr6_7i c18r corr1_8r c18i corr1_8i c28r corr2_8r c28i corr2_8i c38r corr3_8r c38i corr3_8i c48r corr4_8r c48i corr4_8i c58r corr5_8r c58i corr5_8i c68r corr6_8r c68i corr6_8i c78r corr7_8r c78i corr7_8i c19r corr1_9r c19i corr1_9i c29r corr2_9r c29i corr2_9i c39r corr3_9r c39i corr3_9i c49r corr4_9r c49i corr4_9i c59r corr5_9r c59i corr5_9i c69r corr6_9r c69i corr6_9i c79r corr7_9r c79i corr7_9i c89r corr8_9r c89i corr8_9i c110r corr1_10r c110i corr1_10i c210r corr2_10r c210i corr2_10i c310r corr3_10r c310i corr3_10i c410r corr4_10r c410i corr4_10i c510r corr5_10r c510i corr5_10i c610r corr6_10r c610i corr6_10i c710r corr7_10r c710i corr7_10i c810r corr8_10r c810i corr8_10i c910r corr9_10r c910i corr9_10i)
+        termOrderExpr     ((expr let((terms i) for(i 1 (2 * (iPar 'nSources)) (terms = tconc(terms concat('n i)))) car(terms))))
+        namePrefix        "N"
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

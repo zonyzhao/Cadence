@@ -1,0 +1,6 @@
+load( prependNCSUCDKInstallPath( "skill/menus/triggers.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/userMenu.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ncsu/loadSkill.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/ciw/loadSkill.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/artist/loadSkill.il" ) )
+load( prependNCSUCDKInstallPath( "skill/menus/virtuoso/loadSkill.il" ) )

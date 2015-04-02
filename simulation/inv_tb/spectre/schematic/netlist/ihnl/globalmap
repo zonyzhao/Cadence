@@ -1,0 +1,12 @@
+CADENCE IHNL01070
+$model
+EEC289O_Tests/inv_tb/schematic inv_tb
+EEC289O/inv_1xt/schematic inv_1xt
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+$endnet
+$param
+vdd vdd
+$endparam

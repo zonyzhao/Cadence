@@ -1,0 +1,7 @@
+#Layer Name     Layer Purpose  Layer Stream Number  Datatype Stream Number
+
+metalcap       drawing        35                   0              
+metalcap       label          35                   0              
+metalcap       net            35                   0              
+metalcap       pin            35                   0              
+metalcap       boundary       35                   0              

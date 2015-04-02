@@ -1,0 +1,7 @@
+
+// Library name: 16nm_Tests
+// Cell name: inv_test
+// View name: schematic
+I0 (nvtc Yvtc) inv_1x
+V0 (vdd! 0) vsource type=dc dc=vdd
+V1 (nvtc 0) vsource type=pwl mag=850m wave=[ 0 0 10n vdd ]

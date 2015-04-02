@@ -1,0 +1,54 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "6T_MultiBank_16K_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "vdd! vcc! gnd!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/net/bull/apps/Cadence/simulation/6T_MultiBank_16K_Test/spectreVerilog/config/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "Data1" 31 0  "Data1" 31 0  )
+( "WDataAck" 15 0  "WDataAck" 15 0  )
+( "~WDataAck" 15 0  "cdsbus4" 15 0  )
+( "WDataT" 31 0  "WDataT" 31 0  )
+( "~WData" 31 0  "cdsbus3" 31 0  )
+( "~RData" 31 0  "cdsbus2" 31 0  )
+( "WDataAckT" 15 0  "WDataAckT" 15 0  )
+( "RData" 31 0  "RData" 31 0  )
+( "R_AddressT" 11 0  "R_AddressT" 11 0  )
+( "R_Address" 11 0  "R_Address" 11 0  )
+( "~W_Address" 11 0  "cdsbus1" 11 0  )
+( "W_AddressT" 11 0  "W_AddressT" 11 0  )
+( "RDataT" 31 0  "RDataT" 31 0  )
+( "~R_Address" 11 0  "cdsbus0" 11 0  )
+( "W_Address" 11 0  "W_Address" 11 0  )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/6T_MultiBank_16K_Test/schematic" "cdsModule_68" )
+ )
+( term
+ )
+( param
+( "vcc" "cds_globals.vcc" )
+( "vdd" "cds_globals.vdd" )
+ )
+( "cdsModule_68" "ihnl/cds0/map" )
+ )

@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/sp1tswitch type="cell"
+UCD_Analog_Parts/sp2tswitch type="cell"
+UCD_Analog_Parts/sp3tswitch type="cell"
+UCD_Analog_Parts/sp4tswitch type="cell"

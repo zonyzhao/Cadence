@@ -1,0 +1,319 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "core"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "len"
+        ?prompt         "Physical length"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('len)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "idiam"
+        ?prompt         "Inner diam of toroidal core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('idiam)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "od"
+        ?prompt         "Outer diam of toroidal core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('od)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "gap"
+        ?prompt         "Gap length"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('gap)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "numOfL"
+        ?prompt         "Total Num of windings"
+        ?defValue       1
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('numOfL)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l1"
+        ?prompt         "Name of winding 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 1"
+        ?display        "artParameterInToolDisplay('l1)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l2"
+        ?prompt         "Name of winding 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 2"
+        ?display        "artParameterInToolDisplay('l2)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l3"
+        ?prompt         "Name of winding 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 3"
+        ?display        "artParameterInToolDisplay('l3)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l4"
+        ?prompt         "Name of winding 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 4"
+        ?display        "artParameterInToolDisplay('l4)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l5"
+        ?prompt         "Name of winding 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 5"
+        ?display        "artParameterInToolDisplay('l5)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l6"
+        ?prompt         "Name of winding 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 6"
+        ?display        "artParameterInToolDisplay('l6)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l7"
+        ?prompt         "Name of winding 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 7"
+        ?display        "artParameterInToolDisplay('l7)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l8"
+        ?prompt         "Name of winding 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 8"
+        ?display        "artParameterInToolDisplay('l8)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l9"
+        ?prompt         "Name of winding 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 9"
+        ?display        "artParameterInToolDisplay('l9)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l10"
+        ?prompt         "Name of winding 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 10"
+        ?display        "artParameterInToolDisplay('l10)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l11"
+        ?prompt         "Name of winding 11"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 11"
+        ?display        "artParameterInToolDisplay('l11)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l12"
+        ?prompt         "Name of winding 12"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 12"
+        ?display        "artParameterInToolDisplay('l12)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l13"
+        ?prompt         "Name of winding 13"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 13"
+        ?display        "artParameterInToolDisplay('l13)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l14"
+        ?prompt         "Name of winding 14"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 14"
+        ?display        "artParameterInToolDisplay('l14)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l15"
+        ?prompt         "Name of winding 15"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 15"
+        ?display        "artParameterInToolDisplay('l15)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l16"
+        ?prompt         "Name of winding 16"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 16"
+        ?display        "artParameterInToolDisplay('l16)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l17"
+        ?prompt         "Name of winding 17"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 17"
+        ?display        "artParameterInToolDisplay('l17)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l18"
+        ?prompt         "Name of winding 18"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 18"
+        ?display        "artParameterInToolDisplay('l18)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l19"
+        ?prompt         "Name of winding 19"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 19"
+        ?display        "artParameterInToolDisplay('l19)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l20"
+        ?prompt         "Name of winding 20"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->numOfL->value >= 20"
+        ?display        "artParameterInToolDisplay('l20)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "mag"
+        ?prompt         "Initial magnetization of core"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('mag)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->hspiceS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (numOfL l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 l11 l12 l13 l14 l15 l16 l17 l18 l19 l20 mag)
+        otherParameters   (model)
+        componentName     hcore
+        namePrefix        "K"
+        current           nil
+        noPortDelimiter   t
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        instParameters    (area len id od gap m)
+        propMapping       (nil id idiam)
+        namePrefix        "CORE"
+        componentName     core
+        noPortDelimiter   t
+        current           nil
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (model)
+        instParameters    (area len id od gap m)
+        propMapping       (nil id idiam)
+        namePrefix        "CORE"
+        componentName     core
+        noPortDelimiter   t
+        current           nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "br bm hc"
+    cdfId->paramLabelSet           = "area len gap"
+    cdfSaveCDF( cdfId )
+)

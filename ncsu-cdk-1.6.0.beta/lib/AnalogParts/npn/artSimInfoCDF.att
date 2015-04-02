@@ -1,0 +1,249 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "npn"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "bn"
+        ?prompt         "Bulk node connection"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('bn)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vbe"
+        ?prompt         "Base-emitter voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vbe)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vce"
+        ?prompt         "Collector-emitter voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vce)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "trise"
+        ?prompt         "Temp rise from ambient"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('trise)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "region"
+        ?prompt         "Estimated operating region"
+        ?defValue       "fwd"
+        ?choices        '("off" "fwd" "rev" "sat")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('region)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "mode"
+        ?prompt         "Linearized Region"
+        ?defValue       "No"
+        ?choices        '("Yes" "No")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('mode)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dataFile"
+        ?prompt         "S-parameter data file"
+        ?defValue       "bjt"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dataFile)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dtemp"
+        ?prompt         "Temperature difference"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dtemp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "areab"
+        ?prompt         "Base area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('areab)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "areac"
+        ?prompt         "Collector area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('areac)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        propMapping       nil
+        netlistProcedure  ansCdlCompPrim
+        componentName     npn
+        termOrder         (C B E)
+        namePrefix        "Q"
+        modelName         "NP"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        componentName     npn
+        termOrder         (C B E)
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area vbe vce off)
+        otherParameters   (model bn)
+        componentName     bjt
+        termOrder         (C B E progn(bn))
+        propMapping       (nil vbe Vbe vce Vce)
+        namePrefix        "Q"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hpmns = '( nil
+        propMapping       nil
+        netlistProcedure  ansHpmnsCompPrim
+        otherParameters   (model)
+        instParameters    (model area)
+        typeMapping       (nil model model)
+        componentName     (expr (iPar 'model))
+        termOrder         (C B E)
+        current           port
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (off dtemp area areab areac m Vbe Vce)
+        otherParameters   (bn model)
+        componentName     hnpn
+        termOrder         (C B E progn(bn))
+        propMapping       (nil vbe Vbe vce Vce)
+        namePrefix        "Q"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->libra = '( nil
+        propMapping       nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (dataFile model area)
+        inst4Parameters   (area model mode temp)
+        otherParameters   (mode)
+        typeMapping       (nil model model mode mode temp temp dataFile fileName)
+        componentName     BJT
+        current           port
+        termOrder         (B C E)
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->mharm = '( nil
+        propMapping       nil
+        netlistProcedure  ansMharmCompPrim
+        componentName     bip
+        otherParameters   (area model)
+        instParameters    ((expr '(area model name)))
+        typeMapping       (nil model model name instName)
+        termOrder         (B C E)
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (bn model)
+        instParameters    (area m trise region)
+        termOrder         (C B E progn(bn))
+        termMapping       (nil C c B b E e)
+        namePrefix        "Q"
+        componentName     bjt
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (bn model region)
+        instParameters    (area m trise)
+        termOrder         (C B E progn(bn))
+        termMapping       (nil C c B b E e)
+        namePrefix        "Q"
+        componentName     bjt
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "bf is va"
+    cdfId->opPointLabelSet         = "betadc ic Vce"
+    cdfId->paramLabelSet           = "-model Vbe Vce"
+    cdfSaveCDF( cdfId )
+)

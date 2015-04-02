@@ -1,0 +1,127 @@
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.cdsbus2[6], "99999"); // /~RAck<6>
+	$vmx_define_export( test.top.cdsbus2[5], "99998"); // /~RAck<5>
+	$vmx_define_export( test.top.cdsbus5[29], "99997"); // /~WriteData<29>
+	$vmx_define_export( test.top.cdsbus5[26], "99996"); // /~WriteData<26>
+	$vmx_define_export( test.top.cdsbus2[4], "99995"); // /~RAck<4>
+	$vmx_define_export( test.top.cdsbus1[17], "99994"); // /~A<17>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /~ReadData<16>
+	$vmx_define_import( test.top.mixedNet99992, "99992"); // /~ReadData<17>
+	$vmx_define_export( test.top.cdsbus2[2], "99991"); // /~RAck<2>
+	$vmx_define_export( test.top.cdsbus1[8], "99990"); // /~A<8>
+	$vmx_define_export( test.top.cdsbus1[19], "99989"); // /~A<19>
+	$vmx_define_export( test.top.cdsbus1[4], "99988"); // /~A<4>
+	$vmx_define_export( test.top.cdsbus1[3], "99987"); // /~A<3>
+	$vmx_define_import( test.top.mixedNet99986, "99986"); // /~ReadData<29>
+	$vmx_define_export( test.top.cdsbus1[13], "99985"); // /~A<13>
+	$vmx_define_export( test.top.cdsbus5[12], "99984"); // /~WriteData<12>
+	$vmx_define_export( test.top.cdsbus5[11], "99983"); // /~WriteData<11>
+	$vmx_define_export( test.top.cdsbus2[1], "99982"); // /~RAck<1>
+	$vmx_define_import( test.top.mixedNet99981, "99981"); // /~ReadData<28>
+	$vmx_define_import( test.top.mixedNet99980, "99980"); // /~ReadData<20>
+	$vmx_define_import( test.top.mixedNet99979, "99979"); // /~ReadData<19>
+	$vmx_define_export( test.top.cdsbus5[18], "99978"); // /~WriteData<18>
+	$vmx_define_export( test.top.cdsbus1[7], "99977"); // /~A<7>
+	$vmx_define_import( test.top.mixedNet99976, "99976"); // /~ReadData<24>
+	$vmx_define_import( test.top.mixedNet99975, "99975"); // /~ReadData<7>
+	$vmx_define_import( test.top.mixedNet99974, "99974"); // /~ReadData<4>
+	$vmx_define_export( test.top.cdsbus1[6], "99973"); // /~A<6>
+	$vmx_define_export( test.top.cdsbus1[5], "99972"); // /~A<5>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /~ReadData<15>
+	$vmx_define_import( test.top.mixedNet99970, "99970"); // /~ReadData<14>
+	$vmx_define_import( test.top.mixedNet99969, "99969"); // /~ReadData<12>
+	$vmx_define_import( test.top.mixedNet99968, "99968"); // /~ReadData<11>
+	$vmx_define_import( test.top.mixedNet99967, "99967"); // /~ReadData<10>
+	$vmx_define_export( test.top.cdsbus5[5], "99966"); // /~WriteData<5>
+	$vmx_define_export( test.top.cdsbus5[4], "99965"); // /~WriteData<4>
+	$vmx_define_export( test.top.cdsbus5[8], "99964"); // /~WriteData<8>
+	$vmx_define_export( test.top.cdsbus5[1], "99963"); // /~WriteData<1>
+	$vmx_define_export( test.top.cdsbus5[0], "99962"); // /~WriteData<0>
+	$vmx_define_import( test.top.mixedNet99961, "99961"); // /~ReadData<30>
+	$vmx_define_export( test.top.cdsbus1[0], "99960"); // /~A<0>
+	$vmx_define_import( test.top.mixedNet99959, "99959"); // /~ReadData<2>
+	$vmx_define_export( test.top.cdsbus1[14], "99958"); // /~A<14>
+	$vmx_define_export( test.top.cdsbus5[13], "99957"); // /~WriteData<13>
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /~ReadData<18>
+	$vmx_define_export( test.top.cdsbus5[10], "99955"); // /~WriteData<10>
+	$vmx_define_import( test.top.mixedNet99954, "99954"); // /~ReadData<9>
+	$vmx_define_import( test.top.mixedNet99953, "99953"); // /~WAck<5>
+	$vmx_define_import( test.top.mixedNet99952, "99952"); // /~ReadData<5>
+	$vmx_define_export( test.top.cdsbus5[9], "99951"); // /~WriteData<9>
+	$vmx_define_export( test.top.cdsbus2[0], "99950"); // /~RAck<0>
+	$vmx_define_import( test.top.mixedNet99949, "99949"); // /~ReadData<22>
+	$vmx_define_import( test.top.mixedNet99948, "99948"); // /~ReadData<8>
+	$vmx_define_export( test.top.cdsbus5[30], "99947"); // /~WriteData<30>
+	$vmx_define_export( test.top.cdsbus5[31], "99946"); // /~WriteData<31>
+	$vmx_define_export( test.top.cdsbus5[19], "99945"); // /~WriteData<19>
+	$vmx_define_export( test.top.cdsbus1[16], "99944"); // /~A<16>
+	$vmx_define_import( test.top.mixedNet99943, "99943"); // /~ReadData<13>
+	$vmx_define_export( test.top.cdsbus5[21], "99942"); // /~WriteData<21>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /~ReadData<23>
+	$vmx_define_export( test.top.cdsbus1[15], "99940"); // /~A<15>
+	$vmx_define_export( test.top.cdsbus5[3], "99939"); // /~WriteData<3>
+	$vmx_define_import( test.top.mixedNet99938, "99938"); // /~WAck<6>
+	$vmx_define_export( test.top.cdsbus5[2], "99937"); // /~WriteData<2>
+	$vmx_define_export( test.top.cdsbus2[3], "99936"); // /~RAck<3>
+	$vmx_define_export( test.top.cdsbus5[7], "99935"); // /~WriteData<7>
+	$vmx_define_export( test.top.cdsbus5[16], "99934"); // /~WriteData<16>
+	$vmx_define_export( test.top.cdsbus2[7], "99933"); // /~RAck<7>
+	$vmx_define_export( test.top.cdsbus1[2], "99932"); // /~A<2>
+	$vmx_define_import( test.top.mixedNet99931, "99931"); // /~WAck<7>
+	$vmx_define_export( test.top.cdsbus5[14], "99930"); // /~WriteData<14>
+	$vmx_define_export( test.top.cdsbus5[15], "99929"); // /~WriteData<15>
+	$vmx_define_import( test.top.mixedNet99928, "99928"); // /~WAck<3>
+	$vmx_define_import( test.top.mixedNet99927, "99927"); // /~WAck<2>
+	$vmx_define_import( test.top.mixedNet99926, "99926"); // /~ReadData<1>
+	$vmx_define_import( test.top.mixedNet99925, "99925"); // /~WAck<1>
+	$vmx_define_export( test.top.cdsbus5[17], "99924"); // /~WriteData<17>
+	$vmx_define_import( test.top.mixedNet99923, "99923"); // /~ReadData<0>
+	$vmx_define_export( test.top.cdsbus5[6], "99922"); // /~WriteData<6>
+	$vmx_define_export( test.top.cdsbus0[1], "99921"); // /~RW<1>
+	$vmx_define_import( test.top.mixedNet99920, "99920"); // /~WAck<0>
+	$vmx_define_export( test.top.cdsbus1[12], "99919"); // /~A<12>
+	$vmx_define_export( test.top.cdsbus5[25], "99918"); // /~WriteData<25>
+	$vmx_define_import( test.top.mixedNet99917, "99917"); // /~ReadData<6>
+	$vmx_define_export( test.top.cdsbus5[22], "99916"); // /~WriteData<22>
+	$vmx_define_export( test.top.cdsbus5[28], "99915"); // /~WriteData<28>
+	$vmx_define_export( test.top.cdsbus5[24], "99914"); // /~WriteData<24>
+	$vmx_define_export( test.top.cdsbus5[23], "99913"); // /~WriteData<23>
+	$vmx_define_import( test.top.mixedNet99912, "99912"); // /~Ack
+	$vmx_define_export( test.top.cdsbus1[11], "99911"); // /~A<11>
+	$vmx_define_import( test.top.mixedNet99910, "99910"); // /~WAck<4>
+	$vmx_define_export( test.top.cdsbus1[1], "99909"); // /~A<1>
+	$vmx_define_export( test.top.cdsbus5[20], "99908"); // /~WriteData<20>
+	$vmx_define_export( test.top.cdsbus1[10], "99907"); // /~A<10>
+	$vmx_define_export( test.top.cdsbus0[0], "99906"); // /~RW<0>
+	$vmx_define_import( test.top.mixedNet99905, "99905"); // /~ReadData<25>
+	$vmx_define_export( test.top.cdsbus1[9], "99904"); // /~A<9>
+	$vmx_define_import( test.top.mixedNet99903, "99903"); // /~ReadData<21>
+	$vmx_define_import( test.top.mixedNet99902, "99902"); // /~ReadData<31>
+	$vmx_define_import( test.top.mixedNet99901, "99901"); // /~ReadData<27>
+	$vmx_define_export( test.top.cdsbus5[27], "99900"); // /~WriteData<27>
+	$vmx_define_export( test.top.cdsbus1[18], "99899"); // /~A<18>
+	$vmx_define_import( test.top.mixedNet99898, "99898"); // /~ReadData<3>
+	$vmx_define_import( test.top.mixedNet99897, "99897"); // /~ReadData<26>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task

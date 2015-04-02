@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+tempDigital/nfet type="cell"
+tempDigital/nfet_elec type="cell"
+tempDigital/pfet type="cell"
+tempDigital/pfet_elec type="cell"
+tempDigital/rnmos1 type="cell"
+tempDigital/rpmos1 type="cell"
+tempDigital/tx_gate type="cell"

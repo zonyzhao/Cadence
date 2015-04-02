@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+temp/Parasitic_Devices_Index type="cell"
+temp/nmoscap type="cell"
+temp/pcapacitor type="cell"
+temp/pdiode type="cell"
+temp/pmoscap type="cell"
+temp/presistor type="cell"

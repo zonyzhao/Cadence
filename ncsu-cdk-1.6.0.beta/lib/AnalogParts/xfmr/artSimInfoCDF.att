@@ -1,0 +1,172 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "xfmr"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "k"
+        ?prompt         "Coupling coefficient"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('k)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "pi"
+        ?prompt         "Primary inductor"
+        ?units          "inductance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('pi)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "si"
+        ?prompt         "Secondary inductor"
+        ?units          "inductance"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('si)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "n1"
+        ?prompt         "Number of turns on primary"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('n1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "n2"
+        ?prompt         "Num of turns on secondary"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('n2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy001"
+        ?prompt         ""
+        ?defValue       "iPar(\"n2\")/iPar(\"n1\")"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "_dummy000"
+        ?prompt         ""
+        ?defValue       "iPar(\"n1\")/iPar(\"n2\")"
+        ?type           "string"
+        ?display        "nil"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        namePrefix        ""
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceXfmrPrim
+        instParameters    (k pi si)
+        componentName     xfmr
+        termOrder         (P\+ P\- S\+ S\-)
+        propMapping       nil
+        namePrefix        "K"
+        current           nil
+        termMapping       (nil P\+ "" P\- "" S\+ "" S\- "")
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        instParameters    (t)
+        componentName     tf
+        termOrder         (P\+ P\- S\+ S\-)
+        propMapping       (nil t _dummy000)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceXfmrPrim
+        instParameters    (k pi si)
+        componentName     xfmr
+        termOrder         (P\+ P\- S\+ S\-)
+        propMapping       nil
+        namePrefix        "K"
+        current           nil
+        termMapping       (nil P\+ "" P\- "" S\+ "" S\- "")
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        otherParameters   (n1 n2)
+        instParameters    (n)
+        componentName     XFER
+        termOrder         (P\+ S\+ P\- S\-)
+        propMapping       (nil n _dummy000)
+        namePrefix        ""
+    )
+    cdfId->simInfo->mharm = '( nil
+        netlistProcedure  ansMharmCompPrim
+        otherParameters   (n1 n2)
+        instParameters    (n)
+        propMapping       (nil n _dummy001)
+        componentName     trf
+        termOrder         (P\+ S\+ P\- S\-)
+        namePrefix        ""
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        instParameters    (n1 n2)
+        termOrder         (P\+ P\- S\+ S\-)
+        termMapping       (nil P\+ t1 P\- b1 S\+ t2 S\- b2)
+        namePrefix        "K"
+        componentName     transformer
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        instParameters    (n1 n2)
+        termOrder         (P\+ P\- S\+ S\-)
+        termMapping       (nil P\+ t1 P\- b1 S\+ t2 S\- b2)
+        namePrefix        "K"
+        componentName     transformer
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "k"
+    cdfSaveCDF( cdfId )
+)

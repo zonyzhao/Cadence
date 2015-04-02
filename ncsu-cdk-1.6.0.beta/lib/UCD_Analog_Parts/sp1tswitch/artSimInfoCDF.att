@@ -1,0 +1,72 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "sp1tswitch"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "position"
+        ?prompt         "Switch position"
+        ?defValue       "0"
+        ?choices        '("0" "1")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('position)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "offset"
+        ?prompt         "Offset voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('offset)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreCompPrim
+        instParameters    (position offset)
+        termOrder         (t1 t0)
+        namePrefix        "S"
+        componentName     switch
+        current           port
+        noPortDelimiter   t
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSCompPrim
+        instParameters    (position offset)
+        termOrder         (t1 t0)
+        namePrefix        "S"
+        componentName     switch
+        current           port
+        noPortDelimiter   t
+        dcSens            nil
+        acSens            nil
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->paramLabelSet           = "position"
+    cdfSaveCDF( cdfId )
+)

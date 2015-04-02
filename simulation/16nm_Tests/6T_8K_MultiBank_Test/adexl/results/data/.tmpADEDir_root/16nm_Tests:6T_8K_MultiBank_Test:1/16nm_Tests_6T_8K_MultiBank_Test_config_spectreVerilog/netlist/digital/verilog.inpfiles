@@ -1,0 +1,22 @@
+// Verilog HDL and netlist files of
+// "16nm_Tests 6T_8K_MultiBank_Test schematic"
+
+// HDL models
+
+// HDL file - 16nm, inv_1xT, functional.
+/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v
+
+
+// End HDL models
+
+// Netlisted models
+
+// netlist file - 16nm_Tests, 6T_8K_MultiBank_Test, schematic.
+ihnl/cds0/netlist
+
+
+// End HDL models
+
+// globals file 
+hdlFilesDir/cds_globals.v
+

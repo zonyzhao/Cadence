@@ -1,0 +1,48 @@
+simulator( 'spectre )
+hostMode( 'local )
+design(	 "/net/bull/root/Desktop/Cadence/simulation/6T_SNMrwh_Test/spectre/schematic/netlist/netlist")
+resultsDir( "/net/bull/root/Desktop/Cadence/simulation/6T_SNMrwh_Test/spectre/schematic" )
+modelFile( 
+    '("/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "100n"  ?errpreset "conservative"  )
+desVar(	  "timeB" 100n	)
+desVar(	  "timeA" 1n	)
+desVar(	  "vdd" .850	)
+envOption(
+	'analysisOrder  list("tran") 
+)
+saveOption( ?simOutputFormat "psfxl" )
+
+temp( 27 )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Tload = list( -50 -40 -30 -20 -10 0 10 20 30 40 50 60 70 80 90 100 110 120 130 140 )
+Vload = list( .30 .31 .32 .33 .34 .35 .36 .37 .38 .39 \
+              .40 .41 .42 .43 .44 .45 .46 .47 .48 .49 \
+	      .50 .51 .52 .53 .54 .55 .56 .57 .58 .59 \
+	      .60 .61 .62 .63 .64 .65 .66 .67 .68 .69 \
+	      .70 .71 .72 .73 .74 .75 .76 .77 .78 .79 \
+	      .80 .81 .82 .83 .84 .85 .86 .87 .88 .89 \
+	      .90 .91 .92 .93 .94 .95 .96 .97 .98 .99 \
+           1.00 1.01 1.02 1.03 1.04 1.05 1.06 1.07 1.08 1.09 \
+           1.10 1.11 1.12 1.13 1.14 1.15 1.16 1.17 1.18 1.19 \ 
+           1.20 1.21 1.22 1.23 1.24 1.25 1.26 1.27 1.28 1.29 )
+
+
+foreach( degC  Tload
+	foreach( val  Vload
+
+		desVar( "vdd" val )
+		temp( degC )
+		run()
+		selectResult( 'tran )
+
+		volt  = round( evalstring( desVar( "vdd" )) * 1000 )
+		title = strcat(sprintf( nil "%d" degC) "C_" sprintf( nil "%d" volt ) "mV.csv" )
+		file  =  strcat(  "/root/Desktop/SNMdata/"  title  )
+		out   = outfile(file, "w")
+		ocnPrint(?output out getData("/nvtc") getData("/SNMh") getData("/SNMr") getData("/SNMw0") ?precision 16  ?numSpaces 1 ?numberNotation 'scientific)
+	)
+)

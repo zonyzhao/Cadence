@@ -1,0 +1,28 @@
+    I0 (Bk0_Addr_3 Bk0_Addr_2 Bk0_Addr_1 Bk0_Addr_0 Bk0_Addr_7 \
+        Bk0_Addr_6 Bk0_Addr_5 Bk0_Addr_4 Bk0_Addr_11 Bk0_Addr_10 \
+        Bk0_Addr_9 Bk0_Addr_8 Bk0_Addr_15 Bk0_Addr_14 Bk0_Addr_13 \
+        Bk0_Addr_12 Bk0_Ack_3 Bk0_Ack_2 Bk0_Ack_1 Bk0_Ack_0 Ack_3 Ack_2 \
+        Ack_1 Ack_0 Asel Bk1_Addr_3 Bk1_Addr_2 Bk1_Addr_1 Bk1_Addr_0 \
+        Bk1_Addr_7 Bk1_Addr_6 Bk1_Addr_5 Bk1_Addr_4 Bk1_Addr_11 \
+        Bk1_Addr_10 Bk1_Addr_9 Bk1_Addr_8 Bk1_Addr_15 Bk1_Addr_14 \
+        Bk1_Addr_13 Bk1_Addr_12 Bk1_Ack_3 Bk1_Ack_2 Bk1_Ack_1 Bk1_Ack_0 \
+        Bsel Bk2_Addr_3 Bk2_Addr_2 Bk2_Addr_1 Bk2_Addr_0 Bk2_Addr_7 \
+        Bk2_Addr_6 Bk2_Addr_5 Bk2_Addr_4 Bk2_Addr_11 Bk2_Addr_10 \
+        Bk2_Addr_9 Bk2_Addr_8 Bk2_Addr_15 Bk2_Addr_14 Bk2_Addr_13 \
+        Bk2_Addr_12 Bk2_Ack_3 Bk2_Ack_2 Bk2_Ack_1 Bk2_Ack_0 Csel \
+        Bk3_Addr_3 Bk3_Addr_2 Bk3_Addr_1 Bk3_Addr_0 Bk3_Addr_7 \
+        Bk3_Addr_6 Bk3_Addr_5 Bk3_Addr_4 Bk3_Addr_11 Bk3_Addr_10 \
+        Bk3_Addr_9 Bk3_Addr_8 Bk3_Addr_15 Bk3_Addr_14 Bk3_Addr_13 \
+        Bk3_Addr_12 Bk3_Ack_3 Bk3_Ack_2 Bk3_Ack_1 Bk3_Ack_0 Dsel A_3 \
+        A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 A_13 \
+        A_12) _sub73
+    I1 (Bk0_Addr_19 Bk0_Addr_18 Bk0_Addr_17 Bk0_Addr_16 Bk0_Ack_4 Ack_4 \
+        Asel Bk1_Addr_19 Bk1_Addr_18 Bk1_Addr_17 Bk1_Addr_16 Bk1_Ack_4 \
+        Bsel Bk2_Addr_19 Bk2_Addr_18 Bk2_Addr_17 Bk2_Addr_16 Bk2_Ack_4 \
+        Csel Bk3_Addr_19 Bk3_Addr_18 Bk3_Addr_17 Bk3_Addr_16 Bk3_Ack_4 \
+        Dsel A_19 A_18 A_17 A_16) _sub72
+    I2 (Bk0_RW_1 Bk0_RW_0 Bk0_RWAck RW_Ack Asel Bk1_RW_1 Bk1_RW_0 \
+        Bk1_RWAck Bsel Bk2_RW_1 Bk2_RW_0 Bk2_RWAck Csel Bk3_RW_1 \
+        Bk3_RW_0 Bk3_RWAck Dsel RW_1 RW_0) _sub74
+ends _sub75
+// End of subcircuit definition.

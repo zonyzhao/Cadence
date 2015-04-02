@@ -1,0 +1,70 @@
+(abgenRules 
+    (bkgnd = (geomBkgnd)) 
+    (ca = (geomOr "ca")) 
+    (metal1 = (geomOr "metal1")) 
+    (y8 = (geomOr "y8"))
+    (metal2 = (geomOr "metal2")) 
+    (via = (geomOr "via")) 
+    (metal3 = (geomOr "metal3")) 
+    (via2 = (geomOr "via2")) 
+    (joinableNet "vdd!" "gnd!")
+    (metal1 = (geomAndNot metal1 y8)) 
+    (metal2 = (geomAndNot metal2 y8)) 
+    (geomConnect 
+	(via via metal1 metal2) 
+	(via via2 metal2 metal3)
+    ) 
+    (metal1_route = (buildRoute "metal1" metal1)) 
+    (metal2_route = (buildRoute "metal2" metal2))
+    (metal3_route = (buildRoute "metal3" metal3)) 
+    (m1pins = (geomGetPurpose "metal1" "pin")) 
+    (drc m1pins 
+	(width < 0.6) "M1 pin < 0.6 microns wide."
+    ) 
+    (m1pinovlp = (geomAnd m1pins)) 
+    (saveDerived m1pinovlp "Metal1 pins overlap.")
+    (m2pins = (geomGetPurpose "metal2" "pin")) 
+    (drc m2pins 
+	(width < 0.6) "M2 pin < 0.6 microns wide."
+    ) 
+    (m2pinovlp = (geomAnd m2pins)) 
+    (saveDerived m2pinovlp "Metal2 pins overlap.") 
+    (testRoute metal2_route metal2 
+	(sep < 0.6) diffNet
+	"M2 pin and M2 interconnect seperation < 0.6 microns."
+    )
+    (testRoute metal1_route metal1 
+	(sep < 0.6) diffNet
+	"M1 pin and M1 interconnect seperation < 0.6 microns."
+    ) 
+    (saveDerived ca 
+	("ca" "drawing") abs_view
+    ) 
+    (saveDerived metal1 
+	("metal1" "drawing") abs_view
+    ) 
+    (saveDerived via 
+	("via" "drawing") abs_view
+    ) 
+    (saveDerived metal2 
+	("metal2" "drawing") abs_view
+    )
+    (saveDerived via2 
+	("via2" "drawing") abs_view
+    ) 
+    (saveDerived metal3 
+	("metal3" "drawing") abs_view
+    ) 
+    (copyGraphics 
+	("text" "drawing") all
+    ) 
+    (copyGraphics 
+	("metal1" "label") all
+    ) 
+    (copyGraphics 
+	("metal2" "label") all
+    )
+    (copyGraphics 
+	("metal3" "label") all
+    )
+)

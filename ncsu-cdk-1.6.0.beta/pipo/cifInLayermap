@@ -1,0 +1,50 @@
+# Layer map for converting from CIF to Cadence format (SCMOS processes)
+
+# Cadence layer         Cadence layer purpose      CIF layer
+# -------------         ---------------------      ---------
+metal1                  drawing                    CMF
+metal1                  drawing                    CM1
+metal2                  drawing                    CMS
+metal2                  drawing                    CM2
+metal3                  drawing                    CMT
+metal3                  drawing                    CM3
+metal4                  drawing                    CMQ
+metal4                  drawing                    CM4
+metal5                  drawing                    CMP
+metal5                  drawing                    CM5
+metal6                  drawing                    CM6
+via                     drawing                    CVA
+via                     drawing                    CV1
+via2                    drawing                    CVS
+via2                    drawing                    CV2
+via3                    drawing                    CVT
+via3                    drawing                    CV3
+via4                    drawing                    CVQ
+via4                    drawing                    CV4
+via5                    drawing                    CV5
+nwell                   drawing                    CWN
+pwell                   drawing                    CWP
+cwell                   drawing                    CWC
+active                  drawing                    CAA
+tactive                 drawing                    CTA
+nselect                 drawing                    CSN
+pselect                 drawing                    CSP
+poly                    drawing                    CPG
+polycap                 drawing                    CPC
+elec                    drawing                    CEL
+cc                      drawing                    CCG
+cc                      drawing                    CCC
+cc                      drawing                    CCA
+cc                      drawing                    CCP
+cc                      drawing                    CCE
+glass                   drawing                    COG
+pad                     drawing                     XP
+sblock                  drawing                    CSB
+pbase                   drawing                    CBA
+ccd                     drawing                    CCD
+open                    drawing                    COP
+pstop                   drawing                    CPS
+text                    drawing                    TXT
+text                    drawing                     CX
+highres                 drawing                    CHR
+metalcap                drawing                    CTM

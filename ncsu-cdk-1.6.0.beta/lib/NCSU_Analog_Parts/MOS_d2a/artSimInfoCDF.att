@@ -1,0 +1,94 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "MOS_d2a"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "macro"
+        ?prompt         "Macro name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('macro)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "d2a_vl"
+        ?prompt         "Level 0 voltage"
+        ?units          "voltage"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('d2a_vl)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "d2a_vh"
+        ?prompt         "Level 1 voltage"
+        ?units          "voltage"
+        ?defValue       "5"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('d2a_vh)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "d2a_tr"
+        ?prompt         "Rise time"
+        ?units          "time"
+        ?defValue       "3n"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('d2a_tr)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "d2a_tf"
+        ?prompt         "Fall time"
+        ?units          "time"
+        ?defValue       "2n"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('d2a_tf)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->cdsSpice = '( nil
+        propMapping       nil
+        namePrefix        ""
+        netlistProcedure  ansSpiceInterfaceElementPrim
+        otherParameters   (macro)
+        macroArguments    (d2a_vl d2a_vh d2a_tr d2a_tf)
+        termOrder         (digitalNet analogNet)
+        componentName     interfaceElement
+    )
+    cdfId->simInfo->spectre = '( nil
+        namePrefix        ""
+        netlistProcedure  ansSpectreInterfaceElementPrim
+        otherParameters   (macro)
+        instParameters    (fall rise val1 val0)
+        propMapping       (nil val1 d2a_vh val0 d2a_vl rise d2a_tr fall d2a_tf)
+        componentName     interfaceElement
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

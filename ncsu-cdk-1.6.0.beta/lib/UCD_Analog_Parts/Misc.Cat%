@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+temp/corefragment type="cell"
+temp/delay type="cell"
+temp/fourier type="cell"
+temp/fourier2ch type="cell"
+temp/iprobe type="cell"
+temp/msline type="cell"
+temp/phyres type="cell"

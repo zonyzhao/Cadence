@@ -1,0 +1,10 @@
+    M5 (net017 C net21 vdd!) pfet w=288n l=20n m=1 degradation=yes
+    M4 (Y D net017 vdd!) pfet w=288n l=20n m=1 degradation=yes
+    M3 (net21 B net018 vdd!) pfet w=288n l=20n m=1 degradation=yes
+    M2 (net018 A vdd! vdd!) pfet w=288n l=20n m=1 degradation=yes
+    M7 (Y D 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=yes
+    M6 (Y C 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=yes
+    M1 (Y A 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=yes
+    M0 (Y B 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=yes
+ends nor4_1x
+// End of subcircuit definition.

@@ -1,0 +1,13 @@
+    I0 (Ack_3 Ack_2 Ack_1 Ack_0 In_6of24_15 In_6of24_14 In_6of24_13 \
+        In_6of24_12 In_6of24_11 In_6of24_10 In_6of24_9 In_6of24_8 \
+        In_6of24_7 In_6of24_6 In_6of24_5 In_6of24_4 In_6of24_3 \
+        In_6of24_2 In_6of24_1 In_6of24_0 In_Ack_3 In_Ack_2 In_Ack_1 \
+        In_Ack_0 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 \
+        A_3 A_2 A_1 A_0) _sub96
+    I3 (RWAck RW_in_1 RW_in_0 RW_Ack RW_1 RW_0) _sub98
+    I4 (En In_6of24_23 In_6of24_22 In_6of24_21 In_6of24_20 In_Ack_5 \
+        Banks_3 Banks_2 Banks_1 Banks_0) _sub95
+    I2 (Ack_4 In_6of24_19 In_6of24_18 In_6of24_17 In_6of24_16 In_Ack_4 \
+        A_19 A_18 A_17 A_16) _sub95
+ends _sub99
+// End of subcircuit definition.

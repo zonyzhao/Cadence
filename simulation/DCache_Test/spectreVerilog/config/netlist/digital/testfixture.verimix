@@ -1,0 +1,35 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+initial
+begin 
+
+   CPU_Addr[32:0] = 33'b000000000000000000000000000000000;
+
+   Data1[15:0] = 16'b0000000000000000;
+
+   OutFIFOAck = 1'b0;
+   RW[1:0] = 2'b00;
+
+   Req = 1'b0;
+end
+
+always@(posedge Ack) begin
+  Req = 1'b0;
+end
+
+always@(negedge Ack) begin
+  Req = 1'b1;
+  RW = 2'b10;
+  Data1 = $random;
+  CPU_Addr = $random;
+end 
+
+always@(posedge OutFIFOReq) begin
+   OutFIFOAck = 1'b1;
+end
+
+always@(negedge OutFIFOReq) begin
+    OutFIFOAck = 1'b0;
+end

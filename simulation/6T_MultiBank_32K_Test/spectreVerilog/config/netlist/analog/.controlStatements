@@ -1,0 +1,60 @@
+ic \~WData_63=vdd \~WData_62=vdd \~WData_61=vdd \~WData_60=vdd \
+    \~WData_59=vdd \~WData_58=vdd \~WData_57=vdd \~WData_56=vdd \
+    \~WData_55=vdd \~WData_54=vdd \~WData_53=vdd \~WData_52=vdd \
+    \~WData_51=vdd \~WData_50=vdd \~WData_49=vdd \~WData_48=vdd \
+    \~WData_47=vdd \~WData_46=vdd \~WData_45=vdd \~WData_44=vdd \
+    \~WData_43=vdd \~WData_42=vdd \~WData_41=vdd \~WData_40=vdd \
+    \~WData_39=vdd \~WData_38=vdd \~WData_37=vdd \~WData_36=vdd \
+    \~WData_35=vdd \~WData_34=vdd \~WData_33=vdd \~WData_32=vdd \
+    \~WData_31=vdd \~WData_30=vdd \~WData_29=vdd \~WData_28=vdd \
+    \~WData_27=vdd \~WData_26=vdd \~WData_25=vdd \~WData_24=vdd \
+    \~WData_23=vdd \~WData_22=vdd \~WData_21=vdd \~WData_20=vdd \
+    \~WData_19=vdd \~WData_18=vdd \~WData_17=vdd \~WData_16=vdd \
+    \~WData_15=vdd \~WData_14=vdd \~WData_13=vdd \~WData_12=vdd \
+    \~WData_11=vdd \~WData_10=vdd \~WData_9=vdd \~WData_8=vdd \
+    \~WData_7=vdd \~WData_6=vdd \~WData_5=vdd \~WData_4=vdd \~WData_3=vdd \
+    \~WData_2=vdd \~WData_1=vdd \~WData_0=vdd \~W_Address_11=vdd \
+    \~W_Address_10=vdd \~W_Address_9=vdd \~W_Address_8=vdd \
+    \~W_Address_7=vdd \~W_Address_6=vdd \~W_Address_5=vdd \
+    \~W_Address_4=vdd \~W_Address_3=vdd \~W_Address_2=vdd \
+    \~W_Address_1=vdd \~W_Address_0=vdd \~WriteEn=vdd \~R_Address_11=vdd \
+    \~R_Address_10=vdd \~R_Address_9=vdd \~R_Address_8=vdd \
+    \~R_Address_7=vdd \~R_Address_6=vdd \~R_Address_5=vdd \
+    \~R_Address_4=vdd \~R_Address_3=vdd \~R_Address_2=vdd \
+    \~R_Address_1=vdd \~R_Address_0=vdd \~ReadEn=vdd WDataT_63=0 \
+    WDataT_62=0 WDataT_61=0 WDataT_60=0 WDataT_59=0 WDataT_58=0 \
+    WDataT_57=0 WDataT_56=0 WDataT_55=0 WDataT_54=0 WDataT_53=0 \
+    WDataT_52=0 WDataT_51=0 WDataT_50=0 WDataT_49=0 WDataT_48=0 \
+    WDataT_47=0 WDataT_46=0 WDataT_45=0 WDataT_44=0 WDataT_43=0 \
+    WDataT_42=0 WDataT_41=0 WDataT_40=0 WDataT_39=0 WDataT_38=0 \
+    WDataT_37=0 WDataT_36=0 WDataT_35=0 WDataT_34=0 WDataT_33=0 \
+    WDataT_32=0 WDataT_31=0 WDataT_30=0 WDataT_29=0 WDataT_28=0 \
+    WDataT_27=0 WDataT_26=0 WDataT_25=0 WDataT_24=0 WDataT_23=0 \
+    WDataT_22=0 WDataT_21=0 WDataT_20=0 WDataT_19=0 WDataT_18=0 \
+    WDataT_17=0 WDataT_16=0 WDataT_15=0 WDataT_14=0 WDataT_13=0 \
+    WDataT_12=0 WDataT_11=0 WDataT_10=0 WDataT_9=0 WDataT_8=0 WDataT_7=0 \
+    WDataT_6=0 WDataT_5=0 WDataT_4=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 \
+    WDataT_0=0 WriteEnT=0 W_AddressT_11=0 W_AddressT_10=0 W_AddressT_9=0 \
+    W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 W_AddressT_5=0 \
+    W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 W_AddressT_1=0 \
+    W_AddressT_0=0 R_AddressT_11=0 R_AddressT_10=0 R_AddressT_9=0 \
+    R_AddressT_8=0 R_AddressT_7=0 R_AddressT_6=0 R_AddressT_5=0 \
+    R_AddressT_4=0 R_AddressT_3=0 R_AddressT_2=0 R_AddressT_1=0 \
+    R_AddressT_0=0 ReadEnT=0 I21.I0.I0.I0.I0.I0.I7.I3.Q1=vdd \
+    I21.I1.I0.I0.I0.I0.I7.I3.Q1=vdd I21.I1.I0.I0.I0.I0.I7.I3.Q0=0 \
+    I21.I0.I0.I0.I0.I0.I7.I3.Q0=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=10n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V0:p 
+saveOptions options save=allpub

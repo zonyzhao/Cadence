@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Mar  6 10:03:25 2015
+// Design library name: EEC289O_Tests
+// Design cell name: inv_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

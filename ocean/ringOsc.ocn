@@ -1,0 +1,77 @@
+simulator( 'spectre )
+hostMode( 'local )
+design(	 "/net/bull/root/Desktop/Cadence/simulation/ringOsc_Test/spectre/schematic/netlist/netlist")
+resultsDir( "/net/bull/root/Desktop/Cadence/simulation/ringOsc_Test/spectre/schematic" )
+modelFile( 
+    '("/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "40n"  )
+desVar(	  "vdd" 2	)
+envOption(
+	'analysisOrder  list("tran") 
+)
+save( 'v "/inv0" "/nand0" "/nor0" "/nC0" )
+converge( 'ic "/inv0" "0" )
+converge( 'ic "/inv2" "0" )
+converge( 'ic "/inv4" "0" )
+converge( 'ic "/inv6" "0" )
+converge( 'ic "/inv8" "0" )
+converge( 'ic "/nor0" "0" )
+converge( 'ic "/no2" "0" )
+converge( 'ic "/nor4" "0" )
+converge( 'ic "/not6" "0" )
+converge( 'ic "/nor8" "0" )
+converge( 'ic "/nand0" "0" )
+converge( 'ic "/nand2" "0" )
+converge( 'ic "/nand4" "0" )
+converge( 'ic "/nand6" "0" )
+converge( 'ic "/nand8" "0" )
+converge( 'ic "/nC0" "0" )
+converge( 'ic "/nC2" "0" )
+converge( 'ic "/nC4" "0" )
+converge( 'ic "/nC6" "0" )
+converge( 'ic "/nC8" "0" )
+temp( 27 ) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;Vload = list( .40 .41 .42 .43 .44 .45 .46 .47 .48 .49 \
+	      .50 .51 .52 .53 .54 .55 .56 .57 .58 .59 \
+	      .60 .61 .62 .63 .64 .65 .66 .67 .68 .69 \
+	      .70 .71 .72 .73 .74 .75 .76 .77 .78 .79 \
+	      .80 .81 .82 .83 .84 .85 .86 .87 .88 .89 \
+	      .90 .91 .92 .93 .94 .95 .96 .97 .98 .99 1 )
+jobList = nil
+volts   = nil
+foreach( val  Vload
+    	desVar( "vdd" val )
+	desVar( "vcc" val )
+        volt = round( evalstring( desVar( "vdd" )) * 1000 )
+        volts = append1( volts sprintf( nil "%d" volt ))
+	jobList = append1( jobList run( ?jobName "job" ?mail "rstdenis@ucdavis.edu" ))
+)
+
+of=outfile("ringOsc.csv")
+
+run( ?jobName "job" ?mail "rstdenis@ucdavis.edu" )
+selectResult( 'tran )
+
+
+
+;plot(getData("/inv0") getData("/nand0") getData("/nor0") getData("/nC0") )
+
+
+;i = 1
+;foreach(job jobList	
+;	openResults( nthelem(i jobList))
+;	selectResult( 'tran )
+;        leakage = average( clip( i( "/V1/MINUS" ) 0 10n ) ) *1e9
+
+;        p = outfile("/root/Desktop/leakage.log" "a")
+;        fprintf( p "%s,%g\n" nthelem(i volts)  leakage )
+;        close( p)
+;	i = i + 1
+;)    
+foreach( x jobList deleteJob( x ) )

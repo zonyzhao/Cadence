@@ -1,0 +1,361 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+wire  Ack, OutFIFOReq;
+
+reg  OutFIFOAck, Req;
+
+wire [7:0]  WDataAck;
+
+reg [32:0]  CPU_Addr;
+reg [15:0]  Data1;
+reg [1:0]  RW;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+DCache_Test top(Ack, OutFIFOReq, WDataAck, CPU_Addr, Data1, OutFIFOAck
+     , RW, Req); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+initial
+begin 
+
+   CPU_Addr[32:0] = 33'b000000000000000000000000000000000;
+
+   Data1[15:0] = 16'b0000000000000000;
+
+   OutFIFOAck = 1'b0;
+   RW[1:0] = 2'b00;
+
+   Req = 1'b0;
+end
+
+always@(posedge Ack) begin
+  Req = 1'b0;
+end
+
+always@(negedge Ack) begin
+  Req = 1'b1;
+  RW = 2'b10;
+  Data1 = $random;
+  CPU_Addr = $random;
+end 
+
+always@(posedge OutFIFOReq) begin
+   OutFIFOAck = 1'b1;
+end
+
+always@(negedge OutFIFOReq) begin
+    OutFIFOAck = 1'b0;
+end
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.cdsNet0, "99999"); // /~Req
+	$vmx_define_export( test.top.cdsbus1[19], "99998"); // /~CPU_Addr<19>
+	$vmx_define_import( test.top.mixedNet99997, "99997"); // /~Ack
+	$vmx_define_export( test.top.cdsbus0[0], "99996"); // /~WData<0>
+	$vmx_define_export( test.top.cdsbus1[27], "99995"); // /~CPU_Addr<27>
+	$vmx_define_export( test.top.cdsbus1[26], "99994"); // /~CPU_Addr<26>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net052<6>
+	$vmx_define_export( test.top.cdsbus1[32], "99992"); // /~CPU_Addr<32>
+	$vmx_define_export( test.top.cdsbus1[25], "99991"); // /~CPU_Addr<25>
+	$vmx_define_export( test.top.cdsbus1[10], "99990"); // /~CPU_Addr<10>
+	$vmx_define_export( test.top.cdsbus1[24], "99989"); // /~CPU_Addr<24>
+	$vmx_define_export( test.top.cdsbus1[9], "99988"); // /~CPU_Addr<9>
+	$vmx_define_export( test.top.cdsbus1[1], "99987"); // /~CPU_Addr<1>
+	$vmx_define_export( test.top.cdsbus1[31], "99986"); // /~CPU_Addr<31>
+	$vmx_define_export( test.top.cdsbus1[0], "99985"); // /~CPU_Addr<0>
+	$vmx_define_export( test.top.cdsbus1[5], "99984"); // /~CPU_Addr<5>
+	$vmx_define_export( test.top.cdsbus1[14], "99983"); // /~CPU_Addr<14>
+	$vmx_define_export( test.top.cdsbus1[13], "99982"); // /~CPU_Addr<13>
+	$vmx_define_export( test.top.cdsbus1[29], "99981"); // /~CPU_Addr<29>
+	$vmx_define_export( test.top.cdsbus1[12], "99980"); // /~CPU_Addr<12>
+	$vmx_define_export( test.top.cdsbus1[28], "99979"); // /~CPU_Addr<28>
+	$vmx_define_export( test.top.cdsbus2[0], "99978"); // /~RW<0>
+	$vmx_define_export( test.top.cdsbus0[15], "99977"); // /~WData<15>
+	$vmx_define_export( test.top.cdsbus1[23], "99976"); // /~CPU_Addr<23>
+	$vmx_define_export( test.top.cdsbus1[16], "99975"); // /~CPU_Addr<16>
+	$vmx_define_export( test.top.cdsbus1[2], "99974"); // /~CPU_Addr<2>
+	$vmx_define_export( test.top.cdsbus1[18], "99973"); // /~CPU_Addr<18>
+	$vmx_define_export( test.top.cdsbus1[17], "99972"); // /~CPU_Addr<17>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /net0133
+	$vmx_define_export( test.top.net056, "99970"); // /net056
+	$vmx_define_export( test.top.cdsbus0[2], "99969"); // /~WData<2>
+	$vmx_define_export( test.top.cdsbus1[20], "99968"); // /~CPU_Addr<20>
+	$vmx_define_export( test.top.cdsbus1[6], "99967"); // /~CPU_Addr<6>
+	$vmx_define_export( test.top.cdsbus0[4], "99966"); // /~WData<4>
+	$vmx_define_import( test.top.mixedNet99965, "99965"); // /net052<7>
+	$vmx_define_export( test.top.cdsbus1[3], "99964"); // /~CPU_Addr<3>
+	$vmx_define_export( test.top.cdsbus1[4], "99963"); // /~CPU_Addr<4>
+	$vmx_define_export( test.top.cdsbus0[1], "99962"); // /~WData<1>
+	$vmx_define_export( test.top.cdsbus1[11], "99961"); // /~CPU_Addr<11>
+	$vmx_define_export( test.top.cdsbus0[14], "99960"); // /~WData<14>
+	$vmx_define_export( test.top.cdsbus0[3], "99959"); // /~WData<3>
+	$vmx_define_export( test.top.cdsbus0[13], "99958"); // /~WData<13>
+	$vmx_define_export( test.top.cdsbus1[15], "99957"); // /~CPU_Addr<15>
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /net052<0>
+	$vmx_define_import( test.top.mixedNet99955, "99955"); // /net052<1>
+	$vmx_define_export( test.top.cdsbus1[22], "99954"); // /~CPU_Addr<22>
+	$vmx_define_export( test.top.cdsbus1[7], "99953"); // /~CPU_Addr<7>
+	$vmx_define_export( test.top.cdsbus1[21], "99952"); // /~CPU_Addr<21>
+	$vmx_define_export( test.top.cdsbus1[30], "99951"); // /~CPU_Addr<30>
+	$vmx_define_import( test.top.mixedNet99950, "99950"); // /net052<2>
+	$vmx_define_export( test.top.cdsbus1[8], "99949"); // /~CPU_Addr<8>
+	$vmx_define_export( test.top.cdsbus0[12], "99948"); // /~WData<12>
+	$vmx_define_export( test.top.cdsbus0[11], "99947"); // /~WData<11>
+	$vmx_define_export( test.top.cdsbus0[10], "99946"); // /~WData<10>
+	$vmx_define_import( test.top.mixedNet99945, "99945"); // /net052<3>
+	$vmx_define_import( test.top.mixedNet99944, "99944"); // /net052<4>
+	$vmx_define_export( test.top.cdsbus0[9], "99943"); // /~WData<9>
+	$vmx_define_export( test.top.cdsbus0[8], "99942"); // /~WData<8>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /net052<5>
+	$vmx_define_export( test.top.cdsbus0[7], "99940"); // /~WData<7>
+	$vmx_define_export( test.top.cdsbus0[6], "99939"); // /~WData<6>
+	$vmx_define_export( test.top.cdsbus2[1], "99938"); // /~RW<1>
+	$vmx_define_export( test.top.cdsbus0[5], "99937"); // /~WData<5>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
+initial begin
+end
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.WDataAck[7], test.top.WDataAck[6], test.top.WDataAck[5], test.top.WDataAck[4], test.top.WDataAck[3], test.top.WDataAck[2], test.top.WDataAck[1], test.top.Data1[4], test.top.CPU_Addr[12], test.top.WDataAck[0], test.top.Data1[5], test.top.CPU_Addr[24], test.top.CPU_Addr[23], test.top.CPU_Addr[1], test.top.CPU_Addr[18], test.top.CPU_Addr[19], test.top.RW[0], test.top.Data1[15], test.top.CPU_Addr[27], test.top.Data1[13], test.top.Data1[7], test.top.CPU_Addr[11], test.top.CPU_Addr[20], test.top.CPU_Addr[10], test.top.CPU_Addr[25], test.top.CPU_Addr[9], test.top.CPU_Addr[8], test.top.CPU_Addr[5], test.top.Data1[6], test.top.Req, test.top.CPU_Addr[26], test.top.CPU_Addr[3], test.top.CPU_Addr[30], test.top.CPU_Addr[29], test.top.CPU_Addr[21], test.top.CPU_Addr[22], test.top.CPU_Addr[2], test.top.RW[1], test.top.Data1[14], test.top.Data1[8], test.top.Data1[12], test.top.Data1[10], test.top.Data1[1], test.top.Data1[0], test.top.CPU_Addr[16], test.top.CPU_Addr[15], test.top.CPU_Addr[14], 
+test.top.CPU_Addr[7], test.top.CPU_Addr[0], test.top.Data1[9], test.top.CPU_Addr[17], test.top.CPU_Addr[31], test.top.CPU_Addr[32], test.top.CPU_Addr[4], test.top.Ack, test.top.Data1[2], test.top.CPU_Addr[6], test.top.Data1[11], test.top.CPU_Addr[13], test.top.CPU_Addr[28], test.top.Data1[3], test.top.WDataAck[7:0], test.top.Data1[15:0], test.top.RW[1:0], test.top.CPU_Addr[32:0]);
+end
+// End SST2 Save Waveforms
+// Library - 16nm_Tests, Cell - DCache_Test, View - schematic
+// LAST TIME SAVED: Mar  6 17:39:14 2015
+// NETLIST TIME: Mar  6 17:54:39 2015
+`timescale 1ns / 1ns 
+
+module DCache_Test ( Ack, OutFIFOReq, WDataAck, CPU_Addr, Data1,
+     OutFIFOAck, RW, Req );
+
+output  Ack, OutFIFOReq;
+
+input  OutFIFOAck, Req;
+
+output [7:0]  WDataAck;
+
+input [32:0]  CPU_Addr;
+input [15:0]  Data1;
+input [1:0]  RW;
+
+// Buses in the design
+
+wire  [0:31]  net037;
+
+wire  [0:6]  net041;
+
+wire  [0:7]  net052;
+
+wire  [15:0]  cdsbus0;
+
+wire  [32:0]  cdsbus1;
+
+wire  [0:21]  net065;
+
+wire  [0:11]  net0104;
+
+wire  [1:0]  RWT;
+
+wire  [0:11]  net0123;
+
+wire  [0:31]  net055;
+
+wire  [32:0]  CPUT;
+
+wire  [0:11]  net0124;
+
+wire  [0:31]  net048;
+
+wire  [0:11]  net0127;
+
+wire  [0:31]  net049;
+
+wire  [0:7]  net0106;
+
+wire  [0:31]  net051;
+
+wire  [0:11]  net0128;
+
+wire  [0:31]  net053;
+
+wire  [31:0]  R0;
+
+wire  [31:0]  R1;
+
+wire  [15:0]  WDataT;
+
+wire  [0:11]  net087;
+
+wire  [1:0]  cdsbus2;
+
+wire  [0:15]  net084;
+
+wire  [0:6]  net045;
+
+wire  [0:6]  net035;
+
+wire  [0:6]  net044;
+
+wire  [0:21]  net088;
+
+// begin interface element definitions
+
+wire cdsNet1;
+wire net0133;
+reg mixedNet99997;
+reg mixedNet99993;
+reg mixedNet99971;
+reg mixedNet99965;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99950;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99941;
+assign cdsNet1 = mixedNet99997;
+assign net052[6] = mixedNet99993;
+assign net0133 = mixedNet99971;
+assign net052[7] = mixedNet99965;
+assign net052[0] = mixedNet99956;
+assign net052[1] = mixedNet99955;
+assign net052[2] = mixedNet99950;
+assign net052[3] = mixedNet99945;
+assign net052[4] = mixedNet99944;
+assign net052[5] = mixedNet99941;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "DCache_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I42 ( cdsNet0, net0133);
+inv_1xT I40 ( net056, cdsNet1);
+inv_1xT I6 ( cdsNet0, Req);
+inv_1xT I12 ( Ack, cdsNet1);
+inv_1xT I15_1_ ( cdsbus2[1], RW[1]);
+inv_1xT I15_0_ ( cdsbus2[0], RW[0]);
+inv_1xT I18_32_ ( cdsbus1[32], CPU_Addr[32]);
+inv_1xT I18_31_ ( cdsbus1[31], CPU_Addr[31]);
+inv_1xT I18_30_ ( cdsbus1[30], CPU_Addr[30]);
+inv_1xT I18_29_ ( cdsbus1[29], CPU_Addr[29]);
+inv_1xT I18_28_ ( cdsbus1[28], CPU_Addr[28]);
+inv_1xT I18_27_ ( cdsbus1[27], CPU_Addr[27]);
+inv_1xT I18_26_ ( cdsbus1[26], CPU_Addr[26]);
+inv_1xT I18_25_ ( cdsbus1[25], CPU_Addr[25]);
+inv_1xT I18_24_ ( cdsbus1[24], CPU_Addr[24]);
+inv_1xT I18_23_ ( cdsbus1[23], CPU_Addr[23]);
+inv_1xT I18_22_ ( cdsbus1[22], CPU_Addr[22]);
+inv_1xT I18_21_ ( cdsbus1[21], CPU_Addr[21]);
+inv_1xT I18_20_ ( cdsbus1[20], CPU_Addr[20]);
+inv_1xT I18_19_ ( cdsbus1[19], CPU_Addr[19]);
+inv_1xT I18_18_ ( cdsbus1[18], CPU_Addr[18]);
+inv_1xT I18_17_ ( cdsbus1[17], CPU_Addr[17]);
+inv_1xT I18_16_ ( cdsbus1[16], CPU_Addr[16]);
+inv_1xT I18_15_ ( cdsbus1[15], CPU_Addr[15]);
+inv_1xT I18_14_ ( cdsbus1[14], CPU_Addr[14]);
+inv_1xT I18_13_ ( cdsbus1[13], CPU_Addr[13]);
+inv_1xT I18_12_ ( cdsbus1[12], CPU_Addr[12]);
+inv_1xT I18_11_ ( cdsbus1[11], CPU_Addr[11]);
+inv_1xT I18_10_ ( cdsbus1[10], CPU_Addr[10]);
+inv_1xT I18_9_ ( cdsbus1[9], CPU_Addr[9]);
+inv_1xT I18_8_ ( cdsbus1[8], CPU_Addr[8]);
+inv_1xT I18_7_ ( cdsbus1[7], CPU_Addr[7]);
+inv_1xT I18_6_ ( cdsbus1[6], CPU_Addr[6]);
+inv_1xT I18_5_ ( cdsbus1[5], CPU_Addr[5]);
+inv_1xT I18_4_ ( cdsbus1[4], CPU_Addr[4]);
+inv_1xT I18_3_ ( cdsbus1[3], CPU_Addr[3]);
+inv_1xT I18_2_ ( cdsbus1[2], CPU_Addr[2]);
+inv_1xT I18_1_ ( cdsbus1[1], CPU_Addr[1]);
+inv_1xT I18_0_ ( cdsbus1[0], CPU_Addr[0]);
+inv_1xT I25_7_ ( WDataAck[7], net052[0]);
+inv_1xT I25_6_ ( WDataAck[6], net052[1]);
+inv_1xT I25_5_ ( WDataAck[5], net052[2]);
+inv_1xT I25_4_ ( WDataAck[4], net052[3]);
+inv_1xT I25_3_ ( WDataAck[3], net052[4]);
+inv_1xT I25_2_ ( WDataAck[2], net052[5]);
+inv_1xT I25_1_ ( WDataAck[1], net052[6]);
+inv_1xT I25_0_ ( WDataAck[0], net052[7]);
+inv_1xT I28_15_ ( cdsbus0[15], Data1[15]);
+inv_1xT I28_14_ ( cdsbus0[14], Data1[14]);
+inv_1xT I28_13_ ( cdsbus0[13], Data1[13]);
+inv_1xT I28_12_ ( cdsbus0[12], Data1[12]);
+inv_1xT I28_11_ ( cdsbus0[11], Data1[11]);
+inv_1xT I28_10_ ( cdsbus0[10], Data1[10]);
+inv_1xT I28_9_ ( cdsbus0[9], Data1[9]);
+inv_1xT I28_8_ ( cdsbus0[8], Data1[8]);
+inv_1xT I28_7_ ( cdsbus0[7], Data1[7]);
+inv_1xT I28_6_ ( cdsbus0[6], Data1[6]);
+inv_1xT I28_5_ ( cdsbus0[5], Data1[5]);
+inv_1xT I28_4_ ( cdsbus0[4], Data1[4]);
+inv_1xT I28_3_ ( cdsbus0[3], Data1[3]);
+inv_1xT I28_2_ ( cdsbus0[2], Data1[2]);
+inv_1xT I28_1_ ( cdsbus0[1], Data1[1]);
+inv_1xT I28_0_ ( cdsbus0[0], Data1[0]);
+
+endmodule

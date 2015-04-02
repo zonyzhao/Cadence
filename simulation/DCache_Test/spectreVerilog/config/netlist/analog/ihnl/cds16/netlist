@@ -1,0 +1,6 @@
+    I6 (net8 net11) inv_1x
+    I4 (I net8) inv_1x
+    I0 (net8 En Sel_0) and2
+    I1 (net11 En Sel_1) and2
+ends Decode_1to2
+// End of subcircuit definition.

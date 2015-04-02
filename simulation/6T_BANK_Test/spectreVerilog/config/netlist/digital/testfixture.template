@@ -1,0 +1,48 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Ack;
+
+
+wire [7:0]  WriteAck;
+wire [31:0]  ReadData;
+
+reg [31:0]  WriteData;
+reg [1:0]  RW;
+reg [7:0]  RD_Ack;
+reg [19:0]  A;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+cdsModule_55 top(Ack, ReadData, WriteAck, A, RD_Ack, RW, WriteData
+     ); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 

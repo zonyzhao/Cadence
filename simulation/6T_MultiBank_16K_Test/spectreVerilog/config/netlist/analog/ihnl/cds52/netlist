@@ -1,0 +1,7 @@
+    I9 (En net5) inv_1x
+    I14 (net5 net010 O_0) nor_1x
+    I12 (net5 net011 O_1) nor_1x
+    I11 (I_3 I_2 net011) nor_1x
+    I13 (I_3 I_1 net010) nor_1x
+ends Encode_4to2
+// End of subcircuit definition.

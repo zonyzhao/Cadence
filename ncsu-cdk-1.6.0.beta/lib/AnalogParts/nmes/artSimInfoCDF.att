@@ -1,0 +1,272 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "nmes"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "model"
+        ?prompt         "Model name"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('model)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "bn"
+        ?prompt         "Bulk node connection"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('bn)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "area"
+        ?prompt         "Device area"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('area)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "off"
+        ?prompt         "Device initially off"
+        ?type           "boolean"
+        ?display        "artParameterInToolDisplay('off)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vds"
+        ?prompt         "Drain source initial voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vds)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vgs"
+        ?prompt         "Gate source initial voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vgs)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "Vbs"
+        ?prompt         "Bulk source initial voltage"
+        ?units          "voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('Vbs)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "m"
+        ?prompt         "Multiplier"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('m)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "region"
+        ?prompt         "Estimated operating region"
+        ?defValue       "triode"
+        ?choices        '("off" "triode" "sat" "subth")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('region)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "mode"
+        ?prompt         "Linearized Region"
+        ?defValue       "No"
+        ?choices        '("Yes" "No")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('mode)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dataFile"
+        ?prompt         "S-parameter data file"
+        ?defValue       "bjt"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dataFile)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "w"
+        ?prompt         "Width"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('w)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "dtemp"
+        ?prompt         "Temperature difference"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('dtemp)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wgate"
+        ?prompt         "Gate width"
+        ?units          "lengthMetric"
+        ?defValue       "1u"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('wgate)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "nFingers"
+        ?prompt         "Number of Fingers"
+        ?defValue       1
+        ?type           "int"
+        ?display        "artParameterInToolDisplay('nFingers)"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil
+        propMapping       nil
+        netlistProcedure  ansCdlCompPrim
+        componentName     nmes
+        termOrder         (D G S)
+        namePrefix        "J"
+        modelName         "NJ"
+    )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        netlistProcedure  ansLvsCompPrim
+        componentName     nmes
+        termOrder         (D G S progn(bn))
+        deviceTerminals   "D G S B"
+        permuteRule       "(p D S)"
+        namePrefix        "Q"
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (area off vds vgs vbs)
+        otherParameters   (model bn)
+        componentName     mesfet
+        termOrder         (D G S progn(bn))
+        propMapping       (nil vds Vds vgs Vgs vbs Vbs)
+        namePrefix        "B"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->hpmns = '( nil
+        netlistProcedure  ansHpmnsCompPrim
+        componentName     (expr (iPar 'model))
+        otherParameters   (model)
+        instParameters    (model w n)
+        propMapping       (nil w wgate n nFingers)
+        typeMapping       (nil model model)
+        termOrder         (D G S)
+        current           port
+        termMapping       (nil D d G g S s)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        netlistProcedure  ansSpiceDevPrim
+        instParameters    (Vds Vgs Vbs area w l off m dtemp)
+        otherParameters   (model bn)
+        componentName     hmesfet
+        termOrder         (D G S progn(bn))
+        propMapping       (nil vds Vds vgs Vgs vbs Vbs)
+        namePrefix        "J"
+        current           port
+        dcSens            t
+        acSens            t
+    )
+    cdfId->simInfo->libra = '( nil
+        netlistProcedure  ansLibraCompPrim
+        ver4NetProc       ansLibra4CompPrim
+        instParameters    (file model area)
+        inst4Parameters   (area model mode temp)
+        otherParameters   (mode)
+        propMapping       (nil file dataFile)
+        typeMapping       (nil model model mode mode file fileName temp temp)
+        componentName     GAASFET
+        current           port
+        termOrder         (G D S)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->mharm = '( nil
+        propMapping       nil
+        netlistProcedure  ansMharmCompPrim
+        componentName     (expr caseq((uwsimToolAnalysisType ((armGetNetlist 'toolDpl)->toolId)) (linear 'two) (nonLinear 'fet)))
+        otherParameters   (area model dataFile)
+        instParameters    ((expr caseq((uwsimToolAnalysisType ((armGetNetlist 'toolDpl)->toolId)) (linear '(dataFile)) (nonLinear '(area model name)))))
+        typeMapping       (nil dataFile fileName model model name instName)
+        termOrder         (G D S)
+        namePrefix        "A"
+    )
+    cdfId->simInfo->spectre = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreDevPrim
+        otherParameters   (model)
+        instParameters    (area m region)
+        termOrder         (D G S)
+        termMapping       (nil D d G g S s)
+        namePrefix        "B"
+        componentName     gaas
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpectreSDevPrim
+        otherParameters   (bn model region)
+        instParameters    (area m)
+        termOrder         (D G S)
+        termMapping       (nil D d G g S s)
+        namePrefix        "B"
+        componentName     gaas
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->modelLabelSet           = "vto lambda level"
+    cdfId->opPointLabelSet         = "id vgs vds"
+    cdfId->paramLabelSet           = "-model Vds Vgs"
+    cdfSaveCDF( cdfId )
+)

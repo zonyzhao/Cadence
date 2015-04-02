@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+NCSU_Digital_Parts/nfet type="cell"
+NCSU_Digital_Parts/nfet_elec type="cell"
+NCSU_Digital_Parts/pfet type="cell"
+NCSU_Digital_Parts/pfet_elec type="cell"
+NCSU_Digital_Parts/rnmos1 type="cell"
+NCSU_Digital_Parts/rpmos1 type="cell"
+NCSU_Digital_Parts/tx_gate type="cell"

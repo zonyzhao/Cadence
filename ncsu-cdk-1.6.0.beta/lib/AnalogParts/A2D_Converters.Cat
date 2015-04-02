@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+NCSU_Analog_Parts/MOS_a2d type="cell"
+NCSU_Analog_Parts/MOS_d2a type="cell"
+NCSU_Analog_Parts/TTL_a2d type="cell"
+NCSU_Analog_Parts/TTL_d2a type="cell"

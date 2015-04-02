@@ -1,0 +1,156 @@
+// Library - 16nm_Tests, Cell - 6T_MultiBank_16K_Test, View - schematic
+// LAST TIME SAVED: Mar  7 22:21:47 2015
+// NETLIST TIME: Mar  8 13:57:19 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_99 ( RData, ReadAck, WDataAck, WriteAck, R_Address,
+     ReadEn, WData, W_Address, WriteEn );
+
+output  ReadAck, WriteAck;
+
+input  ReadEn, WriteEn;
+
+output [15:0]  WDataAck;
+output [31:0]  RData;
+
+input [31:0]  WData;
+input [11:0]  W_Address;
+input [11:0]  R_Address;
+
+// Buses in the design
+
+wire  [11:0]  R_AddressT;
+
+wire  [31:0]  cdsbus0;
+
+wire  [15:0]  cdsbus1;
+
+wire  [15:0]  WDataAckT;
+
+wire  [31:0]  WDataT;
+
+wire  [11:0]  W_AddressT;
+
+wire  [11:0]  cdsbus2;
+
+wire  [31:0]  cdsbus3;
+
+wire  [11:0]  cdsbus4;
+
+wire  [31:0]  RDataT;
+
+// begin interface element definitions
+
+wire cdsNet2;
+wire cdsNet0;
+reg mixedNet99999;
+reg mixedNet99998;
+reg mixedNet99997;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99988;
+reg mixedNet99987;
+reg mixedNet99986;
+reg mixedNet99985;
+reg mixedNet99984;
+reg mixedNet99983;
+reg mixedNet99982;
+reg mixedNet99981;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99978;
+reg mixedNet99977;
+reg mixedNet99969;
+reg mixedNet99968;
+reg mixedNet99967;
+reg mixedNet99960;
+reg mixedNet99958;
+reg mixedNet99951;
+reg mixedNet99950;
+reg mixedNet99949;
+reg mixedNet99948;
+reg mixedNet99945;
+reg mixedNet99940;
+reg mixedNet99939;
+reg mixedNet99938;
+reg mixedNet99937;
+reg mixedNet99935;
+reg mixedNet99934;
+reg mixedNet99933;
+reg mixedNet99932;
+reg mixedNet99931;
+reg mixedNet99930;
+reg mixedNet99929;
+reg mixedNet99927;
+reg mixedNet99926;
+reg mixedNet99921;
+reg mixedNet99920;
+reg mixedNet99919;
+reg mixedNet99918;
+reg mixedNet99917;
+reg mixedNet99916;
+reg mixedNet99914;
+reg mixedNet99912;
+reg mixedNet99907;
+assign cdsbus1[8] = mixedNet99999;
+assign cdsbus0[30] = mixedNet99998;
+assign cdsbus0[31] = mixedNet99997;
+assign cdsNet2 = mixedNet99995;
+assign cdsNet0 = mixedNet99994;
+assign cdsbus1[15] = mixedNet99993;
+assign cdsbus0[6] = mixedNet99988;
+assign cdsbus0[7] = mixedNet99987;
+assign cdsbus0[8] = mixedNet99986;
+assign cdsbus0[9] = mixedNet99985;
+assign cdsbus0[10] = mixedNet99984;
+assign cdsbus0[11] = mixedNet99983;
+assign cdsbus0[12] = mixedNet99982;
+assign cdsbus0[19] = mixedNet99981;
+assign cdsbus0[20] = mixedNet99980;
+assign cdsbus0[21] = mixedNet99979;
+assign cdsbus0[22] = mixedNet99978;
+assign cdsbus0[5] = mixedNet99977;
+assign cdsbus0[2] = mixedNet99969;
+assign cdsbus0[3] = mixedNet99968;
+assign cdsbus0[4] = mixedNet99967;
+assign cdsbus0[1] = mixedNet99960;
+assign cdsbus0[0] = mixedNet99958;
+assign cdsbus1[11] = mixedNet99951;
+assign cdsbus1[10] = mixedNet99950;
+assign cdsbus0[24] = mixedNet99949;
+assign cdsbus1[9] = mixedNet99948;
+assign cdsbus0[29] = mixedNet99945;
+assign cdsbus0[26] = mixedNet99940;
+assign cdsbus0[23] = mixedNet99939;
+assign cdsbus1[14] = mixedNet99938;
+assign cdsbus1[12] = mixedNet99937;
+assign cdsbus0[28] = mixedNet99935;
+assign cdsbus0[27] = mixedNet99934;
+assign cdsbus0[18] = mixedNet99933;
+assign cdsbus0[25] = mixedNet99932;
+assign cdsbus0[17] = mixedNet99931;
+assign cdsbus0[16] = mixedNet99930;
+assign cdsbus0[15] = mixedNet99929;
+assign cdsbus0[14] = mixedNet99927;
+assign cdsbus0[13] = mixedNet99926;
+assign cdsbus1[4] = mixedNet99921;
+assign cdsbus1[5] = mixedNet99920;
+assign cdsbus1[6] = mixedNet99919;
+assign cdsbus1[7] = mixedNet99918;
+assign cdsbus1[3] = mixedNet99917;
+assign cdsbus1[2] = mixedNet99916;
+assign cdsbus1[1] = mixedNet99914;
+assign cdsbus1[0] = mixedNet99912;
+assign cdsbus1[13] = mixedNet99907;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_MultiBank_16K_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

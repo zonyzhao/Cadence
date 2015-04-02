@@ -1,0 +1,607 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "ccvs"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "vref"
+        ?prompt         "Name of voltage source"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('vref)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hgain"
+        ?prompt         "Transresistance"
+        ?units          "resistance"
+        ?defValue       "1"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('hgain)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ic"
+        ?prompt         "Initial condition"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ic)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "csType"
+        ?prompt         "Type"
+        ?defValue       "linear"
+        ?choices        '("linear" "pwl" "delay")
+        ?type           "cyclic"
+        ?display        "artParameterInToolDisplay('csType)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hhgain"
+        ?prompt         "Transresistance"
+        ?units          "resistance"
+        ?defValue       "1"
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"linear\""
+        ?display        "artParameterInToolDisplay('hhgain)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "maxv"
+        ?prompt         "Maximum output voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"linear\""
+        ?display        "artParameterInToolDisplay('maxv)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "minv"
+        ?prompt         "Minimum output voltage"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"linear\""
+        ?display        "artParameterInToolDisplay('minv)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "scale"
+        ?prompt         "Scale factor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('scale)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc1"
+        ?prompt         "Temperature coefficient 1"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "tc2"
+        ?prompt         "Temperature coefficient 2"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('tc2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "habs"
+        ?prompt         "Absolute value"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"linear\""
+        ?display        "artParameterInToolDisplay('habs)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "hic"
+        ?prompt         "Initial condition"
+        ?units          "current"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"linear\" || cdfgData->csType->value == \"pwl\""
+        ?display        "artParameterInToolDisplay('hic)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "delta"
+        ?prompt         "Delta"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\""
+        ?display        "artParameterInToolDisplay('delta)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "htd"
+        ?prompt         "Delay time"
+        ?units          "time"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"delay\""
+        ?display        "artParameterInToolDisplay('htd)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "xypairs"
+        ?prompt         "Number of controlling pairs"
+        ?defValue       2
+        ?type           "int"
+        ?use            "cdfgData->csType->value == \"pwl\""
+        ?display        "artParameterInToolDisplay('xypairs)"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x1"
+        ?prompt         "Controlling Volt 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 1"
+        ?display        "artParameterInToolDisplay('x1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x2"
+        ?prompt         "Controlling Volt 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 2"
+        ?display        "artParameterInToolDisplay('x2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x3"
+        ?prompt         "Controlling Volt 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 3"
+        ?display        "artParameterInToolDisplay('x3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x4"
+        ?prompt         "Controlling Volt 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 4"
+        ?display        "artParameterInToolDisplay('x4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x5"
+        ?prompt         "Controlling Volt 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 5"
+        ?display        "artParameterInToolDisplay('x5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x6"
+        ?prompt         "Controlling Volt 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 6"
+        ?display        "artParameterInToolDisplay('x6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x7"
+        ?prompt         "Controlling Volt 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 7"
+        ?display        "artParameterInToolDisplay('x7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x8"
+        ?prompt         "Controlling Volt 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 8"
+        ?display        "artParameterInToolDisplay('x8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x9"
+        ?prompt         "Controlling Volt 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 9"
+        ?display        "artParameterInToolDisplay('x9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x10"
+        ?prompt         "Controlling Volt 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 10"
+        ?display        "artParameterInToolDisplay('x10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x11"
+        ?prompt         "Controlling Volt 11"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 11"
+        ?display        "artParameterInToolDisplay('x11)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x12"
+        ?prompt         "Controlling Volt 12"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 12"
+        ?display        "artParameterInToolDisplay('x12)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x13"
+        ?prompt         "Controlling Volt 13"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 13"
+        ?display        "artParameterInToolDisplay('x13)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x14"
+        ?prompt         "Controlling Volt 14"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 14"
+        ?display        "artParameterInToolDisplay('x14)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x15"
+        ?prompt         "Controlling Volt 15"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 15"
+        ?display        "artParameterInToolDisplay('x15)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x16"
+        ?prompt         "Controlling Volt 16"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 16"
+        ?display        "artParameterInToolDisplay('x16)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x17"
+        ?prompt         "Controlling Volt 17"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 17"
+        ?display        "artParameterInToolDisplay('x17)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x18"
+        ?prompt         "Controlling Volt 18"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 18"
+        ?display        "artParameterInToolDisplay('x18)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "x20"
+        ?prompt         "Controlling Volt 20"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 20"
+        ?display        "artParameterInToolDisplay('x20)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y1"
+        ?prompt         "Corresp Element 1"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 1"
+        ?display        "artParameterInToolDisplay('y1)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y2"
+        ?prompt         "Corresp Element 2"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 2"
+        ?display        "artParameterInToolDisplay('y2)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y3"
+        ?prompt         "Corresp Element 3"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 3"
+        ?display        "artParameterInToolDisplay('y3)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y4"
+        ?prompt         "Corresp Element 4"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 4"
+        ?display        "artParameterInToolDisplay('y4)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y5"
+        ?prompt         "Corresp Element 5"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 5"
+        ?display        "artParameterInToolDisplay('y5)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y6"
+        ?prompt         "Corresp Element 6"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 6"
+        ?display        "artParameterInToolDisplay('y6)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y7"
+        ?prompt         "Corresp Element 7"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 7"
+        ?display        "artParameterInToolDisplay('y7)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y8"
+        ?prompt         "Corresp Element 8"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 8"
+        ?display        "artParameterInToolDisplay('y8)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y9"
+        ?prompt         "Corresp Element 9"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 9"
+        ?display        "artParameterInToolDisplay('y9)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y10"
+        ?prompt         "Corresp Element 10"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 10"
+        ?display        "artParameterInToolDisplay('y10)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y11"
+        ?prompt         "Corresp Element 11"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 11"
+        ?display        "artParameterInToolDisplay('y11)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y12"
+        ?prompt         "Corresp Element 12"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 12"
+        ?display        "artParameterInToolDisplay('y12)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y13"
+        ?prompt         "Corresp Element 13"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 13"
+        ?display        "artParameterInToolDisplay('y13)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y14"
+        ?prompt         "Corresp Element 14"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 14"
+        ?display        "artParameterInToolDisplay('y14)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y15"
+        ?prompt         "Corresp Element 15"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 15"
+        ?display        "artParameterInToolDisplay('y15)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y16"
+        ?prompt         "Corresp Element 16"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 16"
+        ?display        "artParameterInToolDisplay('y16)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y17"
+        ?prompt         "Corresp Element 17"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 17"
+        ?display        "artParameterInToolDisplay('y17)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y18"
+        ?prompt         "Corresp Element 18"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 18"
+        ?display        "artParameterInToolDisplay('y18)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "y20"
+        ?prompt         "Corresp Element 20"
+        ?defValue       ""
+        ?type           "string"
+        ?use            "cdfgData->csType->value == \"pwl\" && cdfgData->xypairs->value >= 20"
+        ?display        "artParameterInToolDisplay('y20)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auLvs = '( nil
+        propMapping       nil
+        namePrefix        ""
+    )
+    cdfId->simInfo->cdsSpice = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (vref hgain ic)
+        componentName     ccvs
+        termOrder         (PLUS MINUS)
+        namePrefix        "H"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (csType hhgain vref maxv minv scale tc1 tc2 habs hic delta htd xypairs x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x11 x12 x13 x14 x15 x16 x17 x18 x18 x20 y1 y2 y3 y4 y5 y6 y7 y8 y9 y10 y11 y12 y13 y14 y15 y16 y17 y18 y18 y20)
+        componentName     hccvs
+        termOrder         (PLUS MINUS)
+        namePrefix        "H"
+        current           port
+        termMapping       (nil PLUS "" MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        noPortDelimiter   t
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreSrcPrim_csrc
+        otherParameters   (hgain vref)
+        instParameters    (rm)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        propMapping       (nil rm hgain probe vref)
+        namePrefix        "H"
+        componentName     ccvs
+        noPortDelimiter   t
+        current           port
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSCsrcPrim
+        otherParameters   (hgain vref)
+        instParameters    (rm)
+        termOrder         (PLUS MINUS)
+        termMapping       (nil PLUS \:p MINUS "(FUNCTION minus(root(\"PLUS\")))")
+        propMapping       (nil rm hgain probe vref)
+        namePrefix        "H"
+        componentName     ccvs
+        noPortDelimiter   t
+        current           port
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfId->opPointLabelSet         = "v i"
+    cdfId->paramLabelSet           = "vref hgain ic"
+    cdfSaveCDF( cdfId )
+)

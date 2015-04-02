@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Mar 11 17:07:36 2015
+// Design library name: 16nm_Tests
+// Design cell name: 6T_SDP_BANK_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vdd! vcc!

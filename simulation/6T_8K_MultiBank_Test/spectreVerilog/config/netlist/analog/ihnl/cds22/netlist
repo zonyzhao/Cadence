@@ -1,0 +1,8 @@
+    I2 (\~R1 \~R0 net21) nand_1x
+    I5 (net21 Lack) inv_1x
+    I4 (\~R1 R1) inv_1x
+    I3 (\~R0 R0) inv_1x
+    I1 (Rack L1 \~R1) _sub112
+    I0 (L0 Rack \~R0) _sub112
+ends WCHB
+// End of subcircuit definition.

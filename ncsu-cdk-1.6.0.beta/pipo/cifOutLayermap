@@ -1,0 +1,41 @@
+# Layer map for converting from Cadence format to CIF (SCMOS processes)
+
+# Cadence layer         Cadence layer purpose      CIF layer
+# -------------         ---------------------      ---------
+metal1                  drawing                    CMF
+metal2                  drawing                    CMS
+metal3                  drawing                    CMT
+metal4                  drawing                    CMQ
+metal5                  drawing                    CMP
+metal6                  drawing                    CM6
+via                     drawing                    CVA
+via2                    drawing                    CVS
+via3                    drawing                    CVT
+via4                    drawing                    CVQ
+via5                    drawing                    CV5
+nwell                   drawing                    CWN
+pwell                   drawing                    CWP
+cwell                   drawing                    CWC
+active                  drawing                    CAA
+tactive                 drawing                    CTA
+nactive                 drawing                    CAA
+pactive                 drawing                    CAA
+cactive                 drawing                    CAA
+nselect                 drawing                    CSN
+pselect                 drawing                    CSP
+poly                    drawing                    CPG
+polycap                 drawing                    CPC
+elec                    drawing                    CEL
+cc                      drawing                    CCC
+ca                      drawing                    CCC
+cp                      drawing                    CCC
+ce                      drawing                    CCC
+glass                   drawing                    COG
+pad                     drawing                     XP
+sblock                  drawing                    CSB
+pbase                   drawing                    CBA
+ccd                     drawing                    CCD
+open                    drawing                    COP
+pstop                   drawing                    CPS
+highres                 drawing                    CHR
+metalcap                drawing                    CTM

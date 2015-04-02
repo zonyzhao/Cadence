@@ -1,0 +1,47 @@
+
+Release Notes for FreePDK15 1.0 (2014-07-22)
+(Git Repository Commit 2014-07-22)
+
+Included in this release:
+ - Technology library and display resources for Cadence Virtuoso
+     (Tested with Virtuoso 6.1.5 01/16/2012)
+ - Calibre DRC rules (Tested with Calibre 2011.3_18.12)
+ - P-Cells for the CiraNova/Synopsys PyCell
+     (Tested with PyCell 4.2.5-L2 Jun 27 2008)
+
+Planned for the next release:
+ - HSPICE models
+ - Calibre LVS and xRC rules
+
+Issues with this release:
+ - P-Cells are not ready for use.  One reason for the delay is that we 
+   have not successfully compiled the technology library with Synopsys
+   PyCell 2013.12.  We are not currently working on this issue due to 
+   lack of resources and are instead focusing on LVS/xRC rules.  The P-Cells
+   included with this kit are intended rather to illustrate the current
+   status of the code and provide a starting point for someone to begin
+   debugging.
+ - Design rules are subject to change.  We are iterating with NanGate and
+   Mentor Graphics on design rules and anticipate another release later
+   this year.  A summary of the issues we are currently considering can
+   found by running DRC on the SDFFRNQ_X1 cell from the NanGate 15nm Open
+   Cell Library:
+
+    Rule Name  Description                                     Result Count
+    ---------  ---------------------------------------------   ------------
+    ACT.5      Horizontal Spacing of ACT                                  2
+    AIL2.3     Minimum spacing between AIL2 and GATE[A|B]                 2
+    AIL2.5     Minimum vertical overlap of AIL1 and AIL2                 15
+    AIL2.10    Vertical spacing of AIL2 and AIL1 on different net         9
+    GIL.8      Minumum vertical spacing of GIL to AIL2                    4
+    V0.9       Minimum space of V0 and GIL on different net              17
+    M1.3       Maximum length of M1[A|B] for wires w/ min width 28nm      2
+    M1.8,9     Minumum spacing of M1[A|B]                                 5
+    M1.15,16   M1[A|B] minimum spacing to M1[B|A]                        16
+    MINT.3     Maximum length of MINTn[A|B] for wires w/ min width 28nm   2
+
+    Some of these violations may be fixed through further clarification of
+    each rule and modification of the calibre rules.  Others may result in 
+    small chances to rule values.
+
+

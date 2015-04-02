@@ -1,0 +1,242 @@
+// Vermix stimulus outfile.
+// Default verimix stimulus. 
+integer outfile;
+
+integer seed;
+integer vdd;
+integer i;
+
+real start;
+real delay;
+initial begin
+	seed=5;
+	vdd=500;
+	   	
+	outfile=$fopen({"/tmp2/Add32_v", vdd, "_s", seed,".csv"});
+
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+   	cf = 1'b0;		    ct = 1'b0;
+   	
+	#2000 //wait 2ns, measure leakage
+
+//all false
+	start=$time;
+   	at[31:0] = 32'h00000000; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'h00000000; bf[31:0] = ~bt[31:0];
+    	ct = 1'b0;  		 cf=~ct;   
+    	
+	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);   	
+
+//alltrue
+	start=$time;
+	at[31:0] = 32'hffffffff; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hffffffff; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//fffffffe + ci
+   	at[31:0] = 32'hfffffffe; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hfffffffe; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//AA+55+ci
+    	at[31:0] = 32'hAAAAAAAA; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'h55555555; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//555+555 + ci
+    	at[31:0] = 32'h55555555; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'h55555555; bf[31:0] = ~bt[31:0];
+    	ct = 1'b0;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//AA+AA+ci
+    	at[31:0] = 32'hAAAAAAAA; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hAAAAAAAA; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+  	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//fffe + fffe +ci
+   	at[31:0] = 32'hfffffffe; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hfffffffe; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+    	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+// all true
+   	at[31:0] = 32'hffffffff; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hffffffff; bf[31:0] = ~bt[31:0];
+    	ct = 1'b0;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//55+55+ci
+    	at[31:0] = 32'h55555555; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'h55555555; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//AA+AA
+    	at[31:0] = 32'hAAAAAAAA; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hAAAAAAAA; bf[31:0] = ~bt[31:0];
+    	ct = 1'b0;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+  	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+
+   	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+// 55 + AA + ci
+    	at[31:0] = 32'h55555555; af[31:0] = ~at[31:0];
+    	bt[31:0] = 32'hAAAAAAAA; bf[31:0] = ~bt[31:0];
+    	ct = 1'b1;  		 cf=~ct;   
+
+        start=$time;
+    	wait(Req);  
+	delay = $time - start; 
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//null
+   	af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   	bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  	cf = 1'b0;		 ct = 1'b0;
+   
+	start=$time; 
+	wait(~Req);  
+	delay=$time-start; 	
+	$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+//main loop	
+	repeat (1000)  begin
+		at[31:0] = $random(seed); af[31:0] = ~at[31:0];
+    		bt[31:0] = $random; bf[31:0] = ~bt[31:0];
+    		ct = $random;  		 cf=~ct;   
+        	start=$time; wait(Req);  
+		delay = $time - start; 
+		$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+
+
+   		af[31:0] = 32'h00000000; at[31:0] = 32'h00000000;
+   		bf[31:0] = 32'h00000000; bt[31:0] = 32'h00000000;
+  		cf = 1'b0;		 ct = 1'b0;
+
+   		start=$time; wait(~Req);  delay=$time-start; 	
+		$fdisplay(outfile, "%h, %h, %h, %h, %b, %b, %h, %h, %b, %b, %t %t", at, af, bt, bf,  ct, cf,  st, sf,  dt, df, $time, delay);
+	end
+$finish;
+end
+

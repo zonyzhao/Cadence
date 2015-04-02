@@ -1,0 +1,5 @@
+DEFINE analogLib $CDS/ic/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE US_8ths   $CDS/ic/tools/dfII/etc/cdslib/sheets/US_8ths
+DEFINE basic     $CDS/ic/tools/dfII/etc/cdslib/basic
+DEFINE cdsDefTechLib $CDS/ic/tools/dfII/etc/cdsDefTechLib
+DEFINE NCSU_TechLib_FreePDK15  $PDK_DIR/cdslib/NCSU_TechLib_FreePDK15

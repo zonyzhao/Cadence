@@ -1,0 +1,18 @@
+    M5 (Y D vdd! vdd!) pfet w=90n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M4 (Y C vdd! vdd!) pfet w=90n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M1 (Y B vdd! vdd!) pfet w=90n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M0 (Y A vdd! vdd!) pfet w=90n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M7 (net23 D 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M6 (net25 C net23 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M3 (net24 B net25 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+    M2 (Y A net24 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n ld=105n ls=105n m=1 region=sat degradation=no
+ends nand4_1x
+// End of subcircuit definition.

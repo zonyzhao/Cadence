@@ -1,0 +1,10 @@
+# re-open that database
+db_open foo
+
+# output the results of the characterization as a .alf file
+db_output -r foo.alf.rep -alf foo.alf -p typical
+
+# output the results of the characterization as a .v file
+db_verilog -r foo.v 
+db_close
+exit

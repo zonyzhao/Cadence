@@ -1,0 +1,24 @@
+ic I17.I0.I1.I7.I0.Qb=0 I17.I0.I1.I7.I0.Q=vdd \
+    I21.I0.I0.I0.I0.I0.I1.I0.Q0=vdd I21.I0.I0.I0.I0.I0.I1.I0.Q1=0 \
+    WriteEnable=0 ReadEnable=0 net074=0 net016=0 AckT=0 net070=0 net071=0 \
+    net0105=0 net019=0 net047=0 net069=0 net0102=0 net0133=0 net056=0 \
+    net068=0 net095=0 net097=0 net090=0 net089=0 L1RE=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=10n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save I34L1RAck I34L1RE I34L1RdRegAck I34L1RdRegReq I34L1WBRegAck \
+    I34L1WBRegReq I34OutFIFOAck I34OutFIFOReq I34ReadFromL1Ack \
+    I34ReadFromL1Req I34ReadWBFromL1Ack I34ReadWBFromL1Req I32L2DataOutReq \
+    I32L2DataOutTagAck I32TagWAck I32TagWDataSel I32TagWE I32TagWrRegAck \
+    I32TagWrRegReq I32WriteToL1MissReq I32WriteToL1MissTagAck 
+saveOptions options save=allpub

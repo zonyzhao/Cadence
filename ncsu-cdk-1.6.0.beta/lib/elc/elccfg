@@ -1,0 +1,6 @@
+#Setup stuff for Encounter Library Characterizer
+
+SETUP = "./setup.ss"
+PROCESS = "typical"
+MODEL = "./PTM180nm_bulk.scs"
+SUBCKT = "stdlib_netlist.scs"

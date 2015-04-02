@@ -1,0 +1,3 @@
+"nmos" is a three-terminal NFET representation. The bulk node is
+initially set to "gnd!" but is modifiable from the property list. If you
+want a four-terminal NFET, use "nmos4".

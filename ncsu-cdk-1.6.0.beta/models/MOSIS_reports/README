@@ -1,0 +1,24 @@
+This directory contains wafer parametric data as downloaded from the
+MOSIS web site (http://www.mosis.org).
+
+n91w-params.txt     ORBIT_SCNA2
+n87r.prm            AMI_CWL
+n88w-params.txt     HP_GMOS10QA
+n88x-params.txt     HP_CMOS26G
+n88y-params.txt     TSMC_CMOS035
+n88z-params.txt     AMI_ABN
+n8ag-params.txt     HP_AMOS14TB
+n8bn-params.txt     AMI_C5N
+n94s-params.txt     TSMC_CMOS025
+
+The XL parameter has been modified as follows (to account for drawn vs.
+manufactured gate length changes -- thinox devices only):
+
+AMI 0.5um (SCN_SUBM): XL = 0.0
+AMI 1.6um (SCN): XL = 0.0
+HP 0.35um (SCN4M_SUBM): XL = -0.05
+HP 0.5um (SCN3M_SUBM): XL = -0.10
+TSMC 0.18um: Not available
+TSMC 0.25um (SCN5M_SUBM): XL = -0.03
+TSMC 0.35um (SCN4M_SUBM): XL = -0.02 
+

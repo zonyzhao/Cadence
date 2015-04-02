@@ -1,0 +1,93 @@
+********************************************************************************
+Program:	@(#)$CDS: cdb2oa.exe version 6.1.1 01/18/2007 12:28 (cds126047) $
+		sub-version IC6.1.1.64
+Started at:	Jul 12 09:57:21 2007
+Hierarchy:	/local/ic611
+User Name:	wdavis
+Host Name:	discoduck
+Options:	-cdslibpath /local/home/wdavis/NCSU_CDK/cdssetup/cds.lib -lib 
+          basic 
+Directory:	/local/home/wdavis/NCSU_CDK/cdb2oa
+Log File:	/afs/unity.ncsu.edu/users/w/wdavis/cdb2oa.log
+
+	Copyright (C) 2001-2005 Cadence Design Systems, Inc. All rights reserved  worldwide
+********************************************************************************
+
+
+ERROR   (CDBOA-602): Cellview ../lib/basic/FCON/package has an obsolete view type
+                     and will not be translated.
+
+ERROR   (CDBOA-602): Cellview ../lib/basic/MCON/package has an obsolete view type
+                     and will not be translated.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/shilo. These instances will not be visible
+                     on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/timemill. These instances will not be     
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/pathmill. These instances will not be     
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/watscad. These instances will not be      
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/sage. These instances will not be visible 
+                     on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/spice. These instances will not be visible
+                     on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/powrmill. These instances will not be     
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/autoLayout. These instances will not be   
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/hspice. These instances will not be       
+                     visible on OpenAccess.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     basic/nlpglobals/hilo. These instances will not be visible 
+                     on OpenAccess.
+
+
+********************************************************************************
+Finished at:   Jul 12 09:57:33 2007
+
+75 cells and 146 cellviews were translated from library 'basic' in 12.2s.
+
+Message Summary:
+
+ERROR   (CDBOA-602): Cellview <path>/<name> has an obsolete view type and will   
+                     not be translated.
+                     
+                      Generated 2 times. The translator has encountered a       
+                     cellview with a view type that is obsolete. It is likely   
+                     that the cellview was generated in a release prior to IC   
+                     4.4.6, and that the view type and the software used to     
+                     generate it are no longer supported. Check the cellview in 
+                     question and, if it is still required, use the Cadence     
+                     approved migration process to bring it into the current    
+                     release.
+
+WARNING (CDBOA-641): One or more unplaced instances were found in the cellview 
+                     <name>.
+                     
+                      Generated 10 times. Any instance on CDB with the placement
+                     status "unplaced" is not visible on OpenAccess. To change  
+                     the placement status, use the -resetplacestatus option with
+                     the cdb2oa command.
+
+********************************************************************************
+
+

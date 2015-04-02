@@ -1,0 +1,10 @@
+    I3 (Ack_3 In_4of16_15 In_4of16_14 In_4of16_13 In_4of16_12 In_Ack_3 \
+        Out_4of16_15 Out_4of16_14 Out_4of16_13 Out_4of16_12) _sub194
+    I2 (Ack_2 In_4of16_11 In_4of16_10 In_4of16_9 In_4of16_8 In_Ack_2 \
+        Out_4of16_11 Out_4of16_10 Out_4of16_9 Out_4of16_8) _sub194
+    I1 (Ack_1 In_4of16_7 In_4of16_6 In_4of16_5 In_4of16_4 In_Ack_1 \
+        Out_4of16_7 Out_4of16_6 Out_4of16_5 Out_4of16_4) _sub194
+    I0 (Ack_0 In_4of16_3 In_4of16_2 In_4of16_1 In_4of16_0 In_Ack_0 \
+        Out_4of16_3 Out_4of16_2 Out_4of16_1 Out_4of16_0) _sub194
+ends _sub195
+// End of subcircuit definition.

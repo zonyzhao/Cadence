@@ -1,0 +1,26 @@
+    M10 (Y F vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M8 (Y E vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+    M5 (Y D vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+    M4 (Y C vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+    M1 (Y B vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+    M0 (Y A vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+    M11 (net031 F 0 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M9 (net027 E net031 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M7 (net23 D net027 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M6 (net25 C net23 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M3 (net24 B net25 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1 region=sat
+    M2 (Y A net24 0) nfet w=160n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1 region=sat
+ends nand6_1x
+// End of subcircuit definition.

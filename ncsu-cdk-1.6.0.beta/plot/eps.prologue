@@ -1,0 +1,506 @@
+%%BeginProlog
+%%DocumentFonts:Courier
+%******************************************************************************
+% 
+% The bitmap image should be preceed this file.
+%
+% This should be the first line: %!PS-Adobe-2.0 EPSF-1.2
+% There should also be a BBox:   %%BoundingBox:0 0 300 300
+%
+% Cadence Design Systems -- Supports Both Level 1 and Level 2 Printers
+%
+% EPS Prologue -- Version 5.1.1
+% 
+%******************************************************************************
+/gis  { 
+  mark
+  save
+  newpath
+
+  72 resolution div
+  dup
+  scale
+
+  /stippleArray 10 array def
+    stippleArray
+     dup    0  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    1  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    2  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    3  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    4  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    5  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    6  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    7  <00000000000000000000000000000000
+                00000000000000000000000000000000> put
+     dup    8  <08080404020201018080404020201010
+	        08080404020201018080404020201010> put
+	    9  <08081414222241418080414122221414
+		08081414222241418080414122221414> put
+
+
+
+  /newFont 10 dict def 
+  newFont begin
+
+    /FontType 3 def
+    /FontMatrix [1 0 0 1 0 0] def
+     /FontBBox [0 0 1 1] def
+
+    /Encoding 256 array def
+    0 1 255 {Encoding exch /.notdef put} for
+    Encoding
+      dup 48 /0  put
+      dup 49 /1  put
+      dup 50 /2  put
+      dup 51 /3  put
+      dup 52 /4  put
+      dup 53 /5  put
+      dup 54 /6  put
+      dup 55 /7  put
+      dup 56 /8  put
+          57 /9  put
+
+    /BuildChar {
+        /char exch def
+        /fontdict exch def
+	/charname fontdict /Encoding get char get def
+
+         1 0 setcharwidth
+
+          16 16 true
+          [16 0 0 -16 -.5 15.50]
+           stippleArray char 48 sub 1 getinterval cvx
+          imagemask
+    } def
+
+  end
+  /StippleFont newFont definefont 66 scalefont setfont
+  /fillChar 0 def
+
+  /ellipsedict 8 dict def
+  ellipsedict /mtrx matrix put
+
+  /xformdict 6 dict def
+  xformdict /xformmtrx matrix put
+ 
+  /rt 0 def
+  /color     0 def
+
+  /lineRed   0 def
+  /lineGreen 0 def
+  /lineBlue  0 def
+
+  /fillRed   0 def
+  /fillGreen 0 def
+  /fillBlue  0 def
+
+  /hatchSet 0 def
+  gsave
+
+  } def
+
+/cdsLevel2 /languagelevel where {pop languagelevel} {1} ifelse 2 ge def
+
+/cdsColor cdsLevel2 not {
+                          false
+                          /colorimage where {pop pop true} if
+                        } {
+	                  true
+                        } ifelse
+def
+
+/gfs  {
+    grestore
+    showpage
+    restore
+    cleartomark
+  } def
+/pap {
+    /resolution exch def
+    /pageHeight exch def
+    /pageWidth exch def
+
+  } bind def
+/rotp  {
+  /rt 90 def
+  grestore
+} def
+/clwin  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    rt 90 eq
+      { 
+        x2 0 translate
+        rt rotate
+	/rt 0 def
+	gsave
+      } if
+   
+    grestore
+    gsave
+    newpath 
+    x1 y1 moveto
+    x2 y1 lineto 
+    x2 y2 lineto 
+    x1 y2 lineto 
+    closepath
+    clip
+} def
+/bblineto {
+  dup dup   /cury exch def
+  miny lt {/miny exch def}
+    {dup maxy gt { /maxy exch def }
+           {pop } ifelse } ifelse
+  dup dup
+  minx lt {/minx exch def}
+    {dup maxx gt { /maxx exch def }
+           { pop } ifelse } ifelse
+  cury lineto
+} def
+/bbmoveto {
+  dup dup
+  /miny exch def /maxy exch def /cury exch def
+  dup dup
+  /minx exch def /maxx exch def
+  cury moveto
+} def
+/ellipse 
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+  } def
+/dls  {
+  gsave
+  newpath
+  moveto
+  rlineto
+  setLineColor
+  stroke
+  grestore
+} def
+/dlt  {
+  newpath
+  gsave
+  setLineColor
+  moveto 
+} def
+/dslt  { 
+  newpath
+  gsave
+  setLineColor
+  moveto 
+} def
+/dlv  { 
+  rlineto 
+} def
+/dle  { 
+  stroke
+  grestore
+} def
+/mps {
+  newpath
+  moveto 
+} def
+/dbu  { 
+    setLineColor
+    newpath
+    moveto
+    dup 0 rlineto
+    0 3 -1 roll
+    rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  } def
+/dbf  { 
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    gsave
+      newpath
+      x1 y1 bbmoveto
+      x2 y1 bblineto
+      x2 y2 bblineto
+      x1 y2 bblineto
+      closepath
+      clip fillpath
+    grestore
+  } def
+
+/dbs  {
+    /y2 exch def
+    /x2 exch def
+    /y1 exch def
+    /x1 exch def
+    gsave
+      newpath 
+      x1 y1 moveto
+      x2 y1 lineto 
+      x2 y2 lineto 
+      x1 y2 lineto 
+      closepath
+      setFillColor
+      fill 
+      stroke 
+    grestore 
+} def
+/dpb { gsave
+      newpath bbmoveto
+} def
+/dpu  { 
+        closepath
+        setLineColor
+        stroke
+      grestore
+} def
+/dpf  { 
+       closepath
+       clip fillpath 
+     grestore
+} def
+/dps  { 
+       closepath
+       setFillColor
+       fill stroke
+     grestore
+} def
+/dpv  { 
+    bblineto
+} def
+/dcu  { 
+    /radius exch def
+    /y exch def
+    /x exch def
+
+    gsave
+      newpath 
+      x y radius radius 0 360 ellipse
+      setLineColor
+      stroke
+    grestore
+} def
+/dcf  { 
+    /radius exch def
+    /y exch def
+    /x exch def
+    /minx x radius sub def
+    /miny y radius sub def
+    /maxx x radius add def
+    /maxy y radius add def
+    gsave
+      newpath 
+      x y radius radius 0 360 ellipse
+      clip fillpath
+    grestore
+  } def
+/dcs  { 
+    /radius exch def
+    /y exch def
+    /x exch def
+
+    gsave
+      newpath 
+      x y radius radius 0 360 ellipse
+      setFillColor
+      fill stroke
+    grestore 
+  } def
+/delu  { 
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+    
+    newpath
+      x y xradius yradius 0 360 ellipse 
+      gsave
+      setFillColor
+      stroke
+    grestore 
+  } def
+/delf  { 
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+    /minx x xradius sub def
+    /miny y yradius sub def
+    /maxx x xradius add def
+    /maxy y yradius add def
+    
+    gsave
+      newpath
+      x y xradius yradius 0 360 ellipse 
+      clip fillpath
+    grestore
+  } def
+/dels  { 
+    /yradius exch def
+    /xradius exch def
+    /y exch def
+    /x exch def
+
+    gsave
+      newpath
+      x y xradius yradius 0 360 ellipse 
+      setFillColor
+      fill
+      stroke 
+    grestore 
+} def
+/dau  { gsave
+          newpath ellipse 
+          setLineColor
+          stroke 
+        grestore
+} def
+/setlinedash {
+    1 index length 11 gt
+    {exch dup length 11 sub 11 getinterval exch } if
+    setdash
+} def
+
+/lpb    { 
+    pop
+    [
+    /offset 0 def
+    /offcount 0 def
+    /oncount 0 def
+} def
+
+/lpon  { 
+    /oncount exch def
+    pop
+    oncount
+} def
+
+/lpoff  { 
+    /offcount exch def
+    pop
+    oncount 0 eq
+    {/offset offcount def }
+    { offcount } ifelse
+} def
+
+/lpe  { 
+    /linewidth exch def
+    pop
+    offset 0 ne
+    { offset } if ] 0 setlinedash
+    linewidth setlinewidth
+} def
+
+/sls    { pop } def
+
+/ssls  { [] 0 setdash 
+          1 setlinewidth
+} def
+/fillpath  {    
+    setFillColor
+    /str 1 string def
+    /minx minx 66 div
+    truncate 66 mul def
+    /miny miny 66 div
+    truncate 66 mul def
+
+          /fillLine maxx minx sub cvi 66 idiv 1 add string def
+
+          0 1 fillLine length 1 sub {
+            fillLine exch fillChar str cvs cvi 48 add put
+          } for
+
+          minx
+          miny 66 maxy
+            { exch dup 3 -1 roll moveto fillLine show
+          } for pop
+    hatchSet 1 eq {stroke} if
+} def
+
+/fds  { pop /currchar 30 def} def
+/fdf   {
+    exch
+    /char exch def
+    /stipple stippleArray char get def
+    stipple exch currchar
+    exch putinterval
+    stippleArray char stipple put
+    /currchar currchar 2 sub def
+  } def
+/fde  { 
+    pop
+  } def
+/sfp  {
+    /fillChar exch def
+    /hatchSet 0 def
+    fillChar 8 ge {/hatchSet 1 def} if
+    /StippleFont findfont 66 scalefont setfont
+  } def
+
+  /setLineColor {
+    cdsLevel2 cdsColor or {
+      lineRed    1000 div
+      lineGreen  1000 div
+      lineBlue   1000 div
+      setrgbcolor } if
+  } def
+
+  /setFillColor {
+    cdsLevel2 cdsColor or {
+      fillRed    1000 div
+      fillGreen  1000 div
+      fillBlue   1000 div
+      setrgbcolor }
+      { 0 setgray } ifelse
+  } def
+
+  /slc {
+    /lineBlue  exch def
+    /lineGreen exch def
+    /lineRed   exch def
+    /color 1 def
+    lineBlue 1000 eq {lineGreen 1000 eq {lineRed 1000 eq {
+      /lineBlue  0 def
+      /lineGreen 0 def
+      /lineRed   0 def
+    } if} if} if
+  } def
+
+  /sfc {
+    /fillBlue  exch def
+    /fillGreen exch def
+    /fillRed   exch def
+    /color 1 def
+    fillBlue 1000 eq {fillGreen 1000 eq {fillRed 1000 eq {
+      /fillBlue  0 def
+      /fillGreen 0 def
+      /fillRed   0 def
+    } if} if} if
+  } def
+
+%*****************************
+%
+% End of Cadence eps.prologue
+%
+%*****************************
+%%EndProlog

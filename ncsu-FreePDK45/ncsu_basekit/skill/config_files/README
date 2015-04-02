@@ -1,0 +1,5 @@
+../cadence/local/skill/config_files
+
+This directory contains configuration files that are loaded by the site
+.cdsinit file. They are used to set up the default configuration of the
+various editors.

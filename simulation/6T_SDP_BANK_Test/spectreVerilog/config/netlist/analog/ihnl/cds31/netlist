@@ -1,0 +1,24 @@
+    I14 (amid_0 bmid_0 Vpass_0) or2_1x
+    I17 (amid_3 bmid_3 Vpass_3) or2_1x
+    I16 (amid_2 bmid_2 Vpass_2) or2_1x
+    I15 (amid_1 bmid_1 Vpass_1) or2_1x
+    I11 (Vpass_0 ack out_0) TH22
+    I10 (Vpass_1 ack out_1) TH22
+    I9 (Vpass_2 ack out_2) TH22
+    I8 (Vpass_3 ack out_3) TH22
+    I12 (amid_0 amid_1 amid_2 amid_3 a_ack) or4_1x
+    I13 (bmid_0 bmid_1 bmid_2 bmid_3 b_ack) or4_1x
+    I21 (out_0 net21) inv_1x
+    I20 (out_1 net22) inv_1x
+    I19 (out_2 net23) inv_1x
+    I18 (out_3 net24) inv_1x
+    I4 (b_3 bsel net24 bmid_3) TH33
+    I0 (a_0 asel net21 amid_0) TH33
+    I1 (a_1 asel net22 amid_1) TH33
+    I2 (a_2 asel net23 amid_2) TH33
+    I3 (a_3 asel net24 amid_3) TH33
+    I7 (b_0 bsel net21 bmid_0) TH33
+    I6 (b_1 bsel net22 bmid_1) TH33
+    I5 (b_2 bsel net23 bmid_2) TH33
+ends _sub70
+// End of subcircuit definition.

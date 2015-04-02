@@ -1,0 +1,80 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Digital_Parts"
+ CELL    = "nand2"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "l"
+        ?prompt         "Length"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('l)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wp"
+        ?prompt         "Width (All P)"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "t"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wn"
+        ?prompt         "Width (All N)"
+        ?units          "lengthMetric"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "t"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "wpa"
+        ?prompt         "Width (P \"A\")"
+        ?units          "lengthMetric"
+        ?defValue       "cdfgData->wp->value"
+        ?type           "string"
+        ?display        "t"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->auCdl = '( nil )
+    cdfId->simInfo->auLvs = '( nil )
+    cdfId->simInfo->cdsSpice = '( nil )
+    cdfId->simInfo->hpmns = '( nil )
+    cdfId->simInfo->hspiceS = '( nil )
+    cdfId->simInfo->libra = '( nil )
+    cdfId->simInfo->mharm = '( nil )
+    cdfId->simInfo->spectre = '( nil )
+    cdfId->simInfo->spectreS = '( nil )
+    cdfId->simInfo->switcap = '( nil )
+    cdfId->simInfo->watscad = '( nil )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

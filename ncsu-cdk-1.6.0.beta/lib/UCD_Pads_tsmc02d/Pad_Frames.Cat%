@@ -1,0 +1,6 @@
+TDMCHECKPOINT="1.0"
+MCSGpads_tsmc018/padframe_52 type="cell"
+MCSGpads_tsmc018/padframe_68 type="cell"
+MCSGpads_tsmc018/padframe_84 type="cell"
+MCSGpads_tsmc018/padframe_test type="cell"
+keepEmptyCategory type="unknown"

@@ -1,0 +1,76 @@
+    I45 (net030 RW_0 net047) nand_1x
+    I46 (net047 net046 Ack) nand_1x
+    I44 (RW_1 net054 net046) nand_1x
+    I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
+    I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
+    I52 (Out0_3 Out1_2 R2_1of4_1) nor_1x
+    I51 (Out1_3 Out1_2 R2_1of4_0) nor_1x
+    I50 (Out0_1 Out0_0 R1_1of4_3) nor_1x
+    I49 (Out1_1 Out0_0 R1_1of4_2) nor_1x
+    I47 (Out1_1 Out1_0 R1_1of4_0) nor_1x
+    I48 (Out1_0 Out0_1 R1_1of4_1) nor_1x
+    I67_3 (net057_0 net058_0 Lack_3 net059_0 net060_0 Rack_3 Out0_3 \
+        Out1_3) WCHB
+    I67_2 (net057_1 net058_1 Lack_2 net059_1 net060_1 Rack_2 Out0_2 \
+        Out1_2) WCHB
+    I67_1 (net057_2 net058_2 Lack_1 net059_2 net060_2 Rack_1 Out0_1 \
+        Out1_1) WCHB
+    I67_0 (net057_3 net058_3 Lack_0 net059_3 net060_3 Rack_0 Out0_0 \
+        Out1_0) WCHB
+    I21 (nOr_1 nOr_0 wack_0 B0_0 B1_0 net036 net064 net065) WCHB
+    I24 (nOr_7 nOr_6 wack_3 B0_3 B1_3 net036 net066 net067) WCHB
+    I23 (nOr_5 nOr_4 wack_2 B0_2 B1_2 net036 net068 net069) WCHB
+    I22 (nOr_3 nOr_2 wack_1 B0_1 B1_1 net036 net070 net071) WCHB
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 net054) TH44
+    I29 (wack_3 wack_2 wack_1 wack_0 net030) TH44
+    I65 (RW_0 ValAddr net036) and_1x
+    I37_3 (B0_3 net036 W0_3) and_1x
+    I37_2 (B0_2 net036 W0_2) and_1x
+    I37_1 (B0_1 net036 W0_1) and_1x
+    I37_0 (B0_0 net036 W0_0) and_1x
+    I36_3 (net036 B1_3 W1_3) and_1x
+    I36_2 (net036 B1_2 W1_2) and_1x
+    I36_1 (net036 B1_1 W1_1) and_1x
+    I36_0 (net036 B1_0 W1_0) and_1x
+    I38 (ValAddr RW_1 Go) and_1x
+    M1_3 (\~R1_3 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M1_2 (\~R1_2 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M1_1 (\~R1_1 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M1_0 (\~R1_0 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0_3 (\~R0_3 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0_2 (\~R0_2 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0_1 (\~R0_1 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0_0 (\~R0_0 Go vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    I35_3 (\~R1_3 net058_0) inv_1x
+    I35_2 (\~R1_2 net058_1) inv_1x
+    I35_1 (\~R1_1 net058_2) inv_1x
+    I35_0 (\~R1_0 net058_3) inv_1x
+    I34_3 (\~R0_3 net057_0) inv_1x
+    I34_2 (\~R0_2 net057_1) inv_1x
+    I34_1 (\~R0_1 net057_2) inv_1x
+    I34_0 (\~R0_0 net057_3) inv_1x
+    I64 (RAck_0 Rack_0) iprobe
+    I63 (RAck_0 Rack_1) iprobe
+    I62 (RAck_1 Rack_2) iprobe
+    I56 (AckThruBot AckThruTop) iprobe
+    I61 (RAck_1 Rack_3) iprobe
+    I58 (wack_1 wack_0 WAck_0) TH22
+    I57 (wack_2 wack_3 WAck_1) TH22
+    I18 (W2_1of4_2 W2_1of4_3 nOr_7) or2_1x
+    I17 (W2_1of4_0 W2_1of4_1 nOr_6) or2_1x
+    I11 (W1_1of4_2 W1_1of4_3 nOr_3) or2_1x
+    I10 (W1_1of4_0 W1_1of4_1 nOr_2) or2_1x
+    I16 (W2_1of4_1 W2_1of4_3 nOr_5) or2_1x
+    I15 (W2_1of4_0 W2_1of4_2 nOr_4) or2_1x
+    I1 (W1_1of4_1 W1_1of4_3 nOr_1) or2_1x
+    I0 (W1_1of4_0 W1_1of4_2 nOr_0) or2_1x
+ends _sub235
+// End of subcircuit definition.

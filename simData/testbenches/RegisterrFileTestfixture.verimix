@@ -1,0 +1,80 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+// Register File Testbench
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+
+reg[4:0] lastWriteAddr;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+
+initial
+begin 
+   seed = 5;
+ 
+   rLog=$fopen("/tmp2/rLog.csv");
+   $fdisplay(wLog, "R_Addr, R1[31:0], R0[31:0], total_time(ps), read_delay(ps)");
+
+   wLog=$fopen("/tmp2/wLog.csv"); 
+   $fdisplay(wLog, "W_Addr, W1[31:0], W0[31:0], total_time(ps), write_delay(ps)");
+   
+   Reset         = 1'b0;
+   GoW           = 1'b0;
+   GoR           = 1'b0;
+   Re            = 1'b0;
+   R_Addr[4:0]   = 5'b00000;
+   W_Addr[4:0]   = 5'b00000;
+   lastWriteAddr = 5'b11111;
+   W0[31:0]      = 32'h00000000;
+   W1[31:0]      = 32'h00000000;
+
+   #1000;
+end
+
+always @(negedge W_Ack) begin
+   	wDelay = $time - wStart;
+   	$fdisplay(wLog, "%h, %h, %h, %t, %t", W_Addr, W1, W0, $time, wDelay);
+        lastWriteAddr <= W_Addr[4:0];
+        W0[31:0] = 32'h00000000;
+   	W1[31:0] = 32'h00000000;
+   	GoW      = 1'b0;  
+        wStart   = $time;
+end
+
+always @(posedge W_Ack) begin
+   	   wDelay = $time - wStart;
+   	   $fdisplay(wLog, "%h, %h, %h, %t, %t", W_Addr, W1, W0, $time, wDelay);   	   
+           W1[31:0]    = $random;
+           W0[31:0]    = ~W1[31:0];
+   	   W_Addr[4:0] = $random;
+           GoW         = 1'b1;  
+	   wStart      = $time;
+end
+
+always @(posedge R_Ack) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %h, %t, %t", R_Addr, R1, R0, $time, rDelay);   	   
+   	   R_Addr[4:0] = lastWriteAddr;
+           if (R_Addr == W_Addr) begin
+	       R_Addr = ~R_Addr;
+           end
+           GoR         = 1'b1;
+ 	   Re          = 1'b1;  
+	   rStart      = $time;
+end
+
+always @(negedge R_Ack) begin
+   	   rDelay = $time - rStart;
+   	   $fdisplay(rLog, "%h, %h, %h, %t, %t", R_Addr, R1, R0, $time, rDelay);   	   
+           GoR         = 1'b0; 
+	   Re          = 1'b0; 
+	   rStart      = $time;
+end

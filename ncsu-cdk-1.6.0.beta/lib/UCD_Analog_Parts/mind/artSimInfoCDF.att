@@ -1,0 +1,94 @@
+
+/****************************************************/
+ LIBRARY = "NCSU_Analog_Parts"
+ CELL    = "mind"
+/****************************************************/
+
+let( ( libId cellId cdfId )
+    unless( cellId = ddGetObj( LIBRARY CELL )
+        error( "Could not get cell %s." CELL )
+    )
+    when( cdfId = cdfGetBaseCellCDF( cellId )
+        cdfDeleteCDF( cdfId )
+    )
+    cdfId  = cdfCreateBaseCellCDF( cellId )
+
+    ;;; Parameters
+    cdfCreateParam( cdfId
+        ?name           "ind1"
+        ?prompt         "First coupled inductor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ind1)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "ind2"
+        ?prompt         "Second coupled inductor"
+        ?defValue       ""
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('ind2)"
+        ?parseAsCEL     "yes"
+    )
+    cdfCreateParam( cdfId
+        ?name           "k"
+        ?prompt         "Coupling coefficient"
+        ?defValue       "0"
+        ?type           "string"
+        ?display        "artParameterInToolDisplay('k)"
+        ?parseAsNumber  "yes"
+        ?parseAsCEL     "yes"
+    )
+
+    ;;; Simulator Information
+    cdfId->simInfo = list( nil )
+    cdfId->simInfo->cdsSpice = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (k)
+        otherParameters   (ind1 ind2)
+        componentName     mind
+        termOrder         nil
+        namePrefix        "K"
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->hspiceS = '( nil
+        propMapping       nil
+        netlistProcedure  ansSpiceCompPrim
+        instParameters    (k)
+        otherParameters   (ind1 ind2)
+        componentName     mind
+        termOrder         nil
+        namePrefix        "K"
+        dcSens            nil
+        acSens            nil
+    )
+    cdfId->simInfo->spectre = '( nil
+        netlistProcedure  ansSpectreSrcPrim_mind
+        otherParameters   (ind1 ind2)
+        instParameters    (coupling)
+        propMapping       (nil coupling k)
+        termOrder         nil
+        namePrefix        "K"
+        componentName     mutual_inductor
+    )
+    cdfId->simInfo->spectreS = '( nil
+        netlistProcedure  ansSpectreSMindPrim
+        otherParameters   (ind1 ind2)
+        instParameters    (coupling)
+        propMapping       (nil coupling k)
+        termOrder         nil
+        namePrefix        "K"
+        componentName     mutual_inductor
+    )
+
+    ;;; Properties
+    cdfId->formInitProc            = ""
+    cdfId->doneProc                = ""
+    cdfId->buttonFieldWidth        = 340
+    cdfId->fieldHeight             = 35
+    cdfId->fieldWidth              = 350
+    cdfId->promptWidth             = 175
+    cdfSaveCDF( cdfId )
+)

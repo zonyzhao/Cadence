@@ -1,0 +1,59 @@
+;envSetVal( "graphic" "drfPath" 'string "./ncsu-cdk-1.6.0.beta/ncsu_basekit/cdssetup/display.drf")
+
+;loadi( "./ncsu-cdk-1.6.0.beta/ncsu_basekit/cdssetup/common_bindkeys.il")
+
+
+if( getShellEnvVar("MGC_HOME") then
+  loadi( strcat( getShellEnvVar("MGC_HOME") "/shared/pkgs/icv/tools/queryskl/calibre.OA.skl"))
+) ;if
+
+procedure( prependNCSUCDKInstallPath( dir) strcat( getShellEnvVar("PDK45_DIR") "/ncsu_basekit/" dir))
+
+printf( strcat( 
+"\n"
+"---------------------------------------------------------------------------\n"
+"Welcome to the FreePDK 45nm Free, Open-Source Process Design Kit\n"
+"---------------------------------------------------------------------------\n"
+"\n"
+))
+
+;; BEGIN UC DAVIS CUSTOMIZATION
+; CIW Customizations
+ciw = hiGetCIWindow()
+ciw->warpPointer = nil
+maxXY = hiGetMaxScreenCoords()
+maxX = car(maxXY)
+maxY = cadr(maxXY)
+ciwXright = fix(maxX * 0.95)
+ciwXleft = fix(maxX * 0.05)
+ciwYtop = fix(maxY * 0.9)
+ciwYbottom = fix(maxY * 0.1)
+hiResizeWindow(hiGetCIWindow() list(ciwXleft:ciwYbottom ciwXright:ciwYtop))
+
+Host = getShellEnvVar("HOSTNAME")
+User = getShellEnvVar("USER")
+sprintf(SimDir, "/net/kafka/nfs/rstdenis/Cadence/simulation" )
+envSetVal("asimenv.startup" "projectDir" 'string SimDir)
+
+;Define the text editor
+editor = "gedit";
+
+;; Load the user .cdsenv file.
+if( isFile( ".cdsenv" ) then
+	 envLoadVals( ?envFile ".cdsenv" ?tool "ALL" ) 
+   )
+
+;; Uncomment line below for distributed sim
+envLoadFile("./.cdsenv")
+
+asiSetEnvOptionVal( asiGetTool('spectreVerilog) 'modelFiles '(("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")) ) 
+
+envSetVal("asimenv" "saveDir" 'string "./.artist_states")
+
+hiResizeWindow(window(1) list(1:25 800:200))
+ddsOpenLibManager()
+
+; Must set netlisting mode (new feature of IC61)
+setShellEnvVar("CDS_Netlisting_Mode=Analog")
+cdsSetNetlistMode()
+cdsGetNetlistMode()

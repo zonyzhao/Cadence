@@ -1,0 +1,57 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "10T_TagMem_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vcc! vdd!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/net/bull/apps/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "~R1" 31 0  "cdsbus5" 31 0  )
+( "W1T" 31 0  "W1T" 31 0  )
+( "~W_Addr" 6 0  "cdsbus4" 6 0  )
+( "R1T" 31 0  "R1T" 31 0  )
+( "~W1" 31 0  "cdsbus3" 31 0  )
+( "~R_Addr" 6 0  "cdsbus2" 6 0  )
+( "R1" 31 0  "R1" 31 0  )
+( "~W0" 31 0  "cdsbus1" 31 0  )
+( "W_AddrT" 6 0  "W_AddrT" 6 0  )
+( "W0" 31 0  "W0" 31 0  )
+( "W0T" 31 0  "W0T" 31 0  )
+( "R_Addr" 6 0  "R_Addr" 6 0  )
+( "R0T" 31 0  "R0T" 31 0  )
+( "W1" 31 0  "W1" 31 0  )
+( "R0" 31 0  "R0" 31 0  )
+( "~R0" 31 0  "cdsbus0" 31 0  )
+( "R_AddrT" 6 0  "R_AddrT" 6 0  )
+( "W_Addr" 6 0  "W_Addr" 6 0  )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/10T_TagMem_Test/schematic" "cdsModule_9" )
+ )
+( term
+ )
+( param
+( "vcc" "cds_globals.vcc" )
+( "vdd" "cds_globals.vdd" )
+ )
+( "cdsModule_9" "ihnl/cds0/map" )
+ )

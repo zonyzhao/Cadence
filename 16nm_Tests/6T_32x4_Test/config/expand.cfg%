@@ -1,0 +1,32 @@
+//Revision 11
+//NOTE
+// Default template for spectreVerilog
+// Note:
+//      Please remember to replace Top Cell Library, Cell, and View
+//      fields with the actual names used by your design.
+//END_NOTE
+
+config \6T_32x4_Test ;
+design \16nm_Tests .\6T_32x4_Test :schematic;
+
+const \default  spectre, spice, verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, \cmos.sch , cmos_sch, veriloga, ahdl;
+const digital verilog, behavioral, functional, hdl, system, verilogNetlist, schematic, \cmos.sch , cmos_sch;
+const analog spectre, spice, schematic, \cmos.sch , cmos_sch, veriloga, ahdl;
+liblist myLib;
+
+viewlist $\default ;
+stoplist spectre, spice, verilog, verilogNetlist;
+
+
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I13 binding :functional;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I8 binding :schematic;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I12 binding :functional;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I14 binding :schematic;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I0 binding :schematic;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I17 binding :schematic;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I27 binding :functional;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I15[31:0] binding :functional;
+inst (\16nm_Tests .\6T_32x4_Test :schematic).I16[31:0] binding :schematic;
+
+
+endconfig

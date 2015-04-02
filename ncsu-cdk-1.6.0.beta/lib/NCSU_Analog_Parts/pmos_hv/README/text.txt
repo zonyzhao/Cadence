@@ -1,0 +1,3 @@
+"pmos" is a three-terminal PFET representation. The bulk node is
+initially set to "vdd!" but is modifiable from the property list. If you
+want a four-terminal PFET, use "pmos4".

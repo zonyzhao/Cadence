@@ -1,0 +1,13 @@
+Starting Monte Carlo Sampling...
+
+Current time: Tue Feb 10 22:19:48 2015 
+MonteCarlo.10
+Number of points completed: 1000
+Number of simulation errors: 1000
+MonteCarlo.10 completed. 
+Current time: Tue Feb 10 22:21:55 2015 
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)

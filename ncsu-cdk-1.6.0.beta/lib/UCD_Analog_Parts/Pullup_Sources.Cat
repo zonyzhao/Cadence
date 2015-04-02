@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+UCD_Analog_Parts/pdc type="cell"
+UCD_Analog_Parts/pexp type="cell"
+UCD_Analog_Parts/ppulse type="cell"
+UCD_Analog_Parts/ppwl type="cell"
+UCD_Analog_Parts/ppwlf type="cell"
+UCD_Analog_Parts/psin type="cell"

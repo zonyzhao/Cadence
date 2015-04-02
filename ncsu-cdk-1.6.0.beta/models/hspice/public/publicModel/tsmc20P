@@ -1,0 +1,42 @@
+.LIB PMOS
+
+* LOT: T26X                  WAF: 1011
+* Temperature_parameters=Default
+.MODEL TSMC20P PMOS (                                LEVEL   = 49
++VERSION = 3.1            TNOM    = 27             TOX     = 4.1E-9
++XJ      = 1E-7           NCH     = 4.1589E17      VTH0    = -0.4215645
++K1      = 0.5955538      K2      = 0.0265154      K3      = 0
++K3B     = 10.7990376     W0      = 1E-6           NLX     = 7.393151E-8
++DVT0W   = 0              DVT1W   = 0              DVT2W   = 0
++DVT0    = 0.3622323      DVT1    = 0.2560341      DVT2    = 0.1
++U0      = 119.2085214    UA      = 1.656038E-9    UB      = 1E-21
++UC      = -1E-10         VSAT    = 1.840486E5     A0      = 1.7659056
++AGS     = 0.4199318      B0      = 9.960505E-7    B1      = 3.37199E-6
++KETA    = 0.0126497      A1      = 0.4537105      A2      = 0.3
++RDSW    = 201.0196067    PRWG    = 0.5            PRWB    = -0.5
++WR      = 1              WINT    = 0              LINT    = 2.42201E-8
++XL      = -2E-8          XW      = -1E-8          DWG     = -2.790988E-8
++DWB     = 5.977646E-9    VOFF    = -0.1035186     NFACTOR = 1.8044589
++CIT     = 0              CDSC    = 2.4E-4         CDSCD   = 0
++CDSCB   = 0              ETA0    = 0.0079869      ETAB    = -0.115204
++DSUB    = 0.940025       PCLM    = 1.9711817      PDIBLC1 = 0
++PDIBLC2 = 0.0195957      PDIBLCB = -1E-3          DROUT   = 5.830459E-4
++PSCBE1  = 2.224265E9     PSCBE2  = 6.4242E-10     PVAG    = 10.2269693
++DELTA   = 0.01           RSH     = 7.6            MOBMOD  = 1
++PRT     = 0              UTE     = -1.5           KT1     = -0.11
++KT1L    = 0              KT2     = 0.022          UA1     = 4.31E-9
++UB1     = -7.61E-18      UC1     = -5.6E-11       AT      = 3.3E4
++WL      = 0              WLN     = 1              WW      = 0
++WWN     = 1              WWL     = 0              LL      = 0
++LLN     = 1              LW      = 0              LWN     = 1
++LWL     = 0              CAPMOD  = 2              XPART   = 0.5
++CGDO    = 6.52E-10       CGSO    = 6.52E-10       CGBO    = 1E-12
++CJ      = 1.156829E-3    PB      = 0.8604313      MJ      = 0.4161985
++CJSW    = 1.800318E-10   PBSW    = 0.6161205      MJSW    = 0.2735145
++CJSWG   = 4.22E-10       PBSWG   = 0.6161205      MJSWG   = 0.2735145
++CF      = 0              PVTH0   = 1.121114E-3    PRDSW   = 12.2644118
++PK2     = 1.671328E-3    WKETA   = 2.478808E-3    LKETA   = -2.85111E-3
++PU0     = -1.8187729     PUA     = -7.23748E-11   PUB     = 1E-21
++PVSAT   = -50            PETA0   = 1E-4           PKETA   = 2.650105E-3     )
+
+.ENDL PMOS

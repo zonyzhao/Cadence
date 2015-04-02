@@ -1,0 +1,7 @@
+cUiSelectCellP {TRIGATEX4}
+cUiSetViewStatus {TRIGATEX4} {layout} {1}
+cUiSetViewStatus {TRIGATEX4} {logical} {0}
+cUiSetViewStatus {TRIGATEX4} {abstract.pin} {51}
+cUiSetViewStatus {TRIGATEX4} {abstract.ext} {49}
+cUiSetViewStatus {TRIGATEX4} {abstract} {49}
+cUiSetViewStatus {TRIGATEX4} {abstract.ver} {0}

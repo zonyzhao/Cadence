@@ -1,0 +1,170 @@
+simulator( 'spectreVerilog )
+hostMode( 'local )
+design(	 "/net/bull/root/Desktop/Cadence/simulation/Manchest32_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/bull/root/Desktop/Cadence/simulation/Manchest32_Test/spectreVerilog/config" )
+modelFile( 
+    '("/project/ncsu-FreePDK15/hspice_16nm_lstp.include" "")
+)
+analysis('tran ?stop "40n"  ?errpreset "conservative"  )
+envOption(
+	'mspSetupNetlistSimPrecisionUnit  "ps" 
+	'mspSetupNetlistSimTimeUnit  "ps" 
+	'mspSetupNetlistOverWriteSchTimeScale  t 
+	'mspSetupNetlistDeclareGlobalLocally  t 
+	'mspSetupNetlistSwitchRC  t 
+	'analysisOrder  list("tran") 
+)
+saveOption( ?simOutputFormat "psfxl" )
+save( 'i "/V1/MINUS" )
+converge( 'ic "/NCIN" "0" )
+converge( 'ic "/nA0<0>" "0" )
+converge( 'ic "/nA0<1>" "0" )
+converge( 'ic "/nA0<2>" "0" )
+converge( 'ic "/nA0<3>" "0" )
+converge( 'ic "/nA0<4>" "0" )
+converge( 'ic "/nA0<5>" "0" )
+converge( 'ic "/nA0<6>" "0" )
+converge( 'ic "/nA0<7>" "0" )
+converge( 'ic "/nA0<8>" "0" )
+converge( 'ic "/nA0<9>" "0" )
+converge( 'ic "/nA0<10>" "0" )
+converge( 'ic "/nA0<11>" "0" )
+converge( 'ic "/nA0<12>" "0" )
+converge( 'ic "/nA0<13>" "0" )
+converge( 'ic "/nA0<14>" "0" )
+converge( 'ic "/nA0<15>" "0" )
+converge( 'ic "/nA0<16>" "0" )
+converge( 'ic "/nA0<17>" "0" )
+converge( 'ic "/nA0<18>" "0" )
+converge( 'ic "/nA0<19>" "0" )
+converge( 'ic "/nA0<20>" "0" )
+converge( 'ic "/nA0<21>" "0" )
+converge( 'ic "/nA0<22>" "0" )
+converge( 'ic "/nA0<23>" "0" )
+converge( 'ic "/nA0<24>" "0" )
+converge( 'ic "/nA0<25>" "0" )
+converge( 'ic "/nA0<26>" "0" )
+converge( 'ic "/nA0<27>" "0" )
+converge( 'ic "/nA0<28>" "0" )
+converge( 'ic "/nA0<29>" "0" )
+converge( 'ic "/nA0<30>" "0" )
+converge( 'ic "/nA0<31>" "0" )
+converge( 'ic "/nA1<0>" "0" )
+converge( 'ic "/nA1<1>" "0" )
+converge( 'ic "/nA1<2>" "0" )
+converge( 'ic "/nA1<3>" "0" )
+converge( 'ic "/nA1<4>" "0" )
+converge( 'ic "/nA1<5>" "0" )
+converge( 'ic "/nA1<6>" "0" )
+converge( 'ic "/nA1<7>" "0" )
+converge( 'ic "/nA1<8>" "0" )
+converge( 'ic "/nA1<9>" "0" )
+converge( 'ic "/nA1<10>" "0" )
+converge( 'ic "/nA1<11>" "0" )
+converge( 'ic "/nA1<12>" "0" )
+converge( 'ic "/nA1<13>" "0" )
+converge( 'ic "/nA1<14>" "0" )
+converge( 'ic "/nA1<15>" "0" )
+converge( 'ic "/nA1<16>" "0" )
+converge( 'ic "/nA1<17>" "0" )
+converge( 'ic "/nA1<18>" "0" )
+converge( 'ic "/nA1<19>" "0" )
+converge( 'ic "/nA1<20>" "0" )
+converge( 'ic "/nA1<21>" "0" )
+converge( 'ic "/nA1<22>" "0" )
+converge( 'ic "/nA1<23>" "0" )
+converge( 'ic "/nA1<24>" "0" )
+converge( 'ic "/nA1<25>" "0" )
+converge( 'ic "/nA1<26>" "0" )
+converge( 'ic "/nA1<27>" "0" )
+converge( 'ic "/nA1<28>" "0" )
+converge( 'ic "/nA1<29>" "0" )
+converge( 'ic "/nA1<30>" "0" )
+converge( 'ic "/nA1<31>" "0" )
+converge( 'ic "/nClk" "0" )
+converge( 'ic "/nY0<0>" "0" )
+converge( 'ic "/nY0<1>" "0" )
+converge( 'ic "/nY0<2>" "0" )
+converge( 'ic "/nY0<3>" "0" )
+converge( 'ic "/nY0<4>" "0" )
+converge( 'ic "/nY0<5>" "0" )
+converge( 'ic "/nY0<6>" "0" )
+converge( 'ic "/nY0<7>" "0" )
+converge( 'ic "/nY0<8>" "0" )
+converge( 'ic "/nY0<9>" "0" )
+converge( 'ic "/nY0<10>" "0" )
+converge( 'ic "/nY0<11>" "0" )
+converge( 'ic "/nY0<12>" "0" )
+converge( 'ic "/nY0<13>" "0" )
+converge( 'ic "/nY0<14>" "0" )
+converge( 'ic "/nY0<15>" "0" )
+converge( 'ic "/nY0<16>" "0" )
+converge( 'ic "/nY0<17>" "0" )
+converge( 'ic "/nY0<18>" "0" )
+converge( 'ic "/nY0<19>" "0" )
+converge( 'ic "/nY0<20>" "0" )
+converge( 'ic "/nY0<21>" "0" )
+converge( 'ic "/nY0<22>" "0" )
+converge( 'ic "/nY0<23>" "0" )
+converge( 'ic "/nY0<24>" "0" )
+converge( 'ic "/nY0<25>" "0" )
+converge( 'ic "/nY0<26>" "0" )
+converge( 'ic "/nY0<27>" "0" )
+converge( 'ic "/nY0<28>" "0" )
+converge( 'ic "/nY0<29>" "0" )
+converge( 'ic "/nY0<30>" "0" )
+converge( 'ic "/nY0<31>" "0" )
+converge( 'ic "/nY1" "0" )
+temp( 27 ) 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+p = outfile("/root/simData/manLeakage.csv")
+fprintf( p "Vdd [mv],Leakage [nA]\n" )
+close( p)
+
+Vload = list( .40 .41 .42 .43 .44 .45 .46 .47 .48 .49 \
+	      .50 .51 .52 .53 .54 .55 .56 .57 .58 .59 \
+	      .60 .61 .62 .63 .64 .65 .66 .67 .68 .69 \
+	      .70 .71 .72 .73 .74 .75 .76 .77 .78 .79 \
+	      .80 .81 .82 .83 .84 .85 .86 .87 .88 .89 \
+	      .90 .91 .92 .93 .94 .95 .96 .97 .98 .99 1 )
+
+jobList = nil
+volts   = nil
+delay   = nil
+i=1
+foreach( val  Vload
+    	desVar( "vdd" val )
+	desVar( "vcc" val )
+        volt = round( evalstring( desVar( "vdd" )) * 1000 )
+        volts = append1( volts sprintf( nil "%d" volt ))
+	run()
+	selectResults( 'tran )
+	leakage = average( clip( i( "/V1/MINUS" ) 0 400p ) ) *1e9
+	
+        fid = infile("/tmp2/Manchester_v.csv");
+        fscanf(fid "%g" delay);
+	close(fid)
+	
+
+        p = outfile("/root/simData/manLeakage.csv" "a")
+	fprintf( p "%s,%g,%g\n" nthelem(i volts)  leakage delay )
+	close( p)
+	i = i + 1
+)
+
+;wait(last(jobList))
+;i = 1
+;foreach(job jobList	
+;	openResults( nthelem(i jobList))
+;	selectResult( 'tran )
+;        leakage = average( clip( i( "/V1/MINUS" ) 0 100n ) ) *1e9
+;
+;        p = outfile("/root/Desktop/leakage.log" "a")
+;        fprintf( p "%s,%g\n" nthelem(i volts)  leakage )
+;        close( p)
+;	i = i + 1
+;)    
+;foreach( x jobList deleteJob( x ) )

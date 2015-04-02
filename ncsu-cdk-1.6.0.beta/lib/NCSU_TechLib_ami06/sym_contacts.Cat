@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+NCSU_TechLib_ami06/M1_ELEC type="cell"
+NCSU_TechLib_ami06/M1_N type="cell"
+NCSU_TechLib_ami06/M1_P type="cell"
+NCSU_TechLib_ami06/M1_POLY type="cell"
+NCSU_TechLib_ami06/M2_M1 type="cell"
+NCSU_TechLib_ami06/M3_M2 type="cell"
+NCSU_TechLib_ami06/NTAP type="cell"

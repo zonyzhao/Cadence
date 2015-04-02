@@ -1,0 +1,28 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "inv_tb"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "vdd! gnd!"
+  hierDelim "."
+  netlistDir "/net/bull/apps/Cadence/simulation/inv_tb/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "EEC289O/inv_1xt/schematic" "inv_1xt" )
+( "EEC289O_Tests/inv_tb/schematic" "inv_tb" )
+ )
+( term
+ )
+( param
+ )
+( "inv_1xt" "ihnl/cds0/map" )
+( "inv_tb" "ihnl/cds1/map" )
+ )

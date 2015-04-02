@@ -1,0 +1,20 @@
+# open the database you used in step1
+db_open foo
+
+# Remove the next 3 lines to use the ipsd/ipsc
+# deamons for load balancing on multiple machines
+set_var EC_SIM_USE_LSF 1
+set_var EC_SIM_LSF_CMD ""
+set_var EC_SIM_LSF_PARALLEL 10
+
+# set up some things that let ELC know how to proceed
+set_var EC_SIM_NAME "spectre"
+set_var EC_SIM_TYPE "spectre"
+set_var EC_SPICE_SUPPLY1_NAMES "vdd"
+set_var EC_SPICE_SUPPLY0_NAMES "gnd"
+set_var EC_HALF_WIDTH_HOLD_FLAG true
+
+# run spice (Spectre in this case) to do the actual characterization
+db_spice -s spectre  -p typical -keep_log
+db_close
+exit

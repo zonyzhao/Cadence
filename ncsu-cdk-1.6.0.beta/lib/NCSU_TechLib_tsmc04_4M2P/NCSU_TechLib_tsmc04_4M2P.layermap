@@ -1,0 +1,5 @@
+#Layer Name     Layer Purpose  Layer Stream Number  Datatype Stream Number
+
+tactive        drawing        60                   0              
+tactive        net            60                   0              
+tactive        pin            60                   0              

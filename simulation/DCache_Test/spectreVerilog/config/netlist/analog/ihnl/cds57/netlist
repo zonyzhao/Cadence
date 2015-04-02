@@ -1,0 +1,42 @@
+    I0 (net016_0 net016_1 net016_2 net016_3 net016_4 net016_5 net016_6 \
+        net016_7 net016_8 net016_9 net016_10 net016_11 net016_12 \
+        net016_13 net016_14 net016_15 net016_16 net016_17 net016_18 \
+        net016_19 net1 net11_0 net11_1 net11_2 net11_3 net11_4 \
+        ReadData_31 ReadData_30 ReadData_29 ReadData_28 ReadData_27 \
+        ReadData_26 ReadData_25 ReadData_24 ReadData_23 ReadData_22 \
+        ReadData_21 ReadData_20 ReadData_19 ReadData_18 ReadData_17 \
+        ReadData_16 ReadData_15 ReadData_14 ReadData_13 ReadData_12 \
+        ReadData_11 ReadData_10 ReadData_9 ReadData_8 ReadData_7 \
+        ReadData_6 ReadData_5 ReadData_4 ReadData_3 ReadData_2 \
+        ReadData_1 ReadData_0 ReadAck_7 ReadAck_6 ReadAck_5 ReadAck_4 \
+        ReadAck_3 ReadAck_2 ReadAck_1 ReadAck_0 net017_0 net017_1 \
+        WriteData_31 WriteData_30 WriteData_29 WriteData_28 \
+        WriteData_27 WriteData_26 WriteData_25 WriteData_24 \
+        WriteData_23 WriteData_22 WriteData_21 WriteData_20 \
+        WriteData_19 WriteData_18 WriteData_17 WriteData_16 \
+        WriteData_15 WriteData_14 WriteData_13 WriteData_12 \
+        WriteData_11 WriteData_10 WriteData_9 WriteData_8 WriteData_7 \
+        WriteData_6 WriteData_5 WriteData_4 WriteData_3 WriteData_2 \
+        WriteData_1 WriteData_0 WriteAck_7 WriteAck_6 WriteAck_5 \
+        WriteAck_4 WriteAck_3 WriteAck_2 WriteAck_1 WriteAck_0) _sub179
+    I1 (net11_0 net11_1 net11_2 net11_3 net11_4 net016_0 net016_1 \
+        net016_2 net016_3 net016_4 net016_5 net016_6 net016_7 net016_8 \
+        net016_9 net016_10 net016_11 net016_12 net016_13 net016_14 \
+        net016_15 net016_16 net016_17 net016_18 net016_19 RAddr_Ack_4 \
+        RAddr_Ack_3 RAddr_Ack_2 RAddr_Ack_1 RAddr_Ack_0 net017_0 \
+        net017_1 net1 Read_Address_19 Read_Address_18 Read_Address_17 \
+        Read_Address_16 Read_Address_15 Read_Address_14 Read_Address_13 \
+        Read_Address_12 Read_Address_11 Read_Address_10 Read_Address_9 \
+        Read_Address_8 Read_Address_7 Read_Address_6 Read_Address_5 \
+        Read_Address_4 Read_Address_3 Read_Address_2 Read_Address_1 \
+        Read_Address_0 Read_1 Read_0 Read_Ack WAddr_Ack_4 WAddr_Ack_3 \
+        WAddr_Ack_2 WAddr_Ack_1 WAddr_Ack_0 Write_Address_19 \
+        Write_Address_18 Write_Address_17 Write_Address_16 \
+        Write_Address_15 Write_Address_14 Write_Address_13 \
+        Write_Address_12 Write_Address_11 Write_Address_10 \
+        Write_Address_9 Write_Address_8 Write_Address_7 Write_Address_6 \
+        Write_Address_5 Write_Address_4 Write_Address_3 Write_Address_2 \
+        Write_Address_1 Write_Address_0 Write_1 Write_0 Write_Ack) \
+        _sub184
+ends _sub185
+// End of subcircuit definition.

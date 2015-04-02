@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+NCSU_Analog_Parts/pdc type="cell"
+NCSU_Analog_Parts/pexp type="cell"
+NCSU_Analog_Parts/ppulse type="cell"
+NCSU_Analog_Parts/ppwl type="cell"
+NCSU_Analog_Parts/ppwlf type="cell"
+NCSU_Analog_Parts/psin type="cell"

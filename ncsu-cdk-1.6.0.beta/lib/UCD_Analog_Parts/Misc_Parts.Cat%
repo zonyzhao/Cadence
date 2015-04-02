@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+keepEmptyCategory type="unknown"
+temp/noConn type="cell"
+temp/relay type="cell"
+temp/tline type="cell"

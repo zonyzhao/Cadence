@@ -1,0 +1,18 @@
+    M19 (net13 A 0 0) nfet w=80n l=16n nfin=7 m=1 degradation=yes
+    M18 (net13 B 0 0) nfet w=80n l=16n nfin=7 m=1 degradation=yes
+    M17 (net13 C 0 0) nfet w=80n l=16n nfin=7 m=1 degradation=yes
+    M15 (Y net44 0 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
+    M14 (net42 A 0 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+    M13 (net43 B net42 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+    M12 (net44 C net43 0) nfet w=120n l=16n nfin=7 m=1 degradation=yes
+    M10 (net44 Y net13 0) nfet w=80n l=16n nfin=7 m=1 degradation=yes
+    M9 (Y net44 vdd! vdd!) pfet w=80n l=16n m=1 degradation=yes
+    M8 (net44 Y net15 vdd!) pfet w=160n l=16n m=1 degradation=yes
+    M6 (net15 C vdd! vdd!) pfet w=160n l=16n m=1 degradation=yes
+    M5 (net15 B vdd! vdd!) pfet w=160n l=16n m=1 degradation=yes
+    M4 (net15 A vdd! vdd!) pfet w=160n l=16n m=1 degradation=yes
+    M2 (net44 C net46 vdd!) pfet w=240n l=16n m=1 degradation=yes
+    M1 (net46 B net47 vdd!) pfet w=240n l=16n m=1 degradation=yes
+    M0 (net47 A vdd! vdd!) pfet w=240n l=16n m=1 degradation=yes
+ends TH33
+// End of subcircuit definition.

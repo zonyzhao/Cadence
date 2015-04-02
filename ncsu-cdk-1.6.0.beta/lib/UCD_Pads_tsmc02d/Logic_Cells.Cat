@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+UCD_Pads_tsmc02d/inv_16x_vcc type="cell"
+UCD_Pads_tsmc02d/inv_1x_vcc type="cell"
+UCD_Pads_tsmc02d/inv_4x_vcc type="cell"
+keepEmptyCategory type="unknown"

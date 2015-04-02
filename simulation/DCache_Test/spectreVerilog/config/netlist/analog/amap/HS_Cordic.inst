@@ -1,0 +1,8 @@
+HEADER
+"PSFversion" "1.00"
+"I1n I0n" "TH22"
+"I3n I2n" "inv_1x"
+"ack_av" ":1v"
+"ack_bv" ":2v"
+"req_av" ":3v"
+"req_bv" ":4v"

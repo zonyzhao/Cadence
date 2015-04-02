@@ -1,0 +1,5 @@
+TDMCHECKPOINT="1.0"
+temp/nmos4_elec type="cell"
+temp/nmos_elec type="cell"
+temp/pmos4_elec type="cell"
+temp/pmos_elec type="cell"

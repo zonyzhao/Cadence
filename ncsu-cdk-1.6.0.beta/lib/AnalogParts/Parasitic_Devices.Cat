@@ -1,0 +1,7 @@
+TDMCHECKPOINT="1.0"
+NCSU_Analog_Parts/Parasitic_Devices_Index type="cell"
+NCSU_Analog_Parts/nmoscap type="cell"
+NCSU_Analog_Parts/pcapacitor type="cell"
+NCSU_Analog_Parts/pdiode type="cell"
+NCSU_Analog_Parts/pmoscap type="cell"
+NCSU_Analog_Parts/presistor type="cell"

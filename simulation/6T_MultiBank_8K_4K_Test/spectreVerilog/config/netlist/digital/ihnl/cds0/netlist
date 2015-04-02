@@ -1,0 +1,179 @@
+// Library - 16nm_Tests, Cell - 6T_MultiBank_8K_4K_Test, View -
+//schematic
+// LAST TIME SAVED: Mar  7 20:32:44 2015
+// NETLIST TIME: Mar 10 05:39:03 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_87 ( RData, ReadAck, WDataAck, WriteAck, R_Address,
+     ReadEn, WData, W_Address, WriteEn );
+
+output  ReadAck, WriteAck;
+
+input  ReadEn, WriteEn;
+
+output [15:0]  RData;
+output [7:0]  WDataAck;
+
+input [11:0]  W_Address;
+input [11:0]  R_Address;
+input [15:0]  WData;
+
+// Buses in the design
+
+wire  [15:0]  RDataT;
+
+wire  [7:0]  cdsbus0;
+
+wire  [11:0]  cdsbus1;
+
+wire  [7:0]  WDataAckT;
+
+wire  [11:0]  R_AddressT;
+
+wire  [15:0]  cdsbus2;
+
+wire  [11:0]  W_AddressT;
+
+wire  [11:0]  cdsbus3;
+
+wire  [15:0]  cdsbus4;
+
+wire  [15:0]  WDataT;
+
+// begin interface element definitions
+
+wire cdsNet0;
+wire cdsNet2;
+reg mixedNet99999;
+reg mixedNet99998;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99992;
+reg mixedNet99978;
+reg mixedNet99977;
+reg mixedNet99976;
+reg mixedNet99975;
+reg mixedNet99974;
+reg mixedNet99973;
+reg mixedNet99972;
+reg mixedNet99971;
+reg mixedNet99970;
+reg mixedNet99955;
+reg mixedNet99954;
+reg mixedNet99953;
+reg mixedNet99952;
+reg mixedNet99940;
+reg mixedNet99939;
+reg mixedNet99938;
+reg mixedNet99934;
+reg mixedNet99933;
+assign cdsbus0[0] = mixedNet99999;
+assign cdsbus0[5] = mixedNet99998;
+assign cdsbus0[1] = mixedNet99997;
+assign cdsbus0[2] = mixedNet99996;
+assign cdsbus0[4] = mixedNet99995;
+assign cdsbus0[3] = mixedNet99994;
+assign cdsbus0[6] = mixedNet99993;
+assign cdsbus0[7] = mixedNet99992;
+assign cdsbus2[12] = mixedNet99978;
+assign cdsbus2[13] = mixedNet99977;
+assign cdsbus2[14] = mixedNet99976;
+assign cdsbus2[15] = mixedNet99975;
+assign cdsbus2[0] = mixedNet99974;
+assign cdsbus2[1] = mixedNet99973;
+assign cdsbus2[2] = mixedNet99972;
+assign cdsbus2[3] = mixedNet99971;
+assign cdsbus2[11] = mixedNet99970;
+assign cdsbus2[4] = mixedNet99955;
+assign cdsbus2[5] = mixedNet99954;
+assign cdsbus2[6] = mixedNet99953;
+assign cdsbus2[7] = mixedNet99952;
+assign cdsbus2[8] = mixedNet99940;
+assign cdsbus2[9] = mixedNet99939;
+assign cdsbus2[10] = mixedNet99938;
+assign cdsNet0 = mixedNet99934;
+assign cdsNet2 = mixedNet99933;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_MultiBank_8K_4K_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I12 ( ReadAck, cdsNet0);
+inv_1xT I16 ( cdsNet1, WriteEn);
+inv_1xT I8_15_ ( RData[15], cdsbus2[15]);
+inv_1xT I8_14_ ( RData[14], cdsbus2[14]);
+inv_1xT I8_13_ ( RData[13], cdsbus2[13]);
+inv_1xT I8_12_ ( RData[12], cdsbus2[12]);
+inv_1xT I8_11_ ( RData[11], cdsbus2[11]);
+inv_1xT I8_10_ ( RData[10], cdsbus2[10]);
+inv_1xT I8_9_ ( RData[9], cdsbus2[9]);
+inv_1xT I8_8_ ( RData[8], cdsbus2[8]);
+inv_1xT I8_7_ ( RData[7], cdsbus2[7]);
+inv_1xT I8_6_ ( RData[6], cdsbus2[6]);
+inv_1xT I8_5_ ( RData[5], cdsbus2[5]);
+inv_1xT I8_4_ ( RData[4], cdsbus2[4]);
+inv_1xT I8_3_ ( RData[3], cdsbus2[3]);
+inv_1xT I8_2_ ( RData[2], cdsbus2[2]);
+inv_1xT I8_1_ ( RData[1], cdsbus2[1]);
+inv_1xT I8_0_ ( RData[0], cdsbus2[0]);
+inv_1xT I15 ( WriteAck, cdsNet2);
+inv_1xT I10 ( cdsNet3, ReadEn);
+inv_1xT I7_11_ ( cdsbus1[11], W_Address[11]);
+inv_1xT I7_10_ ( cdsbus1[10], W_Address[10]);
+inv_1xT I7_9_ ( cdsbus1[9], W_Address[9]);
+inv_1xT I7_8_ ( cdsbus1[8], W_Address[8]);
+inv_1xT I7_7_ ( cdsbus1[7], W_Address[7]);
+inv_1xT I7_6_ ( cdsbus1[6], W_Address[6]);
+inv_1xT I7_5_ ( cdsbus1[5], W_Address[5]);
+inv_1xT I7_4_ ( cdsbus1[4], W_Address[4]);
+inv_1xT I7_3_ ( cdsbus1[3], W_Address[3]);
+inv_1xT I7_2_ ( cdsbus1[2], W_Address[2]);
+inv_1xT I7_1_ ( cdsbus1[1], W_Address[1]);
+inv_1xT I7_0_ ( cdsbus1[0], W_Address[0]);
+inv_1xT I2_11_ ( cdsbus3[11], R_Address[11]);
+inv_1xT I2_10_ ( cdsbus3[10], R_Address[10]);
+inv_1xT I2_9_ ( cdsbus3[9], R_Address[9]);
+inv_1xT I2_8_ ( cdsbus3[8], R_Address[8]);
+inv_1xT I2_7_ ( cdsbus3[7], R_Address[7]);
+inv_1xT I2_6_ ( cdsbus3[6], R_Address[6]);
+inv_1xT I2_5_ ( cdsbus3[5], R_Address[5]);
+inv_1xT I2_4_ ( cdsbus3[4], R_Address[4]);
+inv_1xT I2_3_ ( cdsbus3[3], R_Address[3]);
+inv_1xT I2_2_ ( cdsbus3[2], R_Address[2]);
+inv_1xT I2_1_ ( cdsbus3[1], R_Address[1]);
+inv_1xT I2_0_ ( cdsbus3[0], R_Address[0]);
+inv_1xT I28_15_ ( cdsbus4[15], WData[15]);
+inv_1xT I28_14_ ( cdsbus4[14], WData[14]);
+inv_1xT I28_13_ ( cdsbus4[13], WData[13]);
+inv_1xT I28_12_ ( cdsbus4[12], WData[12]);
+inv_1xT I28_11_ ( cdsbus4[11], WData[11]);
+inv_1xT I28_10_ ( cdsbus4[10], WData[10]);
+inv_1xT I28_9_ ( cdsbus4[9], WData[9]);
+inv_1xT I28_8_ ( cdsbus4[8], WData[8]);
+inv_1xT I28_7_ ( cdsbus4[7], WData[7]);
+inv_1xT I28_6_ ( cdsbus4[6], WData[6]);
+inv_1xT I28_5_ ( cdsbus4[5], WData[5]);
+inv_1xT I28_4_ ( cdsbus4[4], WData[4]);
+inv_1xT I28_3_ ( cdsbus4[3], WData[3]);
+inv_1xT I28_2_ ( cdsbus4[2], WData[2]);
+inv_1xT I28_1_ ( cdsbus4[1], WData[1]);
+inv_1xT I28_0_ ( cdsbus4[0], WData[0]);
+inv_1xT I25_7_ ( WDataAck[7], cdsbus0[7]);
+inv_1xT I25_6_ ( WDataAck[6], cdsbus0[6]);
+inv_1xT I25_5_ ( WDataAck[5], cdsbus0[5]);
+inv_1xT I25_4_ ( WDataAck[4], cdsbus0[4]);
+inv_1xT I25_3_ ( WDataAck[3], cdsbus0[3]);
+inv_1xT I25_2_ ( WDataAck[2], cdsbus0[2]);
+inv_1xT I25_1_ ( WDataAck[1], cdsbus0[1]);
+inv_1xT I25_0_ ( WDataAck[0], cdsbus0[0]);
+
+endmodule

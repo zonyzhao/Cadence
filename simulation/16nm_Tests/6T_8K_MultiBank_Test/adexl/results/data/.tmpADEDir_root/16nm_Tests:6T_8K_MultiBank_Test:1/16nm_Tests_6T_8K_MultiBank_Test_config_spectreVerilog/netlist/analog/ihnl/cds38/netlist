@@ -1,0 +1,23 @@
+    I23 (c_3 a_3 d_3 b_3 net69) nor4_1x
+    I22 (c_2 a_2 d_2 b_2 net68) nor4_1x
+    I21 (c_1 a_1 d_1 b_1 net67) nor4_1x
+    I20 (d_0 a_0 c_0 b_0 net66) nor4_1x
+    I24 (net69 net68 net67 net66 ack) nand4_1x
+    I19 (in_0 csel c_ack c_0) TH33
+    I18 (in_1 csel c_ack c_1) TH33
+    I17 (in_2 csel c_ack c_2) TH33
+    I16 (in_3 csel c_ack c_3) TH33
+    I15 (in_0 dsel d_ack d_0) TH33
+    I14 (in_1 dsel d_ack d_1) TH33
+    I13 (in_2 dsel d_ack d_2) TH33
+    I12 (in_3 dsel d_ack d_3) TH33
+    I0 (in_0 asel a_ack a_0) TH33
+    I1 (in_1 asel a_ack a_1) TH33
+    I2 (in_2 asel a_ack a_2) TH33
+    I3 (in_3 asel a_ack a_3) TH33
+    I7 (in_0 bsel b_ack b_0) TH33
+    I6 (in_1 bsel b_ack b_1) TH33
+    I5 (in_2 bsel b_ack b_2) TH33
+    I4 (in_3 bsel b_ack b_3) TH33
+ends _sub135
+// End of subcircuit definition.

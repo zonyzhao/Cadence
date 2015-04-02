@@ -1,0 +1,38 @@
+ic I21.I40.I0.I0.I0.I0.I7.I3.Q1=vdd I21.I0.I0.I0.I0.I0.I7.I3.Q1=vdd \
+    I21.I0.I0.I0.I0.I0.I7.I3.Q0=0 I21.I40.I0.I0.I0.I0.I7.I3.Q0=0 \
+    \~W_Address_11=vdd \~W_Address_10=vdd \~W_Address_9=vdd \
+    \~W_Address_8=vdd \~W_Address_7=vdd \~W_Address_6=vdd \
+    \~W_Address_5=vdd \~W_Address_4=vdd \~W_Address_3=vdd \
+    \~W_Address_2=vdd \~W_Address_1=vdd \~W_Address_0=vdd \~WriteEn=vdd \
+    \~R_Address_11=vdd \~R_Address_10=vdd \~R_Address_9=vdd \
+    \~R_Address_8=vdd \~R_Address_7=vdd \~R_Address_6=vdd \
+    \~R_Address_5=vdd \~R_Address_4=vdd \~R_Address_3=vdd \
+    \~R_Address_2=vdd \~R_Address_1=vdd \~R_Address_0=vdd \~ReadEn=vdd \
+    WDataT_31=0 WDataT_30=0 WDataT_29=0 WDataT_28=0 WDataT_27=0 \
+    WDataT_26=0 WDataT_25=0 WDataT_24=0 WDataT_23=0 WDataT_22=0 \
+    WDataT_21=0 WDataT_20=0 WDataT_19=0 WDataT_18=0 WDataT_17=0 \
+    WDataT_16=0 WDataT_15=0 WDataT_14=0 WDataT_13=0 WDataT_12=0 \
+    WDataT_11=0 WDataT_10=0 WDataT_9=0 WDataT_8=0 WDataT_7=0 WDataT_6=0 \
+    WDataT_5=0 WDataT_4=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 \
+    WriteEnT=0 W_AddressT_11=0 W_AddressT_10=0 W_AddressT_9=0 \
+    W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 W_AddressT_5=0 \
+    W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 W_AddressT_1=0 \
+    W_AddressT_0=0 R_AddressT_11=0 R_AddressT_10=0 R_AddressT_9=0 \
+    R_AddressT_8=0 R_AddressT_7=0 R_AddressT_6=0 R_AddressT_5=0 \
+    R_AddressT_4=0 R_AddressT_3=0 R_AddressT_2=0 R_AddressT_1=0 \
+    R_AddressT_0=0 ReadEnT=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=5n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V0:p 
+saveOptions options save=allpub

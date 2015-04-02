@@ -1,0 +1,338 @@
+\o Program:		@(#)$CDS: virtuoso.exe version 6.1.1 01/18/2007 16:12 (cds126047) $
+\o Hierarchy:		/local/ic611/tools.lnx86/dfII/
+\o Sub version:		sub-version IC6.1.1.64 (32-bit addresses)
+\o Host name (type):	discoduck (x86_64)
+\o Operating system:	Linux 2.6.9-55.ELsmp #1 SMP Fri Apr 20 16:36:54 EDT 2007
+\o X display name (WxH):	localhost:10.0 (1400x1020)
+\o X server:		StarNet Communications Corp.
+\o Depth of Visual (Root):	24 (24)
+\o Number of Planes Used:	24
+\o X version:		11.0 (vendor release 7179)
+\o Window Manager:	other
+\o User Name:		wdavis
+\o Working Directory:	discoduck:/local/home/wdavis/NCSU_CDK/cdb2oa
+\o Process Id:		3926
+\o 
+\o COPYRIGHT © 1992-2007  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+\o           © 1992-2007  UNIX SYSTEMS Laboratories INC.,
+\o                          Reproduced with permission.
+\o 
+\o This Cadence Design Systems program and online documentation are
+\o proprietary/confidential information and may be disclosed/used only
+\o as authorized in a license agreement controlling such use and disclosure.
+\o 
+\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)
+\o Use/reproduction/disclosure is subject to restriction
+\o set forth at FAR 1252.227-19 or its equivalent.
+\o Loading geView.cxt 
+\o Loading LVS.cxt 
+\o Loading layerProc.cxt 
+\o Loading xlUI.cxt 
+\o Loading auCore.cxt 
+\o Loading schView.cxt 
+\o Loading selectSv.cxt 
+\o Loading vhdl.cxt 
+\o Loading seismic.cxt 
+\o Loading ams.cxt 
+\o Loading NCSU CDK 1.5.1 customizations...
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool adle
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool asimenv
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool ddserv
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool layout
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool schematic
+\o loading vars from /local/home/wdavis/NCSU_CDK/cdssetup/cdsenv for tool ui
+\o Loading NCSU SKILL routines...
+\o Done loading NCSU_CDK customizations.
+\p > 
+\o  
+\o (virtuoso) Syncing library list with the Library Manager.
+\i ddUpdateLibList()
+\a hiResizeWindow(window(1) list(482:-1 1207:192))
+\r t
+\i compileAllTechLibs()
+\o Compiling all TechLibs to path nil
+\o Compiling "NCSU_TechLib_ami06"
+\o tech = "AMI_C5N" techFileName = "ami_06.tf"path = nilLoading techComp.cxt 
+\o Compiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Loading pCellGen.cxt 
+\o Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm1_elec layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Loading cdf.cxt 
+\w *WARNING* Parameter 'lxUseCell' already exists.
+\w *WARNING* Parameter 'lxUseCell' already exists.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_ami16"
+\o tech = "AMI_ABN" techFileName = "ami_16.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm1_elec layout'.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_hp06"
+\o tech = "HP_AMOS14TB" techFileName = "hp_06.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: The via layer 'ca' is not going to be correctly identified as a cut layer
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'cap layout'.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_tsmc02"
+\o tech = "TSMC_CMOS020" techFileName = "tsmc_02.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\w *WARNING* techSetLayerProp: Invalid layer/purpose - "ce"
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: The via layer 'ca' is not going to be correctly identified as a cut layer
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'm4_m3 layout'.
+\o Generating Pcell for 'm5_m4 layout'.
+\o Generating Pcell for 'nmos_hv layout'.
+\o Generating Pcell for 'pmos_hv layout'.
+\w *WARNING* Parameter 'lxUseCell' already exists.
+\w *WARNING* Parameter 'lxUseCell' already exists.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_tsmc02d"
+\o tech = "TSMC_CMOS018_DEEP" techFileName = "tsmc_02d.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\w *WARNING* techSetLayerProp: Invalid layer/purpose - "ce"
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: The via layer 'ca' is not going to be correctly identified as a cut layer
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'm4_m3 layout'.
+\o Generating Pcell for 'm5_m4 layout'.
+\o Generating Pcell for 'nmos_hv layout'.
+\o Generating Pcell for 'pmos_hv layout'.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_tsmc03"
+\o tech = "TSMC_CMOS025" techFileName = "tsmc_03.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\w *WARNING* techSetLayerProp: Invalid layer/purpose - "ce"
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: The via layer 'ca' is not going to be correctly identified as a cut layer
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'm4_m3 layout'.
+\o Generating Pcell for 'm5_m4 layout'.
+\o Generating Pcell for 'nmos_hv layout'.
+\o Generating Pcell for 'pmos_hv layout'.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_tsmc03d"
+\o tech = "TSMC_CMOS025_DEEP" techFileName = "tsmc_03d.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\w *WARNING* techSetLayerProp: Invalid layer/purpose - "ce"
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: The via layer 'ca' is not going to be correctly identified as a cut layer
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'm4_m3 layout'.
+\o Generating Pcell for 'm5_m4 layout'.
+\o Generating Pcell for 'nmos_hv layout'.
+\o Generating Pcell for 'pmos_hv layout'.
+\o Creating links to Diva verification rules files...Library creation successfully completed.Compiling "NCSU_TechLib_tsmc04_4M2P"
+\o tech = "TSMC_CMOS035_4M2P" techFileName = "tsmc_04_4m2p.tf"path = nilCompiling class 'controls'....
+\o Compiling class 'layerDefinitions'....
+\o Compiling class 'devices'....
+\o Compiling class 'layerRules'....
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\w *WARNING* The streamLayers rule is no longer supported in the technology file.
+\w *WARNING* An equivalent layer mapping file will be automatically created.
+\o Compiling class 'physicalRules'....
+\o Compiling class 'lxRules'....
+\o Compiling class 'prRules'....
+\w *WARNING* Convert prRules: prRule layer mask numbers must be fully specified.
+\o Categorizing symbolic cells...Generating Pcell for 'm1_n layout'.
+\o Generating Pcell for 'm1_p layout'.
+\o Generating Pcell for 'm1_poly layout'.
+\o Generating Pcell for 'm2_m1 layout'.
+\o Generating Pcell for 'nmos layout'.
+\o Generating Pcell for 'pmos layout'.
+\o Generating Pcell for 'ntap layout'.
+\o Generating Pcell for 'ptap layout'.
+\o Generating Pcell for 'm1_elec layout'.
+\o Generating Pcell for 'm3_m2 layout'.
+\o Generating Pcell for 'm4_m3 layout'.
+\o Generating Pcell for 'nmos_hv layout'.
+\o Generating Pcell for 'pmos_hv layout'.
+\t Creating links to Diva verification rules files...Library creation successfully completed.t
+\p > 
+\a hiResizeWindow(window(1) list(482:398 1207:591))
+\r t
+\a hiResizeWindow(window(1) list(482:-1 1207:591))
+\r t
+\a ciwHiExit()
+\p > 
+\a hiDBoxOK(ciwDBox)
+\r t
+\o 

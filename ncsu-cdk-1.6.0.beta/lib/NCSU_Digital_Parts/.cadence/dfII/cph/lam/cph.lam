@@ -1,0 +1,49 @@
+<!DOCTYPE LAM_FILE>
+<LIBRARY_DATA>
+  <VERSION NUMBER="0.3" />
+  <PHYSICAL>
+    <MAPPINGS>
+      <LIB NAME="NCSU_Digital_Parts" >
+        <CELL NAME="pPar(&quot;nDLEcell&quot;)" >
+          <VIEW NAME="" >
+            <LOGICAL_CELL>
+              <LIB NAME="NCSU_Digital_Parts" >
+                <CELL NAME="nfet" >
+                  <VIEW NAME="auCdl" />
+                  <VIEW NAME="auLvs" />
+                  <VIEW NAME="cdsSpice" />
+                  <VIEW NAME="hspice" />
+                  <VIEW NAME="hspiceS" />
+                  <VIEW NAME="ivpcell" />
+                  <VIEW NAME="spectre" />
+                  <VIEW NAME="spectreS" />
+                  <VIEW NAME="symbol" />
+                  <VIEW NAME="symbol_xform" />
+                </CELL>
+              </LIB>
+            </LOGICAL_CELL>
+          </VIEW>
+        </CELL>
+        <CELL NAME="pPar(&quot;pDLEcell&quot;)" >
+          <VIEW NAME="" >
+            <LOGICAL_CELL>
+              <LIB NAME="NCSU_Digital_Parts" >
+                <CELL NAME="pfet" >
+                  <VIEW NAME="auCdl" />
+                  <VIEW NAME="auLvs" />
+                  <VIEW NAME="cdsSpice" />
+                  <VIEW NAME="hspice" />
+                  <VIEW NAME="hspiceS" />
+                  <VIEW NAME="ivpcell" />
+                  <VIEW NAME="spectre" />
+                  <VIEW NAME="spectreS" />
+                  <VIEW NAME="symbol" />
+                </CELL>
+              </LIB>
+            </LOGICAL_CELL>
+          </VIEW>
+        </CELL>
+      </LIB>
+    </MAPPINGS>
+  </PHYSICAL>
+</LIBRARY_DATA>

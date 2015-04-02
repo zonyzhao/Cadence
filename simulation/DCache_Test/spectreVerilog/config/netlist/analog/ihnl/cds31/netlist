@@ -1,0 +1,24 @@
+    M10 (y0 v vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M0 (y1 v vdd! vdd!) pfet w=80n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M9 (net26 v 0 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 ps=300n \
+        pd=300n m=1
+    M8 (y0 a1 net35 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M7 (net35 b0 net26 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M6 (net36 b1 net26 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M5 (y0 a1 net36 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M4 (net38 b0 net26 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M3 (net37 b1 net26 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M2 (y1 a1 net37 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+    M1 (y1 a0 net38 0) nfet w=120n l=16n as=9.45e-15 ad=9.45e-15 \
+        ps=300n pd=300n m=1
+ends Compare_DR
+// End of subcircuit definition.

@@ -1,0 +1,120 @@
+********************************************************************************
+Program:	@(#)$CDS: cdb2oa.exe version 6.1.1 01/18/2007 12:28 (cds126047) $
+		sub-version IC6.1.1.64
+Started at:	Jul 12 10:00:32 2007
+Hierarchy:	/local/ic611
+User Name:	wdavis
+Host Name:	discoduck
+Options:	-cdslibpath /local/home/wdavis/NCSU_CDK/cdssetup/cds.lib -lib 
+          NCSU_Analog_Parts 
+Directory:	/local/home/wdavis/NCSU_CDK/cdb2oa
+Log File:	/afs/unity.ncsu.edu/users/w/wdavis/cdb2oa.log
+
+	Copyright (C) 2001-2005 Cadence Design Systems, Inc. All rights reserved  worldwide
+********************************************************************************
+
+
+WARNING (CDBOA-605): For cellview NCSU_Analog_Parts/nmos/functional/verilog.cdb
+                     the view type implied by the file name "netlist" differs   
+                     from the view type held in the database "stranger".        
+                     Creating a view of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/nmos4/functional/verilog.cdb the view    
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview NCSU_Analog_Parts/pmos/functional/verilog.cdb
+                     the view type implied by the file name "netlist" differs   
+                     from the view type held in the database "stranger".        
+                     Creating a view of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/pmos4/functional/verilog.cdb the view    
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview NCSU_Analog_Parts/pdiode/ivpcell/symbol.cdb  
+                     the view type implied by the file name "schematicSymbol"   
+                     differs from the view type held in the database "stranger".
+                     Creating a view of type "schematicSymbol" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview NCSU_Analog_Parts/cap/lvs/symbol.cdb the view
+                     type implied by the file name "schematicSymbol" differs    
+                     from the view type held in the database "maskLayout".      
+                     Creating a view of type "maskLayout" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/nmos4_hv/functional/verilog.cdb the view 
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/nmos_elec/functional/verilog.cdb the view
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/nmos_hv/functional/verilog.cdb the view  
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/pmos4_hv/functional/verilog.cdb the view 
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/pmos_elec/functional/verilog.cdb the view
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+WARNING (CDBOA-605): For cellview                                              
+                     NCSU_Analog_Parts/pmos_hv/functional/verilog.cdb the view  
+                     type implied by the file name "netlist" differs from the   
+                     view type held in the database "stranger". Creating a view 
+                     of type "netlist" in OpenAccess.
+
+
+********************************************************************************
+Finished at:   Jul 12 10:01:09 2007
+
+147 cells and 757 cellviews were translated from library 'NCSU_Analog_Parts' in 37.2s.
+In addition:
+2 cell level directories were copied to the OpenAccess library.
+
+
+Message Summary:
+
+WARNING (CDBOA-605): For cellview <path>/<name> the view type implied by the   
+                     file name (<viewtype>) differs from the view type held in  
+                     the database (<viewtype>). Creating a view of type         
+                     <viewtype> in OpenAccess.
+                     
+                      Generated 12 times. The translator has encountered a CDBA 
+                     cellview for which the view type stored in the cellview    
+                     data file differs from the view type implied by the        
+                     cellview file name. OpenAccess expects a cellview filename 
+                     to reflect the stored view type. The translator identifies 
+                     conflicting view type information and fixes it by changing 
+                     the cellview filename to agree with its stored view type.
+                      For example, a CDBA cellview with the stored view type    
+                     maskLayout to be called symbol.cdb. This would be          
+                     translated into an OpenAccess cellview of type maskLayout  
+                     called layout.oa.
+                      To prevent these warnings from being generated, modify    
+                     your CDBA data to ensure that the view type implied by the 
+                     filename matches the view type stored for the cellview. For
+                     example, if the filename is sch.cdb, then the view type    
+                     should be schematic.
+
+********************************************************************************
+
+

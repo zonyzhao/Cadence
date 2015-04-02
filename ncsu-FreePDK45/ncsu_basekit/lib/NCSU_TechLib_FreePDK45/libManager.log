@@ -1,0 +1,16 @@
+\o Program:		@(#)$CDS: libManager version 31.09 04/05/2010 14:27 (cat91amd) $
+\o Sub version:		sub-version  31.09-s003 
+\o Arguments:		-unmapped -mpssession virtuoso29956 -mpshost milk 
+\o Working Directory:	milk:/project/ncsu-FreePDK45/ncsu_basekit/lib/NCSU_TechLib_FreePDK45
+\o Qt version: 		4.4.1
+\o Log file is "/project/ncsu-FreePDK45/ncsu_basekit/lib/NCSU_TechLib_FreePDK45/libManager.log".
+\o Opening libManager window.
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(-5 166 1014 689))
+\a nrResizeWindow(cdsLibManager list(-67 143 1014 689))
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\o libManager is exiting.
+\a exit(0)

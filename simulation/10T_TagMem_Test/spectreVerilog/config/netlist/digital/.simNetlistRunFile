@@ -1,0 +1,10 @@
+simVerilogNetlistFileList = '((("16nm_Tests" "10T_TagMem_Test") 
+	("cds0/netlist" "cds0/map" "schematic")
+    )
+)
+simVerilogNetlistFileLibList = '("16nm_Tests")
+simVerilogNetlistFileCellList = '(("16nm_Tests" 
+	("10T_TagMem_Test")
+    )
+)
+hnlIncrementalDirectory = '"ihnl"

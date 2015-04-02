@@ -1,0 +1,9 @@
+
+// Library name: 16nm
+// Cell name: 6T_1of4Split4
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub244 a_3 a_2 a_1 a_0 a_ack ack asel b_3 b_2 b_1 b_0 b_ack \
+        bsel c_3 c_2 c_1 c_0 c_ack csel d_3 d_2 d_1 d_0 d_ack dsel in_3 \
+        in_2 in_1 in_0

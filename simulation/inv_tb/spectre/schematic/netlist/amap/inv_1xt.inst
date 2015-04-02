@@ -1,0 +1,6 @@
+HEADER
+"PSFversion" "1.00"
+"P0n" "UCD_Analog_Parts_pmos4_spectre"
+"N0n" "UCD_Analog_Parts_nmos4_spectre"
+"Av" ":1v"
+"Yv" ":2v"
