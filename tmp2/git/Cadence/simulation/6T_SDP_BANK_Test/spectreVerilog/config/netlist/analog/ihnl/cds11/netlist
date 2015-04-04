@@ -1,8 +1,0 @@
-    M1 (Y B vdd! vdd!) pfet w=288n l=20n ls=0 m=1 region=off \
-        degradation=no
-    M0 (Y A vdd! vdd!) pfet w=288n l=20n ls=0 m=1 region=off \
-        degradation=no
-    M3 (net22 B 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=no
-    M2 (Y A net22 0) nfet w=288n l=20n nfin=7 m=1 degradation=no
-ends nand_1x
-// End of subcircuit definition.

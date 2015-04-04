@@ -1,0 +1,342 @@
+// Library - 16nm_Tests, Cell - 10T_TagMem_Test, View - schematic
+// LAST TIME SAVED: Apr  3 23:57:30 2015
+// NETLIST TIME: Apr  3 23:57:36 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_114 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
+     W0, W1, W_Addr );
+
+output  R_Ack, W_Ack;
+
+input  GoR, GoW, Reset;
+
+output [31:0]  R0;
+output [31:0]  R1;
+
+input [6:0]  W_Addr;
+input [31:0]  W0;
+input [31:0]  W1;
+input [6:0]  R_Addr;
+
+// Buses in the design
+
+wire  [6:0]  R_AddrT;
+
+wire  [31:0]  W1T;
+
+wire  [31:0]  cdsbus0;
+
+wire  [6:0]  W_AddrT;
+
+wire  [31:0]  cdsbus1;
+
+wire  [31:0]  R0T;
+
+wire  [6:0]  cdsbus2;
+
+wire  [6:0]  cdsbus3;
+
+wire  [31:0]  cdsbus4;
+
+wire  [31:0]  W0T;
+
+wire  [31:0]  R1T;
+
+wire  [31:0]  cdsbus5;
+
+// begin interface element definitions
+
+wire cdsNet2;
+wire cdsNet3;
+reg mixedNet99999;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99990;
+reg mixedNet99988;
+reg mixedNet99987;
+reg mixedNet99986;
+reg mixedNet99983;
+reg mixedNet99982;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99978;
+reg mixedNet99977;
+reg mixedNet99976;
+reg mixedNet99975;
+reg mixedNet99974;
+reg mixedNet99971;
+reg mixedNet99967;
+reg mixedNet99966;
+reg mixedNet99965;
+reg mixedNet99963;
+reg mixedNet99958;
+reg mixedNet99957;
+reg mixedNet99955;
+reg mixedNet99954;
+reg mixedNet99951;
+reg mixedNet99950;
+reg mixedNet99949;
+reg mixedNet99948;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99943;
+reg mixedNet99939;
+reg mixedNet99937;
+reg mixedNet99936;
+reg mixedNet99928;
+reg mixedNet99926;
+reg mixedNet99923;
+reg mixedNet99921;
+reg mixedNet99919;
+reg mixedNet99917;
+reg mixedNet99911;
+reg mixedNet99906;
+reg mixedNet99905;
+reg mixedNet99903;
+reg mixedNet99902;
+reg mixedNet99901;
+reg mixedNet99898;
+reg mixedNet99896;
+reg mixedNet99895;
+reg mixedNet99894;
+reg mixedNet99893;
+reg mixedNet99888;
+reg mixedNet99886;
+reg mixedNet99884;
+reg mixedNet99882;
+reg mixedNet99880;
+reg mixedNet99876;
+reg mixedNet99874;
+reg mixedNet99872;
+reg mixedNet99871;
+reg mixedNet99870;
+reg mixedNet99866;
+reg mixedNet99865;
+reg mixedNet99863;
+reg mixedNet99861;
+assign cdsbus0[4] = mixedNet99999;
+assign cdsbus5[28] = mixedNet99995;
+assign cdsbus5[6] = mixedNet99994;
+assign cdsbus0[23] = mixedNet99990;
+assign cdsbus0[22] = mixedNet99988;
+assign cdsbus5[27] = mixedNet99987;
+assign cdsbus5[26] = mixedNet99986;
+assign cdsbus0[21] = mixedNet99983;
+assign cdsbus5[31] = mixedNet99982;
+assign cdsbus5[25] = mixedNet99980;
+assign cdsbus5[24] = mixedNet99979;
+assign cdsbus5[30] = mixedNet99978;
+assign cdsbus5[23] = mixedNet99977;
+assign cdsbus0[16] = mixedNet99976;
+assign cdsbus5[29] = mixedNet99975;
+assign cdsbus0[31] = mixedNet99974;
+assign cdsbus5[21] = mixedNet99971;
+assign cdsbus5[11] = mixedNet99967;
+assign cdsbus0[30] = mixedNet99966;
+assign cdsbus5[20] = mixedNet99965;
+assign cdsbus5[14] = mixedNet99963;
+assign cdsbus0[3] = mixedNet99958;
+assign cdsbus0[5] = mixedNet99957;
+assign cdsbus5[10] = mixedNet99955;
+assign cdsbus0[2] = mixedNet99954;
+assign cdsbus5[19] = mixedNet99951;
+assign cdsNet2 = mixedNet99950;
+assign cdsbus0[29] = mixedNet99949;
+assign cdsbus0[28] = mixedNet99948;
+assign cdsbus0[27] = mixedNet99945;
+assign cdsbus5[18] = mixedNet99944;
+assign cdsbus5[13] = mixedNet99943;
+assign cdsbus5[9] = mixedNet99939;
+assign cdsbus5[17] = mixedNet99937;
+assign cdsbus0[17] = mixedNet99936;
+assign cdsbus0[20] = mixedNet99928;
+assign cdsbus0[19] = mixedNet99926;
+assign cdsbus0[18] = mixedNet99923;
+assign cdsNet3 = mixedNet99921;
+assign cdsbus5[16] = mixedNet99919;
+assign cdsbus5[12] = mixedNet99917;
+assign cdsbus5[15] = mixedNet99911;
+assign cdsbus5[4] = mixedNet99906;
+assign cdsbus5[3] = mixedNet99905;
+assign cdsbus0[7] = mixedNet99903;
+assign cdsbus0[8] = mixedNet99902;
+assign cdsbus0[15] = mixedNet99901;
+assign cdsbus0[26] = mixedNet99898;
+assign cdsbus5[2] = mixedNet99896;
+assign cdsbus0[14] = mixedNet99895;
+assign cdsbus0[13] = mixedNet99894;
+assign cdsbus0[12] = mixedNet99893;
+assign cdsbus5[5] = mixedNet99888;
+assign cdsbus5[7] = mixedNet99886;
+assign cdsbus0[11] = mixedNet99884;
+assign cdsbus5[22] = mixedNet99882;
+assign cdsbus5[8] = mixedNet99880;
+assign cdsbus0[6] = mixedNet99876;
+assign cdsbus5[0] = mixedNet99874;
+assign cdsbus0[10] = mixedNet99872;
+assign cdsbus0[9] = mixedNet99871;
+assign cdsbus0[1] = mixedNet99870;
+assign cdsbus0[0] = mixedNet99866;
+assign cdsbus0[25] = mixedNet99865;
+assign cdsbus5[1] = mixedNet99863;
+assign cdsbus0[24] = mixedNet99861;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "10T_TagMem_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I40_6_ ( cdsbus2[6], W_Addr[6]);
+inv_1xT I40_5_ ( cdsbus2[5], W_Addr[5]);
+inv_1xT I40_4_ ( cdsbus2[4], W_Addr[4]);
+inv_1xT I40_3_ ( cdsbus2[3], W_Addr[3]);
+inv_1xT I40_2_ ( cdsbus2[2], W_Addr[2]);
+inv_1xT I40_1_ ( cdsbus2[1], W_Addr[1]);
+inv_1xT I40_0_ ( cdsbus2[0], W_Addr[0]);
+inv_1xT I18 ( cdsNet0, GoR);
+inv_1xT I41_31_ ( R0[31], cdsbus0[31]);
+inv_1xT I41_30_ ( R0[30], cdsbus0[30]);
+inv_1xT I41_29_ ( R0[29], cdsbus0[29]);
+inv_1xT I41_28_ ( R0[28], cdsbus0[28]);
+inv_1xT I41_27_ ( R0[27], cdsbus0[27]);
+inv_1xT I41_26_ ( R0[26], cdsbus0[26]);
+inv_1xT I41_25_ ( R0[25], cdsbus0[25]);
+inv_1xT I41_24_ ( R0[24], cdsbus0[24]);
+inv_1xT I41_23_ ( R0[23], cdsbus0[23]);
+inv_1xT I41_22_ ( R0[22], cdsbus0[22]);
+inv_1xT I41_21_ ( R0[21], cdsbus0[21]);
+inv_1xT I41_20_ ( R0[20], cdsbus0[20]);
+inv_1xT I41_19_ ( R0[19], cdsbus0[19]);
+inv_1xT I41_18_ ( R0[18], cdsbus0[18]);
+inv_1xT I41_17_ ( R0[17], cdsbus0[17]);
+inv_1xT I41_16_ ( R0[16], cdsbus0[16]);
+inv_1xT I41_15_ ( R0[15], cdsbus0[15]);
+inv_1xT I41_14_ ( R0[14], cdsbus0[14]);
+inv_1xT I41_13_ ( R0[13], cdsbus0[13]);
+inv_1xT I41_12_ ( R0[12], cdsbus0[12]);
+inv_1xT I41_11_ ( R0[11], cdsbus0[11]);
+inv_1xT I41_10_ ( R0[10], cdsbus0[10]);
+inv_1xT I41_9_ ( R0[9], cdsbus0[9]);
+inv_1xT I41_8_ ( R0[8], cdsbus0[8]);
+inv_1xT I41_7_ ( R0[7], cdsbus0[7]);
+inv_1xT I41_6_ ( R0[6], cdsbus0[6]);
+inv_1xT I41_5_ ( R0[5], cdsbus0[5]);
+inv_1xT I41_4_ ( R0[4], cdsbus0[4]);
+inv_1xT I41_3_ ( R0[3], cdsbus0[3]);
+inv_1xT I41_2_ ( R0[2], cdsbus0[2]);
+inv_1xT I41_1_ ( R0[1], cdsbus0[1]);
+inv_1xT I41_0_ ( R0[0], cdsbus0[0]);
+inv_1xT I6 ( cdsNet1, Reset);
+inv_1xT I29 ( R_Ack, cdsNet2);
+inv_1xT I28 ( W_Ack, cdsNet3);
+inv_1xT I16 ( cdsNet4, GoW);
+inv_1xT I37_6_ ( cdsbus3[6], R_Addr[6]);
+inv_1xT I37_5_ ( cdsbus3[5], R_Addr[5]);
+inv_1xT I37_4_ ( cdsbus3[4], R_Addr[4]);
+inv_1xT I37_3_ ( cdsbus3[3], R_Addr[3]);
+inv_1xT I37_2_ ( cdsbus3[2], R_Addr[2]);
+inv_1xT I37_1_ ( cdsbus3[1], R_Addr[1]);
+inv_1xT I37_0_ ( cdsbus3[0], R_Addr[0]);
+inv_1xT I23_31_ ( R1[31], cdsbus5[31]);
+inv_1xT I23_30_ ( R1[30], cdsbus5[30]);
+inv_1xT I23_29_ ( R1[29], cdsbus5[29]);
+inv_1xT I23_28_ ( R1[28], cdsbus5[28]);
+inv_1xT I23_27_ ( R1[27], cdsbus5[27]);
+inv_1xT I23_26_ ( R1[26], cdsbus5[26]);
+inv_1xT I23_25_ ( R1[25], cdsbus5[25]);
+inv_1xT I23_24_ ( R1[24], cdsbus5[24]);
+inv_1xT I23_23_ ( R1[23], cdsbus5[23]);
+inv_1xT I23_22_ ( R1[22], cdsbus5[22]);
+inv_1xT I23_21_ ( R1[21], cdsbus5[21]);
+inv_1xT I23_20_ ( R1[20], cdsbus5[20]);
+inv_1xT I23_19_ ( R1[19], cdsbus5[19]);
+inv_1xT I23_18_ ( R1[18], cdsbus5[18]);
+inv_1xT I23_17_ ( R1[17], cdsbus5[17]);
+inv_1xT I23_16_ ( R1[16], cdsbus5[16]);
+inv_1xT I23_15_ ( R1[15], cdsbus5[15]);
+inv_1xT I23_14_ ( R1[14], cdsbus5[14]);
+inv_1xT I23_13_ ( R1[13], cdsbus5[13]);
+inv_1xT I23_12_ ( R1[12], cdsbus5[12]);
+inv_1xT I23_11_ ( R1[11], cdsbus5[11]);
+inv_1xT I23_10_ ( R1[10], cdsbus5[10]);
+inv_1xT I23_9_ ( R1[9], cdsbus5[9]);
+inv_1xT I23_8_ ( R1[8], cdsbus5[8]);
+inv_1xT I23_7_ ( R1[7], cdsbus5[7]);
+inv_1xT I23_6_ ( R1[6], cdsbus5[6]);
+inv_1xT I23_5_ ( R1[5], cdsbus5[5]);
+inv_1xT I23_4_ ( R1[4], cdsbus5[4]);
+inv_1xT I23_3_ ( R1[3], cdsbus5[3]);
+inv_1xT I23_2_ ( R1[2], cdsbus5[2]);
+inv_1xT I23_1_ ( R1[1], cdsbus5[1]);
+inv_1xT I23_0_ ( R1[0], cdsbus5[0]);
+inv_1xT I10_31_ ( cdsbus4[31], W1[31]);
+inv_1xT I10_30_ ( cdsbus4[30], W1[30]);
+inv_1xT I10_29_ ( cdsbus4[29], W1[29]);
+inv_1xT I10_28_ ( cdsbus4[28], W1[28]);
+inv_1xT I10_27_ ( cdsbus4[27], W1[27]);
+inv_1xT I10_26_ ( cdsbus4[26], W1[26]);
+inv_1xT I10_25_ ( cdsbus4[25], W1[25]);
+inv_1xT I10_24_ ( cdsbus4[24], W1[24]);
+inv_1xT I10_23_ ( cdsbus4[23], W1[23]);
+inv_1xT I10_22_ ( cdsbus4[22], W1[22]);
+inv_1xT I10_21_ ( cdsbus4[21], W1[21]);
+inv_1xT I10_20_ ( cdsbus4[20], W1[20]);
+inv_1xT I10_19_ ( cdsbus4[19], W1[19]);
+inv_1xT I10_18_ ( cdsbus4[18], W1[18]);
+inv_1xT I10_17_ ( cdsbus4[17], W1[17]);
+inv_1xT I10_16_ ( cdsbus4[16], W1[16]);
+inv_1xT I10_15_ ( cdsbus4[15], W1[15]);
+inv_1xT I10_14_ ( cdsbus4[14], W1[14]);
+inv_1xT I10_13_ ( cdsbus4[13], W1[13]);
+inv_1xT I10_12_ ( cdsbus4[12], W1[12]);
+inv_1xT I10_11_ ( cdsbus4[11], W1[11]);
+inv_1xT I10_10_ ( cdsbus4[10], W1[10]);
+inv_1xT I10_9_ ( cdsbus4[9], W1[9]);
+inv_1xT I10_8_ ( cdsbus4[8], W1[8]);
+inv_1xT I10_7_ ( cdsbus4[7], W1[7]);
+inv_1xT I10_6_ ( cdsbus4[6], W1[6]);
+inv_1xT I10_5_ ( cdsbus4[5], W1[5]);
+inv_1xT I10_4_ ( cdsbus4[4], W1[4]);
+inv_1xT I10_3_ ( cdsbus4[3], W1[3]);
+inv_1xT I10_2_ ( cdsbus4[2], W1[2]);
+inv_1xT I10_1_ ( cdsbus4[1], W1[1]);
+inv_1xT I10_0_ ( cdsbus4[0], W1[0]);
+inv_1xT I8_31_ ( cdsbus1[31], W0[31]);
+inv_1xT I8_30_ ( cdsbus1[30], W0[30]);
+inv_1xT I8_29_ ( cdsbus1[29], W0[29]);
+inv_1xT I8_28_ ( cdsbus1[28], W0[28]);
+inv_1xT I8_27_ ( cdsbus1[27], W0[27]);
+inv_1xT I8_26_ ( cdsbus1[26], W0[26]);
+inv_1xT I8_25_ ( cdsbus1[25], W0[25]);
+inv_1xT I8_24_ ( cdsbus1[24], W0[24]);
+inv_1xT I8_23_ ( cdsbus1[23], W0[23]);
+inv_1xT I8_22_ ( cdsbus1[22], W0[22]);
+inv_1xT I8_21_ ( cdsbus1[21], W0[21]);
+inv_1xT I8_20_ ( cdsbus1[20], W0[20]);
+inv_1xT I8_19_ ( cdsbus1[19], W0[19]);
+inv_1xT I8_18_ ( cdsbus1[18], W0[18]);
+inv_1xT I8_17_ ( cdsbus1[17], W0[17]);
+inv_1xT I8_16_ ( cdsbus1[16], W0[16]);
+inv_1xT I8_15_ ( cdsbus1[15], W0[15]);
+inv_1xT I8_14_ ( cdsbus1[14], W0[14]);
+inv_1xT I8_13_ ( cdsbus1[13], W0[13]);
+inv_1xT I8_12_ ( cdsbus1[12], W0[12]);
+inv_1xT I8_11_ ( cdsbus1[11], W0[11]);
+inv_1xT I8_10_ ( cdsbus1[10], W0[10]);
+inv_1xT I8_9_ ( cdsbus1[9], W0[9]);
+inv_1xT I8_8_ ( cdsbus1[8], W0[8]);
+inv_1xT I8_7_ ( cdsbus1[7], W0[7]);
+inv_1xT I8_6_ ( cdsbus1[6], W0[6]);
+inv_1xT I8_5_ ( cdsbus1[5], W0[5]);
+inv_1xT I8_4_ ( cdsbus1[4], W0[4]);
+inv_1xT I8_3_ ( cdsbus1[3], W0[3]);
+inv_1xT I8_2_ ( cdsbus1[2], W0[2]);
+inv_1xT I8_1_ ( cdsbus1[1], W0[1]);
+inv_1xT I8_0_ ( cdsbus1[0], W0[0]);
+
+endmodule

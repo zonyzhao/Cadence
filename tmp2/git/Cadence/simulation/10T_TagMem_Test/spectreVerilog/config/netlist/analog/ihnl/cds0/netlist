@@ -1,6 +1,0 @@
-    M0 (Y A 0 0) nfet w=288n l=20n as=9.45e-15 ad=9.45e-15 ps=300n pd=300n \
-        ld=105n ls=105n m=1 degradation=no
-    M1 (Y A vdd! vdd!) pfet w=90n l=20n as=9.45e-15 ad=9.45e-15 ps=300n \
-        pd=300n ld=105n ls=105n m=1 degradation=no
-ends inv_1x
-// End of subcircuit definition.

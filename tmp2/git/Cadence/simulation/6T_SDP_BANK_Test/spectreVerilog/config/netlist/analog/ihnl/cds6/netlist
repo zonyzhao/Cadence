@@ -1,8 +1,0 @@
-    M6 (net18 Go 0 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M5 (\~R0 SM0_0 net18 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M3 (\~R0 SM0_1 net18 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M2 (net12 Go 0 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M1 (\~R1 SM1_1 net12 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M0 (\~R1 SM1_0 net12 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-ends _sub63
-// End of subcircuit definition.

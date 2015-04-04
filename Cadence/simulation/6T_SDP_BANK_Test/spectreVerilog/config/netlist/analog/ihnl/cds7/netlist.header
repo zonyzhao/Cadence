@@ -1,0 +1,14 @@
+
+// Library name: 16nm
+// Cell name: 6T_CHUNK
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub82 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 \
+        A_52 A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 \
+        A_40 A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 \
+        A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 \
+        A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 \
+        A_2 A_1 A_0 B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go S_7 S_6 \
+        S_5 S_4 S_3 S_2 S_1 S_0 W0_3 W0_2 W0_1 W0_0 W1_3 W1_2 W1_1 W1_0 \
+        \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_3 \~R1_2 \~R1_1 \~R1_0

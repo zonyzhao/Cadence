@@ -1,6 +1,0 @@
-    M3 (Y B or_pd_ps vdd!) pfet w=160n l=16n m=1 degradation=yes
-    M2 (or_pd_ps A vdd! vdd!) pfet w=160n l=16n m=1 degradation=yes
-    M1 (Y B 0 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-    M0 (Y A 0 0) nfet w=40n l=16n nfin=7 m=1 degradation=yes
-ends nor_1x
-// End of subcircuit definition.

@@ -1,0 +1,50 @@
+ic IBank.Ap_15=0 IBank.Ap_14=0 IBank.Ap_13=0 IBank.Ap_12=0 IBank.Ap_11=0 \
+    IBank.Ap_10=0 IBank.Ap_9=0 IBank.Ap_8=0 IBank.Ap_7=0 IBank.Ap_6=0 \
+    IBank.Ap_5=0 IBank.Ap_4=0 IBank.Ap_3=0 IBank.Ap_2=0 IBank.Ap_1=0 \
+    IBank.Ap_0=0 IBank.WRWp_1=0 IBank.WRWp_0=0 IBank.I1.I3.net31=0 \
+    IBank.I1.I3.net29=0 IBank.I1.I3.net28=0 IBank.I1.I3.net26=0 \
+    IBank.I1.I1.Vpass_0=0 IBank.I1.I1.Vpass_1=0 IBank.I1.I1.Vpass_2=0 \
+    IBank.I1.I1.Vpass_3=0 IBank.I1.I1.bmid_2=0 IBank.I1.I1.bmid_3=0 \
+    IBank.I1.I1.bmid_1=0 IBank.I1.I1.bmid_0=0 IBank.I1.I1.amid_3=0 \
+    IBank.I1.I1.amid_2=0 IBank.I1.I1.amid_1=0 IBank.I1.I1.amid_0=0 \
+    IBank.Ap_19=0 IBank.Ap_18=0 IBank.Ap_17=0 IBank.Ap_16=0 WD_AckT_7=0 \
+    WD_AckT_6=0 WD_AckT_5=0 WD_AckT_4=0 WD_AckT_3=0 WD_AckT_2=0 \
+    WD_AckT_1=0 WD_AckT_0=0 \~RD_Ack_7=vdd \~RD_Ack_6=vdd \~RD_Ack_5=vdd \
+    \~RD_Ack_4=vdd \~RD_Ack_3=vdd \~RD_Ack_2=vdd \~RD_Ack_1=vdd \
+    \~RD_Ack_0=vdd RD_AckT_7=0 RD_AckT_6=0 RD_AckT_5=0 RD_AckT_4=0 \
+    RD_AckT_3=0 RD_AckT_2=0 RD_AckT_1=0 RD_AckT_0=0 R_AddressT_19=0 \
+    R_AddressT_18=0 R_AddressT_17=0 R_AddressT_16=0 R_AddressT_15=0 \
+    R_AddressT_14=0 R_AddressT_13=0 R_AddressT_12=0 R_AddressT_11=0 \
+    R_AddressT_10=0 R_AddressT_9=0 R_AddressT_8=0 R_AddressT_7=0 \
+    R_AddressT_6=0 R_AddressT_5=0 R_AddressT_4=0 R_AddressT_3=0 \
+    R_AddressT_2=0 R_AddressT_1=0 R_AddressT_0=0 RRWT_1=0 RRWT_0=0 \
+    WRWT_1=0 WRWT_0=0 W_AddressT_19=0 W_AddressT_18=0 W_AddressT_17=0 \
+    W_AddressT_16=0 W_AddressT_15=0 W_AddressT_14=0 W_AddressT_13=0 \
+    W_AddressT_12=0 W_AddressT_11=0 W_AddressT_10=0 W_AddressT_9=0 \
+    W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 W_AddressT_5=0 \
+    W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 W_AddressT_1=0 \
+    W_AddressT_0=0 WriteDataT_31=0 WriteDataT_30=0 WriteDataT_29=0 \
+    WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 WriteDataT_25=0 \
+    WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 WriteDataT_21=0 \
+    WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 WriteDataT_17=0 \
+    WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 WriteDataT_13=0 \
+    WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 WriteDataT_9=0 \
+    WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 WriteDataT_5=0 \
+    WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 WriteDataT_1=0 \
+    WriteDataT_0=0 IBank.I0.I0.I0.I0.I7.I3.Q1=vdd \
+    IBank.I0.I0.I0.I0.I7.I3.Q0=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=90 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=5n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save IBank:48 IBank:116 V1:p 
+saveOptions options save=allpub
