@@ -1,7 +1,7 @@
 simulator( 'spectreVerilog )
 hostMode( 'distributed )
-design(	 "/net/bull/apps/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config/netlist/analog/netlist")
-resultsDir( "/net/bull/apps/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config" )
+design(	    "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config" )
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
@@ -16,7 +16,6 @@ envOption(
 	'analysisOrder  list("tran") 
 )
 ;option(	'temp  "30.0" )
-saveOption( ?simOutputFormat "psfxl" )
 save( 'i "/V1/MINUS" "/IBank/Write_Ack" "/IBank/Read_Ack" )
 converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q0" "0" )
 converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q1" "vdd" )
@@ -154,92 +153,171 @@ converge( 'ic "/IBank/Ap<15>" "0" )
 temp( 30.0 ) 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-HList = 	list( "adder" "asp" "blind" "boa" "boom" "brown" \
-		"cobra"  "copper" "coral" "corn" "crowned" \
-                "deathadder" "fierce" "garter" "gopher" \
-                "hognose" "indigo" "krait" "mamba" "milk" \
-		"python" "queen" "racer" "rainbow" "rat" \
-		"rattle" "redbelly" "ribbon" "scarlet" \
-		"swamp" "timber" "viper" )
+;hList = 	list( "adder" "asp" "blind" "boa" "boom" "brown" \
+;		      "cobra"  "copper" "coral" "corn" "crowned" \
+;		      "deathadder" "fierce" "garter" "gopher" 	 \
+;		      "hognose" "indigo" "krait" "mamba" "milk"  \
+;		      "python" "queen" "racer" "rainbow" "rat" 	 \
+;		      "rattle" "redbelly" "ribbon" "scarlet" 	 \
+;		      "swamp" "timber" "viper" )
 
-Vload = list(.50 .55  \
-	         .60 .65  \
-	         .70 .75  \
-	         .80 .85  \
-	         .90  1    )
+hList = list( "asp"  "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer"  "rat" "rattle" "redbelly" "scarlet" "timber" "viper" )
+		           
+vLoad = list( .4 .45 .50 .55 .65 .85 1.0 1.5 2.0 )	            		            
+tLoad = list( 30 60 90 )
 
-Tload = list(30 60 90)
-
-jobList = nil
-jobNameList = nil
-volts   = nil
-temps   = nil
+jobList 	= nil
+mVs   		= nil
+temps   	= nil
 j=1
-foreach( degC  Tload
-	foreach( val  Vload
-    		desVar( "vdd" val )
-		desVar( "vcc" val )
-        	volt    = round( evalstring( desVar( "vdd" )) * 1000 )
-       	 	volts   = append1( volts sprintf( nil "%d" volt ))
-        	temps   = append1( temps sprintf(nil "%d" degC ))
+foreach( degC  tLoad
+    foreach( val  vLoad
+	desVar( "vdd" val )
+	temp(degC)
+        	
+	volt    = round( evalstring( desVar( "vdd" )) * 1000 )
+	mVs     = append1( mVs sprintf( nil "%d" volt ))
+	temps   = append1( temps sprintf(nil "%d" degC ))
 
-		temp(degC);
-		jobName = strcat("SDPBank_"  sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C" )
-       	 	jobNameList = append1(jobNameList jobName)
-		jobList = append1( jobList run( ?jobName jobName ?queue "c2107" ?host nthelem(j HList) ) )
-		j = j + 1
-	)
+jobName = strcat("/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config/distributed/newSDPBank_" sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C/psf" )		    	      
+jobList = append1( jobList jobName ) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;jobName = strcat("newSDPBank_"  sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C" )
+;;;;;;;;;;jobList = append1( jobList run( ?jobName jobName ?queue "c2107" ?host nthelem(j hList) ) )	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	j = j + 1
+    )
 )
-wait(last(jobList))
+
+;wait( ( append1 jobList nil  ) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/2K_BankData.csv"  )
+file8K    =  strcat( "/root/Desktop/Cadence/simData/CacheData/8K_BankData.csv"  )
+file16K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/16K_BankData.csv" )
+file32K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/32K_BankData.csv" )
+outF      =   outfile(file,    "w")
+out8K     =   outfile(file8K,  "w")
+out16K    =   outfile(file16K, "w")
+out32K    =   outfile(file32K, "w")
+fprintf( outF,   "Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy\n" )	
+fprintf( out8K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n"  )	
+fprintf( out16K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n" )	
+fprintf( out32K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n" )	
+close(outF)
+close(out8K)
+close(out16K)
+close(out32K)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 j = 1
 foreach(job jobList	
-	openResults( nthelem(j jobList))
-   	selectResult( 'tran )
-        leakage = average( clip( j( "/V1/MINUS" ) 100p 995p ) ) *1e3
-	peakCurrnet  = max(i( "/V1/MINUS" )) *1e3
+    	printf("\n%s" job )
+    	unless( openResults( job ) == nil || (evalstring(nthelem(j mVs)) >= 1500)
+    	selectResult( 'tran )
+    	unless( i( "/V1/MINUS") == nil
+	Volts       = evalstring( nthelem(j mVs) )*0.001;
+        leakage     = average( clip( i( "/V1/MINUS" ) 1200p 1300p ) ) *1e3
+        leakagePwr  = leakage*Volts
+	peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
+	peakPwr     = peakCurrent*Volts
         
-	inameR = strcat("/net/" sprintf(nil "%s" nthelem(j HList)) "/tmp2/SDP_BANK_RLog.csv") 
-        inameW = strcat("/net/" sprintf(nil "%s" nthelem(j HList)) "/tmp2/SDP_BANK_WLog.csv")
+	cHost       = sprintf(nil "%s" nthelem(j hList))
+        nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/SDP_BANK_RLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+        nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/SDP_BANK_WLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+	shellCmd1   = strcat("scp " cHost ":/tmp2/SDP_BANK_RLog.csv " nameR  )
+	shellCmd2   = strcat("scp " cHost ":/tmp2/SDP_BANK_WLog.csv " nameW  )
+	shell( shellCmd1 )
+	shell( shellCmd2 )
 
-        fidR   = infile(inameR "r+");
-        fscanf( fidR "%s %s %s %s" rAddr  rData rTime rDelay )
-	fscanf( fidR "%s %s %s %s" rAddr  rData rTime2 rDelay2 )
-        fscanf( fidR "%s %s %s %s" rAddr  rData rTime rDelay )
-        fscanf( fidR "%s %s %s %s" rAddr  rData rTime1 rDelay2 )
-        fscanf( fidR "%s %s %s %s" rAddr  rData rTime rDelay )
-        fscanf( fidR "%s %s %s %s" rAddr  rData rTime2 rNull )
-	rTime  = strcat(rTime "p")
-	rTime1 = strcat(rTime1 "p")
-	rTime2 = strcat(rTime2 "p")
-	rEnergy = integ(clipX( i("/V1/MINUS") evalstring(rTime1) evalstinrg(rTime)))*(evalstring(nthelem(j volts))/ 1000);	
-	rnullEnergy = integ(clipX( i("/V1/MINUS") evalstring(rTime) evalstinrg(rTime2)))*(evalstring(nthelem(j volts))/ 1000);
-	close(fidR)
+        printf("Reading %s\n" nameR)
+        fidR   = infile( nameR )
+	gets( s fidR )
+	gets( s fidR )
+	gets( s fidR )          
+        gets( s fidR ) 
+        fscanf( fidR "%s %s %s %s" rAddr  rData rEnd     rDelay )
+        fscanf( fidR "%s %s %s %s" rAddr  rData rEndNull rNull )
+        close( fidR )
 
-        fidW   = infile(inameW "r+");
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime wDelay )
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime2 wDelay2 )
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime wDelay )
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime1 wDelay2 )
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime wDelay )
-        fscanf( fidW "%s %s %s %s" wAddr  wData wTime2 wNull )
-        wTime  = strcat(wTime "p")
-        wTime1 = strcat(wTime1 "p")
-        wTime2 = strcat(wTime2 "p")
-        wEnergy = integ(clipX( i("/V1/MINUS") evalstring(wTime1) evalstring(wTime)))*(evalstring(nthelem(j volts))/ 1000);
-        wnullEnergy = integ(clipX( i("/V1/MINUS") evalstring(wTime) evalstring(wTime2)))*(evalstring(nthelem(j volts))/ 1000);
+        printf("Reading %s\n" nameW)
+        fidW   = infile( nameW )
+	gets( s fidW )	
+	gets( s fidW )
+	gets( s fidW )
+	gets( s fidW )
+        fscanf( fidW "%s %s %s %s" wAddr  wData wEnd     wDelay )
+        fscanf( fidW "%s %s %s %s" wAddr  wData wEndNull wNull  )
         close(fidW)
+	unless( (rEnd == nil) || (rEndNull == nil) || (wEnd == nil) || (wEndNull == nil)
+                    
+		rStart      = evalstring( strcat(rEnd "p")) - evalstring( strcat(rDelay "p"))
+        	rEnd        = evalstring( strcat(rEnd "p"))
+        	rEndNull    = evalstring( strcat(rEndNull "p"))
+  		rEnergy     = integ( i("/V1/MINUS") rStart rEnd)*1e12*Volts
+		rnullEnergy = integ( i("/V1/MINUS") rEnd   rEndNull)*1e12*Volts
 
-	file  =  strcat(  "/root/Desktop/BankData/Banklog.csv  )
-	p     = outfile(file, "w")
-	fprintf( p "Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy\n" )	
-        fprintf( p "%s,%g,%g,%g,%s,%g,%s,%g,%s,%g,%s,%g\n" nthelem(j volts) nthelem(j temps) leakage peakCurrent rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullDelay)
-        close( p)
-	j     = j + 1
+
+            
+        	wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
+        	wEnd        = evalstring( strcat(wEnd "p") )
+        	wEndNull    = evalstring( strcat(wEndNull "p") )
+		wEnergy     = integ( i("/V1/MINUS") wStart wEnd)*1e12*Volts
+		wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
+
+		outF      =   outfile(file,    "a")       
+        	fprintf( outF "%s,\t%s,\t%g,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g\n" nthelem(j mVs) nthelem(j temps) leakage peakCurrent rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
+        	close( outF )
+	         
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	          
+
+            	leak8K    = leakage*4   ;;mA
+            	leak16K   = leak8K*2    ;;mA
+            	leak32K   = leak16K*2   ;;mA
+            
+            	leak8KPwr  = leak8K*Volts  ;;mW
+            	leak16KPwr = leak16K*Volts ;;mW
+            	leak32KPwr = leak32K*Volts ;;mW
+            
+            	leakageEnergy     = 1e-3*leakagePwr*2*(rEnd-rStart)*1e12         ;; read is longer than write
+            	leakageEnergyNull = 1e-3*leakagePwr*2*(rEndNull-rEnd)*1e12       ;; read is longer than write
+            
+            	rwEnergy8K   = rEnergy+wEnergy+leakageEnergy 
+            	rwEnergy16K  = 2*rwEnergy8K
+            	rwEnergy32K  = 4*rwEnergy8K
+                     
+            	rwEnergyNull8K  = rnullEnergy+wnullEnergy+leakageEnergyNull 
+            	rwEnergyNull16K = 2*rwEnergyNull8K
+            	rwEnergyNull32K = 4*rwEnergyNull8K
+            
+            	rwCycleEnergy8K  =  rwEnergy8K +   rwEnergyNull8K
+            	rwCycleEnergy16K =  rwEnergy16K +  rwEnergyNull16K
+            	rwCycleEnergy32K =  rwEnergy32K +  rwEnergyNull32K
+	      
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       
+            	out8K     =   outfile(file8K,  "a")
+            	out16K    =   outfile(file16K, "a")
+            	out32K    =   outfile(file32K, "a")                       
+            	fprintf( out8K  "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak8K leak8KPwr rwEnergy8K rwEnergyNull8K rwCycleEnergy8K)
+            	fprintf( out16K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak16K leak16KPwr rwEnergy16K rwEnergyNull16K rwCycleEnergy16K)
+            	fprintf( out32K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak32K leak32KPwr rwEnergy32K rwEnergyNull32K rwCycleEnergy32K)            
+            	close( out8K)
+            	close( out16K)
+            	close( out32K)
+            )
+	) 
+    )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+    j     = j + 1
 )    
-
-;foreach( x jobList deleteJob( x ) )
-;selectResult( 'tran )
-
-
-
-;plot(getData("/IBank/Ap<0>") getData("/IBank/Ap<10>") getData("/IBank/Ap<11>") getData("/IBank/Ap<12>") getData("/IBank/Ap<13>") getData("/IBank/Ap<14>") getData("/IBank/Ap<15>") getData("/IBank/Ap<16>") getData("/IBank/Ap<17>") getData("/IBank/Ap<18>") getData("/IBank/Ap<19>") getData("/IBank/Ap<1>") getData("/IBank/Ap<2>") getData("/IBank/Ap<3>") getData("/IBank/Ap<4>") getData("/IBank/Ap<5>") getData("/IBank/Ap<6>") getData("/IBank/Ap<7>") getData("/IBank/Ap<8>") getData("/IBank/Ap<9>") getData("/IBank/I1/I1/Vpass<0>") getData("/IBank/I1/I1/Vpass<1>") getData("/IBank/I1/I1/Vpass<2>") getData("/IBank/I1/I1/Vpass<3>") getData("/IBank/I1/I1/amid<0>") getData("/IBank/I1/I1/amid<1>") getData("/IBank/I1/I1/amid<2>") getData("/IBank/I1/I1/amid<3>") getData("/IBank/I1/I1/bmid<0>") getData("/IBank/I1/I1/bmid<1>") getData("/IBank/I1/I1/bmid<2>") getData("/IBank/I1/I1/bmid<3>") getData("/IBank/WAck") getData("/IBank/WAckp<0>") getData("/IBank/WAckp<1>") getData("/IBank/WAckp<2>") getData("/IBank/WAckp<3>") getData("/IBank/WAckp<4>") getData("/IBank/WRWp<0>") getData("/IBank/WRWp<1>") getData("/RA_Ack<4:0>") getData("/RA_AckT<0>") getData("/RA_AckT<1>") getData("/RA_AckT<2>") getData("/RA_AckT<3>") getData("/RA_AckT<4>") getData("/RD_Ack<7:0>") getData("/RD_AckT<0>") getData("/RD_AckT<1>") getData("/RD_AckT<2>") getData("/RD_AckT<3>") getData("/RD_AckT<4>") getData("/RD_AckT<5>") getData("/RD_AckT<6>") getData("/RD_AckT<7>") getData("/RRW<1:0>") getData("/RRWT<0>") getData("/RRWT<1>") getData("/R_Address<19:0>") getData("/R_AddressT<0>") getData("/R_AddressT<10>") getData("/R_AddressT<11>") getData("/R_AddressT<12>") getData("/R_AddressT<13>") getData("/R_AddressT<14>") getData("/R_AddressT<15>") getData("/R_AddressT<16>") getData("/R_AddressT<17>") getData("/R_AddressT<18>") getData("/R_AddressT<19>") getData("/R_AddressT<1>") getData("/R_AddressT<2>") getData("/R_AddressT<3>") getData("/R_AddressT<4>") getData("/R_AddressT<5>") getData("/R_AddressT<6>") getData("/R_AddressT<7>") getData("/R_AddressT<8>") getData("/R_AddressT<9>") getData("/ReadAck") getData("/ReadAckT") getData("/ReadData<31:0>") getData("/ReadDataT<0>") getData("/ReadDataT<10>") getData("/ReadDataT<11>") getData("/ReadDataT<12>") getData("/ReadDataT<13>") getData("/ReadDataT<14>") getData("/ReadDataT<15>") getData("/ReadDataT<16>") getData("/ReadDataT<17>") getData("/ReadDataT<18>") getData("/ReadDataT<19>") getData("/ReadDataT<1>") getData("/ReadDataT<20>") getData("/ReadDataT<21>") getData("/ReadDataT<22>") getData("/ReadDataT<23>") getData("/ReadDataT<24>") getData("/ReadDataT<25>") getData("/ReadDataT<26>") getData("/ReadDataT<27>") getData("/ReadDataT<28>") getData("/ReadDataT<29>") getData("/ReadDataT<2>") getData("/ReadDataT<30>") getData("/ReadDataT<31>") getData("/ReadDataT<3>") getData("/ReadDataT<4>") getData("/ReadDataT<5>") getData("/ReadDataT<6>") getData("/ReadDataT<7>") getData("/ReadDataT<8>") getData("/ReadDataT<9>") getData("/V1/MINUS") getData("/WA_Ack<4:0>") getData("/WA_AckT<0>") getData("/WA_AckT<1>") getData("/WA_AckT<2>") getData("/WA_AckT<3>") getData("/WA_AckT<4>") getData("/WD_Ack<7:0>") getData("/WD_AckT<0>") getData("/WD_AckT<1>") getData("/WD_AckT<2>") getData("/WD_AckT<3>") getData("/WD_AckT<4>") getData("/WD_AckT<5>") getData("/WD_AckT<6>") getData("/WD_AckT<7>") getData("/WRW<1:0>") getData("/WRWT<0>") getData("/WRWT<1>") getData("/W_Address<19:0>") getData("/W_AddressT<0>") getData("/W_AddressT<10>") getData("/W_AddressT<11>") getData("/W_AddressT<12>") getData("/W_AddressT<13>") getData("/W_AddressT<14>") getData("/W_AddressT<15>") getData("/W_AddressT<16>") getData("/W_AddressT<17>") getData("/W_AddressT<18>") getData("/W_AddressT<19>") getData("/W_AddressT<1>") getData("/W_AddressT<2>") getData("/W_AddressT<3>") getData("/W_AddressT<4>") getData("/W_AddressT<5>") getData("/W_AddressT<6>") getData("/W_AddressT<7>") getData("/W_AddressT<8>") getData("/W_AddressT<9>") getData("/WriteAck") getData("/WriteAckT") getData("/WriteData<31:0>") getData("/WriteDataT<0>") getData("/WriteDataT<10>") getData("/WriteDataT<11>") getData("/WriteDataT<12>") getData("/WriteDataT<13>") getData("/WriteDataT<14>") getData("/WriteDataT<15>") getData("/WriteDataT<16>") getData("/WriteDataT<17>") getData("/WriteDataT<18>") getData("/WriteDataT<19>") getData("/WriteDataT<1>") getData("/WriteDataT<20>") getData("/WriteDataT<21>") getData("/WriteDataT<22>") getData("/WriteDataT<23>") getData("/WriteDataT<24>") getData("/WriteDataT<25>") getData("/WriteDataT<26>") getData("/WriteDataT<27>") getData("/WriteDataT<28>") getData("/WriteDataT<29>") getData("/WriteDataT<2>") getData("/WriteDataT<30>") getData("/WriteDataT<31>") getData("/WriteDataT<3>") getData("/WriteDataT<4>") getData("/WriteDataT<5>") getData("/WriteDataT<6>") getData("/WriteDataT<7>") getData("/WriteDataT<8>") getData("/WriteDataT<9>") getData("/IBank/Write_Ack") getData("/IBank/Read_Ack") )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+printf("\nCompleted. Purging old jobs...\n")
+;foreach( job jobList deleteJob( job ) )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
