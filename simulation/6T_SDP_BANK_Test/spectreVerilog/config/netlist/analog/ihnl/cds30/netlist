@@ -1,21 +1,7 @@
-    M19 (net13 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M18 (net13 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M17 (net13 C 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M15 (Y net44 0 0) nfet w=40n l=60n nfin=1 m=1 degradation=no
-    M14 (net42 A 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-    M13 (net43 B net42 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-    M12 (net44 C net43 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-    M10 (net44 Y net13 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M9 (Y net44 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M8 (net44 Y net15 vdd!) pfet w=200n l=20n nfin=1 m=1 \
-        degradation=yes
-    M6 (net15 C vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
-    M5 (net15 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
-    M4 (net15 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
-    M2 (net44 C net46 vdd!) pfet w=300n l=20n nfin=1 m=1 \
-        degradation=yes
-    M1 (net46 B net47 vdd!) pfet w=300n l=20n nfin=1 m=1 \
-        degradation=yes
-    M0 (net47 A vdd! vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=yes
-ends TH33
+    I17 (net8 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 \
+        A_2 A_1 A_0) or16_1x
+    I15 (A_16 A_17 A_18 A_19 net7) or4_1x
+    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
+    I16 (net8 net7 ValAddr) or_1x
+ends _sub29
 // End of subcircuit definition.

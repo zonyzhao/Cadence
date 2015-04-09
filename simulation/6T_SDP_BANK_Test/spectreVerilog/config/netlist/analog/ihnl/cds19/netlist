@@ -15,5 +15,5 @@
     I2_1 (_1of4_4_1 Valid_1 En S_5) and3_1x
     I2_0 (_1of4_4_0 Valid_1 En S_4) and3_1x
     I3 (Valid_1 Valid_0 Ack) or_1x
-ends _sub83
+ends _sub26
 // End of subcircuit definition.

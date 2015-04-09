@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr  6 21:32:27 2015
+// Design library name: 16nm_Tests
+// Design cell name: 6T_Data_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vcc! vdd!

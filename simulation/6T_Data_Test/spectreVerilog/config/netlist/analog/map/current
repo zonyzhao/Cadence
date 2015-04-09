@@ -1,0 +1,52 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "6T_Data_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vcc! vdd!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_Data_Test/spectreVerilog/config/netlist/analog"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/TH22/schematic" "TH22" )
+( "16nm/nand_1x/schematic" "nand_1x" )
+( "16nm/inv_weak_1x/schematic" "inv_weak_1x" )
+( "16nm/TH44/schematic" "TH44" )
+( "16nm/or_1x/schematic" "or_1x" )
+( "16nm/PCHBd/schematic" "PCHBd" )
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm/and_1x/schematic" "and_1x" )
+( "16nm/TH22~/schematic" "_sub38" )
+( "16nm/nor_1x/schematic" "nor_1x" )
+( "16nm/inv_1xt/schematic" "inv_1xt" )
+( "16nm/WCHB/schematic" "WCHB" )
+( "16nm/6T_DATA/schematic" "_sub39" )
+( "16nm_Tests/6T_Data_Test/schematic" "_sub40" )
+ )
+( term
+ )
+( param
+ )
+( "_sub40" "ihnl/cds13/map" )
+( "or_1x" "ihnl/cds6/map" )
+( "TH22" "ihnl/cds8/map" )
+( "_sub39" "ihnl/cds11/map" )
+( "TH44" "ihnl/cds5/map" )
+( "PCHBd" "ihnl/cds10/map" )
+( "nand_1x" "ihnl/cds0/map" )
+( "and_1x" "ihnl/cds7/map" )
+( "inv_1xt" "ihnl/cds12/map" )
+( "WCHB" "ihnl/cds4/map" )
+( "inv_1x" "ihnl/cds2/map" )
+( "inv_weak_1x" "ihnl/cds9/map" )
+( "nor_1x" "ihnl/cds1/map" )
+( "_sub38" "ihnl/cds3/map" )
+ )

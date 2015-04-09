@@ -1,0 +1,4 @@
+    M0 (Y A 0 0) nfet w=40n l=16n nfin=1 ls=105n  m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+ends inv_1xT
+// End of subcircuit definition.

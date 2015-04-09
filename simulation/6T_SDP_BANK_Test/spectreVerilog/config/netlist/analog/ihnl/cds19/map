@@ -108,7 +108,7 @@
 ( "I2<1>" "I2_1" )
  )
 ( model
-( "6T_DEMUX" "_sub83" )
+( "6T_DEMUX" "_sub26" )
  )
 ( term
  )

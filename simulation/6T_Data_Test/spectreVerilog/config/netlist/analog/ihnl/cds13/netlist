@@ -1,0 +1,102 @@
+
+// Library name: 16nm_Tests
+// Cell name: 6T_Data_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+I0 (net42 net43_0 net43_1 net43_2 net43_3 net44_0 net44_1 net44_2 \
+        net44_3 net45 net32_0 net32_1 net32_2 net32_3 net31_0 net31_1 \
+        net31_2 net31_3 net33_0 net33_1 net41 net21 net46_0 net46_1 \
+        net46_2 net46_3 net47_0 net47_1 net47_2 net47_3 net30_0 net30_1 \
+        net30_2 net30_3 net29_0 net29_1 net29_2 net29_3 net39 net37 \
+        net35_0 net35_1 net38_0 net38_1 net36_0 net36_1 net36_2 net36_3 \
+        net40_0 net40_1 net40_2 net40_3) _sub39
+I24_3 (net47_0 net054_0) inv_1xt
+I24_2 (net47_1 net054_1) inv_1xt
+I24_1 (net47_2 net054_2) inv_1xt
+I24_0 (net47_3 net054_3) inv_1xt
+I22_3 (net46_0 net053_0) inv_1xt
+I22_2 (net46_1 net053_1) inv_1xt
+I22_1 (net46_2 net053_2) inv_1xt
+I22_0 (net46_3 net053_3) inv_1xt
+I19_3 (net44_0 net044_0) inv_1xt
+I19_2 (net44_1 net044_1) inv_1xt
+I19_1 (net44_2 net044_2) inv_1xt
+I19_0 (net44_3 net044_3) inv_1xt
+I18_3 (net43_0 net043_0) inv_1xt
+I18_2 (net43_1 net043_1) inv_1xt
+I18_1 (net43_2 net043_2) inv_1xt
+I18_0 (net43_3 net043_3) inv_1xt
+I13 (net42 net015) inv_1xt
+I16 (net45 net023) inv_1xt
+I8_1 (net34_0 net33_0) inv_1xt
+I8_0 (net34_1 net33_1) inv_1xt
+I4_3 (net26_0 net30_0) inv_1xt
+I4_2 (net26_1 net30_1) inv_1xt
+I4_1 (net26_2 net30_2) inv_1xt
+I4_0 (net26_3 net30_3) inv_1xt
+I7 (net22 net21) inv_1xt
+I3_3 (net31_0 net27_0) inv_1xt
+I3_2 (net31_1 net27_1) inv_1xt
+I3_1 (net31_2 net27_2) inv_1xt
+I3_0 (net31_3 net27_3) inv_1xt
+I5_3 (net25_0 net29_0) inv_1xt
+I5_2 (net25_1 net29_1) inv_1xt
+I5_1 (net25_2 net29_2) inv_1xt
+I5_0 (net25_3 net29_3) inv_1xt
+I6_3 (net32_0 net28_0) inv_1xt
+I6_2 (net32_1 net28_1) inv_1xt
+I6_1 (net32_2 net28_2) inv_1xt
+I6_0 (net32_3 net28_3) inv_1xt
+V1 (vcc! 0) vsource type=dc dc=vdd
+V0 (vdd! 0) vsource type=dc dc=vdd
+// BEGIN Hierarchical Interface Elements
+_ie99963 (net26_0 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (net28_3 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (net27_0 0) a2d dest="99965" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99966 (net28_0 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99967 (net043_2 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99968 (net043_1 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99969 (net25_1 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (net28_1 0) a2d dest="99970" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99971 (net054_3 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (net054_0 0) a2d dest="99972" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99973 (net053_1 0) a2d dest="99973" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99974 (net053_0 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99975 (net28_2 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99976 (net27_1 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99977 (net27_2 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99978 (net25_0 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (net044_2 0) a2d dest="99979" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99980 (net015 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99981 (net25_2 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99982 (net044_1 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99983 (net27_3 0) a2d dest="99983" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99984 (net22 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99985 (net044_0 0) a2d dest="99985" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99986 (net053_3 0) a2d dest="99986" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99987 (net25_3 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (net26_1 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99989 (net053_2 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99990 (net023 0) a2d dest="99990" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99991 (net043_0 0) a2d dest="99991" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99992 (net044_3 0) a2d dest="99992" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99993 (net34_0 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99994 (net34_1 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (net054_1 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99996 (net054_2 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99997 (net043_3 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99998 (net26_2 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (net26_3 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+// END Hierarchical Interface Elements

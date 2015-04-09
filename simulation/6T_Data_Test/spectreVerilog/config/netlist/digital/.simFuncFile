@@ -1,0 +1,5 @@
+simFuncDPLList = '(
+    (nil libName "16nm" cellName "inv_1xT"
+    viewName "functional" filePath "/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v"
+    )
+)

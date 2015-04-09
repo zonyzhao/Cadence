@@ -1,19 +1,84 @@
-    I0 (_1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 _1of4_2_2 \
-        _1of4_2_1 _1of4_2_0 _1of4_3_3 _1of4_3_2 _1of4_3_1 _1of4_3_0 \
-        A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
-        A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
-        A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 A_28 \
-        A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 A_16 \
-        A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 A_2 \
-        A_1 A_0 En Valid_1 Valid_0) Demux_3e1of4
-    I3 (Valid_1 Valid_0 Ack) or2_1x
-    I1_3 (_1of4_4_3 Valid_0 En S_3) and3_1x
-    I1_2 (_1of4_4_2 Valid_0 En S_2) and3_1x
-    I1_1 (_1of4_4_1 Valid_0 En S_1) and3_1x
-    I1_0 (_1of4_4_0 Valid_0 En S_0) and3_1x
-    I2_3 (_1of4_4_3 Valid_1 En S_7) and3_1x
-    I2_2 (_1of4_4_2 Valid_1 En S_6) and3_1x
-    I2_1 (_1of4_4_1 Valid_1 En S_5) and3_1x
-    I2_0 (_1of4_4_0 Valid_1 En S_4) and3_1x
-ends _sub49
+    I45 (net030 RW_0 net047) nand_1x
+    I46 (net047 net046 Ack) nand_1x
+    I44 (RW_1 net054 net046) nand_1x
+    I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
+    I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
+    I52 (Out0_3 Out1_2 R2_1of4_1) nor_1x
+    I51 (Out1_3 Out1_2 R2_1of4_0) nor_1x
+    I50 (Out0_1 Out0_0 R1_1of4_3) nor_1x
+    I49 (Out1_1 Out0_0 R1_1of4_2) nor_1x
+    I47 (Out1_1 Out1_0 R1_1of4_0) nor_1x
+    I48 (Out1_0 Out0_1 R1_1of4_1) nor_1x
+    I67_3 (R0p_3 R1p_3 RAckp_3 net059_0 net060_0 Rack_3 Out0_3 Out1_3) \
+        WCHB
+    I67_2 (R0p_2 R1p_2 RAckp_2 net059_1 net060_1 Rack_2 Out0_2 Out1_2) \
+        WCHB
+    I67_1 (R0p_1 R1p_1 RAckp_1 net059_2 net060_2 Rack_1 Out0_1 Out1_1) \
+        WCHB
+    I67_0 (R0p_0 R1p_0 RAckp_0 net059_3 net060_3 Rack_0 Out0_0 Out1_0) \
+        WCHB
+    I21 (nOr_1 nOr_0 wack_0 B0p_0 B1p_0 net063 net064 net065) WCHB
+    I24 (nOr_7 nOr_6 wack_3 B0p_3 B1p_3 net052 net066 net067) WCHB
+    I23 (nOr_5 nOr_4 wack_2 B0p_2 B1p_2 net056 net068 net069) WCHB
+    I22 (nOr_3 nOr_2 wack_1 B0p_1 B1p_1 net053 net070 net071) WCHB
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 net054) TH44
+    I29 (wack_3 wack_2 wack_1 wack_0 net030) TH44
+    I18 (W2_1of4_2 W2_1of4_3 nOr_7) or_1x
+    I17 (W2_1of4_0 W2_1of4_1 nOr_6) or_1x
+    I11 (W1_1of4_2 W1_1of4_3 nOr_3) or_1x
+    I10 (W1_1of4_0 W1_1of4_1 nOr_2) or_1x
+    I16 (W2_1of4_1 W2_1of4_3 nOr_5) or_1x
+    I15 (W2_1of4_0 W2_1of4_2 nOr_4) or_1x
+    I1 (W1_1of4_1 W1_1of4_3 nOr_1) or_1x
+    I0 (W1_1of4_0 W1_1of4_2 nOr_0) or_1x
+    I37_3 (B0_3 Wen W0_3) and_1x
+    I37_2 (B0_2 Wen W0_2) and_1x
+    I37_1 (B0_1 Wen W0_1) and_1x
+    I37_0 (B0_0 Wen W0_0) and_1x
+    I36_3 (Wen B1_3 W1_3) and_1x
+    I36_2 (Wen B1_2 W1_2) and_1x
+    I36_1 (Wen B1_1 W1_1) and_1x
+    I36_0 (Wen B1_0 W1_0) and_1x
+    M1_3 (\~R1_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_2 (\~R1_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_1 (\~R1_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_0 (\~R1_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_3 (\~R0_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_2 (\~R0_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_1 (\~R0_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_0 (\~R0_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    I35_3 (\~R1_3 R1_3) inv_1x
+    I35_2 (\~R1_2 R1_2) inv_1x
+    I35_1 (\~R1_1 R1_1) inv_1x
+    I35_0 (\~R1_0 R1_0) inv_1x
+    I34_3 (\~R0_3 R0_3) inv_1x
+    I34_2 (\~R0_2 R0_2) inv_1x
+    I34_1 (\~R0_1 R0_1) inv_1x
+    I34_0 (\~R0_0 R0_0) inv_1x
+    I64 (RAck_0 Rack_0) iprobe
+    I63 (RAck_0 Rack_1) iprobe
+    I62 (RAck_1 Rack_2) iprobe
+    I56 (AckThruBot AckThruTop) iprobe
+    I61 (RAck_1 Rack_3) iprobe
+    I65 (RW_0 ValAddr Wen) TH22
+    I58 (wack_1 wack_0 WAck_0) TH22
+    I38 (ValAddr RW_1 Go) TH22
+    I57 (wack_2 wack_3 WAck_1) TH22
+    I72_3 (Lack_3 RAckp_3 R0_3 R0p_3 R1_3 R1p_3) PCHB_FIFO
+    I72_2 (Lack_2 RAckp_2 R0_2 R0p_2 R1_2 R1p_2) PCHB_FIFO
+    I72_1 (Lack_1 RAckp_1 R0_1 R0p_1 R1_1 R1p_1) PCHB_FIFO
+    I72_0 (Lack_0 RAckp_0 R0_0 R0p_0 R1_0 R1p_0) PCHB_FIFO
+    I71 (net052 Wen B0p_3 B0_3 B1p_3 B1_3) PCHB_FIFO
+    I70 (net056 Wen B0p_2 B0_2 B1p_2 B1_2) PCHB_FIFO
+    I69 (net053 Wen B0p_1 B0_1 B1p_1 B1_1) PCHB_FIFO
+    I68 (net063 Wen B0p_0 B0_0 B1p_0 B1_0) PCHB_FIFO
+ends _sub8
 // End of subcircuit definition.

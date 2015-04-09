@@ -1,0 +1,69 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "6T_Data_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vcc! vdd!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_Data_Test/spectreVerilog/config/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "net33" 0 1  "net33" 0 1  )
+( "net26" 0 3  "net26" 0 3  )
+( "W1_1of4" 3 0  "W1_1of4" 3 0  )
+( "net31" 0 3  "net31" 0 3  )
+( "B0" 3 0  "B0" 3 0  )
+( "net27" 0 3  "net27" 0 3  )
+( "net36" 0 3  "net36" 0 3  )
+( "net32" 0 3  "net32" 0 3  )
+( "net044" 0 3  "net044" 0 3  )
+( "net25" 0 3  "net25" 0 3  )
+( "R2_1of4" 3 0  "R2_1of4" 3 0  )
+( "net47" 0 3  "net47" 0 3  )
+( "net043" 0 3  "net043" 0 3  )
+( "net053" 0 3  "net053" 0 3  )
+( "net46" 0 3  "net46" 0 3  )
+( "net43" 0 3  "net43" 0 3  )
+( "net30" 0 3  "net30" 0 3  )
+( "W0" 3 0  "W0" 3 0  )
+( "net38" 0 1  "net38" 0 1  )
+( "net29" 0 3  "net29" 0 3  )
+( "RW" 1 0  "RW" 1 0  )
+( "net44" 0 3  "net44" 0 3  )
+( "net34" 0 1  "net34" 0 1  )
+( "net054" 0 3  "net054" 0 3  )
+( "net40" 0 3  "net40" 0 3  )
+( "B1" 3 0  "B1" 3 0  )
+( "W2_1of4" 3 0  "W2_1of4" 3 0  )
+( "W1" 3 0  "W1" 3 0  )
+( "net28" 0 3  "net28" 0 3  )
+( "net35" 0 1  "net35" 0 1  )
+( "R1_1of4" 3 0  "R1_1of4" 3 0  )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/6T_Data_Test/schematic" "cdsModule_41" )
+ )
+( term
+ )
+( param
+( "vdd" "cds_globals.vdd" )
+ )
+( "cdsModule_41" "ihnl/cds0/map" )
+ )

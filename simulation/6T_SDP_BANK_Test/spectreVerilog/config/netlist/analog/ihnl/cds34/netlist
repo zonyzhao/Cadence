@@ -1,17 +1,14 @@
-    I0 (W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 W_Addr_7 W_Addr_6 W_Addr_5 \
-        W_Addr_4 W_Addr_11 W_Addr_10 W_Addr_9 W_Addr_8 W_Addr_15 \
-        W_Addr_14 W_Addr_13 W_Addr_12 WAddr_Ack_3 WAddr_Ack_2 \
-        WAddr_Ack_1 WAddr_Ack_0 Write_0 R_Addr_3 R_Addr_2 R_Addr_1 \
-        R_Addr_0 R_Addr_7 R_Addr_6 R_Addr_5 R_Addr_4 R_Addr_11 \
-        R_Addr_10 R_Addr_9 R_Addr_8 R_Addr_15 R_Addr_14 R_Addr_13 \
-        R_Addr_12 RAddr_Ack_3 RAddr_Ack_2 RAddr_Ack_1 RAddr_Ack_0 \
-        Read_1 Addr_3 Addr_2 Addr_1 Addr_0 Addr_7 Addr_6 Addr_5 Addr_4 \
-        Addr_11 Addr_10 Addr_9 Addr_8 Addr_15 Addr_14 Addr_13 Addr_12 \
-        Ack_3 Ack_2 Ack_1 Ack_0) _sub89
-    I1 (W_Addr_19 W_Addr_18 W_Addr_17 W_Addr_16 WAddr_Ack_4 Ack_4 \
-        Write_0 R_Addr_19 R_Addr_18 R_Addr_17 R_Addr_16 RAddr_Ack_4 \
-        Read_1 Addr_19 Addr_18 Addr_17 Addr_16) _sub88
-    I3 (Write_1 Write_0 Write_Ack RW_Ack Write_0 Read_1 Read_0 Read_Ack \
-        Read_1 RW_1 RW_0) _sub90
-ends _sub91
+    I25 (A4_1of4_3 A4_1of4_2 A4_1of4_1 A4_1of4_0 A_Ack_3 C_Ack_3 Asel \
+        B4_1of4_3 B4_1of4_2 B4_1of4_1 B4_1of4_0 B_Ack_3 Bsel C4_1of4_3 \
+        C4_1of4_2 C4_1of4_1 C4_1of4_0) _sub31
+    I24 (A3_1of4_3 A3_1of4_2 A3_1of4_1 A3_1of4_0 A_Ack_2 C_Ack_2 Asel \
+        B3_1of4_3 B3_1of4_2 B3_1of4_1 B3_1of4_0 B_Ack_2 Bsel C3_1of4_3 \
+        C3_1of4_2 C3_1of4_1 C3_1of4_0) _sub31
+    I23 (A2_1of4_3 A2_1of4_2 A2_1of4_1 A2_1of4_0 A_Ack_1 C_Ack_1 Asel \
+        B2_1of4_3 B2_1of4_2 B2_1of4_1 B2_1of4_0 B_Ack_1 Bsel C2_1of4_3 \
+        C2_1of4_2 C2_1of4_1 C2_1of4_0) _sub31
+    I22 (A1_1of4_3 A1_1of4_2 A1_1of4_1 A1_1of4_0 A_Ack_0 C_Ack_0 Asel \
+        B1_1of4_3 B1_1of4_2 B1_1of4_1 B1_1of4_0 B_Ack_0 Bsel C1_1of4_3 \
+        C1_1of4_2 C1_1of4_1 C1_1of4_0) _sub31
+ends _sub32
 // End of subcircuit definition.

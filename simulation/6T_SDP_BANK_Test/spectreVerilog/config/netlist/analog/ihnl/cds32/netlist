@@ -1,14 +1,21 @@
-    I25 (A4_1of4_3 A4_1of4_2 A4_1of4_1 A4_1of4_0 A_Ack_3 C_Ack_3 Asel \
-        B4_1of4_3 B4_1of4_2 B4_1of4_1 B4_1of4_0 B_Ack_3 Bsel C4_1of4_3 \
-        C4_1of4_2 C4_1of4_1 C4_1of4_0) _sub88
-    I24 (A3_1of4_3 A3_1of4_2 A3_1of4_1 A3_1of4_0 A_Ack_2 C_Ack_2 Asel \
-        B3_1of4_3 B3_1of4_2 B3_1of4_1 B3_1of4_0 B_Ack_2 Bsel C3_1of4_3 \
-        C3_1of4_2 C3_1of4_1 C3_1of4_0) _sub88
-    I23 (A2_1of4_3 A2_1of4_2 A2_1of4_1 A2_1of4_0 A_Ack_1 C_Ack_1 Asel \
-        B2_1of4_3 B2_1of4_2 B2_1of4_1 B2_1of4_0 B_Ack_1 Bsel C2_1of4_3 \
-        C2_1of4_2 C2_1of4_1 C2_1of4_0) _sub88
-    I22 (A1_1of4_3 A1_1of4_2 A1_1of4_1 A1_1of4_0 A_Ack_0 C_Ack_0 Asel \
-        B1_1of4_3 B1_1of4_2 B1_1of4_1 B1_1of4_0 B_Ack_0 Bsel C1_1of4_3 \
-        C1_1of4_2 C1_1of4_1 C1_1of4_0) _sub88
-ends _sub89
+    M19 (net13 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M18 (net13 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M17 (net13 C 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M15 (Y net44 0 0) nfet w=40n l=60n nfin=1 m=1 degradation=no
+    M14 (net42 A 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M13 (net43 B net42 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M12 (net44 C net43 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M10 (net44 Y net13 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (Y net44 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M8 (net44 Y net15 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (net15 C vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M5 (net15 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M4 (net15 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M2 (net44 C net46 vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net46 B net47 vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net47 A vdd! vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=yes
+ends TH33
 // End of subcircuit definition.

@@ -4,7 +4,7 @@
   blockName "6T_BANK_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "gnd! vcc! vdd!"
+  globalList "gnd! vdd! vcc!"
   hierDelim "."
   hierPrefix "test.top"
   globalHierPrefix "cds_globals."
@@ -19,24 +19,26 @@
  )
 ( defbus
 ( "A" 19 0  "A" 19 0  )
-( "AT" 19 0  "AT" 19 0  )
-( "RAckT" 7 0  "RAckT" 7 0  )
-( "ReaDataT" 31 0  "ReaDataT" 31 0  )
-( "~WriteData" 31 0  "cdsbus5" 31 0  )
-( "~WAck" 7 0  "cdsbus4" 7 0  )
-( "WAck" 7 0  "WAck" 7 0  )
-( "~ReadData" 31 0  "cdsbus3" 31 0  )
-( "~RAck" 7 0  "cdsbus2" 7 0  )
-( "ReadData" 31 0  "ReadData" 31 0  )
-( "RD_Ack" 7 0  "RD_Ack" 7 0  )
-( "WriteAck" 7 0  "WriteAck" 7 0  )
+( "~RAck" 7 0  "cdsbus5" 7 0  )
 ( "RW" 1 0  "RW" 1 0  )
+( "ReadData" 31 0  "ReadData" 31 0  )
+( "~ReadData" 31 0  "cdsbus4" 31 0  )
+( "~A" 19 0  "cdsbus3" 19 0  )
+( "~RW" 1 0  "cdsbus2" 1 0  )
 ( "RWT" 1 0  "RWT" 1 0  )
-( "~A" 19 0  "cdsbus1" 19 0  )
-( "WriteData" 31 0  "WriteData" 31 0  )
+( "RAckT" 7 0  "RAckT" 7 0  )
+( "~WAck" 7 0  "cdsbus1" 7 0  )
+( "net013" 0 4  "net013" 0 4  )
 ( "net018" 0 4  "net018" 0 4  )
-( "~RW" 1 0  "cdsbus0" 1 0  )
+( "~WriteData" 31 0  "cdsbus0" 31 0  )
+( "WAck" 7 0  "WAck" 7 0  )
+( "RD_Ack" 7 0  "RD_Ack" 7 0  )
+( "ReaDataT" 31 0  "ReaDataT" 31 0  )
+( "AT" 19 0  "AT" 19 0  )
 ( "WriteDataT" 31 0  "WriteDataT" 31 0  )
+( "WriteData" 31 0  "WriteData" 31 0  )
+( "WriteAck" 7 0  "WriteAck" 7 0  )
+( "Ctrl_Ack" 4 0  "Ctrl_Ack" 4 0  )
  )
 ( net
 ( "gnd!" "cds_globals.gnd_" )
@@ -46,7 +48,7 @@
 ( inst
  )
 ( model
-( "16nm_Tests/6T_BANK_Test/schematic" "cdsModule_55" )
+( "16nm_Tests/6T_BANK_Test/schematic" "cdsModule_13" )
  )
 ( term
  )
@@ -54,5 +56,5 @@
 ( "vcc" "cds_globals.vcc" )
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_55" "ihnl/cds0/map" )
+( "cdsModule_13" "ihnl/cds0/map" )
  )

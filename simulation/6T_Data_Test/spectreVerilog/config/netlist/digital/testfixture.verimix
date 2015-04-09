@@ -1,0 +1,15 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+initial
+begin 
+
+   RW[1:0] = 2'b00;
+
+   ValAddr = 1'b0;
+   W1_1of4[3:0] = 4'b0000;
+
+   W2_1of4[3:0] = 4'b0000;
+
+end 

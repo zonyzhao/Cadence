@@ -1,0 +1,13 @@
+"16nm.6T_DATA.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" (("Ack" "B0<3>" "B0<2>" "B0<1>" "B0<0>" "B1<3>" "B1<2>" "B1<1>" "B1<0>" "Go" "R1_1of4<3>" "R1_1of4<2>" "R1_1of4<1>" "R1_1of4<0>" "R2_1of4<3>" "R2_1of4<2>" "R2_1of4<1>" "R2_1of4<0>" "RW<1>" "RW<0>" "Reset" "ValAddr" "W0<3>" "W0<2>" "W0<1>" "W0<0>" "W1<3>" "W1<2>" "W1<1>" "W1<0>" "W1_1of4<3>" "W1_1of4<2>" "W1_1of4<1>" "W1_1of4<0>" "W2_1of4<3>" "W2_1of4<2>" "W2_1of4<1>" "W2_1of4<0>" "AckThruBot" "AckThruTop" "RAck<1>" "RAck<0>" "WAck<1>" "WAck<0>" "~R0<3>" "~R0<2>" "~R0<1>" "~R0<0>" "~R1<3>" "~R1<2>" "~R1<1>" "~R1<0>") ("Ack" "AckThruBot" "AckThruTop" "B0<3>" "B0<2>" "B0<1>" "B0<0>" "B1<3>" "B1<2>" "B1<1>" "B1<0>" "Go" "R1_1of4<3>" "R1_1of4<2>" "R1_1of4<1>" "R1_1of4<0>" "R2_1of4<3>" "R2_1of4<2>" "R2_1of4<1>" "R2_1of4<0>" "RAck<1>" "RAck<0>" "RW<1>" "RW<0>" "Reset" "ValAddr" "W0<3>" "W0<2>" "W0<1>" "W0<0>" "W1<3>" "W1<2>" "W1<1>" "W1<0>" "W1_1of4<3>" "W1_1of4<2>" "W1_1of4<1>" "W1_1of4<0>" "W2_1of4<3>" "W2_1of4<2>" "W2_1of4<1>" "W2_1of4<0>" "WAck<1>" "WAck<0>" "~R0<3>" "~R0<2>" "~R0<1>" "~R0<0>" "~R1<3>" "~R1<2>" "~R1<1>" "~R1<0>"))
+"16nm.and_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.inv_weak_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.or_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.WCHB.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" (("L0" "L1" "Lack" "R0" "R1" "Rack" "~R0" "~R1") ("L0" "L1" "Lack" "R0" "R1" "Rack" "~R0" "~R1"))
+"16nm.inv_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.nor_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.TH22.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" (("A" "B" "Y") ("A" "B" "Y"))
+"16nm.nand_1x.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.inv_1xt.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.TH44.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.PCHBd.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" nil
+"16nm.TH22~.schematic.16nm_Tests.6T_Data_Test.config.path.termorder" (("A" "B" "Y") ("A" "B" "Y"))

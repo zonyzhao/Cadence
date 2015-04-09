@@ -1,8 +1,7 @@
 HEADER
 "PSFversion" "1.00"
-"I0n" "Demux_3e1of4"
 "I1<3>v" "I1_3v"
-"I3n" "or2_1x"
+"I0n" "Demux_3e1of4"
 "I1<2>v" "I1_2v"
 "I1<1>v" "I1_1v"
 "I1<0>v" "I1_0v"
@@ -11,6 +10,7 @@ HEADER
 "I2<1>v" "I2_1v"
 "I2<0>v" "I2_0v"
 "I1<3>n I1<2>n I1<1>n I1<0>n I2<3>n I2<2>n I2<1>n I2<0>n" "and3_1x"
+"I3n" "or_1x"
 "1of4_1<3>v" ":1v"
 "1of4_1<2>v" ":2v"
 "1of4_1<1>v" ":3v"

@@ -1,0 +1,449 @@
+// BEGIN Flat Interface Elements
+// Flattened IE at /net26<3> uses port path 99999
+// Flattened IE at /net26<2> uses port path 99998
+// Flattened IE at /net043<3> uses port path 99997
+// Flattened IE at /net054<2> uses port path 99996
+// Flattened IE at /net054<1> uses port path 99995
+// Flattened IE at /net34<1> uses port path 99994
+// Flattened IE at /net34<0> uses port path 99993
+// Flattened IE at /net044<3> uses port path 99992
+// Flattened IE at /net043<0> uses port path 99991
+// Flattened IE at /net023 uses port path 99990
+// Flattened IE at /net053<2> uses port path 99989
+// Flattened IE at /net26<1> uses port path 99988
+// Flattened IE at /net25<3> uses port path 99987
+// Flattened IE at /net053<3> uses port path 99986
+// Flattened IE at /net044<0> uses port path 99985
+// Flattened IE at /net22 uses port path 99984
+// Flattened IE at /net27<3> uses port path 99983
+// Flattened IE at /net044<1> uses port path 99982
+// Flattened IE at /net25<2> uses port path 99981
+// Flattened IE at /net015 uses port path 99980
+// Flattened IE at /net044<2> uses port path 99979
+// Flattened IE at /net25<0> uses port path 99978
+// Flattened IE at /net27<2> uses port path 99977
+// Flattened IE at /net27<1> uses port path 99976
+// Flattened IE at /net28<2> uses port path 99975
+// Flattened IE at /net053<0> uses port path 99974
+// Flattened IE at /net053<1> uses port path 99973
+// Flattened IE at /net054<0> uses port path 99972
+// Flattened IE at /net054<3> uses port path 99971
+// Flattened IE at /net28<1> uses port path 99970
+// Flattened IE at /net25<1> uses port path 99969
+// Flattened IE at /net043<1> uses port path 99968
+// Flattened IE at /net043<2> uses port path 99967
+// Flattened IE at /net28<0> uses port path 99966
+// Flattened IE at /net27<0> uses port path 99965
+// Flattened IE at /net28<3> uses port path 99964
+// Flattened IE at /net26<0> uses port path 99963
+// END Flat Interface Elements
+
+// Library name: 16nm
+// Cell name: nand_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nand_1x A B Y
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M3 (net22 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net22 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+ends nand_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: nor_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nor_1x A B Y
+    M3 (Y B or_pd_ps vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M2 (or_pd_ps A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH22~
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub38 A B Y
+    I6 (net010 Y) inv_1x
+    M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+ends _sub38
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: WCHB
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt WCHB L0 L1 Lack R0 R1 Rack \~R0 \~R1
+    I2 (\~R1 \~R0 net21) nand_1x
+    I5 (net21 Lack) inv_1x
+    I4 (\~R1 R1) inv_1x
+    I3 (\~R0 R0) inv_1x
+    I1 (Rack L1 \~R1) _sub38
+    I0 (L0 Rack \~R0) _sub38
+ends WCHB
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH44
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt TH44 A B C D Y
+    M19 (net13 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M18 (net13 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M17 (net13 C 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M16 (net13 D 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M15 (Y net19 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M14 (net42 A 0 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M13 (net43 B net42 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M12 (net44 C net43 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M11 (net19 D net44 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M10 (net19 Y net13 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (Y net19 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M8 (net19 Y net15 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (net15 D vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M6 (net15 C vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M5 (net15 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M4 (net15 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M3 (net19 D net45 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M2 (net45 C net46 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net46 B net47 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net47 A vdd! vdd!) pfet w=320n l=20n nfin=1 m=1 degradation=yes
+ends TH44
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: or_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt or_1x A B Y
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: and_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt and_1x A B Y
+    I7 (A B ntYbar) nand_1x
+    I6 (ntYbar Y) inv_1x
+ends and_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH22
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt TH22 A B Y
+    M5 (Y net5 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net5 Y net9 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M11 (Y net5 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (net5 Y net037 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+ends TH22
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_weak_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_weak_1x A Y
+    M2 (net13 vdd! 0 0) nfet w=40n l=80n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y A net13 0) nfet w=40n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (net14 0 vdd! vdd!) pfet w=80n l=80n nfin=1 m=1 degradation=yes
+    M1 (Y A net14 vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+ends inv_weak_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: PCHBd
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt PCHBd Ai En R0i R0i\+1 R1i R1i\+1
+    I23 (net029 R1i\+1) inv_1x
+    I0 (net18 R0i\+1) inv_1x
+    M15 (net026 En 0 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
+    M14 (net22 En 0 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
+    M13 (net029 R1i net026 0) nfet w=40n l=16n nfin=1 m=1 \
+        degradation=no
+    M0 (net18 R0i net22 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
+    M9 (net029 En vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M2 (net18 En vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    I15 (net029 net18 net016) nand_1x
+    I17 (R0i R1i net020) or_1x
+    I3 (R0i\+1 net18) inv_weak_1x
+    I24 (R1i\+1 net029) inv_weak_1x
+    I16 (net016 net020 Ai) TH22
+ends PCHBd
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: 6T_DATA
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub39 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
+        R1_1of4_2 R1_1of4_1 R1_1of4_0 R2_1of4_3 R2_1of4_2 R2_1of4_1 \
+        R2_1of4_0 RW_1 RW_0 Reset ValAddr W0_3 W0_2 W0_1 W0_0 W1_3 W1_2 \
+        W1_1 W1_0 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 W2_1of4_3 \
+        W2_1of4_2 W2_1of4_1 W2_1of4_0 AckThruBot AckThruTop RAck_1 \
+        RAck_0 WAck_1 WAck_0 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_3 \~R1_2 \
+        \~R1_1 \~R1_0
+    I45 (net030 RW_0 net047) nand_1x
+    I46 (net047 net046 Ack) nand_1x
+    I44 (RW_1 net054 net046) nand_1x
+    I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
+    I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
+    I52 (Out0_3 Out1_2 R2_1of4_1) nor_1x
+    I51 (Out1_3 Out1_2 R2_1of4_0) nor_1x
+    I50 (Out0_1 Out0_0 R1_1of4_3) nor_1x
+    I49 (Out1_1 Out0_0 R1_1of4_2) nor_1x
+    I47 (Out1_1 Out1_0 R1_1of4_0) nor_1x
+    I48 (Out1_0 Out0_1 R1_1of4_1) nor_1x
+    I67_3 (net082_0 net090_0 Lack_3 net059_0 net060_0 Rack_3 Out0_3 \
+        Out1_3) WCHB
+    I67_2 (net082_1 net090_1 Lack_2 net059_1 net060_1 Rack_2 Out0_2 \
+        Out1_2) WCHB
+    I67_1 (net082_2 net090_2 Lack_1 net059_2 net060_2 Rack_1 Out0_1 \
+        Out1_1) WCHB
+    I67_0 (net082_3 net090_3 Lack_0 net059_3 net060_3 Rack_0 Out0_0 \
+        Out1_0) WCHB
+    I21 (nOr_1 nOr_0 wack_0 net061 net062 net063 net064 net065) WCHB
+    I24 (nOr_7 nOr_6 wack_3 net084 net080 net052 net066 net067) WCHB
+    I23 (nOr_5 nOr_4 wack_2 net085 net086 net056 net068 net069) WCHB
+    I22 (nOr_3 nOr_2 wack_1 net055 net083 net053 net070 net071) WCHB
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 net054) TH44
+    I29 (wack_3 wack_2 wack_1 wack_0 net030) TH44
+    I18 (W2_1of4_2 W2_1of4_3 nOr_7) or_1x
+    I17 (W2_1of4_0 W2_1of4_1 nOr_6) or_1x
+    I11 (W1_1of4_2 W1_1of4_3 nOr_3) or_1x
+    I10 (W1_1of4_0 W1_1of4_1 nOr_2) or_1x
+    I16 (W2_1of4_1 W2_1of4_3 nOr_5) or_1x
+    I15 (W2_1of4_0 W2_1of4_2 nOr_4) or_1x
+    I1 (W1_1of4_1 W1_1of4_3 nOr_1) or_1x
+    I0 (W1_1of4_0 W1_1of4_2 nOr_0) or_1x
+    I37_3 (B0_3 net036 W0_3) and_1x
+    I37_2 (B0_2 net036 W0_2) and_1x
+    I37_1 (B0_1 net036 W0_1) and_1x
+    I37_0 (B0_0 net036 W0_0) and_1x
+    I36_3 (net036 B1_3 W1_3) and_1x
+    I36_2 (net036 B1_2 W1_2) and_1x
+    I36_1 (net036 B1_1 W1_1) and_1x
+    I36_0 (net036 B1_0 W1_0) and_1x
+    M1_3 (\~R1_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_2 (\~R1_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_1 (\~R1_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_0 (\~R1_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_3 (\~R0_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_2 (\~R0_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_1 (\~R0_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_0 (\~R0_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    I35_3 (\~R1_3 net058_0) inv_1x
+    I35_2 (\~R1_2 net058_1) inv_1x
+    I35_1 (\~R1_1 net058_2) inv_1x
+    I35_0 (\~R1_0 net058_3) inv_1x
+    I34_3 (\~R0_3 net057_0) inv_1x
+    I34_2 (\~R0_2 net057_1) inv_1x
+    I34_1 (\~R0_1 net057_2) inv_1x
+    I34_0 (\~R0_0 net057_3) inv_1x
+    I64 (RAck_0 Rack_0) iprobe
+    I63 (RAck_0 Rack_1) iprobe
+    I62 (RAck_1 Rack_2) iprobe
+    I56 (AckThruBot AckThruTop) iprobe
+    I61 (RAck_1 Rack_3) iprobe
+    I65 (RW_0 ValAddr net036) TH22
+    I58 (wack_1 wack_0 WAck_0) TH22
+    I38 (ValAddr RW_1 Go) TH22
+    I57 (wack_2 wack_3 WAck_1) TH22
+    I72_3 (net096_0 Go net057_0 net082_0 net058_0 net090_0) PCHBd
+    I72_2 (net096_1 Go net057_1 net082_1 net058_1 net090_1) PCHBd
+    I72_1 (net096_2 Go net057_2 net082_2 net058_2 net090_2) PCHBd
+    I72_0 (net096_3 Go net057_3 net082_3 net058_3 net090_3) PCHBd
+    I71 (net052 net036 net084 B0_3 net080 B1_3) PCHBd
+    I70 (net056 net036 net085 B0_2 net086 B1_2) PCHBd
+    I69 (net053 net036 net055 B0_1 net083 B1_1) PCHBd
+    I68 (net063 net036 net061 B0_0 net062 B1_0) PCHBd
+ends _sub39
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1xt
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xt A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: 6T_Data_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+I0 (net42 net43_0 net43_1 net43_2 net43_3 net44_0 net44_1 net44_2 \
+        net44_3 net45 net32_0 net32_1 net32_2 net32_3 net31_0 net31_1 \
+        net31_2 net31_3 net33_0 net33_1 net41 net21 net46_0 net46_1 \
+        net46_2 net46_3 net47_0 net47_1 net47_2 net47_3 net30_0 net30_1 \
+        net30_2 net30_3 net29_0 net29_1 net29_2 net29_3 net39 net37 \
+        net35_0 net35_1 net38_0 net38_1 net36_0 net36_1 net36_2 net36_3 \
+        net40_0 net40_1 net40_2 net40_3) _sub39
+I24_3 (net47_0 net054_0) inv_1xt
+I24_2 (net47_1 net054_1) inv_1xt
+I24_1 (net47_2 net054_2) inv_1xt
+I24_0 (net47_3 net054_3) inv_1xt
+I22_3 (net46_0 net053_0) inv_1xt
+I22_2 (net46_1 net053_1) inv_1xt
+I22_1 (net46_2 net053_2) inv_1xt
+I22_0 (net46_3 net053_3) inv_1xt
+I19_3 (net44_0 net044_0) inv_1xt
+I19_2 (net44_1 net044_1) inv_1xt
+I19_1 (net44_2 net044_2) inv_1xt
+I19_0 (net44_3 net044_3) inv_1xt
+I18_3 (net43_0 net043_0) inv_1xt
+I18_2 (net43_1 net043_1) inv_1xt
+I18_1 (net43_2 net043_2) inv_1xt
+I18_0 (net43_3 net043_3) inv_1xt
+I13 (net42 net015) inv_1xt
+I16 (net45 net023) inv_1xt
+I8_1 (net34_0 net33_0) inv_1xt
+I8_0 (net34_1 net33_1) inv_1xt
+I4_3 (net26_0 net30_0) inv_1xt
+I4_2 (net26_1 net30_1) inv_1xt
+I4_1 (net26_2 net30_2) inv_1xt
+I4_0 (net26_3 net30_3) inv_1xt
+I7 (net22 net21) inv_1xt
+I3_3 (net31_0 net27_0) inv_1xt
+I3_2 (net31_1 net27_1) inv_1xt
+I3_1 (net31_2 net27_2) inv_1xt
+I3_0 (net31_3 net27_3) inv_1xt
+I5_3 (net25_0 net29_0) inv_1xt
+I5_2 (net25_1 net29_1) inv_1xt
+I5_1 (net25_2 net29_2) inv_1xt
+I5_0 (net25_3 net29_3) inv_1xt
+I6_3 (net32_0 net28_0) inv_1xt
+I6_2 (net32_1 net28_1) inv_1xt
+I6_1 (net32_2 net28_2) inv_1xt
+I6_0 (net32_3 net28_3) inv_1xt
+V1 (vcc! 0) vsource type=dc dc=vdd
+V0 (vdd! 0) vsource type=dc dc=vdd
+// BEGIN Hierarchical Interface Elements
+_ie99963 (net26_0 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (net28_3 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (net27_0 0) a2d dest="99965" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99966 (net28_0 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99967 (net043_2 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99968 (net043_1 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99969 (net25_1 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (net28_1 0) a2d dest="99970" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99971 (net054_3 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (net054_0 0) a2d dest="99972" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99973 (net053_1 0) a2d dest="99973" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99974 (net053_0 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99975 (net28_2 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99976 (net27_1 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99977 (net27_2 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99978 (net25_0 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (net044_2 0) a2d dest="99979" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99980 (net015 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99981 (net25_2 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99982 (net044_1 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99983 (net27_3 0) a2d dest="99983" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99984 (net22 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99985 (net044_0 0) a2d dest="99985" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99986 (net053_3 0) a2d dest="99986" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99987 (net25_3 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (net26_1 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99989 (net053_2 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99990 (net023 0) a2d dest="99990" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99991 (net043_0 0) a2d dest="99991" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99992 (net044_3 0) a2d dest="99992" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99993 (net34_0 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99994 (net34_1 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (net054_1 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99996 (net054_2 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99997 (net043_3 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99998 (net26_2 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (net26_3 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+// END Hierarchical Interface Elements

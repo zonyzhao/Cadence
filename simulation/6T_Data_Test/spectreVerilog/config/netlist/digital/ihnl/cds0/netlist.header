@@ -1,0 +1,136 @@
+// Library - 16nm_Tests, Cell - 6T_Data_Test, View - schematic
+// LAST TIME SAVED: Apr  6 21:32:00 2015
+// NETLIST TIME: Apr  6 21:32:27 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_41 ( Ack, B0, B1, Go, R1_1of4, R2_1of4, W0, W1, RW,
+     ValAddr, W1_1of4, W2_1of4 );
+
+output  Ack, Go;
+
+input  ValAddr;
+
+output [3:0]  R1_1of4;
+output [3:0]  W1;
+output [3:0]  B1;
+output [3:0]  W0;
+output [3:0]  R2_1of4;
+output [3:0]  B0;
+
+input [3:0]  W2_1of4;
+input [1:0]  RW;
+input [3:0]  W1_1of4;
+
+// Buses in the design
+
+wire  [0:1]  net35;
+
+wire  [0:3]  net28;
+
+wire  [0:3]  net40;
+
+wire  [0:3]  net054;
+
+wire  [0:1]  net34;
+
+wire  [0:3]  net44;
+
+wire  [0:3]  net29;
+
+wire  [0:1]  net38;
+
+wire  [0:3]  net30;
+
+wire  [0:3]  net43;
+
+wire  [0:3]  net46;
+
+wire  [0:3]  net053;
+
+wire  [0:3]  net043;
+
+wire  [0:3]  net47;
+
+wire  [0:3]  net25;
+
+wire  [0:3]  net044;
+
+wire  [0:3]  net32;
+
+wire  [0:3]  net36;
+
+wire  [0:3]  net27;
+
+wire  [0:3]  net31;
+
+wire  [0:3]  net26;
+
+wire  [0:1]  net33;
+
+// begin interface element definitions
+
+wire net023;
+wire net015;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
+reg mixedNet99992;
+reg mixedNet99991;
+reg mixedNet99990;
+reg mixedNet99989;
+reg mixedNet99986;
+reg mixedNet99985;
+reg mixedNet99983;
+reg mixedNet99982;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99977;
+reg mixedNet99976;
+reg mixedNet99975;
+reg mixedNet99974;
+reg mixedNet99973;
+reg mixedNet99972;
+reg mixedNet99971;
+reg mixedNet99970;
+reg mixedNet99968;
+reg mixedNet99967;
+reg mixedNet99966;
+reg mixedNet99965;
+reg mixedNet99964;
+assign net043[3] = mixedNet99997;
+assign net054[2] = mixedNet99996;
+assign net054[1] = mixedNet99995;
+assign net044[3] = mixedNet99992;
+assign net043[0] = mixedNet99991;
+assign net023 = mixedNet99990;
+assign net053[2] = mixedNet99989;
+assign net053[3] = mixedNet99986;
+assign net044[0] = mixedNet99985;
+assign net27[3] = mixedNet99983;
+assign net044[1] = mixedNet99982;
+assign net015 = mixedNet99980;
+assign net044[2] = mixedNet99979;
+assign net27[2] = mixedNet99977;
+assign net27[1] = mixedNet99976;
+assign net28[2] = mixedNet99975;
+assign net053[0] = mixedNet99974;
+assign net053[1] = mixedNet99973;
+assign net054[0] = mixedNet99972;
+assign net054[3] = mixedNet99971;
+assign net28[1] = mixedNet99970;
+assign net043[1] = mixedNet99968;
+assign net043[2] = mixedNet99967;
+assign net28[0] = mixedNet99966;
+assign net27[0] = mixedNet99965;
+assign net28[3] = mixedNet99964;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_Data_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

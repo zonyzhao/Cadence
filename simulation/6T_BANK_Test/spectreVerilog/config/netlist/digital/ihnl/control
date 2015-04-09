@@ -1,12 +1,12 @@
 hnlLastStopCellInfo = '(
-                           ( "16nm" "inv_1xT" "functional" "40" "1424418557" )
+                           ( "16nm" "inv_1xT" "functional" "40" "1427939694" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 26
-hnlLastConfigFileTimeStamp = "1427792565"
+hnlLastConfigFileVersion = 28
+hnlLastConfigFileTimeStamp = "1428554531"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "6T_BANK_Test" "config" 26 "1427792565" )
+( "16nm_Tests" "6T_BANK_Test" "config" 28 "1428554531" )
 ) 
 hnlLastMaxNameLength = 50
 hnlLastNamePrefix = "hnl_"
@@ -1080,7 +1080,7 @@ hnlLastNetNameDifferentFrom = '( "instance" )
 hnlLastTermNameDifferentFrom = '( )
 hnlLastParamNameDifferentFrom = '( )
 hnlLastLibInfo = '(
-                    ( "16nm_Tests" "1425644381" )
+                    ( "16nm_Tests" "1428202349" )
                   )
 hnlLastConstants = '(
                       "M_SQRT2"

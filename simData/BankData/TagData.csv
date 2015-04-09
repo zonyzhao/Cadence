@@ -1,3 +1,0 @@
-Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy
-400,	30,	0.243048,	1.78543,	610,	0.254477,	637,	0.328704,	452,	0.273217,	431,	0.184241
-450,	30,	0.29257,	2.48947,	479,	0.263635,	496,	0.349589,	354,	0.292132,	335,	0.187117

@@ -37,6 +37,18 @@ begin
    A[19:0]  = 20'h11111;
    RW[1:0]  = 2'b01;
    WriteData[31:0] = 32'h88888888;
+   readOrWrite = 1;
+   #1000;
+   A[19:0]  = 20'h00000;
+   RW[1:0]  = 2'b00;
+   RD_Ack[7:0] = 8'hFF;
+   WriteData[31:0] = 32'h00000000;
+   #1000;
+
+   RD_Ack[7:0] = 8'hFF;
+   A[19:0]  = 20'h11111;
+   RW[1:0]  = 2'b01;
+   WriteData[31:0] = 32'h88888888;
    start = 1;
    readOrWrite = 1;
 
@@ -71,16 +83,16 @@ always @(posedge Ack) begin
    	  A[19:0]  = 20'h22222;
    	  RW[1:0]  = 2'b01;
    	  WriteData[31:0] = 32'h88888888;
-	  readOrWrite ==1;
+	  readOrWrite =1;
        	  wStart = $time;
       end else begin   
    	   wDelay = $time - wStart;
-	   $fdisplay(rwLog, "%h %h %t %t", A[19:0], WriteData[31:0], $time, wDelay);   	   
+	   $fdisplay(wLog, "%h %h %t %t", A[19:0], WriteData[31:0], $time, wDelay);   	   
    	   RD_Ack[7:0]     = 8'hFF;
    	   RW[1:0]         = 2'b10;
    	   A[19:0]         = lastWriteAddr;
 	   rStart          = $time;
-	   readOrWrite ==0;
+	   readOrWrite =0;
       end
    end
  end

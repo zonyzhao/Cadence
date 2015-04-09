@@ -1,6 +1,6 @@
 HEADER
 "PSFversion" "1.00"
-"I5n" "nand2_1x"
+"I5n" "nand_1x"
 "I0n I1n I3n I4n I6n I7n I9n I10n" "nor4_1x"
 "I2n I8n" "and4_1x"
 "X<31>v" ":1v"
