@@ -1,0 +1,5 @@
+
+// Library name: 16nm
+// Cell name: TH22
+// View name: schematic
+subckt TH22 A B Y

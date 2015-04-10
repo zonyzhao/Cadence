@@ -1,0 +1,8 @@
+HEADER
+"PSFversion" "1.00"
+"V1n" "UCD_Analog_Parts_vdc_spectre"
+"I95<2>n I95<1>n I95<0>n I94<2>n I94<1>n I94<0>n I93<2>n I93<1>n I93<0>n I92<2>n I92<1>n I92<0>n I91<2>n I91<1>n I91<0>n I90<2>n I90<1>n I90<0>n I89<2>n I89<1>n I89<0>n I88<2>n I88<1>n I88<0>n I87<2>n I87<1>n I87<0>n I86<2>n I86<1>n I86<0>n I85<2>n I85<1>n I85<0>n I84<2>n I84<1>n I84<0>n I83<2>n I83<1>n I83<0>n I82<2>n I82<1>n I82<0>n I81<2>n I81<1>n I81<0>n I80<2>n I80<1>n I80<0>n I79<2>n I79<1>n I79<0>n I78<2>n I78<1>n I78<0>n I77<2>n I77<1>n I77<0>n I76<2>n I76<1>n I76<0>n I75<2>n I75<1>n I75<0>n I74<2>n I74<1>n I74<0>n I62n I13<2>n I13<1>n I13<0>n I23<2>n I23<1>n I23<0>n I22<2>n I22<1>n I22<0>n I21<2>n I21<1>n I21<0>n I20<2>n I20<1>n I20<0>n I19<2>n I19<1>n I19<0>n I18<2>n I18<1>n I18<0>n I17<2>n I17<1>n I17<0>n I16<2>n I16<1>n I16<0>n I15<2>n I15<1>n I15<0>n I14<2>n I14<1>n I14<0>n I12n I11n I10n I9n I8n I7n I4n I3n I2n I1n I0n" "inv_1x"
+"I28n I27n I26n I25n I24n I29n I30n I31n I32n I33n I34n" "nor_1x"
+"I45n I44n I43n I42n I41n I40n I39n I35n I36n I37n I38n" "nand_1x"
+"I56n I55n I54n I53n I52n I51n I50n I48n I47n I46n" "TH22"
+"I63n I73n I72n I71n I70n I69n I68n I67n I66n I65n I64n" "SG_nand_1x"

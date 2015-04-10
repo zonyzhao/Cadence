@@ -1,0 +1,1 @@
+spectre  input.scs  +escchars +log ../psf/spectre.out  -format psfxl -raw ../psf   +lqtimeout 900 -maxw 5 -maxn 5  +multithread -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.0/sharedData/Job2/ahdl/input.ahdlSimDB +logstatus  

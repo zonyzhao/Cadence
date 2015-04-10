@@ -1,0 +1,23 @@
+simulator( 'spectre )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:6T_SNMrwh_Test:1/groupRunDataDir/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:6T_SNMrwh_Test:1/groupRunDataDir" )
+modelFile( 
+    '("/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" nil)
+)
+analysis('tran ?stop "100n"  ?errpreset "conservative"  )
+desVar(	  "vdd" 500m	)
+desVar(	  "timeA" 100n	)
+desVar(	  "timeB" 200n	)
+envOption(
+	'firstRun  t 
+	'autoDisplay  nil 
+	'userCmdLineOption  " +multithread -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.1/sharedData/Job2/ahdl/input.ahdlSimDB" 
+	'analysisOrder  list("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens") 
+)
+option(	'temp  "30.0" 
+)
+save( 'i "/V0/MINUS" "/V0/PLUS" )
+temp( 30.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/nvtc") getData("/SNMw0") getData("/SNMr") getData("/SNMh") getData("/V0/MINUS") getData("/V0/PLUS") )

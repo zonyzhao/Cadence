@@ -1,0 +1,54 @@
+simVerilogLaiLmsiNetlisting = 'nil
+
+simVerilogTestFixtureTemplate = "Verimix"
+
+simVerilogTestFixtureFlag = t
+
+simVerilogOverwriteVerimixStimulus = 'nil
+
+simVerilogNetlistExplicit = 'nil
+
+hnlVerilogCreatePM = 'nil
+
+vtoolsUseUpperCaseFlag = 'nil
+
+simVerilogFlattenBuses = 'nil
+
+simVerilogHandleSwitchRCData = t
+
+simVerilogProcessNullPorts = 'nil
+
+simVerilogHandleUseLib = 'nil
+
+simVerilogDropPortRange = t
+
+simVerilogIncrementalNetlistConfigList = 'nil
+
+vlogifUseAssignsForAlias = 'nil
+
+vlogifDeclareGlobalNetLocal = 'nil
+
+simVerilogEnableEscapeNameMapping = 'nil
+
+hnlVerilogNetlistStopCellImplicit = 'nil
+
+vlogifSkipTimingInfo = 'nil
+
+simVerilogOverWriteSchTimeScale = 'nil
+
+simVerilogSimTimeValue = 1
+
+simVerilogSimTimeUnit = "ps"
+
+simVerilogSimPrecisionValue = 1
+
+simVerilogSimPrecisionUnit = "ps"
+
+simVerilogGndNetList = '("gnd!" "gnda!" "gndd!" "vss!" "vssa!"
+    "vssd!" "vee!" "veea!" "veed!"
+)
+
+simVerilogPwrNetList = '("vdd!" "vdda!" "vddd!" "vcc!" "vcca!"
+    "vccd!"
+)
+

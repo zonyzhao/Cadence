@@ -1,0 +1,28 @@
+ic RackT=0 RdataT_31=0 RdataT_30=0 RdataT_29=0 RdataT_28=0 RdataT_27=0 \
+    RdataT_26=0 RdataT_25=0 RdataT_24=0 RdataT_23=0 RdataT_22=0 \
+    RdataT_21=0 RdataT_20=0 RdataT_19=0 RdataT_18=0 RdataT_17=0 \
+    RdataT_16=0 RdataT_15=0 RdataT_14=0 RdataT_13=0 RdataT_12=0 \
+    RdataT_11=0 RdataT_10=0 RdataT_9=0 RdataT_8=0 RdataT_7=0 RdataT_6=0 \
+    RdataT_5=0 RdataT_4=0 RdataT_3=0 RdataT_2=0 RdataT_1=0 RdataT_0=0 \
+    RreqT=0 ackOutT=0 DataInT_31=0 DataInT_30=0 DataInT_29=0 DataInT_28=0 \
+    DataInT_27=0 DataInT_26=0 DataInT_25=0 DataInT_24=0 DataInT_23=0 \
+    DataInT_22=0 DataInT_21=0 DataInT_20=0 DataInT_19=0 DataInT_18=0 \
+    DataInT_17=0 DataInT_16=0 DataInT_15=0 DataInT_14=0 DataInT_13=0 \
+    DataInT_12=0 DataInT_11=0 DataInT_10=0 DataInT_9=0 DataInT_8=0 \
+    DataInT_7=0 DataInT_6=0 DataInT_5=0 DataInT_4=0 DataInT_3=0 \
+    DataInT_2=0 DataInT_1=0 DataInT_0=0 LreqT=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=3n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save I20:66 I20:68 I20:65 I20:67 
+saveOptions options save=allpub

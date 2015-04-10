@@ -6,13 +6,11 @@
   hierDelim "."
  )
 ( net
-( "~R1" "\\~R1" )
-( "~R0" "\\~R0" )
  )
 ( inst
  )
 ( model
-( "TH22~" "_sub7" )
+( "TH22~" "_sub81" )
  )
 ( term
  )

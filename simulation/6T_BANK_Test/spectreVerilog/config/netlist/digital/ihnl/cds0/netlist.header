@@ -1,9 +1,9 @@
 // Library - 16nm_Tests, Cell - 6T_BANK_Test, View - schematic
-// LAST TIME SAVED: Apr  8 21:24:19 2015
-// NETLIST TIME: Apr  9 00:55:58 2015
+// LAST TIME SAVED: Apr  9 23:15:02 2015
+// NETLIST TIME: Apr  9 23:15:28 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_13 ( Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW,
+module cdsModule_88 ( Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW,
      WriteData );
 
 output  Ack;
@@ -14,132 +14,135 @@ output [7:0]  WriteAck;
 output [31:0]  ReadData;
 
 input [31:0]  WriteData;
-input [7:0]  RD_Ack;
 input [1:0]  RW;
 input [19:0]  A;
+input [7:0]  RD_Ack;
 
 // Buses in the design
 
-wire  [31:0]  WriteDataT;
+wire  [31:0]  cdsbus0;
+
+wire  [1:0]  RWT;
+
+wire  [7:0]  WAck;
 
 wire  [19:0]  AT;
 
 wire  [31:0]  ReaDataT;
 
-wire  [7:0]  WAck;
-
-wire  [31:0]  cdsbus0;
-
-wire  [0:4]  net018;
-
-wire  [0:4]  net013;
+wire  [7:0]  RAckT;
 
 wire  [7:0]  cdsbus1;
 
-wire  [7:0]  RAckT;
+wire  [31:0]  cdsbus2;
 
-wire  [1:0]  RWT;
+wire  [1:0]  cdsbus3;
 
-wire  [1:0]  cdsbus2;
-
-wire  [19:0]  cdsbus3;
-
-wire  [31:0]  cdsbus4;
+wire  [19:0]  cdsbus4;
 
 wire  [7:0]  cdsbus5;
 
+wire  [31:0]  WriteDataT;
+
+wire  [0:4]  net013;
+
+wire  [0:4]  net018;
+
 // begin interface element definitions
 
+wire cdsNet0;
 reg mixedNet99999;
+reg mixedNet99998;
 reg mixedNet99997;
-reg mixedNet99996;
 reg mixedNet99995;
-reg mixedNet99994;
-reg mixedNet99993;
-reg mixedNet99991;
-reg mixedNet99990;
-reg mixedNet99989;
-reg mixedNet99988;
-reg mixedNet99987;
-reg mixedNet99986;
-reg mixedNet99984;
-reg mixedNet99982;
-reg mixedNet99977;
-reg mixedNet99976;
-reg mixedNet99975;
+reg mixedNet99992;
+reg mixedNet99981;
+reg mixedNet99980;
+reg mixedNet99978;
+reg mixedNet99972;
 reg mixedNet99971;
-reg mixedNet99970;
 reg mixedNet99969;
-reg mixedNet99968;
 reg mixedNet99967;
 reg mixedNet99966;
-reg mixedNet99960;
+reg mixedNet99965;
+reg mixedNet99963;
+reg mixedNet99962;
+reg mixedNet99957;
 reg mixedNet99954;
-reg mixedNet99952;
-reg mixedNet99950;
-reg mixedNet99948;
-reg mixedNet99945;
-reg mixedNet99943;
+reg mixedNet99953;
+reg mixedNet99951;
+reg mixedNet99949;
+reg mixedNet99947;
+reg mixedNet99946;
+reg mixedNet99944;
+reg mixedNet99941;
+reg mixedNet99939;
+reg mixedNet99937;
+reg mixedNet99934;
+reg mixedNet99933;
+reg mixedNet99931;
 reg mixedNet99927;
-reg mixedNet99921;
+reg mixedNet99926;
+reg mixedNet99924;
 reg mixedNet99918;
-reg mixedNet99916;
-reg mixedNet99915;
-reg mixedNet99914;
+reg mixedNet99917;
 reg mixedNet99913;
+reg mixedNet99912;
 reg mixedNet99911;
-reg mixedNet99904;
-reg mixedNet99902;
+reg mixedNet99901;
 reg mixedNet99900;
 reg mixedNet99899;
+reg mixedNet99898;
+reg mixedNet99897;
+reg mixedNet99896;
 reg mixedNet99895;
-reg mixedNet99894;
 reg mixedNet99893;
-assign cdsbus1[0] = mixedNet99999;
-assign cdsbus1[1] = mixedNet99997;
-assign cdsbus1[3] = mixedNet99996;
-assign cdsbus4[18] = mixedNet99995;
-assign net013[4] = mixedNet99994;
-assign cdsbus4[23] = mixedNet99993;
-assign cdsbus4[20] = mixedNet99991;
-assign net013[2] = mixedNet99990;
-assign cdsbus4[19] = mixedNet99989;
-assign cdsbus4[25] = mixedNet99988;
-assign cdsbus4[30] = mixedNet99987;
-assign cdsbus4[24] = mixedNet99986;
-assign cdsbus4[1] = mixedNet99984;
-assign cdsbus4[31] = mixedNet99982;
-assign cdsbus4[26] = mixedNet99977;
-assign cdsbus4[27] = mixedNet99976;
-assign cdsbus4[0] = mixedNet99975;
-assign cdsbus1[2] = mixedNet99971;
-assign cdsbus4[6] = mixedNet99970;
-assign cdsbus4[3] = mixedNet99969;
-assign cdsbus4[11] = mixedNet99968;
-assign cdsbus4[10] = mixedNet99967;
-assign cdsbus4[9] = mixedNet99966;
-assign cdsbus1[4] = mixedNet99960;
-assign cdsbus4[2] = mixedNet99954;
-assign cdsbus4[14] = mixedNet99952;
-assign cdsbus4[8] = mixedNet99950;
-assign cdsbus4[4] = mixedNet99948;
-assign net013[0] = mixedNet99945;
-assign cdsbus4[7] = mixedNet99943;
-assign cdsbus4[17] = mixedNet99927;
-assign net013[3] = mixedNet99921;
-assign cdsbus4[22] = mixedNet99918;
-assign cdsbus4[29] = mixedNet99916;
-assign cdsbus1[7] = mixedNet99915;
-assign cdsbus4[5] = mixedNet99914;
-assign cdsbus4[16] = mixedNet99913;
-assign net013[1] = mixedNet99911;
-assign cdsbus4[21] = mixedNet99904;
-assign cdsbus4[28] = mixedNet99902;
-assign cdsbus1[6] = mixedNet99900;
-assign cdsbus4[13] = mixedNet99899;
-assign cdsbus1[5] = mixedNet99895;
-assign cdsbus4[12] = mixedNet99894;
-assign cdsbus4[15] = mixedNet99893;
+assign net013[2] = mixedNet99999;
+assign cdsbus0[2] = mixedNet99998;
+assign cdsbus0[31] = mixedNet99997;
+assign cdsbus0[11] = mixedNet99995;
+assign cdsbus5[1] = mixedNet99992;
+assign cdsbus0[10] = mixedNet99981;
+assign cdsbus0[3] = mixedNet99980;
+assign cdsbus0[23] = mixedNet99978;
+assign cdsNet0 = mixedNet99972;
+assign cdsbus0[29] = mixedNet99971;
+assign cdsbus0[20] = mixedNet99969;
+assign cdsbus0[19] = mixedNet99967;
+assign cdsbus0[18] = mixedNet99966;
+assign cdsbus0[16] = mixedNet99965;
+assign cdsbus0[15] = mixedNet99963;
+assign cdsbus0[14] = mixedNet99962;
+assign cdsbus5[5] = mixedNet99957;
+assign cdsbus0[7] = mixedNet99954;
+assign cdsbus0[6] = mixedNet99953;
+assign cdsbus0[22] = mixedNet99951;
+assign cdsbus0[21] = mixedNet99949;
+assign cdsbus5[0] = mixedNet99947;
+assign cdsbus0[4] = mixedNet99946;
+assign cdsbus0[12] = mixedNet99944;
+assign cdsbus0[0] = mixedNet99941;
+assign cdsbus0[9] = mixedNet99939;
+assign cdsbus0[8] = mixedNet99937;
+assign cdsbus0[17] = mixedNet99934;
+assign cdsbus5[4] = mixedNet99933;
+assign cdsbus5[3] = mixedNet99931;
+assign cdsbus0[26] = mixedNet99927;
+assign cdsbus0[25] = mixedNet99926;
+assign cdsbus0[24] = mixedNet99924;
+assign cdsbus0[13] = mixedNet99918;
+assign cdsbus0[30] = mixedNet99917;
+assign cdsbus0[28] = mixedNet99913;
+assign cdsbus0[27] = mixedNet99912;
+assign cdsbus0[5] = mixedNet99911;
+assign cdsbus5[7] = mixedNet99901;
+assign net013[3] = mixedNet99900;
+assign net013[1] = mixedNet99899;
+assign cdsbus5[2] = mixedNet99898;
+assign cdsbus5[6] = mixedNet99897;
+assign cdsbus0[1] = mixedNet99896;
+assign net013[0] = mixedNet99895;
+assign net013[4] = mixedNet99893;
 
 // end interface element definitions
 

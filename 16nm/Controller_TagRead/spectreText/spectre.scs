@@ -1,0 +1,121 @@
+// "spectre" description for "16nm", "Controller_TagRead", "spectreText" 
+
+
+simulator lang=spectre
+
+subckt Controller_TagRead FIFOAck TagRdRegReq ReadFromL1Req WriteToL1Req ReadFromL2Req TagWBRegReq ReadWBFromL1Req WriteToL1MissReq TagRE FIFOReq TagRdRegAck TagRAck Read ReadWBFromL1Ack TagHit TagMiss Write Dirty TagWBRegAck ReadFromL2Ack WriteToL1Ack ReadFromL1Ack WriteToL1MissAck WriteToL1MissTagAck Clean
+  I1 (p1 FIFOReq TagRdRegAck) nand_1x
+  I2 (p2 TagRAck_n1 y3_n1) nand_1x
+  I3 (TagRAck_n1 TagRAck) inv_1x
+  I4 (y3_n1 y3) inv_1x
+  I5 (p3 Read ReadWBFromL1Ack_n1 y2_n1) nand3_1x
+  I6 (ReadWBFromL1Ack_n1 ReadWBFromL1Ack) inv_1x
+  I7 (y2_n1 y2) inv_1x
+  I8 (p4 TagHit_n1 TagMiss_n1 y3_n1) nand3_1x
+  I9 (TagHit_n1 TagHit) inv_1x
+  I10 (TagMiss_n1 TagMiss) inv_1x
+  I11 (p5 Read_n1 Write_n1 y3_n1) nand3_1x
+  I12 (Read_n1 Read) inv_1x
+  I13 (Write_n1 Write) inv_1x
+  I14 (p6 TagMiss y4_n1) nand_1x
+  I15 (y4_n1 y4) inv_1x
+  I16 (p7 Dirty y5) nand_1x
+  I17 (p8 ReadWBFromL1Ack y5) nand_1x
+  I18 (p9 Write y9_n1) nand_1x
+  I19 (y9_n1 y9) inv_1x
+  I20 (p10 Read TagWBRegAck ReadWBFromL1Ack) nand3_1x
+  I21 (p11 Read TagWBRegAck y5) nand3_1x
+  I22 (p12 TagRAck TagWBRegAck y5) nand3_1x
+  I23 (p13 ReadFromL2Ack_n1 TagWBRegAck y5) nand3_1x
+  I24 (ReadFromL2Ack_n1 ReadFromL2Ack) inv_1x
+  I25 (p14 TagMiss y6_n1) nand_1x
+  I26 (y6_n1 y6) inv_1x
+  I27 (p15 WriteToL1Ack WriteToL1Ack) nand_1x
+  I28 (p16 ReadFromL1Ack ReadFromL1Ack) nand_1x
+  I29 (p17 FIFOReq_n1 TagMiss Write TagRAck Dirty TagWBRegAck_n1 y10) nand7_1x
+  I30 (FIFOReq_n1 FIFOReq) inv_1x
+  I31 (TagWBRegAck_n1 TagWBRegAck) inv_1x
+  I32 (p18 FIFOReq_n1 TagMiss Write TagRAck Dirty ReadWBFromL1Ack_n1 y10) nand7_1x
+  I33 (p19 TagHit_n1 Read_n1 ReadWBFromL1Ack_n1 WriteToL1MissAck_n1 y3_n1) nand5_1x
+  I34 (WriteToL1MissAck_n1 WriteToL1MissAck) inv_1x
+  I35 (p20 Write TagWBRegAck ReadWBFromL1Ack) nand3_1x
+  I36 (p21 TagMiss Read_n1 y2_n1) nand3_1x
+  I37 (p22 Read_n1 TagRAck y2_n1) nand3_1x
+  I38 (p23 Read_n1 Dirty y2_n1) nand3_1x
+  I39 (p24 Read_n1 TagWBRegAck y2_n1) nand3_1x
+  I40 (p25 Read_n1 ReadWBFromL1Ack y2_n1) nand3_1x
+  I41 (p26 Read_n1 WriteToL1MissTagAck_n1 y2_n1) nand3_1x
+  I42 (WriteToL1MissTagAck_n1 WriteToL1MissTagAck) inv_1x
+  I43 (p27 Read_n1 WriteToL1MissAck_n1 y2_n1) nand3_1x
+  I44 (p28 Read y7_n1) nand_1x
+  I45 (y7_n1 y7) inv_1x
+  I46 (p29 ReadFromL2Ack y10) nand_1x
+  I47 (p30 Read y4_n1) nand_1x
+  I48 (p31 TagRAck y4_n1) nand_1x
+  I49 (p32 TagHit y9_n1) nand_1x
+  I50 (p33 FIFOReq_n1 TagMiss Write TagRAck Clean WriteToL1MissTagAck_n1 y6) nand7_1x
+  I51 (p34 FIFOReq_n1 TagMiss Write TagRAck Clean WriteToL1MissAck_n1 y6) nand7_1x
+  I52 (p35 FIFOReq_n1 TagMiss Read TagRAck Dirty TagWBRegAck_n1) nand6_1x
+  I53 (p36 FIFOReq_n1 TagHit Write TagRAck WriteToL1Ack_n1 y10) nand6_1x
+  I54 (WriteToL1Ack_n1 WriteToL1Ack) inv_1x
+  I55 (p37 FIFOReq_n1 TagHit Read TagRAck ReadFromL1Ack_n1 y10) nand6_1x
+  I56 (ReadFromL1Ack_n1 ReadFromL1Ack) inv_1x
+  I57 (p38 FIFOReq FIFOReq) nand_1x
+  I58 (p39 WriteToL1MissTagAck y10) nand_1x
+  I59 (p40 WriteToL1MissAck y10) nand_1x
+  I60 (p41 TagRdRegAck y1) nand_1x
+  I61 (p42 TagWBRegAck y1) nand_1x
+  I62 (p43 TagHit_n1 Clean_n1 ReadWBFromL1Ack_n1 y3_n1) nand4_1x
+  I63 (Clean_n1 Clean) inv_1x
+  I64 (p44 FIFOReq_n1 TagMiss Read TagRAck Clean ReadFromL2Ack_n1 y9) nand7_1x
+  I65 (p45 Dirty Dirty) nand_1x
+  I66 (p46 Clean ReadFromL2Ack_n1 y9) nand3_1x
+  I67 (p47 TagMiss y y10) nand3_1x
+  I68 (p48 Clean Clean) nand_1x
+  I69 (p49 WriteToL1MissTagAck WriteToL1MissAck y2) nand3_1x
+  I70 (p50 Write WriteToL1Ack_n1 ReadWBFromL1Ack_n1 y10) nand4_1x
+  I71 (p51 TagHit_n1 TagRAck y y10) nand4_1x
+  I72 (p52 TagHit ReadFromL1Ack_n1 y9) nand3_1x
+  I73 (p53 Read_n1 TagRAck y y9) nand4_1x
+  I74 (p54 WriteToL1MissTagAck WriteToL1MissTagAck) nand_1x
+  I75 (p55 WriteToL1MissAck WriteToL1MissAck) nand_1x
+  I76 (p56 ReadFromL1Ack_n1 WriteToL1Ack_n1 ReadFromL2Ack_n1 WriteToL1MissAck_n1 y3_n1) nand5_1x
+  I77 (p57 Write ReadWBFromL1Ack_n1 y9) nand3_1x
+  I78 (p58 TagMiss_n1 Read_n1 TagRAck_n1 Dirty_n1 ReadFromL2Ack ReadWBFromL1Ack_n1 y10_n1) nand7_1x
+  I79 (Dirty_n1 Dirty) inv_1x
+  I80 (y10_n1 y10) inv_1x
+  I81 (p59 FIFOReq_n1 y10_n1) nand_1x
+  I82 (p60 TagRdRegAck Dirty_n1 ReadFromL1Ack_n1 WriteToL1Ack_n1 y10) nand5_1x
+  I83 (p61 TagRdRegAck Dirty_n1 ReadFromL1Ack_n1 ReadFromL2Ack_n1 y9) nand5_1x
+  I84 (p62 TagRdRegAck TagRdRegAck) nand_1x
+  I85 (p63 FIFOReq_n1 TagWBRegAck_n1 y5) nand3_1x
+  I86 (p64 WriteToL1Ack_n1 y8) nand_1x
+  I87 (p65 ReadFromL2Ack_n1 y7) nand_1x
+  I88 (p66 WriteToL1MissAck_n1 y6) nand_1x
+  I89 (p67 Read_n1 y4) nand_1x
+  I90 (p68 ReadFromL1Ack_n1 y10) nand_1x
+  I91 (p69 Dirty_n1 y2) nand_1x
+  I92 (p70 TagRdRegAck_n1 TagHit_n1 TagMiss_n1 Read_n1 Write_n1 TagRAck_n1 Clean_n1 ReadFromL1Ack_n1 WriteToL1Ack_n1 ReadFromL2Ack_n1 TagWBRegAck_n1 WriteToL1MissTagAck_n1 WriteToL1MissAck_n1) nand13_1x
+  I93 (TagRdRegAck_n1 TagRdRegAck) inv_1x
+  I94 (p71 TagMiss_n1 Write_n1 TagRAck_n1 Dirty_n1 TagWBRegAck_n1 ReadWBFromL1Ack_n1 WriteToL1MissTagAck WriteToL1MissAck) nand8_1x
+  I95 (y0 p1 p3 p9 p20 p21 p22 p23 p24 p25 p26 p27 p33 p35 p56) nand14_1x
+  I96 (y1 p10 p16 p30 p31 p32 p41 p42 p58) nand8_1x
+  I97 (y2 p2 p4 p10 p17 p19 p38 p42 p69 p71) nand9_1x
+  I98 (y3 p15 p16 p20 p29 p35 p49 p59 p63 p70) nand9_1x
+  I99 (y4 p3 p35 p58 p67 p68 p70) nand6_1x
+  I100 (y5 p6 p7 p8 p10 p13 p15 p16 p29 p30 p31 p49 p63 p70 p71) nand14_1x
+  I101 (y6 p33 p59 p66 p70) nand4_1x
+  I102 (y7 p59 p65 p70) nand3_1x
+  I103 (y8 p64 p70) nand_1x
+  I104 (y9 p1 p2 p4 p14 p15 p17 p19 p39 p40 p46 p52 p53 p57 p61) nand14_1x
+  I105 (y10 p1 p2 p4 p17 p19 p28 p29 p39 p40 p47 p48 p50 p51 p60) nand14_1x
+  I106 (FIFOAck p15 p16 p28 p29 p30 p31 p32 p42 p47 p48 p51 p52 p53 p54 p55 p57 p58 p62) nand18_1x
+  I107 (TagRdRegReq p6 p8 p9 p11 p12 p13 p21 p22 p24 p25 p26 p27 p33 p38 p45 p56) nand16_1x
+  I108 (ReadFromL1Req p37 p37) nand_1x
+  I109 (WriteToL1Req p36 p36) nand_1x
+  I110 (ReadFromL2Req p6 p7 p8 p10 p11 p12 p13 p44) nand8_1x
+  I111 (TagWBRegReq p3 p17 p18 p35) nand4_1x
+  I112 (ReadWBFromL1Req p3 p17 p18 p35) nand4_1x
+  I113 (WriteToL1MissReq p9 p20 p21 p22 p23 p24 p25 p26 p27 p33 p34) nand11_1x
+  I114 (TagRE p1 p2 p3 p4 p5 p17 p19 p33 p35 p43) nand10_1x
+ends Controller_TagRead

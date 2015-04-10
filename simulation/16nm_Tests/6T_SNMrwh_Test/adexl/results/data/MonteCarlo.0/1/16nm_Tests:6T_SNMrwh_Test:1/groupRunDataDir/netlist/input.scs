@@ -1,0 +1,47 @@
+// Generated for: spectre
+// Generated on: Apr  9 13:40:59 2015
+// Design library name: 16nm_Tests
+// Design cell name: 6T_SNMrwh_Test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters timeB=200n timeA=100n vdd=500m
+include "/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+
+// Library name: 16nm_Tests
+// Cell name: 6T_SNMrwh_Test
+// View name: schematic
+V0 (nvtc 0) vsource type=pwl wave=[ 0 0 timeA vdd ]
+V1 (vdd! 0) vsource type=dc dc=vdd
+N4 (SNMw0 vdd! 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N3 (SNMr vdd! vdd! 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N2 (SNMr nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N1 (SNMw0 nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N0 (SNMh nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+P2 (SNMr nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes
+P1 (SNMw0 nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes
+P0 (SNMh nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+mc1 montecarlo numruns=200 seed=1 variations=mismatch sampling=standard \
+    donominal=yes scalarfile="../monteCarlo/mcdata" \
+    paramfile="../monteCarlo/mcparam" savemismatchparams=no dut=[ N4 N3 N2 \
+    N1 N0 P2 P1 P0 ]  paramdumpmode=yes savefamilyplots=yes \
+    savedatainseparatedir=yes wfseparation=yes {
+tran tran stop=100n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+}
+save V0:p V0:p 
+saveOptions options save=allpub

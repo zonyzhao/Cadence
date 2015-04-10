@@ -7,7 +7,7 @@ tmp1 = make_sevVariableStruct()
 tmp1 = (ncons nil)
 )
 tmp1->name = "vdd"
-tmp1->expression = ".700"
+tmp1->expression = ".7"
 tmp1->index = 1
 (unless tmp2
 tmp2 = make_sevVariableStruct()

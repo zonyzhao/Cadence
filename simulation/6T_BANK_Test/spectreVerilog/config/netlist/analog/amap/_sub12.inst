@@ -1,9 +1,8 @@
 HEADER
 "PSFversion" "1.00"
 "V1n V0n" "UCD_Analog_Parts_vdc_spectre"
-"IBankn" "_sub11"
 "I15<4>v" "I15_4v"
-"I17n" "inv_1xT"
+"IBankn" "_sub11"
 "I15<3>v" "I15_3v"
 "I15<2>v" "I15_2v"
 "I15<1>v" "I15_1v"

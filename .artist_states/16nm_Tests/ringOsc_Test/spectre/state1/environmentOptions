@@ -2,7 +2,7 @@
 (envOpts autoDisplay) t
 (envOpts cmd64bit) nil
 (envOpts cpfIsPommardEnabled) t
-(envOpts emAnaType) "Dynamic"
+(envOpts emLayerMap) ""
 (envOpts emTechFile) ""
 (envOpts emirEnable) nil
 (envOpts emirEnable_static) nil

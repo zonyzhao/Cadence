@@ -1,0 +1,42 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "HS_Dual_Cordic_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/HS_Cordic_Test/spectreVerilog/config/netlist/analog"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/TH22/schematic" "TH22" )
+( "16nm/nand_1x/schematic" "nand_1x" )
+( "16nm/DFlop/schematic" "DFlop" )
+( "16nm/HS_CordicFIFO/schematic" "HS_CordicFIFO" )
+( "16nm_Tests/HS_Dual_Cordic_Test/schematic" "HS_Dual_Cordic_Test" )
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm/nand3_1x/schematic" "nand3_1x" )
+( "16nm/HS_Cordic/schematic" "HS_Cordic" )
+( "16nm/inv_1xt/schematic" "inv_1xt" )
+ )
+( term
+ )
+( param
+ )
+( "TH22" "ihnl/cds0/map" )
+( "nand_1x" "ihnl/cds4/map" )
+( "inv_1xt" "ihnl/cds7/map" )
+( "inv_1x" "ihnl/cds1/map" )
+( "nand3_1x" "ihnl/cds3/map" )
+( "HS_Cordic" "ihnl/cds2/map" )
+( "HS_Dual_Cordic_Test" "ihnl/cds8/map" )
+( "DFlop" "ihnl/cds5/map" )
+( "HS_CordicFIFO" "ihnl/cds6/map" )
+ )

@@ -1,0 +1,10 @@
+Begin Incremental Netlisting Apr  9 13:40:59 2015
+WARNING (OSSHNL-226): There are more design variables used in the current
+netlisting session as
+compared to the last session in the current run directory.
+The netlist(s)
+generated in the last netlisting session cannot be reused for
+incremental
+netlisting. Therefore re-netlisting the design.
+
+End netlisting Apr  9 13:40:59 2015

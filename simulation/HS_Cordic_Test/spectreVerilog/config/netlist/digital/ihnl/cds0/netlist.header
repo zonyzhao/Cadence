@@ -1,0 +1,109 @@
+// Library - 16nm_Tests, Cell - HS_Dual_Cordic_Test, View - schematic
+// LAST TIME SAVED: Apr  9 16:26:51 2015
+// NETLIST TIME: Apr  9 16:26:56 2015
+`timescale 1ps / 1ps 
+
+module HS_Dual_Cordic_Test ( DataOut, ackOut, reqOut, ackIn, dataIn,
+     reqIn );
+
+output  ackOut, reqOut;
+
+input  ackIn, reqIn;
+
+output [31:0]  DataOut;
+
+input [31:0]  dataIn;
+
+// Buses in the design
+
+wire  [31:0]  RdataT;
+
+wire  [31:0]  cdsbus0;
+
+wire  [31:0]  DataInT;
+
+wire  [31:0]  cdsbus1;
+
+// begin interface element definitions
+
+wire cdsNet3;
+wire cdsNet0;
+reg mixedNet99999;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99987;
+reg mixedNet99986;
+reg mixedNet99985;
+reg mixedNet99984;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99958;
+reg mixedNet99957;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99954;
+reg mixedNet99953;
+reg mixedNet99952;
+reg mixedNet99951;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99943;
+reg mixedNet99942;
+reg mixedNet99941;
+reg mixedNet99940;
+reg mixedNet99939;
+reg mixedNet99938;
+reg mixedNet99937;
+reg mixedNet99936;
+reg mixedNet99935;
+reg mixedNet99934;
+reg mixedNet99933;
+reg mixedNet99932;
+assign cdsbus1[19] = mixedNet99999;
+assign cdsbus1[20] = mixedNet99997;
+assign cdsbus1[17] = mixedNet99996;
+assign cdsbus1[18] = mixedNet99995;
+assign cdsbus1[16] = mixedNet99994;
+assign cdsbus1[11] = mixedNet99993;
+assign cdsNet3 = mixedNet99987;
+assign cdsbus1[12] = mixedNet99986;
+assign cdsbus1[13] = mixedNet99985;
+assign cdsbus1[1] = mixedNet99984;
+assign cdsbus1[7] = mixedNet99980;
+assign cdsbus1[0] = mixedNet99979;
+assign cdsbus1[6] = mixedNet99958;
+assign cdsbus1[4] = mixedNet99957;
+assign cdsbus1[10] = mixedNet99956;
+assign cdsbus1[5] = mixedNet99955;
+assign cdsbus1[9] = mixedNet99954;
+assign cdsbus1[3] = mixedNet99953;
+assign cdsbus1[31] = mixedNet99952;
+assign cdsbus1[2] = mixedNet99951;
+assign cdsbus1[8] = mixedNet99945;
+assign cdsNet0 = mixedNet99944;
+assign cdsbus1[30] = mixedNet99943;
+assign cdsbus1[14] = mixedNet99942;
+assign cdsbus1[15] = mixedNet99941;
+assign cdsbus1[29] = mixedNet99940;
+assign cdsbus1[28] = mixedNet99939;
+assign cdsbus1[27] = mixedNet99938;
+assign cdsbus1[26] = mixedNet99937;
+assign cdsbus1[25] = mixedNet99936;
+assign cdsbus1[24] = mixedNet99935;
+assign cdsbus1[23] = mixedNet99934;
+assign cdsbus1[22] = mixedNet99933;
+assign cdsbus1[21] = mixedNet99932;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "HS_Dual_Cordic_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

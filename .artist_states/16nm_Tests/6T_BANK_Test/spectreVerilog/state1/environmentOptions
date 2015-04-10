@@ -1,4 +1,4 @@
-(envOpts analysisOrder) ("tran")
+(envOpts analysisOrder) ("tran" "dc")
 (envOpts autoDisplay) t
 (envOpts cpfIsPommardEnabled) t
 (envOpts emLayerMap) ""

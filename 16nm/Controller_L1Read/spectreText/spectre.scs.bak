@@ -1,0 +1,8 @@
+// "spectre" description for "16nm", "Controller_L1Read", "spectreText" 
+
+
+simulator lang=spectre
+
+subckt Controller_L1Read
+
+ends Controller_L1Read

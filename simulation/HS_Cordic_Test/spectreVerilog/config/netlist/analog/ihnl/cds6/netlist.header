@@ -1,0 +1,15 @@
+
+// Library name: 16nm
+// Cell name: HS_CordicFIFO
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt HS_CordicFIFO Data_31 Data_30 Data_29 Data_28 Data_27 Data_26 \
+        Data_25 Data_24 Data_23 Data_22 Data_21 Data_20 Data_19 Data_18 \
+        Data_17 Data_16 Data_15 Data_14 Data_13 Data_12 Data_11 Data_10 \
+        Data_9 Data_8 Data_7 Data_6 Data_5 Data_4 Data_3 Data_2 Data_1 \
+        Data_0 Dout_31 Dout_30 Dout_29 Dout_28 Dout_27 Dout_26 Dout_25 \
+        Dout_24 Dout_23 Dout_22 Dout_21 Dout_20 Dout_19 Dout_18 Dout_17 \
+        Dout_16 Dout_15 Dout_14 Dout_13 Dout_12 Dout_11 Dout_10 Dout_9 \
+        Dout_8 Dout_7 Dout_6 Dout_5 Dout_4 Dout_3 Dout_2 Dout_1 Dout_0 \
+        Req ReqOut ackIn ackOut

@@ -1,0 +1,377 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  ackOut, reqOut;
+
+reg  ackIn, reqIn;
+
+wire [31:0]  DataOut;
+
+reg [31:0]  dataIn;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+HS_Dual_Cordic_Test top(DataOut, ackOut, reqOut, ackIn, dataIn, reqIn
+     ); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer start;
+
+initial
+begin 
+   start = 0;
+
+   ackIn = 1'b0;
+   dataIn[31:0] = 32'b00000000000000000000000000000000;
+   reqIn = 1'b0;
+
+   #500;
+
+   dataIn[31:0] = $random;
+   start = 1;
+   reqIn = 1'b1;
+
+end 
+
+always @(posedge reqOut) begin
+		ackIn = 1'b1;
+end
+
+always @(negedge reqOut) begin
+		ackIn = 1'b0;
+end
+
+always @(posedge ackOut) begin
+	if (start==1) begin	
+		reqIn = 1'b0;
+	end
+end
+
+always @(negedge ackOut) begin
+	if (start==1) begin	
+		reqIn = 1'b1;
+        	dataIn[31:0] = $random;
+	end
+end
+
+
+
+
+
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_import( test.top.mixedNet99999, "99999"); // /~Rdata<19>
+	$vmx_define_export( test.top.cdsbus0[0], "99998"); // /~DataIn<0>
+	$vmx_define_import( test.top.mixedNet99997, "99997"); // /~Rdata<20>
+	$vmx_define_import( test.top.mixedNet99996, "99996"); // /~Rdata<17>
+	$vmx_define_import( test.top.mixedNet99995, "99995"); // /~Rdata<18>
+	$vmx_define_import( test.top.mixedNet99994, "99994"); // /~Rdata<16>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /~Rdata<11>
+	$vmx_define_export( test.top.cdsbus0[1], "99992"); // /~DataIn<1>
+	$vmx_define_export( test.top.cdsbus0[2], "99991"); // /~DataIn<2>
+	$vmx_define_export( test.top.cdsbus0[3], "99990"); // /~DataIn<3>
+	$vmx_define_export( test.top.cdsbus0[4], "99989"); // /~DataIn<4>
+	$vmx_define_export( test.top.cdsNet1, "99988"); // /~Lreq
+	$vmx_define_import( test.top.mixedNet99987, "99987"); // /~ackOut
+	$vmx_define_import( test.top.mixedNet99986, "99986"); // /~Rdata<12>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /~Rdata<13>
+	$vmx_define_import( test.top.mixedNet99984, "99984"); // /~Rdata<1>
+	$vmx_define_export( test.top.cdsbus0[10], "99983"); // /~DataIn<10>
+	$vmx_define_export( test.top.cdsbus0[11], "99982"); // /~DataIn<11>
+	$vmx_define_export( test.top.cdsbus0[12], "99981"); // /~DataIn<12>
+	$vmx_define_import( test.top.mixedNet99980, "99980"); // /~Rdata<7>
+	$vmx_define_import( test.top.mixedNet99979, "99979"); // /~Rdata<0>
+	$vmx_define_export( test.top.cdsbus0[31], "99978"); // /~DataIn<31>
+	$vmx_define_export( test.top.cdsbus0[30], "99977"); // /~DataIn<30>
+	$vmx_define_export( test.top.cdsbus0[29], "99976"); // /~DataIn<29>
+	$vmx_define_export( test.top.cdsbus0[28], "99975"); // /~DataIn<28>
+	$vmx_define_export( test.top.cdsbus0[27], "99974"); // /~DataIn<27>
+	$vmx_define_export( test.top.cdsbus0[7], "99973"); // /~DataIn<7>
+	$vmx_define_export( test.top.cdsbus0[13], "99972"); // /~DataIn<13>
+	$vmx_define_export( test.top.cdsbus0[14], "99971"); // /~DataIn<14>
+	$vmx_define_export( test.top.cdsbus0[15], "99970"); // /~DataIn<15>
+	$vmx_define_export( test.top.cdsbus0[16], "99969"); // /~DataIn<16>
+	$vmx_define_export( test.top.cdsbus0[17], "99968"); // /~DataIn<17>
+	$vmx_define_export( test.top.cdsbus0[18], "99967"); // /~DataIn<18>
+	$vmx_define_export( test.top.cdsbus0[19], "99966"); // /~DataIn<19>
+	$vmx_define_export( test.top.cdsbus0[20], "99965"); // /~DataIn<20>
+	$vmx_define_export( test.top.cdsbus0[21], "99964"); // /~DataIn<21>
+	$vmx_define_export( test.top.cdsbus0[22], "99963"); // /~DataIn<22>
+	$vmx_define_export( test.top.cdsbus0[23], "99962"); // /~DataIn<23>
+	$vmx_define_export( test.top.cdsbus0[24], "99961"); // /~DataIn<24>
+	$vmx_define_export( test.top.cdsbus0[25], "99960"); // /~DataIn<25>
+	$vmx_define_export( test.top.cdsbus0[26], "99959"); // /~DataIn<26>
+	$vmx_define_import( test.top.mixedNet99958, "99958"); // /~Rdata<6>
+	$vmx_define_import( test.top.mixedNet99957, "99957"); // /~Rdata<4>
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /~Rdata<10>
+	$vmx_define_import( test.top.mixedNet99955, "99955"); // /~Rdata<5>
+	$vmx_define_import( test.top.mixedNet99954, "99954"); // /~Rdata<9>
+	$vmx_define_import( test.top.mixedNet99953, "99953"); // /~Rdata<3>
+	$vmx_define_import( test.top.mixedNet99952, "99952"); // /~Rdata<31>
+	$vmx_define_import( test.top.mixedNet99951, "99951"); // /~Rdata<2>
+	$vmx_define_export( test.top.cdsbus0[6], "99950"); // /~DataIn<6>
+	$vmx_define_export( test.top.cdsNet2, "99949"); // /~Rack
+	$vmx_define_export( test.top.cdsbus0[5], "99948"); // /~DataIn<5>
+	$vmx_define_export( test.top.cdsbus0[9], "99947"); // /~DataIn<9>
+	$vmx_define_export( test.top.cdsbus0[8], "99946"); // /~DataIn<8>
+	$vmx_define_import( test.top.mixedNet99945, "99945"); // /~Rdata<8>
+	$vmx_define_import( test.top.mixedNet99944, "99944"); // /~Rreq
+	$vmx_define_import( test.top.mixedNet99943, "99943"); // /~Rdata<30>
+	$vmx_define_import( test.top.mixedNet99942, "99942"); // /~Rdata<14>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /~Rdata<15>
+	$vmx_define_import( test.top.mixedNet99940, "99940"); // /~Rdata<29>
+	$vmx_define_import( test.top.mixedNet99939, "99939"); // /~Rdata<28>
+	$vmx_define_import( test.top.mixedNet99938, "99938"); // /~Rdata<27>
+	$vmx_define_import( test.top.mixedNet99937, "99937"); // /~Rdata<26>
+	$vmx_define_import( test.top.mixedNet99936, "99936"); // /~Rdata<25>
+	$vmx_define_import( test.top.mixedNet99935, "99935"); // /~Rdata<24>
+	$vmx_define_import( test.top.mixedNet99934, "99934"); // /~Rdata<23>
+	$vmx_define_import( test.top.mixedNet99933, "99933"); // /~Rdata<22>
+	$vmx_define_import( test.top.mixedNet99932, "99932"); // /~Rdata<21>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
+initial begin
+end
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.dataIn[28], test.top.ackIn, test.top.dataIn[31], test.top.DataOut[31], test.top.dataIn[30], test.top.DataOut[30], test.top.reqOut, test.top.dataIn[27], test.top.dataIn[26], test.top.dataIn[25], test.top.DataOut[29], test.top.dataIn[24], test.top.dataIn[5], test.top.dataIn[6], test.top.dataIn[7], test.top.dataIn[8], test.top.dataIn[9], test.top.dataIn[10], test.top.dataIn[11], test.top.dataIn[12], test.top.dataIn[13], test.top.dataIn[14], test.top.dataIn[15], test.top.dataIn[16], test.top.dataIn[17], test.top.dataIn[18], test.top.dataIn[23], test.top.dataIn[22], test.top.dataIn[19], test.top.dataIn[21], test.top.dataIn[20], test.top.reqIn, test.top.DataOut[28], test.top.DataOut[27], test.top.DataOut[26], test.top.DataOut[25], test.top.DataOut[24], test.top.DataOut[23], test.top.DataOut[0], test.top.DataOut[1], test.top.DataOut[22], test.top.DataOut[21], test.top.DataOut[20], test.top.DataOut[19], test.top.DataOut[18], test.top.DataOut[17], test.top.DataOut[16], test.top.DataOut[15], 
+test.top.DataOut[14], test.top.DataOut[13], test.top.DataOut[12], test.top.DataOut[11], test.top.DataOut[10], test.top.DataOut[9], test.top.DataOut[8], test.top.DataOut[7], test.top.DataOut[6], test.top.dataIn[4], test.top.ackOut, test.top.dataIn[3], test.top.DataOut[5], test.top.DataOut[4], test.top.dataIn[29], test.top.dataIn[2], test.top.dataIn[1], test.top.DataOut[3], test.top.dataIn[0], test.top.DataOut[2], test.top.DataOut[31:0], test.top.dataIn[31:0]);
+end
+// End SST2 Save Waveforms
+// Library - 16nm_Tests, Cell - HS_Dual_Cordic_Test, View - schematic
+// LAST TIME SAVED: Apr  9 16:26:51 2015
+// NETLIST TIME: Apr  9 16:26:56 2015
+`timescale 1ps / 1ps 
+
+module HS_Dual_Cordic_Test ( DataOut, ackOut, reqOut, ackIn, dataIn,
+     reqIn );
+
+output  ackOut, reqOut;
+
+input  ackIn, reqIn;
+
+output [31:0]  DataOut;
+
+input [31:0]  dataIn;
+
+// Buses in the design
+
+wire  [31:0]  RdataT;
+
+wire  [31:0]  cdsbus0;
+
+wire  [31:0]  DataInT;
+
+wire  [31:0]  cdsbus1;
+
+// begin interface element definitions
+
+wire cdsNet3;
+wire cdsNet0;
+reg mixedNet99999;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99987;
+reg mixedNet99986;
+reg mixedNet99985;
+reg mixedNet99984;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99958;
+reg mixedNet99957;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99954;
+reg mixedNet99953;
+reg mixedNet99952;
+reg mixedNet99951;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99943;
+reg mixedNet99942;
+reg mixedNet99941;
+reg mixedNet99940;
+reg mixedNet99939;
+reg mixedNet99938;
+reg mixedNet99937;
+reg mixedNet99936;
+reg mixedNet99935;
+reg mixedNet99934;
+reg mixedNet99933;
+reg mixedNet99932;
+assign cdsbus1[19] = mixedNet99999;
+assign cdsbus1[20] = mixedNet99997;
+assign cdsbus1[17] = mixedNet99996;
+assign cdsbus1[18] = mixedNet99995;
+assign cdsbus1[16] = mixedNet99994;
+assign cdsbus1[11] = mixedNet99993;
+assign cdsNet3 = mixedNet99987;
+assign cdsbus1[12] = mixedNet99986;
+assign cdsbus1[13] = mixedNet99985;
+assign cdsbus1[1] = mixedNet99984;
+assign cdsbus1[7] = mixedNet99980;
+assign cdsbus1[0] = mixedNet99979;
+assign cdsbus1[6] = mixedNet99958;
+assign cdsbus1[4] = mixedNet99957;
+assign cdsbus1[10] = mixedNet99956;
+assign cdsbus1[5] = mixedNet99955;
+assign cdsbus1[9] = mixedNet99954;
+assign cdsbus1[3] = mixedNet99953;
+assign cdsbus1[31] = mixedNet99952;
+assign cdsbus1[2] = mixedNet99951;
+assign cdsbus1[8] = mixedNet99945;
+assign cdsNet0 = mixedNet99944;
+assign cdsbus1[30] = mixedNet99943;
+assign cdsbus1[14] = mixedNet99942;
+assign cdsbus1[15] = mixedNet99941;
+assign cdsbus1[29] = mixedNet99940;
+assign cdsbus1[28] = mixedNet99939;
+assign cdsbus1[27] = mixedNet99938;
+assign cdsbus1[26] = mixedNet99937;
+assign cdsbus1[25] = mixedNet99936;
+assign cdsbus1[24] = mixedNet99935;
+assign cdsbus1[23] = mixedNet99934;
+assign cdsbus1[22] = mixedNet99933;
+assign cdsbus1[21] = mixedNet99932;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "HS_Dual_Cordic_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I9 ( reqOut, cdsNet0);
+inv_1xT I6 ( cdsNet1, reqIn);
+inv_1xT I13_31_ ( DataOut[31], cdsbus1[31]);
+inv_1xT I13_30_ ( DataOut[30], cdsbus1[30]);
+inv_1xT I13_29_ ( DataOut[29], cdsbus1[29]);
+inv_1xT I13_28_ ( DataOut[28], cdsbus1[28]);
+inv_1xT I13_27_ ( DataOut[27], cdsbus1[27]);
+inv_1xT I13_26_ ( DataOut[26], cdsbus1[26]);
+inv_1xT I13_25_ ( DataOut[25], cdsbus1[25]);
+inv_1xT I13_24_ ( DataOut[24], cdsbus1[24]);
+inv_1xT I13_23_ ( DataOut[23], cdsbus1[23]);
+inv_1xT I13_22_ ( DataOut[22], cdsbus1[22]);
+inv_1xT I13_21_ ( DataOut[21], cdsbus1[21]);
+inv_1xT I13_20_ ( DataOut[20], cdsbus1[20]);
+inv_1xT I13_19_ ( DataOut[19], cdsbus1[19]);
+inv_1xT I13_18_ ( DataOut[18], cdsbus1[18]);
+inv_1xT I13_17_ ( DataOut[17], cdsbus1[17]);
+inv_1xT I13_16_ ( DataOut[16], cdsbus1[16]);
+inv_1xT I13_15_ ( DataOut[15], cdsbus1[15]);
+inv_1xT I13_14_ ( DataOut[14], cdsbus1[14]);
+inv_1xT I13_13_ ( DataOut[13], cdsbus1[13]);
+inv_1xT I13_12_ ( DataOut[12], cdsbus1[12]);
+inv_1xT I13_11_ ( DataOut[11], cdsbus1[11]);
+inv_1xT I13_10_ ( DataOut[10], cdsbus1[10]);
+inv_1xT I13_9_ ( DataOut[9], cdsbus1[9]);
+inv_1xT I13_8_ ( DataOut[8], cdsbus1[8]);
+inv_1xT I13_7_ ( DataOut[7], cdsbus1[7]);
+inv_1xT I13_6_ ( DataOut[6], cdsbus1[6]);
+inv_1xT I13_5_ ( DataOut[5], cdsbus1[5]);
+inv_1xT I13_4_ ( DataOut[4], cdsbus1[4]);
+inv_1xT I13_3_ ( DataOut[3], cdsbus1[3]);
+inv_1xT I13_2_ ( DataOut[2], cdsbus1[2]);
+inv_1xT I13_1_ ( DataOut[1], cdsbus1[1]);
+inv_1xT I13_0_ ( DataOut[0], cdsbus1[0]);
+inv_1xT I10_31_ ( cdsbus0[31], dataIn[31]);
+inv_1xT I10_30_ ( cdsbus0[30], dataIn[30]);
+inv_1xT I10_29_ ( cdsbus0[29], dataIn[29]);
+inv_1xT I10_28_ ( cdsbus0[28], dataIn[28]);
+inv_1xT I10_27_ ( cdsbus0[27], dataIn[27]);
+inv_1xT I10_26_ ( cdsbus0[26], dataIn[26]);
+inv_1xT I10_25_ ( cdsbus0[25], dataIn[25]);
+inv_1xT I10_24_ ( cdsbus0[24], dataIn[24]);
+inv_1xT I10_23_ ( cdsbus0[23], dataIn[23]);
+inv_1xT I10_22_ ( cdsbus0[22], dataIn[22]);
+inv_1xT I10_21_ ( cdsbus0[21], dataIn[21]);
+inv_1xT I10_20_ ( cdsbus0[20], dataIn[20]);
+inv_1xT I10_19_ ( cdsbus0[19], dataIn[19]);
+inv_1xT I10_18_ ( cdsbus0[18], dataIn[18]);
+inv_1xT I10_17_ ( cdsbus0[17], dataIn[17]);
+inv_1xT I10_16_ ( cdsbus0[16], dataIn[16]);
+inv_1xT I10_15_ ( cdsbus0[15], dataIn[15]);
+inv_1xT I10_14_ ( cdsbus0[14], dataIn[14]);
+inv_1xT I10_13_ ( cdsbus0[13], dataIn[13]);
+inv_1xT I10_12_ ( cdsbus0[12], dataIn[12]);
+inv_1xT I10_11_ ( cdsbus0[11], dataIn[11]);
+inv_1xT I10_10_ ( cdsbus0[10], dataIn[10]);
+inv_1xT I10_9_ ( cdsbus0[9], dataIn[9]);
+inv_1xT I10_8_ ( cdsbus0[8], dataIn[8]);
+inv_1xT I10_7_ ( cdsbus0[7], dataIn[7]);
+inv_1xT I10_6_ ( cdsbus0[6], dataIn[6]);
+inv_1xT I10_5_ ( cdsbus0[5], dataIn[5]);
+inv_1xT I10_4_ ( cdsbus0[4], dataIn[4]);
+inv_1xT I10_3_ ( cdsbus0[3], dataIn[3]);
+inv_1xT I10_2_ ( cdsbus0[2], dataIn[2]);
+inv_1xT I10_1_ ( cdsbus0[1], dataIn[1]);
+inv_1xT I10_0_ ( cdsbus0[0], dataIn[0]);
+inv_1xT I17 ( cdsNet2, ackIn);
+inv_1xT I14 ( ackOut, cdsNet3);
+
+endmodule

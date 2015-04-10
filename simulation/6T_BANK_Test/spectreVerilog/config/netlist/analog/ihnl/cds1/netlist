@@ -1,6 +1,6 @@
-    I3 (A_0 B0 B1) _sub0
-    I2 (A_1 B0 B1) _sub0
-    I1 (A_2 B0 B1) _sub0
-    I0 (A_3 B0 B1) _sub0
-ends _sub1
+    I3 (A_0 B0 B1) _sub74
+    I2 (A_1 B0 B1) _sub74
+    I1 (A_2 B0 B1) _sub74
+    I0 (A_3 B0 B1) _sub74
+ends _sub75
 // End of subcircuit definition.

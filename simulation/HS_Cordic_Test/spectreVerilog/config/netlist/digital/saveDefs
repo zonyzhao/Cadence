@@ -1,0 +1,9 @@
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.dataIn[28], test.top.ackIn, test.top.dataIn[31], test.top.DataOut[31], test.top.dataIn[30], test.top.DataOut[30], test.top.reqOut, test.top.dataIn[27], test.top.dataIn[26], test.top.dataIn[25], test.top.DataOut[29], test.top.dataIn[24], test.top.dataIn[5], test.top.dataIn[6], test.top.dataIn[7], test.top.dataIn[8], test.top.dataIn[9], test.top.dataIn[10], test.top.dataIn[11], test.top.dataIn[12], test.top.dataIn[13], test.top.dataIn[14], test.top.dataIn[15], test.top.dataIn[16], test.top.dataIn[17], test.top.dataIn[18], test.top.dataIn[23], test.top.dataIn[22], test.top.dataIn[19], test.top.dataIn[21], test.top.dataIn[20], test.top.reqIn, test.top.DataOut[28], test.top.DataOut[27], test.top.DataOut[26], test.top.DataOut[25], test.top.DataOut[24], test.top.DataOut[23], test.top.DataOut[0], test.top.DataOut[1], test.top.DataOut[22], test.top.DataOut[21], test.top.DataOut[20], test.top.DataOut[19], test.top.DataOut[18], test.top.DataOut[17], test.top.DataOut[16], test.top.DataOut[15], 
+test.top.DataOut[14], test.top.DataOut[13], test.top.DataOut[12], test.top.DataOut[11], test.top.DataOut[10], test.top.DataOut[9], test.top.DataOut[8], test.top.DataOut[7], test.top.DataOut[6], test.top.dataIn[4], test.top.ackOut, test.top.dataIn[3], test.top.DataOut[5], test.top.DataOut[4], test.top.dataIn[29], test.top.dataIn[2], test.top.dataIn[1], test.top.DataOut[3], test.top.dataIn[0], test.top.DataOut[2], test.top.DataOut[31:0], test.top.dataIn[31:0]);
+end
+// End SST2 Save Waveforms

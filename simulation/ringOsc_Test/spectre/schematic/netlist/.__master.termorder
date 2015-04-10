@@ -1,0 +1,5 @@
+"16nm.nor_1x.schematic.termorder" nil
+"16nm.inv_1x.schematic.termorder" nil
+"16nm.TH22.schematic.termorder" (("A" "B" "Y") ("A" "B" "Y"))
+"16nm.nand_1x.schematic.termorder" nil
+"16nm.SG_nand_1x.schematic.termorder" nil

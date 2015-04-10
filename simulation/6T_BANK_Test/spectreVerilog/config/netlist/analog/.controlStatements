@@ -1,23 +1,45 @@
-ic ReaDataT_31=0 ReaDataT_30=0 ReaDataT_29=0 ReaDataT_28=0 ReaDataT_27=0 \
-    ReaDataT_26=0 ReaDataT_25=0 ReaDataT_24=0 ReaDataT_23=0 ReaDataT_22=0 \
-    ReaDataT_21=0 ReaDataT_20=0 ReaDataT_19=0 ReaDataT_18=0 ReaDataT_17=0 \
-    ReaDataT_16=0 ReaDataT_15=0 ReaDataT_14=0 ReaDataT_13=0 ReaDataT_12=0 \
-    ReaDataT_11=0 ReaDataT_10=0 ReaDataT_9=0 ReaDataT_8=0 ReaDataT_7=0 \
-    ReaDataT_6=0 ReaDataT_5=0 ReaDataT_4=0 ReaDataT_3=0 ReaDataT_2=0 \
-    ReaDataT_1=0 ReaDataT_0=0 WriteDataT_31=0 WriteDataT_30=0 \
-    WriteDataT_29=0 WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 \
-    WriteDataT_25=0 WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 \
-    WriteDataT_21=0 WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 \
-    WriteDataT_17=0 WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 \
-    WriteDataT_13=0 WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 \
-    WriteDataT_9=0 WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 \
-    WriteDataT_5=0 WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 \
-    WriteDataT_1=0 WriteDataT_0=0 
+ic IBank.I20.BpAck_3=vdd IBank.I20.BpAck_2=vdd IBank.I20.BpAck_1=vdd \
+    IBank.I20.BpAck_0=vdd IBank.I20.RAckp_3=0 IBank.I20.RAckp_2=0 \
+    IBank.I20.RAckp_1=0 IBank.I20.RAckp_0=0 IBank.I20.Rack_3=vdd \
+    IBank.I20.Rack_2=vdd IBank.I20.Rack_1=vdd IBank.I20.Rack_0=vdd \
+    IBank.G01=0 IBank.I20.R1p_3=0 IBank.I20.R1p_2=0 IBank.I20.R1p_1=0 \
+    IBank.I20.R1p_0=0 IBank.I20.R0p_3=0 IBank.I20.R0p_2=0 \
+    IBank.I20.R0p_1=0 IBank.I20.R0p_0=0 IBank.I20.R0_3=0 IBank.I20.R0_2=0 \
+    IBank.I20.R0_1=0 IBank.I20.R0_0=0 IBank.I20.R1_3=0 IBank.I20.R1_2=0 \
+    IBank.I20.R1_1=0 IBank.I20.R1_0=0 IBank.\~R0_1_3=vdd \
+    IBank.\~R0_1_2=vdd IBank.\~R0_1_1=vdd IBank.\~R0_1_0=vdd \
+    IBank.\~R1_1_3=vdd IBank.\~R1_1_2=vdd IBank.\~R1_1_1=vdd \
+    IBank.\~R1_1_0=vdd IBank.I20.net030=vdd IBank.ValAddr=0 WAck_1=vdd \
+    WAck_0=vdd IBank.I20.wack_3=vdd IBank.I20.wack_2=vdd \
+    IBank.I20.wack_1=vdd IBank.I20.wack_0=vdd IBank.I20.net052=vdd \
+    IBank.I20.net056=vdd IBank.I20.net053=vdd IBank.I20.net063=vdd \
+    IBank.I20.Wen=0 IBank.B0_1_3=0 IBank.B1_1_3=0 IBank.B0_1_2=0 \
+    IBank.B1_1_2=0 IBank.B0_1_1=0 IBank.B1_1_1=0 IBank.B0_1_0=0 \
+    IBank.B1_1_0=0 IBank.I20.B0p_3=0 IBank.I20.B1p_3=0 IBank.I20.B0p_2=0 \
+    IBank.I20.B1p_2=0 IBank.I20.B0p_1=0 IBank.I20.B1p_1=0 \
+    IBank.I20.B0p_0=0 IBank.I20.B1p_0=0 IBank.I20.nOr_7=0 \
+    IBank.I20.nOr_6=0 IBank.I20.nOr_5=0 IBank.I20.nOr_4=0 \
+    IBank.I20.nOr_3=0 IBank.I20.nOr_2=0 IBank.I20.nOr_1=0 \
+    IBank.I20.nOr_0=0 AckT=vdd net018_0=vdd net018_1=vdd net018_2=vdd \
+    net018_3=vdd net018_4=vdd RWT_1=0 RWT_0=0 IBank.I0.I0.I0.I7.I3.Q1=vdd \
+    IBank.I0.I0.I0.I7.I3.Q0=0 AT_19=0 AT_18=0 AT_17=0 AT_16=0 AT_15=0 \
+    AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 AT_7=0 AT_6=0 \
+    AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 RAckT_7=vdd RAckT_6=vdd \
+    RAckT_5=vdd RAckT_4=vdd RAckT_3=vdd RAckT_2=vdd RAckT_1=vdd \
+    RAckT_0=vdd WriteDataT_31=0 WriteDataT_30=0 WriteDataT_29=0 \
+    WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 WriteDataT_25=0 \
+    WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 WriteDataT_21=0 \
+    WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 WriteDataT_17=0 \
+    WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 WriteDataT_13=0 \
+    WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 WriteDataT_9=0 \
+    WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 WriteDataT_5=0 \
+    WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 WriteDataT_1=0 \
+    WriteDataT_0=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
     checklimitdest=psf 
-tran tran stop=5n  errpreset=conservative write="spectre.ic" \
+tran tran stop=6n  errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
@@ -26,5 +48,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save V1:p V1:p V0:p V0:p 
+save IBank.I20.I24:3 V0:p V0:p V1:p V1:p 
 saveOptions options save=allpub

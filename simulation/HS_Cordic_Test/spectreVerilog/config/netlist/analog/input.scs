@@ -1,0 +1,475 @@
+// Generated for: spectre
+// Generated on: Apr  9 16:26:55 2015
+// Design library name: 16nm_Tests
+// Design cell name: HS_Dual_Cordic_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vdd! vcc!
+parameters vdd=.500 vcc=vdd
+include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+// BEGIN Flat Interface Elements
+// Flattened IE at /~Rdata<19> uses port path 99999
+// Flattened IE at /~DataIn<0> uses port path 99998
+// Flattened IE at /~Rdata<20> uses port path 99997
+// Flattened IE at /~Rdata<17> uses port path 99996
+// Flattened IE at /~Rdata<18> uses port path 99995
+// Flattened IE at /~Rdata<16> uses port path 99994
+// Flattened IE at /~Rdata<11> uses port path 99993
+// Flattened IE at /~DataIn<1> uses port path 99992
+// Flattened IE at /~DataIn<2> uses port path 99991
+// Flattened IE at /~DataIn<3> uses port path 99990
+// Flattened IE at /~DataIn<4> uses port path 99989
+// Flattened IE at /~Lreq uses port path 99988
+// Flattened IE at /~ackOut uses port path 99987
+// Flattened IE at /~Rdata<12> uses port path 99986
+// Flattened IE at /~Rdata<13> uses port path 99985
+// Flattened IE at /~Rdata<1> uses port path 99984
+// Flattened IE at /~DataIn<10> uses port path 99983
+// Flattened IE at /~DataIn<11> uses port path 99982
+// Flattened IE at /~DataIn<12> uses port path 99981
+// Flattened IE at /~Rdata<7> uses port path 99980
+// Flattened IE at /~Rdata<0> uses port path 99979
+// Flattened IE at /~DataIn<31> uses port path 99978
+// Flattened IE at /~DataIn<30> uses port path 99977
+// Flattened IE at /~DataIn<29> uses port path 99976
+// Flattened IE at /~DataIn<28> uses port path 99975
+// Flattened IE at /~DataIn<27> uses port path 99974
+// Flattened IE at /~DataIn<7> uses port path 99973
+// Flattened IE at /~DataIn<13> uses port path 99972
+// Flattened IE at /~DataIn<14> uses port path 99971
+// Flattened IE at /~DataIn<15> uses port path 99970
+// Flattened IE at /~DataIn<16> uses port path 99969
+// Flattened IE at /~DataIn<17> uses port path 99968
+// Flattened IE at /~DataIn<18> uses port path 99967
+// Flattened IE at /~DataIn<19> uses port path 99966
+// Flattened IE at /~DataIn<20> uses port path 99965
+// Flattened IE at /~DataIn<21> uses port path 99964
+// Flattened IE at /~DataIn<22> uses port path 99963
+// Flattened IE at /~DataIn<23> uses port path 99962
+// Flattened IE at /~DataIn<24> uses port path 99961
+// Flattened IE at /~DataIn<25> uses port path 99960
+// Flattened IE at /~DataIn<26> uses port path 99959
+// Flattened IE at /~Rdata<6> uses port path 99958
+// Flattened IE at /~Rdata<4> uses port path 99957
+// Flattened IE at /~Rdata<10> uses port path 99956
+// Flattened IE at /~Rdata<5> uses port path 99955
+// Flattened IE at /~Rdata<9> uses port path 99954
+// Flattened IE at /~Rdata<3> uses port path 99953
+// Flattened IE at /~Rdata<31> uses port path 99952
+// Flattened IE at /~Rdata<2> uses port path 99951
+// Flattened IE at /~DataIn<6> uses port path 99950
+// Flattened IE at /~Rack uses port path 99949
+// Flattened IE at /~DataIn<5> uses port path 99948
+// Flattened IE at /~DataIn<9> uses port path 99947
+// Flattened IE at /~DataIn<8> uses port path 99946
+// Flattened IE at /~Rdata<8> uses port path 99945
+// Flattened IE at /~Rreq uses port path 99944
+// Flattened IE at /~Rdata<30> uses port path 99943
+// Flattened IE at /~Rdata<14> uses port path 99942
+// Flattened IE at /~Rdata<15> uses port path 99941
+// Flattened IE at /~Rdata<29> uses port path 99940
+// Flattened IE at /~Rdata<28> uses port path 99939
+// Flattened IE at /~Rdata<27> uses port path 99938
+// Flattened IE at /~Rdata<26> uses port path 99937
+// Flattened IE at /~Rdata<25> uses port path 99936
+// Flattened IE at /~Rdata<24> uses port path 99935
+// Flattened IE at /~Rdata<23> uses port path 99934
+// Flattened IE at /~Rdata<22> uses port path 99933
+// Flattened IE at /~Rdata<21> uses port path 99932
+// END Flat Interface Elements
+
+// Library name: 16nm
+// Cell name: TH22
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt TH22 A B Y
+    M5 (Y net5 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net5 Y net9 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M11 (Y net5 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (net5 Y net037 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+ends TH22
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: HS_Cordic
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt HS_Cordic ack_a ack_b req_a req_b
+    I1 (ack_a net10 req_b) TH22
+    I0 (net9 req_a ack_a) TH22
+    I3 (ack_b net10) inv_1x
+    I2 (req_b net9) inv_1x
+ends HS_Cordic
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: nand3_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nand3_1x A B C Y
+    M4 (Y C vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M6 (net026 C 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M3 (net22 B net026 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net22 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+ends nand3_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: nand_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nand_1x A B Y
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M3 (net22 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net22 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+ends nand_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: DFlop
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt DFlop CLK D Q \~Q
+    I4 (net3 CLK net07 net4) nand3_1x
+    I0 (net07 net3 net011) nand_1x
+    I5 (net4 D net07) nand_1x
+    I1 (net011 CLK net3) nand_1x
+    I3 (Q net4 \~Q) nand_1x
+    I2 (net3 \~Q Q) nand_1x
+ends DFlop
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: HS_CordicFIFO
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt HS_CordicFIFO Data_31 Data_30 Data_29 Data_28 Data_27 Data_26 \
+        Data_25 Data_24 Data_23 Data_22 Data_21 Data_20 Data_19 Data_18 \
+        Data_17 Data_16 Data_15 Data_14 Data_13 Data_12 Data_11 Data_10 \
+        Data_9 Data_8 Data_7 Data_6 Data_5 Data_4 Data_3 Data_2 Data_1 \
+        Data_0 Dout_31 Dout_30 Dout_29 Dout_28 Dout_27 Dout_26 Dout_25 \
+        Dout_24 Dout_23 Dout_22 Dout_21 Dout_20 Dout_19 Dout_18 Dout_17 \
+        Dout_16 Dout_15 Dout_14 Dout_13 Dout_12 Dout_11 Dout_10 Dout_9 \
+        Dout_8 Dout_7 Dout_6 Dout_5 Dout_4 Dout_3 Dout_2 Dout_1 Dout_0 \
+        Req ReqOut ackIn ackOut
+    I4 (ackOut ackIn Req ReqOut) HS_Cordic
+    I5_31 (ackOut Data_31 Dout_31 net023_0) DFlop
+    I5_30 (ackOut Data_30 Dout_30 net023_1) DFlop
+    I5_29 (ackOut Data_29 Dout_29 net023_2) DFlop
+    I5_28 (ackOut Data_28 Dout_28 net023_3) DFlop
+    I5_27 (ackOut Data_27 Dout_27 net023_4) DFlop
+    I5_26 (ackOut Data_26 Dout_26 net023_5) DFlop
+    I5_25 (ackOut Data_25 Dout_25 net023_6) DFlop
+    I5_24 (ackOut Data_24 Dout_24 net023_7) DFlop
+    I5_23 (ackOut Data_23 Dout_23 net023_8) DFlop
+    I5_22 (ackOut Data_22 Dout_22 net023_9) DFlop
+    I5_21 (ackOut Data_21 Dout_21 net023_10) DFlop
+    I5_20 (ackOut Data_20 Dout_20 net023_11) DFlop
+    I5_19 (ackOut Data_19 Dout_19 net023_12) DFlop
+    I5_18 (ackOut Data_18 Dout_18 net023_13) DFlop
+    I5_17 (ackOut Data_17 Dout_17 net023_14) DFlop
+    I5_16 (ackOut Data_16 Dout_16 net023_15) DFlop
+    I5_15 (ackOut Data_15 Dout_15 net023_16) DFlop
+    I5_14 (ackOut Data_14 Dout_14 net023_17) DFlop
+    I5_13 (ackOut Data_13 Dout_13 net023_18) DFlop
+    I5_12 (ackOut Data_12 Dout_12 net023_19) DFlop
+    I5_11 (ackOut Data_11 Dout_11 net023_20) DFlop
+    I5_10 (ackOut Data_10 Dout_10 net023_21) DFlop
+    I5_9 (ackOut Data_9 Dout_9 net023_22) DFlop
+    I5_8 (ackOut Data_8 Dout_8 net023_23) DFlop
+    I5_7 (ackOut Data_7 Dout_7 net023_24) DFlop
+    I5_6 (ackOut Data_6 Dout_6 net023_25) DFlop
+    I5_5 (ackOut Data_5 Dout_5 net023_26) DFlop
+    I5_4 (ackOut Data_4 Dout_4 net023_27) DFlop
+    I5_3 (ackOut Data_3 Dout_3 net023_28) DFlop
+    I5_2 (ackOut Data_2 Dout_2 net023_29) DFlop
+    I5_1 (ackOut Data_1 Dout_1 net023_30) DFlop
+    I5_0 (ackOut Data_0 Dout_0 net023_31) DFlop
+ends HS_CordicFIFO
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1xt
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xt A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: HS_Dual_Cordic_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+I20 (DataInT_31 DataInT_30 DataInT_29 DataInT_28 DataInT_27 DataInT_26 \
+        DataInT_25 DataInT_24 DataInT_23 DataInT_22 DataInT_21 \
+        DataInT_20 DataInT_19 DataInT_18 DataInT_17 DataInT_16 \
+        DataInT_15 DataInT_14 DataInT_13 DataInT_12 DataInT_11 \
+        DataInT_10 DataInT_9 DataInT_8 DataInT_7 DataInT_6 DataInT_5 \
+        DataInT_4 DataInT_3 DataInT_2 DataInT_1 DataInT_0 RdataT_31 \
+        RdataT_30 RdataT_29 RdataT_28 RdataT_27 RdataT_26 RdataT_25 \
+        RdataT_24 RdataT_23 RdataT_22 RdataT_21 RdataT_20 RdataT_19 \
+        RdataT_18 RdataT_17 RdataT_16 RdataT_15 RdataT_14 RdataT_13 \
+        RdataT_12 RdataT_11 RdataT_10 RdataT_9 RdataT_8 RdataT_7 \
+        RdataT_6 RdataT_5 RdataT_4 RdataT_3 RdataT_2 RdataT_1 RdataT_0 \
+        LreqT RreqT RackT ackOutT) HS_CordicFIFO
+V1 (vcc! 0) vsource type=dc dc=vcc
+V0 (vdd! 0) vsource type=dc dc=vdd
+I8 (RreqT \~Rreq) inv_1xt
+I7 (\~Lreq LreqT) inv_1xt
+I12_31 (RdataT_31 \~Rdata_31) inv_1xt
+I12_30 (RdataT_30 \~Rdata_30) inv_1xt
+I12_29 (RdataT_29 \~Rdata_29) inv_1xt
+I12_28 (RdataT_28 \~Rdata_28) inv_1xt
+I12_27 (RdataT_27 \~Rdata_27) inv_1xt
+I12_26 (RdataT_26 \~Rdata_26) inv_1xt
+I12_25 (RdataT_25 \~Rdata_25) inv_1xt
+I12_24 (RdataT_24 \~Rdata_24) inv_1xt
+I12_23 (RdataT_23 \~Rdata_23) inv_1xt
+I12_22 (RdataT_22 \~Rdata_22) inv_1xt
+I12_21 (RdataT_21 \~Rdata_21) inv_1xt
+I12_20 (RdataT_20 \~Rdata_20) inv_1xt
+I12_19 (RdataT_19 \~Rdata_19) inv_1xt
+I12_18 (RdataT_18 \~Rdata_18) inv_1xt
+I12_17 (RdataT_17 \~Rdata_17) inv_1xt
+I12_16 (RdataT_16 \~Rdata_16) inv_1xt
+I12_15 (RdataT_15 \~Rdata_15) inv_1xt
+I12_14 (RdataT_14 \~Rdata_14) inv_1xt
+I12_13 (RdataT_13 \~Rdata_13) inv_1xt
+I12_12 (RdataT_12 \~Rdata_12) inv_1xt
+I12_11 (RdataT_11 \~Rdata_11) inv_1xt
+I12_10 (RdataT_10 \~Rdata_10) inv_1xt
+I12_9 (RdataT_9 \~Rdata_9) inv_1xt
+I12_8 (RdataT_8 \~Rdata_8) inv_1xt
+I12_7 (RdataT_7 \~Rdata_7) inv_1xt
+I12_6 (RdataT_6 \~Rdata_6) inv_1xt
+I12_5 (RdataT_5 \~Rdata_5) inv_1xt
+I12_4 (RdataT_4 \~Rdata_4) inv_1xt
+I12_3 (RdataT_3 \~Rdata_3) inv_1xt
+I12_2 (RdataT_2 \~Rdata_2) inv_1xt
+I12_1 (RdataT_1 \~Rdata_1) inv_1xt
+I12_0 (RdataT_0 \~Rdata_0) inv_1xt
+I11_31 (\~DataIn_31 DataInT_31) inv_1xt
+I11_30 (\~DataIn_30 DataInT_30) inv_1xt
+I11_29 (\~DataIn_29 DataInT_29) inv_1xt
+I11_28 (\~DataIn_28 DataInT_28) inv_1xt
+I11_27 (\~DataIn_27 DataInT_27) inv_1xt
+I11_26 (\~DataIn_26 DataInT_26) inv_1xt
+I11_25 (\~DataIn_25 DataInT_25) inv_1xt
+I11_24 (\~DataIn_24 DataInT_24) inv_1xt
+I11_23 (\~DataIn_23 DataInT_23) inv_1xt
+I11_22 (\~DataIn_22 DataInT_22) inv_1xt
+I11_21 (\~DataIn_21 DataInT_21) inv_1xt
+I11_20 (\~DataIn_20 DataInT_20) inv_1xt
+I11_19 (\~DataIn_19 DataInT_19) inv_1xt
+I11_18 (\~DataIn_18 DataInT_18) inv_1xt
+I11_17 (\~DataIn_17 DataInT_17) inv_1xt
+I11_16 (\~DataIn_16 DataInT_16) inv_1xt
+I11_15 (\~DataIn_15 DataInT_15) inv_1xt
+I11_14 (\~DataIn_14 DataInT_14) inv_1xt
+I11_13 (\~DataIn_13 DataInT_13) inv_1xt
+I11_12 (\~DataIn_12 DataInT_12) inv_1xt
+I11_11 (\~DataIn_11 DataInT_11) inv_1xt
+I11_10 (\~DataIn_10 DataInT_10) inv_1xt
+I11_9 (\~DataIn_9 DataInT_9) inv_1xt
+I11_8 (\~DataIn_8 DataInT_8) inv_1xt
+I11_7 (\~DataIn_7 DataInT_7) inv_1xt
+I11_6 (\~DataIn_6 DataInT_6) inv_1xt
+I11_5 (\~DataIn_5 DataInT_5) inv_1xt
+I11_4 (\~DataIn_4 DataInT_4) inv_1xt
+I11_3 (\~DataIn_3 DataInT_3) inv_1xt
+I11_2 (\~DataIn_2 DataInT_2) inv_1xt
+I11_1 (\~DataIn_1 DataInT_1) inv_1xt
+I11_0 (\~DataIn_0 DataInT_0) inv_1xt
+I16 (\~Rack RackT) inv_1xt
+I15 (ackOutT \~ackOut) inv_1xt
+// BEGIN Hierarchical Interface Elements
+_ie99932 (\~Rdata_21 0) a2d dest="99932" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99933 (\~Rdata_22 0) a2d dest="99933" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99934 (\~Rdata_23 0) a2d dest="99934" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99935 (\~Rdata_24 0) a2d dest="99935" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99936 (\~Rdata_25 0) a2d dest="99936" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99937 (\~Rdata_26 0) a2d dest="99937" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99938 (\~Rdata_27 0) a2d dest="99938" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99939 (\~Rdata_28 0) a2d dest="99939" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99940 (\~Rdata_29 0) a2d dest="99940" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99941 (\~Rdata_15 0) a2d dest="99941" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99942 (\~Rdata_14 0) a2d dest="99942" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99943 (\~Rdata_30 0) a2d dest="99943" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99944 (\~Rreq 0) a2d dest="99944" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99945 (\~Rdata_8 0) a2d dest="99945" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99946 (\~DataIn_8 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99947 (\~DataIn_9 0) d2a src="99947" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99948 (\~DataIn_5 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99949 (\~Rack 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99950 (\~DataIn_6 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99951 (\~Rdata_2 0) a2d dest="99951" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99952 (\~Rdata_31 0) a2d dest="99952" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99953 (\~Rdata_3 0) a2d dest="99953" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99954 (\~Rdata_9 0) a2d dest="99954" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99955 (\~Rdata_5 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99956 (\~Rdata_10 0) a2d dest="99956" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99957 (\~Rdata_4 0) a2d dest="99957" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99958 (\~Rdata_6 0) a2d dest="99958" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99959 (\~DataIn_26 0) d2a src="99959" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99960 (\~DataIn_25 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99961 (\~DataIn_24 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99962 (\~DataIn_23 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (\~DataIn_22 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (\~DataIn_21 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99965 (\~DataIn_20 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99966 (\~DataIn_19 0) d2a src="99966" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99967 (\~DataIn_18 0) d2a src="99967" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99968 (\~DataIn_17 0) d2a src="99968" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99969 (\~DataIn_16 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (\~DataIn_15 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (\~DataIn_14 0) d2a src="99971" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99972 (\~DataIn_13 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (\~DataIn_7 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99974 (\~DataIn_27 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99975 (\~DataIn_28 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (\~DataIn_29 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99977 (\~DataIn_30 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99978 (\~DataIn_31 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (\~Rdata_0 0) a2d dest="99979" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99980 (\~Rdata_7 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99981 (\~DataIn_12 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99982 (\~DataIn_11 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99983 (\~DataIn_10 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99984 (\~Rdata_1 0) a2d dest="99984" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99985 (\~Rdata_13 0) a2d dest="99985" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99986 (\~Rdata_12 0) a2d dest="99986" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99987 (\~ackOut 0) a2d dest="99987" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99988 (\~Lreq 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99989 (\~DataIn_4 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99990 (\~DataIn_3 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99991 (\~DataIn_2 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99992 (\~DataIn_1 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99993 (\~Rdata_11 0) a2d dest="99993" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99994 (\~Rdata_16 0) a2d dest="99994" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99995 (\~Rdata_18 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99996 (\~Rdata_17 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99997 (\~Rdata_20 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99998 (\~DataIn_0 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (\~Rdata_19 0) a2d dest="99999" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+// END Hierarchical Interface Elements
+ic RackT=0 RdataT_31=0 RdataT_30=0 RdataT_29=0 RdataT_28=0 RdataT_27=0 \
+    RdataT_26=0 RdataT_25=0 RdataT_24=0 RdataT_23=0 RdataT_22=0 \
+    RdataT_21=0 RdataT_20=0 RdataT_19=0 RdataT_18=0 RdataT_17=0 \
+    RdataT_16=0 RdataT_15=0 RdataT_14=0 RdataT_13=0 RdataT_12=0 \
+    RdataT_11=0 RdataT_10=0 RdataT_9=0 RdataT_8=0 RdataT_7=0 RdataT_6=0 \
+    RdataT_5=0 RdataT_4=0 RdataT_3=0 RdataT_2=0 RdataT_1=0 RdataT_0=0 \
+    RreqT=0 ackOutT=0 DataInT_31=0 DataInT_30=0 DataInT_29=0 DataInT_28=0 \
+    DataInT_27=0 DataInT_26=0 DataInT_25=0 DataInT_24=0 DataInT_23=0 \
+    DataInT_22=0 DataInT_21=0 DataInT_20=0 DataInT_19=0 DataInT_18=0 \
+    DataInT_17=0 DataInT_16=0 DataInT_15=0 DataInT_14=0 DataInT_13=0 \
+    DataInT_12=0 DataInT_11=0 DataInT_10=0 DataInT_9=0 DataInT_8=0 \
+    DataInT_7=0 DataInT_6=0 DataInT_5=0 DataInT_4=0 DataInT_3=0 \
+    DataInT_2=0 DataInT_1=0 DataInT_0=0 LreqT=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=3n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save I20:66 I20:68 I20:65 I20:67 
+saveOptions options save=allpub

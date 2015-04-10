@@ -1,0 +1,179 @@
+// Library - 16nm_Tests, Cell - HS_Dual_Cordic_Test, View - schematic
+// LAST TIME SAVED: Apr  9 16:26:51 2015
+// NETLIST TIME: Apr  9 16:26:56 2015
+`timescale 1ps / 1ps 
+
+module HS_Dual_Cordic_Test ( DataOut, ackOut, reqOut, ackIn, dataIn,
+     reqIn );
+
+output  ackOut, reqOut;
+
+input  ackIn, reqIn;
+
+output [31:0]  DataOut;
+
+input [31:0]  dataIn;
+
+// Buses in the design
+
+wire  [31:0]  RdataT;
+
+wire  [31:0]  cdsbus0;
+
+wire  [31:0]  DataInT;
+
+wire  [31:0]  cdsbus1;
+
+// begin interface element definitions
+
+wire cdsNet3;
+wire cdsNet0;
+reg mixedNet99999;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99987;
+reg mixedNet99986;
+reg mixedNet99985;
+reg mixedNet99984;
+reg mixedNet99980;
+reg mixedNet99979;
+reg mixedNet99958;
+reg mixedNet99957;
+reg mixedNet99956;
+reg mixedNet99955;
+reg mixedNet99954;
+reg mixedNet99953;
+reg mixedNet99952;
+reg mixedNet99951;
+reg mixedNet99945;
+reg mixedNet99944;
+reg mixedNet99943;
+reg mixedNet99942;
+reg mixedNet99941;
+reg mixedNet99940;
+reg mixedNet99939;
+reg mixedNet99938;
+reg mixedNet99937;
+reg mixedNet99936;
+reg mixedNet99935;
+reg mixedNet99934;
+reg mixedNet99933;
+reg mixedNet99932;
+assign cdsbus1[19] = mixedNet99999;
+assign cdsbus1[20] = mixedNet99997;
+assign cdsbus1[17] = mixedNet99996;
+assign cdsbus1[18] = mixedNet99995;
+assign cdsbus1[16] = mixedNet99994;
+assign cdsbus1[11] = mixedNet99993;
+assign cdsNet3 = mixedNet99987;
+assign cdsbus1[12] = mixedNet99986;
+assign cdsbus1[13] = mixedNet99985;
+assign cdsbus1[1] = mixedNet99984;
+assign cdsbus1[7] = mixedNet99980;
+assign cdsbus1[0] = mixedNet99979;
+assign cdsbus1[6] = mixedNet99958;
+assign cdsbus1[4] = mixedNet99957;
+assign cdsbus1[10] = mixedNet99956;
+assign cdsbus1[5] = mixedNet99955;
+assign cdsbus1[9] = mixedNet99954;
+assign cdsbus1[3] = mixedNet99953;
+assign cdsbus1[31] = mixedNet99952;
+assign cdsbus1[2] = mixedNet99951;
+assign cdsbus1[8] = mixedNet99945;
+assign cdsNet0 = mixedNet99944;
+assign cdsbus1[30] = mixedNet99943;
+assign cdsbus1[14] = mixedNet99942;
+assign cdsbus1[15] = mixedNet99941;
+assign cdsbus1[29] = mixedNet99940;
+assign cdsbus1[28] = mixedNet99939;
+assign cdsbus1[27] = mixedNet99938;
+assign cdsbus1[26] = mixedNet99937;
+assign cdsbus1[25] = mixedNet99936;
+assign cdsbus1[24] = mixedNet99935;
+assign cdsbus1[23] = mixedNet99934;
+assign cdsbus1[22] = mixedNet99933;
+assign cdsbus1[21] = mixedNet99932;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "HS_Dual_Cordic_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I9 ( reqOut, cdsNet0);
+inv_1xT I6 ( cdsNet1, reqIn);
+inv_1xT I13_31_ ( DataOut[31], cdsbus1[31]);
+inv_1xT I13_30_ ( DataOut[30], cdsbus1[30]);
+inv_1xT I13_29_ ( DataOut[29], cdsbus1[29]);
+inv_1xT I13_28_ ( DataOut[28], cdsbus1[28]);
+inv_1xT I13_27_ ( DataOut[27], cdsbus1[27]);
+inv_1xT I13_26_ ( DataOut[26], cdsbus1[26]);
+inv_1xT I13_25_ ( DataOut[25], cdsbus1[25]);
+inv_1xT I13_24_ ( DataOut[24], cdsbus1[24]);
+inv_1xT I13_23_ ( DataOut[23], cdsbus1[23]);
+inv_1xT I13_22_ ( DataOut[22], cdsbus1[22]);
+inv_1xT I13_21_ ( DataOut[21], cdsbus1[21]);
+inv_1xT I13_20_ ( DataOut[20], cdsbus1[20]);
+inv_1xT I13_19_ ( DataOut[19], cdsbus1[19]);
+inv_1xT I13_18_ ( DataOut[18], cdsbus1[18]);
+inv_1xT I13_17_ ( DataOut[17], cdsbus1[17]);
+inv_1xT I13_16_ ( DataOut[16], cdsbus1[16]);
+inv_1xT I13_15_ ( DataOut[15], cdsbus1[15]);
+inv_1xT I13_14_ ( DataOut[14], cdsbus1[14]);
+inv_1xT I13_13_ ( DataOut[13], cdsbus1[13]);
+inv_1xT I13_12_ ( DataOut[12], cdsbus1[12]);
+inv_1xT I13_11_ ( DataOut[11], cdsbus1[11]);
+inv_1xT I13_10_ ( DataOut[10], cdsbus1[10]);
+inv_1xT I13_9_ ( DataOut[9], cdsbus1[9]);
+inv_1xT I13_8_ ( DataOut[8], cdsbus1[8]);
+inv_1xT I13_7_ ( DataOut[7], cdsbus1[7]);
+inv_1xT I13_6_ ( DataOut[6], cdsbus1[6]);
+inv_1xT I13_5_ ( DataOut[5], cdsbus1[5]);
+inv_1xT I13_4_ ( DataOut[4], cdsbus1[4]);
+inv_1xT I13_3_ ( DataOut[3], cdsbus1[3]);
+inv_1xT I13_2_ ( DataOut[2], cdsbus1[2]);
+inv_1xT I13_1_ ( DataOut[1], cdsbus1[1]);
+inv_1xT I13_0_ ( DataOut[0], cdsbus1[0]);
+inv_1xT I10_31_ ( cdsbus0[31], dataIn[31]);
+inv_1xT I10_30_ ( cdsbus0[30], dataIn[30]);
+inv_1xT I10_29_ ( cdsbus0[29], dataIn[29]);
+inv_1xT I10_28_ ( cdsbus0[28], dataIn[28]);
+inv_1xT I10_27_ ( cdsbus0[27], dataIn[27]);
+inv_1xT I10_26_ ( cdsbus0[26], dataIn[26]);
+inv_1xT I10_25_ ( cdsbus0[25], dataIn[25]);
+inv_1xT I10_24_ ( cdsbus0[24], dataIn[24]);
+inv_1xT I10_23_ ( cdsbus0[23], dataIn[23]);
+inv_1xT I10_22_ ( cdsbus0[22], dataIn[22]);
+inv_1xT I10_21_ ( cdsbus0[21], dataIn[21]);
+inv_1xT I10_20_ ( cdsbus0[20], dataIn[20]);
+inv_1xT I10_19_ ( cdsbus0[19], dataIn[19]);
+inv_1xT I10_18_ ( cdsbus0[18], dataIn[18]);
+inv_1xT I10_17_ ( cdsbus0[17], dataIn[17]);
+inv_1xT I10_16_ ( cdsbus0[16], dataIn[16]);
+inv_1xT I10_15_ ( cdsbus0[15], dataIn[15]);
+inv_1xT I10_14_ ( cdsbus0[14], dataIn[14]);
+inv_1xT I10_13_ ( cdsbus0[13], dataIn[13]);
+inv_1xT I10_12_ ( cdsbus0[12], dataIn[12]);
+inv_1xT I10_11_ ( cdsbus0[11], dataIn[11]);
+inv_1xT I10_10_ ( cdsbus0[10], dataIn[10]);
+inv_1xT I10_9_ ( cdsbus0[9], dataIn[9]);
+inv_1xT I10_8_ ( cdsbus0[8], dataIn[8]);
+inv_1xT I10_7_ ( cdsbus0[7], dataIn[7]);
+inv_1xT I10_6_ ( cdsbus0[6], dataIn[6]);
+inv_1xT I10_5_ ( cdsbus0[5], dataIn[5]);
+inv_1xT I10_4_ ( cdsbus0[4], dataIn[4]);
+inv_1xT I10_3_ ( cdsbus0[3], dataIn[3]);
+inv_1xT I10_2_ ( cdsbus0[2], dataIn[2]);
+inv_1xT I10_1_ ( cdsbus0[1], dataIn[1]);
+inv_1xT I10_0_ ( cdsbus0[0], dataIn[0]);
+inv_1xT I17 ( cdsNet2, ackIn);
+inv_1xT I14 ( ackOut, cdsNet3);
+
+endmodule

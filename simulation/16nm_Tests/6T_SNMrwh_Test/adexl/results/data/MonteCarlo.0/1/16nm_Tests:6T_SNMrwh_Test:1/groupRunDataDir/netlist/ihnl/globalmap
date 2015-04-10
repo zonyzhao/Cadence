@@ -1,0 +1,13 @@
+CADENCE IHNL01070
+$model
+16nm_Tests/6T_SNMrwh_Test/schematic _sub14
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+$endnet
+$param
+vdd vdd
+timeA timeA
+timeB timeB
+$endparam

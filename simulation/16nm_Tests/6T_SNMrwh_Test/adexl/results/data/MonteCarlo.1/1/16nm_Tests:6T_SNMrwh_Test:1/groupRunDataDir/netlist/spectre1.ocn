@@ -1,0 +1,21 @@
+simulator( 'spectre )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SNMrwh_Test/spectre/schematic/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SNMrwh_Test/spectre/schematic" )
+modelFile( 
+    '("/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "100n"  ?errpreset "conservative"  )
+desVar(	  "vdd" 500m	)
+desVar(	  "timeA" 100n	)
+desVar(	  "timeB" 200n	)
+envOption(
+	'userCmdLineOption  "+multithread" 
+	'analysisOrder  list("tran") 
+)
+option(	'temp  "30.0" 
+)
+save( 'i "/V0/MINUS" "/V0/PLUS" )
+temp( 30.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/nvtc") getData("/SNMw0") getData("/SNMr") getData("/SNMh") getData("/V0/MINUS") getData("/V0/PLUS") )

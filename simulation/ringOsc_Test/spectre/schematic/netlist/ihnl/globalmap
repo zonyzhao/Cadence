@@ -1,0 +1,16 @@
+CADENCE IHNL01070
+$model
+16nm/nand_1x/schematic nand_1x
+16nm/SG_nand_1x/schematic SG_nand_1x
+16nm/nor_1x/schematic nor_1x
+16nm/TH22/schematic TH22
+16nm/inv_1x/schematic inv_1x
+16nm_Tests/ringOsc_Test/schematic ringOsc_Test
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+$endnet
+$param
+vdd vdd
+$endparam

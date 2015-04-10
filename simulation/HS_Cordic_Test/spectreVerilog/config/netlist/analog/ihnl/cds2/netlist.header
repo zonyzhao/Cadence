@@ -1,0 +1,7 @@
+
+// Library name: 16nm
+// Cell name: HS_Cordic
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt HS_Cordic ack_a ack_b req_a req_b

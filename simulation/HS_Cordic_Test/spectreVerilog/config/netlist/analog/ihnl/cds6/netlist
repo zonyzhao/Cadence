@@ -1,0 +1,35 @@
+    I4 (ackOut ackIn Req ReqOut) HS_Cordic
+    I5_31 (ackOut Data_31 Dout_31 net023_0) DFlop
+    I5_30 (ackOut Data_30 Dout_30 net023_1) DFlop
+    I5_29 (ackOut Data_29 Dout_29 net023_2) DFlop
+    I5_28 (ackOut Data_28 Dout_28 net023_3) DFlop
+    I5_27 (ackOut Data_27 Dout_27 net023_4) DFlop
+    I5_26 (ackOut Data_26 Dout_26 net023_5) DFlop
+    I5_25 (ackOut Data_25 Dout_25 net023_6) DFlop
+    I5_24 (ackOut Data_24 Dout_24 net023_7) DFlop
+    I5_23 (ackOut Data_23 Dout_23 net023_8) DFlop
+    I5_22 (ackOut Data_22 Dout_22 net023_9) DFlop
+    I5_21 (ackOut Data_21 Dout_21 net023_10) DFlop
+    I5_20 (ackOut Data_20 Dout_20 net023_11) DFlop
+    I5_19 (ackOut Data_19 Dout_19 net023_12) DFlop
+    I5_18 (ackOut Data_18 Dout_18 net023_13) DFlop
+    I5_17 (ackOut Data_17 Dout_17 net023_14) DFlop
+    I5_16 (ackOut Data_16 Dout_16 net023_15) DFlop
+    I5_15 (ackOut Data_15 Dout_15 net023_16) DFlop
+    I5_14 (ackOut Data_14 Dout_14 net023_17) DFlop
+    I5_13 (ackOut Data_13 Dout_13 net023_18) DFlop
+    I5_12 (ackOut Data_12 Dout_12 net023_19) DFlop
+    I5_11 (ackOut Data_11 Dout_11 net023_20) DFlop
+    I5_10 (ackOut Data_10 Dout_10 net023_21) DFlop
+    I5_9 (ackOut Data_9 Dout_9 net023_22) DFlop
+    I5_8 (ackOut Data_8 Dout_8 net023_23) DFlop
+    I5_7 (ackOut Data_7 Dout_7 net023_24) DFlop
+    I5_6 (ackOut Data_6 Dout_6 net023_25) DFlop
+    I5_5 (ackOut Data_5 Dout_5 net023_26) DFlop
+    I5_4 (ackOut Data_4 Dout_4 net023_27) DFlop
+    I5_3 (ackOut Data_3 Dout_3 net023_28) DFlop
+    I5_2 (ackOut Data_2 Dout_2 net023_29) DFlop
+    I5_1 (ackOut Data_1 Dout_1 net023_30) DFlop
+    I5_0 (ackOut Data_0 Dout_0 net023_31) DFlop
+ends HS_CordicFIFO
+// End of subcircuit definition.

@@ -1,0 +1,8 @@
+CADENCE IHNL01076
+
+16nm inv_1x schematic cds0
+16nm nor_1x schematic cds1
+16nm nand_1x schematic cds2
+16nm TH22 schematic cds3
+16nm_Tests ringOsc_Test schematic cds4
+16nm SG_nand_1x schematic cds5

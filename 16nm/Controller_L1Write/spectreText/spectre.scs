@@ -1,0 +1,43 @@
+// "spectre" description for "16nm", "Controller_L1Write", "spectreText" 
+
+
+simulator lang=spectre
+
+subckt Controller_L1Write L1WE WriteToL1Ack WriteToL1MissAck L1WDataSel L2DataOutAck L1WrRegReq L2DataOutReq L1WrRegAck WriteToL1MissReq L1WAck WriteToL1Req
+  I1 (p1 L2DataOutReq L1WrRegAck) nand_1x
+  I2 (p2 WriteToL1MissReq L1WrRegAck) nand_1x
+  I3 (p3 L1WAck_n1 y0_n1 y2_n1) nand3_1x
+  I4 (L1WAck_n1 L1WAck) inv_1x
+  I5 (y0_n1 y0) inv_1x
+  I6 (y2_n1 y2) inv_1x
+  I7 (p4 L2DataOutReq L2DataOutReq) nand_1x
+  I8 (p5 WriteToL1Req L1WrRegAck) nand_1x
+  I9 (p6 WriteToL1MissReq WriteToL1MissReq) nand_1x
+  I10 (p7 WriteToL1Req WriteToL1Req) nand_1x
+  I11 (p8 L1WAck_n1 L1WrRegAck_n1) nand_1x
+  I12 (L1WrRegAck_n1 L1WrRegAck) inv_1x
+  I13 (p9 L1WAck_n1 y0_n1) nand_1x
+  I14 (p10 L1WAck y2_n1) nand_1x
+  I15 (p11 L1WrRegAck y2_n1) nand_1x
+  I16 (p12 L1WAck y y2) nand3_1x
+  I17 (p13 L1WAck y1_n1) nand_1x
+  I18 (y1_n1 y1) inv_1x
+  I19 (p14 L1WrRegAck y1_n1) nand_1x
+  I20 (p15 L2DataOutReq_n1 y2) nand_1x
+  I21 (L2DataOutReq_n1 L2DataOutReq) inv_1x
+  I22 (p16 WriteToL1Req_n1 y1) nand_1x
+  I23 (WriteToL1Req_n1 WriteToL1Req) inv_1x
+  I24 (p17 WriteToL1Req_n1 L2DataOutReq_n1 L1WrRegAck y y2) nand5_1x
+  I25 (p18 WriteToL1Req_n1 WriteToL1MissReq_n1 L1WAck L2DataOutReq_n1) nand4_1x
+  I26 (WriteToL1MissReq_n1 WriteToL1MissReq) inv_1x
+  I27 (p19 WriteToL1Req_n1 WriteToL1MissReq_n1 L2DataOutReq_n1 y0) nand4_1x
+  I28 (y0 p8 p18 p19) nand3_1x
+  I29 (y1 p8 p16) nand_1x
+  I30 (y2 p8 p15) nand_1x
+  I31 (L1WE p1 p2 p5 p9) nand4_1x
+  I32 (WriteToL1Ack p5 p13 p14) nand3_1x
+  I33 (WriteToL1MissAck p12 p17) nand_1x
+  I34 (L1WDataSel p3 p4) nand_1x
+  I35 (L2DataOutAck p1 p10 p11) nand3_1x
+  I36 (L1WrRegReq p4 p6 p7 p9) nand4_1x
+ends Controller_L1Write

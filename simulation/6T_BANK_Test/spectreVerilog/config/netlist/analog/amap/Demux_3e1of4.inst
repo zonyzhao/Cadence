@@ -1,7 +1,6 @@
 HEADER
 "PSFversion" "1.00"
 "I3n I2n I1n I0n" "Demux_2e1of4"
-"I5n I4n" "or32_1x"
 "1of4_1<3>v" ":1v"
 "1of4_1<2>v" ":2v"
 "1of4_1<1>v" ":3v"
@@ -79,5 +78,3 @@ HEADER
 "A<1>v" ":75v"
 "A<0>v" ":76v"
 "Env" ":77v"
-"Valid<1>v" ":78v"
-"Valid<0>v" ":79v"

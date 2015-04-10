@@ -1,0 +1,6 @@
+    I1 (ack_a net10 req_b) TH22
+    I0 (net9 req_a ack_a) TH22
+    I3 (ack_b net10) inv_1x
+    I2 (req_b net9) inv_1x
+ends HS_Cordic
+// End of subcircuit definition.

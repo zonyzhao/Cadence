@@ -1,0 +1,8 @@
+"16nm.inv_1xt.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.nand_1x.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.HS_Cordic.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.HS_CordicFIFO.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.DFlop.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.nand3_1x.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.inv_1x.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" nil
+"16nm.TH22.schematic.16nm_Tests.HS_Cordic_Test.config.path.termorder" (("A" "B" "Y") ("A" "B" "Y"))

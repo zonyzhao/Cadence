@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr  9 23:25:42 2015
+// Design library name: 16nm_Tests
+// Design cell name: ringOsc_Test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

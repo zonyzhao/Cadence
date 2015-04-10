@@ -1,0 +1,47 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer start;
+
+initial
+begin 
+   start = 0;
+
+   ackIn = 1'b0;
+   dataIn[31:0] = 32'b00000000000000000000000000000000;
+   reqIn = 1'b0;
+
+   #500;
+
+   dataIn[31:0] = $random;
+   start = 1;
+   reqIn = 1'b1;
+
+end 
+
+always @(posedge reqOut) begin
+		ackIn = 1'b1;
+end
+
+always @(negedge reqOut) begin
+		ackIn = 1'b0;
+end
+
+always @(posedge ackOut) begin
+	if (start==1) begin	
+		reqIn = 1'b0;
+	end
+end
+
+always @(negedge ackOut) begin
+	if (start==1) begin	
+		reqIn = 1'b1;
+        	dataIn[31:0] = $random;
+	end
+end
+
+
+
+
+

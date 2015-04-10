@@ -1,0 +1,17 @@
+
+// Library name: 16nm_Tests
+// Cell name: 6T_SNMrwh_Test
+// View name: schematic
+V0 (nvtc 0) vsource type=pwl wave=[ 0 0 timeA vdd ]
+V1 (vdd! 0) vsource type=dc dc=vdd
+N4 (SNMw0 vdd! 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N3 (SNMr vdd! vdd! 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N2 (SNMr nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N1 (SNMw0 nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+N0 (SNMh nvtc 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+P2 (SNMr nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes
+P1 (SNMw0 nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes
+P0 (SNMh nvtc vdd! vdd!) pfet w=100n l=20n nfin=1 pd=2 m=1 \
+        degradation=yes

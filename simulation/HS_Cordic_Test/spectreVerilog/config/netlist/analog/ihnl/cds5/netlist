@@ -1,0 +1,8 @@
+    I4 (net3 CLK net07 net4) nand3_1x
+    I0 (net07 net3 net011) nand_1x
+    I5 (net4 D net07) nand_1x
+    I1 (net011 CLK net3) nand_1x
+    I3 (Q net4 \~Q) nand_1x
+    I2 (net3 \~Q Q) nand_1x
+ends DFlop
+// End of subcircuit definition.
