@@ -2,7 +2,7 @@
     I5 (net21 Lack) inv_1x
     I4 (net09 R1) inv_1x
     I3 (net010 R0) inv_1x
-    I1 (Rack L1 net09) _sub81
-    I0 (L0 Rack net010) _sub81
+    I1 (Rack L1 net09) _sub96
+    I0 (L0 Rack net010) _sub96
 ends WCHB
 // End of subcircuit definition.

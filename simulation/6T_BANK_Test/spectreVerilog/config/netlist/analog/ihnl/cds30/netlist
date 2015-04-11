@@ -16,5 +16,5 @@
     I2_0 (_1of4_4_0 net22 En S_4) and3_1x
     I4 (_1of4_3_0 _1of4_3_1 net23) or_1x
     I5 (_1of4_3_2 _1of4_3_3 net22) or_1x
-ends _sub85
+ends _sub100
 // End of subcircuit definition.
