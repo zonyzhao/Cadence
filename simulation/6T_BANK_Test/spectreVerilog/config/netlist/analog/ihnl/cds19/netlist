@@ -1,5 +1,5 @@
-    I2 (\~R1 \~R0 \~Lack) nand_1x
-    I1 (Rack L1 \~R1) _sub96
-    I0 (L0 Rack \~R0) _sub96
-ends _sub97
+    I2 (\~R1 \~R0 Lack) and_1x
+    I1 (Rack L1 \~R1) _sub126
+    I0 (L0 Rack \~R0) _sub126
+ends _sub127
 // End of subcircuit definition.

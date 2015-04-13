@@ -4,6 +4,6 @@
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub99 A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 \
+subckt _sub129 A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 \
         A_14 A_13 A_12 A_19 A_18 A_17 A_16 InAck_1 InAck_0 InAck_3 \
         InAck_2 OutAck RW_1 RW_0 Reset ValAddr

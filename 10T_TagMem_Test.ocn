@@ -135,31 +135,31 @@ foreach( degC  tLoad
 	mVs     = append1( mVs sprintf( nil "%d" volt ))
 	temps   = append1( temps sprintf(nil "%d" degC ))
 
-	jobName = strcat("/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/distributed/TagMem_" sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C/psf" )
-	jobList = append1( jobList jobName ) 
+	;;jobName = strcat("/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/distributed/TagMem_" sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C/psf" )
+	;;jobList = append1( jobList jobName ) 
 		   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;jobName = strcat("TagMem_"  sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C" )
-;;;;;;;;jobList = append1( jobList run( ?jobName jobName ?queue "c2107" ?host nthelem(j hList) ) )
+jobName = strcat("TagMem_"  sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C" )
+jobList = append1( jobList run( ?jobName jobName ?queue "c2107" ?host nthelem(j hList) ) )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;		      
 
 	j = j + 1
     )
 )
 
-;wait( ( append1 jobList nil  ) )
+wait( ( append1 jobList nil  ) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-file      =  strcat( "/root/Desktop/Cadence/simData/BankData/TagData.csv"  )
+file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/TagData.csv"  )
 outF      =   outfile(file,    "w")
-fprintf( outF,   "Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy\n" )	
+fprintf( outF,   "Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy\n" )
+close( outF)	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 j = 1
 foreach(job jobList	
     	printf("%s\n" job )
-    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) >= 1000)
+    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) >= 1500)
     	selectResult( 'tran )
     	unless( i("/V1/MINUS")  == nil
 	Volts       = evalstring( nthelem(j mVs) )*0.001;
@@ -167,12 +167,17 @@ foreach(job jobList
         leakagePwr  = leakage*Volts
 	peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
 	peakPwr     = peakCurrent*Volts
+	
+	cHost       = sprintf(nil "%s" nthelem(j hList))
+        nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+        nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+	shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
+	shellCmd2   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameW  )
+	shell( shellCmd1 )
+	shell( shellCmd2 )
         
-	inameR = strcat("/net/" sprintf(nil "%s" nthelem(j hList)) "/tmp2/tagRLog.csv") 
-        inameW = strcat("/net/" sprintf(nil "%s" nthelem(j hList)) "/tmp2/tagWLog.csv")
-
-        printf("Reading %s\n" inameR)
-        fidR   = infile( inameR )
+        printf("Reading %s\n" nameR)
+        fidR   = infile( nameR )
 	gets( s fidR )
 	gets( s fidR )
 	gets( s fidR )   
@@ -181,8 +186,8 @@ foreach(job jobList
         fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEndNull rNull )
         close( fidR )
                     
-        printf("Reading %s\n" inameW)
-        fidW   = infile( inameW )
+        printf("Reading %s\n" nameW)
+        fidW   = infile( nameW )
 	gets( s fidW )	
 	gets( s fidW )
 	gets( s fidW )
@@ -193,29 +198,29 @@ foreach(job jobList
 	    rStart      = evalstring( strcat(rEnd "p")) - evalstring( strcat(rDelay "p"))
             rEnd        = evalstring( strcat(rEnd "p"))
             rEndNull    = evalstring( strcat(rEndNull "p"))
-  	    rEnergy     = integ( i("/V1/MINUS")  rStart rEnd    )*1e12
-	    rnullEnergy = integ( i("/V1/MINUS")  rEnd   rEndNull)*1e12
-            
+  	    rEnergy     = integ( i("/V1/MINUS")  rStart rEnd    )*1e12*Volts
+	    rnullEnergy = integ( i("/V1/MINUS")  rEnd   rEndNull)*1e12*Volts
+           
             wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
             wEnd        = evalstring( strcat(wEnd "p") )
             wEndNull    = evalstring( strcat(wEndNull "p") )
-	    wEnergy     = integ( i("/V1/MINUS") wStart wEnd    )*1e12
-	    wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12
+	    wEnergy     = integ( i("/V1/MINUS") wStart wEnd    )*1e12*Volts
+	    wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
 	          
 	    outF      =   outfile(file,    "a")       
             fprintf( outF "%s,\t%s,\t%g,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g\n" nthelem(j mVs) nthelem(j temps) leakage peakCurrent rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
             close( outF )
-            )
-	) 
+        )
+      ) 
     )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     j     = j + 1
 )    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-printf("Completed.\n Clearing job history")
+printf("Completed.Clearing job history...")
 
-;foreach( job jobList deleteJob( job ) )
+foreach( job jobList deleteJob( job ) )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

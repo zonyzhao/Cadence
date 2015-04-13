@@ -1,5 +1,5 @@
-    I45 (net030 RW_0 net047) nand_1x
     I46 (net047 net046 Ack) nand_1x
+    I45 (net030 RW_0 net047) nand_1x
     I44 (RW_1 net054 net046) nand_1x
     I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
     I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
@@ -72,9 +72,9 @@
     I72_2 (Lack_2 RAckp_2 R0_2 R0p_2 R1_2 R1p_2) PCHB_FIFO
     I72_1 (Lack_1 RAckp_1 R0_1 R0p_1 R1_1 R1p_1) PCHB_FIFO
     I72_0 (Lack_0 RAckp_0 R0_0 R0p_0 R1_0 R1p_0) PCHB_FIFO
-    I67_3 (R0p_3 R1p_3 Rack_3 RAckp_3 Out0_3 Out1_3) _sub97
-    I67_2 (R0p_2 R1p_2 Rack_2 RAckp_2 Out0_2 Out1_2) _sub97
-    I67_1 (R0p_1 R1p_1 Rack_1 RAckp_1 Out0_1 Out1_1) _sub97
-    I67_0 (R0p_0 R1p_0 Rack_0 RAckp_0 Out0_0 Out1_0) _sub97
-ends _sub98
+    I67_3 (R0p_3 R1p_3 RAckp_3 Rack_3 Out0_3 Out1_3) _sub127
+    I67_2 (R0p_2 R1p_2 RAckp_2 Rack_2 Out0_2 Out1_2) _sub127
+    I67_1 (R0p_1 R1p_1 RAckp_1 Rack_1 Out0_1 Out1_1) _sub127
+    I67_0 (R0p_0 R1p_0 RAckp_0 Rack_0 Out0_0 Out1_0) _sub127
+ends _sub128
 // End of subcircuit definition.

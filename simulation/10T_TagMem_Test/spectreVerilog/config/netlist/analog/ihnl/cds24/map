@@ -466,7 +466,7 @@
 ( "I24<1>" "I24_1" )
  )
 ( model
-( "10T_DUAL_SRAM_REGFILE" "_sub112" )
+( "10T_DUAL_SRAM_REGFILE" "_sub151" )
  )
 ( term
  )

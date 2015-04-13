@@ -8,13 +8,12 @@
 ( net
 ( "~R1" "\\~R1" )
 ( "~R0" "\\~R0" )
-( "~Lack" "\\~Lack" )
  )
 ( inst
  )
 ( model
-( "WCHB~" "_sub97" )
-( "TH22~" "_sub96" )
+( "WCHB~" "_sub127" )
+( "TH22~" "_sub126" )
  )
 ( term
  )

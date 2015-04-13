@@ -1,7 +1,7 @@
     I30 (Ai\+1 net025) inv_1x
     I5 (net029 R1i\+1) inv_1x
     I4 (net18 R0i\+1) inv_1x
-    I12 (net016 net020 Ai) _sub96
+    I12 (net016 net020 Ai) _sub126
     M5 (net026 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M4 (net22 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (net029 R1i net026 0) nfet w=60n l=20n nfin=1 m=1 degradation=no

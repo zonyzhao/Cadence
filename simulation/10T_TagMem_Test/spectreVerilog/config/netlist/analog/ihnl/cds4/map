@@ -634,7 +634,7 @@
 ( "I74<0>" "I74_0" )
  )
 ( model
-( "10T_DUAL_SRAM_CompDetect" "_sub105" )
+( "10T_DUAL_SRAM_CompDetect" "_sub144" )
  )
 ( term
  )

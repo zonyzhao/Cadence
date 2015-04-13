@@ -1,7 +1,7 @@
 // Generated for: spectre
-// Generated on: Apr  3 23:57:35 2015
+// Generated on: Apr 11 23:47:16 2015
 // Design library name: 16nm_Tests
 // Design cell name: 10T_TagMem_Test
 // Design view name: config
 simulator lang=spectre
-global 0 vcc! vdd!
+global 0 vdd! vcc!

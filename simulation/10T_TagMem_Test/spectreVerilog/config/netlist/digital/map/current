@@ -4,7 +4,7 @@
   blockName "10T_TagMem_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "vcc! vdd! gnd!"
+  globalList "vdd! gnd! vcc!"
   hierDelim "."
   hierPrefix "test.top"
   globalHierPrefix "cds_globals."
@@ -19,22 +19,22 @@
  )
 ( defbus
 ( "~R1" 31 0  "cdsbus5" 31 0  )
-( "R1T" 31 0  "R1T" 31 0  )
+( "~W_Addr" 6 0  "cdsbus4" 6 0  )
+( "R0T" 31 0  "R0T" 31 0  )
+( "~R_Addr" 6 0  "cdsbus3" 6 0  )
+( "W_AddrT" 6 0  "W_AddrT" 6 0  )
+( "~R0" 31 0  "cdsbus2" 31 0  )
+( "~W0" 31 0  "cdsbus1" 31 0  )
+( "W0" 31 0  "W0" 31 0  )
 ( "W0T" 31 0  "W0T" 31 0  )
-( "~W1" 31 0  "cdsbus4" 31 0  )
 ( "R_Addr" 6 0  "R_Addr" 6 0  )
 ( "W1" 31 0  "W1" 31 0  )
-( "~R_Addr" 6 0  "cdsbus3" 6 0  )
-( "~W_Addr" 6 0  "cdsbus2" 6 0  )
-( "R1" 31 0  "R1" 31 0  )
-( "R0T" 31 0  "R0T" 31 0  )
-( "~W0" 31 0  "cdsbus1" 31 0  )
-( "W_AddrT" 6 0  "W_AddrT" 6 0  )
-( "~R0" 31 0  "cdsbus0" 31 0  )
+( "R1T" 31 0  "R1T" 31 0  )
+( "~W1" 31 0  "cdsbus0" 31 0  )
 ( "W1T" 31 0  "W1T" 31 0  )
-( "R_AddrT" 6 0  "R_AddrT" 6 0  )
-( "W0" 31 0  "W0" 31 0  )
 ( "R0" 31 0  "R0" 31 0  )
+( "R1" 31 0  "R1" 31 0  )
+( "R_AddrT" 6 0  "R_AddrT" 6 0  )
 ( "W_Addr" 6 0  "W_Addr" 6 0  )
  )
 ( net
@@ -45,7 +45,7 @@
 ( inst
  )
 ( model
-( "16nm_Tests/10T_TagMem_Test/schematic" "cdsModule_114" )
+( "16nm_Tests/10T_TagMem_Test/schematic" "cdsModule_153" )
  )
 ( term
  )
@@ -53,5 +53,5 @@
 ( "vcc" "cds_globals.vcc" )
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_114" "ihnl/cds0/map" )
+( "cdsModule_153" "ihnl/cds0/map" )
  )
