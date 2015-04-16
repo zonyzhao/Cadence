@@ -1,6 +1,6 @@
 \o Program:		@(#)$CDS: libManager version 6.1.6 - CAT33 08/24/2014 13:48 (sjfnl834) $
 \o Sub version:		sub-version  s012 
-\o Arguments:		-mpssession virtuoso5902 -mpshost bull 
+\o Arguments:		-mpssession virtuoso7040 -mpshost bull 
 \o Working Directory:	bull:/root/Desktop/Cadence
 \o Qt version: 		4.7.2
 \o Log file is "/root/Desktop/Cadence/libManager.log".
@@ -11,29 +11,159 @@
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
 \o Library Manager customization server connected.
-\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a nrSetCurrentWindow(cdsLibManager)
+\o MPS service: map window
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(870 297 1044 862))
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "6T_AddressSplit4"
-\a cdsLibManager->cellListBox->value = "6T_SDP_BANK"
-\a cdsLibManager->cellLineEdit->value = "6T_SDP_BANK"
+\a cdsLibManager->FileNewCVButton->value = t
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_DATA"
+\a cdsLibManager->cellLineEdit->value = "6T_DATA"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "6T_DATA"
+\a cdsLibManager->cellLineEdit->value = "6T_DATA"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "6T_DATA"
+\a cdsLibManager->cellLineEdit->value = "6T_DATA"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(595 283 1044 862))
+\a cdsLibManager->cellListBox->value = "TH22"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a lmgrLogShowPopup("mainListPopup1" 74 111 2 "TH22")
+\a cdsLibManager->cellLineEdit->value = "TH22"
+\a cdsLibManager->copySimpleButton->value = t
+\a basicCopyForm->CategoryCellsEdit->value = "*"
+\a basicCopyForm->CellsSkipLibraries->value = t
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->ViewsSkipLibraries->value = t
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CopyFromLibrary->value = "16nm"
+\a basicCopyForm->CopyToLibrary->value = "16nm"
+\a basicCopyForm->CopyFromCell->value = "TH22"
+\a basicCopyForm->CopyToCell->value = "TH22"
+\a basicCopyForm->CellsViewsToCopy->value = "schematic symbol symbol2"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a nrSetWindowVisibility(basicCopyForm "show")
+\a nrSetCurrentWindow(basicCopyForm)
+\a nrResizeWindow(basicCopyForm list(885 392 444 609))
+\a nrResizeWindow(basicCopyForm list(895 305 444 638))
+\a basicCopyForm->CopyToCell->value = "TH22_SG"
+\a nrDialogAccept(basicCopyForm)
+\a basicCopyForm->OK->value = t
+\a basicCopyForm->CopyToCell->value = "TH22_SG"
+\o Beginning simple copy to library "16nm".
+\o Processing files to be copied...
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(973 305 288 131))
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(basicCopyForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(963 653 288 131))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "TH22"
+\a cdsLibManager->cellLineEdit->value = "TH22"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "TH22_SG"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "TH22_SG"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
 \o MPS request: edit design
 \a nrListItemAction(cdsLibManager->gdmXTView 0 0)
 \a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "6T_AddressLatch2"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "Compare22"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "6T_AddressMerge"
+\a cdsLibManager->cellListBox->value = "Compare22_DR"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "6T_AddressMerge"
+\a cdsLibManager->cellListBox->value = "Compare22_DRn"
+\a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "Compare22_DR"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 84 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
 \o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a cdsLibManager->cellLineEdit->value = "Compare22_DR"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "Compare32"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "Compare32"
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\o libManager is exiting.
+\a exit(0)
