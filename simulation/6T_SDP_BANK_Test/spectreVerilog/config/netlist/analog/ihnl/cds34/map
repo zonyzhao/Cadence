@@ -70,8 +70,8 @@
 ( inst
  )
 ( model
-( "6T_1of4Merge" "_sub31" )
-( "6T_4of16Merge" "_sub32" )
+( "6T_1of4Merge" "_sub13" )
+( "6T_4of16Merge" "_sub14" )
  )
 ( term
  )

@@ -37,24 +37,13 @@ begin
    W_Address[19:0] = 20'h00000;
    WriteData[31:0] = 32'h00000000;
 
-   #200;
-
-   start           = 1;
-   WRW[1:0]        = 2'b01;
-   W_Address[19:0] = 20'h11111;
-   WriteData[31:0] = 32'h11111111;
-   
-   wait( WriteAck);
-   WriteData[31:0] = 32'h00000000;
-   W_Address[19:0] = 20'h00000;
-   WRW[1:0]        = 2'b00;
-  wait( ~WriteAck);
-# 1000;
+   #500;
 
    WRW[1:0]        = 2'b01;
    W_Address[19:0] = 20'h11111;
    WriteData[31:0] = 32'h11111111;
    wStart 	   = $time;
+   start           = 1;
 
 end 
 

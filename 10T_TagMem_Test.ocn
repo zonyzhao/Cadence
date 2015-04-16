@@ -119,7 +119,7 @@ temp( 30.0 )
 
 hList = list( "asp"  "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer"  "rat" "rattle" "redbelly" "scarlet" "timber" "viper" )
 		           
-vLoad = list( .4 .45 .50 .55 .65 .85 1.0 1.5 2.0 )	            		            
+vLoad = list( .35 .4 .45 .50 .55 .65 .85 1.0 1.25 )	            		            
 tLoad = list( 30 60 90 )
 
 jobList 	= nil

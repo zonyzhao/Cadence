@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_37 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
+cdsModule_19 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
      RD_Ack, RRW, R_Address, WRW, W_Address, WriteData); 
  
 

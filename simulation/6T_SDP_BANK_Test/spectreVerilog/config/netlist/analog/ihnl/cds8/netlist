@@ -1,4 +1,6 @@
-    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-ends inv_1x
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M3 (net22 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net22 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+ends nand_1x
 // End of subcircuit definition.

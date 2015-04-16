@@ -1,14 +1,12 @@
     M10 (B1 B0 net22 vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M9 (net22 W0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
+    M9 (net22 W0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
     M8 (B0 B1 net23 vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M7 (net23 W1 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
+    M7 (net23 W1 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
     M2 (B1 S vdd! vdd!) pfet w=50n l=20n nfin=1 m=1 degradation=yes
     M0 (B0 S vdd! vdd!) pfet w=50n l=20n nfin=1 m=1 degradation=yes
     M6 (B1 W0 net24 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M5 (net24 S 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M4 (net25 S 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M3 (B0 W1 net25 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
-ends _sub22
+ends _sub3
 // End of subcircuit definition.

@@ -1,13 +1,8 @@
-    M5 (net017 C net21 vdd!) pfet w=400n l=20n nfin=1 m=1 \
-        degradation=yes
-    M4 (Y D net017 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=yes
-    M3 (net21 B net018 vdd!) pfet w=400n l=20n nfin=1 m=1 \
-        degradation=yes
-    M2 (net018 A vdd! vdd!) pfet w=400n l=20n nfin=1 m=1 \
-        degradation=yes
-    M7 (Y D 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M0 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends nor4_1x
+    I2 (net09 net010 net21) nand_1x
+    I5 (net21 Lack) inv_1x
+    I4 (net09 R1) inv_1x
+    I3 (net010 R0) inv_1x
+    I1 (Rack L1 net09) _sub7
+    I0 (L0 Rack net010) _sub7
+ends WCHB
 // End of subcircuit definition.

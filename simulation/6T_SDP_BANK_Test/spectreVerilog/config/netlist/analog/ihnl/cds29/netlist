@@ -1,4 +1,4 @@
-    I0 (A B C D net11) nor4_1x
-    I1 (net11 Y) inv_1x
-ends or4_1x
+    I6 (A B C net1) nand3_1x
+    I7 (net1 Y) inv_1x
+ends and3_1x
 // End of subcircuit definition.

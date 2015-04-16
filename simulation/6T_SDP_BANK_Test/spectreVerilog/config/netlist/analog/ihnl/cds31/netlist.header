@@ -4,21 +4,21 @@
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub30 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 \
+subckt _sub12 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 \
         A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 Ack Ctrl_Ack_4 Ctrl_Ack_3 \
         Ctrl_Ack_2 Ctrl_Ack_1 Ctrl_Ack_0 RD_8of32_31 RD_8of32_30 \
         RD_8of32_29 RD_8of32_28 RD_8of32_27 RD_8of32_26 RD_8of32_25 \
         RD_8of32_24 RD_8of32_23 RD_8of32_22 RD_8of32_21 RD_8of32_20 \
         RD_8of32_19 RD_8of32_18 RD_8of32_17 RD_8of32_16 RD_8of32_15 \
         RD_8of32_14 RD_8of32_13 RD_8of32_12 RD_8of32_11 RD_8of32_10 \
-        RD_8of32_9 RD_8of32_8 RD_8of32_7 RD_8of32_6 RD_8of32_5 \
-        RD_8of32_4 RD_8of32_3 RD_8of32_2 RD_8of32_1 RD_8of32_0 RD_Ack_7 \
-        RD_Ack_6 RD_Ack_5 RD_Ack_4 RD_Ack_3 RD_Ack_2 RD_Ack_1 RD_Ack_0 \
-        RW_1 RW_0 WD_8of32_31 WD_8of32_30 WD_8of32_29 WD_8of32_28 \
-        WD_8of32_27 WD_8of32_26 WD_8of32_25 WD_8of32_24 WD_8of32_23 \
-        WD_8of32_22 WD_8of32_21 WD_8of32_20 WD_8of32_19 WD_8of32_18 \
-        WD_8of32_17 WD_8of32_16 WD_8of32_15 WD_8of32_14 WD_8of32_13 \
-        WD_8of32_12 WD_8of32_11 WD_8of32_10 WD_8of32_9 WD_8of32_8 \
-        WD_8of32_7 WD_8of32_6 WD_8of32_5 WD_8of32_4 WD_8of32_3 \
-        WD_8of32_2 WD_8of32_1 WD_8of32_0 WD_Ack_7 WD_Ack_6 WD_Ack_5 \
-        WD_Ack_4 WD_Ack_3 WD_Ack_2 WD_Ack_1 WD_Ack_0
+        RD_8of32_9 RD_8of32_8 RD_8of32_7 RD_8of32_6 RD_8of32_5 RD_8of32_4 \
+        RD_8of32_3 RD_8of32_2 RD_8of32_1 RD_8of32_0 RD_Ack_7 RD_Ack_6 \
+        RD_Ack_5 RD_Ack_4 RD_Ack_3 RD_Ack_2 RD_Ack_1 RD_Ack_0 RW_1 RW_0 \
+        WD_8of32_31 WD_8of32_30 WD_8of32_29 WD_8of32_28 WD_8of32_27 \
+        WD_8of32_26 WD_8of32_25 WD_8of32_24 WD_8of32_23 WD_8of32_22 \
+        WD_8of32_21 WD_8of32_20 WD_8of32_19 WD_8of32_18 WD_8of32_17 \
+        WD_8of32_16 WD_8of32_15 WD_8of32_14 WD_8of32_13 WD_8of32_12 \
+        WD_8of32_11 WD_8of32_10 WD_8of32_9 WD_8of32_8 WD_8of32_7 \
+        WD_8of32_6 WD_8of32_5 WD_8of32_4 WD_8of32_3 WD_8of32_2 WD_8of32_1 \
+        WD_8of32_0 WD_Ack_7 WD_Ack_6 WD_Ack_5 WD_Ack_4 WD_Ack_3 WD_Ack_2 \
+        WD_Ack_1 WD_Ack_0

@@ -417,8 +417,8 @@
 ( "I17<8>" "I17_8" )
  )
 ( model
-( "6T_SDP_BANK_Test" "_sub36" )
-( "6T_SDP_BANK" "_sub35" )
+( "6T_SDP_BANK_Test" "_sub18" )
+( "6T_SDP_BANK" "_sub17" )
  )
 ( term
  )

@@ -1,4 +1,19 @@
-    I6 (A B AnorB) nor_1x
-    I7 (AnorB Y) inv_1x
-ends or_1x
+    I30 (Ai\+1 net025) inv_1x
+    I5 (net029 R1i\+1) inv_1x
+    I4 (net18 R0i\+1) inv_1x
+    I12 (net016 net020 Ai) _sub7
+    M5 (net026 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net22 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M3 (net029 R1i net026 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M2 (net18 R0i net22 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (net029 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net18 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    I6 (net029 net18 net016) nand_1x
+    I9 (R0i R1i net020) or_1x
+    I2 (R0i\+1 net18) inv_weak_1x
+    I3 (R1i\+1 net029) inv_weak_1x
+    I11 (Ai net025 net014) TH22
+ends PCHB_FIFO
 // End of subcircuit definition.

@@ -57,7 +57,7 @@
 ( inst
  )
 ( model
-( "16nm_Tests/6T_SDP_BANK_Test/schematic" "cdsModule_37" )
+( "16nm_Tests/6T_SDP_BANK_Test/schematic" "cdsModule_19" )
  )
 ( term
  )
@@ -65,5 +65,5 @@
 ( "vcc" "cds_globals.vcc" )
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_37" "ihnl/cds0/map" )
+( "cdsModule_19" "ihnl/cds0/map" )
  )

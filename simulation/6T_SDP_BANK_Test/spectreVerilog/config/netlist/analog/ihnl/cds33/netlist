@@ -20,5 +20,5 @@
     I2 (a_2 asel net23 amid_2) TH33
     I1 (a_1 asel net22 amid_1) TH33
     I0 (a_0 asel net21 amid_0) TH33
-ends _sub31
+ends _sub13
 // End of subcircuit definition.

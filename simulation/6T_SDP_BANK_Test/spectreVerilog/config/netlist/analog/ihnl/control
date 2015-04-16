@@ -6,11 +6,11 @@ hnlLastStopCellInfo = '(
                           ( "basic" "cds_thru" "spectre" "42" "1413356405" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 12
-hnlLastConfigFileTimeStamp = "1428202226"
+hnlLastConfigFileVersion = 15
+hnlLastConfigFileTimeStamp = "1428898359"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "6T_SDP_BANK_Test" "config" 12 "1428202226" )
+( "16nm_Tests" "6T_SDP_BANK_Test" "config" 15 "1428898359" )
 ) 
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"
@@ -766,7 +766,7 @@ hnlLastNetNameDifferentFrom = '( )
 hnlLastTermNameDifferentFrom = '( )
 hnlLastParamNameDifferentFrom = '( )
 hnlLastLibInfo = '(
-                    ( "16nm" "1427939694" )
+                    ( "16nm" "1428898306" )
                    ( "16nm_Tests" "1428202349" )
                   )
 hnlLastConstants = '(

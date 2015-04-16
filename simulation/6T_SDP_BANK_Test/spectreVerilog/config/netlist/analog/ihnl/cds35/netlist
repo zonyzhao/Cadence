@@ -10,5 +10,5 @@
     I12 (net26 net28 a_ack) or_1x
     I21 (out_0 net21) inv_1x
     I20 (out_1 net22) inv_1x
-ends _sub33
+ends _sub15
 // End of subcircuit definition.

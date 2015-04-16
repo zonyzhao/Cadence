@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_37 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
+cdsModule_19 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
      RD_Ack, RRW, R_Address, WRW, W_Address, WriteData); 
  
 
@@ -328,10 +328,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_SDP_BANK_Test, View - schematic
 // LAST TIME SAVED: Apr  4 19:54:06 2015
-// NETLIST TIME: Apr  4 19:59:04 2015
+// NETLIST TIME: Apr 12 21:13:42 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_37 ( RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack,
+module cdsModule_19 ( RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack,
      WriteAck, RD_Ack, RRW, R_Address, WRW, W_Address, WriteData );
 
 output  ReadAck, WriteAck;
