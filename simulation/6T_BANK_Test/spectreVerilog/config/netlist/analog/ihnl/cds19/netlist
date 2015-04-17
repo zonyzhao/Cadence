@@ -1,5 +1,5 @@
     I2 (\~R1 \~R0 Lack) and_1x
-    I1 (Rack L1 \~R1) _sub126
-    I0 (L0 Rack \~R0) _sub126
-ends _sub127
+    I1 (Rack L1 \~R1) _sub22
+    I0 (L0 Rack \~R0) _sub22
+ends _sub23
 // End of subcircuit definition.

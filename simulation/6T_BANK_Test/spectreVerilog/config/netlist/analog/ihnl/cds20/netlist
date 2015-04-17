@@ -1,5 +1,5 @@
-    I46 (net047 net046 Ack) nand_1x
     I45 (net030 RW_0 net047) nand_1x
+    I46 (net047 net046 Ack) nand_1x
     I44 (RW_1 net054 net046) nand_1x
     I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
     I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
@@ -64,17 +64,17 @@
     I58 (wack_1 wack_0 WAck_0) TH22
     I38 (ValAddr RW_1 Go) TH22
     I57 (wack_2 wack_3 WAck_1) TH22
-    I71 (BpAck_3 Wen B0p_3 B0_3 B1p_3 B1_3) PCHB_FIFO
-    I68 (BpAck_0 Wen B0p_0 B0_0 B1p_0 B1_0) PCHB_FIFO
-    I69 (BpAck_1 Wen B0p_1 B0_1 B1p_1 B1_1) PCHB_FIFO
-    I70 (BpAck_2 Wen B0p_2 B0_2 B1p_2 B1_2) PCHB_FIFO
     I72_3 (Lack_3 RAckp_3 R0_3 R0p_3 R1_3 R1p_3) PCHB_FIFO
     I72_2 (Lack_2 RAckp_2 R0_2 R0p_2 R1_2 R1p_2) PCHB_FIFO
     I72_1 (Lack_1 RAckp_1 R0_1 R0p_1 R1_1 R1p_1) PCHB_FIFO
     I72_0 (Lack_0 RAckp_0 R0_0 R0p_0 R1_0 R1p_0) PCHB_FIFO
-    I67_3 (R0p_3 R1p_3 RAckp_3 Rack_3 Out0_3 Out1_3) _sub127
-    I67_2 (R0p_2 R1p_2 RAckp_2 Rack_2 Out0_2 Out1_2) _sub127
-    I67_1 (R0p_1 R1p_1 RAckp_1 Rack_1 Out0_1 Out1_1) _sub127
-    I67_0 (R0p_0 R1p_0 RAckp_0 Rack_0 Out0_0 Out1_0) _sub127
-ends _sub128
+    I71 (BpAck_3 Wen B0p_3 B0_3 B1p_3 B1_3) PCHB_FIFO
+    I70 (BpAck_2 Wen B0p_2 B0_2 B1p_2 B1_2) PCHB_FIFO
+    I69 (BpAck_1 Wen B0p_1 B0_1 B1p_1 B1_1) PCHB_FIFO
+    I68 (BpAck_0 Wen B0p_0 B0_0 B1p_0 B1_0) PCHB_FIFO
+    I67_3 (R0p_3 R1p_3 RAckp_3 Rack_3 Out0_3 Out1_3) _sub23
+    I67_2 (R0p_2 R1p_2 RAckp_2 Rack_2 Out0_2 Out1_2) _sub23
+    I67_1 (R0p_1 R1p_1 RAckp_1 Rack_1 Out0_1 Out1_1) _sub23
+    I67_0 (R0p_0 R1p_0 RAckp_0 Rack_0 Out0_0 Out1_0) _sub23
+ends _sub24
 // End of subcircuit definition.

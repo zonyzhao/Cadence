@@ -1,4 +1,4 @@
-(envOpts analysisOrder) ("tran" "dc")
+(envOpts analysisOrder) ("tran")
 (envOpts autoDisplay) t
 (envOpts cpfIsPommardEnabled) t
 (envOpts emLayerMap) ""
@@ -41,5 +41,5 @@
 (envOpts savestate) ""
 (envOpts setTopLevelAsSubckt) nil
 (envOpts sst2usecolon) nil
-(envOpts userCmdLineOption) "+multithread"
+(envOpts userCmdLineOption) ""
 (envOpts vcoType) ""

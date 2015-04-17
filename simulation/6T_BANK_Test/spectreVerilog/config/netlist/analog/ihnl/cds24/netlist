@@ -3,5 +3,5 @@
     I15 (A_16 A_17 A_18 A_19 net7) or4_1x
     I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
     I16 (net8 net7 ValAddr) or_1x
-ends _sub129
+ends _sub25
 // End of subcircuit definition.

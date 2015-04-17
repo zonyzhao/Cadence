@@ -45,7 +45,7 @@
 ( inst
  )
 ( model
-( "16nm_Tests/10T_TagMem_Test/schematic" "cdsModule_153" )
+( "16nm_Tests/10T_TagMem_Test/schematic" "cdsModule_24" )
  )
 ( term
  )
@@ -53,5 +53,5 @@
 ( "vcc" "cds_globals.vcc" )
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_153" "ihnl/cds0/map" )
+( "cdsModule_24" "ihnl/cds0/map" )
  )

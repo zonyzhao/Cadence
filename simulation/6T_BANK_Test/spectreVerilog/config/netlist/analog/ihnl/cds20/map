@@ -149,8 +149,8 @@
 ( "I72<3>" "I72_3" )
  )
 ( model
-( "6T_DATA" "_sub128" )
-( "WCHB~" "_sub127" )
+( "6T_DATA" "_sub24" )
+( "WCHB~" "_sub23" )
  )
 ( term
  )

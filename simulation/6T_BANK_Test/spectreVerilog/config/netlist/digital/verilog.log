@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport60018
+    +vmxsport47652
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 12, 2015  00:01:22
-Tool:	VERILOG-XL	08.20.001-d   Apr 12, 2015  00:01:22
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 16, 2015  22:32:31
+Tool:	VERILOG-XL	08.20.001-d   Apr 16, 2015  22:32:31
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -72,86 +72,3 @@ test
 cds_globals
 
 Verilog/spectre Mixed-Signal Interface 2.0
-
-Message!  Stable DC solution not found within 0                                
-          iterations. Using last calculated state to start                     
-          transient analysis. See Artist Mixed-Signal                          
-          Simulation Help for more info on obtaining an                        
-          initial solution.                                 [Mixed_Sig]        
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to spectre time 0.
-
-
-Message!  At the end of DC initialization the logic values                     
-          of the following ports are X (unknown):                              
-                                                                               
-          cdsbus2                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus2                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus4                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus2                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus2                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus5                                                              
-          cdsbus5                                                              
-          cdsbus2                                                              
-                                                           [Mixed_Sig]         
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-Verilog/spectre Interface: 1332 messages sent, 1334 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 855 accelerated events
-CPU time: 0.0 secs to compile + 0.0 secs to link + 5.0 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 12, 2015  04:35:45

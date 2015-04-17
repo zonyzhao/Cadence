@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_133 top(Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW, 
+cdsModule_29 top(Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW, 
      WriteData); 
  
 
@@ -57,6 +57,7 @@ integer i;
 integer start;
 integer readOrWrite;
 reg[19:0] lastWriteAddr;
+reg[9:0] logAddr;
 
 real rStart;
 real rDelay;
@@ -85,7 +86,7 @@ begin
    RD_Ack[7:0] = 8'hFF;
    A[19:0]  = 20'h11111;
    RW[1:0]  = 2'b01;
-   WriteData[31:0] = 32'h88888888;
+   WriteData[31:0] = 32'h44884488;
    start = 1;
    readOrWrite = 1;
 
@@ -117,9 +118,30 @@ always @(posedge Ack) begin
      if(readOrWrite ==0) begin
    	  rDelay = $time - rStart;
 	  $fdisplay(rLog, "%h %h %t %t", A[19:0], ReadData[31:0], $time, rDelay); 
-   	  A[19:0]  = 20'h22222;
+   	  logAddr[9:0] = $random;
+	  A[0]   = ~logAddr[0] & ~logAddr[1];
+	  A[1]   =  logAddr[0] & ~logAddr[1];
+	  A[2]   = ~logAddr[0] &  logAddr[1];
+          A[3]   =  logAddr[0] &  logAddr[1];
+	  A[4]   = ~logAddr[2] & ~logAddr[3];
+	  A[5]   =  logAddr[2] & ~logAddr[3];
+	  A[6]   = ~logAddr[2] &  logAddr[3];
+          A[7]   =  logAddr[2] &  logAddr[3];
+	  A[8]   = ~logAddr[4] & ~logAddr[5];
+	  A[9]   =  logAddr[4] & ~logAddr[5];
+	  A[10]  = ~logAddr[4] &  logAddr[5];
+          A[11]  =  logAddr[4] &  logAddr[5];
+	  A[12]  = ~logAddr[6] & ~logAddr[7];
+	  A[13]  =  logAddr[6] & ~logAddr[7];
+	  A[14]  = ~logAddr[6] &  logAddr[7];
+          A[15]  =  logAddr[6] &  logAddr[7];
+	  A[16]  = ~logAddr[8] & ~logAddr[9];
+	  A[17]  =  logAddr[8] & ~logAddr[9];
+	  A[18]  = ~logAddr[8] &  logAddr[9];
+          A[19]  =  logAddr[8] &  logAddr[9];
+
    	  RW[1:0]  = 2'b01;
-   	  WriteData[31:0] = 32'h88888888;
+   	  WriteData[31:0] = 32'h88448844;
 	  readOrWrite =1;
        	  wStart = $time;
       end else begin   
@@ -282,11 +304,11 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_BANK_Test, View - schematic
 // LAST TIME SAVED: Apr 10 22:30:48 2015
-// NETLIST TIME: Apr 11 23:46:01 2015
+// NETLIST TIME: Apr 16 22:14:11 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_133 ( Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack,
-     RW, WriteData );
+module cdsModule_29 ( Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW,
+     WriteData );
 
 output  Ack;
 

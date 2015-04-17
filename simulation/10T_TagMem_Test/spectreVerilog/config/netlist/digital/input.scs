@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_153 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
+cdsModule_24 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
      , W_Addr); 
  
 
@@ -370,10 +370,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 10T_TagMem_Test, View - schematic
 // LAST TIME SAVED: Apr 11 23:47:11 2015
-// NETLIST TIME: Apr 11 23:47:17 2015
+// NETLIST TIME: Apr 16 20:24:13 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_153 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
+module cdsModule_24 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
      W0, W1, W_Addr );
 
 output  R_Ack, W_Ack;

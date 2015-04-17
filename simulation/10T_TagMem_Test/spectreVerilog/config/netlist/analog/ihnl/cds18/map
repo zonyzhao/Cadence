@@ -88,7 +88,7 @@
 ( inst
  )
 ( model
-( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub148" )
+( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub19" )
  )
 ( term
  )

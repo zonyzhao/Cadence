@@ -1,11 +1,11 @@
-Sun Mar  8 13:47:48 2015
+Thu Apr 16 20:24:11 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
 	simLibName =	16nm_Tests
 	simCellName =	10T_TagMem_Test
 	simViewName =	config
-	Netlist Directory	/net/bull/apps/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist
+	Netlist Directory	/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist
 	Default View List	
 	Stop View List	
 Switch View List Table:
@@ -44,7 +44,7 @@ Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
 Module Mux_128to32, lib 16nm, view schematic, configViewString $default
 Module nand3_1x, lib 16nm, view schematic, configViewString $default
-Module and3, lib 16nm, view schematic, configViewString $default
+Module and3_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_2to4, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
 Module 10T_RPrecharge, lib 16nm, view schematic, configViewString $default
@@ -55,13 +55,12 @@ Module and4_1x, lib 16nm, view schematic, configViewString $default
 Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_1to2, lib 16nm, view schematic, configViewString $default
 Module nor_1x, lib 16nm, view schematic, configViewString $default
-Module or2_1x, lib 16nm, view schematic, configViewString $default
+Module or_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_4to16, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
 Module 10T, lib 16nm, view schematic, configViewString $default
 Module 10T_4x, lib 16nm, view schematic, configViewString $default
 Module 10T_32x32, lib 16nm, view schematic, configViewString $default
-Module TH22~, lib 16nm, view schematic, configViewString $default
 Module TH44, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_CompDetect, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_REGFILE, lib 16nm, view schematic, configViewString $default
