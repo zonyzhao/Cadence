@@ -13,10 +13,11 @@ ic I36.I0.I1.I7.I3.Q=vdd I36.I2.I1.I7.I3.Q=vdd I36.I6.I1.I7.I3.Q=vdd \
     W_AddrT_0=0 GoRT=0 R_AddrT_6=0 R_AddrT_5=0 R_AddrT_4=0 R_AddrT_3=0 \
     R_AddrT_2=0 R_AddrT_1=0 R_AddrT_0=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=90 \
-    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    audit=detailed inventory=detailed narrate=yes maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
     checklimitdest=psf 
-tran tran stop=5n errpreset=conservative write="spectre.ic" \
+tran tran stop=50n errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile

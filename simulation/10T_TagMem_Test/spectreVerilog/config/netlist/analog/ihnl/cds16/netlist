@@ -1,4 +1,7 @@
-    I15 (A B C D net1) nand4_1x
-    I16 (net1 Y) inv_1x
-ends and4_1x
+    I1 (\~R1 Pch vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    I0 (\~R0 Pch vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    I3 (Re2 Re Pch) TH22
+ends _sub182
 // End of subcircuit definition.

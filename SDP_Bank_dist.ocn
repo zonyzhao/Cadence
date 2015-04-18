@@ -12,10 +12,12 @@ envOption(
 	'mspSetupNetlistSimPrecisionUnit  "ps" 
 	'mspSetupNetlistSimTimeUnit  "ps" 
 	'mspSetupNetlistSwitchRC  t 
-	'userCmdLineOption  "+multithread" 
 	'analysisOrder  list("tran") 
 )
-;option(	'temp  "30.0" )
+option(	'inventory  "detailed" 
+	'multithread  "on" 
+	'temp  "85.0" 
+)
 save( 'i "/V1/MINUS" "/IBank/Write_Ack" "/IBank/Read_Ack" )
 converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q0" "0" )
 converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q1" "vdd" )

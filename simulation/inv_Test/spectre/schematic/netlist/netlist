@@ -1,0 +1,8 @@
+
+// Library name: 16nm_Tests
+// Cell name: inv_Test
+// View name: schematic
+M0 (out in vdd! vdd!) pfet w=wp l=l nfin=nfinp m=1 degradation=yes
+V1 (in 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 vdd ]
+M1 (out in 0 0) nfet w=wn l=l nfin=nfinn m=1 degradation=no
+V0 (vdd! 0) vsource type=dc dc=vdd

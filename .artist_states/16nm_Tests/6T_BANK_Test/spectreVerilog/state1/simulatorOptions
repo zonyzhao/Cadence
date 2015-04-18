@@ -32,7 +32,7 @@
 (opts iccapcheck) ""
 (opts ignshorts) ""
 (opts info) ""
-(opts inventory) ""
+(opts inventory) "detailed"
 (opts ivth_vdsmin) ""
 (opts ivthl) ""
 (opts ivthn) ""

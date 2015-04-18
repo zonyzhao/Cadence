@@ -1,7 +1,7 @@
 "16nm.or2_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.10T.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.nand_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
-"16nm.Decode_2to4.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
+"16nm.Decode_2to4.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("I<1>" "I<0>" "Sel<3>" "Sel<2>" "Sel<1>" "Sel<0>" "En") ("En" "I<1>" "I<0>" "Sel<3>" "Sel<2>" "Sel<1>" "Sel<0>"))
 "16nm.and3.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.nand4_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.10T_RPrecharge.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil

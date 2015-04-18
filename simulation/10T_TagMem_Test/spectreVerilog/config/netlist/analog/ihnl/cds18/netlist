@@ -1,38 +1,73 @@
-    I19 (JRi_15 JRi_14 JRi_13 JRi_12 JRi_11 JRi_10 JRi_9 JRi_8 JRi_7 \
-        JRi_6 JRi_5 JRi_4 JRi_3 JRi_2 JRi_1 JRi_0 RSel_0 I_Read_3 \
-        I_Read_2 I_Read_1 I_Read_0 net20) Decode_4to16
-    I25 (JRi_31 JRi_30 JRi_29 JRi_28 JRi_27 JRi_26 JRi_25 JRi_24 JRi_23 \
-        JRi_22 JRi_21 JRi_20 JRi_19 JRi_18 JRi_17 JRi_16 RSel_1 \
-        I_Read_3 I_Read_2 I_Read_1 I_Read_0 net21) Decode_4to16
-    I11 (JWi_31 JWi_30 JWi_29 JWi_28 JWi_27 JWi_26 JWi_25 JWi_24 JWi_23 \
-        JWi_22 JWi_21 JWi_20 JWi_19 JWi_18 JWi_17 JWi_16 WSel_1 \
-        I_Write_3 I_Write_2 I_Write_1 I_Write_0 Reset) Decode_4to16
-    I5 (JWi_15 JWi_14 JWi_13 JWi_12 JWi_11 JWi_10 JWi_9 JWi_8 JWi_7 \
-        JWi_6 JWi_5 JWi_4 JWi_3 JWi_2 JWi_1 JWi_0 WSel_0 I_Write_3 \
-        I_Write_2 I_Write_1 I_Write_0 Reset) Decode_4to16
-    I16 (GoR I_Read_4 RSel_1 RSel_0) Decode_1to2
-    I2 (GoW I_Write_4 WSel_1 WSel_0) Decode_1to2
-    I17 (rn1 rn2 rn3 rn4 rn9) and4_1x
-    I24 (rn5 rn6 rn7 rn8 rn10) and4_1x
-    I3 (wn1 wn2 wn3 wn4 wn9) and4_1x
-    I10 (wn5 wn6 wn7 wn8 wn10) and4_1x
-    I14 (JRi_0 JRi_1 JRi_2 JRi_3 rn1) nor4_1x
-    I15 (JRi_4 JRi_5 JRi_6 JRi_7 rn2) nor4_1x
-    I18 (JRi_8 JRi_9 JRi_10 JRi_11 rn3) nor4_1x
-    I20 (JRi_12 JRi_13 JRi_14 JRi_15 rn4) nor4_1x
-    I22 (JRi_16 JRi_17 JRi_18 JRi_19 rn5) nor4_1x
-    I23 (JRi_20 JRi_21 JRi_22 JRi_23 rn6) nor4_1x
-    I26 (JRi_24 JRi_25 JRi_26 JRi_27 rn7) nor4_1x
-    I13 (JWi_28 JWi_29 JWi_30 JWi_31 wn8) nor4_1x
-    I12 (JWi_24 JWi_25 JWi_26 JWi_27 wn7) nor4_1x
-    I9 (JWi_20 JWi_21 JWi_22 JWi_23 wn6) nor4_1x
-    I8 (JWi_16 JWi_17 JWi_18 JWi_19 wn5) nor4_1x
-    I6 (JWi_12 JWi_13 JWi_14 JWi_15 wn4) nor4_1x
-    I4 (JWi_8 JWi_9 JWi_10 JWi_11 wn3) nor4_1x
-    I0 (JWi_0 JWi_1 JWi_2 JWi_3 wn1) nor4_1x
-    I1 (JWi_4 JWi_5 JWi_6 JWi_7 wn2) nor4_1x
-    I27 (JRi_28 JRi_29 JRi_30 JRi_31 rn8) nor4_1x
-    I21 (rn9 rn10 KRv) nand_1x
-    I7 (wn9 wn10 KWv) nand_1x
-ends _sub19
+    I0 (KRe KRv KWe KWv R0_31 R0_30 R0_29 R0_28 R0_27 R0_26 R0_25 R0_24 \
+        R0_23 R0_22 R0_21 R0_20 R0_19 R0_18 R0_17 R0_16 R0_15 R0_14 \
+        R0_13 R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 R0_6 R0_5 R0_4 R0_3 R0_2 \
+        R0_1 R0_0 R1_31 R1_30 R1_29 R1_28 R1_27 R1_26 R1_25 R1_24 R1_23 \
+        R1_22 R1_21 R1_20 R1_19 R1_18 R1_17 R1_16 R1_15 R1_14 R1_13 \
+        R1_12 R1_11 R1_10 R1_9 R1_8 R1_7 R1_6 R1_5 R1_4 R1_3 R1_2 R1_1 \
+        R1_0 Re2_7 Re2_6 Re2_5 Re2_4 Re2_3 Re2_2 Re2_1 Re2_0 W0_31 \
+        W0_30 W0_29 W0_28 W0_27 W0_26 W0_25 W0_24 W0_23 W0_22 W0_21 \
+        W0_20 W0_19 W0_18 W0_17 W0_16 W0_15 W0_14 W0_13 W0_12 W0_11 \
+        W0_10 W0_9 W0_8 W0_7 W0_6 W0_5 W0_4 W0_3 W0_2 W0_1 W0_0 W1_31 \
+        W1_30 W1_29 W1_28 W1_27 W1_26 W1_25 W1_24 W1_23 W1_22 W1_21 \
+        W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 W1_12 W1_11 \
+        W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 W1_0 We_7 \
+        We_6 We_5 We_4 We_3 We_2 We_1 We_0 \~R0_31 \~R0_30 \~R0_29 \
+        \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \~R0_22 \~R0_21 \
+        \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \~R0_14 \~R0_13 \
+        \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \~R0_6 \~R0_5 \
+        \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \~R1_30 \~R1_29 \
+        \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \~R1_22 \~R1_21 \
+        \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \~R1_14 \~R1_13 \
+        \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \~R1_6 \~R1_5 \
+        \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0 \~W0_31 \~W0_30 \~W0_29 \
+        \~W0_28 \~W0_27 \~W0_26 \~W0_25 \~W0_24 \~W0_23 \~W0_22 \~W0_21 \
+        \~W0_20 \~W0_19 \~W0_18 \~W0_17 \~W0_16 \~W0_15 \~W0_14 \~W0_13 \
+        \~W0_12 \~W0_11 \~W0_10 \~W0_9 \~W0_8 \~W0_7 \~W0_6 \~W0_5 \
+        \~W0_4 \~W0_3 \~W0_2 \~W0_1 \~W0_0 \~W1_31 \~W1_30 \~W1_29 \
+        \~W1_28 \~W1_27 \~W1_26 \~W1_25 \~W1_24 \~W1_23 \~W1_22 \~W1_21 \
+        \~W1_20 \~W1_19 \~W1_18 \~W1_17 \~W1_16 \~W1_15 \~W1_14 \~W1_13 \
+        \~W1_12 \~W1_11 \~W1_10 \~W1_9 \~W1_8 \~W1_7 \~W1_6 \~W1_5 \
+        \~W1_4 \~W1_3 \~W1_2 \~W1_1 \~W1_0) _sub177
+    I1 (JRi_31 JRi_30 JRi_29 JRi_28 JRi_27 JRi_26 JRi_25 JRi_24 JRi_23 \
+        JRi_22 JRi_21 JRi_20 JRi_19 JRi_18 JRi_17 JRi_16 JRi_15 JRi_14 \
+        JRi_13 JRi_12 JRi_11 JRi_10 JRi_9 JRi_8 JRi_7 JRi_6 JRi_5 JRi_4 \
+        JRi_3 JRi_2 JRi_1 JRi_0 JWi_31 JWi_30 JWi_29 JWi_28 JWi_27 \
+        JWi_26 JWi_25 JWi_24 JWi_23 JWi_22 JWi_21 JWi_20 JWi_19 JWi_18 \
+        JWi_17 JWi_16 JWi_15 JWi_14 JWi_13 JWi_12 JWi_11 JWi_10 JWi_9 \
+        JWi_8 JWi_7 JWi_6 JWi_5 JWi_4 JWi_3 JWi_2 JWi_1 JWi_0 \~R0_31 \
+        \~R0_30 \~R0_29 \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \
+        \~R0_22 \~R0_21 \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \
+        \~R0_14 \~R0_13 \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \
+        \~R0_6 \~R0_5 \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \
+        \~R1_30 \~R1_29 \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \
+        \~R1_22 \~R1_21 \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \
+        \~R1_14 \~R1_13 \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \
+        \~R1_6 \~R1_5 \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0 \~W0_31 \
+        \~W0_30 \~W0_29 \~W0_28 \~W0_27 \~W0_26 \~W0_25 \~W0_24 \~W0_23 \
+        \~W0_22 \~W0_21 \~W0_20 \~W0_19 \~W0_18 \~W0_17 \~W0_16 \~W0_15 \
+        \~W0_14 \~W0_13 \~W0_12 \~W0_11 \~W0_10 \~W0_9 \~W0_8 \~W0_7 \
+        \~W0_6 \~W0_5 \~W0_4 \~W0_3 \~W0_2 \~W0_1 \~W0_0 \~W1_31 \
+        \~W1_30 \~W1_29 \~W1_28 \~W1_27 \~W1_26 \~W1_25 \~W1_24 \~W1_23 \
+        \~W1_22 \~W1_21 \~W1_20 \~W1_19 \~W1_18 \~W1_17 \~W1_16 \~W1_15 \
+        \~W1_14 \~W1_13 \~W1_12 \~W1_11 \~W1_10 \~W1_9 \~W1_8 \~W1_7 \
+        \~W1_6 \~W1_5 \~W1_4 \~W1_3 \~W1_2 \~W1_1 \~W1_0) _sub180
+    I2 (GoR GoW R_Addr_4 R_Addr_3 R_Addr_2 R_Addr_1 R_Addr_0 W_Addr_4 \
+        W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 JRi_31 JRi_30 JRi_29 JRi_28 \
+        JRi_27 JRi_26 JRi_25 JRi_24 JRi_23 JRi_22 JRi_21 JRi_20 JRi_19 \
+        JRi_18 JRi_17 JRi_16 JRi_15 JRi_14 JRi_13 JRi_12 JRi_11 JRi_10 \
+        JRi_9 JRi_8 JRi_7 JRi_6 JRi_5 JRi_4 JRi_3 JRi_2 JRi_1 JRi_0 \
+        JWi_31 JWi_30 JWi_29 JWi_28 JWi_27 JWi_26 JWi_25 JWi_24 JWi_23 \
+        JWi_22 JWi_21 JWi_20 JWi_19 JWi_18 JWi_17 JWi_16 JWi_15 JWi_14 \
+        JWi_13 JWi_12 JWi_11 JWi_10 JWi_9 JWi_8 JWi_7 JWi_6 JWi_5 JWi_4 \
+        JWi_3 JWi_2 JWi_1 JWi_0 KRv KWv Reset) _sub181
+    I3 (Re Re2_7 Re2_6 Re2_5 Re2_4 Re2_3 Re2_2 Re2_1 Re2_0 \~R0_31 \
+        \~R0_30 \~R0_29 \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \
+        \~R0_22 \~R0_21 \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \
+        \~R0_14 \~R0_13 \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \
+        \~R0_6 \~R0_5 \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \
+        \~R1_30 \~R1_29 \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \
+        \~R1_22 \~R1_21 \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \
+        \~R1_14 \~R1_13 \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \
+        \~R1_6 \~R1_5 \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0) _sub183
+ends _sub184
 // End of subcircuit definition.

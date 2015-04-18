@@ -54,7 +54,7 @@ foreach( degC  tLoad
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/TagData.csv"  )
 outF      =   outfile(file,    "w")
-fprintf( outF,   "Vdd [mv], Temp [C], \tLeakage [mA], Leakage [mW], peak Current [mA], peakPwr [mW], rDelay [ps], rEnergy [pJ], rNull [ps], rnullEnergy [pJ], wDelay [ps], Wenergy [pJ], Wnull [ps], WnullEnergy [pJ]\n" )
+fprintf( outF,   "Vdd [mv],Temp [C],Leakage [mA],Leakage [mW],peak Current [mA],peakPwr [mW],rDelay [ps],rEnergy [pJ],rNull [ps],rnullEnergy [pJ],rCycle Total [ps],rCycleEgy Total [pJ],rCycle EDP [pJ*ps],wDelay [ps],Wenergy [pJ],Wnull [ps],WnullEnergy [pJ],WCycle Total [ps],WCycleEgy Total [pJ],wCycle EDP [pJ*ps]\n" )
 close( outF)	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -73,10 +73,10 @@ foreach(job jobList
 		cHost       = sprintf(nil "%s" nthelem(j hList))
         nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
         nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-		shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
-		shellCmd2   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameW  )
-		shell( shellCmd1 )
-		shell( shellCmd2 )
+		;shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
+		;shellCmd2   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameW  )
+		;shell( shellCmd1 )
+		;shell( shellCmd2 )
         
         printf("Reading %s\n" nameR)
         fidR   = infile( nameR )
@@ -109,7 +109,7 @@ foreach(job jobList
 			wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
 	          
 	    outF      =   outfile(file,    "a")       
-            fprintf( outF "%s,\t\t%s,\t\t%g,\t\t\t%g,\t%g,\t\t\t%g,\t\t%s,\t%g,\t\t%s,\t%g,\t\t%s,\t%g,\t\t%s,\t%g\n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
+            fprintf( outF "%s,%s,%g,%g,%g,%g,%s,%g,%s,%g, , , ,%s,%g,%s,%g, , , \n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
             close( outF )
         )
       ) 
@@ -120,8 +120,8 @@ foreach(job jobList
 )    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 printf("Completed.")
-openAnalysis   = strcat("gedit " file   )
-shell( openAnalysis )
+;openAnalysis   = strcat("gedit " file   )
+;shell( openAnalysis )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

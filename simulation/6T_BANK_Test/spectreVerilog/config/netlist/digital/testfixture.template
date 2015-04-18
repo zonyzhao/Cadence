@@ -12,8 +12,8 @@ wire [31:0]  ReadData;
 wire [7:0]  WriteAck;
 
 reg [31:0]  WriteData;
-reg [19:0]  A;
 reg [7:0]  RD_Ack;
+reg [19:0]  A;
 reg [1:0]  RW;
 integer dc_mode_flag;
 integer output_change_count;
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_112 top(Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW, 
+cdsModule_156 top(Ack, Ctrl_Ack, ReadData, WriteAck, A, RD_Ack, RW, 
      WriteData); 
  
 

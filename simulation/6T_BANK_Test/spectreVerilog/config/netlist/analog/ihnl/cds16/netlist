@@ -1,11 +1,7 @@
-    I0 (A net11) inv_1x
-    M5 (XNOR XOR vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    M0 (XOR XNOR vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    M4 (B A XNOR 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M3 (A B XNOR 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M2 (B net11 XOR 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (net11 B XOR 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends xor_xnor
+    I2 (net9 net10 Lack) nor_1x
+    I8 (net10 \~R0) inv_1x
+    I7 (net9 \~R1) inv_1x
+    I10 (Rack L1 net9) TH22
+    I0 (L0 Rack net10) TH22
+ends _sub150
 // End of subcircuit definition.

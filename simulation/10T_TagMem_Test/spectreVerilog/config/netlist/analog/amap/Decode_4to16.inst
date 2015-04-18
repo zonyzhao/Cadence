@@ -1,9 +1,9 @@
 HEADER
 "PSFversion" "1.00"
 "I7n I6n I5n I4n I3n I2n I1n I0n" "and2"
-"I11n I10n I9n I8n" "inv_1x"
-"I59n I58n I57n I56n I55n I54n I53n I52n I51n I50n I49n I48n I47n I46n I45n I44n" "and3_1x"
-"I75n I74n I73n I72n I71n I70n I69n I68n I67n I66n I65n I64n I63n I62n I61n I60n" "or_1x"
+"I76n I11n I10n I9n I8n" "inv_1x"
+"I59n I44n I45n I46n I47n I48n I49n I50n I51n I52n I53n I54n I55n I56n I57n I58n" "nand3_1x"
+"I60n I65n I66n I67n I68n I69n I70n I71n I72n I73n I74n I75n I64n I63n I62n I61n" "nand_1x"
 "A<15>v" ":1v"
 "A<14>v" ":2v"
 "A<13>v" ":3v"

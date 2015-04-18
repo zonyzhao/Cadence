@@ -6,5 +6,5 @@
     M5 (\~R0 JRi net020 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
     M3 (net020 Q 0 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
     M4 (Q JWi \~W1 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
-ends _sub16
+ends _sub178
 // End of subcircuit definition.

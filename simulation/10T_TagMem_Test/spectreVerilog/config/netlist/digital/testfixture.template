@@ -8,8 +8,8 @@ wire  R_Ack, W_Ack;
 
 reg  GoR, GoW, Reset;
 
-wire [31:0]  R1;
 wire [31:0]  R0;
+wire [31:0]  R1;
 
 reg [6:0]  W_Addr;
 reg [31:0]  W1;
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_24 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
+cdsModule_186 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
      , W_Addr); 
  
 

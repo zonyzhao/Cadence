@@ -5,7 +5,7 @@ resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreV
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
-analysis('tran ?stop "5n"  ?errpreset "conservative"  )
+analysis('tran ?stop "50n"  ?errpreset "conservative"  )  ;$finish directive in testbench, usually ~5n
 envOption(
 	'mspSetupNetlistSimPrecisionUnit  "ps" 
 	'mspSetupNetlistSimTimeUnit  "ps" 
@@ -26,9 +26,10 @@ save( 'i "/V0/MINUS" "/V1/MINUS" "/V1/PLUS" "/V0/PLUS" )
 ;		      "rattle" "redbelly" "ribbon" "scarlet" 	 \
 ;		      "swamp" "timber" "viper" )
 
-hList = list( "asp"  "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rat" "rattle" "redbelly" "swamp" "timber" "viper" )
+hList = list( "asp" "blind" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rainbow" "rat" "rattle" "redbelly" "ribbon" "scarlet" "swamp" "timber" "viper" )
+
 		           
-vLoad = list( .375 .4 .45 .50 .55 .65 .85 1.0 1.25 )	            		            
+vLoad = list(  .255 .375 0.45 .475 .50 .525 .675 .85 1.0 1.175 )	            		            
 tLoad = list( 30 60 90 )
 
 jobList 	= nil
@@ -54,14 +55,14 @@ foreach( degC  tLoad
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/TagData.csv"  )
 outF      =   outfile(file,    "w")
-fprintf( outF,   "Vdd [mv], Temp [C], \tLeakage [mA], Leakage [mW], peak Current [mA], peakPwr [mW], rDelay [ps], rEnergy [pJ], rNull [ps], rnullEnergy [pJ], wDelay [ps], Wenergy [pJ], Wnull [ps], WnullEnergy [pJ]\n" )
+fprintf( outF,   "Vdd [mv],Temp [C],Leakage [mA],Leakage [mW],peak Current [mA],peakPwr [mW],rDelay [ps],rEnergy [pJ],rNull [ps],rnullEnergy [pJ],rCycle Total [ps],rCycleEgy Total [pJ],rCycle EDP [pJ*ps],wDelay [ps],Wenergy [pJ],Wnull [ps],WnullEnergy [pJ],WCycle Total [ps],WCycleEgy Total [pJ],wCycle EDP [pJ*ps]\n" )
 close( outF)	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 j = 1
 foreach(job jobList	
     	printf("%s\n" job )
-    	unless( openResults( job ) == nil  ; || (evalstring(nthelem(j mVs)) < 400)
+    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) < 400)
     	selectResult( 'tran )
     	unless( i("/V1/MINUS")  == nil
 		Volts       = evalstring( nthelem(j mVs) )*0.001;
@@ -73,25 +74,25 @@ foreach(job jobList
 		cHost       = sprintf(nil "%s" nthelem(j hList))
         nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
         nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-		shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
-		shellCmd2   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameW  )
-		shell( shellCmd1 )
-		shell( shellCmd2 )
+	;shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
+	;shellCmd2   = strcat("scp " cHost ":/tmp2/tagWLog.csv " nameW  )
+	;shell( shellCmd1 )
+	;shell( shellCmd2 )
         
         printf("Reading %s\n" nameR)
         fidR   = infile( nameR )
-		gets( s fidR )
-		gets( s fidR )
-		gets( s fidR )         
+	;gets( s fidR )
+	;gets( s fidR )
+	;gets( s fidR )         
         fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEnd     rDelay )
         fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEndNull rNull )
         close( fidR )
                     
         printf("Reading %s\n" nameW)
         fidW   = infile( nameW )
-		gets( s fidW )	
-		gets( s fidW )
-		gets( s fidW )
+	;gets( s fidW )	
+	;gets( s fidW )
+	;gets( s fidW )
         fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEnd     wDelay )
         fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEndNull wNull  )
         close(fidW)
@@ -109,7 +110,7 @@ foreach(job jobList
 			wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
 	          
 	    outF      =   outfile(file,    "a")       
-            fprintf( outF "%s,\t\t%s,\t\t%g,\t\t\t%g,\t%g,\t\t\t%g,\t\t%s,\t%g,\t\t%s,\t%g,\t\t%s,\t%g,\t\t%s,\t%g\n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
+            fprintf( outF "%s,%s,%g,%g,%g,%g,%s,%g,%s,%g, , , ,%s,%g,%s,%g, , , \n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
             close( outF )
         )
       ) 
@@ -120,8 +121,8 @@ foreach(job jobList
 )    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 printf("Completed.")
-openAnalysis   = strcat("gedit " file   )
-shell( openAnalysis )
+;openAnalysis   = strcat("gedit " file   )
+;shell( openAnalysis )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

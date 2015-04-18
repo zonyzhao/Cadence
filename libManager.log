@@ -6,39 +6,153 @@
 \o Log file is "/root/Desktop/Cadence/libManager.log".
 \o Opening libManager window.
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(59 219 1044 862))
+\a nrResizeWindow(cdsLibManager list(1652 201 1044 862))
 \o changeWorkingDir("/root/Desktop/Cadence") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
 \o Library Manager customization server connected.
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
 \a cdsLibManager->libListBox->value = "16nm_Tests"
 \a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "6T_BANK_Test"
-\a cdsLibManager->cellLineEdit->value = "6T_BANK_Test"
+\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
+\a cdsLibManager->cellListBox->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
+\a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
 \a cdsLibManager->viewListBox->value = "config"
 \a cdsLibManager->viewLineEdit->value = "config"
 \o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
 \a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = nil
+\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "6T_BANK_Test"
-\a cdsLibManager->cellLineEdit->value = "6T_BANK_Test"
+\a nrListItemAction(cdsLibManager->cellListBox 19 0)
+\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
 \a cdsLibManager->viewListBox->value = "config"
 \a cdsLibManager->viewLineEdit->value = "config"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
+\o MPS request: edit design
+\a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrSetWindowVisibility(cdsLibManager "hide")
-\o libManager is exiting.
-\a exit(0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "Decode_4to16"
+\a lmgrLogShowPopup("mainListPopup1" 104 349 2 "Decode_4to16")
+\a cdsLibManager->cellLineEdit->value = "Decode_4to16"
+\a cdsLibManager->copySimpleButton->value = t
+\a basicCopyForm->CategoryCellsEdit->value = "*"
+\a basicCopyForm->CellsSkipLibraries->value = t
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->ViewsSkipLibraries->value = t
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CopyFromLibrary->value = "16nm"
+\a basicCopyForm->CopyToLibrary->value = "16nm"
+\a basicCopyForm->CopyFromCell->value = "Decode_4to16"
+\a basicCopyForm->CopyToCell->value = "Decode_4to16"
+\a basicCopyForm->CellsViewsToCopy->value = "schematic symbol"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a nrSetWindowVisibility(basicCopyForm "show")
+\a nrSetCurrentWindow(basicCopyForm)
+\a nrResizeWindow(basicCopyForm list(1952 301 444 638))
+\a basicCopyForm->CopyToCell->value = "Decode_4to16_noReset"
+\a nrDialogAccept(basicCopyForm)
+\a basicCopyForm->OK->value = t
+\a basicCopyForm->CopyToCell->value = "Decode_4to16_noReset"
+\o Beginning simple copy to library "16nm".
+\o Processing files to be copied...
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(2030 470 288 131))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "Decode_4to16"
+\a cdsLibManager->cellLineEdit->value = "Decode_4to16"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "Decode_4to16_noReset"
+\a cdsLibManager->cellLineEdit->value = "Decode_4to16_noReset"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 1)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a lmgrLogShowPopup("mainListPopup1" 157 416 2 "Decode_4to16_noReset")
+\a cdsLibManager->editDeleteButton->value = t
+\a deleteForm->deleteBothRadioButton->value = t
+\a deleteForm->deleteFilterEdit->value = "*"
+\a deleteForm->notDeleteFilterEdit->value = "*"
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrResizeWindow(deleteForm list(1861 420 627 425))
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(1993 483 362 312))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting cell "Decode_4to16_noReset" from library "16nm".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\o Deleted cell '16nm/Decode_4to16_noReset'.
+\o Deletion of 1 cell done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(workingDialogForm list(0 0 281 131))
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellLineEdit->value = ""
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "Decode_2to4"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "Decode_2to4"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "10T_DUAL_SRAM_AddrCtrl_aValid"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a cdsLibManager->cellLineEdit->value = "10T_DUAL_SRAM_AddrCtrl_aValid"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(2243 600 1044 862))

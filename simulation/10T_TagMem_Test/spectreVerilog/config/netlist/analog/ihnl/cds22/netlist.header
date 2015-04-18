@@ -1,7 +1,21 @@
 
 // Library name: 16nm
-// Cell name: Decode_2to4
+// Cell name: Dcache_TagMem
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt Decode_2to4 En I_1 I_0 Sel_3 Sel_2 Sel_1 Sel_0
+subckt Dcache_TagMem GoR GoW \~KRe \~KWe R1_31 R1_30 R1_29 R1_28 R1_27 \
+        R1_26 R1_25 R1_24 R1_23 R1_22 R1_21 R1_20 R1_19 R1_18 R1_17 \
+        R1_16 R1_15 R1_14 R1_13 R1_12 R1_11 R1_10 R1_9 R1_8 R1_7 R1_6 \
+        R1_5 R1_4 R1_3 R1_2 R1_1 R1_0 R_Addr_6 R_Addr_5 R_Addr_4 \
+        R_Addr_3 R_Addr_2 R_Addr_1 R_Addr_0 Reset W0_31 W0_30 W0_29 \
+        W0_28 W0_27 W0_26 W0_25 W0_24 W0_23 W0_22 W0_21 W0_20 W0_19 \
+        W0_18 W0_17 W0_16 W0_15 W0_14 W0_13 W0_12 W0_11 W0_10 W0_9 W0_8 \
+        W0_7 W0_6 W0_5 W0_4 W0_3 W0_2 W0_1 W0_0 W1_31 W1_30 W1_29 W1_28 \
+        W1_27 W1_26 W1_25 W1_24 W1_23 W1_22 W1_21 W1_20 W1_19 W1_18 \
+        W1_17 W1_16 W1_15 W1_14 W1_13 W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 \
+        W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 W1_0 W_Addr_6 W_Addr_5 W_Addr_4 \
+        W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 R0_31 R0_30 R0_29 R0_28 \
+        R0_27 R0_26 R0_25 R0_24 R0_23 R0_22 R0_21 R0_20 R0_19 R0_18 \
+        R0_17 R0_16 R0_15 R0_14 R0_13 R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 \
+        R0_6 R0_5 R0_4 R0_3 R0_2 R0_1 R0_0

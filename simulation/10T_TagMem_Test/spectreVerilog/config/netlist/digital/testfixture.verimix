@@ -6,6 +6,7 @@ integer wLog;
 integer seed;
 integer start;
 integer i;
+integer readCount;
 reg[6:0] lastWriteAddr;
 
 real rStart;
@@ -15,121 +16,132 @@ real wDelay;
 
 initial begin
 
-   seed = 5;
-   start = 0;
-   rLog=$fopen("/tmp2/tagRLog.csv");
-   //$fdisplay(rLog, "R_Addr, R1[31:0], R0[31:0], total_time(ps), read_delay(ps)");
+	seed = 5;
+    start = 0;
+    readCount = 0;
+    rLog=$fopen("/tmp2/tagRLog.csv");
+    //$fdisplay(rLog, "R_Addr, R1[31:0], R0[31:0], total_time(ps), read_delay(ps)");
 
-   wLog=$fopen("/tmp2/tagWLog.csv"); 
-   //$fdisplay(wLog, "W_Addr, W1[31:0], W0[31:0], total_time(ps), write_delay(ps)");
+    wLog=$fopen("/tmp2/tagWLog.csv"); 
+    //$fdisplay(wLog, "W_Addr, W1[31:0], W0[31:0], total_time(ps), write_delay(ps)");
 
-   GoR = 1'b0;
-   GoW = 1'b0;
-   R_Addr[6:0] = 7'b0000000;
-   Reset = 1'b0;
-   W0[31:0] = 32'h00000000;
-   W1[31:0] = 32'h00000000;
-   W_Addr[6:0] = 7'b0000000;
+    GoR = 1'b0;
+    GoW = 1'b0;
+    R_Addr[6:0] = 7'b0000000;
+    Reset = 1'b0;
+    W0[31:0] = 32'h00000000;
+    W1[31:0] = 32'h00000000;
+    W_Addr[6:0] = 7'b0000000;
 
-   lastWriteAddr = 7'b1111111;
-   #1000;
+    lastWriteAddr = 7'b1111111;
+    #1000;
 
 // Write only
-   W1[31:0]    = $random;
-   W0[31:0]    = ~W1[31:0];
-   W_Addr[6:0] = $random(seed);
-   GoW         = 1'b1;  
-   wStart      = $time;
-   wait(W_Ack);
+	W1[31:0]    = $random;
+    W0[31:0]    = ~W1[31:0];
+    W_Addr[6:0] = $random(seed);
+    GoW         = 1'b1;  
+    wStart      = $time;
+    wait(W_Ack);
+    wDelay = $time - wStart;
+    $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
 
-// Write Null
-   wDelay = $time - wStart;
-   $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
-   
-   W1[31:0]    = 32'h00000000;
-   W0[31:0]    = 32'h00000000;
-   W_Addr[6:0] = 7'b0000000;
-   GoW         = 1'b0;  
-   wStart      = $time;
-   wait(~W_Ack);
-   wDelay = $time - wStart;
-   $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
+	// Write Null
+    W1[31:0]    = 32'h00000000;
+    W0[31:0]    = 32'h00000000;
+    W_Addr[6:0] = 7'b0000000;
+    GoW         = 1'b0;  
+    wStart      = $time;
+    wait(~W_Ack);
+    wDelay = $time - wStart;
+    $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
+
+	#250;
 
 // Read Only
-   rStart = $time;
-   R_Addr[6:0] = lastWriteAddr;
-   GoR = 1'b1;
-   wait(R_Ack);
+    rStart = $time;
+    R_Addr[6:0] = 7'b0000000;
+    GoR = 1'b1;
+    wait(R_Ack);
+    rDelay = $time - rStart;
+    $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   
 
-// Read Null
-   rDelay = $time - rStart;
-   $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	   
-   
-  R_Addr[6:0]  = 7'b0000000;
-  GoR          = 1'b0;
-  rStart       = $time;
-  wait(~R_Ack);
-  rDelay = $time - rStart;
-  $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);  
+// Read Null	     
+    GoR          = 1'b0;
+    rStart       = $time;
+    wait(~R_Ack);
+
+    rDelay = $time - rStart;
+    $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);  
+    readCount = readCount + 1;
+	
+	#250;
 
 //Start Reading+ Writing
-   start       = 1;
-   W1[31:0]    = $random;
-   W0[31:0]    = ~W1[31:0];
-   W_Addr[6:0] = $random;
-   GoW         = 1'b1;  
-   wStart      = $time;
+    start       = 1;
+    W1[31:0]    = $random;
+    W0[31:0]    = ~W1[31:0];
+    W_Addr[6:0] = $random;
+    GoW         = 1'b1;  
+    wStart      = $time;
 
-   R_Addr[6:0] = lastWriteAddr;
-   GoR         = 1'b1;
-   rStart      = $time;
-
+    R_Addr[6:0] = lastWriteAddr;
+    GoR         = 1'b1;
+    rStart      = $time;
 end 
 
 
 always @(posedge W_Ack) begin
    if (start==1) begin
-   	  wDelay = $time - wStart;
-   	  $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
-          lastWriteAddr <= W_Addr[6:0];
-          W0[31:0] = 32'h00000000;
-   	  W1[31:0] = 32'h00000000;
-   	  GoW      = 1'b0;  
-          wStart   = $time;
-   end
+   	    wDelay = $time - wStart;
+   	    $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
+        lastWriteAddr <= W_Addr[6:0];
+        W0[31:0] = 32'h00000000;
+   	    W1[31:0] = 32'h00000000;
+	    W_Addr[6:0] = 7'b0000000;
+   	    GoW      = 1'b0;  
+    	wStart   = $time;
+    end
 end
 
 always @(negedge W_Ack) begin
-   if (start==1) begin
-   	   wDelay = $time - wStart;
-   	   $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);   	   
-           W1[31:0]    = $random;
-           W0[31:0]    = ~W1[31:0];
-   	   W_Addr[6:0] = $random;
-           GoW         = 1'b1;  
-	   wStart      = $time;
-   end
+    if (start==1) begin
+   	    wDelay = $time - wStart;
+   	    $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);   	   
+        W1[31:0]    = $random;
+        W0[31:0]    = ~W1[31:0];
+   	    W_Addr[6:0] = $random;
+        GoW         = 1'b1;  
+	    wStart      = $time;
+    end
 end
 
 always @(negedge R_Ack) begin
-   if (start==1) begin
-   	   rDelay = $time - rStart;
-   	   $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	   
-   	   R_Addr[6:0] = lastWriteAddr;
-           if (R_Addr == W_Addr) begin
-	       R_Addr = ~R_Addr;
-           end
-           GoR         = 1'b1;
-	   rStart      = $time;
-   end
+	if (start==1) begin
+   	   	rDelay = $time - rStart;
+   	   	$fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	 
+	   	readCount = readCount + 1;
+
+	   	if (readCount == 3) begin
+			$finish;
+		end  
+
+   	 	R_Addr[6:0] = lastWriteAddr;
+        if (R_Addr == W_Addr) begin
+	    	R_Addr = ~R_Addr;
+        end
+        GoR         = 1'b1;
+	    rStart      = $time;
+   	end
 end
 
 always @(posedge R_Ack) begin
-   if (start==1) begin
-   	   rDelay = $time - rStart;
-   	   $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	   
-           GoR         = 1'b0; 
-	   rStart      = $time;
-   end
+	if (start==1) begin
+   	    rDelay = $time - rStart;
+		$fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	   
+        GoR         = 1'b0; 
+		R_Addr[6:0] = 7'b0000000;
+	   	rStart      = $time;
+   	end
 end
 

@@ -6,8 +6,8 @@
   hierDelim "."
  )
 ( net
-( "gnd!" "0" )
-( "vdd!" "vdd!" )
+( "Sel<0>" "Sel_0" )
+( "Sel<1>" "Sel_1" )
  )
 ( inst
  )

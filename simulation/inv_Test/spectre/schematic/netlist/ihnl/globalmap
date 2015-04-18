@@ -1,0 +1,19 @@
+CADENCE IHNL01070
+$model
+16nm_Tests/inv_Test/schematic inv_Test
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+$endnet
+$param
+nfinn nfinn
+vdd vdd
+wp wp
+l l
+wn wn
+_EXPR_2 _EXPR_2
+_EXPR_1 _EXPR_1
+nfinp nfinp
+time2 time2
+$endparam

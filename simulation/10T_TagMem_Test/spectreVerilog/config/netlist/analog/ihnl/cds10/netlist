@@ -1,4 +1,47 @@
-    I6 (A B C net1) nand3_1x
-    I7 (net1 Y) inv_1x
-ends and3_1x
+    I7 (net5 net11 net1) and2
+    I6 (I_0 net11 net064) and2
+    I5 (net5 I_1 net062) and2
+    I4 (I_0 I_1 net068) and2
+    I3 (net37 net14 net079) and2
+    I2 (I_2 net14 net069) and2
+    I1 (net37 I_3 net19) and2
+    I0 (I_2 I_3 net055) and2
+    I76 (Reset net050) inv_1x
+    I11 (I_0 net5) inv_1x
+    I10 (I_1 net11) inv_1x
+    I9 (I_2 net37) inv_1x
+    I8 (I_3 net14) inv_1x
+    I59 (net068 net055 En net015) nand3_1x
+    I44 (net1 net079 En net0100) nand3_1x
+    I45 (net064 net079 En net099) nand3_1x
+    I46 (net062 net079 En net024) nand3_1x
+    I47 (net068 net079 En net023) nand3_1x
+    I48 (net1 net069 En net022) nand3_1x
+    I49 (net064 net069 En net021) nand3_1x
+    I50 (net062 net069 En net020) nand3_1x
+    I51 (net068 net069 En net019) nand3_1x
+    I52 (net1 net19 En net018) nand3_1x
+    I53 (net064 net19 En net017) nand3_1x
+    I54 (net062 net19 En net016) nand3_1x
+    I55 (net068 net19 En net011) nand3_1x
+    I56 (net1 net055 En net012) nand3_1x
+    I57 (net064 net055 En net013) nand3_1x
+    I58 (net062 net055 En net014) nand3_1x
+    I60 (net050 net0100 A_0) nand_1x
+    I65 (net050 net021 A_5) nand_1x
+    I66 (net050 net020 A_6) nand_1x
+    I67 (net050 net019 A_7) nand_1x
+    I68 (net050 net018 A_8) nand_1x
+    I69 (net050 net017 A_9) nand_1x
+    I70 (net050 net016 A_10) nand_1x
+    I71 (net050 net011 A_11) nand_1x
+    I72 (net050 net012 A_12) nand_1x
+    I73 (net050 net013 A_13) nand_1x
+    I74 (net050 net014 A_14) nand_1x
+    I75 (net050 net015 A_15) nand_1x
+    I64 (net050 net022 A_4) nand_1x
+    I63 (net050 net023 A_3) nand_1x
+    I62 (net050 net024 A_2) nand_1x
+    I61 (net050 net099 A_1) nand_1x
+ends Decode_4to16
 // End of subcircuit definition.

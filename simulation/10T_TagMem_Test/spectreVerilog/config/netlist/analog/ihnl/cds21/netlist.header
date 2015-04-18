@@ -1,21 +1,21 @@
 
 // Library name: 16nm
-// Cell name: 10T_DUAL_SRAM_REGFILE
+// Cell name: Mux_128to32
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub22 GoR GoW KRe KWe R0_31 R0_30 R0_29 R0_28 R0_27 R0_26 R0_25 \
-        R0_24 R0_23 R0_22 R0_21 R0_20 R0_19 R0_18 R0_17 R0_16 R0_15 \
-        R0_14 R0_13 R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 R0_6 R0_5 R0_4 \
-        R0_3 R0_2 R0_1 R0_0 R1_31 R1_30 R1_29 R1_28 R1_27 R1_26 R1_25 \
-        R1_24 R1_23 R1_22 R1_21 R1_20 R1_19 R1_18 R1_17 R1_16 R1_15 \
-        R1_14 R1_13 R1_12 R1_11 R1_10 R1_9 R1_8 R1_7 R1_6 R1_5 R1_4 \
-        R1_3 R1_2 R1_1 R1_0 R_Addr_4 R_Addr_3 R_Addr_2 R_Addr_1 \
-        R_Addr_0 Re Reset W0_31 W0_30 W0_29 W0_28 W0_27 W0_26 W0_25 \
-        W0_24 W0_23 W0_22 W0_21 W0_20 W0_19 W0_18 W0_17 W0_16 W0_15 \
-        W0_14 W0_13 W0_12 W0_11 W0_10 W0_9 W0_8 W0_7 W0_6 W0_5 W0_4 \
-        W0_3 W0_2 W0_1 W0_0 W1_31 W1_30 W1_29 W1_28 W1_27 W1_26 W1_25 \
-        W1_24 W1_23 W1_22 W1_21 W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 \
-        W1_14 W1_13 W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 \
-        W1_3 W1_2 W1_1 W1_0 W_Addr_4 W_Addr_3 W_Addr_2 W_Addr_1 \
-        W_Addr_0 We_7 We_6 We_5 We_4 We_3 We_2 We_1 We_0
+subckt Mux_128to32 En S_1 S_0 X1_31 X1_30 X1_29 X1_28 X1_27 X1_26 X1_25 \
+        X1_24 X1_23 X1_22 X1_21 X1_20 X1_19 X1_18 X1_17 X1_16 X1_15 \
+        X1_14 X1_13 X1_12 X1_11 X1_10 X1_9 X1_8 X1_7 X1_6 X1_5 X1_4 \
+        X1_3 X1_2 X1_1 X1_0 X2_31 X2_30 X2_29 X2_28 X2_27 X2_26 X2_25 \
+        X2_24 X2_23 X2_22 X2_21 X2_20 X2_19 X2_18 X2_17 X2_16 X2_15 \
+        X2_14 X2_13 X2_12 X2_11 X2_10 X2_9 X2_8 X2_7 X2_6 X2_5 X2_4 \
+        X2_3 X2_2 X2_1 X2_0 X3_31 X3_30 X3_29 X3_28 X3_27 X3_26 X3_25 \
+        X3_24 X3_23 X3_22 X3_21 X3_20 X3_19 X3_18 X3_17 X3_16 X3_15 \
+        X3_14 X3_13 X3_12 X3_11 X3_10 X3_9 X3_8 X3_7 X3_6 X3_5 X3_4 \
+        X3_3 X3_2 X3_1 X3_0 X4_31 X4_30 X4_29 X4_28 X4_27 X4_26 X4_25 \
+        X4_24 X4_23 X4_22 X4_21 X4_20 X4_19 X4_18 X4_17 X4_16 X4_15 \
+        X4_14 X4_13 X4_12 X4_11 X4_10 X4_9 X4_8 X4_7 X4_6 X4_5 X4_4 \
+        X4_3 X4_2 X4_1 X4_0 Y_31 Y_30 Y_29 Y_28 Y_27 Y_26 Y_25 Y_24 \
+        Y_23 Y_22 Y_21 Y_20 Y_19 Y_18 Y_17 Y_16 Y_15 Y_14 Y_13 Y_12 \
+        Y_11 Y_10 Y_9 Y_8 Y_7 Y_6 Y_5 Y_4 Y_3 Y_2 Y_1 Y_0

@@ -1,4 +1,10 @@
-    I6 (A B AnorB) nor_1x
-    I7 (AnorB Y) inv_1x
-ends or_1x
+    M5 (Y D vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M4 (Y C vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M7 (net23 D 0 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M6 (net25 C net23 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M3 (net24 B net25 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net24 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+ends nand4_1x
 // End of subcircuit definition.

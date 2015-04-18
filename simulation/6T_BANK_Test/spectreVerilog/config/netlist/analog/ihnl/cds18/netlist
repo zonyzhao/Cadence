@@ -1,8 +1,13 @@
-    I2 (net9 net10 Lack) nor_1x
-    I6 (L0 L1 net22 net19) xor_xnor
-    I8 (net10 \~R0) inv_1x
-    I7 (net9 \~R1) inv_1x
-    I1 (net19 Rack L1 net9) TH33
-    I0 (net19 L0 Rack net10) TH33
-ends _sub106
+    M5 (net017 C net21 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=yes
+    M4 (Y D net017 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=yes
+    M3 (net21 B net018 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=yes
+    M2 (net018 A vdd! vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (Y D 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor4_1x
 // End of subcircuit definition.
