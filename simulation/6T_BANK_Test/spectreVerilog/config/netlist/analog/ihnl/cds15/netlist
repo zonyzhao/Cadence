@@ -1,4 +1,4 @@
-    I7 (A B ntYbar) nand_1x
-    I6 (ntYbar Y) inv_1x
-ends and_1x
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
 // End of subcircuit definition.

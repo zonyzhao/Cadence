@@ -1,4 +1,4 @@
-Thu Apr 16 22:13:54 2015
+Fri Apr 17 19:04:08 2015
 
 BUILDING Network design (cell: 6T_BANK_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -55,13 +55,12 @@ Module nor4_1x, lib 16nm, view schematic, configViewString $default
 Module or4_1x, lib 16nm, view schematic, configViewString $default
 Module or16_1x, lib 16nm, view schematic, configViewString $default
 Module 6T_CONTROL, lib 16nm, view schematic, configViewString $default
-Module TH22~, lib 16nm, view schematic, configViewString $default
-Module nand_1x, lib 16nm, view schematic, configViewString $default
-Module and_1x, lib 16nm, view schematic, configViewString $default
+Module TH33, lib 16nm, view schematic, configViewString $default
+Module xor_xnor, lib 16nm, view schematic, configViewString $default
 Module WCHB~, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
-Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
-Module PCHB_FIFO, lib 16nm, view schematic, configViewString $default
+Module nand_1x, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
 Module WCHB, lib 16nm, view schematic, configViewString $default
 Module 6T_DATA, lib 16nm, view schematic, configViewString $default
 Module 6T_SetRead, lib 16nm, view schematic, configViewString $default

@@ -550,7 +550,7 @@ si: simSetDef().... hnlVerilogTriregbusList is initialized to "nil".
 si: simSetDef().... hnlVerilogPartialNet is initialized to "nil".
 si: simSetDef().... hnlVerilogTriregStrengthList is initialized to "nil".
 Loading the file
-'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 16 22:14:11 2015
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 17 19:04:10 2015
 si: simSetDef().... hnlInvalidNames is initialized to (("always" "always_")
 ("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
 "bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
@@ -799,5 +799,5 @@ inv_1xT                     functional           *Stopping View*
 INFO (VLOGNET-80): The library '16nm_Tests', cell '6T_BANK_Test', and view
 'config' has been netlisted successfully.
 
-End netlisting Apr 16 22:14:11 2015
-End MS Netlisting: Apr 16 22:14:11 2015
+End netlisting Apr 17 19:04:11 2015
+End MS Netlisting: Apr 17 19:04:11 2015
