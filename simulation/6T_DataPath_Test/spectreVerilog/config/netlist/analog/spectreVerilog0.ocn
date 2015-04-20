@@ -1,0 +1,67 @@
+simulator( 'spectreVerilog )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPath_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPath_Test/spectreVerilog/config" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "6n"  ?errpreset "conservative"  )
+desVar(	  "vdd" 0.850	)
+envOption(
+	'mspSetupNetlistSimPrecisionUnit  "ps" 
+	'mspSetupNetlistSimTimeUnit  "ps" 
+	'mspSetupNetlistSwitchRC  t 
+	'analysisOrder  list("tran") 
+)
+option(	'temp  "30.0" 
+)
+saveOption( ?simOutputFormat "psfxl" )
+temp( 30.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/~R0_1<0>") getData("/~R1_1<0>") getData("/WAck<1:0>") getData("/RData<7:0>") getData("/RAck<1:0>") getData("/RW<1:0>") getData("/Ack") getData("/A<15:0>") getData("/S<0>") getData("/Aline<0>") )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+option(	'dc_pivot_check  "yes" 
+	'pivotdc  "yes" 
+)
+run()
+selectResult( 'tran )
+plot(getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/~R0_1<0>") getData("/~R1_1<0>") getData("/WAck<1:0>") getData("/RData<7:0>") getData("/RAck<1:0>") getData("/RW<1:0>") getData("/Ack") getData("/A<15:0>") getData("/S<0>") getData("/Aline<0>") )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+option(	'dc_pivot_check  "" 
+	'pivotdc  "" 
+)
+run()
+selectResult( 'tran )
+plot(getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/~R0_1<0>") getData("/~R1_1<0>") getData("/WAck<1:0>") getData("/RData<7:0>") getData("/RAck<1:0>") getData("/RW<1:0>") getData("/Ack") getData("/A<15:0>") getData("/S<0>") getData("/Aline<0>") )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/~R0_1<0>") getData("/~R1_1<0>") getData("/WAck<1:0>") getData("/RData<7:0>") getData("/RAck<1:0>") getData("/RW<1:0>") getData("/Ack") getData("/A<15:0>") getData("/S<0>") getData("/Aline<0>") )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+converge( 'ic "/IDATA/Out1<0>" "vdd" )
+converge( 'ic "/IDATA/Out1<1>" "vdd" )
+converge( 'ic "/IDATA/Out1<2>" "vdd" )
+converge( 'ic "/IDATA/Out1<3>" "vdd" )
+converge( 'ic "/IDATA/Out0<0>" "vdd" )
+converge( 'ic "/IDATA/Out0<1>" "vdd" )
+converge( 'ic "/IDATA/Out0<2>" "vdd" )
+converge( 'ic "/IDATA/Out0<3>" "vdd" )
+converge( 'ic "/IDATA/Rack<0>" "vdd" )
+converge( 'ic "/IDATA/Rack<1>" "vdd" )
+converge( 'ic "/IDATA/Rack<2>" "vdd" )
+converge( 'ic "/IDATA/Rack<3>" "vdd" )
+converge( 'ic "/IDATA/I67<3>/net19" "0" )
+converge( 'ic "/IDATA/I67<3>/net18" "0" )
+converge( 'ic "/IDATA/R0q<3>" "0" )
+converge( 'ic "/IDATA/R1q<3>" "0" )
+run()
+selectResult( 'tran )
+plot(getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/~R0_1<0>") getData("/~R1_1<0>") getData("/WAck<1:0>") getData("/RData<7:0>") getData("/RAck<1:0>") getData("/RW<1:0>") getData("/Ack") getData("/A<15:0>") getData("/S<0>") getData("/Aline<0>") )

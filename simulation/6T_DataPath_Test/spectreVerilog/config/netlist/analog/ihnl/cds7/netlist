@@ -1,0 +1,19 @@
+    I32 (net019 R0i\+1) inv_1x
+    I5 (net032 R1i\+1) inv_1x
+    I12 (net031 net030 Ai) _sub38
+    M16 (net019 R0i net034 0) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M3 (net032 R1i net033 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net034 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M5 (net033 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M10 (net019 net022 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net032 net022 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    I6 (net032 net019 net031) nand_1x
+    I9 (R0i R1i net030) or_1x
+    I2 (R0i\+1 net019) inv_weak_1x
+    I33 (R1i\+1 net032) inv_weak_1x
+    I30 (Ai Ai\+1 net022) TH22
+ends PCHBd
+// End of subcircuit definition.

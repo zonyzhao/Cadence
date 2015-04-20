@@ -1,0 +1,14 @@
+
+// Library name: 16nm_Tests
+// Cell name: inv_test
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=vdd
+V3 (C\- 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 (timeS +delay) 0 \
+        (timeF +delay) vdd (timeS2 +delay) vdd (timeF2 +delay) 0 ]
+V2 (B\+ 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 \
+        (timeS +delay +delay) 0 (timeF +delay +delay) vdd \
+        (timeS2 +delay +delay +delay) vdd (timeF2 +delay +delay +delay) \
+        0 ]
+V6 (A 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 timeS 0 timeF vdd \
+        timeS2 vdd timeF2 0 ]
+I7 (A B\+ C\- Cout) THaC

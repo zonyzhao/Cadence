@@ -1,18 +1,8 @@
-    I15 (_1of4_1_3 _1of4_2_3 EnOut En A_15) and4_1x
-    I14 (_1of4_1_2 _1of4_2_3 EnOut En A_14) and4_1x
-    I13 (_1of4_1_1 _1of4_2_3 EnOut En A_13) and4_1x
-    I12 (_1of4_1_0 _1of4_2_3 EnOut En A_12) and4_1x
-    I11 (_1of4_1_3 _1of4_2_2 EnOut En A_11) and4_1x
-    I10 (_1of4_1_2 _1of4_2_2 EnOut En A_10) and4_1x
-    I9 (_1of4_1_1 _1of4_2_2 EnOut En A_9) and4_1x
-    I8 (_1of4_1_0 _1of4_2_2 EnOut En A_8) and4_1x
-    I7 (_1of4_1_3 _1of4_2_1 EnOut En A_7) and4_1x
-    I6 (_1of4_1_2 _1of4_2_1 EnOut En A_6) and4_1x
-    I5 (_1of4_1_1 _1of4_2_1 EnOut En A_5) and4_1x
-    I4 (_1of4_1_0 _1of4_2_1 EnOut En A_4) and4_1x
-    I3 (_1of4_1_3 _1of4_2_0 EnOut En A_3) and4_1x
-    I2 (_1of4_1_2 _1of4_2_0 EnOut En A_2) and4_1x
-    I1 (_1of4_1_1 _1of4_2_0 EnOut En A_1) and4_1x
-    I0 (_1of4_1_0 _1of4_2_0 EnOut En A_0) and4_1x
-ends Demux_2e1of4
+    I18 (pV_0 pV_1 pV_2 pV_3 ValAddr) nand4_1x
+    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
+    I19_3 (AddrAck_3 _1of4_5_3 pV_3) nand_1x
+    I19_2 (AddrAck_2 _1of4_5_2 pV_2) nand_1x
+    I19_1 (AddrAck_1 _1of4_5_1 pV_1) nand_1x
+    I19_0 (AddrAck_0 _1of4_5_0 pV_0) nand_1x
+ends _sub60
 // End of subcircuit definition.

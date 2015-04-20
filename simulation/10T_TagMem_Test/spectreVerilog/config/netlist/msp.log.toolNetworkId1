@@ -1,4 +1,4 @@
-Thu Apr 16 20:24:11 2015
+Mon Apr 20 01:16:36 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -9,7 +9,7 @@ GLOBAL ENVIRONMENT INFORMATION:
 	Default View List	
 	Stop View List	
 Switch View List Table:
-	Default IE Libname	analogLib
+	Default IE Libname	UCD_Analog_Parts
 	Default IE Cellname	MOS
 	Detail IE Generation Flag	FALSE
 Power and ground nets:
@@ -54,8 +54,6 @@ Module nor4_1x, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
 Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_1to2, lib 16nm, view schematic, configViewString $default
-Module nor_1x, lib 16nm, view schematic, configViewString $default
-Module or_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_4to16, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
 Module 10T, lib 16nm, view schematic, configViewString $default

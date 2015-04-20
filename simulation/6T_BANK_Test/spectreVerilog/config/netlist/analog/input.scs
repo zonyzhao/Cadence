@@ -1,5 +1,5 @@
 // Generated for: spectre
-// Generated on: Apr 18 03:54:31 2015
+// Generated on: Apr 19 18:14:55 2015
 // Design library name: 16nm_Tests
 // Design cell name: 6T_BANK_Test
 // Design view name: config
@@ -8,114 +8,114 @@ global 0 vdd! vcc!
 parameters vdd=.7 vcc=vdd
 include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 // BEGIN Flat Interface Elements
-// Flattened IE at /~ReadData<9> uses port path 99999
-// Flattened IE at /~ReadData<2> uses port path 99998
-// Flattened IE at /~WriteData<12> uses port path 99997
-// Flattened IE at /~WriteData<0> uses port path 99996
-// Flattened IE at /~A<17> uses port path 99995
-// Flattened IE at /~WriteData<23> uses port path 99994
-// Flattened IE at /~A<19> uses port path 99993
-// Flattened IE at /~A<5> uses port path 99992
-// Flattened IE at /~RAck<4> uses port path 99991
-// Flattened IE at /~A<12> uses port path 99990
-// Flattened IE at /~A<11> uses port path 99989
-// Flattened IE at /~A<10> uses port path 99988
-// Flattened IE at /~RAck<0> uses port path 99987
-// Flattened IE at /~WriteData<3> uses port path 99986
-// Flattened IE at /~A<13> uses port path 99985
-// Flattened IE at /~ReadData<31> uses port path 99984
-// Flattened IE at /~ReadData<30> uses port path 99983
-// Flattened IE at /~WriteData<21> uses port path 99982
-// Flattened IE at /~ReadData<20> uses port path 99981
-// Flattened IE at /~WAck<4> uses port path 99980
-// Flattened IE at /~WriteData<16> uses port path 99979
-// Flattened IE at /~A<3> uses port path 99978
-// Flattened IE at /~ReadData<5> uses port path 99977
-// Flattened IE at /~ReadData<23> uses port path 99976
-// Flattened IE at /~ReadData<1> uses port path 99975
-// Flattened IE at /~ReadData<25> uses port path 99974
-// Flattened IE at /~A<14> uses port path 99973
-// Flattened IE at /~ReadData<8> uses port path 99972
-// Flattened IE at /~WriteData<1> uses port path 99971
-// Flattened IE at /~WriteData<31> uses port path 99970
-// Flattened IE at /~WriteData<15> uses port path 99969
-// Flattened IE at /~ReadData<24> uses port path 99968
-// Flattened IE at /~WriteData<22> uses port path 99967
-// Flattened IE at /~WriteData<28> uses port path 99966
-// Flattened IE at /~A<1> uses port path 99965
-// Flattened IE at /~ReadData<19> uses port path 99964
-// Flattened IE at /~WriteData<27> uses port path 99963
-// Flattened IE at /~WriteData<26> uses port path 99962
-// Flattened IE at /~ReadData<16> uses port path 99961
-// Flattened IE at /~WriteData<20> uses port path 99960
-// Flattened IE at /~ReadData<26> uses port path 99959
-// Flattened IE at /~WriteData<17> uses port path 99958
-// Flattened IE at /~WriteData<2> uses port path 99957
-// Flattened IE at /~A<18> uses port path 99956
-// Flattened IE at /~WAck<3> uses port path 99955
-// Flattened IE at /~A<16> uses port path 99954
-// Flattened IE at /~ReadData<29> uses port path 99953
-// Flattened IE at /~RAck<1> uses port path 99952
-// Flattened IE at /~WriteData<18> uses port path 99951
-// Flattened IE at /~A<6> uses port path 99950
-// Flattened IE at /~WriteData<29> uses port path 99949
-// Flattened IE at /~WAck<2> uses port path 99948
-// Flattened IE at /~WriteData<14> uses port path 99947
-// Flattened IE at /~ReadData<21> uses port path 99946
-// Flattened IE at /~ReadData<13> uses port path 99945
-// Flattened IE at /~WAck<1> uses port path 99944
-// Flattened IE at /~ReadData<7> uses port path 99943
-// Flattened IE at /~ReadData<12> uses port path 99942
-// Flattened IE at /~ReadData<15> uses port path 99941
-// Flattened IE at /~WriteData<19> uses port path 99940
-// Flattened IE at /~ReadData<6> uses port path 99939
-// Flattened IE at /~ReadData<18> uses port path 99938
-// Flattened IE at /~RAck<7> uses port path 99937
-// Flattened IE at /~ReadData<22> uses port path 99936
-// Flattened IE at /~A<4> uses port path 99935
-// Flattened IE at /~ReadData<17> uses port path 99934
-// Flattened IE at /~RW<0> uses port path 99933
-// Flattened IE at /~ReadData<28> uses port path 99932
-// Flattened IE at /~ReadData<27> uses port path 99931
-// Flattened IE at /~RAck<6> uses port path 99930
-// Flattened IE at /~A<9> uses port path 99929
-// Flattened IE at /~RAck<3> uses port path 99928
-// Flattened IE at /~ReadData<10> uses port path 99927
-// Flattened IE at /~ReadData<14> uses port path 99926
-// Flattened IE at /~WAck<7> uses port path 99925
-// Flattened IE at /~WAck<5> uses port path 99924
-// Flattened IE at /~WriteData<25> uses port path 99923
-// Flattened IE at /~A<8> uses port path 99922
-// Flattened IE at /~WriteData<7> uses port path 99921
-// Flattened IE at /~RAck<5> uses port path 99920
-// Flattened IE at /~ReadData<0> uses port path 99919
-// Flattened IE at /~WAck<6> uses port path 99918
-// Flattened IE at /~RAck<2> uses port path 99917
-// Flattened IE at /~WAck<0> uses port path 99916
-// Flattened IE at /~WriteData<11> uses port path 99915
-// Flattened IE at /~A<2> uses port path 99914
-// Flattened IE at /net013<4> uses port path 99913
-// Flattened IE at /~WriteData<8> uses port path 99912
-// Flattened IE at /~RW<1> uses port path 99911
-// Flattened IE at /net013<2> uses port path 99910
-// Flattened IE at /net013<3> uses port path 99909
-// Flattened IE at /~Ack uses port path 99908
-// Flattened IE at /net013<0> uses port path 99907
-// Flattened IE at /net013<1> uses port path 99906
-// Flattened IE at /~WriteData<6> uses port path 99905
-// Flattened IE at /~WriteData<9> uses port path 99904
-// Flattened IE at /~WriteData<10> uses port path 99903
-// Flattened IE at /~WriteData<30> uses port path 99902
-// Flattened IE at /~A<0> uses port path 99901
-// Flattened IE at /~WriteData<5> uses port path 99900
-// Flattened IE at /~A<7> uses port path 99899
-// Flattened IE at /~WriteData<4> uses port path 99898
-// Flattened IE at /~A<15> uses port path 99897
-// Flattened IE at /~WriteData<13> uses port path 99896
-// Flattened IE at /~ReadData<3> uses port path 99895
-// Flattened IE at /~ReadData<11> uses port path 99894
-// Flattened IE at /~WriteData<24> uses port path 99893
-// Flattened IE at /~ReadData<4> uses port path 99892
+// Flattened IE at /~WAck<4> uses port path 99999
+// Flattened IE at /~ReadData<22> uses port path 99998
+// Flattened IE at /~A<2> uses port path 99997
+// Flattened IE at /~WAck<7> uses port path 99996
+// Flattened IE at /~WAck<6> uses port path 99995
+// Flattened IE at /~A<16> uses port path 99994
+// Flattened IE at /~WriteData<16> uses port path 99993
+// Flattened IE at /~ReadData<15> uses port path 99992
+// Flattened IE at /~ReadData<24> uses port path 99991
+// Flattened IE at /net013<2> uses port path 99990
+// Flattened IE at /~ReadData<1> uses port path 99989
+// Flattened IE at /~ReadData<31> uses port path 99988
+// Flattened IE at /~WriteData<6> uses port path 99987
+// Flattened IE at /~WriteData<5> uses port path 99986
+// Flattened IE at /~WriteData<12> uses port path 99985
+// Flattened IE at /~ReadData<28> uses port path 99984
+// Flattened IE at /~WriteData<30> uses port path 99983
+// Flattened IE at /~WriteData<8> uses port path 99982
+// Flattened IE at /~A<19> uses port path 99981
+// Flattened IE at /~A<14> uses port path 99980
+// Flattened IE at /~A<13> uses port path 99979
+// Flattened IE at /~ReadData<29> uses port path 99978
+// Flattened IE at /~WriteData<26> uses port path 99977
+// Flattened IE at /~ReadData<10> uses port path 99976
+// Flattened IE at /net013<4> uses port path 99975
+// Flattened IE at /~WAck<2> uses port path 99974
+// Flattened IE at /~WriteData<29> uses port path 99973
+// Flattened IE at /~WriteData<11> uses port path 99972
+// Flattened IE at /~WriteData<10> uses port path 99971
+// Flattened IE at /~ReadData<30> uses port path 99970
+// Flattened IE at /~A<8> uses port path 99969
+// Flattened IE at /~WAck<5> uses port path 99968
+// Flattened IE at /~A<17> uses port path 99967
+// Flattened IE at /~ReadData<20> uses port path 99966
+// Flattened IE at /~A<7> uses port path 99965
+// Flattened IE at /~WAck<0> uses port path 99964
+// Flattened IE at /~ReadData<19> uses port path 99963
+// Flattened IE at /~ReadData<23> uses port path 99962
+// Flattened IE at /~WriteData<1> uses port path 99961
+// Flattened IE at /~WriteData<25> uses port path 99960
+// Flattened IE at /~WriteData<20> uses port path 99959
+// Flattened IE at /~WriteData<22> uses port path 99958
+// Flattened IE at /~ReadData<18> uses port path 99957
+// Flattened IE at /~A<9> uses port path 99956
+// Flattened IE at /~A<5> uses port path 99955
+// Flattened IE at /~A<18> uses port path 99954
+// Flattened IE at /net013<3> uses port path 99953
+// Flattened IE at /~ReadData<9> uses port path 99952
+// Flattened IE at /~A<12> uses port path 99951
+// Flattened IE at /~WriteData<31> uses port path 99950
+// Flattened IE at /~RAck<3> uses port path 99949
+// Flattened IE at /~A<1> uses port path 99948
+// Flattened IE at /~WAck<3> uses port path 99947
+// Flattened IE at /~ReadData<8> uses port path 99946
+// Flattened IE at /~WriteData<27> uses port path 99945
+// Flattened IE at /~ReadData<16> uses port path 99944
+// Flattened IE at /~WriteData<9> uses port path 99943
+// Flattened IE at /~ReadData<7> uses port path 99942
+// Flattened IE at /~WriteData<13> uses port path 99941
+// Flattened IE at /~ReadData<21> uses port path 99940
+// Flattened IE at /~ReadData<25> uses port path 99939
+// Flattened IE at /~WriteData<7> uses port path 99938
+// Flattened IE at /~RAck<6> uses port path 99937
+// Flattened IE at /~WriteData<21> uses port path 99936
+// Flattened IE at /~WAck<1> uses port path 99935
+// Flattened IE at /~RAck<7> uses port path 99934
+// Flattened IE at /~RAck<5> uses port path 99933
+// Flattened IE at /~RAck<1> uses port path 99932
+// Flattened IE at /~WriteData<24> uses port path 99931
+// Flattened IE at /~RAck<4> uses port path 99930
+// Flattened IE at /~ReadData<4> uses port path 99929
+// Flattened IE at /~WriteData<28> uses port path 99928
+// Flattened IE at /~WriteData<23> uses port path 99927
+// Flattened IE at /~ReadData<27> uses port path 99926
+// Flattened IE at /~ReadData<14> uses port path 99925
+// Flattened IE at /~ReadData<5> uses port path 99924
+// Flattened IE at /~A<11> uses port path 99923
+// Flattened IE at /~A<10> uses port path 99922
+// Flattened IE at /~ReadData<3> uses port path 99921
+// Flattened IE at /~WriteData<14> uses port path 99920
+// Flattened IE at /~WriteData<18> uses port path 99919
+// Flattened IE at /~WriteData<19> uses port path 99918
+// Flattened IE at /~ReadData<0> uses port path 99917
+// Flattened IE at /~ReadData<13> uses port path 99916
+// Flattened IE at /~ReadData<11> uses port path 99915
+// Flattened IE at /~RAck<2> uses port path 99914
+// Flattened IE at /~WriteData<17> uses port path 99913
+// Flattened IE at /~ReadData<2> uses port path 99912
+// Flattened IE at /net013<1> uses port path 99911
+// Flattened IE at /~Ack uses port path 99910
+// Flattened IE at /~A<4> uses port path 99909
+// Flattened IE at /~ReadData<12> uses port path 99908
+// Flattened IE at /~ReadData<6> uses port path 99907
+// Flattened IE at /~A<15> uses port path 99906
+// Flattened IE at /~ReadData<17> uses port path 99905
+// Flattened IE at /~A<6> uses port path 99904
+// Flattened IE at /~A<0> uses port path 99903
+// Flattened IE at /~WriteData<4> uses port path 99902
+// Flattened IE at /~WriteData<2> uses port path 99901
+// Flattened IE at /~RW<0> uses port path 99900
+// Flattened IE at /~RAck<0> uses port path 99899
+// Flattened IE at /~RW<1> uses port path 99898
+// Flattened IE at /~WriteData<0> uses port path 99897
+// Flattened IE at /~WriteData<3> uses port path 99896
+// Flattened IE at /~ReadData<26> uses port path 99895
+// Flattened IE at /~WriteData<15> uses port path 99894
+// Flattened IE at /net013<0> uses port path 99893
+// Flattened IE at /~A<3> uses port path 99892
 // END Flat Interface Elements
 
 // Library name: 16nm
@@ -123,14 +123,14 @@ include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub143 A B0 B1
+subckt _sub50 A B0 B1
     M5 (Q0 Q1 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M4 (Q1 Q0 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M1 (Q1 A B1 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M0 (Q0 A B0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (Q0 Q1 vdd! vdd!) pfet w=50n l=20n nfin=1 m=1 degradation=yes
     M2 (Q1 Q0 vdd! vdd!) pfet w=50n l=20n nfin=1 m=1 degradation=yes
-ends _sub143
+ends _sub50
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -138,12 +138,12 @@ ends _sub143
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub144 A_3 A_2 A_1 A_0 B0 B1
-    I3 (A_0 B0 B1) _sub143
-    I2 (A_1 B0 B1) _sub143
-    I1 (A_2 B0 B1) _sub143
-    I0 (A_3 B0 B1) _sub143
-ends _sub144
+subckt _sub51 A_3 A_2 A_1 A_0 B0 B1
+    I3 (A_0 B0 B1) _sub50
+    I2 (A_1 B0 B1) _sub50
+    I1 (A_2 B0 B1) _sub50
+    I0 (A_3 B0 B1) _sub50
+ends _sub51
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -151,18 +151,18 @@ ends _sub144
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub145 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
+subckt _sub52 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
         A_20 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 \
         A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0 B1
-    I7 (A_3 A_2 A_1 A_0 B0 B1) _sub144
-    I6 (A_7 A_6 A_5 A_4 B0 B1) _sub144
-    I5 (A_11 A_10 A_9 A_8 B0 B1) _sub144
-    I4 (A_15 A_14 A_13 A_12 B0 B1) _sub144
-    I3 (A_19 A_18 A_17 A_16 B0 B1) _sub144
-    I2 (A_23 A_22 A_21 A_20 B0 B1) _sub144
-    I1 (A_27 A_26 A_25 A_24 B0 B1) _sub144
-    I0 (A_31 A_30 A_29 A_28 B0 B1) _sub144
-ends _sub145
+    I7 (A_3 A_2 A_1 A_0 B0 B1) _sub51
+    I6 (A_7 A_6 A_5 A_4 B0 B1) _sub51
+    I5 (A_11 A_10 A_9 A_8 B0 B1) _sub51
+    I4 (A_15 A_14 A_13 A_12 B0 B1) _sub51
+    I3 (A_19 A_18 A_17 A_16 B0 B1) _sub51
+    I2 (A_23 A_22 A_21 A_20 B0 B1) _sub51
+    I1 (A_27 A_26 A_25 A_24 B0 B1) _sub51
+    I0 (A_31 A_30 A_29 A_28 B0 B1) _sub51
+ends _sub52
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -170,7 +170,7 @@ ends _sub145
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub146 B0 B1 S W0 W1
+subckt _sub53 B0 B1 S W0 W1
     M10 (B1 B0 net22 vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
     M9 (net22 W0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
         degradation=yes
@@ -183,7 +183,7 @@ subckt _sub146 B0 B1 S W0 W1
     M5 (net24 S 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M4 (net25 S 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M3 (B0 W1 net25 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
-ends _sub146
+ends _sub53
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -208,22 +208,22 @@ ends nand4_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub147 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
+subckt _sub54 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
         A_20 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 \
         A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0 B1 S_3 S_2 S_1 S_0 W0 W1 SM0 \
         SM1
     I3 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P4 B1P4) _sub145
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P4 B1P4) _sub52
     I1 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P2 B1P2) _sub145
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P2 B1P2) _sub52
     I2 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P3 B1P3) _sub145
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P3 B1P3) _sub52
     I0 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P1 B1P1) _sub145
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P1 B1P1) _sub52
     M0 (B0P1 B0 net67 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
     M1 (net67 S_0 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
     M2 (net66 S_0 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
@@ -240,10 +240,10 @@ subckt _sub147 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
     M18 (net60 S_3 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
     M19 (B0P4 B0 net60 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
     M3 (B1P1 B1 net66 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    I4 (B0P1 B1P1 S_0 W0 W1) _sub146
-    I5 (B0P2 B1P2 S_1 W0 W1) _sub146
-    I6 (B0P3 B1P3 S_2 W0 W1) _sub146
-    I7 (B0P4 B1P4 S_3 W0 W1) _sub146
+    I4 (B0P1 B1P1 S_0 W0 W1) _sub53
+    I5 (B0P2 B1P2 S_1 W0 W1) _sub53
+    I6 (B0P3 B1P3 S_2 W0 W1) _sub53
+    I7 (B0P4 B1P4 S_3 W0 W1) _sub53
     I11 (B1P1 B1P2 B1P3 B1P4 SM1) nand4_1x
     I10 (B0P1 B0P2 B0P3 B0P4 SM0) nand4_1x
     C7 (B1P4 0) capacitor c=25a m=1
@@ -254,7 +254,7 @@ subckt _sub147 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
     C2 (B0P2 0) capacitor c=25a m=1
     C1 (B1P1 0) capacitor c=25a m=1
     C0 (B0P1 0) capacitor c=25a m=1
-ends _sub147
+ends _sub54
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -262,13 +262,13 @@ ends _sub147
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub148 Go SM0_0 SM0_1 SM1_0 SM1_1 \~R0 \~R1
+subckt _sub55 Go SM0_0 SM0_1 SM1_0 SM1_1 \~R0 \~R1
     M5 (\~R0 SM0_0 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (\~R0 SM0_1 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M2 (net18 Go 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M1 (\~R1 SM1_1 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M0 (\~R1 SM1_0 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends _sub148
+ends _sub55
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -276,7 +276,7 @@ ends _sub148
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub149 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 \
+subckt _sub56 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 \
         A_52 A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 \
         A_40 A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 \
         A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 \
@@ -287,44 +287,81 @@ subckt _sub149 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 \
     I11 (A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
         A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
         A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 B0_3 B1_3 S_7 S_6 S_5 \
-        S_4 W0_3 W1_3 SM0_1_bit3 SM1_1_bit3) _sub147
+        S_4 W0_3 W1_3 SM0_1_bit3 SM1_1_bit3) _sub54
     I10 (A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
         A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
         A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 B0_2 B1_2 S_7 S_6 S_5 \
-        S_4 W0_2 W1_2 SM0_1_bit2 SM1_1_bit2) _sub147
+        S_4 W0_2 W1_2 SM0_1_bit2 SM1_1_bit2) _sub54
     I9 (A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
         A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
         A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 B0_1 B1_1 S_7 S_6 S_5 \
-        S_4 W0_1 W1_1 SM0_1_bit1 SM1_1_bit1) _sub147
+        S_4 W0_1 W1_1 SM0_1_bit1 SM1_1_bit1) _sub54
     I8 (A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
         A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
         A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 B0_0 B1_0 S_7 S_6 S_5 \
-        S_4 W0_0 W1_0 SM0_1_bit0 SM1_1_bit0) _sub147
+        S_4 W0_0 W1_0 SM0_1_bit0 SM1_1_bit0) _sub54
     I3 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
         A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0_3 B1_3 S_3 S_2 S_1 S_0 W0_3 W1_3 \
-        SM0_0_bit3 SM1_0_bit3) _sub147
+        SM0_0_bit3 SM1_0_bit3) _sub54
     I2 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
         A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0_2 B1_2 S_3 S_2 S_1 S_0 W0_2 W1_2 \
-        SM0_0_bit2 SM1_0_bit2) _sub147
+        SM0_0_bit2 SM1_0_bit2) _sub54
     I1 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
         A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0_1 B1_1 S_3 S_2 S_1 S_0 W0_1 W1_1 \
-        SM0_0_bit1 SM1_0_bit1) _sub147
+        SM0_0_bit1 SM1_0_bit1) _sub54
     I0 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
         A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0_0 B1_0 S_3 S_2 S_1 S_0 W0_0 W1_0 \
-        SM0_0_bit0 SM1_0_bit0) _sub147
+        SM0_0_bit0 SM1_0_bit0) _sub54
     I7 (Go SM0_0_bit3 SM0_1_bit3 SM1_0_bit3 SM1_1_bit3 \~R0_3 \~R1_3) \
-        _sub148
+        _sub55
     I6 (Go SM0_0_bit2 SM0_1_bit2 SM1_0_bit2 SM1_1_bit2 \~R0_2 \~R1_2) \
-        _sub148
+        _sub55
     I5 (Go SM0_0_bit1 SM0_1_bit1 SM1_0_bit1 SM1_1_bit1 \~R0_1 \~R1_1) \
-        _sub148
+        _sub55
     I4 (Go SM0_0_bit0 SM0_1_bit0 SM1_0_bit0 SM1_1_bit0 \~R0_0 \~R1_0) \
-        _sub148
-ends _sub149
+        _sub55
+ends _sub56
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH22~
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub57 A B Y
+    I6 (net010 Y) inv_1x
+    M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+ends _sub57
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -355,6 +392,32 @@ ends nor_1x
 // End of subcircuit definition.
 
 // Library name: 16nm
+// Cell name: or_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt or_1x A B Y
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_weak_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_weak_1x A Y
+    M2 (net13 vdd! 0 0) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y A net13 0) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (net14 0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M1 (Y A net14 vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+ends inv_weak_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
 // Cell name: TH22
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
@@ -381,25 +444,29 @@ ends TH22
 // End of subcircuit definition.
 
 // Library name: 16nm
-// Cell name: inv_1x
+// Cell name: PCHBd
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt inv_1x A Y
-    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-ends inv_1x
-// End of subcircuit definition.
-
-// Library name: 16nm
-// Cell name: and_1x
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt and_1x A B Y
-    I7 (A B ntYbar) nand_1x
-    I6 (ntYbar Y) inv_1x
-ends and_1x
+subckt PCHBd Ai Ai\+1 R0i R0i\+1 R1i R1i\+1
+    I32 (net019 R0i\+1) inv_1x
+    I5 (net032 R1i\+1) inv_1x
+    I12 (net031 net030 Ai) _sub57
+    M16 (net019 R0i net034 0) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M3 (net032 R1i net033 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net034 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M5 (net033 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M10 (net019 net022 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net032 net022 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    I6 (net032 net019 net031) nand_1x
+    I9 (R0i R1i net030) or_1x
+    I2 (R0i\+1 net019) inv_weak_1x
+    I33 (R1i\+1 net032) inv_weak_1x
+    I30 (Ai Ai\+1 net022) TH22
+ends PCHBd
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -407,14 +474,10 @@ ends and_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt WCHB L0 L1 Lack R0 R1 Rack W0 W1
-    I10 (net22 net23 Lack) TH22
+subckt WCHB L0 L1 Lack R0 R1 Rack
     I1 (Rack L1 R1) TH22
     I0 (L0 Rack R0) TH22
-    I8 (Rack R1 W1) and_1x
-    I7 (R0 Rack W0) and_1x
-    I9 (W1 W0 net22) nor_1x
-    I6 (R1 R0 net23) nor_1x
+    I6 (R1 R0 Lack) nor_1x
 ends WCHB
 // End of subcircuit definition.
 
@@ -452,14 +515,66 @@ ends TH44
 // End of subcircuit definition.
 
 // Library name: 16nm
-// Cell name: or_1x
+// Cell name: and_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt or_1x A B Y
-    I6 (A B AnorB) nor_1x
-    I7 (AnorB Y) inv_1x
-ends or_1x
+subckt and_1x A B Y
+    I7 (A B ntYbar) nand_1x
+    I6 (ntYbar Y) inv_1x
+ends and_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: THaC
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt THaC A B\+ C\- Y
+    M6 (net7 net021 net11 net021) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    M5 (net7 A net33 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (net11 C\- 0 C\-) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M8 (net11 A 0 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M7 (net33 B\+ 0 B\+) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    I8 (net021 Y) inv_1x
+    I2 (net7 net021) inv_1x
+    M2 (net17 B\+ vdd! B\+) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net17 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M0 (net32 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M3 (net7 C\- net32 C\-) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M4 (net7 net021 net17 net021) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+ends THaC
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: PCHB_FIFO
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt PCHB_FIFO Ai R0i R0i\+1 R1i R1i\+1 W0 W1
+    I32 (net014 net023) inv_1x
+    I5 (net029 R1i\+1) inv_1x
+    I4 (net18 R0i\+1) inv_1x
+    I12 (net020 net023 net016 Ai) THaC
+    M5 (net026 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net22 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M3 (net029 R1i net026 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M2 (net18 R0i net22 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (net029 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net18 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    I6 (net029 net18 net016) nand_1x
+    I9 (R0i R1i net020) or_1x
+    I2 (R0i\+1 net18) inv_weak_1x
+    I3 (R1i\+1 net029) inv_weak_1x
+    I11 (Ai net025 net014) TH22
+    I31 (W1 W0 net025) nor_1x
+ends PCHB_FIFO
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -467,13 +582,11 @@ ends or_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub150 L0 L1 Lack Rack \~R0 \~R1
-    I2 (net9 net10 Lack) nor_1x
-    I8 (net10 \~R0) inv_1x
-    I7 (net9 \~R1) inv_1x
-    I10 (Rack L1 net9) TH22
-    I0 (L0 Rack net10) TH22
-ends _sub150
+subckt _sub58 L0 L1 Lack Rack \~R0 \~R1
+    I10 (Rack L1 \~R1) TH22
+    I0 (L0 Rack \~R0) TH22
+    I2 (\~R1 \~R0 Lack) and_1x
+ends _sub58
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -481,16 +594,17 @@ ends _sub150
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub151 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
+subckt _sub59 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
         R1_1of4_2 R1_1of4_1 R1_1of4_0 R2_1of4_3 R2_1of4_2 R2_1of4_1 \
         R2_1of4_0 RW_1 RW_0 Reset ValAddr W0_3 W0_2 W0_1 W0_0 W1_3 W1_2 \
         W1_1 W1_0 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 W2_1of4_3 \
         W2_1of4_2 W2_1of4_1 W2_1of4_0 AckThruBot AckThruTop RAck_1 \
         RAck_0 WAck_1 WAck_0 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_3 \~R1_2 \
         \~R1_1 \~R1_0
-    I45 (net030 Wen net047) nand_1x
-    I46 (net047 net046 Ack) nand_1x
-    I44 (Go net054 net046) nand_1x
+    I80_3 (Lack_3 RpAck_3 R0_3 R0q_3 R1_3 R1q_3) PCHBd
+    I80_2 (Lack_2 RpAck_2 R0_2 R0q_2 R1_2 R1q_2) PCHBd
+    I80_1 (Lack_1 RpAck_1 R0_1 R0q_1 R1_1 R1q_1) PCHBd
+    I80_0 (Lack_0 RpAck_0 R0_0 R0q_0 R1_0 R1q_0) PCHBd
     I54 (Out0_2 Out1_3 R2_1of4_2) nor_1x
     I53 (Out0_3 Out0_2 R2_1of4_3) nor_1x
     I52 (Out0_3 Out1_2 R2_1of4_1) nor_1x
@@ -499,10 +613,10 @@ subckt _sub151 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
     I49 (Out1_1 Out0_0 R1_1of4_2) nor_1x
     I47 (Out1_1 Out1_0 R1_1of4_0) nor_1x
     I48 (Out1_0 Out0_1 R1_1of4_1) nor_1x
-    I21 (B0p_0 B1p_0 wack_0 B0_0 B1_0 Wen W0_0 W1_0) WCHB
-    I24 (B0p_3 B1p_3 wack_3 B0_3 B1_3 Wen W0_3 W1_3) WCHB
-    I23 (B0p_2 B1p_2 wack_2 B0_2 B1_2 Wen W0_2 W1_2) WCHB
-    I22 (B0p_1 B1p_1 wack_1 B0_1 B1_1 Wen W0_1 W1_1) WCHB
+    I21 (B0p_0 B1p_0 net040 B0q_0 B1q_0 wack_0) WCHB
+    I24 (B0p_3 B1p_3 net043 B0q_3 B1q_3 wack_3) WCHB
+    I23 (B0p_2 B1p_2 net042 B0q_2 B1q_2 wack_2) WCHB
+    I22 (B0p_1 B1p_1 net041 B0q_1 B1q_1 wack_1) WCHB
     I43 (Lack_3 Lack_2 Lack_1 Lack_0 net054) TH44
     I29 (wack_3 wack_2 wack_1 wack_0 net030) TH44
     I18 (W2_1of4_2 W2_1of4_3 B0p_3) or_1x
@@ -513,8 +627,14 @@ subckt _sub151 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
     I15 (W2_1of4_0 W2_1of4_2 B1p_2) or_1x
     I1 (W1_1of4_1 W1_1of4_3 B0p_0) or_1x
     I0 (W1_1of4_0 W1_1of4_2 B1p_0) or_1x
-    I65 (RW_0 ValAddr Wen) and_1x
-    I38 (ValAddr RW_1 Go) and_1x
+    I78_3 (Wen B0_3 W0_3) and_1x
+    I78_2 (Wen B0_2 W0_2) and_1x
+    I78_1 (Wen B0_1 W0_1) and_1x
+    I78_0 (Wen B0_0 W0_0) and_1x
+    I77_3 (Wen B1_3 W1_3) and_1x
+    I77_2 (Wen B1_2 W1_2) and_1x
+    I77_1 (Wen B1_1 W1_1) and_1x
+    I77_0 (Wen B1_0 W1_0) and_1x
     M1_3 (\~R1_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
         degradation=yes
     M1_2 (\~R1_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
@@ -544,13 +664,78 @@ subckt _sub151 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go R1_1of4_3 \
     I62 (RAck_1 Rack_2) iprobe
     I56 (AckThruBot AckThruTop) iprobe
     I61 (RAck_1 Rack_3) iprobe
-    I58 (wack_1 wack_0 WAck_0) TH22
-    I57 (wack_2 wack_3 WAck_1) TH22
-    I67_3 (R0_3 R1_3 Lack_3 Rack_3 Out0_3 Out1_3) _sub150
-    I67_2 (R0_2 R1_2 Lack_2 Rack_2 Out0_2 Out1_2) _sub150
-    I67_1 (R0_1 R1_1 Lack_1 Rack_1 Out0_1 Out1_1) _sub150
-    I67_0 (R0_0 R1_0 Lack_0 Rack_0 Out0_0 Out1_0) _sub150
-ends _sub151
+    I65 (ValAddr RW_0 Wen) TH22
+    I58 (net041 net040 WAck_0) TH22
+    I38 (ValAddr RW_1 Go) TH22
+    I57 (net043 net042 WAck_1) TH22
+    I73 (wack_0 B0q_0 B0_0 B1q_0 B1_0 W0_0 W1_0) PCHB_FIFO
+    I74 (wack_1 B0q_1 B0_1 B1q_1 B1_1 W0_1 W1_1) PCHB_FIFO
+    I75 (wack_2 B0q_2 B0_2 B1q_2 B1_2 W0_2 W1_2) PCHB_FIFO
+    I76 (wack_3 B0q_3 B0_3 B1q_3 B1_3 W0_3 W1_3) PCHB_FIFO
+    I82 (net054 net030 Ack) nand_1x
+    I67_3 (R0q_3 R1q_3 RpAck_3 Rack_3 Out0_3 Out1_3) _sub58
+    I67_2 (R0q_2 R1q_2 RpAck_2 Rack_2 Out0_2 Out1_2) _sub58
+    I67_1 (R0q_1 R1q_1 RpAck_1 Rack_1 Out0_1 Out1_1) _sub58
+    I67_0 (R0q_0 R1q_0 RpAck_0 Rack_0 Out0_0 Out1_0) _sub58
+ends _sub59
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: 6T_CONTROL
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub60 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
+        _1of4_2_2 _1of4_2_1 _1of4_2_0 _1of4_3_3 _1of4_3_2 _1of4_3_1 \
+        _1of4_3_0 _1of4_4_3 _1of4_4_2 _1of4_4_1 _1of4_4_0 _1of4_5_3 \
+        _1of4_5_2 _1of4_5_1 _1of4_5_0 AddrAck_3 AddrAck_2 AddrAck_1 \
+        AddrAck_0 InAck_1 InAck_0 InAck_3 InAck_2 OutAck RW_1 RW_0 \
+        Reset ValAddr
+    I18 (pV_0 pV_1 pV_2 pV_3 ValAddr) nand4_1x
+    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
+    I19_3 (AddrAck_3 _1of4_5_3 pV_3) nand_1x
+    I19_2 (AddrAck_2 _1of4_5_2 pV_2) nand_1x
+    I19_1 (AddrAck_1 _1of4_5_1 pV_1) nand_1x
+    I19_0 (AddrAck_0 _1of4_5_0 pV_0) nand_1x
+ends _sub60
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: and4_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt and4_1x A B C D Y
+    I15 (A B C D net1) nand4_1x
+    I16 (net1 Y) inv_1x
+ends and4_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Demux_2e1of4
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Demux_2e1of4 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
+        _1of4_2_2 _1of4_2_1 _1of4_2_0 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
+        A_8 A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 En EnOut
+    I15 (_1of4_1_3 _1of4_2_3 EnOut En A_15) and4_1x
+    I14 (_1of4_1_2 _1of4_2_3 EnOut En A_14) and4_1x
+    I13 (_1of4_1_1 _1of4_2_3 EnOut En A_13) and4_1x
+    I12 (_1of4_1_0 _1of4_2_3 EnOut En A_12) and4_1x
+    I11 (_1of4_1_3 _1of4_2_2 EnOut En A_11) and4_1x
+    I10 (_1of4_1_2 _1of4_2_2 EnOut En A_10) and4_1x
+    I9 (_1of4_1_1 _1of4_2_2 EnOut En A_9) and4_1x
+    I8 (_1of4_1_0 _1of4_2_2 EnOut En A_8) and4_1x
+    I7 (_1of4_1_3 _1of4_2_1 EnOut En A_7) and4_1x
+    I6 (_1of4_1_2 _1of4_2_1 EnOut En A_6) and4_1x
+    I5 (_1of4_1_1 _1of4_2_1 EnOut En A_5) and4_1x
+    I4 (_1of4_1_0 _1of4_2_1 EnOut En A_4) and4_1x
+    I3 (_1of4_1_3 _1of4_2_0 EnOut En A_3) and4_1x
+    I2 (_1of4_1_2 _1of4_2_0 EnOut En A_2) and4_1x
+    I1 (_1of4_1_1 _1of4_2_0 EnOut En A_1) and4_1x
+    I0 (_1of4_1_0 _1of4_2_0 EnOut En A_0) and4_1x
+ends Demux_2e1of4
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -600,60 +785,6 @@ ends or4_1x
 // End of subcircuit definition.
 
 // Library name: 16nm
-// Cell name: 6T_CONTROL
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub152 A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 \
-        A_14 A_13 A_12 A_19 A_18 A_17 A_16 InAck_1 InAck_0 InAck_3 \
-        InAck_2 OutAck RW_1 RW_0 Reset ValAddr
-    I17 (net8 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 \
-        A_2 A_1 A_0) or16_1x
-    I15 (A_16 A_17 A_18 A_19 net7) or4_1x
-    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
-    I16 (net8 net7 ValAddr) or_1x
-ends _sub152
-// End of subcircuit definition.
-
-// Library name: 16nm
-// Cell name: and4_1x
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt and4_1x A B C D Y
-    I15 (A B C D net1) nand4_1x
-    I16 (net1 Y) inv_1x
-ends and4_1x
-// End of subcircuit definition.
-
-// Library name: 16nm
-// Cell name: Demux_2e1of4
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt Demux_2e1of4 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
-        _1of4_2_2 _1of4_2_1 _1of4_2_0 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
-        A_8 A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 En EnOut
-    I15 (_1of4_1_3 _1of4_2_3 EnOut En A_15) and4_1x
-    I14 (_1of4_1_2 _1of4_2_3 EnOut En A_14) and4_1x
-    I13 (_1of4_1_1 _1of4_2_3 EnOut En A_13) and4_1x
-    I12 (_1of4_1_0 _1of4_2_3 EnOut En A_12) and4_1x
-    I11 (_1of4_1_3 _1of4_2_2 EnOut En A_11) and4_1x
-    I10 (_1of4_1_2 _1of4_2_2 EnOut En A_10) and4_1x
-    I9 (_1of4_1_1 _1of4_2_2 EnOut En A_9) and4_1x
-    I8 (_1of4_1_0 _1of4_2_2 EnOut En A_8) and4_1x
-    I7 (_1of4_1_3 _1of4_2_1 EnOut En A_7) and4_1x
-    I6 (_1of4_1_2 _1of4_2_1 EnOut En A_6) and4_1x
-    I5 (_1of4_1_1 _1of4_2_1 EnOut En A_5) and4_1x
-    I4 (_1of4_1_0 _1of4_2_1 EnOut En A_4) and4_1x
-    I3 (_1of4_1_3 _1of4_2_0 EnOut En A_3) and4_1x
-    I2 (_1of4_1_2 _1of4_2_0 EnOut En A_2) and4_1x
-    I1 (_1of4_1_1 _1of4_2_0 EnOut En A_1) and4_1x
-    I0 (_1of4_1_0 _1of4_2_0 EnOut En A_0) and4_1x
-ends Demux_2e1of4
-// End of subcircuit definition.
-
-// Library name: 16nm
 // Cell name: Demux_3e1of4
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
@@ -665,7 +796,7 @@ subckt Demux_3e1of4 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
         A_41 A_40 A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 \
         A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 \
         A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 \
-        A_3 A_2 A_1 A_0 En
+        A_3 A_2 A_1 A_0 En AddrValid
     I3 (_1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 _1of4_2_2 \
         _1of4_2_1 _1of4_2_0 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 \
         A_55 A_54 A_53 A_52 A_51 A_50 A_49 A_48 En _1of4_3_3) \
@@ -681,33 +812,33 @@ subckt Demux_3e1of4 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
     I0 (_1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 _1of4_2_2 \
         _1of4_2_1 _1of4_2_0 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
         A_6 A_5 A_4 A_3 A_2 A_1 A_0 En _1of4_3_0) Demux_2e1of4
+    I8 (net22 A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 \
+        A_52 A_51 A_50 A_49 A_48) or16_1x
+    I7 (net23 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 A_39 A_38 A_37 \
+        A_36 A_35 A_34 A_33 A_32) or16_1x
+    I6 (net24 A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 \
+        A_20 A_19 A_18 A_17 A_16) or16_1x
+    I17 (net25 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 \
+        A_3 A_2 A_1 A_0) or16_1x
+    I11 (net25 net24 net23 net22 AddrValid) or4_1x
 ends Demux_3e1of4
 // End of subcircuit definition.
 
 // Library name: 16nm
-// Cell name: nand3_1x
+// Cell name: nor3_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt nand3_1x A B C Y
-    M4 (Y C vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M6 (net026 C 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-    M3 (net22 B net026 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-    M2 (Y A net22 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
-ends nand3_1x
-// End of subcircuit definition.
-
-// Library name: 16nm
-// Cell name: and3_1x
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt and3_1x A B C Y
-    I6 (A B C net1) nand3_1x
-    I7 (net1 Y) inv_1x
-ends and3_1x
+subckt nor3_1x A B C Y
+    M5 (Y C net21 vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=yes
+    M3 (net21 B net018 vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M2 (net018 A vdd! vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor3_1x
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -715,7 +846,7 @@ ends and3_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub153 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
+subckt _sub61 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
         _1of4_2_2 _1of4_2_1 _1of4_2_0 _1of4_3_3 _1of4_3_2 _1of4_3_1 \
         _1of4_3_0 _1of4_4_3 _1of4_4_2 _1of4_4_1 _1of4_4_0 A_63 A_62 \
         A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 A_51 A_50 \
@@ -723,7 +854,7 @@ subckt _sub153 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
         A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 A_28 A_27 A_26 \
         A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 A_16 A_15 A_14 \
         A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 En \
-        S_7 S_6 S_5 S_4 S_3 S_2 S_1 S_0
+        S_7 S_6 S_5 S_4 S_3 S_2 S_1 S_0 Ack
     I0 (_1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 _1of4_2_2 \
         _1of4_2_1 _1of4_2_0 _1of4_3_3 _1of4_3_2 _1of4_3_1 _1of4_3_0 \
         A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
@@ -731,18 +862,24 @@ subckt _sub153 _1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 \
         A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 A_28 \
         A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 A_16 \
         A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 A_2 \
-        A_1 A_0 En) Demux_3e1of4
-    I1_3 (_1of4_4_3 net23 En S_3) and3_1x
-    I1_2 (_1of4_4_2 net23 En S_2) and3_1x
-    I1_1 (_1of4_4_1 net23 En S_1) and3_1x
-    I1_0 (_1of4_4_0 net23 En S_0) and3_1x
-    I2_3 (_1of4_4_3 net22 En S_7) and3_1x
-    I2_2 (_1of4_4_2 net22 En S_6) and3_1x
-    I2_1 (_1of4_4_1 net22 En S_5) and3_1x
-    I2_0 (_1of4_4_0 net22 En S_4) and3_1x
-    I4 (_1of4_3_0 _1of4_3_1 net23) or_1x
-    I5 (_1of4_3_2 _1of4_3_3 net22) or_1x
-ends _sub153
+        A_1 A_0 En Ack) Demux_3e1of4
+    I10_3 (_1of4_4_3 net020_0) inv_1x
+    I10_2 (_1of4_4_2 net020_1) inv_1x
+    I10_1 (_1of4_4_1 net020_2) inv_1x
+    I10_0 (_1of4_4_0 net020_3) inv_1x
+    I9 (En net015) inv_1x
+    I6 (En net016) inv_1x
+    I5 (_1of4_3_2 _1of4_3_3 net22) nor_1x
+    I4 (_1of4_3_0 _1of4_3_1 net23) nor_1x
+    I2_3 (net020_0 net22 net015 S_7) nor3_1x
+    I2_2 (net020_1 net22 net015 S_6) nor3_1x
+    I2_1 (net020_2 net22 net015 S_5) nor3_1x
+    I2_0 (net020_3 net22 net015 S_4) nor3_1x
+    I1_3 (net020_0 net23 net016 S_3) nor3_1x
+    I1_2 (net020_1 net23 net016 S_2) nor3_1x
+    I1_1 (net020_2 net23 net016 S_1) nor3_1x
+    I1_0 (net020_3 net23 net016 S_0) nor3_1x
+ends _sub61
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -750,8 +887,8 @@ ends _sub153
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
-        A_8 A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 Ack Ctrl_Ack_4 Ctrl_Ack_3 \
+subckt _sub62 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 \
+        A_7 A_6 A_5 A_4 A_3 A_2 A_1 A_0 Ack Ctrl_Ack_4 Ctrl_Ack_3 \
         Ctrl_Ack_2 Ctrl_Ack_1 Ctrl_Ack_0 RD_8of32_31 RD_8of32_30 \
         RD_8of32_29 RD_8of32_28 RD_8of32_27 RD_8of32_26 RD_8of32_25 \
         RD_8of32_24 RD_8of32_23 RD_8of32_22 RD_8of32_21 RD_8of32_20 \
@@ -782,7 +919,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_4_3 B1_4_2 B1_4_1 B1_4_0 G04 net068_0 net068_1 net068_2 \
         net068_3 net068_4 net068_5 net068_6 net068_7 W0_4_3 W0_4_2 \
         W0_4_1 W0_4_0 W1_4_3 W1_4_2 W1_4_1 W1_4_0 \~R0_4_3 \~R0_4_2 \
-        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub149
+        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub56
     I14 (net0157_0 net0157_1 net0157_2 net0157_3 net0157_4 net0157_5 \
         net0157_6 net0157_7 net0157_8 net0157_9 net0157_10 net0157_11 \
         net0157_12 net0157_13 net0157_14 net0157_15 net0157_16 \
@@ -799,7 +936,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_4_1 B1_4_0 G04 net0131_0 net0131_1 net0131_2 net0131_3 \
         net0131_4 net0131_5 net0131_6 net0131_7 W0_4_3 W0_4_2 W0_4_1 \
         W0_4_0 W1_4_3 W1_4_2 W1_4_1 W1_4_0 \~R0_4_3 \~R0_4_2 \~R0_4_1 \
-        \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub149
+        \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub56
     I13 (net087_0 net087_1 net087_2 net087_3 net087_4 net087_5 net087_6 \
         net087_7 net087_8 net087_9 net087_10 net087_11 net087_12 \
         net087_13 net087_14 net087_15 net087_16 net087_17 net087_18 \
@@ -814,7 +951,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_4_3 B1_4_2 B1_4_1 B1_4_0 G04 net059_0 net059_1 net059_2 \
         net059_3 net059_4 net059_5 net059_6 net059_7 W0_4_3 W0_4_2 \
         W0_4_1 W0_4_0 W1_4_3 W1_4_2 W1_4_1 W1_4_0 \~R0_4_3 \~R0_4_2 \
-        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub149
+        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub56
     I12 (A_1_63 A_1_62 A_1_61 A_1_60 A_1_59 A_1_58 A_1_57 A_1_56 A_1_55 \
         A_1_54 A_1_53 A_1_52 A_1_51 A_1_50 A_1_49 A_1_48 A_1_47 A_1_46 \
         A_1_45 A_1_44 A_1_43 A_1_42 A_1_41 A_1_40 A_1_39 A_1_38 A_1_37 \
@@ -825,7 +962,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B0_4_3 B0_4_2 B0_4_1 B0_4_0 B1_4_3 B1_4_2 B1_4_1 B1_4_0 G04 \
         S_1_7 S_1_6 S_1_5 S_1_4 S_1_3 S_1_2 S_1_1 S_1_0 W0_4_3 W0_4_2 \
         W0_4_1 W0_4_0 W1_4_3 W1_4_2 W1_4_1 W1_4_0 \~R0_4_3 \~R0_4_2 \
-        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub149
+        \~R0_4_1 \~R0_4_0 \~R1_4_3 \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub56
     I11 (net096_0 net096_1 net096_2 net096_3 net096_4 net096_5 net096_6 \
         net096_7 net096_8 net096_9 net096_10 net096_11 net096_12 \
         net096_13 net096_14 net096_15 net096_16 net096_17 net096_18 \
@@ -840,7 +977,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_3_3 B1_3_2 B1_3_1 B1_3_0 G03 net068_0 net068_1 net068_2 \
         net068_3 net068_4 net068_5 net068_6 net068_7 W0_3_3 W0_3_2 \
         W0_3_1 W0_3_0 W1_3_3 W1_3_2 W1_3_1 W1_3_0 \~R0_3_3 \~R0_3_2 \
-        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub149
+        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub56
     I10 (net0157_0 net0157_1 net0157_2 net0157_3 net0157_4 net0157_5 \
         net0157_6 net0157_7 net0157_8 net0157_9 net0157_10 net0157_11 \
         net0157_12 net0157_13 net0157_14 net0157_15 net0157_16 \
@@ -857,7 +994,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_3_1 B1_3_0 G03 net0131_0 net0131_1 net0131_2 net0131_3 \
         net0131_4 net0131_5 net0131_6 net0131_7 W0_3_3 W0_3_2 W0_3_1 \
         W0_3_0 W1_3_3 W1_3_2 W1_3_1 W1_3_0 \~R0_3_3 \~R0_3_2 \~R0_3_1 \
-        \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub149
+        \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub56
     I9 (net087_0 net087_1 net087_2 net087_3 net087_4 net087_5 net087_6 \
         net087_7 net087_8 net087_9 net087_10 net087_11 net087_12 \
         net087_13 net087_14 net087_15 net087_16 net087_17 net087_18 \
@@ -872,7 +1009,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_3_3 B1_3_2 B1_3_1 B1_3_0 G03 net059_0 net059_1 net059_2 \
         net059_3 net059_4 net059_5 net059_6 net059_7 W0_3_3 W0_3_2 \
         W0_3_1 W0_3_0 W1_3_3 W1_3_2 W1_3_1 W1_3_0 \~R0_3_3 \~R0_3_2 \
-        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub149
+        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub56
     I8 (A_1_63 A_1_62 A_1_61 A_1_60 A_1_59 A_1_58 A_1_57 A_1_56 A_1_55 \
         A_1_54 A_1_53 A_1_52 A_1_51 A_1_50 A_1_49 A_1_48 A_1_47 A_1_46 \
         A_1_45 A_1_44 A_1_43 A_1_42 A_1_41 A_1_40 A_1_39 A_1_38 A_1_37 \
@@ -883,7 +1020,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B0_3_3 B0_3_2 B0_3_1 B0_3_0 B1_3_3 B1_3_2 B1_3_1 B1_3_0 G03 \
         S_1_7 S_1_6 S_1_5 S_1_4 S_1_3 S_1_2 S_1_1 S_1_0 W0_3_3 W0_3_2 \
         W0_3_1 W0_3_0 W1_3_3 W1_3_2 W1_3_1 W1_3_0 \~R0_3_3 \~R0_3_2 \
-        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub149
+        \~R0_3_1 \~R0_3_0 \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub56
     I7 (net096_0 net096_1 net096_2 net096_3 net096_4 net096_5 net096_6 \
         net096_7 net096_8 net096_9 net096_10 net096_11 net096_12 \
         net096_13 net096_14 net096_15 net096_16 net096_17 net096_18 \
@@ -898,7 +1035,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_2_3 B1_2_2 B1_2_1 B1_2_0 G02 net068_0 net068_1 net068_2 \
         net068_3 net068_4 net068_5 net068_6 net068_7 W0_2_3 W0_2_2 \
         W0_2_1 W0_2_0 W1_2_3 W1_2_2 W1_2_1 W1_2_0 \~R0_2_3 \~R0_2_2 \
-        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub149
+        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub56
     I6 (net0157_0 net0157_1 net0157_2 net0157_3 net0157_4 net0157_5 \
         net0157_6 net0157_7 net0157_8 net0157_9 net0157_10 net0157_11 \
         net0157_12 net0157_13 net0157_14 net0157_15 net0157_16 \
@@ -915,7 +1052,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_2_1 B1_2_0 G02 net0131_0 net0131_1 net0131_2 net0131_3 \
         net0131_4 net0131_5 net0131_6 net0131_7 W0_2_3 W0_2_2 W0_2_1 \
         W0_2_0 W1_2_3 W1_2_2 W1_2_1 W1_2_0 \~R0_2_3 \~R0_2_2 \~R0_2_1 \
-        \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub149
+        \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub56
     I5 (net087_0 net087_1 net087_2 net087_3 net087_4 net087_5 net087_6 \
         net087_7 net087_8 net087_9 net087_10 net087_11 net087_12 \
         net087_13 net087_14 net087_15 net087_16 net087_17 net087_18 \
@@ -930,7 +1067,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_2_3 B1_2_2 B1_2_1 B1_2_0 G02 net059_0 net059_1 net059_2 \
         net059_3 net059_4 net059_5 net059_6 net059_7 W0_2_3 W0_2_2 \
         W0_2_1 W0_2_0 W1_2_3 W1_2_2 W1_2_1 W1_2_0 \~R0_2_3 \~R0_2_2 \
-        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub149
+        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub56
     I4 (A_1_63 A_1_62 A_1_61 A_1_60 A_1_59 A_1_58 A_1_57 A_1_56 A_1_55 \
         A_1_54 A_1_53 A_1_52 A_1_51 A_1_50 A_1_49 A_1_48 A_1_47 A_1_46 \
         A_1_45 A_1_44 A_1_43 A_1_42 A_1_41 A_1_40 A_1_39 A_1_38 A_1_37 \
@@ -941,7 +1078,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B0_2_3 B0_2_2 B0_2_1 B0_2_0 B1_2_3 B1_2_2 B1_2_1 B1_2_0 G02 \
         S_1_7 S_1_6 S_1_5 S_1_4 S_1_3 S_1_2 S_1_1 S_1_0 W0_2_3 W0_2_2 \
         W0_2_1 W0_2_0 W1_2_3 W1_2_2 W1_2_1 W1_2_0 \~R0_2_3 \~R0_2_2 \
-        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub149
+        \~R0_2_1 \~R0_2_0 \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub56
     I3 (net096_0 net096_1 net096_2 net096_3 net096_4 net096_5 net096_6 \
         net096_7 net096_8 net096_9 net096_10 net096_11 net096_12 \
         net096_13 net096_14 net096_15 net096_16 net096_17 net096_18 \
@@ -956,7 +1093,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_1_3 B1_1_2 B1_1_1 B1_1_0 G01 net068_0 net068_1 net068_2 \
         net068_3 net068_4 net068_5 net068_6 net068_7 W0_1_3 W0_1_2 \
         W0_1_1 W0_1_0 W1_1_3 W1_1_2 W1_1_1 W1_1_0 \~R0_1_3 \~R0_1_2 \
-        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub149
+        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub56
     I2 (net0157_0 net0157_1 net0157_2 net0157_3 net0157_4 net0157_5 \
         net0157_6 net0157_7 net0157_8 net0157_9 net0157_10 net0157_11 \
         net0157_12 net0157_13 net0157_14 net0157_15 net0157_16 \
@@ -973,7 +1110,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_1_1 B1_1_0 G01 net0131_0 net0131_1 net0131_2 net0131_3 \
         net0131_4 net0131_5 net0131_6 net0131_7 W0_1_3 W0_1_2 W0_1_1 \
         W0_1_0 W1_1_3 W1_1_2 W1_1_1 W1_1_0 \~R0_1_3 \~R0_1_2 \~R0_1_1 \
-        \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub149
+        \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub56
     I1 (net087_0 net087_1 net087_2 net087_3 net087_4 net087_5 net087_6 \
         net087_7 net087_8 net087_9 net087_10 net087_11 net087_12 \
         net087_13 net087_14 net087_15 net087_16 net087_17 net087_18 \
@@ -988,7 +1125,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B1_1_3 B1_1_2 B1_1_1 B1_1_0 G01 net059_0 net059_1 net059_2 \
         net059_3 net059_4 net059_5 net059_6 net059_7 W0_1_3 W0_1_2 \
         W0_1_1 W0_1_0 W1_1_3 W1_1_2 W1_1_1 W1_1_0 \~R0_1_3 \~R0_1_2 \
-        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub149
+        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub56
     I0 (A_1_63 A_1_62 A_1_61 A_1_60 A_1_59 A_1_58 A_1_57 A_1_56 A_1_55 \
         A_1_54 A_1_53 A_1_52 A_1_51 A_1_50 A_1_49 A_1_48 A_1_47 A_1_46 \
         A_1_45 A_1_44 A_1_43 A_1_42 A_1_41 A_1_40 A_1_39 A_1_38 A_1_37 \
@@ -999,7 +1136,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         B0_1_3 B0_1_2 B0_1_1 B0_1_0 B1_1_3 B1_1_2 B1_1_1 B1_1_0 G01 \
         S_1_7 S_1_6 S_1_5 S_1_4 S_1_3 S_1_2 S_1_1 S_1_0 W0_1_3 W0_1_2 \
         W0_1_1 W0_1_0 W1_1_3 W1_1_2 W1_1_1 W1_1_0 \~R0_1_3 \~R0_1_2 \
-        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub149
+        \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \~R1_1_0) _sub56
     I25 (net042 B0_4_3 B0_4_2 B0_4_1 B0_4_0 B1_4_3 B1_4_2 B1_4_1 B1_4_0 \
         G04 RD_8of32_27 RD_8of32_26 RD_8of32_25 RD_8of32_24 RD_8of32_31 \
         RD_8of32_30 RD_8of32_29 RD_8of32_28 RW_1 RW_0 Reset ValAddr \
@@ -1007,7 +1144,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         WD_8of32_27 WD_8of32_26 WD_8of32_25 WD_8of32_24 WD_8of32_31 \
         WD_8of32_30 WD_8of32_29 WD_8of32_28 0 net0170 RD_Ack_7 RD_Ack_6 \
         WD_Ack_7 WD_Ack_6 \~R0_4_3 \~R0_4_2 \~R0_4_1 \~R0_4_0 \~R1_4_3 \
-        \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub151
+        \~R1_4_2 \~R1_4_1 \~R1_4_0) _sub59
     I22 (ck_2 B0_3_3 B0_3_2 B0_3_1 B0_3_0 B1_3_3 B1_3_2 B1_3_1 B1_3_0 \
         G03 RD_8of32_19 RD_8of32_18 RD_8of32_17 RD_8of32_16 RD_8of32_23 \
         RD_8of32_22 RD_8of32_21 RD_8of32_20 RW_1 RW_0 Reset ValAddr \
@@ -1015,7 +1152,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         WD_8of32_19 WD_8of32_18 WD_8of32_17 WD_8of32_16 WD_8of32_23 \
         WD_8of32_22 WD_8of32_21 WD_8of32_20 net042 ck_3 RD_Ack_5 \
         RD_Ack_4 WD_Ack_5 WD_Ack_4 \~R0_3_3 \~R0_3_2 \~R0_3_1 \~R0_3_0 \
-        \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub151
+        \~R1_3_3 \~R1_3_2 \~R1_3_1 \~R1_3_0) _sub59
     I21 (ck_0 B0_2_3 B0_2_2 B0_2_1 B0_2_0 B1_2_3 B1_2_2 B1_2_1 B1_2_0 \
         G02 RD_8of32_11 RD_8of32_10 RD_8of32_9 RD_8of32_8 RD_8of32_15 \
         RD_8of32_14 RD_8of32_13 RD_8of32_12 RW_1 RW_0 Reset ValAddr \
@@ -1023,7 +1160,7 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         WD_8of32_11 WD_8of32_10 WD_8of32_9 WD_8of32_8 WD_8of32_15 \
         WD_8of32_14 WD_8of32_13 WD_8of32_12 ck_1 net027 RD_Ack_3 \
         RD_Ack_2 WD_Ack_3 WD_Ack_2 \~R0_2_3 \~R0_2_2 \~R0_2_1 \~R0_2_0 \
-        \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub151
+        \~R1_2_3 \~R1_2_2 \~R1_2_1 \~R1_2_0) _sub59
     I20 (net027 B0_1_3 B0_1_2 B0_1_1 B0_1_0 B1_1_3 B1_1_2 B1_1_1 B1_1_0 \
         G01 RD_8of32_3 RD_8of32_2 RD_8of32_1 RD_8of32_0 RD_8of32_7 \
         RD_8of32_6 RD_8of32_5 RD_8of32_4 RW_1 RW_0 Reset ValAddr W0_1_3 \
@@ -1031,10 +1168,10 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         WD_8of32_2 WD_8of32_1 WD_8of32_0 WD_8of32_7 WD_8of32_6 \
         WD_8of32_5 WD_8of32_4 net0173 0 RD_Ack_1 RD_Ack_0 WD_Ack_1 \
         WD_Ack_0 \~R0_1_3 \~R0_1_2 \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \
-        \~R1_1_1 \~R1_1_0) _sub151
+        \~R1_1_1 \~R1_1_0) _sub59
     I24 (A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 \
-        A_13 A_12 A_19 A_18 A_17 A_16 ck_1 ck_0 ck_3 ck_2 net09 RW_1 \
-        RW_0 Reset ValAddr) _sub152
+        A_13 A_12 A_19 A_18 A_17 A_16 AvAck_3 AvAck_2 AvAck_1 AvAck_0 \
+        ck_1 ck_0 ck_3 ck_2 net09 RW_1 RW_0 Reset ValAddr) _sub60
     I30 (net09 Ack) inv_1x
     I29_4 (net09 Ctrl_Ack_4) inv_1x
     I29_3 (net09 Ctrl_Ack_3) inv_1x
@@ -1053,7 +1190,8 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         net096_48 net096_49 net096_50 net096_51 net096_52 net096_53 \
         net096_54 net096_55 net096_56 net096_57 net096_58 net096_59 \
         net096_60 net096_61 net096_62 net096_63 A_19 net068_0 net068_1 \
-        net068_2 net068_3 net068_4 net068_5 net068_6 net068_7) _sub153
+        net068_2 net068_3 net068_4 net068_5 net068_6 net068_7 AvAck_3) \
+        _sub61
     I18 (A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 \
         A_13 A_12 net0157_0 net0157_1 net0157_2 net0157_3 net0157_4 \
         net0157_5 net0157_6 net0157_7 net0157_8 net0157_9 net0157_10 \
@@ -1068,8 +1206,8 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         net0157_51 net0157_52 net0157_53 net0157_54 net0157_55 \
         net0157_56 net0157_57 net0157_58 net0157_59 net0157_60 \
         net0157_61 net0157_62 net0157_63 A_18 net0131_0 net0131_1 \
-        net0131_2 net0131_3 net0131_4 net0131_5 net0131_6 net0131_7) \
-        _sub153
+        net0131_2 net0131_3 net0131_4 net0131_5 net0131_6 net0131_7 \
+        AvAck_2) _sub61
     I17 (A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 \
         A_13 A_12 net087_0 net087_1 net087_2 net087_3 net087_4 net087_5 \
         net087_6 net087_7 net087_8 net087_9 net087_10 net087_11 \
@@ -1082,7 +1220,8 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         net087_48 net087_49 net087_50 net087_51 net087_52 net087_53 \
         net087_54 net087_55 net087_56 net087_57 net087_58 net087_59 \
         net087_60 net087_61 net087_62 net087_63 A_17 net059_0 net059_1 \
-        net059_2 net059_3 net059_4 net059_5 net059_6 net059_7) _sub153
+        net059_2 net059_3 net059_4 net059_5 net059_6 net059_7 AvAck_1) \
+        _sub61
     I16 (A_3 A_2 A_1 A_0 A_7 A_6 A_5 A_4 A_11 A_10 A_9 A_8 A_15 A_14 \
         A_13 A_12 A_1_63 A_1_62 A_1_61 A_1_60 A_1_59 A_1_58 A_1_57 \
         A_1_56 A_1_55 A_1_54 A_1_53 A_1_52 A_1_51 A_1_50 A_1_49 A_1_48 \
@@ -1092,8 +1231,8 @@ subckt _sub154 A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 \
         A_1_20 A_1_19 A_1_18 A_1_17 A_1_16 A_1_15 A_1_14 A_1_13 A_1_12 \
         A_1_11 A_1_10 A_1_9 A_1_8 A_1_7 A_1_6 A_1_5 A_1_4 A_1_3 A_1_2 \
         A_1_1 A_1_0 A_16 S_1_7 S_1_6 S_1_5 S_1_4 S_1_3 S_1_2 S_1_1 \
-        S_1_0) _sub153
-ends _sub154
+        S_1_0 AvAck_0) _sub61
+ends _sub62
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -1132,7 +1271,7 @@ IBank (AT_19 AT_18 AT_17 AT_16 AT_15 AT_14 AT_13 AT_12 AT_11 AT_10 AT_9 \
         WriteDataT_11 WriteDataT_10 WriteDataT_9 WriteDataT_8 \
         WriteDataT_7 WriteDataT_6 WriteDataT_5 WriteDataT_4 \
         WriteDataT_3 WriteDataT_2 WriteDataT_1 WriteDataT_0 WAck_7 \
-        WAck_6 WAck_5 WAck_4 WAck_3 WAck_2 WAck_1 WAck_0) _sub154
+        WAck_6 WAck_5 WAck_4 WAck_3 WAck_2 WAck_1 WAck_0) _sub62
 I15_4 (net018_0 net013_0) inv_1xt
 I15_3 (net018_1 net013_1) inv_1xt
 I15_2 (net018_2 net013_2) inv_1xt
@@ -1242,255 +1381,262 @@ I5_2 (\~WriteData_2 WriteDataT_2) inv_1xt
 I5_1 (\~WriteData_1 WriteDataT_1) inv_1xt
 I5_0 (\~WriteData_0 WriteDataT_0) inv_1xt
 // BEGIN Hierarchical Interface Elements
-_ie99892 (\~ReadData_4 0) a2d dest="99892" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99893 (\~WriteData_24 0) d2a src="99893" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99894 (\~ReadData_11 0) a2d dest="99894" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99895 (\~ReadData_3 0) a2d dest="99895" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99896 (\~WriteData_13 0) d2a src="99896" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99897 (\~A_15 0) d2a src="99897" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99898 (\~WriteData_4 0) d2a src="99898" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99899 (\~A_7 0) d2a src="99899" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99892 (\~A_3 0) d2a src="99892" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99900 (\~WriteData_5 0) d2a src="99900" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99893 (net013_0 0) a2d dest="99893" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99894 (\~WriteData_15 0) d2a src="99894" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99895 (\~ReadData_26 0) a2d dest="99895" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99896 (\~WriteData_3 0) d2a src="99896" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99901 (\~A_0 0) d2a src="99901" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99897 (\~WriteData_0 0) d2a src="99897" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99898 (\~RW_1 0) d2a src="99898" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99899 (\~RAck_0 0) d2a src="99899" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99900 (\~RW_0 0) d2a src="99900" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99901 (\~WriteData_2 0) d2a src="99901" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99902 (\~WriteData_4 0) d2a src="99902" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99903 (\~A_0 0) d2a src="99903" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99902 (\~WriteData_30 0) d2a src="99902" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99903 (\~WriteData_10 0) d2a src="99903" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99904 (\~WriteData_9 0) d2a src="99904" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99905 (\~WriteData_6 0) d2a src="99905" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99906 (net013_1 0) a2d dest="99906" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99907 (net013_0 0) a2d dest="99907" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99908 (\~Ack 0) a2d dest="99908" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99909 (net013_3 0) a2d dest="99909" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99910 (net013_2 0) a2d dest="99910" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99911 (\~RW_1 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99912 (\~WriteData_8 0) d2a src="99912" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99913 (net013_4 0) a2d dest="99913" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99914 (\~A_2 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99904 (\~A_6 0) d2a src="99904" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99915 (\~WriteData_11 0) d2a src="99915" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99916 (\~WAck_0 0) a2d dest="99916" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99917 (\~RAck_2 0) d2a src="99917" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99918 (\~WAck_6 0) a2d dest="99918" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99919 (\~ReadData_0 0) a2d dest="99919" vl=0.3*vdd vh=0.7*vdd \
+_ie99905 (\~ReadData_17 0) a2d dest="99905" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99920 (\~RAck_5 0) d2a src="99920" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99906 (\~A_15 0) d2a src="99906" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99921 (\~WriteData_7 0) d2a src="99921" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99922 (\~A_8 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99907 (\~ReadData_6 0) a2d dest="99907" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99908 (\~ReadData_12 0) a2d dest="99908" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99909 (\~A_4 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99923 (\~WriteData_25 0) d2a src="99923" val0=0.0 val1=vdd \
+_ie99910 (\~Ack 0) a2d dest="99910" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99911 (net013_1 0) a2d dest="99911" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99912 (\~ReadData_2 0) a2d dest="99912" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99913 (\~WriteData_17 0) d2a src="99913" val0=0.0 val1=vdd \
         valx=vdd/2 rise=2p fall=2p
-_ie99924 (\~WAck_5 0) a2d dest="99924" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99925 (\~WAck_7 0) a2d dest="99925" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99926 (\~ReadData_14 0) a2d dest="99926" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99927 (\~ReadData_10 0) a2d dest="99927" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99928 (\~RAck_3 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99914 (\~RAck_2 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99929 (\~A_9 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99915 (\~ReadData_11 0) a2d dest="99915" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99916 (\~ReadData_13 0) a2d dest="99916" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99917 (\~ReadData_0 0) a2d dest="99917" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99918 (\~WriteData_19 0) d2a src="99918" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99919 (\~WriteData_18 0) d2a src="99919" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99920 (\~WriteData_14 0) d2a src="99920" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99921 (\~ReadData_3 0) a2d dest="99921" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99922 (\~A_10 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99923 (\~A_11 0) d2a src="99923" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99924 (\~ReadData_5 0) a2d dest="99924" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99925 (\~ReadData_14 0) a2d dest="99925" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99926 (\~ReadData_27 0) a2d dest="99926" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99927 (\~WriteData_23 0) d2a src="99927" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99928 (\~WriteData_28 0) d2a src="99928" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99929 (\~ReadData_4 0) a2d dest="99929" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99930 (\~RAck_4 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99931 (\~WriteData_24 0) d2a src="99931" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99932 (\~RAck_1 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99933 (\~RAck_5 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99934 (\~RAck_7 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99935 (\~WAck_1 0) a2d dest="99935" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99936 (\~WriteData_21 0) d2a src="99936" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99937 (\~RAck_6 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99938 (\~WriteData_7 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99939 (\~ReadData_25 0) a2d dest="99939" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99940 (\~ReadData_21 0) a2d dest="99940" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99941 (\~WriteData_13 0) d2a src="99941" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99942 (\~ReadData_7 0) a2d dest="99942" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99943 (\~WriteData_9 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99944 (\~ReadData_16 0) a2d dest="99944" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99945 (\~WriteData_27 0) d2a src="99945" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99946 (\~ReadData_8 0) a2d dest="99946" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99947 (\~WAck_3 0) a2d dest="99947" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99948 (\~A_1 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99930 (\~RAck_6 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99949 (\~RAck_3 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99931 (\~ReadData_27 0) a2d dest="99931" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99932 (\~ReadData_28 0) a2d dest="99932" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99933 (\~RW_0 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99950 (\~WriteData_31 0) d2a src="99950" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99951 (\~A_12 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99934 (\~ReadData_17 0) a2d dest="99934" vl=0.3*vdd vh=0.7*vdd \
+_ie99952 (\~ReadData_9 0) a2d dest="99952" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99935 (\~A_4 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99953 (net013_3 0) a2d dest="99953" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99954 (\~A_18 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99955 (\~A_5 0) d2a src="99955" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99936 (\~ReadData_22 0) a2d dest="99936" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99937 (\~RAck_7 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99938 (\~ReadData_18 0) a2d dest="99938" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99939 (\~ReadData_6 0) a2d dest="99939" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99940 (\~WriteData_19 0) d2a src="99940" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99941 (\~ReadData_15 0) a2d dest="99941" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99942 (\~ReadData_12 0) a2d dest="99942" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99943 (\~ReadData_7 0) a2d dest="99943" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99944 (\~WAck_1 0) a2d dest="99944" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99945 (\~ReadData_13 0) a2d dest="99945" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99946 (\~ReadData_21 0) a2d dest="99946" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99947 (\~WriteData_14 0) d2a src="99947" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99948 (\~WAck_2 0) a2d dest="99948" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99949 (\~WriteData_29 0) d2a src="99949" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99950 (\~A_6 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99956 (\~A_9 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99951 (\~WriteData_18 0) d2a src="99951" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99952 (\~RAck_1 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99953 (\~ReadData_29 0) a2d dest="99953" vl=0.3*vdd vh=0.7*vdd \
+_ie99957 (\~ReadData_18 0) a2d dest="99957" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99954 (\~A_16 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99958 (\~WriteData_22 0) d2a src="99958" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99959 (\~WriteData_20 0) d2a src="99959" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99960 (\~WriteData_25 0) d2a src="99960" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99961 (\~WriteData_1 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99955 (\~WAck_3 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99956 (\~A_18 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99957 (\~WriteData_2 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99958 (\~WriteData_17 0) d2a src="99958" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99959 (\~ReadData_26 0) a2d dest="99959" vl=0.3*vdd vh=0.7*vdd \
+_ie99962 (\~ReadData_23 0) a2d dest="99962" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99960 (\~WriteData_20 0) d2a src="99960" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99961 (\~ReadData_16 0) a2d dest="99961" vl=0.3*vdd vh=0.7*vdd \
+_ie99963 (\~ReadData_19 0) a2d dest="99963" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99962 (\~WriteData_26 0) d2a src="99962" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99963 (\~WriteData_27 0) d2a src="99963" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99964 (\~ReadData_19 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99965 (\~A_1 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99964 (\~WAck_0 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (\~A_7 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99966 (\~WriteData_28 0) d2a src="99966" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99967 (\~WriteData_22 0) d2a src="99967" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99968 (\~ReadData_24 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd \
+_ie99966 (\~ReadData_20 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99969 (\~WriteData_15 0) d2a src="99969" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99970 (\~WriteData_31 0) d2a src="99970" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99971 (\~WriteData_1 0) d2a src="99971" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99967 (\~A_17 0) d2a src="99967" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99972 (\~ReadData_8 0) a2d dest="99972" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99973 (\~A_14 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99974 (\~ReadData_25 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99975 (\~ReadData_1 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99976 (\~ReadData_23 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99977 (\~ReadData_5 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99978 (\~A_3 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99968 (\~WAck_5 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99969 (\~A_8 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99979 (\~WriteData_16 0) d2a src="99979" val0=0.0 val1=vdd \
+_ie99970 (\~ReadData_30 0) a2d dest="99970" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99971 (\~WriteData_10 0) d2a src="99971" val0=0.0 val1=vdd \
         valx=vdd/2 rise=2p fall=2p
-_ie99980 (\~WAck_4 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99981 (\~ReadData_20 0) a2d dest="99981" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
-_ie99982 (\~WriteData_21 0) d2a src="99982" val0=0.0 val1=vdd \
+_ie99972 (\~WriteData_11 0) d2a src="99972" val0=0.0 val1=vdd \
         valx=vdd/2 rise=2p fall=2p
-_ie99983 (\~ReadData_30 0) a2d dest="99983" vl=0.3*vdd vh=0.7*vdd \
+_ie99973 (\~WriteData_29 0) d2a src="99973" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99974 (\~WAck_2 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99975 (net013_4 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99976 (\~ReadData_10 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99984 (\~ReadData_31 0) a2d dest="99984" vl=0.3*vdd vh=0.7*vdd \
+_ie99977 (\~WriteData_26 0) d2a src="99977" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99978 (\~ReadData_29 0) a2d dest="99978" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99985 (\~A_13 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99979 (\~A_13 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99986 (\~WriteData_3 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99980 (\~A_14 0) d2a src="99980" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99987 (\~RAck_0 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99981 (\~A_19 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99988 (\~A_10 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99982 (\~WriteData_8 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99989 (\~A_11 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99983 (\~WriteData_30 0) d2a src="99983" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99984 (\~ReadData_28 0) a2d dest="99984" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99985 (\~WriteData_12 0) d2a src="99985" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99986 (\~WriteData_5 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99990 (\~A_12 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99987 (\~WriteData_6 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99991 (\~RAck_4 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99988 (\~ReadData_31 0) a2d dest="99988" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99989 (\~ReadData_1 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99990 (net013_2 0) a2d dest="99990" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99991 (\~ReadData_24 0) a2d dest="99991" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99992 (\~ReadData_15 0) a2d dest="99992" vl=0.3*vdd vh=0.7*vdd \
+        timex=20n
+_ie99993 (\~WriteData_16 0) d2a src="99993" val0=0.0 val1=vdd \
+        valx=vdd/2 rise=2p fall=2p
+_ie99994 (\~A_16 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99992 (\~A_5 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+_ie99995 (\~WAck_6 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99996 (\~WAck_7 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99997 (\~A_2 0) d2a src="99997" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
         fall=2p
-_ie99993 (\~A_19 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99994 (\~WriteData_23 0) d2a src="99994" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99995 (\~A_17 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99996 (\~WriteData_0 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99997 (\~WriteData_12 0) d2a src="99997" val0=0.0 val1=vdd \
-        valx=vdd/2 rise=2p fall=2p
-_ie99998 (\~ReadData_2 0) a2d dest="99998" vl=0.3*vdd vh=0.7*vdd \
+_ie99998 (\~ReadData_22 0) a2d dest="99998" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99999 (\~ReadData_9 0) a2d dest="99999" vl=0.3*vdd vh=0.7*vdd \
-        timex=20n
+_ie99999 (\~WAck_4 0) a2d dest="99999" vl=0.3*vdd vh=0.7*vdd timex=20n
 // END Hierarchical Interface Elements
-ic IBank.I20.I67_3.net9=0 IBank.I20.I67_3.net10=0 IBank.I20.B0p_0=0 \
-    IBank.I20.B1p_0=0 IBank.I20.B1p_1=0 IBank.I20.B0p_1=0 \
-    IBank.I20.B1p_2=0 IBank.I20.B0p_2=0 IBank.I20.B1p_3=0 \
-    IBank.I20.B0p_3=0 IBank.I20.Out1_3=vdd IBank.I20.Out1_2=vdd \
-    IBank.I20.Out1_1=vdd IBank.I20.Out1_0=vdd IBank.I20.Out0_3=vdd \
-    IBank.I20.Out0_2=vdd IBank.I20.Out0_1=vdd IBank.I20.Out0_0=vdd \
-    ReaDataT_31=0 ReaDataT_30=0 ReaDataT_29=0 ReaDataT_28=0 ReaDataT_27=0 \
-    ReaDataT_26=0 ReaDataT_25=0 ReaDataT_24=0 ReaDataT_23=0 ReaDataT_22=0 \
-    ReaDataT_21=0 ReaDataT_20=0 ReaDataT_19=0 ReaDataT_18=0 ReaDataT_17=0 \
-    ReaDataT_16=0 ReaDataT_15=0 ReaDataT_14=0 ReaDataT_13=0 ReaDataT_12=0 \
-    ReaDataT_11=0 ReaDataT_10=0 ReaDataT_9=0 ReaDataT_8=0 ReaDataT_3=0 \
-    ReaDataT_2=0 ReaDataT_1=0 ReaDataT_0=0 ReaDataT_7=0 ReaDataT_6=0 \
-    ReaDataT_5=0 ReaDataT_4=0 IBank.\~R0_1_3=vdd IBank.\~R0_1_2=vdd \
-    IBank.\~R0_1_1=vdd IBank.\~R0_1_0=vdd IBank.\~R1_1_3=vdd \
-    IBank.\~R1_1_2=vdd IBank.\~R1_1_1=vdd IBank.\~R1_1_0=vdd IBank.G01=0 \
-    IBank.W0_1_3=0 IBank.W0_1_2=0 IBank.W0_1_1=0 IBank.W0_1_0=0 \
-    IBank.W1_1_3=0 IBank.W1_1_2=0 IBank.W1_1_1=0 IBank.W1_1_0=0 \
+ic IBank.ValAddr=0 IBank.I20.B0q_3=0 IBank.I20.B1q_3=0 IBank.I20.B0q_2=0 \
+    IBank.I20.B1q_2=0 IBank.I20.B0q_1=0 IBank.I20.B1q_1=0 \
+    IBank.I20.B0q_0=0 IBank.I20.B1q_0=0 IBank.I20.net040=vdd \
+    IBank.I20.net041=vdd IBank.I20.net042=vdd IBank.I20.net043=vdd \
+    IBank.I20.wack_3=vdd IBank.I20.wack_2=vdd IBank.I20.wack_1=vdd \
+    IBank.I20.wack_0=vdd IBank.I20.B0p_3=0 IBank.I20.B1p_3=0 \
+    IBank.I20.B0p_2=0 IBank.I20.B1p_2=0 IBank.I20.B0p_1=0 \
+    IBank.I20.B1p_1=0 IBank.I20.B0p_0=0 IBank.I20.B1p_0=0 IBank.net027=0 \
+    IBank.I20.Wen=0 IBank.I20.net030=0 IBank.I20.net054=0 \
+    IBank.I20.Lack_3=vdd IBank.I20.Lack_2=vdd IBank.I20.Lack_1=vdd \
+    IBank.I20.Lack_0=vdd IBank.I20.RpAck_3=vdd IBank.I20.RpAck_2=vdd \
+    IBank.I20.RpAck_1=vdd IBank.I20.RpAck_0=vdd IBank.I20.Rack_3=vdd \
+    IBank.I20.Rack_2=vdd IBank.I20.Rack_1=vdd IBank.I20.Rack_0=vdd \
+    IBank.I20.Out1_3=vdd IBank.I20.Out1_2=vdd IBank.I20.Out1_1=vdd \
+    IBank.I20.Out1_0=vdd IBank.I20.Out0_3=vdd IBank.I20.Out0_2=vdd \
+    IBank.I20.Out0_1=vdd IBank.I20.Out0_0=vdd IBank.I20.R1q_3=0 \
+    IBank.I20.R1q_2=0 IBank.I20.R1q_1=0 IBank.I20.R1q_0=0 \
+    IBank.I20.R0q_3=0 IBank.I20.R0q_2=0 IBank.I20.R0q_1=0 \
+    IBank.I20.R0q_0=0 IBank.I20.R0_3=0 IBank.I20.R0_2=0 IBank.I20.R0_1=0 \
+    IBank.I20.R0_0=0 IBank.I20.R1_3=0 IBank.I20.R1_2=0 IBank.I20.R1_1=0 \
+    IBank.I20.R1_0=0 IBank.\~R1_1_3=vdd IBank.\~R1_1_2=vdd \
+    IBank.\~R1_1_1=vdd IBank.\~R1_1_0=vdd IBank.\~R0_1_3=vdd \
+    IBank.\~R0_1_2=vdd IBank.\~R0_1_1=vdd IBank.\~R0_1_0=vdd \
     IBank.B0_1_3=0 IBank.B0_1_2=0 IBank.B0_1_1=0 IBank.B0_1_0=0 \
     IBank.B1_1_3=0 IBank.B1_1_2=0 IBank.B1_1_1=0 IBank.B1_1_0=0 \
-    IBank.I20.net054=vdd IBank.I20.Lack_3=vdd IBank.I20.Lack_2=vdd \
-    IBank.I20.Lack_1=vdd IBank.I20.Lack_0=vdd IBank.I20.Rack_3=vdd \
-    IBank.I20.Rack_2=vdd IBank.I20.Rack_1=vdd IBank.I20.Rack_0=vdd \
-    IBank.I20.R0_3=0 IBank.I20.R0_2=0 IBank.I20.R0_1=0 IBank.I20.R0_0=0 \
-    IBank.I20.R1_3=0 IBank.I20.R1_2=0 IBank.I20.R1_1=0 IBank.I20.R1_0=0 \
-    IBank.I20.net030=vdd IBank.ValAddr=0 WAck_1=vdd WAck_0=vdd \
-    IBank.I20.wack_3=vdd IBank.I20.wack_2=vdd IBank.I20.wack_1=vdd \
-    IBank.I20.wack_0=vdd IBank.I20.Wen=0 AckT=vdd net018_0=vdd \
-    net018_1=vdd net018_2=vdd net018_3=vdd net018_4=vdd RWT_1=0 RWT_0=0 \
-    IBank.I0.I0.I0.I7.I3.Q1=vdd IBank.I0.I0.I0.I7.I3.Q0=0 AT_19=0 AT_18=0 \
-    AT_17=0 AT_16=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 AT_9=0 \
-    AT_8=0 AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 \
-    RAckT_7=vdd RAckT_6=vdd RAckT_5=vdd RAckT_4=vdd RAckT_3=vdd \
-    RAckT_2=vdd RAckT_1=vdd RAckT_0=vdd WriteDataT_31=0 WriteDataT_30=0 \
-    WriteDataT_29=0 WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 \
-    WriteDataT_25=0 WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 \
-    WriteDataT_21=0 WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 \
-    WriteDataT_17=0 WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 \
-    WriteDataT_13=0 WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 \
-    WriteDataT_9=0 WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 \
-    WriteDataT_5=0 WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 \
-    WriteDataT_1=0 WriteDataT_0=0 
+    IBank.W1_1_3=0 IBank.W1_1_2=0 IBank.W1_1_1=0 IBank.W1_1_0=0 \
+    IBank.W0_1_3=0 IBank.W0_1_2=0 IBank.W0_1_1=0 IBank.W0_1_0=0 \
+    IBank.G01=0 RAckT_7=vdd RAckT_6=vdd RAckT_5=vdd RAckT_4=vdd \
+    RAckT_3=vdd RAckT_2=vdd RAckT_1=vdd RAckT_0=vdd ReaDataT_31=0 \
+    ReaDataT_30=0 ReaDataT_29=0 ReaDataT_28=0 ReaDataT_27=0 ReaDataT_26=0 \
+    ReaDataT_25=0 ReaDataT_24=0 ReaDataT_23=0 ReaDataT_22=0 ReaDataT_21=0 \
+    ReaDataT_20=0 ReaDataT_19=0 ReaDataT_18=0 ReaDataT_17=0 ReaDataT_16=0 \
+    ReaDataT_15=0 ReaDataT_14=0 ReaDataT_13=0 ReaDataT_12=0 ReaDataT_11=0 \
+    ReaDataT_10=0 ReaDataT_9=0 ReaDataT_8=0 ReaDataT_7=0 ReaDataT_6=0 \
+    ReaDataT_5=0 ReaDataT_4=0 ReaDataT_3=0 ReaDataT_2=0 ReaDataT_1=0 \
+    ReaDataT_0=0 AckT=vdd net018_0=vdd net018_1=vdd net018_2=vdd \
+    net018_3=vdd net018_4=vdd RWT_1=0 RWT_0=0 AT_19=0 AT_18=0 AT_17=0 \
+    AT_16=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 \
+    AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 WAck_7=vdd \
+    WAck_6=vdd WAck_5=vdd WAck_4=vdd WAck_3=vdd WAck_2=vdd WAck_1=vdd \
+    WAck_0=vdd WriteDataT_31=0 WriteDataT_30=0 WriteDataT_29=0 \
+    WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 WriteDataT_25=0 \
+    WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 WriteDataT_21=0 \
+    WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 WriteDataT_17=0 \
+    WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 WriteDataT_13=0 \
+    WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 WriteDataT_9=0 \
+    WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 WriteDataT_5=0 \
+    WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 WriteDataT_1=0 \
+    WriteDataT_0=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
-    inventory=detailed maxnotes=5 maxwarns=5 digits=5 cols=80 \
-    dc_pivot_check=yes pivrel=1e-3 sensfile="../psf/sens.output" \
-    checklimitdest=psf 
+    inventory=detailed maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
 tran tran stop=6n  errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
@@ -1500,5 +1646,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save IBank.I20.I24:3 V0:p V0:p V1:p V1:p 
+save V1:p V1:p V0:p V0:p IBank.I20.I24:3 
 saveOptions options save=allpub

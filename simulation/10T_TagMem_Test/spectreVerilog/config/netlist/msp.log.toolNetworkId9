@@ -1,0 +1,69 @@
+Sun Apr 19 02:52:26 2015
+
+BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
+GLOBAL ENVIRONMENT INFORMATION:
+	simLibName =	16nm_Tests
+	simCellName =	10T_TagMem_Test
+	simViewName =	config
+	Netlist Directory	/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist
+	Default View List	
+	Stop View List	
+Switch View List Table:
+	Default IE Libname	UCD_Analog_Parts
+	Default IE Cellname	MOS
+	Detail IE Generation Flag	FALSE
+Power and ground nets:
+	veed! veea! vee! vssd! vssa! vss! gndd! gnda! gnd! vccd! vcca! vcc! vddd! vdda! vdd! 
+SIMULATOR AND PARTITIONING VIEW LIST INFO:
+	Simulator verilog, for network toolNetworkId9, list of views:
+		verilog verilogNetlist 
+	    views in stop view set:
+		msps verilogNetlist system hdl functional behavioral verilog 
+	Simulator spectre, for network toolNetworkId9, list of views:
+		spectre spice 
+	    views in stop view set:
+		spectre auLvs ahdl veriloga spice 
+
+CONFIGURATION INFORMATION:
+Network is using configuration. Here are the config's stop list and switch list:
+	Default View List:	spectre spice verilog behavioral functional hdl system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+	Stop View List:	spectre spice verilog verilogNetlist
+	Top module LibName:	16nm_Tests
+	Top module CellName:	10T_TagMem_Test
+	Top module ViewName:	schematic
+
+PARTITIONING INFORMATION:
+	Partition digital, in network toolNetworkId9
+	The modules in this partition are:
+	The models in this partition are:
+Model inv_1xT, lib 16nm, view functional
+	Partition analog, in network toolNetworkId9
+	The modules in this partition are:
+Module inv_1xt, lib 16nm, view schematic, configViewString $default
+Module inv_1x, lib 16nm, view schematic, configViewString $default
+Module nand4_1x, lib 16nm, view schematic, configViewString $default
+Module Mux_128to32, lib 16nm, view schematic, configViewString $default
+Module nand3_1x, lib 16nm, view schematic, configViewString $default
+Module and3_1x, lib 16nm, view schematic, configViewString $default
+Module Decode_2to4, lib 16nm, view schematic, configViewString $default
+Module TH22, lib 16nm, view schematic, configViewString $default
+Module 10T_RPrecharge, lib 16nm, view schematic, configViewString $default
+Module 10T_DUAL_SRAM_RPrecharge, lib 16nm, view schematic, configViewString $default
+Module nand_1x, lib 16nm, view schematic, configViewString $default
+Module nor4_1x, lib 16nm, view schematic, configViewString $default
+Module and4_1x, lib 16nm, view schematic, configViewString $default
+Module and2, lib 16nm, view schematic, configViewString $default
+Module Decode_1to2, lib 16nm, view schematic, configViewString $default
+Module Decode_4to16, lib 16nm, view schematic, configViewString $default
+Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
+Module 10T, lib 16nm, view schematic, configViewString $default
+Module 10T_4x, lib 16nm, view schematic, configViewString $default
+Module 10T_32x32, lib 16nm, view schematic, configViewString $default
+Module TH44, lib 16nm, view schematic, configViewString $default
+Module 10T_DUAL_SRAM_CompDetect, lib 16nm, view schematic, configViewString $default
+Module 10T_DUAL_SRAM_REGFILE, lib 16nm, view schematic, configViewString $default
+Module Dcache_TagMem, lib 16nm, view schematic, configViewString $default
+	The models in this partition are:
+Model pfet, lib NCSU_TechLib_FreePDK15, view spectre
+Model nfet, lib NCSU_TechLib_FreePDK15, view spectre
+Model vdc, lib UCD_Analog_Parts, view spectre

@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport35394
+    +vmxsport42642
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 18, 2015  04:08:19
-Tool:	VERILOG-XL	08.20.001-d   Apr 18, 2015  04:08:19
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 19, 2015  18:29:52
+Tool:	VERILOG-XL	08.20.001-d   Apr 19, 2015  18:29:52
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -86,72 +86,72 @@ Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to sp
 Message!  At the end of DC initialization the logic values                     
           of the following ports are X (unknown):                              
                                                                                
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus4                                                              
-          cdsbus1                                                              
-          cdsbus4                                                              
-          cdsbus4                                                              
-          cdsbus4                                                              
-          cdsbus1                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus4                                                              
-          cdsbus1                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus1                                                              
-          cdsbus4                                                              
           cdsbus5                                                              
-          cdsbus1                                                              
-          cdsbus4                                                              
-          cdsbus1                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus1                                                              
-          cdsbus1                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
           cdsbus5                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus1                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus1                                                              
+          cdsbus3                                                              
+          cdsbus1                                                              
+          cdsbus1                                                              
+          cdsbus1                                                              
+          cdsbus3                                                              
+          cdsbus1                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus1                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus5                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
           cdsbus4                                                              
-          cdsbus2                                                              
+          cdsbus1                                                              
           cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus4                                                              
-          cdsbus2                                                              
-          cdsbus2                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus3                                                              
+          cdsbus5                                                              
                                                            [Mixed_Sig]         
           "IE.verimix", 5: $vmx_initialize("spectre",                          
           dc_mode_flag);
-Verilog/spectre Interface: 876 messages sent, 878 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 407 accelerated events
+Verilog/spectre Interface: 582 messages sent, 584 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 263 accelerated events
 CPU time: 0.0 secs to compile + 0.0 secs to link + 3.9 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 18, 2015  09:13:02
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 19, 2015  20:33:36

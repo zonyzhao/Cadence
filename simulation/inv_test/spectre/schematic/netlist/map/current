@@ -4,7 +4,7 @@
   blockName "inv_test"
   repList "spectre cmos_sch cmos.sch schematic veriloga"
   stopList "spectre"
-  globalList "vdd! gnd!"
+  globalList "gnd! vdd!"
   hierDelim "."
   netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/inv_test/spectre/schematic/netlist"
  )
@@ -17,12 +17,14 @@
  )
 ( model
 ( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm/THaC/schematic" "THaC" )
 ( "16nm_Tests/inv_test/schematic" "inv_test" )
  )
 ( term
  )
 ( param
  )
-( "inv_test" "ihnl/cds1/map" )
+( "inv_test" "ihnl/cds2/map" )
+( "THaC" "ihnl/cds1/map" )
 ( "inv_1x" "ihnl/cds0/map" )
  )

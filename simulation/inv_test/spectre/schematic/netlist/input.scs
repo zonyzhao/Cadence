@@ -1,11 +1,12 @@
 // Generated for: spectre
-// Generated on: Mar 30 20:13:01 2015
+// Generated on: Apr 19 18:09:40 2015
 // Design library name: 16nm_Tests
 // Design cell name: inv_test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd!
-parameters vdd=.850
+parameters timeF=400p timeF2=700p timeS=300p timeS2=600p vdd=.850 \
+    delay=100p
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_lstp.include"
 
 // Library name: 16nm
@@ -17,17 +18,47 @@ subckt inv_1x A Y
 ends inv_1x
 // End of subcircuit definition.
 
+// Library name: 16nm
+// Cell name: THaC
+// View name: schematic
+subckt THaC A B\+ C\- Y
+    M6 (net7 net021 net11 net021) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    M5 (net7 A net33 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (net11 C\- 0 C\-) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M8 (net11 A 0 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M7 (net33 B\+ 0 B\+) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    I8 (net021 Y) inv_1x
+    I2 (net7 net021) inv_1x
+    M2 (net17 B\+ vdd! B\+) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net17 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M0 (net32 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M3 (net7 C\- net32 C\-) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M4 (net7 net021 net17 net021) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+ends THaC
+// End of subcircuit definition.
+
 // Library name: 16nm_Tests
 // Cell name: inv_test
 // View name: schematic
-I0 (nvtc Yvtc) inv_1x
 V0 (vdd! 0) vsource type=dc dc=vdd
-V1 (nvtc 0) vsource type=pwl mag=850m wave=[ 0 0 10n vdd ]
+V3 (C\- 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 (timeS +delay) 0 \
+        (timeF +delay) vdd (timeS2 +delay) vdd (timeF2 +delay) 0 ]
+V2 (B\+ 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 \
+        (timeS +delay +delay) 0 (timeF +delay +delay) vdd \
+        (timeS2 +delay +delay +delay) vdd (timeF2 +delay +delay +delay) \
+        0 ]
+V6 (A 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 timeS 0 timeF vdd \
+        timeS2 vdd timeF2 0 ]
+I7 (A B\+ C\- Cout) THaC
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
     checklimitdest=psf 
-tran tran stop=10n errpreset=conservative write="spectre.ic" \
+tran tran stop=2n errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile

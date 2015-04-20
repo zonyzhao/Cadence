@@ -1,22 +1,25 @@
 simulator( 'spectreVerilog )
-hostMode( 'distributed )
 design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist/analog/netlist")
 resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config" )
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
-analysis('tran ?stop "5n"  ?errpreset "conservative"  )
+analysis('tran ?stop "200n"  ?errpreset "conservative"  )
 desVar(	  "vdd" .850	)
 desVar(	  "vcc" "vdd"	)
 envOption(
 	'mspSetupNetlistSimPrecisionUnit  "ps" 
 	'mspSetupNetlistSimTimeUnit  "ps" 
 	'mspSetupNetlistSwitchRC  t 
-	'userCmdLineOption  "+multithread" 
 	'analysisOrder  list("tran") 
 )
-option(	'temp  "85.0" 
+option(	'narrate  "yes" 
+	'inventory  "detailed" 
+	'audit  "detailed" 
+	'multithread  "on" 
+	'temp  "30.0" 
 )
+saveOption( ?simOutputFormat "psfxl" )
 save( 'i "/V0/MINUS" "/V1/MINUS" "/V1/PLUS" "/V0/PLUS" )
 converge( 'ic "/R_AddrT<0>" "0" )
 converge( 'ic "/R_AddrT<1>" "0" )
@@ -116,10 +119,12 @@ temp( 30.0 )
 ;		      "rattle" "redbelly" "ribbon" "scarlet" 	 \
 ;		      "swamp" "timber" "viper" )
 
-hList = list( "asp"  "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rat" "rattle" "redbelly" "swamp" "timber" "viper" )
+hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rainbow" "rat" "rattle" "redbelly" "ribbon" "scarlet" "swamp" "timber" "viper" )
 		           
-;vLoad = list( .375 .4  .45  .50  .55 .65 .85  1.0 1.25 )	  
-vLoad = list(  .275 .3  .325 .350 .60 .75 .95  1.125 )	   		            
+;vLoad = list(  .250 .325 0.45 .475 .50 .525 .675 .85 1.0 1.125 )	
+
+vLoad = list( .195 .480 .485 .490 .495 .50 .505 .510 1.3 )
+	             
 tLoad = list( 30 60 90 )
 
 jobList 	= nil

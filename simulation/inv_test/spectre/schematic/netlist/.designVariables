@@ -1,1 +1,2 @@
-parameters vdd=.850
+parameters timeF=400p timeF2=700p timeS=300p timeS2=600p vdd=.850 \
+    delay=100p

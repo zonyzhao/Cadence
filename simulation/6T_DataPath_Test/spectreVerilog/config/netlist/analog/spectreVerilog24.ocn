@@ -1,0 +1,17 @@
+simulator( 'spectreVerilog )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPath_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPath_Test/spectreVerilog/config" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "6n"  ?errpreset "conservative"  )
+desVar(	  "vdd" 0.850	)
+envOption(
+	'mspSetupNetlistSimPrecisionUnit  "ps" 
+	'mspSetupNetlistSimTimeUnit  "ps" 
+	'mspSetupNetlistSwitchRC  t 
+)
+saveOption( ?simOutputFormat "psfxl" )
+run()
+selectResult( 'tran )
+plot(getData("/AT<0>") getData("/AT<10>") getData("/AT<11>") getData("/AT<12>") getData("/AT<13>") getData("/AT<14>") getData("/AT<15>") getData("/AT<1>") getData("/AT<2>") getData("/AT<3>") getData("/AT<4>") getData("/AT<5>") getData("/AT<6>") getData("/AT<7>") getData("/AT<8>") getData("/AT<9>") getData("/AckT") getData("/B0_1<0>") getData("/B1_1<0>") getData("/En") getData("/G01") getData("/ICHUNK/I0/B0P1") getData("/ICHUNK/I0/B1P1") getData("/ICHUNK/I0/I0/I7/I3/Q0") getData("/ICHUNK/I0/I0/I7/I3/Q1") getData("/IDATA/B0p<0>") getData("/IDATA/B0q<0>") getData("/IDATA/B1p<0>") getData("/IDATA/B1q<0>") getData("/IDATA/I73/inAck") getData("/IDATA/I73/inValid") getData("/IDATA/I73/oE") getData("/IDATA/I73/outValid") getData("/IDATA/Lack<0>") getData("/IDATA/Out0<0>") getData("/IDATA/Out1<0>") getData("/IDATA/R0<0>") getData("/IDATA/R0q<0>") getData("/IDATA/R1<0>") getData("/IDATA/R1q<0>") getData("/IDATA/RpAck<0>") getData("/IDATA/WLAck<0>") getData("/IDATA/Wen") getData("/IDATA/intRack") getData("/IDATA/intWack") getData("/IDATA/wack<0>") getData("/RAckT<0>") getData("/RAckT<1>") getData("/RDataT<0>") getData("/RDataT<1>") getData("/RDataT<2>") getData("/RDataT<3>") getData("/RDataT<4>") getData("/RDataT<5>") getData("/RDataT<6>") getData("/RDataT<7>") getData("/RWT<0>") getData("/RWT<1>") getData("/ValAddr") getData("/WAckT<0>") getData("/W0_1<0>") getData("/W1_1<0>") getData("/WAckT<1>") getData("/WData<7:0>") getData("/WDataT<0>") getData("/WDataT<1>") getData("/WDataT<2>") getData("/WDataT<3>") getData("/WDataT<4>") getData("/WDataT<5>") getData("/WDataT<6>") getData("/WDataT<7>") getData("/~R0_1<0>") getData("/~R1_1<0>") )

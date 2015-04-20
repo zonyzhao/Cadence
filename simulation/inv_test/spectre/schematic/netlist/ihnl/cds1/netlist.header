@@ -1,0 +1,5 @@
+
+// Library name: 16nm
+// Cell name: THaC
+// View name: schematic
+subckt THaC A B\+ C\- Y

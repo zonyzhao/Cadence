@@ -13,7 +13,7 @@
 (opts cols) "80"
 (opts colslog) ""
 (opts convdbg) ""
-(opts dc_pivot_check) "yes"
+(opts dc_pivot_check) ""
 (opts debug) ""
 (opts diagnose) ""
 (opts digits) "5"

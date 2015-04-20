@@ -339,7 +339,7 @@ si: simSetDef().... hnlLastTarget is initialized to "nil".
 si: simSetDef().... hnlFullNetlistName is initialized to "netlist" .
 si: simSetDef().... hnlNetlistDirectory is initialized to "nil".
 si: simSetDef().... hnlFullMasterName is already set to
-"10T_TagMem_Test/config/current". Redefinition to nil is ignored.
+"6T_DataPath_Test/config/current". Redefinition to nil is ignored.
 si: simSetDef().... hnlIncremental is initialized to "nil".
 si: simSetDef().... hnlIncrementalOnly is initialized to "nil".
 si: simSetDef().... simSupportNewConfig is already set to t. Redefinition to nil
@@ -382,6 +382,6 @@ hnlPrintTopCellHeader hnlPrintTopCellFooter hnlPrintPorts hnlPrintDeviceHeader
 hnlPrintDeviceFooter hnlPrintInst) .
 Loading the file
 '/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/spectre.ile'.Loading the file
-'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 18 13:15:12 2015
-End netlisting Apr 18 13:15:13 2015
-Begin Digital Netlisting: Apr 18 13:15:14 2015
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 20 01:16:37 2015
+End netlisting Apr 20 01:16:38 2015
+Begin Digital Netlisting: Apr 20 01:16:38 2015

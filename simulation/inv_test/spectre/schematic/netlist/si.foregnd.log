@@ -1,16 +1,16 @@
-Begin Incremental Netlisting Mar 30 20:08:17 2015
-WARNING (OSSHNL-159): The primitive, 'NCSU_TechLib_FreePDK15/nfet/spectre', has
-been updated since the last netlisting session
-in this current run directory.
-Therefore, re-netlisting all cell views where
-this primitive is instantiated.
+Begin Incremental Netlisting Apr 19 18:04:06 2015
+End netlisting Apr 19 18:04:06 2015
+Begin Incremental Netlisting Apr 19 18:05:33 2015
+End netlisting Apr 19 18:05:33 2015
+Begin Incremental Netlisting Apr 19 18:07:23 2015
+WARNING (OSSHNL-225): The design variable 's', used in the last netlisting
+session in the current
+run directory is not used in this netlisting session. The
+netlist(s) generated
+in the last netlisting session cannot be reused for
+incremental netlisting.
+Therefore re-netlisting the design.
 
-End netlisting Mar 30 20:08:17 2015
-Begin Incremental Netlisting Mar 30 20:10:08 2015
-End netlisting Mar 30 20:10:08 2015
-Begin Incremental Netlisting Mar 30 20:10:55 2015
-End netlisting Mar 30 20:10:55 2015
-Begin Incremental Netlisting Mar 30 20:11:43 2015
-End netlisting Mar 30 20:11:43 2015
-Begin Incremental Netlisting Mar 30 20:13:01 2015
-End netlisting Mar 30 20:13:01 2015
+End netlisting Apr 19 18:07:23 2015
+Begin Incremental Netlisting Apr 19 18:09:39 2015
+End netlisting Apr 19 18:09:40 2015

@@ -1,0 +1,97 @@
+// Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
+// LAST TIME SAVED: Apr 20 01:12:34 2015
+// NETLIST TIME: Apr 20 01:22:34 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_50 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+
+output  Ack;
+
+input  Req;
+
+output [1:0]  WAck;
+output [7:0]  RData;
+
+input [1:0]  RAck;
+input [1:0]  RW;
+input [15:0]  A;
+input [7:0]  WData;
+
+// Buses in the design
+
+wire  [1:0]  RWT;
+
+wire  [1:0]  RAckT;
+
+wire  [1:0]  WAckT;
+
+wire  [63:0]  Aline;
+
+wire  [3:0]  cdsbus0;
+
+wire  [0:1]  net036;
+
+wire  [3:0]  cdsbus1;
+
+wire  [0:7]  net027;
+
+wire  [7:0]  S;
+
+wire  [7:0]  WDataT;
+
+wire  [0:15]  net031;
+
+wire  [0:1]  net41;
+
+wire  [0:1]  net40;
+
+wire  [3:0]  B1_1;
+
+wire  [3:0]  B0_1;
+
+wire  [3:0]  W1_1;
+
+wire  [7:0]  RDataT;
+
+wire  [3:0]  W0_1;
+
+wire  [0:7]  net44;
+
+wire  [15:0]  AT;
+
+// begin interface element definitions
+
+wire net020;
+reg mixedNet99998;
+reg mixedNet99994;
+reg mixedNet99993;
+reg mixedNet99991;
+reg mixedNet99987;
+reg mixedNet99983;
+reg mixedNet99975;
+reg mixedNet99968;
+reg mixedNet99967;
+reg mixedNet99965;
+reg mixedNet99964;
+assign net027[5] = mixedNet99998;
+assign net027[7] = mixedNet99994;
+assign net027[2] = mixedNet99993;
+assign net027[0] = mixedNet99991;
+assign net020 = mixedNet99987;
+assign net027[4] = mixedNet99983;
+assign net027[1] = mixedNet99975;
+assign net027[6] = mixedNet99968;
+assign net027[3] = mixedNet99967;
+assign net036[0] = mixedNet99965;
+assign net036[1] = mixedNet99964;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_DataPath_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

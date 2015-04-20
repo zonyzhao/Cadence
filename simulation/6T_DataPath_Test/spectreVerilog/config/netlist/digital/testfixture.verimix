@@ -1,0 +1,120 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+integer start;
+integer readCount;
+integer readOrWrite;
+reg[15:0] lastWriteAddr;
+reg[7:0] logAddr;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+initial
+begin 
+
+   seed = 5;
+   start = 0;
+   readCount=0;
+   readOrWrite=1;
+   rLog=$fopen("/tmp2/dataRLog.csv");
+
+   wLog=$fopen("/tmp2/dataWLog.csv"); 
+
+   A[15:0] = 16'h0000;
+   RAck[1:0] = 2'b11;
+   Req = 1'b0;
+   WData[7:0] = 8'h00;
+   RW[1:0] = 2'b00;
+
+#500;
+
+   A[15:0] 		= 16'h1111;
+   RAck[1:0]	= 2'b11;
+   Req 			= 1'b1;
+   WData[7:0] 	= 8'h48;
+   RW[1:0] 		= 2'b01;
+   wStart		= $time;
+   start 		= 1;
+   readOrWrite  = 1;
+
+end 
+
+
+always @(negedge Ack) begin
+	if (start==1) begin
+		if(readOrWrite ==1) begin
+   	    	wDelay = $time - wStart;
+   	  		$fdisplay(wLog, "%h %h %t %t", A[15:0], WData[7:0], $time, wDelay);
+          	lastWriteAddr[15:0] <= A[15:0];
+   	  		WData[7:0] 		= 8'b00000000;
+          	A[15:0] 	  	= 16'h0000;
+          	RW[1:0]         = 2'b00;
+		    Req = 1'b0;
+       	  	wStart = $time;
+      end else begin   
+   	   		rDelay = $time - rStart;
+	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
+   	   		RAck[1:0]     	= 2'b00;
+   	   		RW[1:0]         = 2'b00;
+   	   		A[15:0]         = 16'h0000;
+		  	Req 			= 1'b0;
+	   		rStart          = $time;
+      end
+   end
+ end
+
+always @(posedge Ack) begin
+	if (start==1) begin
+		if(readOrWrite ==0) begin
+   	  		rDelay = $time - rStart;
+	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
+	  		readCount = readCount + 1;
+	  		if (readCount == 2) begin
+				$finish;
+	  		end
+   	  		logAddr[7:0] = $random;
+	 		A[0]   = ~logAddr[0] & ~logAddr[1];
+	  A[1]   =  logAddr[0] & ~logAddr[1];
+	  A[2]   = ~logAddr[0] &  logAddr[1];
+      A[3]   =  logAddr[0] &  logAddr[1];
+	  A[4]   = ~logAddr[2] & ~logAddr[3];
+	  A[5]   =  logAddr[2] & ~logAddr[3];
+	  A[6]   = ~logAddr[2] &  logAddr[3];
+      A[7]   =  logAddr[2] &  logAddr[3];
+	  A[8]   = ~logAddr[4] & ~logAddr[5];
+	  A[9]   =  logAddr[4] & ~logAddr[5];
+	  A[10]  = ~logAddr[4] &  logAddr[5];
+      A[11]  =  logAddr[4] &  logAddr[5];
+	  A[12]  = ~logAddr[6] & ~logAddr[7];
+	  A[13]  =  logAddr[6] & ~logAddr[7];
+	  A[14]  = ~logAddr[6] &  logAddr[7];
+      A[15]  =  logAddr[6] &  logAddr[7];
+
+
+   	  		RW[1:0]  	= 2'b01;
+	  		Req 		= 1'b1;
+      		WData[7:0] 	= 8'h48;
+	  		readOrWrite = 1;
+      		wStart 		= $time;
+      end else begin   
+   	  		wDelay = $time - wStart;
+   	  		$fdisplay(wLog, "%h %h %t %t", A[15:0], WData[7:0], $time, wDelay);
+    	  	lastWriteAddr[15:0] <= A[15:0];
+   		  	RAck[1:0]     	= 2'b11;
+   	 		RW[1:0]         = 2'b10;
+   	 		A[15:0]         = lastWriteAddr;
+			Req 			= 1'b1;
+	 		rStart          = $time;
+	  		readOrWrite 	= 0;
+      end
+   end
+ end

@@ -2,6 +2,7 @@ CADENCE IHNL01070
 $model
 16nm/inv_1x/schematic inv_1x
 16nm_Tests/inv_test/schematic inv_test
+16nm/THaC/schematic THaC
 $endmodel
 $net
 vdd! vdd!
@@ -9,4 +10,10 @@ gnd! 0
 $endnet
 $param
 vdd vdd
+timeF2 timeF2
+delay delay
+timeS timeS
+timeS2 timeS2
+s s
+timeF timeF
 $endparam

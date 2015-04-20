@@ -1,0 +1,325 @@
+simulator( 'spectreVerilog )
+hostMode( 'distributed )
+design(	    "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "5n"  ?errpreset "conservative"  )
+desVar(	  "vdd" .850	)
+desVar(	  "vcc" "vdd"	)
+envOption(
+	'mspSetupNetlistSimPrecisionUnit  "ps" 
+	'mspSetupNetlistSimTimeUnit  "ps" 
+	'mspSetupNetlistSwitchRC  t 
+	'analysisOrder  list("tran") 
+)
+option(	'inventory  "detailed" 
+	'multithread  "on" 
+	'temp  "85.0" 
+)
+save( 'i "/V1/MINUS" "/IBank/Write_Ack" "/IBank/Read_Ack" )
+converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q0" "0" )
+converge( 'ic "/IBank/I0/I0/I0/I0/I7/I3/Q1" "vdd" )
+converge( 'ic "/WriteDataT<0>" "0" )
+converge( 'ic "/WriteDataT<1>" "0" )
+converge( 'ic "/WriteDataT<2>" "0" )
+converge( 'ic "/WriteDataT<3>" "0" )
+converge( 'ic "/WriteDataT<4>" "0" )
+converge( 'ic "/WriteDataT<5>" "0" )
+converge( 'ic "/WriteDataT<6>" "0" )
+converge( 'ic "/WriteDataT<7>" "0" )
+converge( 'ic "/WriteDataT<8>" "0" )
+converge( 'ic "/WriteDataT<9>" "0" )
+converge( 'ic "/WriteDataT<10>" "0" )
+converge( 'ic "/WriteDataT<11>" "0" )
+converge( 'ic "/WriteDataT<12>" "0" )
+converge( 'ic "/WriteDataT<13>" "0" )
+converge( 'ic "/WriteDataT<14>" "0" )
+converge( 'ic "/WriteDataT<15>" "0" )
+converge( 'ic "/WriteDataT<16>" "0" )
+converge( 'ic "/WriteDataT<17>" "0" )
+converge( 'ic "/WriteDataT<18>" "0" )
+converge( 'ic "/WriteDataT<19>" "0" )
+converge( 'ic "/WriteDataT<20>" "0" )
+converge( 'ic "/WriteDataT<21>" "0" )
+converge( 'ic "/WriteDataT<22>" "0" )
+converge( 'ic "/WriteDataT<23>" "0" )
+converge( 'ic "/WriteDataT<24>" "0" )
+converge( 'ic "/WriteDataT<25>" "0" )
+converge( 'ic "/WriteDataT<26>" "0" )
+converge( 'ic "/WriteDataT<27>" "0" )
+converge( 'ic "/WriteDataT<28>" "0" )
+converge( 'ic "/WriteDataT<29>" "0" )
+converge( 'ic "/WriteDataT<30>" "0" )
+converge( 'ic "/WriteDataT<31>" "0" )
+converge( 'ic "/W_AddressT<0>" "0" )
+converge( 'ic "/W_AddressT<1>" "0" )
+converge( 'ic "/W_AddressT<2>" "0" )
+converge( 'ic "/W_AddressT<3>" "0" )
+converge( 'ic "/W_AddressT<4>" "0" )
+converge( 'ic "/W_AddressT<5>" "0" )
+converge( 'ic "/W_AddressT<6>" "0" )
+converge( 'ic "/W_AddressT<7>" "0" )
+converge( 'ic "/W_AddressT<8>" "0" )
+converge( 'ic "/W_AddressT<9>" "0" )
+converge( 'ic "/W_AddressT<10>" "0" )
+converge( 'ic "/W_AddressT<11>" "0" )
+converge( 'ic "/W_AddressT<12>" "0" )
+converge( 'ic "/W_AddressT<13>" "0" )
+converge( 'ic "/W_AddressT<14>" "0" )
+converge( 'ic "/W_AddressT<15>" "0" )
+converge( 'ic "/W_AddressT<16>" "0" )
+converge( 'ic "/W_AddressT<17>" "0" )
+converge( 'ic "/W_AddressT<18>" "0" )
+converge( 'ic "/W_AddressT<19>" "0" )
+converge( 'ic "/WRWT<0>" "0" )
+converge( 'ic "/WRWT<1>" "0" )
+converge( 'ic "/RRWT<0>" "0" )
+converge( 'ic "/RRWT<1>" "0" )
+converge( 'ic "/R_AddressT<0>" "0" )
+converge( 'ic "/R_AddressT<1>" "0" )
+converge( 'ic "/R_AddressT<2>" "0" )
+converge( 'ic "/R_AddressT<3>" "0" )
+converge( 'ic "/R_AddressT<4>" "0" )
+converge( 'ic "/R_AddressT<5>" "0" )
+converge( 'ic "/R_AddressT<6>" "0" )
+converge( 'ic "/R_AddressT<7>" "0" )
+converge( 'ic "/R_AddressT<8>" "0" )
+converge( 'ic "/R_AddressT<9>" "0" )
+converge( 'ic "/R_AddressT<10>" "0" )
+converge( 'ic "/R_AddressT<11>" "0" )
+converge( 'ic "/R_AddressT<12>" "0" )
+converge( 'ic "/R_AddressT<13>" "0" )
+converge( 'ic "/R_AddressT<14>" "0" )
+converge( 'ic "/R_AddressT<15>" "0" )
+converge( 'ic "/R_AddressT<16>" "0" )
+converge( 'ic "/R_AddressT<17>" "0" )
+converge( 'ic "/R_AddressT<18>" "0" )
+converge( 'ic "/R_AddressT<19>" "0" )
+converge( 'ic "/RD_AckT<0>" "0" )
+converge( 'ic "/RD_AckT<1>" "0" )
+converge( 'ic "/RD_AckT<2>" "0" )
+converge( 'ic "/RD_AckT<3>" "0" )
+converge( 'ic "/RD_AckT<4>" "0" )
+converge( 'ic "/RD_AckT<5>" "0" )
+converge( 'ic "/RD_AckT<6>" "0" )
+converge( 'ic "/RD_AckT<7>" "0" )
+converge( 'ic "/~RD_Ack<7:0>" "vdd" )
+converge( 'ic "/WD_AckT<0>" "0" )
+converge( 'ic "/WD_AckT<1>" "0" )
+converge( 'ic "/WD_AckT<2>" "0" )
+converge( 'ic "/WD_AckT<3>" "0" )
+converge( 'ic "/WD_AckT<4>" "0" )
+converge( 'ic "/WD_AckT<5>" "0" )
+converge( 'ic "/WD_AckT<6>" "0" )
+converge( 'ic "/WD_AckT<7>" "0" )
+converge( 'ic "/IBank/Ap<16>" "0" )
+converge( 'ic "/IBank/Ap<17>" "0" )
+converge( 'ic "/IBank/Ap<18>" "0" )
+converge( 'ic "/IBank/Ap<19>" "0" )
+converge( 'ic "/IBank/I1/I1/amid<0>" "0" )
+converge( 'ic "/IBank/I1/I1/amid<1>" "0" )
+converge( 'ic "/IBank/I1/I1/amid<2>" "0" )
+converge( 'ic "/IBank/I1/I1/amid<3>" "0" )
+converge( 'ic "/IBank/I1/I1/bmid<0>" "0" )
+converge( 'ic "/IBank/I1/I1/bmid<1>" "0" )
+converge( 'ic "/IBank/I1/I1/bmid<3>" "0" )
+converge( 'ic "/IBank/I1/I1/bmid<2>" "0" )
+converge( 'ic "/IBank/I1/I1/Vpass<3>" "0" )
+converge( 'ic "/IBank/I1/I1/Vpass<2>" "0" )
+converge( 'ic "/IBank/I1/I1/Vpass<1>" "0" )
+converge( 'ic "/IBank/I1/I1/Vpass<0>" "0" )
+converge( 'ic "/IBank/I1/I3/net26" "0" )
+converge( 'ic "/IBank/I1/I3/net28" "0" )
+converge( 'ic "/IBank/I1/I3/net29" "0" )
+converge( 'ic "/IBank/I1/I3/net31" "0" )
+converge( 'ic "/IBank/WRWp<0>" "0" )
+converge( 'ic "/IBank/WRWp<1>" "0" )
+converge( 'ic "/IBank/Ap<0>" "0" )
+converge( 'ic "/IBank/Ap<1>" "0" )
+converge( 'ic "/IBank/Ap<2>" "0" )
+converge( 'ic "/IBank/Ap<3>" "0" )
+converge( 'ic "/IBank/Ap<4>" "0" )
+converge( 'ic "/IBank/Ap<5>" "0" )
+converge( 'ic "/IBank/Ap<6>" "0" )
+converge( 'ic "/IBank/Ap<7>" "0" )
+converge( 'ic "/IBank/Ap<8>" "0" )
+converge( 'ic "/IBank/Ap<9>" "0" )
+converge( 'ic "/IBank/Ap<10>" "0" )
+converge( 'ic "/IBank/Ap<11>" "0" )
+converge( 'ic "/IBank/Ap<12>" "0" )
+converge( 'ic "/IBank/Ap<13>" "0" )
+converge( 'ic "/IBank/Ap<14>" "0" )
+converge( 'ic "/IBank/Ap<15>" "0" )
+temp( 30.0 ) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;hList = 	list( "adder" "asp" "blind" "boa" "boom" "brown" \
+;		      "cobra"  "copper" "coral" "corn" "crowned" \
+;		      "deathadder" "fierce" "garter" "gopher" 	 \
+;		      "hognose" "indigo" "krait" "mamba" "milk"  \
+;		      "python" "queen" "racer" "rainbow" "rat" 	 \
+;		      "rattle" "redbelly" "ribbon" "scarlet" 	 \
+;		      "swamp" "timber" "viper" )
+
+hList = list( "asp"  "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer"  "rat" "rattle" "redbelly" "scarlet" "timber" "viper" )
+		           
+vLoad = list( .35 .4 .45 .50 .55 .65 .85 1.0 1.25  )	            		            
+tLoad = list( 30 60 90 )
+
+jobList 	= nil
+mVs   		= nil
+temps   	= nil
+j=1
+foreach( degC  tLoad
+    foreach( val  vLoad
+	desVar( "vdd" val )
+	temp(degC)
+        	
+	volt    = round( evalstring( desVar( "vdd" )) * 1000 )
+	mVs     = append1( mVs sprintf( nil "%d" volt ))
+	temps   = append1( temps sprintf(nil "%d" degC ))
+
+;;;;;jobName = strcat("/net/kafka/nfs/rstdenis/Cadence/simulation/6T_SDP_BANK_Test/spectreVerilog/config/distributed/SDPBank_" sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C/psf" )		    	      
+;;;;;jobList = append1( jobList jobName ) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+jobName = strcat("SDPBank_"  sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C" )
+jobList = append1( jobList run( ?jobName jobName ?queue "c2107" ?host nthelem(j hList) ) )	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	j = j + 1
+    )
+)
+
+wait( ( append1 jobList nil  ) )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/2K_BankData.csv"  )
+;file8K    =  strcat( "/root/Desktop/Cadence/simData/CacheData/8K_BankData.csv"  )
+;file16K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/16K_BankData.csv" )
+;file32K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/32K_BankData.csv" )
+;outF      =   outfile(file,    "w")
+;out8K     =   outfile(file8K,  "w")
+;out16K    =   outfile(file16K, "w")
+;out32K    =   outfile(file32K, "w")
+;fprintf( outF,   "Vdd [mv], Temp [C], Leakage [mA], peak Current [mA], rDelay, rEnergy, rNull, rnullEnergy, wDelay Wenergy Wnull WnullEnergy\n" )	
+;fprintf( out8K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n"  )	
+;fprintf( out16K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n" )	
+;fprintf( out32K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], )\n" )	
+;close(outF)
+;close(out8K)
+;close(out16K)
+;close(out32K)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;j = 1
+;foreach(job jobList	
+;    	printf("\n%s" job )
+;    	unless( openResults( job ) == nil || (evalstring(nthelem(j mVs)) >= 1500)
+;    	selectResult( 'tran )
+;    	unless( i( "/V1/MINUS") == nil
+;	Volts       = evalstring( nthelem(j mVs) )*0.001;
+;        leakage     = average( clip( i( "/V1/MINUS" ) 1200p 1300p ) ) *1e3
+;        leakagePwr  = leakage*Volts
+;	peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
+;	peakPwr     = peakCurrent*Volts
+        
+;	cHost       = sprintf(nil "%s" nthelem(j hList))
+;        nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/SDP_BANK_RLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+;        nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/SDP_BANK_WLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+;	shellCmd1   = strcat("scp " cHost ":/tmp2/SDP_BANK_RLog.csv " nameR  )
+;	shellCmd2   = strcat("scp " cHost ":/tmp2/SDP_BANK_WLog.csv " nameW  )
+;	shell( shellCmd1 )
+;	shell( shellCmd2 )
+
+;        printf("Reading %s\n" nameR)
+;        fidR   = infile( nameR )
+;	gets( s fidR )
+;	gets( s fidR )
+;	gets( s fidR )          
+;        gets( s fidR ) 
+;        fscanf( fidR "%s %s %s %s" rAddr  rData rEnd     rDelay )
+;        fscanf( fidR "%s %s %s %s" rAddr  rData rEndNull rNull )
+;        close( fidR )
+
+;        printf("Reading %s\n" nameW)
+;        fidW   = infile( nameW )
+;	gets( s fidW )	
+;	gets( s fidW )
+;	gets( s fidW )
+;	gets( s fidW )
+;        fscanf( fidW "%s %s %s %s" wAddr  wData wEnd     wDelay )
+;        fscanf( fidW "%s %s %s %s" wAddr  wData wEndNull wNull  )
+;        close(fidW)
+;	unless( (rEnd == nil) || (rEndNull == nil) || (wEnd == nil) || (wEndNull == nil)
+                    
+;		rStart      = evalstring( strcat(rEnd "p")) - evalstring( strcat(rDelay "p"))
+;        	rEnd        = evalstring( strcat(rEnd "p"))
+;        	rEndNull    = evalstring( strcat(rEndNull "p"))
+;  		rEnergy     = integ( i("/V1/MINUS") rStart rEnd)*1e12*Volts
+;		rnullEnergy = integ( i("/V1/MINUS") rEnd   rEndNull)*1e12*Volts
+;
+
+            
+;        	wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
+;        	wEnd        = evalstring( strcat(wEnd "p") )
+;        	wEndNull    = evalstring( strcat(wEndNull "p") )
+;		wEnergy     = integ( i("/V1/MINUS") wStart wEnd)*1e12*Volts
+;		wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
+
+;		outF      =   outfile(file,    "a")       
+;        	fprintf( outF "%s,\t%s,\t%g,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g,\t%s,\t%g\n" nthelem(j mVs) nthelem(j temps) leakage peakCurrent rDelay rEnergy rNull rnullEnergy wDelay wEnergy wNull wnullEnergy)
+;        	close( outF )
+	         
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	          
+
+;            	leak8K    = leakage*4   ;;mA
+;            	leak16K   = leak8K*2    ;;mA
+;            	leak32K   = leak16K*2   ;;mA
+;            
+;            	leak8KPwr  = leak8K*Volts  ;;mW
+;            	leak16KPwr = leak16K*Volts ;;mW
+;            	leak32KPwr = leak32K*Volts ;;mW
+            
+;            	leakageEnergy     = 1e-3*leakagePwr*2*(rEnd-rStart)*1e12         ;; read is longer than write
+;            	leakageEnergyNull = 1e-3*leakagePwr*2*(rEndNull-rEnd)*1e12       ;; read is longer than write
+            
+;            	rwEnergy8K   = rEnergy+wEnergy+leakageEnergy 
+;            	rwEnergy16K  = 2*rwEnergy8K
+;            	rwEnergy32K  = 4*rwEnergy8K
+;                     
+;            	rwEnergyNull8K  = rnullEnergy+wnullEnergy+leakageEnergyNull 
+;            	rwEnergyNull16K = 2*rwEnergyNull8K
+;            	rwEnergyNull32K = 4*rwEnergyNull8K
+;            
+;            	rwCycleEnergy8K  =  rwEnergy8K +   rwEnergyNull8K
+;            	rwCycleEnergy16K =  rwEnergy16K +  rwEnergyNull16K
+;            	rwCycleEnergy32K =  rwEnergy32K +  rwEnergyNull32K
+	      
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       
+;            	out8K     =   outfile(file8K,  "a")
+;            	out16K    =   outfile(file16K, "a")
+;            	out32K    =   outfile(file32K, "a")                       
+;            	fprintf( out8K  "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak8K leak8KPwr rwEnergy8K rwEnergyNull8K rwCycleEnergy8K)
+;            	fprintf( out16K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak16K leak16KPwr rwEnergy16K rwEnergyNull16K rwCycleEnergy16K)
+;            	fprintf( out32K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak32K leak32KPwr rwEnergy32K rwEnergyNull32K rwCycleEnergy32K)            
+;            	close( out8K)
+;            	close( out16K)
+;            	close( out32K)
+;            )
+;	) 
+;    )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;    j     = j + 1
+;)    
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+printf("\nCompleted.\n")
+;foreach( job jobList deleteJob( job ) )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

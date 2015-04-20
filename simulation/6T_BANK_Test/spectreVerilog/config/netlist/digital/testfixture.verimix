@@ -40,6 +40,7 @@ begin
    A[19:0]  = 20'h11111;
    RW[1:0]  = 2'b01;
    WriteData[31:0] = 32'h44884488;
+   wStart = $time;
    start = 1;
    readOrWrite = 1;
 

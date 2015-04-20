@@ -18,8 +18,7 @@
         W1_22 W1_21 W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 \
         W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 \
         W1_0 W_Addr_4 W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 net59_0 \
-        net59_1 net59_2 net59_3 net59_4 net59_5 net59_6 net59_7) \
-        _sub184
+        net59_1 net59_2 net59_3 net59_4 net59_5 net59_6 net59_7) _sub20
     I2 (Rs_1 Ws_1 KR_1 KW_1 RO_Reg2_31 RO_Reg2_30 RO_Reg2_29 RO_Reg2_28 \
         RO_Reg2_27 RO_Reg2_26 RO_Reg2_25 RO_Reg2_24 RO_Reg2_23 \
         RO_Reg2_22 RO_Reg2_21 RO_Reg2_20 RO_Reg2_19 RO_Reg2_18 \
@@ -40,8 +39,7 @@
         W1_22 W1_21 W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 \
         W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 \
         W1_0 W_Addr_4 W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 net61_0 \
-        net61_1 net61_2 net61_3 net61_4 net61_5 net61_6 net61_7) \
-        _sub184
+        net61_1 net61_2 net61_3 net61_4 net61_5 net61_6 net61_7) _sub20
     I6 (Rs_2 Ws_2 KR_2 KW_2 R0_Reg3_31 R0_Reg3_30 R0_Reg3_29 R0_Reg3_28 \
         R0_Reg3_27 R0_Reg3_26 R0_Reg3_25 R0_Reg3_24 R0_Reg3_23 \
         R0_Reg3_22 R0_Reg3_21 R0_Reg3_20 R0_Reg3_19 R0_Reg3_18 \
@@ -62,8 +60,7 @@
         W1_22 W1_21 W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 \
         W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 \
         W1_0 W_Addr_4 W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 net63_0 \
-        net63_1 net63_2 net63_3 net63_4 net63_5 net63_6 net63_7) \
-        _sub184
+        net63_1 net63_2 net63_3 net63_4 net63_5 net63_6 net63_7) _sub20
     I8 (Rs_3 Ws_3 KR_3 KW_3 R0_Reg4_31 R0_Reg4_30 R0_Reg4_29 R0_Reg4_28 \
         R0_Reg4_27 R0_Reg4_26 R0_Reg4_25 R0_Reg4_24 R0_Reg4_23 \
         R0_Reg4_22 R0_Reg4_21 R0_Reg4_20 R0_Reg4_19 R0_Reg4_18 \
@@ -84,8 +81,7 @@
         W1_22 W1_21 W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 \
         W1_12 W1_11 W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 \
         W1_0 W_Addr_4 W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 net65_0 \
-        net65_1 net65_2 net65_3 net65_4 net65_5 net65_6 net65_7) \
-        _sub184
+        net65_1 net65_2 net65_3 net65_4 net65_5 net65_6 net65_7) _sub20
     I4 (R_Addr_6 R_Addr_5 Rs_3 Rs_2 Rs_1 Rs_0 GoR) Decode_2to4
     I1 (W_Addr_6 W_Addr_5 Ws_3 Ws_2 Ws_1 Ws_0 GoW) Decode_2to4
     I10 (KW_0 KW_1 KW_2 KW_3 \~KWe) nand4_1x

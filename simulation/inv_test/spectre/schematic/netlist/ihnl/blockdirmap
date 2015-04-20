@@ -1,4 +1,5 @@
-CADENCE IHNL01072
+CADENCE IHNL01073
 
 16nm inv_1x schematic cds0
-16nm_Tests inv_test schematic cds1
+16nm THaC schematic cds1
+16nm_Tests inv_test schematic cds2

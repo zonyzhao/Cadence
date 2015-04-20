@@ -1,0 +1,11 @@
+HEADER
+"PSFversion" "1.00"
+"I10n I0n" "TH22"
+"I2n" "nor_1x"
+"I11n I12n" "inv_1x"
+"L0v" ":1v"
+"L1v" ":2v"
+"Lackv" ":3v"
+"Rackv" ":4v"
+"~R0v" ":5v"
+"~R1v" ":6v"

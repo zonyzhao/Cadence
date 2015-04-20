@@ -1,4 +1,4 @@
-Fri Apr 10 22:30:45 2015
+Sat Apr 18 21:45:30 2015
 
 BUILDING Network design (cell: 6T_BANK_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -40,29 +40,29 @@ Model inv_1xT, lib 16nm, view functional
 	Partition analog, in network 16nm_Tests_6T_BANK_Test_config_16nm_Tests_6T_BANK_Test_schematic
 	The modules in this partition are:
 Module inv_1xt, lib 16nm, view schematic, configViewString $default
-Module inv_1x, lib 16nm, view schematic, configViewString $default
+Module nor3_1x, lib 16nm, view schematic, configViewString $default
 Module nor_1x, lib 16nm, view schematic, configViewString $default
-Module or_1x, lib 16nm, view schematic, configViewString $default
-Module nand3_1x, lib 16nm, view schematic, configViewString $default
-Module and3_1x, lib 16nm, view schematic, configViewString $default
+Module inv_1x, lib 16nm, view schematic, configViewString $default
+Module nor4_1x, lib 16nm, view schematic, configViewString $default
+Module or4_1x, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
+Module or16_1x, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
 Module Demux_2e1of4, lib 16nm, view schematic, configViewString $default
 Module Demux_3e1of4, lib 16nm, view schematic, configViewString $default
 Module 6T_DEMUX_, lib 16nm, view schematic, configViewString $default
-Module TH44, lib 16nm, view schematic, configViewString $default
-Module nor4_1x, lib 16nm, view schematic, configViewString $default
-Module or4_1x, lib 16nm, view schematic, configViewString $default
-Module or16_1x, lib 16nm, view schematic, configViewString $default
-Module 6T_CONTROL, lib 16nm, view schematic, configViewString $default
-Module TH22~, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
+Module TH44, lib 16nm, view schematic, configViewString $default
+Module 6T_CONTROL, lib 16nm, view schematic, configViewString $default
 Module and_1x, lib 16nm, view schematic, configViewString $default
+Module TH22~, lib 16nm, view schematic, configViewString $default
 Module WCHB~, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
 Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
+Module or_1x, lib 16nm, view schematic, configViewString $default
 Module PCHB_FIFO, lib 16nm, view schematic, configViewString $default
 Module WCHB, lib 16nm, view schematic, configViewString $default
+Module PCHBd, lib 16nm, view schematic, configViewString $default
 Module 6T_DATA, lib 16nm, view schematic, configViewString $default
 Module 6T_SetRead, lib 16nm, view schematic, configViewString $default
 Module 6T_32x_CTRL, lib 16nm, view schematic, configViewString $default
