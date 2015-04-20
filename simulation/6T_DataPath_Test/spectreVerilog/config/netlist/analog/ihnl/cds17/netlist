@@ -1,10 +1,10 @@
-    I7 (A_3 A_2 A_1 A_0 B0 B1) _sub136
-    I6 (A_7 A_6 A_5 A_4 B0 B1) _sub136
-    I5 (A_11 A_10 A_9 A_8 B0 B1) _sub136
-    I4 (A_15 A_14 A_13 A_12 B0 B1) _sub136
-    I3 (A_19 A_18 A_17 A_16 B0 B1) _sub136
-    I2 (A_23 A_22 A_21 A_20 B0 B1) _sub136
-    I1 (A_27 A_26 A_25 A_24 B0 B1) _sub136
-    I0 (A_31 A_30 A_29 A_28 B0 B1) _sub136
-ends _sub137
+    I7 (A_3 A_2 A_1 A_0 B0 B1) _sub4
+    I6 (A_7 A_6 A_5 A_4 B0 B1) _sub4
+    I5 (A_11 A_10 A_9 A_8 B0 B1) _sub4
+    I4 (A_15 A_14 A_13 A_12 B0 B1) _sub4
+    I3 (A_19 A_18 A_17 A_16 B0 B1) _sub4
+    I2 (A_23 A_22 A_21 A_20 B0 B1) _sub4
+    I1 (A_27 A_26 A_25 A_24 B0 B1) _sub4
+    I0 (A_31 A_30 A_29 A_28 B0 B1) _sub4
+ends _sub5
 // End of subcircuit definition.

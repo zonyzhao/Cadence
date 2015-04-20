@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_144 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_12 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
  
 
 `define verimix

@@ -7,13 +7,11 @@
     M0 (net17 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
     M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
         degradation=yes
-    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 \
-        degradation=yes
-    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
-        degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=yes
     M8 (net037 B vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
     M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
     M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
         degradation=yes
-ends _sub132
+ends _sub0
 // End of subcircuit definition.

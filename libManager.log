@@ -1,6 +1,6 @@
 \o Program:		@(#)$CDS: libManager version 6.1.6 - CAT33 08/24/2014 13:48 (sjfnl834) $
 \o Sub version:		sub-version  s012 
-\o Arguments:		-mpssession virtuoso6317 -mpshost bull 
+\o Arguments:		-mpssession virtuoso5997 -mpshost bull 
 \o Working Directory:	bull:/root/Desktop/Cadence
 \o Qt version: 		4.7.2
 \o Log file is "/root/Desktop/Cadence/libManager.log".
@@ -11,15 +11,28 @@
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
 \o Library Manager customization server connected.
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libListBox->value = nil
 \a cdsLibManager->libListBox->value = "16nm_Tests"
 \a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "10T_DUAL_SRAM_Test"
 \a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
 \a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
 \a cdsLibManager->viewListBox->value = "config"
 \a cdsLibManager->viewLineEdit->value = "config"
 \o MPS request: edit design
 \a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_DataPath_Test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\a cdsLibManager->cellLineEdit->value = "6T_DataPath_Test"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "config"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 1)
 \a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->libListBox->value = nil
 \a cdsLibManager->cellListBox->value = nil
@@ -29,8 +42,8 @@
 \a cdsLibManager->libLineEdit->value = ""
 \a cdsLibManager->libListBox->value = "16nm_Tests"
 \a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
-\a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
+\a cdsLibManager->cellListBox->value = "6T_DataPath_Test"
+\a cdsLibManager->cellLineEdit->value = "6T_DataPath_Test"
 \a cdsLibManager->viewListBox->value = "config"
 \a cdsLibManager->viewLineEdit->value = "config"
 \a cdsLibManager->viewLineEdit->value = ""
@@ -38,17 +51,31 @@
 \a cdsLibManager->viewListBox->value = "config"
 \a cdsLibManager->viewLineEdit->value = "config"
 \a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "6T_SDP_BANK_Test"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(1683 283 1044 862))
+\a nrResizeWindow(cdsLibManager list(1955 91 1044 862))
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->cellLineEdit->value = "6T_SDP_BANK_Test"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrSetWindowVisibility(cdsLibManager "hide")
-\o libManager is exiting.
-\a exit(0)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libListBox->value = "ATSim"
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libListBox->value = "ATSim"
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T"
+\a cdsLibManager->cellListBox->value = "HLFF"
+\a cdsLibManager->cellListBox->value = "MOS_a2d"
+\a cdsLibManager->cellListBox->value = "PCHB_FIFO"

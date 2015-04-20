@@ -63,7 +63,7 @@ foreach(job jobList
     	selectResult( 'tran )
     	unless( i( "/V1/MINUS") == nil
 	Volts       = evalstring( nthelem(j mVs) )*0.001;
-        leakage     = average( clip( i( "/V1/MINUS" ) 1200p 1300p ) ) *1e3
+        leakage     = average( clip( i( "/V1/MINUS" ) 300p 400p ) ) *1e3
         leakagePwr  = leakage*Volts
 	peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
 	peakPwr     = peakCurrent*Volts
@@ -106,8 +106,6 @@ foreach(job jobList
 	rCycle       = evalstring( rDelay ) + evalstring( rNull )
 	rCycleEnergy = rEnergy +  rnullEnergy
 	rEDP	 = rCycle*rCycleEnergy
-
-
             
 	wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
 	wEnd        = evalstring( strcat(wEnd "p") )
@@ -125,7 +123,7 @@ foreach(job jobList
 	         
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	          
 
-        leak8K    = leakage*4   ;;mA
+	    leak8K    = leakage*4   ;;mA
             leak16K   = leak8K*2    ;;mA
             leak32K   = leak16K*2   ;;mA
             

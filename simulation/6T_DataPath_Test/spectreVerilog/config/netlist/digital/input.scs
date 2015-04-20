@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_144 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_12 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
  
 
 `define verimix
@@ -245,10 +245,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 20 02:55:32 2015
-// NETLIST TIME: Apr 20 03:08:10 2015
+// NETLIST TIME: Apr 20 14:40:07 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_144 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+module cdsModule_12 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
 
 output  Ack;
 

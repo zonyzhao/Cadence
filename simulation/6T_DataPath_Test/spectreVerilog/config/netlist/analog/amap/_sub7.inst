@@ -5,6 +5,7 @@ HEADER
 "I4n I5n I6n I7n" "_sub6"
 "I11n I10n" "nand4_1x"
 "C7n C6n C5n C4n C3n C2n C1n C0n" "UCD_Analog_Parts_cap_spectre"
+"M23n M22n M21n M20n M7n M6n M5n M4n" "NCSU_TechLib_FreePDK15_pfet_spectre"
 "A<31>v" ":1v"
 "A<30>v" ":2v"
 "A<29>v" ":3v"
