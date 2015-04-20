@@ -1,7 +1,8 @@
 HEADER
 "PSFversion" "1.00"
-"I10n I0n" "TH22"
-"I2n" "and_1x"
+"I15n" "inv_1x"
+"I2n" "nand_1x"
+"I10n I0n" "_sub119"
 "L0v" ":1v"
 "L1v" ":2v"
 "Lackv" ":3v"

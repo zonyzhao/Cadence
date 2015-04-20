@@ -114,8 +114,8 @@
 ( "I8<1>" "I8_1" )
  )
 ( model
-( "10T_RPrecharge" "_sub18" )
-( "10T_DUAL_SRAM_RPrecharge" "_sub19" )
+( "10T_RPrecharge" "_sub114" )
+( "10T_DUAL_SRAM_RPrecharge" "_sub115" )
  )
 ( term
  )

@@ -8,13 +8,13 @@ wire  Ack;
 
 reg  Req;
 
-wire [1:0]  WAck;
 wire [7:0]  RData;
+wire [1:0]  WAck;
 
-reg [1:0]  RAck;
 reg [1:0]  RW;
-reg [15:0]  A;
 reg [7:0]  WData;
+reg [15:0]  A;
+reg [1:0]  RAck;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_50 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_131 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
  
 
 `define verimix
@@ -174,46 +174,46 @@ always @(posedge Ack) begin
 // Begin Interface Element Header and Verimix Synchronization task
 initial begin
 	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
-	$vmx_define_export( test.top.net031[0], "99999"); // /net031<0>
-	$vmx_define_import( test.top.mixedNet99998, "99998"); // /net027<5>
-	$vmx_define_export( test.top.net031[10], "99997"); // /net031<10>
-	$vmx_define_export( test.top.net031[11], "99996"); // /net031<11>
-	$vmx_define_export( test.top.net031[1], "99995"); // /net031<1>
-	$vmx_define_import( test.top.mixedNet99994, "99994"); // /net027<7>
-	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net027<2>
+	$vmx_define_import( test.top.mixedNet99999, "99999"); // /net027<2>
+	$vmx_define_import( test.top.mixedNet99998, "99998"); // /net027<3>
+	$vmx_define_export( test.top.net031[8], "99997"); // /net031<8>
+	$vmx_define_import( test.top.mixedNet99996, "99996"); // /net027<4>
+	$vmx_define_export( test.top.net44[5], "99995"); // /net44<5>
+	$vmx_define_export( test.top.net44[0], "99994"); // /net44<0>
+	$vmx_define_export( test.top.net44[1], "99993"); // /net44<1>
 	$vmx_define_export( test.top.net41[0], "99992"); // /net41<0>
-	$vmx_define_import( test.top.mixedNet99991, "99991"); // /net027<0>
-	$vmx_define_export( test.top.net44[5], "99990"); // /net44<5>
-	$vmx_define_export( test.top.net44[3], "99989"); // /net44<3>
-	$vmx_define_export( test.top.net021, "99988"); // /net021
-	$vmx_define_import( test.top.mixedNet99987, "99987"); // /net020
-	$vmx_define_export( test.top.net031[8], "99986"); // /net031<8>
-	$vmx_define_export( test.top.net031[4], "99985"); // /net031<4>
-	$vmx_define_export( test.top.net031[14], "99984"); // /net031<14>
-	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net027<4>
-	$vmx_define_export( test.top.net031[15], "99982"); // /net031<15>
-	$vmx_define_export( test.top.net44[0], "99981"); // /net44<0>
-	$vmx_define_export( test.top.net44[1], "99980"); // /net44<1>
-	$vmx_define_export( test.top.net44[6], "99979"); // /net44<6>
-	$vmx_define_export( test.top.net40[0], "99978"); // /net40<0>
-	$vmx_define_export( test.top.net44[7], "99977"); // /net44<7>
-	$vmx_define_export( test.top.net031[12], "99976"); // /net031<12>
-	$vmx_define_import( test.top.mixedNet99975, "99975"); // /net027<1>
-	$vmx_define_export( test.top.net031[13], "99974"); // /net031<13>
-	$vmx_define_export( test.top.net031[2], "99973"); // /net031<2>
-	$vmx_define_export( test.top.net031[3], "99972"); // /net031<3>
-	$vmx_define_export( test.top.net031[6], "99971"); // /net031<6>
-	$vmx_define_export( test.top.net031[9], "99970"); // /net031<9>
-	$vmx_define_export( test.top.net031[7], "99969"); // /net031<7>
-	$vmx_define_import( test.top.mixedNet99968, "99968"); // /net027<6>
-	$vmx_define_import( test.top.mixedNet99967, "99967"); // /net027<3>
-	$vmx_define_export( test.top.net031[5], "99966"); // /net031<5>
-	$vmx_define_import( test.top.mixedNet99965, "99965"); // /net036<0>
-	$vmx_define_import( test.top.mixedNet99964, "99964"); // /net036<1>
-	$vmx_define_export( test.top.net44[4], "99963"); // /net44<4>
+	$vmx_define_export( test.top.net031[15], "99991"); // /net031<15>
+	$vmx_define_export( test.top.net021, "99990"); // /net021
+	$vmx_define_export( test.top.net44[7], "99989"); // /net44<7>
+	$vmx_define_export( test.top.net40[0], "99988"); // /net40<0>
+	$vmx_define_export( test.top.net031[9], "99987"); // /net031<9>
+	$vmx_define_import( test.top.mixedNet99986, "99986"); // /net027<0>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /net027<1>
+	$vmx_define_export( test.top.net40[1], "99984"); // /net40<1>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net036<0>
+	$vmx_define_import( test.top.mixedNet99982, "99982"); // /net036<1>
+	$vmx_define_export( test.top.net031[11], "99981"); // /net031<11>
+	$vmx_define_export( test.top.net031[10], "99980"); // /net031<10>
+	$vmx_define_export( test.top.net44[3], "99979"); // /net44<3>
+	$vmx_define_import( test.top.mixedNet99978, "99978"); // /net027<7>
+	$vmx_define_export( test.top.net031[12], "99977"); // /net031<12>
+	$vmx_define_export( test.top.net031[13], "99976"); // /net031<13>
+	$vmx_define_export( test.top.net031[2], "99975"); // /net031<2>
+	$vmx_define_export( test.top.net031[3], "99974"); // /net031<3>
+	$vmx_define_export( test.top.net031[4], "99973"); // /net031<4>
+	$vmx_define_export( test.top.net44[4], "99972"); // /net44<4>
+	$vmx_define_export( test.top.net031[5], "99971"); // /net031<5>
+	$vmx_define_export( test.top.net031[14], "99970"); // /net031<14>
+	$vmx_define_export( test.top.net031[6], "99969"); // /net031<6>
+	$vmx_define_export( test.top.net031[7], "99968"); // /net031<7>
+	$vmx_define_export( test.top.net031[1], "99967"); // /net031<1>
+	$vmx_define_import( test.top.mixedNet99966, "99966"); // /net027<5>
+	$vmx_define_export( test.top.net41[1], "99965"); // /net41<1>
+	$vmx_define_import( test.top.mixedNet99964, "99964"); // /net020
+	$vmx_define_export( test.top.net031[0], "99963"); // /net031<0>
 	$vmx_define_export( test.top.net44[2], "99962"); // /net44<2>
-	$vmx_define_export( test.top.net41[1], "99961"); // /net41<1>
-	$vmx_define_export( test.top.net40[1], "99960"); // /net40<1>
+	$vmx_define_import( test.top.mixedNet99961, "99961"); // /net027<6>
+	$vmx_define_export( test.top.net44[6], "99960"); // /net44<6>
 	$vmx_end_definition;
 	vmx_time_offset = 0;
 	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
@@ -240,95 +240,95 @@ end
 // Begin SST2 Save Waveforms
 initial begin
 $shm_open(`_VMX_DATA_PATH_);
-$shm_probe(test.top.A[7], test.top.A[0], test.top.RData[2], test.top.RData[1], test.top.A[4], test.top.A[2], test.top.A[1], test.top.RData[5], test.top.WAck[1], test.top.WAck[0], test.top.RData[7], test.top.RAck[1], test.top.Req, test.top.A[15], test.top.A[14], test.top.RW[0], test.top.A[13], test.top.WData[7], test.top.WData[6], test.top.WData[5], test.top.WData[4], test.top.WData[3], test.top.WData[2], test.top.WData[1], test.top.A[3], test.top.WData[0], test.top.A[8], test.top.A[12], test.top.A[11], test.top.A[6], test.top.A[5], test.top.A[10], test.top.Ack, test.top.RData[4], test.top.RData[3], test.top.A[9], test.top.RData[0], test.top.RAck[0], test.top.RData[6], test.top.RW[1], test.top.WData[7:0], test.top.RW[1:0], test.top.RData[7:0], test.top.A[15:0], test.top.WAck[1:0], test.top.RAck[1:0]);
+$shm_probe(test.top.A[12], test.top.WData[3], test.top.A[11], test.top.RData[4], test.top.RData[5], test.top.RData[3], test.top.A[1], test.top.WData[6], test.top.A[15], test.top.A[14], test.top.WData[5], test.top.RData[7], test.top.WData[0], test.top.RW[1], test.top.WData[7], test.top.A[10], test.top.Req, test.top.RW[0], test.top.A[9], test.top.A[7], test.top.A[6], test.top.A[8], test.top.A[3], test.top.A[5], test.top.RAck[1], test.top.A[13], test.top.RAck[0], test.top.A[2], test.top.Ack, test.top.WAck[1], test.top.WAck[0], test.top.WData[4], test.top.WData[1], test.top.A[4], test.top.RData[2], test.top.RData[1], test.top.RData[0], test.top.A[0], test.top.WData[2], test.top.RData[6], test.top.WData[7:0], test.top.RW[1:0], test.top.RData[7:0], test.top.A[15:0], test.top.RAck[1:0], test.top.WAck[1:0]);
 end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
-// LAST TIME SAVED: Apr 20 01:12:34 2015
-// NETLIST TIME: Apr 20 01:22:34 2015
+// LAST TIME SAVED: Apr 20 02:29:44 2015
+// NETLIST TIME: Apr 20 02:30:02 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_50 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+module cdsModule_131 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
 
 output  Ack;
 
 input  Req;
 
-output [1:0]  WAck;
 output [7:0]  RData;
+output [1:0]  WAck;
 
-input [1:0]  RAck;
 input [1:0]  RW;
-input [15:0]  A;
 input [7:0]  WData;
+input [15:0]  A;
+input [1:0]  RAck;
 
 // Buses in the design
-
-wire  [1:0]  RWT;
-
-wire  [1:0]  RAckT;
-
-wire  [1:0]  WAckT;
-
-wire  [63:0]  Aline;
-
-wire  [3:0]  cdsbus0;
-
-wire  [0:1]  net036;
-
-wire  [3:0]  cdsbus1;
 
 wire  [0:7]  net027;
 
 wire  [7:0]  S;
 
+wire  [63:0]  Aline;
+
+wire  [3:0]  cdsbus0;
+
+wire  [0:1]  net40;
+
+wire  [1:0]  RWT;
+
+wire  [0:1]  net036;
+
+wire  [1:0]  RAckT;
+
+wire  [1:0]  WAckT;
+
+wire  [15:0]  AT;
+
+wire  [3:0]  B0_1;
+
 wire  [7:0]  WDataT;
+
+wire  [3:0]  W1_1;
+
+wire  [3:0]  W0_1;
+
+wire  [7:0]  RDataT;
+
+wire  [3:0]  cdsbus1;
 
 wire  [0:15]  net031;
 
 wire  [0:1]  net41;
 
-wire  [0:1]  net40;
-
-wire  [3:0]  B1_1;
-
-wire  [3:0]  B0_1;
-
-wire  [3:0]  W1_1;
-
-wire  [7:0]  RDataT;
-
-wire  [3:0]  W0_1;
-
 wire  [0:7]  net44;
 
-wire  [15:0]  AT;
+wire  [3:0]  B1_1;
 
 // begin interface element definitions
 
 wire net020;
+reg mixedNet99999;
 reg mixedNet99998;
-reg mixedNet99994;
-reg mixedNet99993;
-reg mixedNet99991;
-reg mixedNet99987;
+reg mixedNet99996;
+reg mixedNet99986;
+reg mixedNet99985;
 reg mixedNet99983;
-reg mixedNet99975;
-reg mixedNet99968;
-reg mixedNet99967;
-reg mixedNet99965;
+reg mixedNet99982;
+reg mixedNet99978;
+reg mixedNet99966;
 reg mixedNet99964;
-assign net027[5] = mixedNet99998;
-assign net027[7] = mixedNet99994;
-assign net027[2] = mixedNet99993;
-assign net027[0] = mixedNet99991;
-assign net020 = mixedNet99987;
-assign net027[4] = mixedNet99983;
-assign net027[1] = mixedNet99975;
-assign net027[6] = mixedNet99968;
-assign net027[3] = mixedNet99967;
-assign net036[0] = mixedNet99965;
-assign net036[1] = mixedNet99964;
+reg mixedNet99961;
+assign net027[2] = mixedNet99999;
+assign net027[3] = mixedNet99998;
+assign net027[4] = mixedNet99996;
+assign net027[0] = mixedNet99986;
+assign net027[1] = mixedNet99985;
+assign net036[0] = mixedNet99983;
+assign net036[1] = mixedNet99982;
+assign net027[7] = mixedNet99978;
+assign net027[5] = mixedNet99966;
+assign net020 = mixedNet99964;
+assign net027[6] = mixedNet99961;
 
 // end interface element definitions
 

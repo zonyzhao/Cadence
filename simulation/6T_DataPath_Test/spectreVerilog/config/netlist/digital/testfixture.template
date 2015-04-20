@@ -8,13 +8,13 @@ wire  Ack;
 
 reg  Req;
 
-wire [1:0]  WAck;
 wire [7:0]  RData;
+wire [1:0]  WAck;
 
-reg [1:0]  RAck;
 reg [1:0]  RW;
-reg [15:0]  A;
 reg [7:0]  WData;
+reg [15:0]  A;
+reg [1:0]  RAck;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_50 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_131 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
  
 
 `define verimix

@@ -70,9 +70,9 @@
     I75 (wack_2 B0q_2 B0_2 B1q_2 B1_2 W0_2 W1_2) PCHB_FIFO
     I76 (wack_3 B0q_3 B0_3 B1q_3 B1_3 W0_3 W1_3) PCHB_FIFO
     I82 (intRack intWack Ack) nand_1x
-    I67_3 (R0q_3 R1q_3 RpAck_3 Rack_3 Out0_3 Out1_3) _sub39
-    I67_2 (R0q_2 R1q_2 RpAck_2 Rack_2 Out0_2 Out1_2) _sub39
-    I67_1 (R0q_1 R1q_1 RpAck_1 Rack_1 Out0_1 Out1_1) _sub39
-    I67_0 (R0q_0 R1q_0 RpAck_0 Rack_0 Out0_0 Out1_0) _sub39
-ends _sub40
+    I67_3 (R0q_3 R1q_3 RpAck_3 Rack_3 Out0_3 Out1_3) _sub120
+    I67_2 (R0q_2 R1q_2 RpAck_2 Rack_2 Out0_2 Out1_2) _sub120
+    I67_1 (R0q_1 R1q_1 RpAck_1 Rack_1 Out0_1 Out1_1) _sub120
+    I67_0 (R0q_0 R1q_0 RpAck_0 Rack_0 Out0_0 Out1_0) _sub120
+ends _sub121
 // End of subcircuit definition.

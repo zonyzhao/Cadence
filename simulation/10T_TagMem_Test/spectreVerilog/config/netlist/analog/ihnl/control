@@ -4,11 +4,11 @@ hnlLastStopCellInfo = '(
                           ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 15
-hnlLastConfigFileTimeStamp = "1429513424"
+hnlLastConfigFileVersion = 17
+hnlLastConfigFileTimeStamp = "1429521432"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "10T_TagMem_Test" "config" 15 "1429513424" )
+( "16nm_Tests" "10T_TagMem_Test" "config" 17 "1429521432" )
 ) 
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"
