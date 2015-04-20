@@ -41,5 +41,5 @@
 (envOpts savestate) ""
 (envOpts setTopLevelAsSubckt) nil
 (envOpts sst2usecolon) nil
-(envOpts userCmdLineOption) "+multithread"
+(envOpts userCmdLineOption) ""
 (envOpts vcoType) ""

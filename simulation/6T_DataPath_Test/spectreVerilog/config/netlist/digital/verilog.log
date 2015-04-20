@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport38968
+    +vmxsport37404
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 20, 2015  02:30:05
-Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  02:30:05
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 20, 2015  03:08:14
+Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  03:08:14
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -86,40 +86,40 @@ Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to sp
 Message!  At the end of DC initialization the logic values                     
           of the following ports are X (unknown):                              
                                                                                
-          net031                                                               
-          net44                                                                
-          net44                                                                
           net44                                                                
           net41                                                                
+          net44                                                                
+          net44                                                                
           net031                                                               
+          net031                                                               
+          net44                                                                
+          net031                                                               
+          net031                                                               
+          net031                                                               
+          net44                                                                
+          net44                                                                
+          net44                                                                
           net021                                                               
-          net44                                                                
+          net031                                                               
+          net031                                                               
+          net031                                                               
+          net031                                                               
+          net031                                                               
           net40                                                                
-          net031                                                               
-          net40                                                                
-          net031                                                               
-          net031                                                               
           net44                                                                
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net44                                                                
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
           net41                                                                
           net031                                                               
-          net44                                                                
-          net44                                                                
+          net031                                                               
+          net031                                                               
+          net031                                                               
+          net031                                                               
+          net40                                                                
+          net031                                                               
                                                            [Mixed_Sig]         
           "IE.verimix", 5: $vmx_initialize("spectre",                          
           dc_mode_flag);
-L82 "testfixture.verimix": $finish at simulation time 1675
-Verilog/spectre Interface: 1342 messages sent, 1344 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 295 accelerated events
+L82 "testfixture.verimix": $finish at simulation time 1663
+Verilog/spectre Interface: 1325 messages sent, 1327 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 279 accelerated events
 CPU time: 0.0 secs to compile + 0.0 secs to link + 4.0 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  02:47:04
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  03:24:37

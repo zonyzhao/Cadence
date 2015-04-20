@@ -1,14 +1,14 @@
-    I7 (b_0 bsel net21 net31) TH33
-    I6 (b_1 bsel net22 net29) TH33
-    I1 (a_1 asel net22 net28) TH33
-    I0 (a_0 asel net21 net26) TH33
-    I11 (net42 ack out_0) TH22
-    I10 (net41 ack out_1) TH22
-    I15 (net28 net29 net41) or_1x
-    I14 (net26 net31 net42) or_1x
-    I13 (net31 net29 b_ack) or_1x
-    I12 (net26 net28 a_ack) or_1x
-    I21 (out_0 net21) inv_1x
-    I20 (out_1 net22) inv_1x
-ends _sub15
+    I25 (A4_1of4_3 A4_1of4_2 A4_1of4_1 A4_1of4_0 A_Ack_3 C_Ack_3 Asel \
+        B4_1of4_3 B4_1of4_2 B4_1of4_1 B4_1of4_0 B_Ack_3 Bsel C4_1of4_3 \
+        C4_1of4_2 C4_1of4_1 C4_1of4_0) _sub23
+    I24 (A3_1of4_3 A3_1of4_2 A3_1of4_1 A3_1of4_0 A_Ack_2 C_Ack_2 Asel \
+        B3_1of4_3 B3_1of4_2 B3_1of4_1 B3_1of4_0 B_Ack_2 Bsel C3_1of4_3 \
+        C3_1of4_2 C3_1of4_1 C3_1of4_0) _sub23
+    I23 (A2_1of4_3 A2_1of4_2 A2_1of4_1 A2_1of4_0 A_Ack_1 C_Ack_1 Asel \
+        B2_1of4_3 B2_1of4_2 B2_1of4_1 B2_1of4_0 B_Ack_1 Bsel C2_1of4_3 \
+        C2_1of4_2 C2_1of4_1 C2_1of4_0) _sub23
+    I22 (A1_1of4_3 A1_1of4_2 A1_1of4_1 A1_1of4_0 A_Ack_0 C_Ack_0 Asel \
+        B1_1of4_3 B1_1of4_2 B1_1of4_1 B1_1of4_0 B_Ack_0 Bsel C1_1of4_3 \
+        C1_1of4_2 C1_1of4_1 C1_1of4_0) _sub23
+ends _sub24
 // End of subcircuit definition.

@@ -7,17 +7,17 @@ module test;
 wire  ReadAck, WriteAck;
 
 
-wire [7:0]  WD_Ack;
 wire [4:0]  WA_Ack;
 wire [4:0]  RA_Ack;
 wire [31:0]  ReadData;
+wire [7:0]  WD_Ack;
 
 reg [31:0]  WriteData;
-reg [1:0]  RRW;
-reg [7:0]  RD_Ack;
-reg [19:0]  W_Address;
 reg [1:0]  WRW;
+reg [1:0]  RRW;
+reg [19:0]  W_Address;
 reg [19:0]  R_Address;
+reg [7:0]  RD_Ack;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_19 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
+cdsModule_29 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
      RD_Ack, RRW, R_Address, WRW, W_Address, WriteData); 
  
 

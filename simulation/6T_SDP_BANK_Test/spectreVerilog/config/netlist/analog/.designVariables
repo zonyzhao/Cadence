@@ -1,1 +1,1 @@
-parameters vdd=.650 vcc=vdd
+parameters vdd=0.325 vcc=vdd

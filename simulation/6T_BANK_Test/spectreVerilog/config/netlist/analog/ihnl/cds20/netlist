@@ -1,20 +1,19 @@
-    I32 (net014 net023) inv_1x
     I5 (net029 R1i\+1) inv_1x
     I4 (net18 R0i\+1) inv_1x
-    I12 (net020 net023 net016 Ai) THaC
-    M5 (net026 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M4 (net22 net014 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    I12 (inValid inAck outValid outAck) THaC
+    M5 (net026 oE 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net22 oE 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (net029 R1i net026 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M2 (net18 R0i net22 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (net029 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+    M1 (net029 oE vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
         degradation=yes
-    M0 (net18 net014 vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+    M0 (net18 oE vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
         degradation=yes
-    I6 (net029 net18 net016) nand_1x
-    I9 (R0i R1i net020) or_1x
+    I6 (net029 net18 outValid) nand_1x
+    I9 (R0i R1i inValid) or_1x
     I2 (R0i\+1 net18) inv_weak_1x
     I3 (R1i\+1 net029) inv_weak_1x
-    I11 (Ai net025 net014) TH22
-    I31 (W1 W0 net025) nor_1x
+    I11 (outAck inAck oE) TH22
+    I31 (W1 W0 inAck) nor_1x
 ends PCHB_FIFO
 // End of subcircuit definition.

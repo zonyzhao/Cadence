@@ -6,12 +6,14 @@
   hierDelim "."
  )
 ( net
-( "gnd!" "0" )
-( "vdd!" "vdd!" )
+( "~R1" "\\~R1" )
+( "~R0" "\\~R0" )
  )
 ( inst
  )
 ( model
+( "WCHB~" "_sub18" )
+( "TH22~" "_sub17" )
  )
 ( term
  )

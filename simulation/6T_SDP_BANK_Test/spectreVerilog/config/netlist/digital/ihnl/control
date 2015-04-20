@@ -2,11 +2,11 @@ hnlLastStopCellInfo = '(
                            ( "16nm" "inv_1xT" "functional" "40" "1427939694" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 15
-hnlLastConfigFileTimeStamp = "1428898359"
+hnlLastConfigFileVersion = 16
+hnlLastConfigFileTimeStamp = "1429526819"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "6T_SDP_BANK_Test" "config" 15 "1428898359" )
+( "16nm_Tests" "6T_SDP_BANK_Test" "config" 16 "1429526819" )
 ) 
 hnlLastMaxNameLength = 50
 hnlLastNamePrefix = "hnl_"

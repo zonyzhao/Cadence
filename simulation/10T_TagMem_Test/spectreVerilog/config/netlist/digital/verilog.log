@@ -1,0 +1,74 @@
+Host command: /apps/cadence/INCISIVE142/tools/verilog/bin/verilog.exe
+Command arguments:
+    +loadpli1=vm_vlog:regPLI1Verimix
+    -a
+    +sxl_keep_minimum
+    +typdelays
+    -y ./hdlFilesDir
+    +libext+.v+
+    +incdir+hdlFilesDir
+    +sdf_verbose
+    +sdf_nocheck_celltype
+    -l verilog.log
+    +vmxwavedir../../psf
+    -f mmenvOpts
+    testfixture.template
+    -f verilog.inpfiles
+        /net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v
+        ihnl/cds0/netlist
+        hdlFilesDir/cds_globals.v
+    +vmxslave
+    +vmxhostbull
+    +vmxsport36964
+
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 20, 2015  04:22:44
+Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  04:22:44
+
+Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
+Unpublished -- rights reserved under the copyright laws of the United States.
+
+Copyright (c) 1995-2004 UNIX Systems Laboratories, Inc.  Reproduced with Permission.
+
+THIS SOFTWARE AND ON-LINE DOCUMENTATION CONTAIN CONFIDENTIAL INFORMATION
+AND TRADE SECRETS OF CADENCE DESIGN SYSTEMS, INC.  USE, DISCLOSURE, OR
+REPRODUCTION IS PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF
+CADENCE DESIGN SYSTEMS, INC.
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c)(1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+                Cadence Design Systems, Inc.
+                555 River Oaks Parkway
+                San Jose, California  95134
+
+For technical assistance please contact the Cadence Response Center at
+1-877-CDS-4911 or send email to support@cadence.com
+
+For more information on Cadence's Verilog-XL product line send email to
+talkv@cadence.com
+
+Compiling source file "testfixture.template"
+Compiling included source file "annotate_msb"
+Continuing compilation of source file "testfixture.template"
+Compiling included source file "IE.verimix"
+Compiling included source file "simOptions.verimix"
+Continuing compilation of source file "IE.verimix"
+Continuing compilation of source file "testfixture.template"
+Compiling included source file "testfixture.verimix"
+Continuing compilation of source file "testfixture.template"
+Compiling included source file "saveDefs"
+Compiling included source file "dataDirPath"
+Continuing compilation of source file "saveDefs"
+Continuing compilation of source file "testfixture.template"
+Compiling source file "/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v"
+Compiling source file "ihnl/cds0/netlist"
+Compiling source file "hdlFilesDir/cds_globals.v"
+Highest level modules:
+test
+cds_globals
+
+Verilog/spectre Mixed-Signal Interface 2.0

@@ -1,12 +1,10 @@
 ic IBank.ValAddr=0 IBank.I20.B0q_3=0 IBank.I20.B1q_3=0 IBank.I20.B0q_2=0 \
     IBank.I20.B1q_2=0 IBank.I20.B0q_1=0 IBank.I20.B1q_1=0 \
-    IBank.I20.B0q_0=0 IBank.I20.B1q_0=0 IBank.I20.net040=vdd \
-    IBank.I20.net041=vdd IBank.I20.net042=vdd IBank.I20.net043=vdd \
-    IBank.I20.wack_3=vdd IBank.I20.wack_2=vdd IBank.I20.wack_1=vdd \
-    IBank.I20.wack_0=vdd IBank.I20.B0p_3=0 IBank.I20.B1p_3=0 \
-    IBank.I20.B0p_2=0 IBank.I20.B1p_2=0 IBank.I20.B0p_1=0 \
-    IBank.I20.B1p_1=0 IBank.I20.B0p_0=0 IBank.I20.B1p_0=0 IBank.net027=0 \
-    IBank.I20.Wen=0 IBank.I20.net030=0 IBank.I20.net054=0 \
+    IBank.I20.B0q_0=0 IBank.I20.B1q_0=0 IBank.I20.wack_3=vdd \
+    IBank.I20.wack_2=vdd IBank.I20.wack_1=vdd IBank.I20.wack_0=vdd \
+    IBank.I20.B0p_3=0 IBank.I20.B1p_3=0 IBank.I20.B0p_2=0 \
+    IBank.I20.B1p_2=0 IBank.I20.B0p_1=0 IBank.I20.B1p_1=0 \
+    IBank.I20.B0p_0=0 IBank.I20.B1p_0=0 IBank.net027=0 IBank.I20.Wen=0 \
     IBank.I20.Lack_3=vdd IBank.I20.Lack_2=vdd IBank.I20.Lack_1=vdd \
     IBank.I20.Lack_0=vdd IBank.I20.RpAck_3=vdd IBank.I20.RpAck_2=vdd \
     IBank.I20.RpAck_1=vdd IBank.I20.RpAck_0=vdd IBank.I20.Rack_3=vdd \

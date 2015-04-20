@@ -4,45 +4,45 @@
 initial begin
 	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
 	$vmx_define_import( test.top.mixedNet99999, "99999"); // /net027<2>
-	$vmx_define_import( test.top.mixedNet99998, "99998"); // /net027<3>
-	$vmx_define_export( test.top.net031[8], "99997"); // /net031<8>
-	$vmx_define_import( test.top.mixedNet99996, "99996"); // /net027<4>
-	$vmx_define_export( test.top.net44[5], "99995"); // /net44<5>
-	$vmx_define_export( test.top.net44[0], "99994"); // /net44<0>
-	$vmx_define_export( test.top.net44[1], "99993"); // /net44<1>
-	$vmx_define_export( test.top.net41[0], "99992"); // /net41<0>
+	$vmx_define_export( test.top.net44[4], "99998"); // /net44<4>
+	$vmx_define_export( test.top.net41[0], "99997"); // /net41<0>
+	$vmx_define_export( test.top.net44[5], "99996"); // /net44<5>
+	$vmx_define_export( test.top.net44[1], "99995"); // /net44<1>
+	$vmx_define_export( test.top.net031[4], "99994"); // /net031<4>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net027<4>
+	$vmx_define_import( test.top.mixedNet99992, "99992"); // /net027<0>
 	$vmx_define_export( test.top.net031[15], "99991"); // /net031<15>
-	$vmx_define_export( test.top.net021, "99990"); // /net021
-	$vmx_define_export( test.top.net44[7], "99989"); // /net44<7>
-	$vmx_define_export( test.top.net40[0], "99988"); // /net40<0>
-	$vmx_define_export( test.top.net031[9], "99987"); // /net031<9>
-	$vmx_define_import( test.top.mixedNet99986, "99986"); // /net027<0>
-	$vmx_define_import( test.top.mixedNet99985, "99985"); // /net027<1>
-	$vmx_define_export( test.top.net40[1], "99984"); // /net40<1>
-	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net036<0>
-	$vmx_define_import( test.top.mixedNet99982, "99982"); // /net036<1>
-	$vmx_define_export( test.top.net031[11], "99981"); // /net031<11>
-	$vmx_define_export( test.top.net031[10], "99980"); // /net031<10>
-	$vmx_define_export( test.top.net44[3], "99979"); // /net44<3>
-	$vmx_define_import( test.top.mixedNet99978, "99978"); // /net027<7>
-	$vmx_define_export( test.top.net031[12], "99977"); // /net031<12>
-	$vmx_define_export( test.top.net031[13], "99976"); // /net031<13>
-	$vmx_define_export( test.top.net031[2], "99975"); // /net031<2>
-	$vmx_define_export( test.top.net031[3], "99974"); // /net031<3>
-	$vmx_define_export( test.top.net031[4], "99973"); // /net031<4>
-	$vmx_define_export( test.top.net44[4], "99972"); // /net44<4>
-	$vmx_define_export( test.top.net031[5], "99971"); // /net031<5>
-	$vmx_define_export( test.top.net031[14], "99970"); // /net031<14>
-	$vmx_define_export( test.top.net031[6], "99969"); // /net031<6>
-	$vmx_define_export( test.top.net031[7], "99968"); // /net031<7>
-	$vmx_define_export( test.top.net031[1], "99967"); // /net031<1>
-	$vmx_define_import( test.top.mixedNet99966, "99966"); // /net027<5>
-	$vmx_define_export( test.top.net41[1], "99965"); // /net41<1>
-	$vmx_define_import( test.top.mixedNet99964, "99964"); // /net020
-	$vmx_define_export( test.top.net031[0], "99963"); // /net031<0>
-	$vmx_define_export( test.top.net44[2], "99962"); // /net44<2>
-	$vmx_define_import( test.top.mixedNet99961, "99961"); // /net027<6>
-	$vmx_define_export( test.top.net44[6], "99960"); // /net44<6>
+	$vmx_define_import( test.top.mixedNet99990, "99990"); // /net027<1>
+	$vmx_define_export( test.top.net44[2], "99989"); // /net44<2>
+	$vmx_define_export( test.top.net031[0], "99988"); // /net031<0>
+	$vmx_define_export( test.top.net031[2], "99987"); // /net031<2>
+	$vmx_define_export( test.top.net031[7], "99986"); // /net031<7>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /net027<6>
+	$vmx_define_export( test.top.net44[0], "99984"); // /net44<0>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net027<7>
+	$vmx_define_export( test.top.net44[6], "99982"); // /net44<6>
+	$vmx_define_export( test.top.net44[7], "99981"); // /net44<7>
+	$vmx_define_export( test.top.net021, "99980"); // /net021
+	$vmx_define_import( test.top.mixedNet99979, "99979"); // /net020
+	$vmx_define_import( test.top.mixedNet99978, "99978"); // /net027<5>
+	$vmx_define_import( test.top.mixedNet99977, "99977"); // /net027<3>
+	$vmx_define_import( test.top.mixedNet99976, "99976"); // /net036<0>
+	$vmx_define_export( test.top.net031[12], "99975"); // /net031<12>
+	$vmx_define_import( test.top.mixedNet99974, "99974"); // /net036<1>
+	$vmx_define_export( test.top.net031[13], "99973"); // /net031<13>
+	$vmx_define_export( test.top.net031[14], "99972"); // /net031<14>
+	$vmx_define_export( test.top.net031[3], "99971"); // /net031<3>
+	$vmx_define_export( test.top.net031[6], "99970"); // /net031<6>
+	$vmx_define_export( test.top.net40[1], "99969"); // /net40<1>
+	$vmx_define_export( test.top.net44[3], "99968"); // /net44<3>
+	$vmx_define_export( test.top.net41[1], "99967"); // /net41<1>
+	$vmx_define_export( test.top.net031[11], "99966"); // /net031<11>
+	$vmx_define_export( test.top.net031[8], "99965"); // /net031<8>
+	$vmx_define_export( test.top.net031[9], "99964"); // /net031<9>
+	$vmx_define_export( test.top.net031[10], "99963"); // /net031<10>
+	$vmx_define_export( test.top.net031[1], "99962"); // /net031<1>
+	$vmx_define_export( test.top.net40[0], "99961"); // /net40<0>
+	$vmx_define_export( test.top.net031[5], "99960"); // /net031<5>
 	$vmx_end_definition;
 	vmx_time_offset = 0;
 	max_dc_iter = `_VMX_MAX_DC_ITER_ ;

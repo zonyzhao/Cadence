@@ -1,6 +1,6 @@
 HEADER
 "PSFversion" "1.00"
-"I32n I5n I4n" "inv_1x"
+"I5n I4n" "inv_1x"
 "I12n" "THaC"
 "M5n M4n M3n M2n" "NCSU_TechLib_FreePDK15_nfet_spectre"
 "M1n M0n" "NCSU_TechLib_FreePDK15_pfet_spectre"

@@ -12,15 +12,15 @@
     I10_0 (_1of4_4_0 net020_3) inv_1x
     I9 (En net015) inv_1x
     I6 (En net016) inv_1x
-    I5 (_1of4_3_2 _1of4_3_3 net22) nor_1x
     I4 (_1of4_3_0 _1of4_3_1 net23) nor_1x
-    I2_3 (net020_0 net22 net015 S_7) nor3_1x
-    I2_2 (net020_1 net22 net015 S_6) nor3_1x
-    I2_1 (net020_2 net22 net015 S_5) nor3_1x
-    I2_0 (net020_3 net22 net015 S_4) nor3_1x
+    I5 (_1of4_3_2 _1of4_3_3 net22) nor_1x
     I1_3 (net020_0 net23 net016 S_3) nor3_1x
     I1_2 (net020_1 net23 net016 S_2) nor3_1x
     I1_1 (net020_2 net23 net016 S_1) nor3_1x
     I1_0 (net020_3 net23 net016 S_0) nor3_1x
-ends _sub61
+    I2_3 (net020_0 net22 net015 S_7) nor3_1x
+    I2_2 (net020_1 net22 net015 S_6) nor3_1x
+    I2_1 (net020_2 net22 net015 S_5) nor3_1x
+    I2_0 (net020_3 net22 net015 S_4) nor3_1x
+ends _sub158
 // End of subcircuit definition.

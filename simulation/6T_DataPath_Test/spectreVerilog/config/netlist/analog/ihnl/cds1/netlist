@@ -15,5 +15,5 @@
     M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
     M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
         degradation=yes
-ends _sub119
+ends _sub132
 // End of subcircuit definition.

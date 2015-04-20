@@ -1,10 +1,10 @@
 // Library - 16nm_Tests, Cell - 10T_TagMem_Test, View - schematic
 // LAST TIME SAVED: Apr 19 02:51:10 2015
-// NETLIST TIME: Apr 20 02:18:10 2015
+// NETLIST TIME: Apr 20 04:22:03 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_118 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
-     W0, W1, W_Addr );
+module cdsModule_9 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0,
+     W1, W_Addr );
 
 output  R_Ack, W_Ack;
 

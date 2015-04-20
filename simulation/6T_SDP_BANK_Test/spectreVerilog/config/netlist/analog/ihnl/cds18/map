@@ -6,16 +6,10 @@
   hierDelim "."
  )
 ( net
-( "R1i+1" "R1i\\+1" )
-( "R0i+1" "R0i\\+1" )
-( "gnd!" "0" )
-( "Ai+1" "Ai\\+1" )
-( "vdd!" "vdd!" )
  )
 ( inst
  )
 ( model
-( "TH22~" "_sub7" )
  )
 ( term
  )

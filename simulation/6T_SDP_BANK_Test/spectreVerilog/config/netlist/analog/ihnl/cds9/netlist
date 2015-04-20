@@ -1,6 +1,19 @@
-    M3 (Y B or_pd_ps vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
-    M2 (or_pd_ps A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
-    M1 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends nor_1x
+    I6 (net010 Y) inv_1x
+    M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+ends _sub17
 // End of subcircuit definition.

@@ -1,7 +1,7 @@
 HEADER
 "PSFversion" "1.00"
 "I36n" "Dcache_TagMem"
-"V1n V0n" "UCD_Analog_Parts_vdc_spectre"
+"V0n V1n" "UCD_Analog_Parts_vdc_spectre"
 "I39<6>v" "I39_6v"
 "I39<5>v" "I39_5v"
 "I39<4>v" "I39_4v"

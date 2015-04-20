@@ -12,7 +12,8 @@
 ( inst
  )
 ( model
-( "WCHB~" "_sub58" )
+( "WCHB~" "_sub155" )
+( "TH22~" "_sub154" )
  )
 ( term
  )

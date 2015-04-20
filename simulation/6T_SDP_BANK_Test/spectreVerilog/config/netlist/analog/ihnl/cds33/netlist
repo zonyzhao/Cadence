@@ -1,24 +1,21 @@
-    I11 (Vpass_0 ack out_0) TH22
-    I10 (Vpass_1 ack out_1) TH22
-    I9 (Vpass_2 ack out_2) TH22
-    I8 (Vpass_3 ack out_3) TH22
-    I13 (bmid_0 bmid_1 bmid_2 bmid_3 b_ack) or4_1x
-    I12 (amid_0 amid_1 amid_2 amid_3 a_ack) or4_1x
-    I17 (amid_3 bmid_3 Vpass_3) or_1x
-    I16 (amid_2 bmid_2 Vpass_2) or_1x
-    I15 (amid_1 bmid_1 Vpass_1) or_1x
-    I14 (amid_0 bmid_0 Vpass_0) or_1x
-    I21 (out_0 net21) inv_1x
-    I20 (out_1 net22) inv_1x
-    I19 (out_2 net23) inv_1x
-    I18 (out_3 net24) inv_1x
-    I7 (b_0 bsel net21 bmid_0) TH33
-    I6 (b_1 bsel net22 bmid_1) TH33
-    I5 (b_2 bsel net23 bmid_2) TH33
-    I4 (b_3 bsel net24 bmid_3) TH33
-    I3 (a_3 asel net24 amid_3) TH33
-    I2 (a_2 asel net23 amid_2) TH33
-    I1 (a_1 asel net22 amid_1) TH33
-    I0 (a_0 asel net21 amid_0) TH33
-ends _sub13
+    M19 (net13 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M18 (net13 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M17 (net13 C 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M15 (Y net44 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M14 (net42 A 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M13 (net43 B net42 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M12 (net44 C net43 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
+    M10 (net44 Y net13 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (Y net44 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M8 (net44 Y net15 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (net15 C vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M5 (net15 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M4 (net15 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M2 (net44 C net46 vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net46 B net47 vdd!) pfet w=300n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net47 A vdd! vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=yes
+ends TH33
 // End of subcircuit definition.

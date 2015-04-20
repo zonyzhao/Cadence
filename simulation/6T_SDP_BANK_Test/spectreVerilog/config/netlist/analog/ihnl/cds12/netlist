@@ -1,8 +1,4 @@
-    I2 (net09 net010 net21) nand_1x
-    I5 (net21 Lack) inv_1x
-    I4 (net09 R1) inv_1x
-    I3 (net010 R0) inv_1x
-    I1 (Rack L1 net09) _sub7
-    I0 (L0 Rack net010) _sub7
-ends WCHB
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
 // End of subcircuit definition.

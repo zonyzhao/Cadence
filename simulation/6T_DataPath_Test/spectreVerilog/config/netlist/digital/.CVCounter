@@ -1,7 +1,7 @@
 cellViewCounterTable = makeTable('cellViewCounterTableType nil)
 cellViewCounterTable['("16nm" "6T_DEMUX_" "symbol" )] =  1756
 cellViewCounterTable['("16nm" "6T_CHUNK" "symbol" )] =  1262
-cellViewCounterTable['("16nm_Tests" "6T_DataPath_Test" "schematic" )] =  90596
+cellViewCounterTable['("16nm_Tests" "6T_DataPath_Test" "schematic" )] =  93349
 cellViewCounterTable['("UCD_Analog_Parts" "vcc" "symbol" )] =  20
 cellViewCounterTable['("UCD_Analog_Parts" "gnd" "symbol" )] =  19
 cellViewCounterTable['("16nm" "inv_1xT" "symbol" )] =  36

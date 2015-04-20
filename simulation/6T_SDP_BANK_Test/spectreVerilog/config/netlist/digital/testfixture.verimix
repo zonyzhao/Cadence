@@ -5,8 +5,10 @@ integer rLog;
 integer wLog;
 integer seed;
 integer start;
+integer readCount;
 integer i;
 reg[19:0] lastWriteAddr;
+reg[9:0] logAddr;
 
 real rStart;
 real rDelay;
@@ -16,13 +18,14 @@ real wDelay;
 initial
 begin 
 
-   seed = 5;
-   start = 0;
+   seed 	 = 5;
+   start 	 = 0;
+   readCount = 0;
    rStart = $time;
    rDelay = $time;
    wStart = $time;
    wDelay = $time;
-
+   logAddr[9:0] = $random(seed);
    rLog=$fopen("/tmp2/SDP_BANK_RLog.csv");
    //$fdisplay(rLog, "R_Address[19:0], ReadData[31:0], total_time(ps), read_delay(ps)");
 
@@ -30,7 +33,7 @@ begin
    //$fdisplay(wLog, "W_Address[19:0], WriteData[31:0], total_time(ps), write_delay(ps)");
 
    RRW[1:0]        = 2'b00;
-   RD_Ack[7:0]     = 8'h00;
+   RD_Ack[7:0]     = 8'hFF;
    R_Address[19:0] = 20'h00000;
 
    WRW[1:0]        = 2'b00;
@@ -38,33 +41,110 @@ begin
    WriteData[31:0] = 32'h00000000;
 
    #500;
+////////////////////////////////
+    WRW[1:0]        = 2'b01;
+    W_Address[19:0] = 20'h11111;
+    WriteData[31:0] = 32'h11111111;
+    wStart 	   		= $time;
+    wait(WriteAck);
+	
+	wDelay = $time - wStart;
+	$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+   	
+	WriteData[31:0] = 32'h00000000;
+    W_Address[19:0] = 20'h00000;
+    WRW[1:0]        = 2'b00;
+   
+    wStart   = $time;
+    wait(~WriteAck);
+    wDelay = $time - wStart;
+   	$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+////////////////////////////////
 
+   RD_Ack[7:0]     = 8'hFF;
+   RRW[1:0]        = 2'b10;
+   R_Address[19:0] = 20'h11111;	
+   rStart          = $time;
+   wait(ReadAck);
+
+   rDelay = $time - rStart;
+   $fdisplay(rLog, "%h %h %t %t", R_Address[19:0], ReadData[31:0], $time, rDelay);   
+	   
+   RD_Ack[7:0]     = 8'h00;
+   RRW[1:0]        = 2'b00;
+   R_Address[19:0] = 20'h00000;
+
+   rStart          = $time;
+   wait(~ReadAck);
+   rDelay = $time - rStart;
+   $fdisplay(rLog, "%h %h %t %t", R_Address[19:0], ReadData[31:0], $time, rDelay);  
+
+////////////////////////////////
+////////////////////////////////
+    WRW[1:0]        = 2'b01;
+    W_Address[19:0] = 20'h11111;
+    WriteData[31:0] = 32'h11111111;
+    wStart 	   		= $time;
+    wait(WriteAck);
+	
+	wDelay = $time - wStart;
+	$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+   	
+	WriteData[31:0] = 32'h00000000;
+    W_Address[19:0] = 20'h00000;
+    WRW[1:0]        = 2'b00;
+   
+    wStart   = $time;
+    wait(~WriteAck);
+    wDelay = $time - wStart;
+   	$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+////////////////////////////////
+
+   RD_Ack[7:0]     = 8'hFF;
+   RRW[1:0]        = 2'b10;
+   R_Address[19:0] = 20'h11111;	
+   rStart          = $time;
+   wait(ReadAck);
+
+   rDelay = $time - rStart;
+   $fdisplay(rLog, "%h %h %t %t", R_Address[19:0], ReadData[31:0], $time, rDelay);   
+	   
+   RD_Ack[7:0]     = 8'h00;
+   RRW[1:0]        = 2'b00;
+   R_Address[19:0] = 20'h00000;
+
+   rStart          = $time;
+   wait(~ReadAck);
+   rDelay = $time - rStart;
+   $fdisplay(rLog, "%h %h %t %t", R_Address[19:0], ReadData[31:0], $time, rDelay);  
+
+////////////////////////////////
+////////////////////////////////
    WRW[1:0]        = 2'b01;
    W_Address[19:0] = 20'h11111;
-   WriteData[31:0] = 32'h11111111;
-   wStart 	   = $time;
+   WriteData[31:0] = 32'h88888888;
+   wStart 	   		= $time;
    start           = 1;
 
 end 
 
 
 always @(posedge WriteAck) begin
-   if (start==1) begin
-   	  wDelay = $time - wStart;
-   	  $fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
-          lastWriteAddr[19:0] <= W_Address[19:0];
-   	  WriteData[31:0] = 32'h00000000;
-          W_Address[19:0] = 20'h00000;
-          WRW[1:0]        = 2'b00;
-          wStart   = $time;
-          wait(~WriteAck);
-   	  wDelay = $time - wStart;
-   	  $fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
-
-   	  RD_Ack[7:0]     = 8'hFF;
-          RRW[1:0]        = 2'b10;
-          R_Address[19:0] = lastWriteAddr[19:0];	   
-	  rStart          = $time;
+	if (start==1) begin
+		wDelay = $time - wStart;
+		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+		lastWriteAddr[19:0] <= W_Address[19:0];
+ 		WriteData[31:0] = 32'h00000000;
+		W_Address[19:0] = 20'h00000;
+		WRW[1:0]        = 2'b00;
+		wStart   = $time;
+ 		wait(~WriteAck);
+   	  	wDelay = $time - wStart;
+   	  	$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WriteData[31:0], $time, wDelay);
+   	  	RD_Ack[7:0]     = 8'hFF;
+        RRW[1:0]        = 2'b10;
+        R_Address[19:0] = lastWriteAddr[19:0];	   
+	  	rStart          = $time;
    end
  end
 
@@ -77,13 +157,38 @@ always @(posedge ReadAck) begin
    	   RRW[1:0]        = 2'b00;
    	   R_Address[19:0] = 20'h00000;
 	   rStart          = $time;
-           wait(~ReadAck);
+       wait(~ReadAck);
    	   rDelay = $time - rStart;
    	   $fdisplay(rLog, "%h %h %t %t", R_Address[19:0], ReadData[31:0], $time, rDelay);   
 
-           WriteData[31:0]   = 32'h44444444;
-   	   W_Address[19:0]   = 20'h22222;
-           WRW[1:0]  	     = 2'b01;  
-           wStart            = $time;
+	  readCount = readCount + 1;
+	  if (readCount == 2) begin
+		$finish;
+	  end
+   	  logAddr[9:0] = $random;
+	  W_Address[0]   = ~logAddr[0] & ~logAddr[1];
+	  W_Address[1]   =  logAddr[0] & ~logAddr[1];
+	  W_Address[2]   = ~logAddr[0] &  logAddr[1];
+      W_Address[3]   =  logAddr[0] &  logAddr[1];
+	  W_Address[4]   = ~logAddr[2] & ~logAddr[3];
+	  W_Address[5]   =  logAddr[2] & ~logAddr[3];
+	  W_Address[6]   = ~logAddr[2] &  logAddr[3];
+      W_Address[7]   =  logAddr[2] &  logAddr[3];
+	  W_Address[8]   = ~logAddr[4] & ~logAddr[5];
+	  W_Address[9]   =  logAddr[4] & ~logAddr[5];
+	  W_Address[10]  = ~logAddr[4] &  logAddr[5];
+      W_Address[11]  =  logAddr[4] &  logAddr[5];
+	  W_Address[12]  = ~logAddr[6] & ~logAddr[7];
+	  W_Address[13]  =  logAddr[6] & ~logAddr[7];
+	  W_Address[14]  = ~logAddr[6] &  logAddr[7];
+      W_Address[15]  =  logAddr[6] &  logAddr[7];
+	  W_Address[16]  = ~logAddr[8] & ~logAddr[9];
+	  W_Address[17]  =  logAddr[8] & ~logAddr[9];
+	  W_Address[18]  = ~logAddr[8] &  logAddr[9];
+      W_Address[19]  =  logAddr[8] &  logAddr[9];
+
+       WriteData[31:0]   = 32'h12488421;
+       WRW[1:0]  	     = 2'b01;  
+       wStart            = $time;
    end
 end
