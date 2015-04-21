@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport36964
+    +vmxsport57175
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 20, 2015  04:22:44
-Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  04:22:44
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 21, 2015  02:30:10
+Tool:	VERILOG-XL	08.20.001-d   Apr 21, 2015  02:30:10
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -72,27 +72,3 @@ test
 cds_globals
 
 Verilog/spectre Mixed-Signal Interface 2.0
-
-Message!  Stable DC solution not found within 0                                
-          iterations. Using last calculated state to start                     
-          transient analysis. See Artist Mixed-Signal                          
-          Simulation Help for more info on obtaining an                        
-          initial solution.                                 [Mixed_Sig]        
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-
-Error!    List of message(s) that are acceptable now:                          
-          $do_dc                                                               
-          $done_dc                                                             
-          $switch_to_interactive                                               
-          Invalid message introducer '$send_events',                           
-          unrecognized.                                     [Mixed_Sig-VMXIMI] 
-          "IE.verimix", 5: ...
-
-Error!    Invalid message introducer '64', expect DONE_DC                      
-          message.                                          [Mixed_Sig-VMXIMI] 
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-Verilog/spectre Interface: 155 messages sent, 156 messages received.
-2 errors
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  04:58:07

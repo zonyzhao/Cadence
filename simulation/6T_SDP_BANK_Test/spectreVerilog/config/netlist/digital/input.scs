@@ -7,17 +7,17 @@ module test;
 wire  ReadAck, WriteAck;
 
 
-wire [4:0]  WA_Ack;
-wire [4:0]  RA_Ack;
 wire [31:0]  ReadData;
+wire [4:0]  RA_Ack;
 wire [7:0]  WD_Ack;
+wire [4:0]  WA_Ack;
 
 reg [31:0]  WriteData;
+reg [19:0]  R_Address;
+reg [7:0]  RD_Ack;
 reg [1:0]  WRW;
 reg [1:0]  RRW;
 reg [19:0]  W_Address;
-reg [19:0]  R_Address;
-reg [7:0]  RD_Ack;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_29 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
+cdsModule_95 top(RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack, WriteAck, 
      RD_Ack, RRW, R_Address, WRW, W_Address, WriteData); 
  
 
@@ -252,142 +252,142 @@ end
 // Begin Interface Element Header and Verimix Synchronization task
 initial begin
 	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
-	$vmx_define_import( test.top.mixedNet99999, "99999"); // /~ReadData<3>
-	$vmx_define_export( test.top.cdsbus5[1], "99998"); // /~RRW<1>
-	$vmx_define_export( test.top.cdsbus6[13], "99997"); // /~W_Address<13>
-	$vmx_define_import( test.top.mixedNet99996, "99996"); // /~WD_Ack<6>
-	$vmx_define_import( test.top.mixedNet99995, "99995"); // /~WD_Ack<7>
-	$vmx_define_export( test.top.cdsbus0[14], "99994"); // /~R_Address<14>
-	$vmx_define_export( test.top.cdsbus0[3], "99993"); // /~R_Address<3>
-	$vmx_define_import( test.top.mixedNet99992, "99992"); // /~ReadData<0>
-	$vmx_define_export( test.top.cdsbus3[14], "99991"); // /~WriteData<14>
-	$vmx_define_export( test.top.cdsbus6[19], "99990"); // /~W_Address<19>
-	$vmx_define_export( test.top.cdsbus6[14], "99989"); // /~W_Address<14>
-	$vmx_define_export( test.top.cdsbus6[18], "99988"); // /~W_Address<18>
-	$vmx_define_export( test.top.cdsbus6[16], "99987"); // /~W_Address<16>
-	$vmx_define_export( test.top.cdsbus4[7], "99986"); // /~RD_Ack<7>
-	$vmx_define_import( test.top.mixedNet99985, "99985"); // /~ReadData<4>
-	$vmx_define_import( test.top.mixedNet99984, "99984"); // /~ReadData<30>
-	$vmx_define_import( test.top.mixedNet99983, "99983"); // /~ReadData<5>
-	$vmx_define_export( test.top.cdsbus3[23], "99982"); // /~WriteData<23>
-	$vmx_define_import( test.top.mixedNet99981, "99981"); // /~ReadData<29>
-	$vmx_define_import( test.top.mixedNet99980, "99980"); // /~WD_Ack<0>
-	$vmx_define_export( test.top.cdsbus4[6], "99979"); // /~RD_Ack<6>
-	$vmx_define_import( test.top.mixedNet99978, "99978"); // /~ReadData<27>
-	$vmx_define_export( test.top.cdsbus4[4], "99977"); // /~RD_Ack<4>
-	$vmx_define_import( test.top.mixedNet99976, "99976"); // /~ReadData<11>
-	$vmx_define_import( test.top.mixedNet99975, "99975"); // /~ReadData<26>
-	$vmx_define_export( test.top.cdsbus3[30], "99974"); // /~WriteData<30>
-	$vmx_define_export( test.top.cdsbus6[7], "99973"); // /~W_Address<7>
-	$vmx_define_export( test.top.cdsbus6[6], "99972"); // /~W_Address<6>
-	$vmx_define_export( test.top.cdsbus0[1], "99971"); // /~R_Address<1>
-	$vmx_define_export( test.top.cdsbus3[21], "99970"); // /~WriteData<21>
-	$vmx_define_export( test.top.cdsbus1[0], "99969"); // /~WRW<0>
-	$vmx_define_export( test.top.cdsbus3[22], "99968"); // /~WriteData<22>
-	$vmx_define_import( test.top.mixedNet99967, "99967"); // /~ReadData<24>
-	$vmx_define_export( test.top.cdsbus3[6], "99966"); // /~WriteData<6>
-	$vmx_define_export( test.top.cdsbus3[31], "99965"); // /~WriteData<31>
-	$vmx_define_import( test.top.mixedNet99964, "99964"); // /~WA_Ack<3>
-	$vmx_define_import( test.top.mixedNet99963, "99963"); // /~ReadData<28>
-	$vmx_define_import( test.top.mixedNet99962, "99962"); // /~WA_Ack<1>
-	$vmx_define_export( test.top.cdsbus3[28], "99961"); // /~WriteData<28>
-	$vmx_define_import( test.top.mixedNet99960, "99960"); // /~ReadData<14>
-	$vmx_define_import( test.top.mixedNet99959, "99959"); // /~WriteAck
-	$vmx_define_export( test.top.cdsbus0[0], "99958"); // /~R_Address<0>
-	$vmx_define_export( test.top.cdsbus3[19], "99957"); // /~WriteData<19>
-	$vmx_define_export( test.top.cdsbus3[27], "99956"); // /~WriteData<27>
-	$vmx_define_import( test.top.mixedNet99955, "99955"); // /~ReadData<22>
-	$vmx_define_import( test.top.mixedNet99954, "99954"); // /~ReadData<21>
-	$vmx_define_import( test.top.mixedNet99953, "99953"); // /~ReadData<20>
-	$vmx_define_import( test.top.mixedNet99952, "99952"); // /~ReadData<19>
-	$vmx_define_export( test.top.cdsbus0[16], "99951"); // /~R_Address<16>
-	$vmx_define_import( test.top.mixedNet99950, "99950"); // /~WD_Ack<4>
-	$vmx_define_export( test.top.cdsbus0[18], "99949"); // /~R_Address<18>
-	$vmx_define_export( test.top.cdsbus6[17], "99948"); // /~W_Address<17>
-	$vmx_define_import( test.top.mixedNet99947, "99947"); // /~WA_Ack<4>
-	$vmx_define_export( test.top.cdsbus3[26], "99946"); // /~WriteData<26>
-	$vmx_define_export( test.top.cdsbus6[3], "99945"); // /~W_Address<3>
-	$vmx_define_export( test.top.cdsbus6[1], "99944"); // /~W_Address<1>
-	$vmx_define_export( test.top.cdsbus6[0], "99943"); // /~W_Address<0>
-	$vmx_define_export( test.top.cdsbus6[4], "99942"); // /~W_Address<4>
-	$vmx_define_export( test.top.cdsbus3[20], "99941"); // /~WriteData<20>
-	$vmx_define_export( test.top.cdsbus4[3], "99940"); // /~RD_Ack<3>
-	$vmx_define_export( test.top.cdsbus0[2], "99939"); // /~R_Address<2>
-	$vmx_define_export( test.top.cdsbus6[5], "99938"); // /~W_Address<5>
-	$vmx_define_export( test.top.cdsbus3[13], "99937"); // /~WriteData<13>
-	$vmx_define_import( test.top.mixedNet99936, "99936"); // /~ReadData<10>
-	$vmx_define_export( test.top.cdsbus4[5], "99935"); // /~RD_Ack<5>
-	$vmx_define_export( test.top.cdsbus3[24], "99934"); // /~WriteData<24>
-	$vmx_define_export( test.top.cdsbus3[10], "99933"); // /~WriteData<10>
-	$vmx_define_export( test.top.cdsbus3[7], "99932"); // /~WriteData<7>
-	$vmx_define_import( test.top.mixedNet99931, "99931"); // /~ReadData<17>
-	$vmx_define_export( test.top.cdsbus0[12], "99930"); // /~R_Address<12>
-	$vmx_define_export( test.top.cdsbus0[17], "99929"); // /~R_Address<17>
-	$vmx_define_export( test.top.cdsbus0[15], "99928"); // /~R_Address<15>
-	$vmx_define_export( test.top.cdsbus0[11], "99927"); // /~R_Address<11>
-	$vmx_define_export( test.top.cdsbus0[5], "99926"); // /~R_Address<5>
-	$vmx_define_export( test.top.cdsbus0[4], "99925"); // /~R_Address<4>
-	$vmx_define_export( test.top.cdsbus3[18], "99924"); // /~WriteData<18>
-	$vmx_define_export( test.top.cdsbus0[8], "99923"); // /~R_Address<8>
-	$vmx_define_export( test.top.cdsbus4[2], "99922"); // /~RD_Ack<2>
-	$vmx_define_export( test.top.cdsbus3[11], "99921"); // /~WriteData<11>
-	$vmx_define_import( test.top.mixedNet99920, "99920"); // /~ReadData<6>
-	$vmx_define_export( test.top.cdsbus3[1], "99919"); // /~WriteData<1>
-	$vmx_define_export( test.top.cdsbus3[0], "99918"); // /~WriteData<0>
-	$vmx_define_import( test.top.mixedNet99917, "99917"); // /~RA_Ack<4>
-	$vmx_define_export( test.top.cdsbus0[7], "99916"); // /~R_Address<7>
-	$vmx_define_export( test.top.cdsbus3[12], "99915"); // /~WriteData<12>
-	$vmx_define_import( test.top.mixedNet99914, "99914"); // /~WD_Ack<3>
-	$vmx_define_import( test.top.mixedNet99913, "99913"); // /~ReadData<2>
-	$vmx_define_import( test.top.mixedNet99912, "99912"); // /~ReadData<16>
-	$vmx_define_export( test.top.cdsbus4[1], "99911"); // /~RD_Ack<1>
-	$vmx_define_import( test.top.mixedNet99910, "99910"); // /~ReadData<18>
-	$vmx_define_import( test.top.mixedNet99909, "99909"); // /~ReadData<7>
-	$vmx_define_export( test.top.cdsbus4[0], "99908"); // /~RD_Ack<0>
-	$vmx_define_export( test.top.cdsbus3[29], "99907"); // /~WriteData<29>
-	$vmx_define_import( test.top.mixedNet99906, "99906"); // /~RA_Ack<0>
-	$vmx_define_export( test.top.cdsbus1[1], "99905"); // /~WRW<1>
-	$vmx_define_import( test.top.mixedNet99904, "99904"); // /~WD_Ack<5>
-	$vmx_define_import( test.top.mixedNet99903, "99903"); // /~ReadAck
-	$vmx_define_import( test.top.mixedNet99902, "99902"); // /~ReadData<9>
-	$vmx_define_export( test.top.cdsbus3[25], "99901"); // /~WriteData<25>
-	$vmx_define_export( test.top.cdsbus3[9], "99900"); // /~WriteData<9>
-	$vmx_define_import( test.top.mixedNet99899, "99899"); // /~WD_Ack<1>
-	$vmx_define_import( test.top.mixedNet99898, "99898"); // /~ReadData<25>
-	$vmx_define_import( test.top.mixedNet99897, "99897"); // /~ReadData<8>
-	$vmx_define_export( test.top.cdsbus6[12], "99896"); // /~W_Address<12>
-	$vmx_define_export( test.top.cdsbus0[19], "99895"); // /~R_Address<19>
-	$vmx_define_import( test.top.mixedNet99894, "99894"); // /~RA_Ack<3>
-	$vmx_define_export( test.top.cdsbus6[11], "99893"); // /~W_Address<11>
-	$vmx_define_export( test.top.cdsbus6[9], "99892"); // /~W_Address<9>
-	$vmx_define_export( test.top.cdsbus3[5], "99891"); // /~WriteData<5>
-	$vmx_define_export( test.top.cdsbus3[4], "99890"); // /~WriteData<4>
-	$vmx_define_export( test.top.cdsbus3[3], "99889"); // /~WriteData<3>
-	$vmx_define_export( test.top.cdsbus3[2], "99888"); // /~WriteData<2>
-	$vmx_define_export( test.top.cdsbus3[16], "99887"); // /~WriteData<16>
-	$vmx_define_export( test.top.cdsbus5[0], "99886"); // /~RRW<0>
-	$vmx_define_export( test.top.cdsbus0[10], "99885"); // /~R_Address<10>
-	$vmx_define_export( test.top.cdsbus6[2], "99884"); // /~W_Address<2>
-	$vmx_define_export( test.top.cdsbus3[17], "99883"); // /~WriteData<17>
-	$vmx_define_export( test.top.cdsbus3[15], "99882"); // /~WriteData<15>
-	$vmx_define_export( test.top.cdsbus3[8], "99881"); // /~WriteData<8>
-	$vmx_define_export( test.top.cdsbus6[8], "99880"); // /~W_Address<8>
-	$vmx_define_import( test.top.mixedNet99879, "99879"); // /~WA_Ack<0>
-	$vmx_define_export( test.top.cdsbus6[10], "99878"); // /~W_Address<10>
-	$vmx_define_export( test.top.cdsbus0[13], "99877"); // /~R_Address<13>
-	$vmx_define_import( test.top.mixedNet99876, "99876"); // /~ReadData<31>
-	$vmx_define_import( test.top.mixedNet99875, "99875"); // /~ReadData<15>
-	$vmx_define_import( test.top.mixedNet99874, "99874"); // /~ReadData<23>
-	$vmx_define_import( test.top.mixedNet99873, "99873"); // /~ReadData<13>
-	$vmx_define_export( test.top.cdsbus0[9], "99872"); // /~R_Address<9>
-	$vmx_define_import( test.top.mixedNet99871, "99871"); // /~ReadData<12>
-	$vmx_define_export( test.top.cdsbus0[6], "99870"); // /~R_Address<6>
-	$vmx_define_import( test.top.mixedNet99869, "99869"); // /~WD_Ack<2>
-	$vmx_define_import( test.top.mixedNet99868, "99868"); // /~WA_Ack<2>
-	$vmx_define_import( test.top.mixedNet99867, "99867"); // /~ReadData<1>
-	$vmx_define_import( test.top.mixedNet99866, "99866"); // /~RA_Ack<1>
-	$vmx_define_import( test.top.mixedNet99865, "99865"); // /~RA_Ack<2>
-	$vmx_define_export( test.top.cdsbus6[15], "99864"); // /~W_Address<15>
+	$vmx_define_import( test.top.mixedNet99999, "99999"); // /~RA_Ack<0>
+	$vmx_define_import( test.top.mixedNet99998, "99998"); // /~ReadData<31>
+	$vmx_define_import( test.top.mixedNet99997, "99997"); // /~ReadData<6>
+	$vmx_define_export( test.top.cdsbus2[1], "99996"); // /~RD_Ack<1>
+	$vmx_define_export( test.top.cdsbus8[11], "99995"); // /~WriteData<11>
+	$vmx_define_import( test.top.mixedNet99994, "99994"); // /~ReadData<28>
+	$vmx_define_export( test.top.cdsbus7[1], "99993"); // /~WRW<1>
+	$vmx_define_export( test.top.cdsbus2[3], "99992"); // /~RD_Ack<3>
+	$vmx_define_import( test.top.mixedNet99991, "99991"); // /~ReadData<7>
+	$vmx_define_import( test.top.mixedNet99990, "99990"); // /~WD_Ack<3>
+	$vmx_define_export( test.top.cdsbus8[10], "99989"); // /~WriteData<10>
+	$vmx_define_import( test.top.mixedNet99988, "99988"); // /~WD_Ack<4>
+	$vmx_define_import( test.top.mixedNet99987, "99987"); // /~WD_Ack<6>
+	$vmx_define_import( test.top.mixedNet99986, "99986"); // /~WA_Ack<2>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /~WA_Ack<1>
+	$vmx_define_export( test.top.cdsbus8[24], "99984"); // /~WriteData<24>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /~ReadData<8>
+	$vmx_define_import( test.top.mixedNet99982, "99982"); // /~RA_Ack<1>
+	$vmx_define_export( test.top.cdsbus7[0], "99981"); // /~WRW<0>
+	$vmx_define_import( test.top.mixedNet99980, "99980"); // /~RA_Ack<2>
+	$vmx_define_export( test.top.cdsbus3[2], "99979"); // /~R_Address<2>
+	$vmx_define_export( test.top.cdsbus8[23], "99978"); // /~WriteData<23>
+	$vmx_define_export( test.top.cdsbus0[18], "99977"); // /~W_Address<18>
+	$vmx_define_export( test.top.cdsbus8[21], "99976"); // /~WriteData<21>
+	$vmx_define_export( test.top.cdsbus0[2], "99975"); // /~W_Address<2>
+	$vmx_define_export( test.top.cdsbus0[17], "99974"); // /~W_Address<17>
+	$vmx_define_import( test.top.mixedNet99973, "99973"); // /~ReadData<11>
+	$vmx_define_export( test.top.cdsbus3[9], "99972"); // /~R_Address<9>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /~ReadData<3>
+	$vmx_define_import( test.top.mixedNet99970, "99970"); // /~ReadData<18>
+	$vmx_define_export( test.top.cdsbus3[0], "99969"); // /~R_Address<0>
+	$vmx_define_import( test.top.mixedNet99968, "99968"); // /~ReadData<4>
+	$vmx_define_export( test.top.cdsbus3[1], "99967"); // /~R_Address<1>
+	$vmx_define_export( test.top.cdsbus0[15], "99966"); // /~W_Address<15>
+	$vmx_define_import( test.top.mixedNet99965, "99965"); // /~ReadData<30>
+	$vmx_define_export( test.top.cdsbus3[10], "99964"); // /~R_Address<10>
+	$vmx_define_import( test.top.mixedNet99963, "99963"); // /~ReadData<17>
+	$vmx_define_import( test.top.mixedNet99962, "99962"); // /~ReadData<24>
+	$vmx_define_import( test.top.mixedNet99961, "99961"); // /~ReadData<14>
+	$vmx_define_export( test.top.cdsbus2[5], "99960"); // /~RD_Ack<5>
+	$vmx_define_export( test.top.cdsbus8[27], "99959"); // /~WriteData<27>
+	$vmx_define_export( test.top.cdsbus3[12], "99958"); // /~R_Address<12>
+	$vmx_define_export( test.top.cdsbus3[11], "99957"); // /~R_Address<11>
+	$vmx_define_export( test.top.cdsbus0[19], "99956"); // /~W_Address<19>
+	$vmx_define_export( test.top.cdsbus3[7], "99955"); // /~R_Address<7>
+	$vmx_define_export( test.top.cdsbus8[25], "99954"); // /~WriteData<25>
+	$vmx_define_export( test.top.cdsbus0[5], "99953"); // /~W_Address<5>
+	$vmx_define_export( test.top.cdsbus8[16], "99952"); // /~WriteData<16>
+	$vmx_define_export( test.top.cdsbus8[15], "99951"); // /~WriteData<15>
+	$vmx_define_import( test.top.mixedNet99950, "99950"); // /~WA_Ack<3>
+	$vmx_define_import( test.top.mixedNet99949, "99949"); // /~WriteAck
+	$vmx_define_export( test.top.cdsbus3[6], "99948"); // /~R_Address<6>
+	$vmx_define_import( test.top.mixedNet99947, "99947"); // /~ReadData<23>
+	$vmx_define_import( test.top.mixedNet99946, "99946"); // /~ReadData<22>
+	$vmx_define_export( test.top.cdsbus8[30], "99945"); // /~WriteData<30>
+	$vmx_define_export( test.top.cdsbus0[13], "99944"); // /~W_Address<13>
+	$vmx_define_export( test.top.cdsbus0[12], "99943"); // /~W_Address<12>
+	$vmx_define_export( test.top.cdsbus0[11], "99942"); // /~W_Address<11>
+	$vmx_define_export( test.top.cdsbus8[14], "99941"); // /~WriteData<14>
+	$vmx_define_export( test.top.cdsbus0[10], "99940"); // /~W_Address<10>
+	$vmx_define_import( test.top.mixedNet99939, "99939"); // /~WD_Ack<1>
+	$vmx_define_export( test.top.cdsbus3[14], "99938"); // /~R_Address<14>
+	$vmx_define_export( test.top.cdsbus3[18], "99937"); // /~R_Address<18>
+	$vmx_define_export( test.top.cdsbus3[17], "99936"); // /~R_Address<17>
+	$vmx_define_export( test.top.cdsbus3[16], "99935"); // /~R_Address<16>
+	$vmx_define_export( test.top.cdsbus8[2], "99934"); // /~WriteData<2>
+	$vmx_define_import( test.top.mixedNet99933, "99933"); // /~ReadData<15>
+	$vmx_define_import( test.top.mixedNet99932, "99932"); // /~ReadData<29>
+	$vmx_define_export( test.top.cdsbus8[13], "99931"); // /~WriteData<13>
+	$vmx_define_export( test.top.cdsbus3[5], "99930"); // /~R_Address<5>
+	$vmx_define_export( test.top.cdsbus3[13], "99929"); // /~R_Address<13>
+	$vmx_define_export( test.top.cdsbus8[20], "99928"); // /~WriteData<20>
+	$vmx_define_import( test.top.mixedNet99927, "99927"); // /~ReadData<21>
+	$vmx_define_export( test.top.cdsbus0[1], "99926"); // /~W_Address<1>
+	$vmx_define_export( test.top.cdsbus8[22], "99925"); // /~WriteData<22>
+	$vmx_define_export( test.top.cdsbus3[3], "99924"); // /~R_Address<3>
+	$vmx_define_export( test.top.cdsbus8[5], "99923"); // /~WriteData<5>
+	$vmx_define_export( test.top.cdsbus0[8], "99922"); // /~W_Address<8>
+	$vmx_define_export( test.top.cdsbus3[15], "99921"); // /~R_Address<15>
+	$vmx_define_import( test.top.mixedNet99920, "99920"); // /~ReadData<26>
+	$vmx_define_export( test.top.cdsbus8[4], "99919"); // /~WriteData<4>
+	$vmx_define_import( test.top.mixedNet99918, "99918"); // /~ReadData<5>
+	$vmx_define_import( test.top.mixedNet99917, "99917"); // /~ReadData<1>
+	$vmx_define_export( test.top.cdsbus8[19], "99916"); // /~WriteData<19>
+	$vmx_define_import( test.top.mixedNet99915, "99915"); // /~RA_Ack<3>
+	$vmx_define_export( test.top.cdsbus8[1], "99914"); // /~WriteData<1>
+	$vmx_define_export( test.top.cdsbus8[12], "99913"); // /~WriteData<12>
+	$vmx_define_import( test.top.mixedNet99912, "99912"); // /~ReadData<0>
+	$vmx_define_import( test.top.mixedNet99911, "99911"); // /~WD_Ack<0>
+	$vmx_define_export( test.top.cdsbus8[3], "99910"); // /~WriteData<3>
+	$vmx_define_import( test.top.mixedNet99909, "99909"); // /~ReadData<2>
+	$vmx_define_export( test.top.cdsbus2[7], "99908"); // /~RD_Ack<7>
+	$vmx_define_export( test.top.cdsbus2[2], "99907"); // /~RD_Ack<2>
+	$vmx_define_export( test.top.cdsbus0[7], "99906"); // /~W_Address<7>
+	$vmx_define_export( test.top.cdsbus3[19], "99905"); // /~R_Address<19>
+	$vmx_define_export( test.top.cdsbus8[18], "99904"); // /~WriteData<18>
+	$vmx_define_export( test.top.cdsbus0[9], "99903"); // /~W_Address<9>
+	$vmx_define_import( test.top.mixedNet99902, "99902"); // /~RA_Ack<4>
+	$vmx_define_export( test.top.cdsbus8[17], "99901"); // /~WriteData<17>
+	$vmx_define_export( test.top.cdsbus8[0], "99900"); // /~WriteData<0>
+	$vmx_define_export( test.top.cdsbus3[8], "99899"); // /~R_Address<8>
+	$vmx_define_import( test.top.mixedNet99898, "99898"); // /~WD_Ack<2>
+	$vmx_define_export( test.top.cdsbus0[0], "99897"); // /~W_Address<0>
+	$vmx_define_import( test.top.mixedNet99896, "99896"); // /~ReadData<13>
+	$vmx_define_export( test.top.cdsbus1[0], "99895"); // /~RRW<0>
+	$vmx_define_export( test.top.cdsbus3[4], "99894"); // /~R_Address<4>
+	$vmx_define_export( test.top.cdsbus1[1], "99893"); // /~RRW<1>
+	$vmx_define_export( test.top.cdsbus0[16], "99892"); // /~W_Address<16>
+	$vmx_define_export( test.top.cdsbus2[4], "99891"); // /~RD_Ack<4>
+	$vmx_define_import( test.top.mixedNet99890, "99890"); // /~ReadData<12>
+	$vmx_define_import( test.top.mixedNet99889, "99889"); // /~ReadData<10>
+	$vmx_define_import( test.top.mixedNet99888, "99888"); // /~ReadData<9>
+	$vmx_define_export( test.top.cdsbus8[28], "99887"); // /~WriteData<28>
+	$vmx_define_import( test.top.mixedNet99886, "99886"); // /~ReadData<27>
+	$vmx_define_import( test.top.mixedNet99885, "99885"); // /~ReadData<20>
+	$vmx_define_import( test.top.mixedNet99884, "99884"); // /~ReadData<16>
+	$vmx_define_import( test.top.mixedNet99883, "99883"); // /~WA_Ack<0>
+	$vmx_define_import( test.top.mixedNet99882, "99882"); // /~ReadData<19>
+	$vmx_define_export( test.top.cdsbus2[0], "99881"); // /~RD_Ack<0>
+	$vmx_define_import( test.top.mixedNet99880, "99880"); // /~ReadAck
+	$vmx_define_export( test.top.cdsbus0[6], "99879"); // /~W_Address<6>
+	$vmx_define_import( test.top.mixedNet99878, "99878"); // /~WD_Ack<5>
+	$vmx_define_export( test.top.cdsbus0[14], "99877"); // /~W_Address<14>
+	$vmx_define_export( test.top.cdsbus0[4], "99876"); // /~W_Address<4>
+	$vmx_define_export( test.top.cdsbus0[3], "99875"); // /~W_Address<3>
+	$vmx_define_export( test.top.cdsbus2[6], "99874"); // /~RD_Ack<6>
+	$vmx_define_export( test.top.cdsbus8[7], "99873"); // /~WriteData<7>
+	$vmx_define_import( test.top.mixedNet99872, "99872"); // /~ReadData<25>
+	$vmx_define_export( test.top.cdsbus8[29], "99871"); // /~WriteData<29>
+	$vmx_define_export( test.top.cdsbus8[26], "99870"); // /~WriteData<26>
+	$vmx_define_export( test.top.cdsbus8[31], "99869"); // /~WriteData<31>
+	$vmx_define_export( test.top.cdsbus8[6], "99868"); // /~WriteData<6>
+	$vmx_define_export( test.top.cdsbus8[9], "99867"); // /~WriteData<9>
+	$vmx_define_import( test.top.mixedNet99866, "99866"); // /~WA_Ack<4>
+	$vmx_define_import( test.top.mixedNet99865, "99865"); // /~WD_Ack<7>
+	$vmx_define_export( test.top.cdsbus8[8], "99864"); // /~WriteData<8>
 	$vmx_end_definition;
 	vmx_time_offset = 0;
 	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
@@ -414,185 +414,185 @@ end
 // Begin SST2 Save Waveforms
 initial begin
 $shm_open(`_VMX_DATA_PATH_);
-$shm_probe(test.top.W_Address[17], test.top.W_Address[8], test.top.W_Address[15], test.top.W_Address[7], test.top.WriteData[31], test.top.WriteData[30], test.top.RA_Ack[2], test.top.W_Address[4], test.top.W_Address[3], test.top.W_Address[0], test.top.RD_Ack[5], test.top.WriteData[11], test.top.WriteData[14], test.top.WriteData[6], test.top.WD_Ack[5], test.top.W_Address[14], test.top.WriteData[20], test.top.RD_Ack[3], test.top.W_Address[1], test.top.WA_Ack[2], test.top.WriteData[19], test.top.WA_Ack[1], test.top.W_Address[11], test.top.W_Address[13], test.top.R_Address[15], test.top.WriteData[13], test.top.RA_Ack[1], test.top.ReadData[29], test.top.WriteData[22], test.top.WriteData[2], test.top.WriteData[4], test.top.ReadData[23], test.top.WriteData[23], test.top.WriteData[16], test.top.ReadData[1], test.top.RD_Ack[4], test.top.WriteData[28], test.top.WriteData[25], test.top.WriteData[15], test.top.WriteData[18], test.top.WriteData[3], test.top.ReadData[13], test.top.W_Address[10], test.top.WriteData[24], 
-test.top.R_Address[17], test.top.W_Address[12], test.top.RD_Ack[0], test.top.WA_Ack[0], test.top.WD_Ack[4], test.top.RA_Ack[0], test.top.WriteData[1], test.top.W_Address[5], test.top.ReadData[4], test.top.WriteData[10], test.top.ReadData[22], test.top.WriteData[0], test.top.ReadData[17], test.top.ReadData[3], test.top.ReadData[21], test.top.ReadData[20], test.top.ReadData[2], test.top.WD_Ack[1], test.top.ReadData[15], test.top.ReadData[16], test.top.WD_Ack[7], test.top.RD_Ack[7], test.top.WD_Ack[3], test.top.W_Address[19], test.top.ReadData[24], test.top.RA_Ack[4], test.top.RA_Ack[3], test.top.WRW[0], test.top.ReadData[28], test.top.WriteData[21], test.top.ReadData[19], test.top.ReadData[0], test.top.ReadData[30], test.top.ReadData[14], test.top.WD_Ack[0], test.top.ReadData[5], test.top.WriteAck, test.top.ReadData[31], test.top.WriteData[9], test.top.ReadData[8], test.top.WriteData[29], test.top.WriteData[5], test.top.R_Address[14], test.top.R_Address[19], test.top.R_Address[13], test.top.ReadData[25], 
-test.top.RRW[1], test.top.R_Address[12], test.top.R_Address[11], test.top.W_Address[16], test.top.R_Address[10], test.top.R_Address[9], test.top.R_Address[8], test.top.WD_Ack[2], test.top.R_Address[7], test.top.R_Address[6], test.top.ReadData[11], test.top.R_Address[5], test.top.ReadData[27], test.top.RRW[0], test.top.ReadData[26], test.top.R_Address[4], test.top.W_Address[9], test.top.R_Address[3], test.top.R_Address[2], test.top.R_Address[1], test.top.R_Address[0], test.top.WA_Ack[3], test.top.ReadData[10], test.top.ReadData[7], test.top.WA_Ack[4], test.top.R_Address[18], test.top.WriteData[26], test.top.WriteData[27], test.top.WriteData[17], test.top.RD_Ack[6], test.top.R_Address[16], test.top.ReadAck, test.top.W_Address[6], test.top.ReadData[18], test.top.W_Address[2], test.top.WriteData[8], test.top.WriteData[12], test.top.ReadData[12], test.top.WriteData[7], test.top.RD_Ack[2], test.top.RD_Ack[1], test.top.WRW[1], test.top.ReadData[9], test.top.WD_Ack[6], test.top.W_Address[18], test.top.ReadData[6], 
-test.top.W_Address[19:0], test.top.WriteData[31:0], test.top.WD_Ack[7:0], test.top.RD_Ack[7:0], test.top.WA_Ack[4:0], test.top.WRW[1:0], test.top.ReadData[31:0], test.top.RA_Ack[4:0], test.top.R_Address[19:0], test.top.RRW[1:0]);
+$shm_probe(test.top.WriteData[31], test.top.WD_Ack[5], test.top.WriteData[14], test.top.WriteData[16], test.top.WriteData[30], test.top.W_Address[17], test.top.WA_Ack[2], test.top.W_Address[15], test.top.RA_Ack[2], test.top.R_Address[17], test.top.R_Address[16], test.top.ReadData[23], test.top.WriteData[9], test.top.WriteData[3], test.top.WriteData[2], test.top.RD_Ack[3], test.top.ReadData[12], test.top.WD_Ack[4], test.top.ReadData[29], test.top.WRW[1], test.top.WRW[0], test.top.W_Address[11], test.top.WriteData[28], test.top.WriteData[15], test.top.ReadData[1], test.top.W_Address[16], test.top.WriteData[11], test.top.WriteData[26], test.top.W_Address[1], test.top.WriteData[7], test.top.WriteData[13], test.top.RD_Ack[5], test.top.W_Address[12], test.top.R_Address[15], test.top.WA_Ack[1], test.top.WriteData[24], test.top.WD_Ack[3], test.top.WriteData[8], test.top.WriteData[6], test.top.WriteData[29], test.top.ReadData[4], test.top.WriteData[18], test.top.WriteData[12], test.top.WriteData[5], test.top.WriteData[25], 
+test.top.W_Address[10], test.top.WriteData[20], test.top.WriteData[4], test.top.W_Address[5], test.top.WriteData[1], test.top.ReadData[3], test.top.W_Address[9], test.top.W_Address[8], test.top.ReadData[2], test.top.WD_Ack[1], test.top.W_Address[3], test.top.W_Address[4], test.top.RRW[1], test.top.RD_Ack[1], test.top.W_Address[19], test.top.WA_Ack[0], test.top.RA_Ack[0], test.top.ReadData[24], test.top.WD_Ack[7], test.top.WriteData[19], test.top.WriteData[21], test.top.WD_Ack[6], test.top.WA_Ack[3], test.top.ReadData[28], test.top.WriteAck, test.top.W_Address[7], test.top.ReadData[0], test.top.ReadData[30], test.top.W_Address[2], test.top.WD_Ack[0], test.top.ReadData[5], test.top.WriteData[22], test.top.ReadData[31], test.top.ReadData[8], test.top.ReadData[21], test.top.R_Address[14], test.top.RD_Ack[7], test.top.R_Address[13], test.top.RD_Ack[2], test.top.RD_Ack[0], test.top.ReadData[25], test.top.RA_Ack[4], test.top.R_Address[12], test.top.R_Address[11], test.top.ReadData[20], test.top.WriteData[27], 
+test.top.ReadData[14], test.top.R_Address[10], test.top.ReadData[13], test.top.R_Address[9], test.top.R_Address[8], test.top.WD_Ack[2], test.top.R_Address[7], test.top.R_Address[6], test.top.ReadData[17], test.top.ReadData[11], test.top.R_Address[5], test.top.WriteData[23], test.top.ReadData[27], test.top.RA_Ack[3], test.top.ReadData[26], test.top.R_Address[4], test.top.R_Address[3], test.top.R_Address[2], test.top.R_Address[1], test.top.R_Address[0], test.top.ReadData[16], test.top.R_Address[18], test.top.ReadAck, test.top.ReadData[10], test.top.ReadData[7], test.top.WriteData[17], test.top.R_Address[19], test.top.RD_Ack[6], test.top.RA_Ack[1], test.top.W_Address[18], test.top.RD_Ack[4], test.top.ReadData[19], test.top.W_Address[6], test.top.ReadData[22], test.top.W_Address[0], test.top.ReadData[18], test.top.W_Address[14], test.top.W_Address[13], test.top.ReadData[15], test.top.WA_Ack[4], test.top.ReadData[9], test.top.RRW[0], test.top.WriteData[10], test.top.ReadData[6], test.top.WriteData[0], 
+test.top.WriteData[31:0], test.top.WD_Ack[7:0], test.top.W_Address[19:0], test.top.WA_Ack[4:0], test.top.RD_Ack[7:0], test.top.WRW[1:0], test.top.ReadData[31:0], test.top.RA_Ack[4:0], test.top.R_Address[19:0], test.top.RRW[1:0]);
 end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_SDP_BANK_Test, View - schematic
-// LAST TIME SAVED: Apr 20 03:46:57 2015
-// NETLIST TIME: Apr 20 04:24:05 2015
+// LAST TIME SAVED: Apr 20 21:58:02 2015
+// NETLIST TIME: Apr 21 00:30:13 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_29 ( RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack,
+module cdsModule_95 ( RA_Ack, ReadAck, ReadData, WA_Ack, WD_Ack,
      WriteAck, RD_Ack, RRW, R_Address, WRW, W_Address, WriteData );
 
 output  ReadAck, WriteAck;
 
 
-output [4:0]  WA_Ack;
-output [4:0]  RA_Ack;
 output [31:0]  ReadData;
+output [4:0]  RA_Ack;
 output [7:0]  WD_Ack;
+output [4:0]  WA_Ack;
 
 input [31:0]  WriteData;
+input [19:0]  R_Address;
+input [7:0]  RD_Ack;
 input [1:0]  WRW;
 input [1:0]  RRW;
 input [19:0]  W_Address;
-input [19:0]  R_Address;
-input [7:0]  RD_Ack;
 
 // Buses in the design
 
-wire  [19:0]  cdsbus0;
+wire  [19:0]  R_AddressT;
 
 wire  [4:0]  RA_AckT;
 
+wire  [19:0]  cdsbus0;
+
 wire  [1:0]  cdsbus1;
-
-wire  [4:0]  cdsbus2;
-
-wire  [31:0]  ReadDataT;
-
-wire  [31:0]  cdsbus3;
-
-wire  [19:0]  R_AddressT;
-
-wire  [7:0]  cdsbus4;
-
-wire  [31:0]  WriteDataT;
-
-wire  [1:0]  cdsbus5;
-
-wire  [19:0]  W_AddressT;
-
-wire  [1:0]  WRWT;
-
-wire  [7:0]  WD_AckT;
-
-wire  [4:0]  WA_AckT;
 
 wire  [1:0]  RRWT;
 
-wire  [19:0]  cdsbus6;
+wire  [31:0]  ReadDataT;
 
-wire  [4:0]  cdsbus7;
+wire  [7:0]  cdsbus2;
+
+wire  [19:0]  W_AddressT;
+
+wire  [19:0]  cdsbus3;
+
+wire  [31:0]  cdsbus4;
+
+wire  [7:0]  WD_AckT;
+
+wire  [31:0]  WriteDataT;
+
+wire  [7:0]  cdsbus5;
+
+wire  [4:0]  cdsbus6;
+
+wire  [1:0]  WRWT;
+
+wire  [1:0]  cdsbus7;
 
 wire  [31:0]  cdsbus8;
 
-wire  [7:0]  cdsbus9;
-
 wire  [7:0]  RD_AckT;
+
+wire  [4:0]  cdsbus9;
+
+wire  [4:0]  WA_AckT;
 
 // begin interface element definitions
 
 wire cdsNet1;
 wire cdsNet0;
 reg mixedNet99999;
-reg mixedNet99996;
-reg mixedNet99995;
-reg mixedNet99992;
+reg mixedNet99998;
+reg mixedNet99997;
+reg mixedNet99994;
+reg mixedNet99991;
+reg mixedNet99990;
+reg mixedNet99988;
+reg mixedNet99987;
+reg mixedNet99986;
 reg mixedNet99985;
-reg mixedNet99984;
 reg mixedNet99983;
-reg mixedNet99981;
+reg mixedNet99982;
 reg mixedNet99980;
-reg mixedNet99978;
-reg mixedNet99976;
-reg mixedNet99975;
-reg mixedNet99967;
-reg mixedNet99964;
+reg mixedNet99973;
+reg mixedNet99971;
+reg mixedNet99970;
+reg mixedNet99968;
+reg mixedNet99965;
 reg mixedNet99963;
 reg mixedNet99962;
-reg mixedNet99960;
-reg mixedNet99959;
-reg mixedNet99955;
-reg mixedNet99954;
-reg mixedNet99953;
-reg mixedNet99952;
+reg mixedNet99961;
 reg mixedNet99950;
+reg mixedNet99949;
 reg mixedNet99947;
-reg mixedNet99936;
-reg mixedNet99931;
+reg mixedNet99946;
+reg mixedNet99939;
+reg mixedNet99933;
+reg mixedNet99932;
+reg mixedNet99927;
 reg mixedNet99920;
+reg mixedNet99918;
 reg mixedNet99917;
-reg mixedNet99914;
-reg mixedNet99913;
+reg mixedNet99915;
 reg mixedNet99912;
-reg mixedNet99910;
+reg mixedNet99911;
 reg mixedNet99909;
-reg mixedNet99906;
-reg mixedNet99904;
-reg mixedNet99903;
 reg mixedNet99902;
-reg mixedNet99899;
 reg mixedNet99898;
-reg mixedNet99897;
-reg mixedNet99894;
-reg mixedNet99879;
-reg mixedNet99876;
-reg mixedNet99875;
-reg mixedNet99874;
-reg mixedNet99873;
-reg mixedNet99871;
-reg mixedNet99869;
-reg mixedNet99868;
-reg mixedNet99867;
+reg mixedNet99896;
+reg mixedNet99890;
+reg mixedNet99889;
+reg mixedNet99888;
+reg mixedNet99886;
+reg mixedNet99885;
+reg mixedNet99884;
+reg mixedNet99883;
+reg mixedNet99882;
+reg mixedNet99880;
+reg mixedNet99878;
+reg mixedNet99872;
 reg mixedNet99866;
 reg mixedNet99865;
-assign cdsbus8[3] = mixedNet99999;
-assign cdsbus9[6] = mixedNet99996;
-assign cdsbus9[7] = mixedNet99995;
-assign cdsbus8[0] = mixedNet99992;
-assign cdsbus8[4] = mixedNet99985;
-assign cdsbus8[30] = mixedNet99984;
-assign cdsbus8[5] = mixedNet99983;
-assign cdsbus8[29] = mixedNet99981;
-assign cdsbus9[0] = mixedNet99980;
-assign cdsbus8[27] = mixedNet99978;
-assign cdsbus8[11] = mixedNet99976;
-assign cdsbus8[26] = mixedNet99975;
-assign cdsbus8[24] = mixedNet99967;
-assign cdsbus2[3] = mixedNet99964;
-assign cdsbus8[28] = mixedNet99963;
-assign cdsbus2[1] = mixedNet99962;
-assign cdsbus8[14] = mixedNet99960;
-assign cdsNet1 = mixedNet99959;
-assign cdsbus8[22] = mixedNet99955;
-assign cdsbus8[21] = mixedNet99954;
-assign cdsbus8[20] = mixedNet99953;
-assign cdsbus8[19] = mixedNet99952;
-assign cdsbus9[4] = mixedNet99950;
-assign cdsbus2[4] = mixedNet99947;
-assign cdsbus8[10] = mixedNet99936;
-assign cdsbus8[17] = mixedNet99931;
-assign cdsbus8[6] = mixedNet99920;
-assign cdsbus7[4] = mixedNet99917;
-assign cdsbus9[3] = mixedNet99914;
-assign cdsbus8[2] = mixedNet99913;
-assign cdsbus8[16] = mixedNet99912;
-assign cdsbus8[18] = mixedNet99910;
-assign cdsbus8[7] = mixedNet99909;
-assign cdsbus7[0] = mixedNet99906;
-assign cdsbus9[5] = mixedNet99904;
-assign cdsNet0 = mixedNet99903;
-assign cdsbus8[9] = mixedNet99902;
-assign cdsbus9[1] = mixedNet99899;
-assign cdsbus8[25] = mixedNet99898;
-assign cdsbus8[8] = mixedNet99897;
-assign cdsbus7[3] = mixedNet99894;
-assign cdsbus2[0] = mixedNet99879;
-assign cdsbus8[31] = mixedNet99876;
-assign cdsbus8[15] = mixedNet99875;
-assign cdsbus8[23] = mixedNet99874;
-assign cdsbus8[13] = mixedNet99873;
-assign cdsbus8[12] = mixedNet99871;
-assign cdsbus9[2] = mixedNet99869;
-assign cdsbus2[2] = mixedNet99868;
-assign cdsbus8[1] = mixedNet99867;
-assign cdsbus7[1] = mixedNet99866;
-assign cdsbus7[2] = mixedNet99865;
+assign cdsbus6[0] = mixedNet99999;
+assign cdsbus4[31] = mixedNet99998;
+assign cdsbus4[6] = mixedNet99997;
+assign cdsbus4[28] = mixedNet99994;
+assign cdsbus4[7] = mixedNet99991;
+assign cdsbus5[3] = mixedNet99990;
+assign cdsbus5[4] = mixedNet99988;
+assign cdsbus5[6] = mixedNet99987;
+assign cdsbus9[2] = mixedNet99986;
+assign cdsbus9[1] = mixedNet99985;
+assign cdsbus4[8] = mixedNet99983;
+assign cdsbus6[1] = mixedNet99982;
+assign cdsbus6[2] = mixedNet99980;
+assign cdsbus4[11] = mixedNet99973;
+assign cdsbus4[3] = mixedNet99971;
+assign cdsbus4[18] = mixedNet99970;
+assign cdsbus4[4] = mixedNet99968;
+assign cdsbus4[30] = mixedNet99965;
+assign cdsbus4[17] = mixedNet99963;
+assign cdsbus4[24] = mixedNet99962;
+assign cdsbus4[14] = mixedNet99961;
+assign cdsbus9[3] = mixedNet99950;
+assign cdsNet1 = mixedNet99949;
+assign cdsbus4[23] = mixedNet99947;
+assign cdsbus4[22] = mixedNet99946;
+assign cdsbus5[1] = mixedNet99939;
+assign cdsbus4[15] = mixedNet99933;
+assign cdsbus4[29] = mixedNet99932;
+assign cdsbus4[21] = mixedNet99927;
+assign cdsbus4[26] = mixedNet99920;
+assign cdsbus4[5] = mixedNet99918;
+assign cdsbus4[1] = mixedNet99917;
+assign cdsbus6[3] = mixedNet99915;
+assign cdsbus4[0] = mixedNet99912;
+assign cdsbus5[0] = mixedNet99911;
+assign cdsbus4[2] = mixedNet99909;
+assign cdsbus6[4] = mixedNet99902;
+assign cdsbus5[2] = mixedNet99898;
+assign cdsbus4[13] = mixedNet99896;
+assign cdsbus4[12] = mixedNet99890;
+assign cdsbus4[10] = mixedNet99889;
+assign cdsbus4[9] = mixedNet99888;
+assign cdsbus4[27] = mixedNet99886;
+assign cdsbus4[20] = mixedNet99885;
+assign cdsbus4[16] = mixedNet99884;
+assign cdsbus9[0] = mixedNet99883;
+assign cdsbus4[19] = mixedNet99882;
+assign cdsNet0 = mixedNet99880;
+assign cdsbus5[5] = mixedNet99878;
+assign cdsbus4[25] = mixedNet99872;
+assign cdsbus9[4] = mixedNet99866;
+assign cdsbus5[7] = mixedNet99865;
 
 // end interface element definitions
 
@@ -604,141 +604,141 @@ specify
     specparam CDS_VIEWNAME = "schematic";
 endspecify
 
-inv_1xT I28_19_ ( cdsbus0[19], R_Address[19]);
-inv_1xT I28_18_ ( cdsbus0[18], R_Address[18]);
-inv_1xT I28_17_ ( cdsbus0[17], R_Address[17]);
-inv_1xT I28_16_ ( cdsbus0[16], R_Address[16]);
-inv_1xT I28_15_ ( cdsbus0[15], R_Address[15]);
-inv_1xT I28_14_ ( cdsbus0[14], R_Address[14]);
-inv_1xT I28_13_ ( cdsbus0[13], R_Address[13]);
-inv_1xT I28_12_ ( cdsbus0[12], R_Address[12]);
-inv_1xT I28_11_ ( cdsbus0[11], R_Address[11]);
-inv_1xT I28_10_ ( cdsbus0[10], R_Address[10]);
-inv_1xT I28_9_ ( cdsbus0[9], R_Address[9]);
-inv_1xT I28_8_ ( cdsbus0[8], R_Address[8]);
-inv_1xT I28_7_ ( cdsbus0[7], R_Address[7]);
-inv_1xT I28_6_ ( cdsbus0[6], R_Address[6]);
-inv_1xT I28_5_ ( cdsbus0[5], R_Address[5]);
-inv_1xT I28_4_ ( cdsbus0[4], R_Address[4]);
-inv_1xT I28_3_ ( cdsbus0[3], R_Address[3]);
-inv_1xT I28_2_ ( cdsbus0[2], R_Address[2]);
-inv_1xT I28_1_ ( cdsbus0[1], R_Address[1]);
-inv_1xT I28_0_ ( cdsbus0[0], R_Address[0]);
-inv_1xT I27_1_ ( cdsbus5[1], RRW[1]);
-inv_1xT I27_0_ ( cdsbus5[0], RRW[0]);
-inv_1xT I24_4_ ( RA_Ack[4], cdsbus7[4]);
-inv_1xT I24_3_ ( RA_Ack[3], cdsbus7[3]);
-inv_1xT I24_2_ ( RA_Ack[2], cdsbus7[2]);
-inv_1xT I24_1_ ( RA_Ack[1], cdsbus7[1]);
-inv_1xT I24_0_ ( RA_Ack[0], cdsbus7[0]);
+inv_1xT I28_19_ ( cdsbus3[19], R_Address[19]);
+inv_1xT I28_18_ ( cdsbus3[18], R_Address[18]);
+inv_1xT I28_17_ ( cdsbus3[17], R_Address[17]);
+inv_1xT I28_16_ ( cdsbus3[16], R_Address[16]);
+inv_1xT I28_15_ ( cdsbus3[15], R_Address[15]);
+inv_1xT I28_14_ ( cdsbus3[14], R_Address[14]);
+inv_1xT I28_13_ ( cdsbus3[13], R_Address[13]);
+inv_1xT I28_12_ ( cdsbus3[12], R_Address[12]);
+inv_1xT I28_11_ ( cdsbus3[11], R_Address[11]);
+inv_1xT I28_10_ ( cdsbus3[10], R_Address[10]);
+inv_1xT I28_9_ ( cdsbus3[9], R_Address[9]);
+inv_1xT I28_8_ ( cdsbus3[8], R_Address[8]);
+inv_1xT I28_7_ ( cdsbus3[7], R_Address[7]);
+inv_1xT I28_6_ ( cdsbus3[6], R_Address[6]);
+inv_1xT I28_5_ ( cdsbus3[5], R_Address[5]);
+inv_1xT I28_4_ ( cdsbus3[4], R_Address[4]);
+inv_1xT I28_3_ ( cdsbus3[3], R_Address[3]);
+inv_1xT I28_2_ ( cdsbus3[2], R_Address[2]);
+inv_1xT I28_1_ ( cdsbus3[1], R_Address[1]);
+inv_1xT I28_0_ ( cdsbus3[0], R_Address[0]);
+inv_1xT I27_1_ ( cdsbus1[1], RRW[1]);
+inv_1xT I27_0_ ( cdsbus1[0], RRW[0]);
+inv_1xT I24_4_ ( RA_Ack[4], cdsbus6[4]);
+inv_1xT I24_3_ ( RA_Ack[3], cdsbus6[3]);
+inv_1xT I24_2_ ( RA_Ack[2], cdsbus6[2]);
+inv_1xT I24_1_ ( RA_Ack[1], cdsbus6[1]);
+inv_1xT I24_0_ ( RA_Ack[0], cdsbus6[0]);
 inv_1xT I23 ( ReadAck, cdsNet0);
-inv_1xT I21_4_ ( WA_Ack[4], cdsbus2[4]);
-inv_1xT I21_3_ ( WA_Ack[3], cdsbus2[3]);
-inv_1xT I21_2_ ( WA_Ack[2], cdsbus2[2]);
-inv_1xT I21_1_ ( WA_Ack[1], cdsbus2[1]);
-inv_1xT I21_0_ ( WA_Ack[0], cdsbus2[0]);
+inv_1xT I21_4_ ( WA_Ack[4], cdsbus9[4]);
+inv_1xT I21_3_ ( WA_Ack[3], cdsbus9[3]);
+inv_1xT I21_2_ ( WA_Ack[2], cdsbus9[2]);
+inv_1xT I21_1_ ( WA_Ack[1], cdsbus9[1]);
+inv_1xT I21_0_ ( WA_Ack[0], cdsbus9[0]);
 inv_1xT I22 ( WriteAck, cdsNet1);
-inv_1xT I4_31_ ( cdsbus3[31], WriteData[31]);
-inv_1xT I4_30_ ( cdsbus3[30], WriteData[30]);
-inv_1xT I4_29_ ( cdsbus3[29], WriteData[29]);
-inv_1xT I4_28_ ( cdsbus3[28], WriteData[28]);
-inv_1xT I4_27_ ( cdsbus3[27], WriteData[27]);
-inv_1xT I4_26_ ( cdsbus3[26], WriteData[26]);
-inv_1xT I4_25_ ( cdsbus3[25], WriteData[25]);
-inv_1xT I4_24_ ( cdsbus3[24], WriteData[24]);
-inv_1xT I4_23_ ( cdsbus3[23], WriteData[23]);
-inv_1xT I4_22_ ( cdsbus3[22], WriteData[22]);
-inv_1xT I4_21_ ( cdsbus3[21], WriteData[21]);
-inv_1xT I4_20_ ( cdsbus3[20], WriteData[20]);
-inv_1xT I4_19_ ( cdsbus3[19], WriteData[19]);
-inv_1xT I4_18_ ( cdsbus3[18], WriteData[18]);
-inv_1xT I4_17_ ( cdsbus3[17], WriteData[17]);
-inv_1xT I4_16_ ( cdsbus3[16], WriteData[16]);
-inv_1xT I4_15_ ( cdsbus3[15], WriteData[15]);
-inv_1xT I4_14_ ( cdsbus3[14], WriteData[14]);
-inv_1xT I4_13_ ( cdsbus3[13], WriteData[13]);
-inv_1xT I4_12_ ( cdsbus3[12], WriteData[12]);
-inv_1xT I4_11_ ( cdsbus3[11], WriteData[11]);
-inv_1xT I4_10_ ( cdsbus3[10], WriteData[10]);
-inv_1xT I4_9_ ( cdsbus3[9], WriteData[9]);
-inv_1xT I4_8_ ( cdsbus3[8], WriteData[8]);
-inv_1xT I4_7_ ( cdsbus3[7], WriteData[7]);
-inv_1xT I4_6_ ( cdsbus3[6], WriteData[6]);
-inv_1xT I4_5_ ( cdsbus3[5], WriteData[5]);
-inv_1xT I4_4_ ( cdsbus3[4], WriteData[4]);
-inv_1xT I4_3_ ( cdsbus3[3], WriteData[3]);
-inv_1xT I4_2_ ( cdsbus3[2], WriteData[2]);
-inv_1xT I4_1_ ( cdsbus3[1], WriteData[1]);
-inv_1xT I4_0_ ( cdsbus3[0], WriteData[0]);
-inv_1xT I7_31_ ( ReadData[31], cdsbus8[31]);
-inv_1xT I7_30_ ( ReadData[30], cdsbus8[30]);
-inv_1xT I7_29_ ( ReadData[29], cdsbus8[29]);
-inv_1xT I7_28_ ( ReadData[28], cdsbus8[28]);
-inv_1xT I7_27_ ( ReadData[27], cdsbus8[27]);
-inv_1xT I7_26_ ( ReadData[26], cdsbus8[26]);
-inv_1xT I7_25_ ( ReadData[25], cdsbus8[25]);
-inv_1xT I7_24_ ( ReadData[24], cdsbus8[24]);
-inv_1xT I7_23_ ( ReadData[23], cdsbus8[23]);
-inv_1xT I7_22_ ( ReadData[22], cdsbus8[22]);
-inv_1xT I7_21_ ( ReadData[21], cdsbus8[21]);
-inv_1xT I7_20_ ( ReadData[20], cdsbus8[20]);
-inv_1xT I7_19_ ( ReadData[19], cdsbus8[19]);
-inv_1xT I7_18_ ( ReadData[18], cdsbus8[18]);
-inv_1xT I7_17_ ( ReadData[17], cdsbus8[17]);
-inv_1xT I7_16_ ( ReadData[16], cdsbus8[16]);
-inv_1xT I7_15_ ( ReadData[15], cdsbus8[15]);
-inv_1xT I7_14_ ( ReadData[14], cdsbus8[14]);
-inv_1xT I7_13_ ( ReadData[13], cdsbus8[13]);
-inv_1xT I7_12_ ( ReadData[12], cdsbus8[12]);
-inv_1xT I7_11_ ( ReadData[11], cdsbus8[11]);
-inv_1xT I7_10_ ( ReadData[10], cdsbus8[10]);
-inv_1xT I7_9_ ( ReadData[9], cdsbus8[9]);
-inv_1xT I7_8_ ( ReadData[8], cdsbus8[8]);
-inv_1xT I7_7_ ( ReadData[7], cdsbus8[7]);
-inv_1xT I7_6_ ( ReadData[6], cdsbus8[6]);
-inv_1xT I7_5_ ( ReadData[5], cdsbus8[5]);
-inv_1xT I7_4_ ( ReadData[4], cdsbus8[4]);
-inv_1xT I7_3_ ( ReadData[3], cdsbus8[3]);
-inv_1xT I7_2_ ( ReadData[2], cdsbus8[2]);
-inv_1xT I7_1_ ( ReadData[1], cdsbus8[1]);
-inv_1xT I7_0_ ( ReadData[0], cdsbus8[0]);
-inv_1xT I9_7_ ( WD_Ack[7], cdsbus9[7]);
-inv_1xT I9_6_ ( WD_Ack[6], cdsbus9[6]);
-inv_1xT I9_5_ ( WD_Ack[5], cdsbus9[5]);
-inv_1xT I9_4_ ( WD_Ack[4], cdsbus9[4]);
-inv_1xT I9_3_ ( WD_Ack[3], cdsbus9[3]);
-inv_1xT I9_2_ ( WD_Ack[2], cdsbus9[2]);
-inv_1xT I9_1_ ( WD_Ack[1], cdsbus9[1]);
-inv_1xT I9_0_ ( WD_Ack[0], cdsbus9[0]);
-inv_1xT I12_7_ ( cdsbus4[7], RD_Ack[7]);
-inv_1xT I12_6_ ( cdsbus4[6], RD_Ack[6]);
-inv_1xT I12_5_ ( cdsbus4[5], RD_Ack[5]);
-inv_1xT I12_4_ ( cdsbus4[4], RD_Ack[4]);
-inv_1xT I12_3_ ( cdsbus4[3], RD_Ack[3]);
-inv_1xT I12_2_ ( cdsbus4[2], RD_Ack[2]);
-inv_1xT I12_1_ ( cdsbus4[1], RD_Ack[1]);
-inv_1xT I12_0_ ( cdsbus4[0], RD_Ack[0]);
-inv_1xT I26_1_ ( cdsbus1[1], WRW[1]);
-inv_1xT I26_0_ ( cdsbus1[0], WRW[0]);
-inv_1xT I25_19_ ( cdsbus6[19], W_Address[19]);
-inv_1xT I25_18_ ( cdsbus6[18], W_Address[18]);
-inv_1xT I25_17_ ( cdsbus6[17], W_Address[17]);
-inv_1xT I25_16_ ( cdsbus6[16], W_Address[16]);
-inv_1xT I25_15_ ( cdsbus6[15], W_Address[15]);
-inv_1xT I25_14_ ( cdsbus6[14], W_Address[14]);
-inv_1xT I25_13_ ( cdsbus6[13], W_Address[13]);
-inv_1xT I25_12_ ( cdsbus6[12], W_Address[12]);
-inv_1xT I25_11_ ( cdsbus6[11], W_Address[11]);
-inv_1xT I25_10_ ( cdsbus6[10], W_Address[10]);
-inv_1xT I25_9_ ( cdsbus6[9], W_Address[9]);
-inv_1xT I25_8_ ( cdsbus6[8], W_Address[8]);
-inv_1xT I25_7_ ( cdsbus6[7], W_Address[7]);
-inv_1xT I25_6_ ( cdsbus6[6], W_Address[6]);
-inv_1xT I25_5_ ( cdsbus6[5], W_Address[5]);
-inv_1xT I25_4_ ( cdsbus6[4], W_Address[4]);
-inv_1xT I25_3_ ( cdsbus6[3], W_Address[3]);
-inv_1xT I25_2_ ( cdsbus6[2], W_Address[2]);
-inv_1xT I25_1_ ( cdsbus6[1], W_Address[1]);
-inv_1xT I25_0_ ( cdsbus6[0], W_Address[0]);
+inv_1xT I4_31_ ( cdsbus8[31], WriteData[31]);
+inv_1xT I4_30_ ( cdsbus8[30], WriteData[30]);
+inv_1xT I4_29_ ( cdsbus8[29], WriteData[29]);
+inv_1xT I4_28_ ( cdsbus8[28], WriteData[28]);
+inv_1xT I4_27_ ( cdsbus8[27], WriteData[27]);
+inv_1xT I4_26_ ( cdsbus8[26], WriteData[26]);
+inv_1xT I4_25_ ( cdsbus8[25], WriteData[25]);
+inv_1xT I4_24_ ( cdsbus8[24], WriteData[24]);
+inv_1xT I4_23_ ( cdsbus8[23], WriteData[23]);
+inv_1xT I4_22_ ( cdsbus8[22], WriteData[22]);
+inv_1xT I4_21_ ( cdsbus8[21], WriteData[21]);
+inv_1xT I4_20_ ( cdsbus8[20], WriteData[20]);
+inv_1xT I4_19_ ( cdsbus8[19], WriteData[19]);
+inv_1xT I4_18_ ( cdsbus8[18], WriteData[18]);
+inv_1xT I4_17_ ( cdsbus8[17], WriteData[17]);
+inv_1xT I4_16_ ( cdsbus8[16], WriteData[16]);
+inv_1xT I4_15_ ( cdsbus8[15], WriteData[15]);
+inv_1xT I4_14_ ( cdsbus8[14], WriteData[14]);
+inv_1xT I4_13_ ( cdsbus8[13], WriteData[13]);
+inv_1xT I4_12_ ( cdsbus8[12], WriteData[12]);
+inv_1xT I4_11_ ( cdsbus8[11], WriteData[11]);
+inv_1xT I4_10_ ( cdsbus8[10], WriteData[10]);
+inv_1xT I4_9_ ( cdsbus8[9], WriteData[9]);
+inv_1xT I4_8_ ( cdsbus8[8], WriteData[8]);
+inv_1xT I4_7_ ( cdsbus8[7], WriteData[7]);
+inv_1xT I4_6_ ( cdsbus8[6], WriteData[6]);
+inv_1xT I4_5_ ( cdsbus8[5], WriteData[5]);
+inv_1xT I4_4_ ( cdsbus8[4], WriteData[4]);
+inv_1xT I4_3_ ( cdsbus8[3], WriteData[3]);
+inv_1xT I4_2_ ( cdsbus8[2], WriteData[2]);
+inv_1xT I4_1_ ( cdsbus8[1], WriteData[1]);
+inv_1xT I4_0_ ( cdsbus8[0], WriteData[0]);
+inv_1xT I7_31_ ( ReadData[31], cdsbus4[31]);
+inv_1xT I7_30_ ( ReadData[30], cdsbus4[30]);
+inv_1xT I7_29_ ( ReadData[29], cdsbus4[29]);
+inv_1xT I7_28_ ( ReadData[28], cdsbus4[28]);
+inv_1xT I7_27_ ( ReadData[27], cdsbus4[27]);
+inv_1xT I7_26_ ( ReadData[26], cdsbus4[26]);
+inv_1xT I7_25_ ( ReadData[25], cdsbus4[25]);
+inv_1xT I7_24_ ( ReadData[24], cdsbus4[24]);
+inv_1xT I7_23_ ( ReadData[23], cdsbus4[23]);
+inv_1xT I7_22_ ( ReadData[22], cdsbus4[22]);
+inv_1xT I7_21_ ( ReadData[21], cdsbus4[21]);
+inv_1xT I7_20_ ( ReadData[20], cdsbus4[20]);
+inv_1xT I7_19_ ( ReadData[19], cdsbus4[19]);
+inv_1xT I7_18_ ( ReadData[18], cdsbus4[18]);
+inv_1xT I7_17_ ( ReadData[17], cdsbus4[17]);
+inv_1xT I7_16_ ( ReadData[16], cdsbus4[16]);
+inv_1xT I7_15_ ( ReadData[15], cdsbus4[15]);
+inv_1xT I7_14_ ( ReadData[14], cdsbus4[14]);
+inv_1xT I7_13_ ( ReadData[13], cdsbus4[13]);
+inv_1xT I7_12_ ( ReadData[12], cdsbus4[12]);
+inv_1xT I7_11_ ( ReadData[11], cdsbus4[11]);
+inv_1xT I7_10_ ( ReadData[10], cdsbus4[10]);
+inv_1xT I7_9_ ( ReadData[9], cdsbus4[9]);
+inv_1xT I7_8_ ( ReadData[8], cdsbus4[8]);
+inv_1xT I7_7_ ( ReadData[7], cdsbus4[7]);
+inv_1xT I7_6_ ( ReadData[6], cdsbus4[6]);
+inv_1xT I7_5_ ( ReadData[5], cdsbus4[5]);
+inv_1xT I7_4_ ( ReadData[4], cdsbus4[4]);
+inv_1xT I7_3_ ( ReadData[3], cdsbus4[3]);
+inv_1xT I7_2_ ( ReadData[2], cdsbus4[2]);
+inv_1xT I7_1_ ( ReadData[1], cdsbus4[1]);
+inv_1xT I7_0_ ( ReadData[0], cdsbus4[0]);
+inv_1xT I9_7_ ( WD_Ack[7], cdsbus5[7]);
+inv_1xT I9_6_ ( WD_Ack[6], cdsbus5[6]);
+inv_1xT I9_5_ ( WD_Ack[5], cdsbus5[5]);
+inv_1xT I9_4_ ( WD_Ack[4], cdsbus5[4]);
+inv_1xT I9_3_ ( WD_Ack[3], cdsbus5[3]);
+inv_1xT I9_2_ ( WD_Ack[2], cdsbus5[2]);
+inv_1xT I9_1_ ( WD_Ack[1], cdsbus5[1]);
+inv_1xT I9_0_ ( WD_Ack[0], cdsbus5[0]);
+inv_1xT I12_7_ ( cdsbus2[7], RD_Ack[7]);
+inv_1xT I12_6_ ( cdsbus2[6], RD_Ack[6]);
+inv_1xT I12_5_ ( cdsbus2[5], RD_Ack[5]);
+inv_1xT I12_4_ ( cdsbus2[4], RD_Ack[4]);
+inv_1xT I12_3_ ( cdsbus2[3], RD_Ack[3]);
+inv_1xT I12_2_ ( cdsbus2[2], RD_Ack[2]);
+inv_1xT I12_1_ ( cdsbus2[1], RD_Ack[1]);
+inv_1xT I12_0_ ( cdsbus2[0], RD_Ack[0]);
+inv_1xT I26_1_ ( cdsbus7[1], WRW[1]);
+inv_1xT I26_0_ ( cdsbus7[0], WRW[0]);
+inv_1xT I25_19_ ( cdsbus0[19], W_Address[19]);
+inv_1xT I25_18_ ( cdsbus0[18], W_Address[18]);
+inv_1xT I25_17_ ( cdsbus0[17], W_Address[17]);
+inv_1xT I25_16_ ( cdsbus0[16], W_Address[16]);
+inv_1xT I25_15_ ( cdsbus0[15], W_Address[15]);
+inv_1xT I25_14_ ( cdsbus0[14], W_Address[14]);
+inv_1xT I25_13_ ( cdsbus0[13], W_Address[13]);
+inv_1xT I25_12_ ( cdsbus0[12], W_Address[12]);
+inv_1xT I25_11_ ( cdsbus0[11], W_Address[11]);
+inv_1xT I25_10_ ( cdsbus0[10], W_Address[10]);
+inv_1xT I25_9_ ( cdsbus0[9], W_Address[9]);
+inv_1xT I25_8_ ( cdsbus0[8], W_Address[8]);
+inv_1xT I25_7_ ( cdsbus0[7], W_Address[7]);
+inv_1xT I25_6_ ( cdsbus0[6], W_Address[6]);
+inv_1xT I25_5_ ( cdsbus0[5], W_Address[5]);
+inv_1xT I25_4_ ( cdsbus0[4], W_Address[4]);
+inv_1xT I25_3_ ( cdsbus0[3], W_Address[3]);
+inv_1xT I25_2_ ( cdsbus0[2], W_Address[2]);
+inv_1xT I25_1_ ( cdsbus0[1], W_Address[1]);
+inv_1xT I25_0_ ( cdsbus0[0], W_Address[0]);
 
 endmodule

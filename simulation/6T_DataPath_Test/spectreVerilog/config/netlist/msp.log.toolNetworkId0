@@ -1,4 +1,4 @@
-Mon Apr 20 03:08:08 2015
+Mon Apr 20 21:59:38 2015
 
 BUILDING Network design (cell: 6T_DataPath_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -58,10 +58,9 @@ Module 6T_4x, lib 16nm, view schematic, configViewString $default
 Module 6T_32x, lib 16nm, view schematic, configViewString $default
 Module 6T_32x4, lib 16nm, view schematic, configViewString $default
 Module 6T_CHUNK, lib 16nm, view schematic, configViewString $default
-Module TH22~, lib 16nm, view schematic, configViewString $default
-Module nand_1x, lib 16nm, view schematic, configViewString $default
-Module WCHB~, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
+Module WCHB~, lib 16nm, view schematic, configViewString $default
+Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
 Module or_1x, lib 16nm, view schematic, configViewString $default
 Module THaC, lib 16nm, view schematic, configViewString $default
@@ -69,6 +68,7 @@ Module PCHB_FIFO, lib 16nm, view schematic, configViewString $default
 Module and_1x, lib 16nm, view schematic, configViewString $default
 Module TH44, lib 16nm, view schematic, configViewString $default
 Module WCHB, lib 16nm, view schematic, configViewString $default
+Module TH22~, lib 16nm, view schematic, configViewString $default
 Module PCHBd, lib 16nm, view schematic, configViewString $default
 Module 6T_DATA, lib 16nm, view schematic, configViewString $default
 	The models in this partition are:

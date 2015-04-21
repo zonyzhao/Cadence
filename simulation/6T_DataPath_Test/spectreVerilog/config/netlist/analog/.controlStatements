@@ -1,9 +1,10 @@
-ic RAckT_1=vdd RAckT_0=vdd WAckT_1=vdd WAckT_0=vdd \~R0_1_3=vdd \
-    \~R0_1_2=vdd \~R0_1_1=vdd \~R0_1_0=vdd \~R1_1_3=vdd \~R1_1_2=vdd \
-    \~R1_1_1=vdd \~R1_1_0=vdd G01=0 W0_1_3=0 W0_1_2=0 W0_1_1=0 W0_1_0=0 \
-    W1_1_3=0 W1_1_2=0 W1_1_1=0 W1_1_0=0 B0_1_3=0 B0_1_2=0 B0_1_1=0 \
-    B0_1_0=0 B1_1_3=0 B1_1_2=0 B1_1_1=0 B1_1_0=0 S_7=0 S_6=0 S_5=0 S_4=0 \
-    S_3=0 S_2=0 S_1=0 S_0=0 Aline_63=0 Aline_62=0 Aline_61=0 Aline_60=0 \
+ic IDATA.Rack_3=0 IDATA.Rack_2=0 IDATA.Rack_1=0 IDATA.Rack_0=0 RAckT_1=0 \
+    RAckT_0=0 WAckT_1=vdd WAckT_0=vdd \~R0_1_3=vdd \~R0_1_2=vdd \
+    \~R0_1_1=vdd \~R0_1_0=vdd \~R1_1_3=vdd \~R1_1_2=vdd \~R1_1_1=vdd \
+    \~R1_1_0=vdd G01=0 W0_1_3=0 W0_1_2=0 W0_1_1=0 W0_1_0=0 W1_1_3=0 \
+    W1_1_2=0 W1_1_1=0 W1_1_0=0 B0_1_3=0 B0_1_2=0 B0_1_1=0 B0_1_0=0 \
+    B1_1_3=0 B1_1_2=0 B1_1_1=0 B1_1_0=0 S_7=0 S_6=0 S_5=0 S_4=0 S_3=0 \
+    S_2=0 S_1=0 S_0=0 Aline_63=0 Aline_62=0 Aline_61=0 Aline_60=0 \
     Aline_59=0 Aline_58=0 Aline_57=0 Aline_56=0 Aline_55=0 Aline_54=0 \
     Aline_53=0 Aline_52=0 Aline_51=0 Aline_50=0 Aline_49=0 Aline_48=0 \
     Aline_47=0 Aline_46=0 Aline_45=0 Aline_44=0 Aline_43=0 Aline_42=0 \
@@ -19,8 +20,7 @@ ic RAckT_1=vdd RAckT_0=vdd WAckT_1=vdd WAckT_0=vdd \~R0_1_3=vdd \
     RWT_0=0 RDataT_7=0 RDataT_6=0 RDataT_5=0 RDataT_4=0 RDataT_3=0 \
     RDataT_2=0 RDataT_1=0 RDataT_0=0 WDataT_7=0 WDataT_6=0 WDataT_5=0 \
     WDataT_4=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 IDATA.R1q_3=0 \
-    IDATA.R0q_3=0 IDATA.I67_3.net18=0 IDATA.Rack_3=vdd IDATA.Rack_2=vdd \
-    IDATA.Rack_1=vdd IDATA.Rack_0=vdd IDATA.Out0_3=vdd IDATA.Out0_2=vdd \
+    IDATA.R0q_3=0 IDATA.I67_3.net18=0 IDATA.Out0_3=vdd IDATA.Out0_2=vdd \
     IDATA.Out0_1=vdd IDATA.Out0_0=vdd IDATA.Out1_3=vdd IDATA.Out1_2=vdd \
     IDATA.Out1_1=vdd IDATA.Out1_0=vdd 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \

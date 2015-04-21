@@ -356,11 +356,11 @@
 ( inst
  )
 ( model
-( "10T_DUAL_SRAM_CompDetect" "_sub0" )
-( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub4" )
-( "10T_DUAL_SRAM_REGFILE" "_sub7" )
-( "10T_DUAL_SRAM_RPrecharge" "_sub6" )
-( "10T_32x32" "_sub3" )
+( "10T_DUAL_SRAM_CompDetect" "_sub128" )
+( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub132" )
+( "10T_DUAL_SRAM_REGFILE" "_sub135" )
+( "10T_DUAL_SRAM_RPrecharge" "_sub134" )
+( "10T_32x32" "_sub131" )
  )
 ( term
  )

@@ -10,5 +10,5 @@
     M5 (net24 S 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M4 (net25 S 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (B0 W1 net25 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends _sub13
+ends _sub78
 // End of subcircuit definition.

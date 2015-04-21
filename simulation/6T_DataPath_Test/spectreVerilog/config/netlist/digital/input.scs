@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_12 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_64 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
  
 
 `define verimix
@@ -78,7 +78,7 @@ begin
    wLog=$fopen("/tmp2/dataWLog.csv"); 
 
    A[15:0] = 16'h0000;
-   RAck[1:0] = 2'b11;
+   RAck[1:0] = 2'b00;
    Req = 1'b0;
    WData[7:0] = 8'h00;
    RW[1:0] = 2'b00;
@@ -86,9 +86,8 @@ begin
 #500;
 
    A[15:0] 		= 16'h1111;
-   RAck[1:0]	= 2'b11;
    Req 			= 1'b1;
-   WData[7:0] 	= 8'h48;
+   WData[7:0] 	= 8'h11;
    RW[1:0] 		= 2'b01;
    wStart		= $time;
    start 		= 1;
@@ -126,7 +125,7 @@ always @(posedge Ack) begin
    	  		rDelay = $time - rStart;
 	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
 	  		readCount = readCount + 1;
-	  		if (readCount == 2) begin
+	  		if (readCount == 4) begin
 				$finish;
 	  		end
    	  		logAddr[7:0] = $random;
@@ -245,10 +244,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 20 02:55:32 2015
-// NETLIST TIME: Apr 20 14:40:07 2015
+// NETLIST TIME: Apr 20 22:26:48 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_12 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+module cdsModule_64 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
 
 output  Ack;
 

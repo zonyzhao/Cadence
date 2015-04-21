@@ -5,7 +5,7 @@
 (opts approx) ""
 (opts audit) ""
 (opts auto_minductor) ""
-(opts checklimitdest) "psf"
+(opts checklimitdest) ""
 (opts checklimitfile) ""
 (opts checklimitskipfile) ""
 (opts checklimitskipsubs) ""

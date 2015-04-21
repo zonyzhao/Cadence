@@ -4,5 +4,5 @@
     I19_2 (AddrAck_2 _1of4_5_2 pV_2) nand_1x
     I19_1 (AddrAck_1 _1of4_5_1 pV_1) nand_1x
     I19_0 (AddrAck_0 _1of4_5_0 pV_0) nand_1x
-ends _sub20
+ends _sub85
 // End of subcircuit definition.

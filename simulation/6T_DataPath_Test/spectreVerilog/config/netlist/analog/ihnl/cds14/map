@@ -149,8 +149,8 @@
 ( "I80<2>" "I80_2" )
  )
 ( model
-( "6T_DATA" "_sub2" )
-( "WCHB~" "_sub1" )
+( "6T_DATA" "_sub54" )
+( "WCHB~" "_sub53" )
  )
 ( term
  )

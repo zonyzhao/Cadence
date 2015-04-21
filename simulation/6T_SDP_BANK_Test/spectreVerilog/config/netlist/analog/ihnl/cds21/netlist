@@ -1,6 +1,7 @@
-    I15 (net18 Lack) inv_1x
-    I2 (\~R1 \~R0 net18) nand_1x
-    I10 (Rack L1 \~R1) _sub17
-    I0 (L0 Rack \~R0) _sub17
-ends _sub18
+    I18 (Rack L1 net9) TH22
+    I0 (L0 Rack net10) TH22
+    I2 (net9 net10 Lack) nor_1x
+    I20 (net9 \~R1) inv_1x
+    I19 (net10 \~R0) inv_1x
+ends _sub83
 // End of subcircuit definition.

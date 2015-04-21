@@ -22,5 +22,5 @@
     I2_2 (net020_1 net22 net015 S_6) nor3_1x
     I2_1 (net020_2 net22 net015 S_5) nor3_1x
     I2_0 (net020_3 net22 net015 S_4) nor3_1x
-ends _sub21
+ends _sub86
 // End of subcircuit definition.

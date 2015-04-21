@@ -30,7 +30,7 @@ begin
    wLog=$fopen("/tmp2/dataWLog.csv"); 
 
    A[15:0] = 16'h0000;
-   RAck[1:0] = 2'b11;
+   RAck[1:0] = 2'b00;
    Req = 1'b0;
    WData[7:0] = 8'h00;
    RW[1:0] = 2'b00;
@@ -38,9 +38,8 @@ begin
 #500;
 
    A[15:0] 		= 16'h1111;
-   RAck[1:0]	= 2'b11;
    Req 			= 1'b1;
-   WData[7:0] 	= 8'h48;
+   WData[7:0] 	= 8'h11;
    RW[1:0] 		= 2'b01;
    wStart		= $time;
    start 		= 1;
@@ -78,7 +77,7 @@ always @(posedge Ack) begin
    	  		rDelay = $time - rStart;
 	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
 	  		readCount = readCount + 1;
-	  		if (readCount == 2) begin
+	  		if (readCount == 4) begin
 				$finish;
 	  		end
    	  		logAddr[7:0] = $random;

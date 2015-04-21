@@ -1,9 +1,9 @@
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 20 02:55:32 2015
-// NETLIST TIME: Apr 20 14:40:07 2015
+// NETLIST TIME: Apr 20 22:26:48 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_12 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+module cdsModule_64 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
 
 output  Ack;
 

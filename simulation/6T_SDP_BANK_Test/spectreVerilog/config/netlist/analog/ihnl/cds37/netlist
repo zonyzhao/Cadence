@@ -7,11 +7,11 @@
         R_Addr_12 RAddr_Ack_3 RAddr_Ack_2 RAddr_Ack_1 RAddr_Ack_0 \
         Read_1 Addr_3 Addr_2 Addr_1 Addr_0 Addr_7 Addr_6 Addr_5 Addr_4 \
         Addr_11 Addr_10 Addr_9 Addr_8 Addr_15 Addr_14 Addr_13 Addr_12 \
-        Ack_3 Ack_2 Ack_1 Ack_0) _sub24
+        Ack_3 Ack_2 Ack_1 Ack_0) _sub90
     I1 (W_Addr_19 W_Addr_18 W_Addr_17 W_Addr_16 WAddr_Ack_4 Ack_4 \
         Write_0 R_Addr_19 R_Addr_18 R_Addr_17 R_Addr_16 RAddr_Ack_4 \
-        Read_1 Addr_19 Addr_18 Addr_17 Addr_16) _sub23
+        Read_1 Addr_19 Addr_18 Addr_17 Addr_16) _sub89
     I3 (Write_1 Write_0 Write_Ack RW_Ack Write_0 Read_1 Read_0 Read_Ack \
-        Read_1 RW_1 RW_0) _sub25
-ends _sub26
+        Read_1 RW_1 RW_0) _sub91
+ends _sub92
 // End of subcircuit definition.
