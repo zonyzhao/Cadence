@@ -1,0 +1,24 @@
+    M11 (net33 af 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M10 (net20 bt net33 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M9 (net16 cf net20 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M8 (net34 at 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M7 (net20 bf net34 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M6 (net28 ct net20 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M5 (net35 af 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M4 (net13 bf net35 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M3 (net28 cf net13 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M2 (net36 at 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M1 (net13 bt net36 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M0 (net16 ct net13 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M15 (net28 cf net32 vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M14 (net32 ct vdd! vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M13 (net31 ct vdd! vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M12 (net16 cf net31 vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    I6 (net28 sf) inv_1x
+    I5 (net16 st) inv_1x
+ends Martin_Sum
+// End of subcircuit definition.

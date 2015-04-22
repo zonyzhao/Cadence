@@ -1,0 +1,30 @@
+    I7 (dfBar df) inv_1x
+    I0 (dtBar dt) inv_1x
+    M13 (dfBar cf net5 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M12 (net5 bf 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net5 af 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M10 (net21 bf 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M4 (dtBar ct net11 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M3 (net11 bt 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M2 (net11 at 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M1 (net43 bt 0 0) nfet w=80n l=20n nfin=1 m=1 degradation=no
+    M0 (dtBar at net43 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M9 (dfBar af net21 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M17 (net19 at vdd! net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M16 (net18 af net19 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M15 (net17 bt net18 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M14 (dfBar bf net17 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net41 at vdd! net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M7 (net40 af net41 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M6 (net39 bt net40 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M5 (dtBar bf net39 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+ends Martin_Carry
+// End of subcircuit definition.

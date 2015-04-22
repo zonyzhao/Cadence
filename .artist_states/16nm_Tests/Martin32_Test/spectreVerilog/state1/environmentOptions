@@ -1,8 +1,10 @@
-(envOpts analysisOrder) nil
+(envOpts analysisOrder) ("tran")
 (envOpts autoDisplay) t
 (envOpts cpfIsPommardEnabled) t
+(envOpts emLayerMap) ""
 (envOpts emTechFile) ""
 (envOpts emirEnable) nil
+(envOpts emirEnable_static) nil
 (envOpts emirSumList) nil
 (envOpts enableArclength) nil
 (envOpts firstRun) t

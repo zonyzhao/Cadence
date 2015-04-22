@@ -1,0 +1,42 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "at<2>" "at_2" )
+( "bf<3>" "bf_3" )
+( "sf<0>" "sf_0" )
+( "st<0>" "st_0" )
+( "af<1>" "af_1" )
+( "bt<3>" "bt_3" )
+( "st<1>" "st_1" )
+( "at<1>" "at_1" )
+( "st<3>" "st_3" )
+( "sf<2>" "sf_2" )
+( "af<2>" "af_2" )
+( "af<0>" "af_0" )
+( "st<2>" "st_2" )
+( "bf<1>" "bf_1" )
+( "af<3>" "af_3" )
+( "bt<1>" "bt_1" )
+( "bt<0>" "bt_0" )
+( "at<0>" "at_0" )
+( "sf<3>" "sf_3" )
+( "sf<1>" "sf_1" )
+( "bf<0>" "bf_0" )
+( "bt<2>" "bt_2" )
+( "bf<2>" "bf_2" )
+( "at<3>" "at_3" )
+ )
+( inst
+ )
+( model
+ )
+( term
+ )
+( param
+ )
+ )

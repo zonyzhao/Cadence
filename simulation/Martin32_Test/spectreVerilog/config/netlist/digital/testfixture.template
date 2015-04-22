@@ -1,0 +1,48 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Req, df, dt;
+
+reg  cf, ct;
+
+wire [31:0]  st;
+wire [31:0]  sf;
+
+reg [31:0]  at;
+reg [31:0]  bf;
+reg [31:0]  af;
+reg [31:0]  bt;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+Martin32_Test top(Req, df, dt, sf, st, af, at, bf, bt, cf, ct); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 

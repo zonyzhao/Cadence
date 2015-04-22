@@ -6,6 +6,6 @@ cellViewCounterTable['("UCD_Analog_Parts" "vdc" "symbol" )] =  33
 cellViewCounterTable['("basic" "ipin" "symbol" )] =  22
 cellViewCounterTable['("16nm" "inv_1xt" "symbol" )] =  38
 cellViewCounterTable['("basic" "opin" "symbol" )] =  22
-cellViewCounterTable['("16nm_Tests" "10T_TagMem_Test" "schematic" )] =  375832
+cellViewCounterTable['("16nm_Tests" "10T_TagMem_Test" "schematic" )] =  379822
 cellViewCounterTable['("16nm" "Dcache_TagMem" "symbol" )] =  604
 cellViewCounterTable['("UCD_Analog_Parts" "vdd" "symbol" )] =  20

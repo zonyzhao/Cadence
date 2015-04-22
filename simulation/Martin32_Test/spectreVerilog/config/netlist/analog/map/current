@@ -1,0 +1,48 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Martin32_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "vdd! gnd! vcc!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Martin32_Test/spectreVerilog/config/netlist/analog"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/TH22/schematic" "TH22" )
+( "16nm/TH44/schematic" "TH44" )
+( "16nm/Martin_Sum/schematic" "Martin_Sum" )
+( "16nm/Martin_Add/schematic" "Martin_Add" )
+( "16nm/or_1x/schematic" "or_1x" )
+( "16nm/Martin_Add32/schematic" "Martin_Add32" )
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm_Tests/Martin32_Test/schematic" "Martin32_Test" )
+( "16nm/nor_1x/schematic" "nor_1x" )
+( "16nm/inv_1xt/schematic" "inv_1xt" )
+( "16nm/Martin_Add4/schematic" "Martin_Add4" )
+( "16nm/Martin_Carry/schematic" "Martin_Carry" )
+ )
+( term
+ )
+( param
+ )
+( "or_1x" "ihnl/cds6/map" )
+( "TH22" "ihnl/cds9/map" )
+( "TH44" "ihnl/cds1/map" )
+( "Martin_Add" "ihnl/cds7/map" )
+( "Martin_Sum" "ihnl/cds3/map" )
+( "inv_1xt" "ihnl/cds0/map" )
+( "inv_1x" "ihnl/cds2/map" )
+( "Martin_Carry" "ihnl/cds4/map" )
+( "Martin32_Test" "ihnl/cds11/map" )
+( "Martin_Add32" "ihnl/cds10/map" )
+( "nor_1x" "ihnl/cds5/map" )
+( "Martin_Add4" "ihnl/cds8/map" )
+ )

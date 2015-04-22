@@ -1,0 +1,7 @@
+
+// Library name: 16nm
+// Cell name: Martin_Add
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Add af at bf bt cf ct df dt sf st Req

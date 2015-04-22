@@ -1,0 +1,5 @@
+    I0 (af at bf bt cf ct sf st) Martin_Sum
+    I1 (af at bf bt cf ct df dt) Martin_Carry
+    I2 (dt df Req) or_1x
+ends Martin_Add
+// End of subcircuit definition.

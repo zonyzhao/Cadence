@@ -1,0 +1,1011 @@
+// BEGIN Flat Interface Elements
+// Flattened IE at /stBar<15> uses port path 99999
+// Flattened IE at /atBar<15> uses port path 99998
+// Flattened IE at /bfBar<31> uses port path 99997
+// Flattened IE at /afBar<21> uses port path 99996
+// Flattened IE at /stBar<26> uses port path 99995
+// Flattened IE at /stBar<25> uses port path 99994
+// Flattened IE at /atBar<12> uses port path 99993
+// Flattened IE at /afBar<20> uses port path 99992
+// Flattened IE at /bfBar<29> uses port path 99991
+// Flattened IE at /atBar<11> uses port path 99990
+// Flattened IE at /sfBar<23> uses port path 99989
+// Flattened IE at /stBar<7> uses port path 99988
+// Flattened IE at /btBar<30> uses port path 99987
+// Flattened IE at /bfBar<28> uses port path 99986
+// Flattened IE at /sfBar<7> uses port path 99985
+// Flattened IE at /atBar<5> uses port path 99984
+// Flattened IE at /sfBar<4> uses port path 99983
+// Flattened IE at /stBar<12> uses port path 99982
+// Flattened IE at /sfBar<24> uses port path 99981
+// Flattened IE at /btBar<25> uses port path 99980
+// Flattened IE at /atBar<7> uses port path 99979
+// Flattened IE at /afBar<23> uses port path 99978
+// Flattened IE at /sfBar<6> uses port path 99977
+// Flattened IE at /btBar<27> uses port path 99976
+// Flattened IE at /btBar<21> uses port path 99975
+// Flattened IE at /sfBar<29> uses port path 99974
+// Flattened IE at /afBar<22> uses port path 99973
+// Flattened IE at /btBar<26> uses port path 99972
+// Flattened IE at /stBar<10> uses port path 99971
+// Flattened IE at /btBar<20> uses port path 99970
+// Flattened IE at /sfBar<5> uses port path 99969
+// Flattened IE at /bfBar<16> uses port path 99968
+// Flattened IE at /bfBar<24> uses port path 99967
+// Flattened IE at /bfBar<22> uses port path 99966
+// Flattened IE at /bfBar<21> uses port path 99965
+// Flattened IE at /sfBar<21> uses port path 99964
+// Flattened IE at /stBar<14> uses port path 99963
+// Flattened IE at /stBar<13> uses port path 99962
+// Flattened IE at /bfBar<20> uses port path 99961
+// Flattened IE at /bfBar<19> uses port path 99960
+// Flattened IE at /dfBar uses port path 99959
+// Flattened IE at /afBar<11> uses port path 99958
+// Flattened IE at /ReqBar uses port path 99957
+// Flattened IE at /stBar<28> uses port path 99956
+// Flattened IE at /stBar<29> uses port path 99955
+// Flattened IE at /sfBar<27> uses port path 99954
+// Flattened IE at /atBar<19> uses port path 99953
+// Flattened IE at /afBar<16> uses port path 99952
+// Flattened IE at /stBar<11> uses port path 99951
+// Flattened IE at /atBar<21> uses port path 99950
+// Flattened IE at /afBar<15> uses port path 99949
+// Flattened IE at /atBar<14> uses port path 99948
+// Flattened IE at /stBar<1> uses port path 99947
+// Flattened IE at /afBar<30> uses port path 99946
+// Flattened IE at /sfBar<17> uses port path 99945
+// Flattened IE at /btBar<9> uses port path 99944
+// Flattened IE at /btBar<10> uses port path 99943
+// Flattened IE at /sfBar<28> uses port path 99942
+// Flattened IE at /stBar<0> uses port path 99941
+// Flattened IE at /cfBar uses port path 99940
+// Flattened IE at /sfBar<31> uses port path 99939
+// Flattened IE at /afBar<31> uses port path 99938
+// Flattened IE at /bfBar<15> uses port path 99937
+// Flattened IE at /bfBar<14> uses port path 99936
+// Flattened IE at /btBar<11> uses port path 99935
+// Flattened IE at /ctBar uses port path 99934
+// Flattened IE at /sfBar<20> uses port path 99933
+// Flattened IE at /sfBar<19> uses port path 99932
+// Flattened IE at /afBar<10> uses port path 99931
+// Flattened IE at /afBar<9> uses port path 99930
+// Flattened IE at /afBar<8> uses port path 99929
+// Flattened IE at /bfBar<6> uses port path 99928
+// Flattened IE at /afBar<7> uses port path 99927
+// Flattened IE at /atBar<30> uses port path 99926
+// Flattened IE at /afBar<28> uses port path 99925
+// Flattened IE at /afBar<17> uses port path 99924
+// Flattened IE at /btBar<13> uses port path 99923
+// Flattened IE at /afBar<27> uses port path 99922
+// Flattened IE at /afBar<29> uses port path 99921
+// Flattened IE at /btBar<12> uses port path 99920
+// Flattened IE at /btBar<28> uses port path 99919
+// Flattened IE at /btBar<29> uses port path 99918
+// Flattened IE at /afBar<25> uses port path 99917
+// Flattened IE at /atBar<28> uses port path 99916
+// Flattened IE at /atBar<22> uses port path 99915
+// Flattened IE at /atBar<23> uses port path 99914
+// Flattened IE at /bfBar<13> uses port path 99913
+// Flattened IE at /bfBar<12> uses port path 99912
+// Flattened IE at /bfBar<11> uses port path 99911
+// Flattened IE at /sfBar<8> uses port path 99910
+// Flattened IE at /afBar<24> uses port path 99909
+// Flattened IE at /bfBar<10> uses port path 99908
+// Flattened IE at /btBar<19> uses port path 99907
+// Flattened IE at /sfBar<30> uses port path 99906
+// Flattened IE at /bfBar<9> uses port path 99905
+// Flattened IE at /stBar<24> uses port path 99904
+// Flattened IE at /bfBar<18> uses port path 99903
+// Flattened IE at /bfBar<17> uses port path 99902
+// Flattened IE at /afBar<6> uses port path 99901
+// Flattened IE at /afBar<5> uses port path 99900
+// Flattened IE at /atBar<10> uses port path 99899
+// Flattened IE at /atBar<9> uses port path 99898
+// Flattened IE at /atBar<6> uses port path 99897
+// Flattened IE at /atBar<29> uses port path 99896
+// Flattened IE at /sfBar<16> uses port path 99895
+// Flattened IE at /bfBar<8> uses port path 99894
+// Flattened IE at /afBar<4> uses port path 99893
+// Flattened IE at /sfBar<22> uses port path 99892
+// Flattened IE at /afBar<18> uses port path 99891
+// Flattened IE at /afBar<19> uses port path 99890
+// Flattened IE at /bfBar<0> uses port path 99889
+// Flattened IE at /afBar<26> uses port path 99888
+// Flattened IE at /dtBar uses port path 99887
+// Flattened IE at /stBar<23> uses port path 99886
+// Flattened IE at /sfBar<1> uses port path 99885
+// Flattened IE at /btBar<18> uses port path 99884
+// Flattened IE at /btBar<24> uses port path 99883
+// Flattened IE at /stBar<31> uses port path 99882
+// Flattened IE at /stBar<30> uses port path 99881
+// Flattened IE at /sfBar<15> uses port path 99880
+// Flattened IE at /sfBar<14> uses port path 99879
+// Flattened IE at /btBar<17> uses port path 99878
+// Flattened IE at /sfBar<18> uses port path 99877
+// Flattened IE at /sfBar<0> uses port path 99876
+// Flattened IE at /stBar<22> uses port path 99875
+// Flattened IE at /btBar<0> uses port path 99874
+// Flattened IE at /bfBar<2> uses port path 99873
+// Flattened IE at /btBar<6> uses port path 99872
+// Flattened IE at /btBar<16> uses port path 99871
+// Flattened IE at /bfBar<3> uses port path 99870
+// Flattened IE at /sfBar<3> uses port path 99869
+// Flattened IE at /atBar<27> uses port path 99868
+// Flattened IE at /atBar<26> uses port path 99867
+// Flattened IE at /stBar<18> uses port path 99866
+// Flattened IE at /atBar<13> uses port path 99865
+// Flattened IE at /stBar<17> uses port path 99864
+// Flattened IE at /bfBar<5> uses port path 99863
+// Flattened IE at /btBar<15> uses port path 99862
+// Flattened IE at /btBar<3> uses port path 99861
+// Flattened IE at /bfBar<4> uses port path 99860
+// Flattened IE at /atBar<16> uses port path 99859
+// Flattened IE at /btBar<14> uses port path 99858
+// Flattened IE at /afBar<14> uses port path 99857
+// Flattened IE at /stBar<16> uses port path 99856
+// Flattened IE at /sfBar<2> uses port path 99855
+// Flattened IE at /btBar<5> uses port path 99854
+// Flattened IE at /atBar<17> uses port path 99853
+// Flattened IE at /atBar<25> uses port path 99852
+// Flattened IE at /sfBar<11> uses port path 99851
+// Flattened IE at /bfBar<23> uses port path 99850
+// Flattened IE at /btBar<4> uses port path 99849
+// Flattened IE at /btBar<23> uses port path 99848
+// Flattened IE at /atBar<20> uses port path 99847
+// Flattened IE at /stBar<6> uses port path 99846
+// Flattened IE at /sfBar<13> uses port path 99845
+// Flattened IE at /afBar<3> uses port path 99844
+// Flattened IE at /afBar<2> uses port path 99843
+// Flattened IE at /sfBar<10> uses port path 99842
+// Flattened IE at /btBar<8> uses port path 99841
+// Flattened IE at /btBar<7> uses port path 99840
+// Flattened IE at /stBar<5> uses port path 99839
+// Flattened IE at /stBar<4> uses port path 99838
+// Flattened IE at /stBar<3> uses port path 99837
+// Flattened IE at /afBar<1> uses port path 99836
+// Flattened IE at /atBar<8> uses port path 99835
+// Flattened IE at /sfBar<26> uses port path 99834
+// Flattened IE at /stBar<27> uses port path 99833
+// Flattened IE at /afBar<13> uses port path 99832
+// Flattened IE at /bfBar<7> uses port path 99831
+// Flattened IE at /atBar<4> uses port path 99830
+// Flattened IE at /stBar<2> uses port path 99829
+// Flattened IE at /atBar<18> uses port path 99828
+// Flattened IE at /afBar<12> uses port path 99827
+// Flattened IE at /bfBar<27> uses port path 99826
+// Flattened IE at /sfBar<25> uses port path 99825
+// Flattened IE at /atBar<3> uses port path 99824
+// Flattened IE at /bfBar<26> uses port path 99823
+// Flattened IE at /bfBar<25> uses port path 99822
+// Flattened IE at /atBar<2> uses port path 99821
+// Flattened IE at /atBar<24> uses port path 99820
+// Flattened IE at /sfBar<9> uses port path 99819
+// Flattened IE at /btBar<2> uses port path 99818
+// Flattened IE at /btBar<1> uses port path 99817
+// Flattened IE at /stBar<21> uses port path 99816
+// Flattened IE at /stBar<20> uses port path 99815
+// Flattened IE at /stBar<19> uses port path 99814
+// Flattened IE at /sfBar<12> uses port path 99813
+// Flattened IE at /atBar<1> uses port path 99812
+// Flattened IE at /bfBar<30> uses port path 99811
+// Flattened IE at /stBar<9> uses port path 99810
+// Flattened IE at /btBar<22> uses port path 99809
+// Flattened IE at /atBar<0> uses port path 99808
+// Flattened IE at /stBar<8> uses port path 99807
+// Flattened IE at /afBar<0> uses port path 99806
+// Flattened IE at /btBar<31> uses port path 99805
+// Flattened IE at /atBar<31> uses port path 99804
+// Flattened IE at /bfBar<1> uses port path 99803
+// END Flat Interface Elements
+
+// Library name: 16nm
+// Cell name: inv_1xt
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xt A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH44
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt TH44 A B C D Y
+    M19 (net13 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M18 (net13 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M17 (net13 C 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M16 (net13 D 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M15 (Y net19 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M14 (net42 A 0 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M13 (net43 B net42 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M12 (net44 C net43 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M11 (net19 D net44 0) nfet w=240n l=20n nfin=1 m=1 degradation=no
+    M10 (net19 Y net13 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M9 (Y net19 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M8 (net19 Y net15 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (net15 D vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M6 (net15 C vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M5 (net15 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M4 (net15 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M3 (net19 D net45 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M2 (net45 C net46 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (net46 B net47 vdd!) pfet w=320n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net47 A vdd! vdd!) pfet w=320n l=20n nfin=1 m=1 degradation=yes
+ends TH44
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Martin_Sum
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Sum af at bf bt cf ct sf st
+    M11 (net33 af 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M10 (net20 bt net33 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M9 (net16 cf net20 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M8 (net34 at 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M7 (net20 bf net34 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M6 (net28 ct net20 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M5 (net35 af 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M4 (net13 bf net35 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M3 (net28 cf net13 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M2 (net36 at 0 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M1 (net13 bt net36 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M0 (net16 ct net13 0) nfet w=112n l=16n nfin=1 m=1 degradation=no
+    M15 (net28 cf net32 vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M14 (net32 ct vdd! vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M13 (net31 ct vdd! vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    M12 (net16 cf net31 vdd!) pfet w=112n l=16n nfin=1 m=1 \
+        degradation=yes
+    I6 (net28 sf) inv_1x
+    I5 (net16 st) inv_1x
+ends Martin_Sum
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Martin_Carry
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Carry af at bf bt cf ct df dt
+    I7 (dfBar df) inv_1x
+    I0 (dtBar dt) inv_1x
+    M13 (dfBar cf net5 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M12 (net5 bf 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net5 af 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M10 (net21 bf 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M4 (dtBar ct net11 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M3 (net11 bt 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M2 (net11 at 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M1 (net43 bt 0 0) nfet w=80n l=20n nfin=1 m=1 degradation=no
+    M0 (dtBar at net43 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M9 (dfBar af net21 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M17 (net19 at vdd! net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M16 (net18 af net19 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M15 (net17 bt net18 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M14 (dfBar bf net17 net3) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net41 at vdd! net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M7 (net40 af net41 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M6 (net39 bt net40 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+    M5 (dtBar bf net39 net9) pfet w=320n l=16n nfin=1 m=1 \
+        degradation=yes
+ends Martin_Carry
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: nor_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nor_1x A B Y
+    M3 (Y B or_pd_ps vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M2 (or_pd_ps A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: or_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt or_1x A B Y
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Martin_Add
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Add af at bf bt cf ct df dt sf st Req
+    I0 (af at bf bt cf ct sf st) Martin_Sum
+    I1 (af at bf bt cf ct df dt) Martin_Carry
+    I2 (dt df Req) or_1x
+ends Martin_Add
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Martin_Add4
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Add4 Req af_3 af_2 af_1 af_0 at_3 at_2 at_1 at_0 bf_3 \
+        bf_2 bf_1 bf_0 bt_3 bt_2 bt_1 bt_0 cf ct df dt sf_3 sf_2 sf_1 \
+        sf_0 st_3 st_2 st_1 st_0
+    I10 (Req0 Req1 Req2 Req3 Req) TH44
+    I3 (af_3 at_3 bf_3 bt_3 df2 dt2 df dt sf_3 st_3 Req3) Martin_Add
+    I2 (af_2 at_2 bf_2 bt_2 df1 dt1 df2 dt2 sf_2 st_2 Req2) Martin_Add
+    I1 (af_1 at_1 bf_1 bt_1 df0 dt0 df1 dt1 sf_1 st_1 Req1) Martin_Add
+    I0 (af_0 at_0 bf_0 bt_0 cf ct df0 dt0 sf_0 st_0 Req0) Martin_Add
+ends Martin_Add4
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH22
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt TH22 A B Y
+    M5 (Y net5 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (net5 Y net9 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M11 (Y net5 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M6 (net5 Y net037 vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+ends TH22
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Martin_Add32
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Add32 at_31 at_30 at_29 at_28 at_27 at_26 at_25 at_24 \
+        at_23 at_22 at_21 at_20 at_19 at_18 at_17 at_16 at_15 at_14 \
+        at_13 at_12 at_11 at_10 at_9 at_8 at_7 at_6 at_5 at_4 at_3 at_2 \
+        at_1 at_0 af_31 af_30 af_29 af_28 af_27 af_26 af_25 af_24 af_23 \
+        af_22 af_21 af_20 af_19 af_18 af_17 af_16 af_15 af_14 af_13 \
+        af_12 af_11 af_10 af_9 af_8 af_7 af_6 af_5 af_4 af_3 af_2 af_1 \
+        af_0 bt_31 bt_30 bt_29 bt_28 bt_27 bt_26 bt_25 bt_24 bt_23 \
+        bt_22 bt_21 bt_20 bt_19 bt_18 bt_17 bt_16 bt_15 bt_14 bt_13 \
+        bt_12 bt_11 bt_10 bt_9 bt_8 bt_7 bt_6 bt_5 bt_4 bt_3 bt_2 bt_1 \
+        bt_0 bf_31 bf_30 bf_29 bf_28 bf_27 bf_26 bf_25 bf_24 bf_23 \
+        bf_22 bf_21 bf_20 bf_19 bf_18 bf_17 bf_16 bf_15 bf_14 bf_13 \
+        bf_12 bf_11 bf_10 bf_9 bf_8 bf_7 bf_6 bf_5 bf_4 bf_3 bf_2 bf_1 \
+        bf_0 ct cf st_31 st_30 st_29 st_28 st_27 st_26 st_25 st_24 \
+        st_23 st_22 st_21 st_20 st_19 st_18 st_17 st_16 st_15 st_14 \
+        st_13 st_12 st_11 st_10 st_9 st_8 st_7 st_6 st_5 st_4 st_3 st_2 \
+        st_1 st_0 sf_31 sf_30 sf_29 sf_28 sf_27 sf_26 sf_25 sf_24 sf_23 \
+        sf_22 sf_21 sf_20 sf_19 sf_18 sf_17 sf_16 sf_15 sf_14 sf_13 \
+        sf_12 sf_11 sf_10 sf_9 sf_8 sf_7 sf_6 sf_5 sf_4 sf_3 sf_2 sf_1 \
+        sf_0 df dt Ack
+    I5 (Req5 af_23 af_22 af_21 af_20 at_23 at_22 at_21 at_20 bf_23 \
+        bf_22 bf_21 bf_20 bt_23 bt_22 bt_21 bt_20 df19 dt19 df21 dt21 \
+        sf_23 sf_22 sf_21 sf_20 st_23 st_22 st_21 st_20) Martin_Add4
+    I4 (Req4 af_19 af_18 af_17 af_16 at_19 at_18 at_17 at_16 bf_19 \
+        bf_18 bf_17 bf_16 bt_19 bt_18 bt_17 bt_16 df15 dt15 df19 dt19 \
+        sf_19 sf_18 sf_17 sf_16 st_19 st_18 st_17 st_16) Martin_Add4
+    I3 (Req3 af_15 af_14 af_13 af_12 at_15 at_14 at_13 at_12 bf_15 \
+        bf_14 bf_13 bf_12 bt_15 bt_14 bt_13 bt_12 df11 dt11 df15 dt15 \
+        sf_15 sf_14 sf_13 sf_12 st_15 st_14 st_13 st_12) Martin_Add4
+    I2 (Req2 af_11 af_10 af_9 af_8 at_11 at_10 at_9 at_8 bf_11 bf_10 \
+        bf_9 bf_8 bt_11 bt_10 bt_9 bt_8 df7 dt7 df11 dt11 sf_11 sf_10 \
+        sf_9 sf_8 st_11 st_10 st_9 st_8) Martin_Add4
+    I1 (Req1 af_7 af_6 af_5 af_4 at_7 at_6 at_5 at_4 bf_7 bf_6 bf_5 \
+        bf_4 bt_7 bt_6 bt_5 bt_4 df3 dt3 df7 dt7 sf_7 sf_6 sf_5 sf_4 \
+        st_7 st_6 st_5 st_4) Martin_Add4
+    I0 (Req0 af_3 af_2 af_1 af_0 at_3 at_2 at_1 at_0 bf_3 bf_2 bf_1 \
+        bf_0 bt_3 bt_2 bt_1 bt_0 cf ct df3 dt3 sf_3 sf_2 sf_1 sf_0 st_3 \
+        st_2 st_1 st_0) Martin_Add4
+    I6 (Req6 af_27 af_26 af_25 af_24 at_27 at_26 at_25 at_24 bf_27 \
+        bf_26 bf_25 bf_24 bt_27 bt_26 bt_25 bt_24 df21 dt21 df23 dt23 \
+        sf_27 sf_26 sf_25 sf_24 st_27 st_26 st_25 st_24) Martin_Add4
+    I7 (Req7 af_31 af_30 af_29 af_28 at_31 at_30 at_29 at_28 bf_31 \
+        bf_30 bf_29 bf_28 bt_31 bt_30 bt_29 bt_28 df23 dt23 df dt sf_31 \
+        sf_30 sf_29 sf_28 st_31 st_30 st_29 st_28) Martin_Add4
+    I16 (ReqFin2 ReqFin1 Ack) TH22
+    I15 (Req3 Req2 Req1 Req0 ReqFin2) TH44
+    I14 (Req4 Req5 Req6 Req7 ReqFin1) TH44
+ends Martin_Add32
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: Martin32_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+I17 (ReqT ReqBar) inv_1xt
+I8_31 (btBar_31 btT_31) inv_1xt
+I8_30 (btBar_30 btT_30) inv_1xt
+I8_29 (btBar_29 btT_29) inv_1xt
+I8_28 (btBar_28 btT_28) inv_1xt
+I8_27 (btBar_27 btT_27) inv_1xt
+I8_26 (btBar_26 btT_26) inv_1xt
+I8_25 (btBar_25 btT_25) inv_1xt
+I8_24 (btBar_24 btT_24) inv_1xt
+I8_23 (btBar_23 btT_23) inv_1xt
+I8_22 (btBar_22 btT_22) inv_1xt
+I8_21 (btBar_21 btT_21) inv_1xt
+I8_20 (btBar_20 btT_20) inv_1xt
+I8_19 (btBar_19 btT_19) inv_1xt
+I8_18 (btBar_18 btT_18) inv_1xt
+I8_17 (btBar_17 btT_17) inv_1xt
+I8_16 (btBar_16 btT_16) inv_1xt
+I8_15 (btBar_15 btT_15) inv_1xt
+I8_14 (btBar_14 btT_14) inv_1xt
+I8_13 (btBar_13 btT_13) inv_1xt
+I8_12 (btBar_12 btT_12) inv_1xt
+I8_11 (btBar_11 btT_11) inv_1xt
+I8_10 (btBar_10 btT_10) inv_1xt
+I8_9 (btBar_9 btT_9) inv_1xt
+I8_8 (btBar_8 btT_8) inv_1xt
+I8_7 (btBar_7 btT_7) inv_1xt
+I8_6 (btBar_6 btT_6) inv_1xt
+I8_5 (btBar_5 btT_5) inv_1xt
+I8_4 (btBar_4 btT_4) inv_1xt
+I8_3 (btBar_3 btT_3) inv_1xt
+I8_2 (btBar_2 btT_2) inv_1xt
+I8_1 (btBar_1 btT_1) inv_1xt
+I8_0 (btBar_0 btT_0) inv_1xt
+I7_31 (bfBar_31 bfT_31) inv_1xt
+I7_30 (bfBar_30 bfT_30) inv_1xt
+I7_29 (bfBar_29 bfT_29) inv_1xt
+I7_28 (bfBar_28 bfT_28) inv_1xt
+I7_27 (bfBar_27 bfT_27) inv_1xt
+I7_26 (bfBar_26 bfT_26) inv_1xt
+I7_25 (bfBar_25 bfT_25) inv_1xt
+I7_24 (bfBar_24 bfT_24) inv_1xt
+I7_23 (bfBar_23 bfT_23) inv_1xt
+I7_22 (bfBar_22 bfT_22) inv_1xt
+I7_21 (bfBar_21 bfT_21) inv_1xt
+I7_20 (bfBar_20 bfT_20) inv_1xt
+I7_19 (bfBar_19 bfT_19) inv_1xt
+I7_18 (bfBar_18 bfT_18) inv_1xt
+I7_17 (bfBar_17 bfT_17) inv_1xt
+I7_16 (bfBar_16 bfT_16) inv_1xt
+I7_15 (bfBar_15 bfT_15) inv_1xt
+I7_14 (bfBar_14 bfT_14) inv_1xt
+I7_13 (bfBar_13 bfT_13) inv_1xt
+I7_12 (bfBar_12 bfT_12) inv_1xt
+I7_11 (bfBar_11 bfT_11) inv_1xt
+I7_10 (bfBar_10 bfT_10) inv_1xt
+I7_9 (bfBar_9 bfT_9) inv_1xt
+I7_8 (bfBar_8 bfT_8) inv_1xt
+I7_7 (bfBar_7 bfT_7) inv_1xt
+I7_6 (bfBar_6 bfT_6) inv_1xt
+I7_5 (bfBar_5 bfT_5) inv_1xt
+I7_4 (bfBar_4 bfT_4) inv_1xt
+I7_3 (bfBar_3 bfT_3) inv_1xt
+I7_2 (bfBar_2 bfT_2) inv_1xt
+I7_1 (bfBar_1 bfT_1) inv_1xt
+I7_0 (bfBar_0 bfT_0) inv_1xt
+I6_31 (atBar_31 atT_31) inv_1xt
+I6_30 (atBar_30 atT_30) inv_1xt
+I6_29 (atBar_29 atT_29) inv_1xt
+I6_28 (atBar_28 atT_28) inv_1xt
+I6_27 (atBar_27 atT_27) inv_1xt
+I6_26 (atBar_26 atT_26) inv_1xt
+I6_25 (atBar_25 atT_25) inv_1xt
+I6_24 (atBar_24 atT_24) inv_1xt
+I6_23 (atBar_23 atT_23) inv_1xt
+I6_22 (atBar_22 atT_22) inv_1xt
+I6_21 (atBar_21 atT_21) inv_1xt
+I6_20 (atBar_20 atT_20) inv_1xt
+I6_19 (atBar_19 atT_19) inv_1xt
+I6_18 (atBar_18 atT_18) inv_1xt
+I6_17 (atBar_17 atT_17) inv_1xt
+I6_16 (atBar_16 atT_16) inv_1xt
+I6_15 (atBar_15 atT_15) inv_1xt
+I6_14 (atBar_14 atT_14) inv_1xt
+I6_13 (atBar_13 atT_13) inv_1xt
+I6_12 (atBar_12 atT_12) inv_1xt
+I6_11 (atBar_11 atT_11) inv_1xt
+I6_10 (atBar_10 atT_10) inv_1xt
+I6_9 (atBar_9 atT_9) inv_1xt
+I6_8 (atBar_8 atT_8) inv_1xt
+I6_7 (atBar_7 atT_7) inv_1xt
+I6_6 (atBar_6 atT_6) inv_1xt
+I6_5 (atBar_5 atT_5) inv_1xt
+I6_4 (atBar_4 atT_4) inv_1xt
+I6_3 (atBar_3 atT_3) inv_1xt
+I6_2 (atBar_2 atT_2) inv_1xt
+I6_1 (atBar_1 atT_1) inv_1xt
+I6_0 (atBar_0 atT_0) inv_1xt
+I5_31 (afBar_31 afT_31) inv_1xt
+I5_30 (afBar_30 afT_30) inv_1xt
+I5_29 (afBar_29 afT_29) inv_1xt
+I5_28 (afBar_28 afT_28) inv_1xt
+I5_27 (afBar_27 afT_27) inv_1xt
+I5_26 (afBar_26 afT_26) inv_1xt
+I5_25 (afBar_25 afT_25) inv_1xt
+I5_24 (afBar_24 afT_24) inv_1xt
+I5_23 (afBar_23 afT_23) inv_1xt
+I5_22 (afBar_22 afT_22) inv_1xt
+I5_21 (afBar_21 afT_21) inv_1xt
+I5_20 (afBar_20 afT_20) inv_1xt
+I5_19 (afBar_19 afT_19) inv_1xt
+I5_18 (afBar_18 afT_18) inv_1xt
+I5_17 (afBar_17 afT_17) inv_1xt
+I5_16 (afBar_16 afT_16) inv_1xt
+I5_15 (afBar_15 afT_15) inv_1xt
+I5_14 (afBar_14 afT_14) inv_1xt
+I5_13 (afBar_13 afT_13) inv_1xt
+I5_12 (afBar_12 afT_12) inv_1xt
+I5_11 (afBar_11 afT_11) inv_1xt
+I5_10 (afBar_10 afT_10) inv_1xt
+I5_9 (afBar_9 afT_9) inv_1xt
+I5_8 (afBar_8 afT_8) inv_1xt
+I5_7 (afBar_7 afT_7) inv_1xt
+I5_6 (afBar_6 afT_6) inv_1xt
+I5_5 (afBar_5 afT_5) inv_1xt
+I5_4 (afBar_4 afT_4) inv_1xt
+I5_3 (afBar_3 afT_3) inv_1xt
+I5_2 (afBar_2 afT_2) inv_1xt
+I5_1 (afBar_1 afT_1) inv_1xt
+I5_0 (afBar_0 afT_0) inv_1xt
+I13 (dtT dtBar) inv_1xt
+I14 (dfT dfBar) inv_1xt
+I71_31 (sfT_31 sfBar_31) inv_1xt
+I71_30 (sfT_30 sfBar_30) inv_1xt
+I71_29 (sfT_29 sfBar_29) inv_1xt
+I71_28 (sfT_28 sfBar_28) inv_1xt
+I71_27 (sfT_27 sfBar_27) inv_1xt
+I71_26 (sfT_26 sfBar_26) inv_1xt
+I71_25 (sfT_25 sfBar_25) inv_1xt
+I71_24 (sfT_24 sfBar_24) inv_1xt
+I71_23 (sfT_23 sfBar_23) inv_1xt
+I71_22 (sfT_22 sfBar_22) inv_1xt
+I71_21 (sfT_21 sfBar_21) inv_1xt
+I71_20 (sfT_20 sfBar_20) inv_1xt
+I71_19 (sfT_19 sfBar_19) inv_1xt
+I71_18 (sfT_18 sfBar_18) inv_1xt
+I71_17 (sfT_17 sfBar_17) inv_1xt
+I71_16 (sfT_16 sfBar_16) inv_1xt
+I71_15 (sfT_15 sfBar_15) inv_1xt
+I71_14 (sfT_14 sfBar_14) inv_1xt
+I71_13 (sfT_13 sfBar_13) inv_1xt
+I71_12 (sfT_12 sfBar_12) inv_1xt
+I71_11 (sfT_11 sfBar_11) inv_1xt
+I71_10 (sfT_10 sfBar_10) inv_1xt
+I71_9 (sfT_9 sfBar_9) inv_1xt
+I71_8 (sfT_8 sfBar_8) inv_1xt
+I71_7 (sfT_7 sfBar_7) inv_1xt
+I71_6 (sfT_6 sfBar_6) inv_1xt
+I71_5 (sfT_5 sfBar_5) inv_1xt
+I71_4 (sfT_4 sfBar_4) inv_1xt
+I71_3 (sfT_3 sfBar_3) inv_1xt
+I71_2 (sfT_2 sfBar_2) inv_1xt
+I71_1 (sfT_1 sfBar_1) inv_1xt
+I71_0 (sfT_0 sfBar_0) inv_1xt
+I72_31 (stT_31 stBar_31) inv_1xt
+I72_30 (stT_30 stBar_30) inv_1xt
+I72_29 (stT_29 stBar_29) inv_1xt
+I72_28 (stT_28 stBar_28) inv_1xt
+I72_27 (stT_27 stBar_27) inv_1xt
+I72_26 (stT_26 stBar_26) inv_1xt
+I72_25 (stT_25 stBar_25) inv_1xt
+I72_24 (stT_24 stBar_24) inv_1xt
+I72_23 (stT_23 stBar_23) inv_1xt
+I72_22 (stT_22 stBar_22) inv_1xt
+I72_21 (stT_21 stBar_21) inv_1xt
+I72_20 (stT_20 stBar_20) inv_1xt
+I72_19 (stT_19 stBar_19) inv_1xt
+I72_18 (stT_18 stBar_18) inv_1xt
+I72_17 (stT_17 stBar_17) inv_1xt
+I72_16 (stT_16 stBar_16) inv_1xt
+I72_15 (stT_15 stBar_15) inv_1xt
+I72_14 (stT_14 stBar_14) inv_1xt
+I72_13 (stT_13 stBar_13) inv_1xt
+I72_12 (stT_12 stBar_12) inv_1xt
+I72_11 (stT_11 stBar_11) inv_1xt
+I72_10 (stT_10 stBar_10) inv_1xt
+I72_9 (stT_9 stBar_9) inv_1xt
+I72_8 (stT_8 stBar_8) inv_1xt
+I72_7 (stT_7 stBar_7) inv_1xt
+I72_6 (stT_6 stBar_6) inv_1xt
+I72_5 (stT_5 stBar_5) inv_1xt
+I72_4 (stT_4 stBar_4) inv_1xt
+I72_3 (stT_3 stBar_3) inv_1xt
+I72_2 (stT_2 stBar_2) inv_1xt
+I72_1 (stT_1 stBar_1) inv_1xt
+I72_0 (stT_0 stBar_0) inv_1xt
+I10 (cfBar cfT) inv_1xt
+I9 (ctBar ctT) inv_1xt
+V1 (vdd! 0) vsource type=dc dc=vdd
+V0 (vcc! 0) vsource type=dc dc=vcc
+I0 (atT_31 atT_30 atT_29 atT_28 atT_27 atT_26 atT_25 atT_24 atT_23 \
+        atT_22 atT_21 atT_20 atT_19 atT_18 atT_17 atT_16 atT_15 atT_14 \
+        atT_13 atT_12 atT_11 atT_10 atT_9 atT_8 atT_7 atT_6 atT_5 atT_4 \
+        atT_3 atT_2 atT_1 atT_0 afT_31 afT_30 afT_29 afT_28 afT_27 \
+        afT_26 afT_25 afT_24 afT_23 afT_22 afT_21 afT_20 afT_19 afT_18 \
+        afT_17 afT_16 afT_15 afT_14 afT_13 afT_12 afT_11 afT_10 afT_9 \
+        afT_8 afT_7 afT_6 afT_5 afT_4 afT_3 afT_2 afT_1 afT_0 btT_31 \
+        btT_30 btT_29 btT_28 btT_27 btT_26 btT_25 btT_24 btT_23 btT_22 \
+        btT_21 btT_20 btT_19 btT_18 btT_17 btT_16 btT_15 btT_14 btT_13 \
+        btT_12 btT_11 btT_10 btT_9 btT_8 btT_7 btT_6 btT_5 btT_4 btT_3 \
+        btT_2 btT_1 btT_0 bfT_31 bfT_30 bfT_29 bfT_28 bfT_27 bfT_26 \
+        bfT_25 bfT_24 bfT_23 bfT_22 bfT_21 bfT_20 bfT_19 bfT_18 bfT_17 \
+        bfT_16 bfT_15 bfT_14 bfT_13 bfT_12 bfT_11 bfT_10 bfT_9 bfT_8 \
+        bfT_7 bfT_6 bfT_5 bfT_4 bfT_3 bfT_2 bfT_1 bfT_0 ctT cfT stT_31 \
+        stT_30 stT_29 stT_28 stT_27 stT_26 stT_25 stT_24 stT_23 stT_22 \
+        stT_21 stT_20 stT_19 stT_18 stT_17 stT_16 stT_15 stT_14 stT_13 \
+        stT_12 stT_11 stT_10 stT_9 stT_8 stT_7 stT_6 stT_5 stT_4 stT_3 \
+        stT_2 stT_1 stT_0 sfT_31 sfT_30 sfT_29 sfT_28 sfT_27 sfT_26 \
+        sfT_25 sfT_24 sfT_23 sfT_22 sfT_21 sfT_20 sfT_19 sfT_18 sfT_17 \
+        sfT_16 sfT_15 sfT_14 sfT_13 sfT_12 sfT_11 sfT_10 sfT_9 sfT_8 \
+        sfT_7 sfT_6 sfT_5 sfT_4 sfT_3 sfT_2 sfT_1 sfT_0 dfT dtT ReqT) \
+        Martin_Add32
+// BEGIN Hierarchical Interface Elements
+_ie99803 (bfBar_1 0) d2a src="99803" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99804 (atBar_31 0) d2a src="99804" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99805 (btBar_31 0) d2a src="99805" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99806 (afBar_0 0) d2a src="99806" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99807 (stBar_8 0) a2d dest="99807" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99808 (atBar_0 0) d2a src="99808" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99809 (btBar_22 0) d2a src="99809" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99810 (stBar_9 0) a2d dest="99810" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99811 (bfBar_30 0) d2a src="99811" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99812 (atBar_1 0) d2a src="99812" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99813 (sfBar_12 0) a2d dest="99813" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99814 (stBar_19 0) a2d dest="99814" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99815 (stBar_20 0) a2d dest="99815" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99816 (stBar_21 0) a2d dest="99816" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99817 (btBar_1 0) d2a src="99817" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99818 (btBar_2 0) d2a src="99818" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99819 (sfBar_9 0) a2d dest="99819" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99820 (atBar_24 0) d2a src="99820" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99821 (atBar_2 0) d2a src="99821" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99822 (bfBar_25 0) d2a src="99822" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99823 (bfBar_26 0) d2a src="99823" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99824 (atBar_3 0) d2a src="99824" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99825 (sfBar_25 0) a2d dest="99825" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99826 (bfBar_27 0) d2a src="99826" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99827 (afBar_12 0) d2a src="99827" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99828 (atBar_18 0) d2a src="99828" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99829 (stBar_2 0) a2d dest="99829" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99830 (atBar_4 0) d2a src="99830" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99831 (bfBar_7 0) d2a src="99831" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99832 (afBar_13 0) d2a src="99832" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99833 (stBar_27 0) a2d dest="99833" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99834 (sfBar_26 0) a2d dest="99834" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99835 (atBar_8 0) d2a src="99835" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99836 (afBar_1 0) d2a src="99836" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99837 (stBar_3 0) a2d dest="99837" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99838 (stBar_4 0) a2d dest="99838" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99839 (stBar_5 0) a2d dest="99839" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99840 (btBar_7 0) d2a src="99840" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99841 (btBar_8 0) d2a src="99841" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99842 (sfBar_10 0) a2d dest="99842" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99843 (afBar_2 0) d2a src="99843" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99844 (afBar_3 0) d2a src="99844" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99845 (sfBar_13 0) a2d dest="99845" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99846 (stBar_6 0) a2d dest="99846" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99847 (atBar_20 0) d2a src="99847" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99848 (btBar_23 0) d2a src="99848" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99849 (btBar_4 0) d2a src="99849" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99850 (bfBar_23 0) d2a src="99850" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99851 (sfBar_11 0) a2d dest="99851" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99852 (atBar_25 0) d2a src="99852" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99853 (atBar_17 0) d2a src="99853" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99854 (btBar_5 0) d2a src="99854" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99855 (sfBar_2 0) a2d dest="99855" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99856 (stBar_16 0) a2d dest="99856" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99857 (afBar_14 0) d2a src="99857" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99858 (btBar_14 0) d2a src="99858" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99859 (atBar_16 0) d2a src="99859" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99860 (bfBar_4 0) d2a src="99860" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99861 (btBar_3 0) d2a src="99861" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99862 (btBar_15 0) d2a src="99862" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99863 (bfBar_5 0) d2a src="99863" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99864 (stBar_17 0) a2d dest="99864" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99865 (atBar_13 0) d2a src="99865" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99866 (stBar_18 0) a2d dest="99866" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99867 (atBar_26 0) d2a src="99867" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99868 (atBar_27 0) d2a src="99868" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99869 (sfBar_3 0) a2d dest="99869" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99870 (bfBar_3 0) d2a src="99870" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99871 (btBar_16 0) d2a src="99871" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99872 (btBar_6 0) d2a src="99872" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99873 (bfBar_2 0) d2a src="99873" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99874 (btBar_0 0) d2a src="99874" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99875 (stBar_22 0) a2d dest="99875" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99876 (sfBar_0 0) a2d dest="99876" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99877 (sfBar_18 0) a2d dest="99877" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99878 (btBar_17 0) d2a src="99878" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99879 (sfBar_14 0) a2d dest="99879" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99880 (sfBar_15 0) a2d dest="99880" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99881 (stBar_30 0) a2d dest="99881" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99882 (stBar_31 0) a2d dest="99882" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99883 (btBar_24 0) d2a src="99883" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99884 (btBar_18 0) d2a src="99884" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99885 (sfBar_1 0) a2d dest="99885" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99886 (stBar_23 0) a2d dest="99886" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99887 (dtBar 0) a2d dest="99887" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99888 (afBar_26 0) d2a src="99888" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99889 (bfBar_0 0) d2a src="99889" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99890 (afBar_19 0) d2a src="99890" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99891 (afBar_18 0) d2a src="99891" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99892 (sfBar_22 0) a2d dest="99892" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99893 (afBar_4 0) d2a src="99893" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99894 (bfBar_8 0) d2a src="99894" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99895 (sfBar_16 0) a2d dest="99895" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99896 (atBar_29 0) d2a src="99896" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99897 (atBar_6 0) d2a src="99897" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99898 (atBar_9 0) d2a src="99898" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99899 (atBar_10 0) d2a src="99899" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99900 (afBar_5 0) d2a src="99900" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99901 (afBar_6 0) d2a src="99901" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99902 (bfBar_17 0) d2a src="99902" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99903 (bfBar_18 0) d2a src="99903" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99904 (stBar_24 0) a2d dest="99904" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99905 (bfBar_9 0) d2a src="99905" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99906 (sfBar_30 0) a2d dest="99906" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99907 (btBar_19 0) d2a src="99907" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99908 (bfBar_10 0) d2a src="99908" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99909 (afBar_24 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99910 (sfBar_8 0) a2d dest="99910" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99911 (bfBar_11 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99912 (bfBar_12 0) d2a src="99912" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99913 (bfBar_13 0) d2a src="99913" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99914 (atBar_23 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99915 (atBar_22 0) d2a src="99915" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99916 (atBar_28 0) d2a src="99916" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99917 (afBar_25 0) d2a src="99917" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99918 (btBar_29 0) d2a src="99918" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99919 (btBar_28 0) d2a src="99919" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99920 (btBar_12 0) d2a src="99920" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99921 (afBar_29 0) d2a src="99921" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99922 (afBar_27 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99923 (btBar_13 0) d2a src="99923" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99924 (afBar_17 0) d2a src="99924" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99925 (afBar_28 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99926 (atBar_30 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99927 (afBar_7 0) d2a src="99927" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99928 (bfBar_6 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99929 (afBar_8 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99930 (afBar_9 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99931 (afBar_10 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99932 (sfBar_19 0) a2d dest="99932" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99933 (sfBar_20 0) a2d dest="99933" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99934 (ctBar 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99935 (btBar_11 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99936 (bfBar_14 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99937 (bfBar_15 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99938 (afBar_31 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99939 (sfBar_31 0) a2d dest="99939" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99940 (cfBar 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99941 (stBar_0 0) a2d dest="99941" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99942 (sfBar_28 0) a2d dest="99942" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99943 (btBar_10 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99944 (btBar_9 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99945 (sfBar_17 0) a2d dest="99945" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99946 (afBar_30 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99947 (stBar_1 0) a2d dest="99947" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99948 (atBar_14 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99949 (afBar_15 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99950 (atBar_21 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99951 (stBar_11 0) a2d dest="99951" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99952 (afBar_16 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99953 (atBar_19 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99954 (sfBar_27 0) a2d dest="99954" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99955 (stBar_29 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99956 (stBar_28 0) a2d dest="99956" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99957 (ReqBar 0) a2d dest="99957" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99958 (afBar_11 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99959 (dfBar 0) a2d dest="99959" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99960 (bfBar_19 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99961 (bfBar_20 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99962 (stBar_13 0) a2d dest="99962" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99963 (stBar_14 0) a2d dest="99963" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99964 (sfBar_21 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (bfBar_21 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99966 (bfBar_22 0) d2a src="99966" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99967 (bfBar_24 0) d2a src="99967" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99968 (bfBar_16 0) d2a src="99968" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99969 (sfBar_5 0) a2d dest="99969" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99970 (btBar_20 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (stBar_10 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (btBar_26 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (afBar_22 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99974 (sfBar_29 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99975 (btBar_21 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (btBar_27 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99977 (sfBar_6 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99978 (afBar_23 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (atBar_7 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99980 (btBar_25 0) d2a src="99980" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99981 (sfBar_24 0) a2d dest="99981" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99982 (stBar_12 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99983 (sfBar_4 0) a2d dest="99983" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99984 (atBar_5 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99985 (sfBar_7 0) a2d dest="99985" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99986 (bfBar_28 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99987 (btBar_30 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (stBar_7 0) a2d dest="99988" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99989 (sfBar_23 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99990 (atBar_11 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99991 (bfBar_29 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99992 (afBar_20 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99993 (atBar_12 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99994 (stBar_25 0) a2d dest="99994" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99995 (stBar_26 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99996 (afBar_21 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99997 (bfBar_31 0) d2a src="99997" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99998 (atBar_15 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (stBar_15 0) a2d dest="99999" vl=0.3*vdd vh=0.7*vdd timex=20n
+// END Hierarchical Interface Elements

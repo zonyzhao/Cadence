@@ -1,7 +1,9 @@
 analysis(tran fields dynHeadListBox) (nil choices ("#         time                     value") value nil)
 analysis(tran fields dynParam) ""
+analysis(tran fields dynParamB) nil
 analysis(tran fields dynParamListBox) (nil choices nil value nil)
 analysis(tran fields dynchoice) "Parameter file"
+analysis(tran fields dynparam) ""
 analysis(tran fields enable) (t)
 analysis(tran fields errpreset) "conservative"
 analysis(tran fields noisefmax) ""

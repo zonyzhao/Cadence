@@ -1,0 +1,33 @@
+ic cfT=0 ctT=0 btT_31=0 btT_30=0 btT_29=0 btT_28=0 btT_27=0 btT_26=0 \
+    btT_25=0 btT_24=0 btT_23=0 btT_22=0 btT_21=0 btT_20=0 btT_19=0 \
+    btT_18=0 btT_17=0 btT_16=0 btT_15=0 btT_14=0 btT_13=0 btT_12=0 \
+    btT_11=0 btT_10=0 btT_9=0 btT_8=0 btT_7=0 btT_6=0 btT_5=0 btT_4=0 \
+    btT_3=0 btT_2=0 btT_1=0 btT_0=0 bfT_31=0 bfT_30=0 bfT_29=0 bfT_28=0 \
+    bfT_27=0 bfT_26=0 bfT_25=0 bfT_24=0 bfT_23=0 bfT_22=0 bfT_21=0 \
+    bfT_20=0 bfT_19=0 bfT_18=0 bfT_17=0 bfT_16=0 bfT_15=0 bfT_14=0 \
+    bfT_13=0 bfT_12=0 bfT_11=0 bfT_10=0 bfT_9=0 bfT_8=0 bfT_7=0 bfT_6=0 \
+    bfT_5=0 bfT_4=0 bfT_3=0 bfT_2=0 bfT_1=0 bfT_0=0 atT_31=0 atT_30=0 \
+    atT_29=0 atT_28=0 atT_27=0 atT_26=0 atT_25=0 atT_24=0 atT_23=0 \
+    atT_22=0 atT_21=0 atT_20=0 atT_19=0 atT_18=0 atT_17=0 atT_16=0 \
+    atT_15=0 atT_14=0 atT_13=0 atT_12=0 atT_11=0 atT_10=0 atT_9=0 atT_8=0 \
+    atT_7=0 atT_6=0 atT_5=0 atT_4=0 atT_3=0 atT_2=0 atT_1=0 atT_0=0 \
+    afT_31=0 afT_30=0 afT_29=0 afT_28=0 afT_27=0 afT_26=0 afT_25=0 \
+    afT_24=0 afT_23=0 afT_22=0 afT_21=0 afT_20=0 afT_19=0 afT_18=0 \
+    afT_17=0 afT_16=0 afT_15=0 afT_14=0 afT_13=0 afT_12=0 afT_11=0 \
+    afT_10=0 afT_9=0 afT_8=0 afT_7=0 afT_6=0 afT_5=0 afT_4=0 afT_3=0 \
+    afT_2=0 afT_1=0 afT_0=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=12n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V1:p V1:p 
+saveOptions options save=allpub

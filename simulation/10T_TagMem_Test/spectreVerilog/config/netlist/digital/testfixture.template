@@ -8,13 +8,13 @@ wire  R_Ack, W_Ack;
 
 reg  GoR, GoW, Reset;
 
-wire [31:0]  R0;
 wire [31:0]  R1;
+wire [31:0]  R0;
 
 reg [6:0]  W_Addr;
-reg [31:0]  W0;
 reg [31:0]  W1;
 reg [6:0]  R_Addr;
+reg [31:0]  W0;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_137 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
+cdsModule_147 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
      , W_Addr); 
  
 

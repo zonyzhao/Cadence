@@ -1,0 +1,7 @@
+    I10 (Req0 Req1 Req2 Req3 Req) TH44
+    I3 (af_3 at_3 bf_3 bt_3 df2 dt2 df dt sf_3 st_3 Req3) Martin_Add
+    I2 (af_2 at_2 bf_2 bt_2 df1 dt1 df2 dt2 sf_2 st_2 Req2) Martin_Add
+    I1 (af_1 at_1 bf_1 bt_1 df0 dt0 df1 dt1 sf_1 st_1 Req1) Martin_Add
+    I0 (af_0 at_0 bf_0 bt_0 cf ct df0 dt0 sf_0 st_0 Req0) Martin_Add
+ends Martin_Add4
+// End of subcircuit definition.

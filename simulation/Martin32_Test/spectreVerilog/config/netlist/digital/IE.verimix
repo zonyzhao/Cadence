@@ -1,0 +1,221 @@
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_import( test.top.mixedNet99999, "99999"); // /stBar<15>
+	$vmx_define_export( test.top.atBar[15], "99998"); // /atBar<15>
+	$vmx_define_export( test.top.bfBar[31], "99997"); // /bfBar<31>
+	$vmx_define_export( test.top.afBar[21], "99996"); // /afBar<21>
+	$vmx_define_import( test.top.mixedNet99995, "99995"); // /stBar<26>
+	$vmx_define_import( test.top.mixedNet99994, "99994"); // /stBar<25>
+	$vmx_define_export( test.top.atBar[12], "99993"); // /atBar<12>
+	$vmx_define_export( test.top.afBar[20], "99992"); // /afBar<20>
+	$vmx_define_export( test.top.bfBar[29], "99991"); // /bfBar<29>
+	$vmx_define_export( test.top.atBar[11], "99990"); // /atBar<11>
+	$vmx_define_import( test.top.mixedNet99989, "99989"); // /sfBar<23>
+	$vmx_define_import( test.top.mixedNet99988, "99988"); // /stBar<7>
+	$vmx_define_export( test.top.btBar[30], "99987"); // /btBar<30>
+	$vmx_define_export( test.top.bfBar[28], "99986"); // /bfBar<28>
+	$vmx_define_import( test.top.mixedNet99985, "99985"); // /sfBar<7>
+	$vmx_define_export( test.top.atBar[5], "99984"); // /atBar<5>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /sfBar<4>
+	$vmx_define_import( test.top.mixedNet99982, "99982"); // /stBar<12>
+	$vmx_define_import( test.top.mixedNet99981, "99981"); // /sfBar<24>
+	$vmx_define_export( test.top.btBar[25], "99980"); // /btBar<25>
+	$vmx_define_export( test.top.atBar[7], "99979"); // /atBar<7>
+	$vmx_define_export( test.top.afBar[23], "99978"); // /afBar<23>
+	$vmx_define_import( test.top.mixedNet99977, "99977"); // /sfBar<6>
+	$vmx_define_export( test.top.btBar[27], "99976"); // /btBar<27>
+	$vmx_define_export( test.top.btBar[21], "99975"); // /btBar<21>
+	$vmx_define_import( test.top.mixedNet99974, "99974"); // /sfBar<29>
+	$vmx_define_export( test.top.afBar[22], "99973"); // /afBar<22>
+	$vmx_define_export( test.top.btBar[26], "99972"); // /btBar<26>
+	$vmx_define_import( test.top.mixedNet99971, "99971"); // /stBar<10>
+	$vmx_define_export( test.top.btBar[20], "99970"); // /btBar<20>
+	$vmx_define_import( test.top.mixedNet99969, "99969"); // /sfBar<5>
+	$vmx_define_export( test.top.bfBar[16], "99968"); // /bfBar<16>
+	$vmx_define_export( test.top.bfBar[24], "99967"); // /bfBar<24>
+	$vmx_define_export( test.top.bfBar[22], "99966"); // /bfBar<22>
+	$vmx_define_export( test.top.bfBar[21], "99965"); // /bfBar<21>
+	$vmx_define_import( test.top.mixedNet99964, "99964"); // /sfBar<21>
+	$vmx_define_import( test.top.mixedNet99963, "99963"); // /stBar<14>
+	$vmx_define_import( test.top.mixedNet99962, "99962"); // /stBar<13>
+	$vmx_define_export( test.top.bfBar[20], "99961"); // /bfBar<20>
+	$vmx_define_export( test.top.bfBar[19], "99960"); // /bfBar<19>
+	$vmx_define_import( test.top.mixedNet99959, "99959"); // /dfBar
+	$vmx_define_export( test.top.afBar[11], "99958"); // /afBar<11>
+	$vmx_define_import( test.top.mixedNet99957, "99957"); // /ReqBar
+	$vmx_define_import( test.top.mixedNet99956, "99956"); // /stBar<28>
+	$vmx_define_import( test.top.mixedNet99955, "99955"); // /stBar<29>
+	$vmx_define_import( test.top.mixedNet99954, "99954"); // /sfBar<27>
+	$vmx_define_export( test.top.atBar[19], "99953"); // /atBar<19>
+	$vmx_define_export( test.top.afBar[16], "99952"); // /afBar<16>
+	$vmx_define_import( test.top.mixedNet99951, "99951"); // /stBar<11>
+	$vmx_define_export( test.top.atBar[21], "99950"); // /atBar<21>
+	$vmx_define_export( test.top.afBar[15], "99949"); // /afBar<15>
+	$vmx_define_export( test.top.atBar[14], "99948"); // /atBar<14>
+	$vmx_define_import( test.top.mixedNet99947, "99947"); // /stBar<1>
+	$vmx_define_export( test.top.afBar[30], "99946"); // /afBar<30>
+	$vmx_define_import( test.top.mixedNet99945, "99945"); // /sfBar<17>
+	$vmx_define_export( test.top.btBar[9], "99944"); // /btBar<9>
+	$vmx_define_export( test.top.btBar[10], "99943"); // /btBar<10>
+	$vmx_define_import( test.top.mixedNet99942, "99942"); // /sfBar<28>
+	$vmx_define_import( test.top.mixedNet99941, "99941"); // /stBar<0>
+	$vmx_define_export( test.top.cfBar, "99940"); // /cfBar
+	$vmx_define_import( test.top.mixedNet99939, "99939"); // /sfBar<31>
+	$vmx_define_export( test.top.afBar[31], "99938"); // /afBar<31>
+	$vmx_define_export( test.top.bfBar[15], "99937"); // /bfBar<15>
+	$vmx_define_export( test.top.bfBar[14], "99936"); // /bfBar<14>
+	$vmx_define_export( test.top.btBar[11], "99935"); // /btBar<11>
+	$vmx_define_export( test.top.ctBar, "99934"); // /ctBar
+	$vmx_define_import( test.top.mixedNet99933, "99933"); // /sfBar<20>
+	$vmx_define_import( test.top.mixedNet99932, "99932"); // /sfBar<19>
+	$vmx_define_export( test.top.afBar[10], "99931"); // /afBar<10>
+	$vmx_define_export( test.top.afBar[9], "99930"); // /afBar<9>
+	$vmx_define_export( test.top.afBar[8], "99929"); // /afBar<8>
+	$vmx_define_export( test.top.bfBar[6], "99928"); // /bfBar<6>
+	$vmx_define_export( test.top.afBar[7], "99927"); // /afBar<7>
+	$vmx_define_export( test.top.atBar[30], "99926"); // /atBar<30>
+	$vmx_define_export( test.top.afBar[28], "99925"); // /afBar<28>
+	$vmx_define_export( test.top.afBar[17], "99924"); // /afBar<17>
+	$vmx_define_export( test.top.btBar[13], "99923"); // /btBar<13>
+	$vmx_define_export( test.top.afBar[27], "99922"); // /afBar<27>
+	$vmx_define_export( test.top.afBar[29], "99921"); // /afBar<29>
+	$vmx_define_export( test.top.btBar[12], "99920"); // /btBar<12>
+	$vmx_define_export( test.top.btBar[28], "99919"); // /btBar<28>
+	$vmx_define_export( test.top.btBar[29], "99918"); // /btBar<29>
+	$vmx_define_export( test.top.afBar[25], "99917"); // /afBar<25>
+	$vmx_define_export( test.top.atBar[28], "99916"); // /atBar<28>
+	$vmx_define_export( test.top.atBar[22], "99915"); // /atBar<22>
+	$vmx_define_export( test.top.atBar[23], "99914"); // /atBar<23>
+	$vmx_define_export( test.top.bfBar[13], "99913"); // /bfBar<13>
+	$vmx_define_export( test.top.bfBar[12], "99912"); // /bfBar<12>
+	$vmx_define_export( test.top.bfBar[11], "99911"); // /bfBar<11>
+	$vmx_define_import( test.top.mixedNet99910, "99910"); // /sfBar<8>
+	$vmx_define_export( test.top.afBar[24], "99909"); // /afBar<24>
+	$vmx_define_export( test.top.bfBar[10], "99908"); // /bfBar<10>
+	$vmx_define_export( test.top.btBar[19], "99907"); // /btBar<19>
+	$vmx_define_import( test.top.mixedNet99906, "99906"); // /sfBar<30>
+	$vmx_define_export( test.top.bfBar[9], "99905"); // /bfBar<9>
+	$vmx_define_import( test.top.mixedNet99904, "99904"); // /stBar<24>
+	$vmx_define_export( test.top.bfBar[18], "99903"); // /bfBar<18>
+	$vmx_define_export( test.top.bfBar[17], "99902"); // /bfBar<17>
+	$vmx_define_export( test.top.afBar[6], "99901"); // /afBar<6>
+	$vmx_define_export( test.top.afBar[5], "99900"); // /afBar<5>
+	$vmx_define_export( test.top.atBar[10], "99899"); // /atBar<10>
+	$vmx_define_export( test.top.atBar[9], "99898"); // /atBar<9>
+	$vmx_define_export( test.top.atBar[6], "99897"); // /atBar<6>
+	$vmx_define_export( test.top.atBar[29], "99896"); // /atBar<29>
+	$vmx_define_import( test.top.mixedNet99895, "99895"); // /sfBar<16>
+	$vmx_define_export( test.top.bfBar[8], "99894"); // /bfBar<8>
+	$vmx_define_export( test.top.afBar[4], "99893"); // /afBar<4>
+	$vmx_define_import( test.top.mixedNet99892, "99892"); // /sfBar<22>
+	$vmx_define_export( test.top.afBar[18], "99891"); // /afBar<18>
+	$vmx_define_export( test.top.afBar[19], "99890"); // /afBar<19>
+	$vmx_define_export( test.top.bfBar[0], "99889"); // /bfBar<0>
+	$vmx_define_export( test.top.afBar[26], "99888"); // /afBar<26>
+	$vmx_define_import( test.top.mixedNet99887, "99887"); // /dtBar
+	$vmx_define_import( test.top.mixedNet99886, "99886"); // /stBar<23>
+	$vmx_define_import( test.top.mixedNet99885, "99885"); // /sfBar<1>
+	$vmx_define_export( test.top.btBar[18], "99884"); // /btBar<18>
+	$vmx_define_export( test.top.btBar[24], "99883"); // /btBar<24>
+	$vmx_define_import( test.top.mixedNet99882, "99882"); // /stBar<31>
+	$vmx_define_import( test.top.mixedNet99881, "99881"); // /stBar<30>
+	$vmx_define_import( test.top.mixedNet99880, "99880"); // /sfBar<15>
+	$vmx_define_import( test.top.mixedNet99879, "99879"); // /sfBar<14>
+	$vmx_define_export( test.top.btBar[17], "99878"); // /btBar<17>
+	$vmx_define_import( test.top.mixedNet99877, "99877"); // /sfBar<18>
+	$vmx_define_import( test.top.mixedNet99876, "99876"); // /sfBar<0>
+	$vmx_define_import( test.top.mixedNet99875, "99875"); // /stBar<22>
+	$vmx_define_export( test.top.btBar[0], "99874"); // /btBar<0>
+	$vmx_define_export( test.top.bfBar[2], "99873"); // /bfBar<2>
+	$vmx_define_export( test.top.btBar[6], "99872"); // /btBar<6>
+	$vmx_define_export( test.top.btBar[16], "99871"); // /btBar<16>
+	$vmx_define_export( test.top.bfBar[3], "99870"); // /bfBar<3>
+	$vmx_define_import( test.top.mixedNet99869, "99869"); // /sfBar<3>
+	$vmx_define_export( test.top.atBar[27], "99868"); // /atBar<27>
+	$vmx_define_export( test.top.atBar[26], "99867"); // /atBar<26>
+	$vmx_define_import( test.top.mixedNet99866, "99866"); // /stBar<18>
+	$vmx_define_export( test.top.atBar[13], "99865"); // /atBar<13>
+	$vmx_define_import( test.top.mixedNet99864, "99864"); // /stBar<17>
+	$vmx_define_export( test.top.bfBar[5], "99863"); // /bfBar<5>
+	$vmx_define_export( test.top.btBar[15], "99862"); // /btBar<15>
+	$vmx_define_export( test.top.btBar[3], "99861"); // /btBar<3>
+	$vmx_define_export( test.top.bfBar[4], "99860"); // /bfBar<4>
+	$vmx_define_export( test.top.atBar[16], "99859"); // /atBar<16>
+	$vmx_define_export( test.top.btBar[14], "99858"); // /btBar<14>
+	$vmx_define_export( test.top.afBar[14], "99857"); // /afBar<14>
+	$vmx_define_import( test.top.mixedNet99856, "99856"); // /stBar<16>
+	$vmx_define_import( test.top.mixedNet99855, "99855"); // /sfBar<2>
+	$vmx_define_export( test.top.btBar[5], "99854"); // /btBar<5>
+	$vmx_define_export( test.top.atBar[17], "99853"); // /atBar<17>
+	$vmx_define_export( test.top.atBar[25], "99852"); // /atBar<25>
+	$vmx_define_import( test.top.mixedNet99851, "99851"); // /sfBar<11>
+	$vmx_define_export( test.top.bfBar[23], "99850"); // /bfBar<23>
+	$vmx_define_export( test.top.btBar[4], "99849"); // /btBar<4>
+	$vmx_define_export( test.top.btBar[23], "99848"); // /btBar<23>
+	$vmx_define_export( test.top.atBar[20], "99847"); // /atBar<20>
+	$vmx_define_import( test.top.mixedNet99846, "99846"); // /stBar<6>
+	$vmx_define_import( test.top.mixedNet99845, "99845"); // /sfBar<13>
+	$vmx_define_export( test.top.afBar[3], "99844"); // /afBar<3>
+	$vmx_define_export( test.top.afBar[2], "99843"); // /afBar<2>
+	$vmx_define_import( test.top.mixedNet99842, "99842"); // /sfBar<10>
+	$vmx_define_export( test.top.btBar[8], "99841"); // /btBar<8>
+	$vmx_define_export( test.top.btBar[7], "99840"); // /btBar<7>
+	$vmx_define_import( test.top.mixedNet99839, "99839"); // /stBar<5>
+	$vmx_define_import( test.top.mixedNet99838, "99838"); // /stBar<4>
+	$vmx_define_import( test.top.mixedNet99837, "99837"); // /stBar<3>
+	$vmx_define_export( test.top.afBar[1], "99836"); // /afBar<1>
+	$vmx_define_export( test.top.atBar[8], "99835"); // /atBar<8>
+	$vmx_define_import( test.top.mixedNet99834, "99834"); // /sfBar<26>
+	$vmx_define_import( test.top.mixedNet99833, "99833"); // /stBar<27>
+	$vmx_define_export( test.top.afBar[13], "99832"); // /afBar<13>
+	$vmx_define_export( test.top.bfBar[7], "99831"); // /bfBar<7>
+	$vmx_define_export( test.top.atBar[4], "99830"); // /atBar<4>
+	$vmx_define_import( test.top.mixedNet99829, "99829"); // /stBar<2>
+	$vmx_define_export( test.top.atBar[18], "99828"); // /atBar<18>
+	$vmx_define_export( test.top.afBar[12], "99827"); // /afBar<12>
+	$vmx_define_export( test.top.bfBar[27], "99826"); // /bfBar<27>
+	$vmx_define_import( test.top.mixedNet99825, "99825"); // /sfBar<25>
+	$vmx_define_export( test.top.atBar[3], "99824"); // /atBar<3>
+	$vmx_define_export( test.top.bfBar[26], "99823"); // /bfBar<26>
+	$vmx_define_export( test.top.bfBar[25], "99822"); // /bfBar<25>
+	$vmx_define_export( test.top.atBar[2], "99821"); // /atBar<2>
+	$vmx_define_export( test.top.atBar[24], "99820"); // /atBar<24>
+	$vmx_define_import( test.top.mixedNet99819, "99819"); // /sfBar<9>
+	$vmx_define_export( test.top.btBar[2], "99818"); // /btBar<2>
+	$vmx_define_export( test.top.btBar[1], "99817"); // /btBar<1>
+	$vmx_define_import( test.top.mixedNet99816, "99816"); // /stBar<21>
+	$vmx_define_import( test.top.mixedNet99815, "99815"); // /stBar<20>
+	$vmx_define_import( test.top.mixedNet99814, "99814"); // /stBar<19>
+	$vmx_define_import( test.top.mixedNet99813, "99813"); // /sfBar<12>
+	$vmx_define_export( test.top.atBar[1], "99812"); // /atBar<1>
+	$vmx_define_export( test.top.bfBar[30], "99811"); // /bfBar<30>
+	$vmx_define_import( test.top.mixedNet99810, "99810"); // /stBar<9>
+	$vmx_define_export( test.top.btBar[22], "99809"); // /btBar<22>
+	$vmx_define_export( test.top.atBar[0], "99808"); // /atBar<0>
+	$vmx_define_import( test.top.mixedNet99807, "99807"); // /stBar<8>
+	$vmx_define_export( test.top.afBar[0], "99806"); // /afBar<0>
+	$vmx_define_export( test.top.btBar[31], "99805"); // /btBar<31>
+	$vmx_define_export( test.top.atBar[31], "99804"); // /atBar<31>
+	$vmx_define_export( test.top.bfBar[1], "99803"); // /bfBar<1>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
