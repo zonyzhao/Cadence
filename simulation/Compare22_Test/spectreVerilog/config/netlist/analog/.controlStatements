@@ -1,0 +1,29 @@
+ic net20=0 net15=0 net012=0 net39_0=0 net39_1=0 net39_2=0 net39_3=0 \
+    net39_4=0 net39_5=0 net39_6=0 net39_7=0 net39_8=0 net39_9=0 net39_10=0 \
+    net39_11=0 net39_12=0 net39_13=0 net39_14=0 net39_15=0 net39_16=0 \
+    net39_17=0 net39_18=0 net39_19=0 net39_20=0 net39_21=0 net38_0=0 \
+    net38_1=0 net38_2=0 net38_3=0 net38_4=0 net38_5=0 net38_6=0 net38_7=0 \
+    net38_8=0 net38_9=0 net38_10=0 net38_11=0 net38_12=0 net38_13=0 \
+    net38_14=0 net38_15=0 net38_16=0 net38_17=0 net38_18=0 net38_19=0 \
+    net38_20=0 net38_21=0 net37_0=0 net37_1=0 net37_2=0 net37_3=0 \
+    net37_4=0 net37_5=0 net37_6=0 net37_7=0 net37_8=0 net37_9=0 net37_10=0 \
+    net37_11=0 net37_12=0 net37_13=0 net37_14=0 net37_15=0 net37_16=0 \
+    net37_17=0 net37_18=0 net37_19=0 net37_20=0 net37_21=0 net36_0=0 \
+    net36_1=0 net36_2=0 net36_3=0 net36_4=0 net36_5=0 net36_6=0 net36_7=0 \
+    net36_8=0 net36_9=0 net36_10=0 net36_11=0 net36_12=0 net36_13=0 \
+    net36_14=0 net36_15=0 net36_16=0 net36_17=0 net36_18=0 net36_19=0 \
+    net36_20=0 net36_21=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=10n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

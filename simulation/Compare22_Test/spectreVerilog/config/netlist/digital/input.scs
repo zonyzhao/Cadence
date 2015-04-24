@@ -1,0 +1,352 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Hit, Miss, Valid;
+
+
+reg [21:0]  b0;
+reg [21:0]  b1;
+reg [21:0]  a1;
+reg [21:0]  a0;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+Compare22_Test top(Hit, Miss, Valid, a0, a1, b0, b1); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+
+real start;
+real delay;
+initial
+begin 
+
+   a0[21:0] = 22'b0000000000000000000000;
+   a1[21:0] = 22'b0000000000000000000000;
+   b0[21:0] = 22'b0000000000000000000000;
+   b1[21:0] = 22'b0000000000000000000000;
+
+#500;
+   
+   a0=$random;
+   a1=~a0;
+   b0=a0;
+   b1=a1;
+   start=$time;
+   wait(Valid);
+
+   delay=$time-start;
+   a0[21:0] = 22'b0000000000000000000000;
+   a1=a0; b0=a0; b1=a1;
+   wait(~Valid);
+$finish;
+
+end 
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.net34[9], "99999"); // /net34<9>
+	$vmx_define_export( test.top.net35[8], "99998"); // /net35<8>
+	$vmx_define_export( test.top.net35[7], "99997"); // /net35<7>
+	$vmx_define_export( test.top.net35[6], "99996"); // /net35<6>
+	$vmx_define_export( test.top.net35[5], "99995"); // /net35<5>
+	$vmx_define_export( test.top.net35[4], "99994"); // /net35<4>
+	$vmx_define_export( test.top.net35[3], "99993"); // /net35<3>
+	$vmx_define_export( test.top.net35[2], "99992"); // /net35<2>
+	$vmx_define_export( test.top.net35[1], "99991"); // /net35<1>
+	$vmx_define_export( test.top.net35[0], "99990"); // /net35<0>
+	$vmx_define_export( test.top.net33[21], "99989"); // /net33<21>
+	$vmx_define_export( test.top.net33[20], "99988"); // /net33<20>
+	$vmx_define_export( test.top.net33[19], "99987"); // /net33<19>
+	$vmx_define_export( test.top.net33[18], "99986"); // /net33<18>
+	$vmx_define_export( test.top.net33[17], "99985"); // /net33<17>
+	$vmx_define_export( test.top.net33[16], "99984"); // /net33<16>
+	$vmx_define_export( test.top.net33[15], "99983"); // /net33<15>
+	$vmx_define_export( test.top.net33[14], "99982"); // /net33<14>
+	$vmx_define_export( test.top.net33[13], "99981"); // /net33<13>
+	$vmx_define_export( test.top.net35[21], "99980"); // /net35<21>
+	$vmx_define_export( test.top.net35[20], "99979"); // /net35<20>
+	$vmx_define_export( test.top.net35[19], "99978"); // /net35<19>
+	$vmx_define_export( test.top.net35[18], "99977"); // /net35<18>
+	$vmx_define_export( test.top.net35[17], "99976"); // /net35<17>
+	$vmx_define_export( test.top.net35[16], "99975"); // /net35<16>
+	$vmx_define_export( test.top.net35[15], "99974"); // /net35<15>
+	$vmx_define_export( test.top.net35[14], "99973"); // /net35<14>
+	$vmx_define_export( test.top.net35[13], "99972"); // /net35<13>
+	$vmx_define_export( test.top.net35[12], "99971"); // /net35<12>
+	$vmx_define_export( test.top.net35[11], "99970"); // /net35<11>
+	$vmx_define_export( test.top.net35[10], "99969"); // /net35<10>
+	$vmx_define_import( test.top.mixedNet99968, "99968"); // /net21
+	$vmx_define_import( test.top.mixedNet99967, "99967"); // /net23
+	$vmx_define_import( test.top.mixedNet99966, "99966"); // /net22
+	$vmx_define_export( test.top.net32[0], "99965"); // /net32<0>
+	$vmx_define_export( test.top.net34[5], "99964"); // /net34<5>
+	$vmx_define_export( test.top.net34[4], "99963"); // /net34<4>
+	$vmx_define_export( test.top.net34[3], "99962"); // /net34<3>
+	$vmx_define_export( test.top.net34[2], "99961"); // /net34<2>
+	$vmx_define_export( test.top.net34[1], "99960"); // /net34<1>
+	$vmx_define_export( test.top.net34[0], "99959"); // /net34<0>
+	$vmx_define_export( test.top.net32[21], "99958"); // /net32<21>
+	$vmx_define_export( test.top.net32[20], "99957"); // /net32<20>
+	$vmx_define_export( test.top.net32[19], "99956"); // /net32<19>
+	$vmx_define_export( test.top.net32[18], "99955"); // /net32<18>
+	$vmx_define_export( test.top.net32[17], "99954"); // /net32<17>
+	$vmx_define_export( test.top.net32[16], "99953"); // /net32<16>
+	$vmx_define_export( test.top.net32[15], "99952"); // /net32<15>
+	$vmx_define_export( test.top.net32[14], "99951"); // /net32<14>
+	$vmx_define_export( test.top.net32[13], "99950"); // /net32<13>
+	$vmx_define_export( test.top.net32[12], "99949"); // /net32<12>
+	$vmx_define_export( test.top.net32[11], "99948"); // /net32<11>
+	$vmx_define_export( test.top.net32[10], "99947"); // /net32<10>
+	$vmx_define_export( test.top.net33[10], "99946"); // /net33<10>
+	$vmx_define_export( test.top.net33[9], "99945"); // /net33<9>
+	$vmx_define_export( test.top.net33[8], "99944"); // /net33<8>
+	$vmx_define_export( test.top.net33[7], "99943"); // /net33<7>
+	$vmx_define_export( test.top.net33[4], "99942"); // /net33<4>
+	$vmx_define_export( test.top.net33[3], "99941"); // /net33<3>
+	$vmx_define_export( test.top.net33[2], "99940"); // /net33<2>
+	$vmx_define_export( test.top.net33[1], "99939"); // /net33<1>
+	$vmx_define_export( test.top.net33[0], "99938"); // /net33<0>
+	$vmx_define_export( test.top.net34[21], "99937"); // /net34<21>
+	$vmx_define_export( test.top.net34[20], "99936"); // /net34<20>
+	$vmx_define_export( test.top.net34[19], "99935"); // /net34<19>
+	$vmx_define_export( test.top.net34[18], "99934"); // /net34<18>
+	$vmx_define_export( test.top.net34[17], "99933"); // /net34<17>
+	$vmx_define_export( test.top.net34[16], "99932"); // /net34<16>
+	$vmx_define_export( test.top.net34[15], "99931"); // /net34<15>
+	$vmx_define_export( test.top.net34[14], "99930"); // /net34<14>
+	$vmx_define_export( test.top.net34[13], "99929"); // /net34<13>
+	$vmx_define_export( test.top.net34[12], "99928"); // /net34<12>
+	$vmx_define_export( test.top.net34[11], "99927"); // /net34<11>
+	$vmx_define_export( test.top.net32[8], "99926"); // /net32<8>
+	$vmx_define_export( test.top.net32[7], "99925"); // /net32<7>
+	$vmx_define_export( test.top.net32[6], "99924"); // /net32<6>
+	$vmx_define_export( test.top.net32[5], "99923"); // /net32<5>
+	$vmx_define_export( test.top.net32[4], "99922"); // /net32<4>
+	$vmx_define_export( test.top.net32[3], "99921"); // /net32<3>
+	$vmx_define_export( test.top.net32[9], "99920"); // /net32<9>
+	$vmx_define_export( test.top.net34[10], "99919"); // /net34<10>
+	$vmx_define_export( test.top.net33[11], "99918"); // /net33<11>
+	$vmx_define_export( test.top.net33[12], "99917"); // /net33<12>
+	$vmx_define_export( test.top.net35[9], "99916"); // /net35<9>
+	$vmx_define_export( test.top.net32[1], "99915"); // /net32<1>
+	$vmx_define_export( test.top.net32[2], "99914"); // /net32<2>
+	$vmx_define_export( test.top.net33[5], "99913"); // /net33<5>
+	$vmx_define_export( test.top.net33[6], "99912"); // /net33<6>
+	$vmx_define_export( test.top.net34[6], "99911"); // /net34<6>
+	$vmx_define_export( test.top.net34[7], "99910"); // /net34<7>
+	$vmx_define_export( test.top.net34[8], "99909"); // /net34<8>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
+initial begin
+end
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.b0[21], test.top.b0[0], test.top.b0[1], test.top.b0[2], test.top.b0[3], test.top.b0[4], test.top.b0[5], test.top.b0[8], test.top.b0[9], test.top.b0[10], test.top.b0[11], test.top.b0[12], test.top.b0[13], test.top.b0[14], test.top.b0[15], test.top.b0[16], test.top.b0[17], test.top.b0[18], test.top.b0[19], test.top.b0[20], test.top.b0[7], test.top.b0[6], test.top.b1[0], test.top.b1[1], test.top.b1[2], test.top.b1[3], test.top.b1[4], test.top.b1[5], test.top.b1[6], test.top.b1[7], test.top.b1[8], test.top.b1[9], test.top.b1[10], test.top.b1[11], test.top.b1[12], test.top.b1[13], test.top.b1[14], test.top.b1[15], test.top.b1[16], test.top.b1[17], test.top.b1[18], test.top.b1[19], test.top.b1[20], test.top.b1[21], test.top.Miss, test.top.a0[0], test.top.a0[1], test.top.a0[2], test.top.a0[3], test.top.a0[4], test.top.a0[5], test.top.a0[6], test.top.a0[7], test.top.a0[8], test.top.a0[9], test.top.a0[10], test.top.a0[11], test.top.a0[12], test.top.a0[13], test.top.a0[14], test.top.a0[15], 
+test.top.a0[16], test.top.a0[17], test.top.a0[18], test.top.a0[19], test.top.a0[20], test.top.a0[21], test.top.Valid, test.top.a1[0], test.top.a1[1], test.top.a1[2], test.top.a1[3], test.top.a1[4], test.top.a1[5], test.top.a1[6], test.top.a1[7], test.top.a1[8], test.top.a1[9], test.top.a1[10], test.top.a1[11], test.top.a1[12], test.top.a1[13], test.top.a1[14], test.top.a1[15], test.top.a1[16], test.top.a1[17], test.top.a1[18], test.top.a1[19], test.top.a1[20], test.top.a1[21], test.top.Hit, test.top.b1[21:0], test.top.a1[21:0], test.top.b0[21:0], test.top.a0[21:0]);
+end
+// End SST2 Save Waveforms
+// Library - 16nm_Tests, Cell - Compare22_Test, View - schematic
+// LAST TIME SAVED: Apr 23 04:33:41 2015
+// NETLIST TIME: Apr 23 04:42:14 2015
+`timescale 1ps / 1ps 
+
+module Compare22_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
+
+output  Hit, Miss, Valid;
+
+
+input [21:0]  b0;
+input [21:0]  b1;
+input [21:0]  a1;
+input [21:0]  a0;
+
+// Buses in the design
+
+wire  [0:21]  net38;
+
+wire  [0:21]  net34;
+
+wire  [0:21]  net35;
+
+wire  [0:21]  net33;
+
+wire  [0:21]  net37;
+
+wire  [0:21]  net39;
+
+wire  [0:21]  net32;
+
+wire  [0:21]  net36;
+
+// begin interface element definitions
+
+wire net21;
+wire net23;
+wire net22;
+reg mixedNet99968;
+reg mixedNet99967;
+reg mixedNet99966;
+assign net21 = mixedNet99968;
+assign net23 = mixedNet99967;
+assign net22 = mixedNet99966;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "Compare22_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I18 ( Miss, net22);
+inv_1xT I17 ( Valid, net21);
+inv_1xT I16 ( Hit, net23);
+inv_1xT I12_21_ ( net32[0], b0[21]);
+inv_1xT I12_20_ ( net32[1], b0[20]);
+inv_1xT I12_19_ ( net32[2], b0[19]);
+inv_1xT I12_18_ ( net32[3], b0[18]);
+inv_1xT I12_17_ ( net32[4], b0[17]);
+inv_1xT I12_16_ ( net32[5], b0[16]);
+inv_1xT I12_15_ ( net32[6], b0[15]);
+inv_1xT I12_14_ ( net32[7], b0[14]);
+inv_1xT I12_13_ ( net32[8], b0[13]);
+inv_1xT I12_12_ ( net32[9], b0[12]);
+inv_1xT I12_11_ ( net32[10], b0[11]);
+inv_1xT I12_10_ ( net32[11], b0[10]);
+inv_1xT I12_9_ ( net32[12], b0[9]);
+inv_1xT I12_8_ ( net32[13], b0[8]);
+inv_1xT I12_7_ ( net32[14], b0[7]);
+inv_1xT I12_6_ ( net32[15], b0[6]);
+inv_1xT I12_5_ ( net32[16], b0[5]);
+inv_1xT I12_4_ ( net32[17], b0[4]);
+inv_1xT I12_3_ ( net32[18], b0[3]);
+inv_1xT I12_2_ ( net32[19], b0[2]);
+inv_1xT I12_1_ ( net32[20], b0[1]);
+inv_1xT I12_0_ ( net32[21], b0[0]);
+inv_1xT I11_21_ ( net33[0], b1[21]);
+inv_1xT I11_20_ ( net33[1], b1[20]);
+inv_1xT I11_19_ ( net33[2], b1[19]);
+inv_1xT I11_18_ ( net33[3], b1[18]);
+inv_1xT I11_17_ ( net33[4], b1[17]);
+inv_1xT I11_16_ ( net33[5], b1[16]);
+inv_1xT I11_15_ ( net33[6], b1[15]);
+inv_1xT I11_14_ ( net33[7], b1[14]);
+inv_1xT I11_13_ ( net33[8], b1[13]);
+inv_1xT I11_12_ ( net33[9], b1[12]);
+inv_1xT I11_11_ ( net33[10], b1[11]);
+inv_1xT I11_10_ ( net33[11], b1[10]);
+inv_1xT I11_9_ ( net33[12], b1[9]);
+inv_1xT I11_8_ ( net33[13], b1[8]);
+inv_1xT I11_7_ ( net33[14], b1[7]);
+inv_1xT I11_6_ ( net33[15], b1[6]);
+inv_1xT I11_5_ ( net33[16], b1[5]);
+inv_1xT I11_4_ ( net33[17], b1[4]);
+inv_1xT I11_3_ ( net33[18], b1[3]);
+inv_1xT I11_2_ ( net33[19], b1[2]);
+inv_1xT I11_1_ ( net33[20], b1[1]);
+inv_1xT I11_0_ ( net33[21], b1[0]);
+inv_1xT I9_21_ ( net35[0], a1[21]);
+inv_1xT I9_20_ ( net35[1], a1[20]);
+inv_1xT I9_19_ ( net35[2], a1[19]);
+inv_1xT I9_18_ ( net35[3], a1[18]);
+inv_1xT I9_17_ ( net35[4], a1[17]);
+inv_1xT I9_16_ ( net35[5], a1[16]);
+inv_1xT I9_15_ ( net35[6], a1[15]);
+inv_1xT I9_14_ ( net35[7], a1[14]);
+inv_1xT I9_13_ ( net35[8], a1[13]);
+inv_1xT I9_12_ ( net35[9], a1[12]);
+inv_1xT I9_11_ ( net35[10], a1[11]);
+inv_1xT I9_10_ ( net35[11], a1[10]);
+inv_1xT I9_9_ ( net35[12], a1[9]);
+inv_1xT I9_8_ ( net35[13], a1[8]);
+inv_1xT I9_7_ ( net35[14], a1[7]);
+inv_1xT I9_6_ ( net35[15], a1[6]);
+inv_1xT I9_5_ ( net35[16], a1[5]);
+inv_1xT I9_4_ ( net35[17], a1[4]);
+inv_1xT I9_3_ ( net35[18], a1[3]);
+inv_1xT I9_2_ ( net35[19], a1[2]);
+inv_1xT I9_1_ ( net35[20], a1[1]);
+inv_1xT I9_0_ ( net35[21], a1[0]);
+inv_1xT I10_21_ ( net34[0], a0[21]);
+inv_1xT I10_20_ ( net34[1], a0[20]);
+inv_1xT I10_19_ ( net34[2], a0[19]);
+inv_1xT I10_18_ ( net34[3], a0[18]);
+inv_1xT I10_17_ ( net34[4], a0[17]);
+inv_1xT I10_16_ ( net34[5], a0[16]);
+inv_1xT I10_15_ ( net34[6], a0[15]);
+inv_1xT I10_14_ ( net34[7], a0[14]);
+inv_1xT I10_13_ ( net34[8], a0[13]);
+inv_1xT I10_12_ ( net34[9], a0[12]);
+inv_1xT I10_11_ ( net34[10], a0[11]);
+inv_1xT I10_10_ ( net34[11], a0[10]);
+inv_1xT I10_9_ ( net34[12], a0[9]);
+inv_1xT I10_8_ ( net34[13], a0[8]);
+inv_1xT I10_7_ ( net34[14], a0[7]);
+inv_1xT I10_6_ ( net34[15], a0[6]);
+inv_1xT I10_5_ ( net34[16], a0[5]);
+inv_1xT I10_4_ ( net34[17], a0[4]);
+inv_1xT I10_3_ ( net34[18], a0[3]);
+inv_1xT I10_2_ ( net34[19], a0[2]);
+inv_1xT I10_1_ ( net34[20], a0[1]);
+inv_1xT I10_0_ ( net34[21], a0[0]);
+
+endmodule

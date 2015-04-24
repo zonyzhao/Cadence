@@ -1653,8 +1653,7 @@
 				</plottingoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Tue Feb 10 22:19:46 2015
-</timestamp>
+			<timestamp>Tue Feb 10 22:19:46 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/6T_BANK_Test/adexl/results/data/MonteCarlo.10.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.10.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>

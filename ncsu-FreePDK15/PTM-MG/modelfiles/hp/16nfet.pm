@@ -2,7 +2,6 @@
 ** Nominal VDD=0.85V
 
 .model nfet nmos level = 72 
-+ bulkmod = 1 
 +lmin    = 1e-008          lmax    = 3e-008        
 ************************************************************
 *                         general                          *
@@ -37,10 +36,10 @@
 +cit     = 1.3e-005      
 *========================== vth ===========================*
 +cdsc    = 0.018           cdscd   = 0.007           dvt0    = 0.01            dvt1    = 0.69          
-+phin    = 0.05            eta0    = 0.5261           dsub    = 0.9             k1rsce  = 0             
++phin    = 0.05            eta0    = 0.5261          dsub    = 0.9             k1rsce  = 0             
 +lpe0    = 5e-009          dvtshift= 0               qmfactor= 0               qmtceniv= 0             
 +qmtcencv= 0               etaqm   = 0.54            qm0     = 0.001143        pqm     = 0.66          
-+qm0acc  = 0.001           pqmacc  = 0.66            delvfbacc= 0               u0      = 0.0448        
++qm0acc  = 0.001           pqmacc  = 0.66            delvfbacc= 0              u0      = 0.0448        
 *======================== mobility ========================*
 +etamob  = 2               up      = 0               lpa     = 1               ua      = 0.3           
 +aua     = 0               bua     = 1e-007          eu      = 1.8             ud      = 0             

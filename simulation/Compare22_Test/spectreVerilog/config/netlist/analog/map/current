@@ -1,0 +1,44 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Compare22_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "vdd! gnd! vcc!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare22_Test/spectreVerilog/config/netlist/analog"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/or_1x/schematic" "or_1x" )
+( "16nm/Valid_DR/schematic" "Valid_DR" )
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm/TH22~/schematic" "_sub90" )
+( "16nm/Compare22_DRn/schematic" "Compare22_DRn" )
+( "16nm/Compare4_DR/schematic" "Compare4_DR" )
+( "16nm/Compare_DR/schematic" "Compare_DR" )
+( "16nm/nor_1x/schematic" "nor_1x" )
+( "16nm/inv_1xt/schematic" "inv_1xt" )
+( "16nm_Tests/Compare22_Test/schematic" "Compare22_Test" )
+ )
+( term
+ )
+( param
+ )
+( "Compare22_Test" "ihnl/cds9/map" )
+( "or_1x" "ihnl/cds6/map" )
+( "Valid_DR" "ihnl/cds4/map" )
+( "Compare4_DR" "ihnl/cds5/map" )
+( "inv_1xt" "ihnl/cds8/map" )
+( "inv_1x" "ihnl/cds2/map" )
+( "Compare_DR" "ihnl/cds0/map" )
+( "Compare22_DRn" "ihnl/cds7/map" )
+( "nor_1x" "ihnl/cds1/map" )
+( "_sub90" "ihnl/cds3/map" )
+ )

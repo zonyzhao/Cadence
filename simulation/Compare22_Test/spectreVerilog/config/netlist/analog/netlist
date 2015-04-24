@@ -1,0 +1,577 @@
+// BEGIN Flat Interface Elements
+// Flattened IE at /net34<9> uses port path 99999
+// Flattened IE at /net35<8> uses port path 99998
+// Flattened IE at /net35<7> uses port path 99997
+// Flattened IE at /net35<6> uses port path 99996
+// Flattened IE at /net35<5> uses port path 99995
+// Flattened IE at /net35<4> uses port path 99994
+// Flattened IE at /net35<3> uses port path 99993
+// Flattened IE at /net35<2> uses port path 99992
+// Flattened IE at /net35<1> uses port path 99991
+// Flattened IE at /net35<0> uses port path 99990
+// Flattened IE at /net33<21> uses port path 99989
+// Flattened IE at /net33<20> uses port path 99988
+// Flattened IE at /net33<19> uses port path 99987
+// Flattened IE at /net33<18> uses port path 99986
+// Flattened IE at /net33<17> uses port path 99985
+// Flattened IE at /net33<16> uses port path 99984
+// Flattened IE at /net33<15> uses port path 99983
+// Flattened IE at /net33<14> uses port path 99982
+// Flattened IE at /net33<13> uses port path 99981
+// Flattened IE at /net35<21> uses port path 99980
+// Flattened IE at /net35<20> uses port path 99979
+// Flattened IE at /net35<19> uses port path 99978
+// Flattened IE at /net35<18> uses port path 99977
+// Flattened IE at /net35<17> uses port path 99976
+// Flattened IE at /net35<16> uses port path 99975
+// Flattened IE at /net35<15> uses port path 99974
+// Flattened IE at /net35<14> uses port path 99973
+// Flattened IE at /net35<13> uses port path 99972
+// Flattened IE at /net35<12> uses port path 99971
+// Flattened IE at /net35<11> uses port path 99970
+// Flattened IE at /net35<10> uses port path 99969
+// Flattened IE at /net21 uses port path 99968
+// Flattened IE at /net23 uses port path 99967
+// Flattened IE at /net22 uses port path 99966
+// Flattened IE at /net32<0> uses port path 99965
+// Flattened IE at /net34<5> uses port path 99964
+// Flattened IE at /net34<4> uses port path 99963
+// Flattened IE at /net34<3> uses port path 99962
+// Flattened IE at /net34<2> uses port path 99961
+// Flattened IE at /net34<1> uses port path 99960
+// Flattened IE at /net34<0> uses port path 99959
+// Flattened IE at /net32<21> uses port path 99958
+// Flattened IE at /net32<20> uses port path 99957
+// Flattened IE at /net32<19> uses port path 99956
+// Flattened IE at /net32<18> uses port path 99955
+// Flattened IE at /net32<17> uses port path 99954
+// Flattened IE at /net32<16> uses port path 99953
+// Flattened IE at /net32<15> uses port path 99952
+// Flattened IE at /net32<14> uses port path 99951
+// Flattened IE at /net32<13> uses port path 99950
+// Flattened IE at /net32<12> uses port path 99949
+// Flattened IE at /net32<11> uses port path 99948
+// Flattened IE at /net32<10> uses port path 99947
+// Flattened IE at /net33<10> uses port path 99946
+// Flattened IE at /net33<9> uses port path 99945
+// Flattened IE at /net33<8> uses port path 99944
+// Flattened IE at /net33<7> uses port path 99943
+// Flattened IE at /net33<4> uses port path 99942
+// Flattened IE at /net33<3> uses port path 99941
+// Flattened IE at /net33<2> uses port path 99940
+// Flattened IE at /net33<1> uses port path 99939
+// Flattened IE at /net33<0> uses port path 99938
+// Flattened IE at /net34<21> uses port path 99937
+// Flattened IE at /net34<20> uses port path 99936
+// Flattened IE at /net34<19> uses port path 99935
+// Flattened IE at /net34<18> uses port path 99934
+// Flattened IE at /net34<17> uses port path 99933
+// Flattened IE at /net34<16> uses port path 99932
+// Flattened IE at /net34<15> uses port path 99931
+// Flattened IE at /net34<14> uses port path 99930
+// Flattened IE at /net34<13> uses port path 99929
+// Flattened IE at /net34<12> uses port path 99928
+// Flattened IE at /net34<11> uses port path 99927
+// Flattened IE at /net32<8> uses port path 99926
+// Flattened IE at /net32<7> uses port path 99925
+// Flattened IE at /net32<6> uses port path 99924
+// Flattened IE at /net32<5> uses port path 99923
+// Flattened IE at /net32<4> uses port path 99922
+// Flattened IE at /net32<3> uses port path 99921
+// Flattened IE at /net32<9> uses port path 99920
+// Flattened IE at /net34<10> uses port path 99919
+// Flattened IE at /net33<11> uses port path 99918
+// Flattened IE at /net33<12> uses port path 99917
+// Flattened IE at /net35<9> uses port path 99916
+// Flattened IE at /net32<1> uses port path 99915
+// Flattened IE at /net32<2> uses port path 99914
+// Flattened IE at /net33<5> uses port path 99913
+// Flattened IE at /net33<6> uses port path 99912
+// Flattened IE at /net34<6> uses port path 99911
+// Flattened IE at /net34<7> uses port path 99910
+// Flattened IE at /net34<8> uses port path 99909
+// END Flat Interface Elements
+
+// Library name: 16nm
+// Cell name: Compare_DR
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Compare_DR a0 a1 b0 b1 v y0 y1
+    M10 (y0 v vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M0 (y1 v vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M9 (net26 v 0 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M8 (y0 a1 net35 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M7 (net35 b0 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M6 (net36 b1 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M5 (y0 a1 net36 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M4 (net38 b0 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M3 (net37 b1 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M2 (y1 a1 net37 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+    M1 (y1 a0 net38 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
+ends Compare_DR
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: nor_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt nor_1x A B Y
+    M3 (Y B or_pd_ps vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=yes
+    M2 (or_pd_ps A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: TH22~
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub90 A B Y
+    I6 (net010 Y) inv_1x
+    M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M3 (net9 B 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M2 (net9 A 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M0 (net17 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net010 net5 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+    M10 (net5 B net032 vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M9 (net032 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=yes
+    M8 (net037 B vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
+    M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=yes
+ends _sub90
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Valid_DR
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Valid_DR a0 a1 b0 b1 v
+    I1 (b0 b1 net11) nor_1x
+    I0 (a0 a1 net12) nor_1x
+    I2 (net12 net11 v) _sub90
+ends Valid_DR
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Compare4_DR
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Compare4_DR a0_3 a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 \
+        b0_1 b0_0 b1_3 b1_2 b1_1 b1_0 y0_3 y0_2 y0_1 y0_0 y1_3 y1_2 \
+        y1_1 y1_0
+    I6 (a0_3 a1_3 b0_3 b1_3 net13 y0_3 y1_3) Compare_DR
+    I4 (a0_2 a1_2 b0_2 b1_2 net14 y0_2 y1_2) Compare_DR
+    I2 (a0_1 a1_1 b0_1 b1_1 net15 y0_1 y1_1) Compare_DR
+    I0 (a0_0 a1_0 b0_0 b1_0 net16 y0_0 y1_0) Compare_DR
+    I7 (a0_3 a1_3 b0_3 b1_3 net13) Valid_DR
+    I5 (a0_2 a1_2 b0_2 b1_2 net14) Valid_DR
+    I3 (a0_1 a1_1 b0_1 b1_1 net15) Valid_DR
+    I1 (a0_0 a1_0 b0_0 b1_0 net16) Valid_DR
+ends Compare4_DR
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: or_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt or_1x A B Y
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: Compare22_DRn
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Compare22_DRn Hit Miss Valid a0_21 a0_20 a0_19 a0_18 a0_17 a0_16 \
+        a0_15 a0_14 a0_13 a0_12 a0_11 a0_10 a0_9 a0_8 a0_7 a0_6 a0_5 \
+        a0_4 a0_3 a0_2 a0_1 a0_0 a1_21 a1_20 a1_19 a1_18 a1_17 a1_16 \
+        a1_15 a1_14 a1_13 a1_12 a1_11 a1_10 a1_9 a1_8 a1_7 a1_6 a1_5 \
+        a1_4 a1_3 a1_2 a1_1 a1_0 b0_21 b0_20 b0_19 b0_18 b0_17 b0_16 \
+        b0_15 b0_14 b0_13 b0_12 b0_11 b0_10 b0_9 b0_8 b0_7 b0_6 b0_5 \
+        b0_4 b0_3 b0_2 b0_1 b0_0 b1_21 b1_20 b1_19 b1_18 b1_17 b1_16 \
+        b1_15 b1_14 b1_13 b1_12 b1_11 b1_10 b1_9 b1_8 b1_7 b1_6 b1_5 \
+        b1_4 b1_3 b1_2 b1_1 b1_0
+    I43 (net032_0 net032_1 net032_2 net032_3 net031_0 net031_1 net031_2 \
+        net031_3 net030_0 net030_1 net030_2 net030_3 net029_0 net029_1 \
+        net029_2 net029_3 _6y0_3 _6y0_2 _6y0_1 _6y0_0 _6y1_3 _6y1_2 \
+        _6y1_1 _6y1_0) Compare4_DR
+    I41 (_1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 _1y1_1 _1y1_0 _2y0_3 \
+        _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 _2y1_1 _2y1_0 net032_0 \
+        net032_1 net032_2 net032_3 net031_0 net031_1 net031_2 net031_3) \
+        Compare4_DR
+    I42 (_3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 _3y1_2 _3y1_1 _3y1_0 _4y0_3 \
+        _4y0_2 _4y0_1 _4y0_0 _4y1_3 _4y1_2 _4y1_1 _4y1_0 net030_0 \
+        net030_1 net030_2 net030_3 net029_0 net029_1 net029_2 net029_3) \
+        Compare4_DR
+    I16 (a0_19 a0_18 a0_17 a0_16 a1_19 a1_18 a1_17 a1_16 b0_19 b0_18 \
+        b0_17 b0_16 b1_19 b1_18 b1_17 b1_16 _5y0_3 _5y0_2 _5y0_1 _5y0_0 \
+        _5y1_3 _5y1_2 _5y1_1 _5y1_0) Compare4_DR
+    I11 (a0_7 a0_6 a0_5 a0_4 a1_7 a1_6 a1_5 a1_4 b0_7 b0_6 b0_5 b0_4 \
+        b1_7 b1_6 b1_5 b1_4 _2y0_3 _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 \
+        _2y1_1 _2y1_0) Compare4_DR
+    I10 (a0_3 a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 b0_1 b0_0 \
+        b1_3 b1_2 b1_1 b1_0 _1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 \
+        _1y1_1 _1y1_0) Compare4_DR
+    I14 (a0_11 a0_10 a0_9 a0_8 a1_11 a1_10 a1_9 a1_8 b0_11 b0_10 b0_9 \
+        b0_8 b1_11 b1_10 b1_9 b1_8 _3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 \
+        _3y1_2 _3y1_1 _3y1_0) Compare4_DR
+    I13 (a0_15 a0_14 a0_13 a0_12 a1_15 a1_14 a1_13 a1_12 b0_15 b0_14 \
+        b0_13 b0_12 b1_15 b1_14 b1_13 b1_12 _4y0_3 _4y0_2 _4y0_1 _4y0_0 \
+        _4y1_3 _4y1_2 _4y1_1 _4y1_0) Compare4_DR
+    I74 (net023 net022 net024 net025 net068 Miss Hit) Compare_DR
+    I71 (net016 net017 net019 net021 net062 net023 net022) Compare_DR
+    I70 (net014 net015 net018 net041 net061 net024 net025) Compare_DR
+    I66 (_6y0_2 _6y1_2 net087 net088 net0114 net019 net021) Compare_DR
+    I4 (_5y0_2 _5y1_2 net60 net60 net052 net018 net041) Compare_DR
+    I51 (_5y0_1 _5y1_1 net41 net43 net050 net087 net088) Compare_DR
+    I53 (_5y0_0 _5y1_0 _5y0_3 _5y1_3 net051 net091 net0108) Compare_DR
+    I63 (_6y0_1 _6y1_1 net091 net0108 net0113 net014 net015) Compare_DR
+    I62 (_6y0_0 _6y1_0 _6y0_3 _6y1_3 net053 net016 net017) Compare_DR
+    I2 (a0_21 a1_21 b0_21 b1_21 net39 net60 net42) Compare_DR
+    I0 (a0_20 a1_20 b0_20 b1_20 net40 net41 net43) Compare_DR
+    I73 (net023 net022 net024 net025 net068) Valid_DR
+    I72 (net016 net017 net019 net021 net062) Valid_DR
+    I61 (_6y0_0 _6y1_0 _6y0_3 _6y1_3 net053) Valid_DR
+    I65 (_6y0_2 _6y1_2 net087 net088 net0114) Valid_DR
+    I64 (_6y0_1 _6y1_1 net091 net0108 net0113) Valid_DR
+    I5 (_5y0_2 _5y1_2 net60 net42 net052) Valid_DR
+    I52 (_5y0_1 _5y1_1 net41 net43 net050) Valid_DR
+    I54 (_5y0_0 _5y1_0 _5y0_3 _5y1_3 net051) Valid_DR
+    I69 (net014 net015 net018 net041 net061) Valid_DR
+    I3 (a0_21 a1_21 b0_21 b1_21 net39) Valid_DR
+    I1 (a0_20 a1_20 b0_20 b1_20 net40) Valid_DR
+    I77 (Miss Hit Valid) or_1x
+ends Compare22_DRn
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1xt
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xt A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1xt
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: Compare22_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+V1 (vcc! 0) vsource type=dc dc=vdd
+V0 (vdd! 0) vsource type=dc dc=vdd
+I4 (net20 net012 net15 net38_0 net38_1 net38_2 net38_3 net38_4 net38_5 \
+        net38_6 net38_7 net38_8 net38_9 net38_10 net38_11 net38_12 \
+        net38_13 net38_14 net38_15 net38_16 net38_17 net38_18 net38_19 \
+        net38_20 net38_21 net39_0 net39_1 net39_2 net39_3 net39_4 \
+        net39_5 net39_6 net39_7 net39_8 net39_9 net39_10 net39_11 \
+        net39_12 net39_13 net39_14 net39_15 net39_16 net39_17 net39_18 \
+        net39_19 net39_20 net39_21 net36_0 net36_1 net36_2 net36_3 \
+        net36_4 net36_5 net36_6 net36_7 net36_8 net36_9 net36_10 \
+        net36_11 net36_12 net36_13 net36_14 net36_15 net36_16 net36_17 \
+        net36_18 net36_19 net36_20 net36_21 net37_0 net37_1 net37_2 \
+        net37_3 net37_4 net37_5 net37_6 net37_7 net37_8 net37_9 \
+        net37_10 net37_11 net37_12 net37_13 net37_14 net37_15 net37_16 \
+        net37_17 net37_18 net37_19 net37_20 net37_21) Compare22_DRn
+I13 (net012 net22) inv_1xt
+I15 (net20 net23) inv_1xt
+I14 (net15 net21) inv_1xt
+I8_21 (net32_0 net36_0) inv_1xt
+I8_20 (net32_1 net36_1) inv_1xt
+I8_19 (net32_2 net36_2) inv_1xt
+I8_18 (net32_3 net36_3) inv_1xt
+I8_17 (net32_4 net36_4) inv_1xt
+I8_16 (net32_5 net36_5) inv_1xt
+I8_15 (net32_6 net36_6) inv_1xt
+I8_14 (net32_7 net36_7) inv_1xt
+I8_13 (net32_8 net36_8) inv_1xt
+I8_12 (net32_9 net36_9) inv_1xt
+I8_11 (net32_10 net36_10) inv_1xt
+I8_10 (net32_11 net36_11) inv_1xt
+I8_9 (net32_12 net36_12) inv_1xt
+I8_8 (net32_13 net36_13) inv_1xt
+I8_7 (net32_14 net36_14) inv_1xt
+I8_6 (net32_15 net36_15) inv_1xt
+I8_5 (net32_16 net36_16) inv_1xt
+I8_4 (net32_17 net36_17) inv_1xt
+I8_3 (net32_18 net36_18) inv_1xt
+I8_2 (net32_19 net36_19) inv_1xt
+I8_1 (net32_20 net36_20) inv_1xt
+I8_0 (net32_21 net36_21) inv_1xt
+I7_21 (net33_0 net37_0) inv_1xt
+I7_20 (net33_1 net37_1) inv_1xt
+I7_19 (net33_2 net37_2) inv_1xt
+I7_18 (net33_3 net37_3) inv_1xt
+I7_17 (net33_4 net37_4) inv_1xt
+I7_16 (net33_5 net37_5) inv_1xt
+I7_15 (net33_6 net37_6) inv_1xt
+I7_14 (net33_7 net37_7) inv_1xt
+I7_13 (net33_8 net37_8) inv_1xt
+I7_12 (net33_9 net37_9) inv_1xt
+I7_11 (net33_10 net37_10) inv_1xt
+I7_10 (net33_11 net37_11) inv_1xt
+I7_9 (net33_12 net37_12) inv_1xt
+I7_8 (net33_13 net37_13) inv_1xt
+I7_7 (net33_14 net37_14) inv_1xt
+I7_6 (net33_15 net37_15) inv_1xt
+I7_5 (net33_16 net37_16) inv_1xt
+I7_4 (net33_17 net37_17) inv_1xt
+I7_3 (net33_18 net37_18) inv_1xt
+I7_2 (net33_19 net37_19) inv_1xt
+I7_1 (net33_20 net37_20) inv_1xt
+I7_0 (net33_21 net37_21) inv_1xt
+I5_21 (net35_0 net39_0) inv_1xt
+I5_20 (net35_1 net39_1) inv_1xt
+I5_19 (net35_2 net39_2) inv_1xt
+I5_18 (net35_3 net39_3) inv_1xt
+I5_17 (net35_4 net39_4) inv_1xt
+I5_16 (net35_5 net39_5) inv_1xt
+I5_15 (net35_6 net39_6) inv_1xt
+I5_14 (net35_7 net39_7) inv_1xt
+I5_13 (net35_8 net39_8) inv_1xt
+I5_12 (net35_9 net39_9) inv_1xt
+I5_11 (net35_10 net39_10) inv_1xt
+I5_10 (net35_11 net39_11) inv_1xt
+I5_9 (net35_12 net39_12) inv_1xt
+I5_8 (net35_13 net39_13) inv_1xt
+I5_7 (net35_14 net39_14) inv_1xt
+I5_6 (net35_15 net39_15) inv_1xt
+I5_5 (net35_16 net39_16) inv_1xt
+I5_4 (net35_17 net39_17) inv_1xt
+I5_3 (net35_18 net39_18) inv_1xt
+I5_2 (net35_19 net39_19) inv_1xt
+I5_1 (net35_20 net39_20) inv_1xt
+I5_0 (net35_21 net39_21) inv_1xt
+I6_21 (net34_0 net38_0) inv_1xt
+I6_20 (net34_1 net38_1) inv_1xt
+I6_19 (net34_2 net38_2) inv_1xt
+I6_18 (net34_3 net38_3) inv_1xt
+I6_17 (net34_4 net38_4) inv_1xt
+I6_16 (net34_5 net38_5) inv_1xt
+I6_15 (net34_6 net38_6) inv_1xt
+I6_14 (net34_7 net38_7) inv_1xt
+I6_13 (net34_8 net38_8) inv_1xt
+I6_12 (net34_9 net38_9) inv_1xt
+I6_11 (net34_10 net38_10) inv_1xt
+I6_10 (net34_11 net38_11) inv_1xt
+I6_9 (net34_12 net38_12) inv_1xt
+I6_8 (net34_13 net38_13) inv_1xt
+I6_7 (net34_14 net38_14) inv_1xt
+I6_6 (net34_15 net38_15) inv_1xt
+I6_5 (net34_16 net38_16) inv_1xt
+I6_4 (net34_17 net38_17) inv_1xt
+I6_3 (net34_18 net38_18) inv_1xt
+I6_2 (net34_19 net38_19) inv_1xt
+I6_1 (net34_20 net38_20) inv_1xt
+I6_0 (net34_21 net38_21) inv_1xt
+// BEGIN Hierarchical Interface Elements
+_ie99909 (net34_8 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99910 (net34_7 0) d2a src="99910" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99911 (net34_6 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99912 (net33_6 0) d2a src="99912" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99913 (net33_5 0) d2a src="99913" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99914 (net32_2 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99915 (net32_1 0) d2a src="99915" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99916 (net35_9 0) d2a src="99916" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99917 (net33_12 0) d2a src="99917" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99918 (net33_11 0) d2a src="99918" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99919 (net34_10 0) d2a src="99919" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99920 (net32_9 0) d2a src="99920" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99921 (net32_3 0) d2a src="99921" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99922 (net32_4 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99923 (net32_5 0) d2a src="99923" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99924 (net32_6 0) d2a src="99924" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99925 (net32_7 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99926 (net32_8 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99927 (net34_11 0) d2a src="99927" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99928 (net34_12 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99929 (net34_13 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99930 (net34_14 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99931 (net34_15 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99932 (net34_16 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99933 (net34_17 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99934 (net34_18 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99935 (net34_19 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99936 (net34_20 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99937 (net34_21 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99938 (net33_0 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99939 (net33_1 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99940 (net33_2 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99941 (net33_3 0) d2a src="99941" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99942 (net33_4 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99943 (net33_7 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99944 (net33_8 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99945 (net33_9 0) d2a src="99945" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99946 (net33_10 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99947 (net32_10 0) d2a src="99947" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99948 (net32_11 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99949 (net32_12 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99950 (net32_13 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99951 (net32_14 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99952 (net32_15 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99953 (net32_16 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99954 (net32_17 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99955 (net32_18 0) d2a src="99955" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99956 (net32_19 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99957 (net32_20 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99958 (net32_21 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99959 (net34_0 0) d2a src="99959" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99960 (net34_1 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99961 (net34_2 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99962 (net34_3 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (net34_4 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (net34_5 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99965 (net32_0 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99966 (net22 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99967 (net23 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99968 (net21 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99969 (net35_10 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (net35_11 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (net35_12 0) d2a src="99971" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99972 (net35_13 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (net35_14 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99974 (net35_15 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99975 (net35_16 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (net35_17 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99977 (net35_18 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99978 (net35_19 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (net35_20 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99980 (net35_21 0) d2a src="99980" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99981 (net33_13 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99982 (net33_14 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99983 (net33_15 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99984 (net33_16 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99985 (net33_17 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99986 (net33_18 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99987 (net33_19 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (net33_20 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99989 (net33_21 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99990 (net35_0 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99991 (net35_1 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99992 (net35_2 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99993 (net35_3 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99994 (net35_4 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (net35_5 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99996 (net35_6 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99997 (net35_7 0) d2a src="99997" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99998 (net35_8 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99999 (net34_9 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+// END Hierarchical Interface Elements

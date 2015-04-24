@@ -1,16 +1,11 @@
 hnlLastStopCellInfo = '(
-                           ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1428023184" )
-                          ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1428023252" )
-                          ( "basic" "cds_thru" "spectre" "42" "1413356405" )
-                          ( "UCD_Analog_Parts" "cap" "spectre" "30" "1414043494" )
-                          ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
-                       )
+                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 7
-hnlLastConfigFileTimeStamp = "1429517928"
+hnlLastConfigFileVersion = 8
+hnlLastConfigFileTimeStamp = "1429753713"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "6T_DataPath_Test" "config" 7 "1429517928" )
+( "16nm_Tests" "6T_DataPath_Test" "config" 8 "1429753713" )
 ) 
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"
@@ -766,8 +761,7 @@ hnlLastNetNameDifferentFrom = '( )
 hnlLastTermNameDifferentFrom = '( )
 hnlLastParamNameDifferentFrom = '( )
 hnlLastLibInfo = '(
-                    ( "16nm" "1428898306" )
-                   ( "16nm_Tests" "1428202349" )
+                    ( "16nm_Tests" "1429775004" )
                   )
 hnlLastConstants = '(
                       "M_SQRT2"
@@ -793,6 +787,4 @@ hnlLastConstants = '(
                       "M_TWO_PI"
                       "M_E"
                     )
-hnlLastDesignVars = '(
-                      "vdd"
-                    )
+hnlLastDesignVars = '( )

@@ -1,2 +1,8 @@
 HEADER
 "PSFversion" "1.00"
+"I1n I0n" "NCSU_TechLib_FreePDK15_pfet_spectre"
+"I3n" "TH22"
+"Rev" ":1v"
+"Re2v" ":2v"
+"~R0v" ":3v"
+"~R1v" ":4v"

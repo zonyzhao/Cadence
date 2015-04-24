@@ -7,7 +7,7 @@
  )
 ( net
 ( "gnd!" "0" )
-( "vcc!" "vcc!" )
+( "vdd!" "vdd!" )
  )
 ( inst
  )

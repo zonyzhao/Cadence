@@ -4,17 +4,20 @@
 module test;
 
 
-wire  Ack;
+wire  ReadAck, WriteAck;
 
-reg  Req;
 
+wire [4:0]  R_AddressAck;
+wire [4:0]  W_AddresAck;
 wire [7:0]  RData;
-wire [1:0]  WAck;
+wire [1:0]  WdataAck;
 
-reg [15:0]  A;
-reg [1:0]  RAck;
-reg [1:0]  RW;
+reg [1:0]  WRW;
+reg [1:0]  RdataAck;
+reg [1:0]  RRW;
 reg [7:0]  WData;
+reg [19:0]  W_Address;
+reg [19:0]  R_Address;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -24,7 +27,8 @@ time vmx_time_offset;
 
 
 
-cdsModule_64 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_88 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
+     WriteAck, RRW, R_Address, RdataAck, WData, WRW, W_Address); 
  
 
 `define verimix

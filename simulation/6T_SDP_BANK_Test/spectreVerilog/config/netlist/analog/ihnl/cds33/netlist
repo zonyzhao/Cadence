@@ -20,5 +20,5 @@
     M1 (net46 B net47 vdd!) pfet w=240n l=16n nfin=1 m=1 \
         degradation=yes
     M0 (net47 A vdd! vdd!) pfet w=240n l=16n nfin=1 m=1 degradation=yes
-ends _sub88
+ends _sub22
 // End of subcircuit definition.

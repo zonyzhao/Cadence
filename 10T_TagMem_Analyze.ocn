@@ -29,10 +29,11 @@ save( 'i "/V0/MINUS" "/V1/MINUS" "/V1/PLUS" "/V0/PLUS" )
 hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rainbow" "rat" "rattle" "redbelly" "ribbon" "scarlet" "swamp" "timber" "viper" )
 		           
 ;vLoad = list(  .250 .325 0.45 .475 .50 .525 .675 .85 1.0 1.125 )	
-
-vLoad = list( .195 .480 .485 .490 .495 .50 .505 .510 1.3 )	
-      		            
-tLoad = list( 30 60 90 )
+;vLoad = list( .195 .480 .485 .490 .495 .50 .505 .510 1.3 )
+vLoad = list(   .125 .150 .250 .300 .310 .320 .330 .340 .350 .40 .450 .460 .470 .480 .490 .50 .510 .520 .530 .540 .550 .60  .65 .850  .950 1.0  1.1  1.15 1.2 1.25 )	
+            		            
+;tLoad = list( 30 60 90 )
+tLoad = list( 30 )
 
 jobList 	= nil
 mVs   		= nil
@@ -64,11 +65,11 @@ close( outF)
 j = 1
 foreach(job jobList	
     	printf("%s\n" job )
-    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) > 1250) || ((evalstring(nthelem(j mVs)) < 275) && (evalstring(nthelem(j temps)) == 90)  )
+    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) ==1000) || (evalstring(nthelem(j mVs)) <200); 
     	selectResult( 'tran )
     	unless( i("/V1/MINUS")  == nil
 		Volts       = evalstring( nthelem(j mVs) )*0.001;
-        leakage     = average( clip( i( "/V1/MINUS" ) 500p 800p ) ) *1e3
+        leakage     = average( clip( i( "/V1/MINUS" ) 450p 550p ) ) *1e3
         leakagePwr  = leakage*Volts
 	peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
 	peakPwr     = peakCurrent*Volts
@@ -76,10 +77,10 @@ foreach(job jobList
 	cHost       = sprintf(nil "%s" nthelem(j hList))
         nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
         nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-	shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
-	shellCmd2   = strcat("scp " cHost ":/tmp2/tagWLog.csv " nameW  )
-	shell( shellCmd1 )
-	shell( shellCmd2 )
+	;shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
+	;shellCmd2   = strcat("scp " cHost ":/tmp2/tagWLog.csv " nameW  )
+	;shell( shellCmd1 )
+	;shell( shellCmd2 )
         
         printf("Reading %s\n" nameR)
         fidR   = infile( nameR )

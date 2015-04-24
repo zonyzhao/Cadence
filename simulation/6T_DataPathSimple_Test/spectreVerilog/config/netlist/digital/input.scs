@@ -1,0 +1,359 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Ack;
+
+
+wire [7:0]  RData;
+wire [1:0]  WdataAck;
+
+reg [1:0]  RW;
+reg [1:0]  RdataAck;
+reg [16:0]  A;
+reg [7:0]  WData;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+cdsModule_148 top(Ack, RData, WdataAck, A, RW, RdataAck, WData); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+
+integer rLog;
+integer wLog;
+integer seed;
+integer i;
+integer start;
+integer readCount;
+integer readOrWrite;
+reg[16:0] lastWriteAddr;
+reg[7:0] logAddr;
+
+real rStart;
+real rDelay;
+real wStart;
+real wDelay;
+
+initial
+begin 
+
+   seed = 5;
+   start = 0;
+   readCount=0;
+   readOrWrite=1;
+   rLog=$fopen("/tmp2/dataRLog.csv");
+
+   wLog=$fopen("/tmp2/dataWLog.csv"); 
+
+   A[16:0] = 17'b00000000000000000;
+   RW[1:0] = 2'b00;
+   RdataAck[1:0] = 2'b00;
+   WData[7:0] = 8'b00000000;
+
+#500;
+
+   A[16:0] 				= 17'h11111;
+   WData[7:0] 			= 8'h22;
+   RW[1:0] 				= 2'b01;
+   wStart				= $time;
+   start 				= 1;
+end 
+
+
+always @(negedge Ack) begin
+	if (start==1) begin
+		if (readOrWrite==1) begin
+   	    	wDelay = $time - wStart;
+   	  		$fdisplay(wLog, "%h %h %t %t", A[16:0], WData[7:0], $time, wDelay);
+          	lastWriteAddr[16:0] <= A[16:0];
+   	  		WData[7:0] 			 	= 8'b00000000;
+          	A[16:0] 				= 17'h00000;
+          	RW[1:0]         	 	= 2'b00;
+       	  	wStart 					= $time;
+		end else begin
+			rDelay = $time - rStart;
+	   		$fdisplay(rLog, "%h %h %t %t", A[16:0], RData[7:0], $time, rDelay);   	   
+   	   		RdataAck[1:0]    	= 2'b11;
+   	   		RW[1:0]         	= 2'b00;
+   	   		A[16:0] 			= 17'h00000;
+	   		rStart          	= $time;
+		end
+   end
+end
+
+
+
+always @(posedge Ack) begin
+	if (start==1) begin
+			if (readOrWrite==0) begin
+   	  			rDelay = $time - rStart;
+	   			$fdisplay(rLog, "%h %h %t %t", A[16:0], RData[7:0], $time, rDelay);   	   
+	  			readCount = readCount + 1;
+	  			if (readCount == 2) begin
+					$finish;
+	  			end
+				readOrWrite=1;
+				A[16:0] 	= 17'h11111;
+   	  			RW[1:0]  	= 2'b01;
+      			WData[7:0] 	= 8'h24;
+      			wStart 		= $time;
+			end else begin
+				wDelay = $time - wStart;
+   	  			$fdisplay(wLog, "%h %h %t %t", A[16:0], WData[7:0], $time, wDelay);
+    	  		lastWriteAddr[16:0] <= A[16:0];
+   		  		RdataAck[1:0]    	= 2'b00;
+				readOrWrite			= 0;
+   	 			RW[1:0]         	= 2'b10;
+   	 			A[16:0] 			= lastWriteAddr;
+	 			rStart           	= $time;
+			end   
+	end
+end
+
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_import( test.top.mixedNet99999, "99999"); // /net027<1>
+	$vmx_define_export( test.top.net44[4], "99998"); // /net44<4>
+	$vmx_define_export( test.top.net44[3], "99997"); // /net44<3>
+	$vmx_define_export( test.top.net41[1], "99996"); // /net41<1>
+	$vmx_define_export( test.top.net033[12], "99995"); // /net033<12>
+	$vmx_define_export( test.top.net033[1], "99994"); // /net033<1>
+	$vmx_define_export( test.top.net033[14], "99993"); // /net033<14>
+	$vmx_define_export( test.top.net033[8], "99992"); // /net033<8>
+	$vmx_define_export( test.top.net033[5], "99991"); // /net033<5>
+	$vmx_define_import( test.top.mixedNet99990, "99990"); // /net027<3>
+	$vmx_define_import( test.top.mixedNet99989, "99989"); // /net027<2>
+	$vmx_define_import( test.top.mixedNet99988, "99988"); // /net018
+	$vmx_define_export( test.top.net033[4], "99987"); // /net033<4>
+	$vmx_define_export( test.top.net41[0], "99986"); // /net41<0>
+	$vmx_define_export( test.top.net033[16], "99985"); // /net033<16>
+	$vmx_define_export( test.top.net033[0], "99984"); // /net033<0>
+	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net036<0>
+	$vmx_define_export( test.top.net033[3], "99982"); // /net033<3>
+	$vmx_define_export( test.top.net033[6], "99981"); // /net033<6>
+	$vmx_define_export( test.top.net033[7], "99980"); // /net033<7>
+	$vmx_define_import( test.top.mixedNet99979, "99979"); // /net027<4>
+	$vmx_define_import( test.top.mixedNet99978, "99978"); // /net027<5>
+	$vmx_define_import( test.top.mixedNet99977, "99977"); // /net027<6>
+	$vmx_define_export( test.top.net032[1], "99976"); // /net032<1>
+	$vmx_define_import( test.top.mixedNet99975, "99975"); // /net027<7>
+	$vmx_define_export( test.top.net44[2], "99974"); // /net44<2>
+	$vmx_define_export( test.top.net032[0], "99973"); // /net032<0>
+	$vmx_define_export( test.top.net44[6], "99972"); // /net44<6>
+	$vmx_define_export( test.top.net44[1], "99971"); // /net44<1>
+	$vmx_define_export( test.top.net44[7], "99970"); // /net44<7>
+	$vmx_define_import( test.top.mixedNet99969, "99969"); // /net027<0>
+	$vmx_define_export( test.top.net033[2], "99968"); // /net033<2>
+	$vmx_define_export( test.top.net44[0], "99967"); // /net44<0>
+	$vmx_define_export( test.top.net033[9], "99966"); // /net033<9>
+	$vmx_define_export( test.top.net033[10], "99965"); // /net033<10>
+	$vmx_define_export( test.top.net033[11], "99964"); // /net033<11>
+	$vmx_define_export( test.top.net033[13], "99963"); // /net033<13>
+	$vmx_define_import( test.top.mixedNet99962, "99962"); // /net036<1>
+	$vmx_define_export( test.top.net44[5], "99961"); // /net44<5>
+	$vmx_define_export( test.top.net033[15], "99960"); // /net033<15>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
+initial begin
+end
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.A[11], test.top.RdataAck[0], test.top.A[3], test.top.A[16], test.top.RData[7], test.top.A[5], test.top.A[7], test.top.A[4], test.top.WdataAck[1], test.top.A[13], test.top.RW[1], test.top.RW[0], test.top.WData[7], test.top.WData[1], test.top.WData[3], test.top.RData[4], test.top.A[10], test.top.Ack, test.top.WdataAck[0], test.top.A[9], test.top.A[2], test.top.RData[0], test.top.RData[3], test.top.A[12], test.top.A[1], test.top.A[14], test.top.RData[1], test.top.WData[5], test.top.RData[6], test.top.RData[5], test.top.A[0], test.top.A[15], test.top.WData[0], test.top.RData[2], test.top.RdataAck[1], test.top.A[6], test.top.WData[6], test.top.A[8], test.top.WData[4], test.top.WData[2], test.top.WData[7:0], test.top.RW[1:0], test.top.RData[7:0], test.top.WdataAck[1:0], test.top.RdataAck[1:0], test.top.A[16:0]);
+end
+// End SST2 Save Waveforms
+// Library - 16nm_Tests, Cell - 6T_DataPathSimple_Test, View -
+//schematic
+// LAST TIME SAVED: Apr 24 03:07:40 2015
+// NETLIST TIME: Apr 24 03:09:57 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_148 ( Ack, RData, WdataAck, A, RW, RdataAck, WData );
+
+output  Ack;
+
+
+output [7:0]  RData;
+output [1:0]  WdataAck;
+
+input [1:0]  RW;
+input [1:0]  RdataAck;
+input [16:0]  A;
+input [7:0]  WData;
+
+// Buses in the design
+
+wire  [0:16]  net033;
+
+wire  [3:0]  W1_1;
+
+wire  [1:0]  RWT;
+
+wire  [1:0]  WdataAckT;
+
+wire  [3:0]  B0_1;
+
+wire  [3:0]  W0_1;
+
+wire  [1:0]  RdataAckT;
+
+wire  [0:7]  net44;
+
+wire  [7:0]  S;
+
+wire  [63:0]  Aline;
+
+wire  [7:0]  RDataT;
+
+wire  [16:0]  AT;
+
+wire  [7:0]  WDataT;
+
+wire  [3:0]  cdsbus0;
+
+wire  [0:1]  net032;
+
+wire  [0:1]  net41;
+
+wire  [3:0]  B1_1;
+
+wire  [0:1]  net036;
+
+wire  [0:7]  net027;
+
+wire  [3:0]  cdsbus1;
+
+// begin interface element definitions
+
+wire net018;
+reg mixedNet99999;
+reg mixedNet99990;
+reg mixedNet99989;
+reg mixedNet99988;
+reg mixedNet99983;
+reg mixedNet99979;
+reg mixedNet99978;
+reg mixedNet99977;
+reg mixedNet99975;
+reg mixedNet99969;
+reg mixedNet99962;
+assign net027[1] = mixedNet99999;
+assign net027[3] = mixedNet99990;
+assign net027[2] = mixedNet99989;
+assign net018 = mixedNet99988;
+assign net036[0] = mixedNet99983;
+assign net027[4] = mixedNet99979;
+assign net027[5] = mixedNet99978;
+assign net027[6] = mixedNet99977;
+assign net027[7] = mixedNet99975;
+assign net027[0] = mixedNet99969;
+assign net036[1] = mixedNet99962;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_DataPathSimple_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I12_1_ ( WdataAck[1], net036[0]);
+inv_1xT I12_0_ ( WdataAck[0], net036[1]);
+inv_1xT I8_1_ ( net41[0], RdataAck[1]);
+inv_1xT I8_0_ ( net41[1], RdataAck[0]);
+inv_1xT I10_7_ ( RData[7], net027[0]);
+inv_1xT I10_6_ ( RData[6], net027[1]);
+inv_1xT I10_5_ ( RData[5], net027[2]);
+inv_1xT I10_4_ ( RData[4], net027[3]);
+inv_1xT I10_3_ ( RData[3], net027[4]);
+inv_1xT I10_2_ ( RData[2], net027[5]);
+inv_1xT I10_1_ ( RData[1], net027[6]);
+inv_1xT I10_0_ ( RData[0], net027[7]);
+inv_1xT I6 ( Ack, net018);
+inv_1xT I1_1_ ( net032[0], RW[1]);
+inv_1xT I1_0_ ( net032[1], RW[0]);
+inv_1xT I3_16_ ( net033[0], A[16]);
+inv_1xT I3_15_ ( net033[1], A[15]);
+inv_1xT I3_14_ ( net033[2], A[14]);
+inv_1xT I3_13_ ( net033[3], A[13]);
+inv_1xT I3_12_ ( net033[4], A[12]);
+inv_1xT I3_11_ ( net033[5], A[11]);
+inv_1xT I3_10_ ( net033[6], A[10]);
+inv_1xT I3_9_ ( net033[7], A[9]);
+inv_1xT I3_8_ ( net033[8], A[8]);
+inv_1xT I3_7_ ( net033[9], A[7]);
+inv_1xT I3_6_ ( net033[10], A[6]);
+inv_1xT I3_5_ ( net033[11], A[5]);
+inv_1xT I3_4_ ( net033[12], A[4]);
+inv_1xT I3_3_ ( net033[13], A[3]);
+inv_1xT I3_2_ ( net033[14], A[2]);
+inv_1xT I3_1_ ( net033[15], A[1]);
+inv_1xT I3_0_ ( net033[16], A[0]);
+inv_1xT I14_7_ ( net44[0], WData[7]);
+inv_1xT I14_6_ ( net44[1], WData[6]);
+inv_1xT I14_5_ ( net44[2], WData[5]);
+inv_1xT I14_4_ ( net44[3], WData[4]);
+inv_1xT I14_3_ ( net44[4], WData[3]);
+inv_1xT I14_2_ ( net44[5], WData[2]);
+inv_1xT I14_1_ ( net44[6], WData[1]);
+inv_1xT I14_0_ ( net44[7], WData[0]);
+
+endmodule

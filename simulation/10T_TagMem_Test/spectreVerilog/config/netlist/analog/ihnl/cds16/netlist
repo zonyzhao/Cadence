@@ -1,7 +1,30 @@
-    I1 (\~R1 Pch vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    I0 (\~R0 Pch vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    I3 (Re2 Re Pch) TH22
-ends _sub143
+    I7 (net5 net11 net1) and_1x
+    I6 (I_0 net11 net064) and_1x
+    I5 (net5 I_1 net062) and_1x
+    I4 (I_0 I_1 net068) and_1x
+    I3 (net37 net14 net079) and_1x
+    I2 (I_2 net14 net069) and_1x
+    I1 (net37 I_3 net19) and_1x
+    I0 (I_2 I_3 net055) and_1x
+    I11 (I_0 net5) inv_1x
+    I10 (I_1 net11) inv_1x
+    I9 (I_2 net37) inv_1x
+    I8 (I_3 net14) inv_1x
+    I59 (net068 net055 En A_15) and3_1x
+    I58 (net062 net055 En A_14) and3_1x
+    I57 (net064 net055 En A_13) and3_1x
+    I56 (net1 net055 En A_12) and3_1x
+    I55 (net068 net19 En A_11) and3_1x
+    I54 (net062 net19 En A_10) and3_1x
+    I53 (net064 net19 En A_9) and3_1x
+    I52 (net1 net19 En A_8) and3_1x
+    I51 (net068 net069 En A_7) and3_1x
+    I50 (net062 net069 En A_6) and3_1x
+    I49 (net064 net069 En A_5) and3_1x
+    I48 (net1 net069 En A_4) and3_1x
+    I47 (net068 net079 En A_3) and3_1x
+    I46 (net062 net079 En A_2) and3_1x
+    I45 (net064 net079 En A_1) and3_1x
+    I44 (net1 net079 En A_0) and3_1x
+ends Decode_4to16_
 // End of subcircuit definition.

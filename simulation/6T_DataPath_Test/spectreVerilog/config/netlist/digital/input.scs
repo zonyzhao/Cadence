@@ -4,17 +4,20 @@
 module test;
 
 
-wire  Ack;
+wire  ReadAck, WriteAck;
 
-reg  Req;
 
+wire [4:0]  R_AddressAck;
+wire [4:0]  W_AddresAck;
 wire [7:0]  RData;
-wire [1:0]  WAck;
+wire [1:0]  WdataAck;
 
-reg [15:0]  A;
-reg [1:0]  RAck;
-reg [1:0]  RW;
+reg [1:0]  WRW;
+reg [1:0]  RdataAck;
+reg [1:0]  RRW;
 reg [7:0]  WData;
+reg [19:0]  W_Address;
+reg [19:0]  R_Address;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
@@ -24,7 +27,8 @@ time vmx_time_offset;
 
 
 
-cdsModule_64 top(Ack, RData, WAck, A, RAck, RW, Req, WData); 
+cdsModule_88 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
+     WriteAck, RRW, R_Address, RdataAck, WData, WRW, W_Address); 
  
 
 `define verimix
@@ -58,7 +62,7 @@ integer i;
 integer start;
 integer readCount;
 integer readOrWrite;
-reg[15:0] lastWriteAddr;
+reg[19:0] lastWriteAddr;
 reg[7:0] logAddr;
 
 real rStart;
@@ -77,94 +81,119 @@ begin
 
    wLog=$fopen("/tmp2/dataWLog.csv"); 
 
-   A[15:0] = 16'h0000;
-   RAck[1:0] = 2'b00;
-   Req = 1'b0;
+   W_Address[19:0] = 20'h00000;
+   R_Address[19:0] = 20'h00000;
+   RdataAck[1:0] = 2'b00;
    WData[7:0] = 8'h00;
-   RW[1:0] = 2'b00;
+   WRW[1:0] = 2'b00;
+   RRW[1:0] = 2'b00;
 
 #500;
 
-   A[15:0] 		= 16'h1111;
-   Req 			= 1'b1;
-   WData[7:0] 	= 8'h11;
-   RW[1:0] 		= 2'b01;
-   wStart		= $time;
-   start 		= 1;
-   readOrWrite  = 1;
+   W_Address[19:0] 		= 20'h11111;
+   WData[7:0] 			= 8'h11;
+   WRW[1:0] 			= 2'b01;
+   wStart				= $time;
+//   start 				= 1;
+wait(WriteAck);
 
+   WData[7:0] 			= 8'b00000000;
+   W_Address[19:0] 	 	= 20'h0000;
+   WRW[1:0]         	= 2'b00;
+wait(~WriteAck);
+
+   W_Address[19:0] 		= 20'h11111;
+   WData[7:0] 			= 8'h88;
+   WRW[1:0] 			= 2'b01;
+wait(WriteAck);
+
+   WData[7:0] 			= 8'b00000000;
+   W_Address[19:0] 	 	= 20'h0000;
+   WRW[1:0]         	= 2'b00;
+wait(~WriteAck);
+
+   R_Address[19:0] 		= 20'h11111;
+   RdataAck[1:0] 		= 2'b00;
+   RRW[1:0] 			= 2'b10;
+wait(ReadAck);
+
+   R_Address[19:0] 		= 20'h00000;
+   RdataAck[1:0] 		= 2'b11;
+   RRW[1:0] 			= 2'b00;
+wait(ReadAck);
+	$finish;
 end 
 
 
-always @(negedge Ack) begin
+always @(negedge WriteAck) begin
 	if (start==1) begin
-		if(readOrWrite ==1) begin
    	    	wDelay = $time - wStart;
-   	  		$fdisplay(wLog, "%h %h %t %t", A[15:0], WData[7:0], $time, wDelay);
-          	lastWriteAddr[15:0] <= A[15:0];
-   	  		WData[7:0] 		= 8'b00000000;
-          	A[15:0] 	  	= 16'h0000;
-          	RW[1:0]         = 2'b00;
-		    Req = 1'b0;
+   	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
+          	lastWriteAddr[19:0] <= W_Address[19:0];
+   	  		WData[7:0] 			 = 8'b00000000;
+          	W_Address[19:0] 	 = 20'h0000;
+          	WRW[1:0]         	 = 2'b00;
        	  	wStart = $time;
-      end else begin   
-   	   		rDelay = $time - rStart;
-	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
-   	   		RAck[1:0]     	= 2'b00;
-   	   		RW[1:0]         = 2'b00;
-   	   		A[15:0]         = 16'h0000;
-		  	Req 			= 1'b0;
-	   		rStart          = $time;
-      end
    end
  end
 
-always @(posedge Ack) begin
+always @(negedge ReadAck) begin
 	if (start==1) begin
-		if(readOrWrite ==0) begin
+		rDelay = $time - rStart;
+	   	$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
+   	   	RdataAck[1:0]    = 2'b00;
+   	   	RRW[1:0]         = 2'b00;
+   	   	R_Address[19:0]  = 20'h00000;
+	   	rStart          = $time;
+	end
+end
+
+
+always @(posedge ReadAck) begin
+	if (start==1) begin
    	  		rDelay = $time - rStart;
-	   		$fdisplay(rLog, "%h %h %t %t", A[15:0], RData[7:0], $time, rDelay);   	   
+	   		$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
 	  		readCount = readCount + 1;
-	  		if (readCount == 4) begin
+	  		if (readCount == 1) begin
 				$finish;
 	  		end
-   	  		logAddr[7:0] = $random;
-	 		A[0]   = ~logAddr[0] & ~logAddr[1];
-	  A[1]   =  logAddr[0] & ~logAddr[1];
-	  A[2]   = ~logAddr[0] &  logAddr[1];
-      A[3]   =  logAddr[0] &  logAddr[1];
-	  A[4]   = ~logAddr[2] & ~logAddr[3];
-	  A[5]   =  logAddr[2] & ~logAddr[3];
-	  A[6]   = ~logAddr[2] &  logAddr[3];
-      A[7]   =  logAddr[2] &  logAddr[3];
-	  A[8]   = ~logAddr[4] & ~logAddr[5];
-	  A[9]   =  logAddr[4] & ~logAddr[5];
-	  A[10]  = ~logAddr[4] &  logAddr[5];
-      A[11]  =  logAddr[4] &  logAddr[5];
-	  A[12]  = ~logAddr[6] & ~logAddr[7];
-	  A[13]  =  logAddr[6] & ~logAddr[7];
-	  A[14]  = ~logAddr[6] &  logAddr[7];
-      A[15]  =  logAddr[6] &  logAddr[7];
+//   	  		logAddr[7:0] = $random;
+//	 		W_Address[0]   = ~logAddr[0] & ~logAddr[1];
+//	  		W_Address[1]   =  logAddr[0] & ~logAddr[1];
+//	  		W_Address[2]   = ~logAddr[0] &  logAddr[1];
+//     		W_Address[3]   =  logAddr[0] &  logAddr[1];
+//	  		W_Address[4]   = ~logAddr[2] & ~logAddr[3];
+//	  		W_Address[5]   =  logAddr[2] & ~logAddr[3];
+//	  		W_Address[6]   = ~logAddr[2] &  logAddr[3];
+//     		W_Address[7]   =  logAddr[2] &  logAddr[3];
+//			W_Address[8]   = ~logAddr[4] & ~logAddr[5];
+//	  		W_Address[9]   =  logAddr[4] & ~logAddr[5];
+//	  		W_Address[10]  = ~logAddr[4] &  logAddr[5];
+//      	W_Address[11]  =  logAddr[4] &  logAddr[5];
+//	  		W_Address[12]  = ~logAddr[6] & ~logAddr[7];
+//	  		W_Address[13]  =  logAddr[6] & ~logAddr[7];
+//	  		W_Address[14]  = ~logAddr[6] &  logAddr[7];
+//     		W_Address[15]  =  logAddr[6] &  logAddr[7];
+//			W_Address[16]  = 1'b1;
+			W_Address[19:0] = 20'h11111;
 
-
-   	  		RW[1:0]  	= 2'b01;
-	  		Req 		= 1'b1;
+   	  		WRW[1:0]  	= 2'b01;
       		WData[7:0] 	= 8'h48;
-	  		readOrWrite = 1;
       		wStart 		= $time;
-      end else begin   
-   	  		wDelay = $time - wStart;
-   	  		$fdisplay(wLog, "%h %h %t %t", A[15:0], WData[7:0], $time, wDelay);
-    	  	lastWriteAddr[15:0] <= A[15:0];
-   		  	RAck[1:0]     	= 2'b11;
-   	 		RW[1:0]         = 2'b10;
-   	 		A[15:0]         = lastWriteAddr;
-			Req 			= 1'b1;
-	 		rStart          = $time;
-	  		readOrWrite 	= 0;
-      end
    end
  end
+
+always @(posedge WriteAck) begin
+	if (start==1) begin
+		   	wDelay = $time - wStart;
+   	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
+    	  	lastWriteAddr[19:0] <= W_Address[19:0];
+   		  	RdataAck[1:0]    = 2'b11;
+   	 		RRW[1:0]         = 2'b10;
+   	 		R_Address[19:0]  = lastWriteAddr;
+	 		rStart           = $time;
+	end
+end
 `define _VMX_SIMULATOR_NAME_ "spectre"
 `define _VMX_MAX_DC_ITER_ 0
 `define _VMX_DC_INTERVAL_ 0
@@ -173,46 +202,82 @@ always @(posedge Ack) begin
 // Begin Interface Element Header and Verimix Synchronization task
 initial begin
 	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
-	$vmx_define_import( test.top.mixedNet99999, "99999"); // /net027<2>
-	$vmx_define_export( test.top.net44[4], "99998"); // /net44<4>
-	$vmx_define_export( test.top.net41[0], "99997"); // /net41<0>
-	$vmx_define_export( test.top.net44[5], "99996"); // /net44<5>
-	$vmx_define_export( test.top.net44[1], "99995"); // /net44<1>
-	$vmx_define_export( test.top.net031[4], "99994"); // /net031<4>
-	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net027<4>
-	$vmx_define_import( test.top.mixedNet99992, "99992"); // /net027<0>
-	$vmx_define_export( test.top.net031[15], "99991"); // /net031<15>
-	$vmx_define_import( test.top.mixedNet99990, "99990"); // /net027<1>
-	$vmx_define_export( test.top.net44[2], "99989"); // /net44<2>
-	$vmx_define_export( test.top.net031[0], "99988"); // /net031<0>
-	$vmx_define_export( test.top.net031[2], "99987"); // /net031<2>
-	$vmx_define_export( test.top.net031[7], "99986"); // /net031<7>
-	$vmx_define_import( test.top.mixedNet99985, "99985"); // /net027<6>
-	$vmx_define_export( test.top.net44[0], "99984"); // /net44<0>
-	$vmx_define_import( test.top.mixedNet99983, "99983"); // /net027<7>
-	$vmx_define_export( test.top.net44[6], "99982"); // /net44<6>
-	$vmx_define_export( test.top.net44[7], "99981"); // /net44<7>
-	$vmx_define_export( test.top.net021, "99980"); // /net021
-	$vmx_define_import( test.top.mixedNet99979, "99979"); // /net020
-	$vmx_define_import( test.top.mixedNet99978, "99978"); // /net027<5>
-	$vmx_define_import( test.top.mixedNet99977, "99977"); // /net027<3>
-	$vmx_define_import( test.top.mixedNet99976, "99976"); // /net036<0>
-	$vmx_define_export( test.top.net031[12], "99975"); // /net031<12>
-	$vmx_define_import( test.top.mixedNet99974, "99974"); // /net036<1>
-	$vmx_define_export( test.top.net031[13], "99973"); // /net031<13>
-	$vmx_define_export( test.top.net031[14], "99972"); // /net031<14>
-	$vmx_define_export( test.top.net031[3], "99971"); // /net031<3>
-	$vmx_define_export( test.top.net031[6], "99970"); // /net031<6>
-	$vmx_define_export( test.top.net40[1], "99969"); // /net40<1>
-	$vmx_define_export( test.top.net44[3], "99968"); // /net44<3>
-	$vmx_define_export( test.top.net41[1], "99967"); // /net41<1>
-	$vmx_define_export( test.top.net031[11], "99966"); // /net031<11>
-	$vmx_define_export( test.top.net031[8], "99965"); // /net031<8>
-	$vmx_define_export( test.top.net031[9], "99964"); // /net031<9>
-	$vmx_define_export( test.top.net031[10], "99963"); // /net031<10>
-	$vmx_define_export( test.top.net031[1], "99962"); // /net031<1>
-	$vmx_define_export( test.top.net40[0], "99961"); // /net40<0>
-	$vmx_define_export( test.top.net031[5], "99960"); // /net031<5>
+	$vmx_define_export( test.top.net060[7], "99999"); // /net060<7>
+	$vmx_define_import( test.top.mixedNet99998, "99998"); // /~ReadAck
+	$vmx_define_import( test.top.mixedNet99997, "99997"); // /net045<3>
+	$vmx_define_import( test.top.mixedNet99996, "99996"); // /net045<1>
+	$vmx_define_import( test.top.mixedNet99995, "99995"); // /net036<1>
+	$vmx_define_export( test.top.net060[19], "99994"); // /net060<19>
+	$vmx_define_import( test.top.mixedNet99993, "99993"); // /net027<1>
+	$vmx_define_import( test.top.mixedNet99992, "99992"); // /net027<3>
+	$vmx_define_export( test.top.net060[6], "99991"); // /net060<6>
+	$vmx_define_export( test.top.net049[0], "99990"); // /net049<0>
+	$vmx_define_export( test.top.net049[16], "99989"); // /net049<16>
+	$vmx_define_import( test.top.mixedNet99988, "99988"); // /net036<0>
+	$vmx_define_export( test.top.net060[9], "99987"); // /net060<9>
+	$vmx_define_export( test.top.net44[1], "99986"); // /net44<1>
+	$vmx_define_export( test.top.net060[13], "99985"); // /net060<13>
+	$vmx_define_export( test.top.net44[2], "99984"); // /net44<2>
+	$vmx_define_export( test.top.net049[8], "99983"); // /net049<8>
+	$vmx_define_export( test.top.net060[11], "99982"); // /net060<11>
+	$vmx_define_export( test.top.net064[0], "99981"); // /net064<0>
+	$vmx_define_import( test.top.mixedNet99980, "99980"); // /net048<1>
+	$vmx_define_export( test.top.net049[2], "99979"); // /net049<2>
+	$vmx_define_export( test.top.net049[4], "99978"); // /net049<4>
+	$vmx_define_export( test.top.net049[17], "99977"); // /net049<17>
+	$vmx_define_export( test.top.net049[5], "99976"); // /net049<5>
+	$vmx_define_import( test.top.mixedNet99975, "99975"); // /net027<0>
+	$vmx_define_export( test.top.net049[6], "99974"); // /net049<6>
+	$vmx_define_export( test.top.net44[0], "99973"); // /net44<0>
+	$vmx_define_import( test.top.mixedNet99972, "99972"); // /net027<4>
+	$vmx_define_export( test.top.net44[5], "99971"); // /net44<5>
+	$vmx_define_import( test.top.mixedNet99970, "99970"); // /~WriteAck
+	$vmx_define_import( test.top.mixedNet99969, "99969"); // /net048<3>
+	$vmx_define_import( test.top.mixedNet99968, "99968"); // /net027<6>
+	$vmx_define_import( test.top.mixedNet99967, "99967"); // /net048<4>
+	$vmx_define_import( test.top.mixedNet99966, "99966"); // /net027<7>
+	$vmx_define_export( test.top.net064[1], "99965"); // /net064<1>
+	$vmx_define_export( test.top.net049[9], "99964"); // /net049<9>
+	$vmx_define_export( test.top.net049[10], "99963"); // /net049<10>
+	$vmx_define_export( test.top.net049[1], "99962"); // /net049<1>
+	$vmx_define_export( test.top.net049[15], "99961"); // /net049<15>
+	$vmx_define_export( test.top.net44[3], "99960"); // /net44<3>
+	$vmx_define_export( test.top.net41[1], "99959"); // /net41<1>
+	$vmx_define_export( test.top.cdsbus1[0], "99958"); // /~RRW<0>
+	$vmx_define_import( test.top.mixedNet99957, "99957"); // /net045<4>
+	$vmx_define_export( test.top.net060[16], "99956"); // /net060<16>
+	$vmx_define_export( test.top.net060[14], "99955"); // /net060<14>
+	$vmx_define_export( test.top.net060[15], "99954"); // /net060<15>
+	$vmx_define_export( test.top.net049[3], "99953"); // /net049<3>
+	$vmx_define_export( test.top.net060[17], "99952"); // /net060<17>
+	$vmx_define_export( test.top.net060[12], "99951"); // /net060<12>
+	$vmx_define_export( test.top.net060[10], "99950"); // /net060<10>
+	$vmx_define_export( test.top.net049[19], "99949"); // /net049<19>
+	$vmx_define_export( test.top.net060[1], "99948"); // /net060<1>
+	$vmx_define_export( test.top.net049[7], "99947"); // /net049<7>
+	$vmx_define_export( test.top.net41[0], "99946"); // /net41<0>
+	$vmx_define_export( test.top.net060[5], "99945"); // /net060<5>
+	$vmx_define_import( test.top.mixedNet99944, "99944"); // /net048<2>
+	$vmx_define_export( test.top.net060[18], "99943"); // /net060<18>
+	$vmx_define_import( test.top.mixedNet99942, "99942"); // /net045<2>
+	$vmx_define_export( test.top.net060[8], "99941"); // /net060<8>
+	$vmx_define_export( test.top.net060[2], "99940"); // /net060<2>
+	$vmx_define_export( test.top.net44[6], "99939"); // /net44<6>
+	$vmx_define_export( test.top.net049[14], "99938"); // /net049<14>
+	$vmx_define_import( test.top.mixedNet99937, "99937"); // /net027<2>
+	$vmx_define_import( test.top.mixedNet99936, "99936"); // /net048<0>
+	$vmx_define_export( test.top.net44[7], "99935"); // /net44<7>
+	$vmx_define_export( test.top.net049[11], "99934"); // /net049<11>
+	$vmx_define_import( test.top.mixedNet99933, "99933"); // /net027<5>
+	$vmx_define_export( test.top.cdsbus1[1], "99932"); // /~RRW<1>
+	$vmx_define_export( test.top.net44[4], "99931"); // /net44<4>
+	$vmx_define_export( test.top.net049[12], "99930"); // /net049<12>
+	$vmx_define_export( test.top.net049[13], "99929"); // /net049<13>
+	$vmx_define_export( test.top.net049[18], "99928"); // /net049<18>
+	$vmx_define_import( test.top.mixedNet99927, "99927"); // /net045<0>
+	$vmx_define_export( test.top.net060[0], "99926"); // /net060<0>
+	$vmx_define_export( test.top.net060[3], "99925"); // /net060<3>
+	$vmx_define_export( test.top.net060[4], "99924"); // /net060<4>
 	$vmx_end_definition;
 	vmx_time_offset = 0;
 	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
@@ -239,95 +304,146 @@ end
 // Begin SST2 Save Waveforms
 initial begin
 $shm_open(`_VMX_DATA_PATH_);
-$shm_probe(test.top.A[15], test.top.A[11], test.top.A[14], test.top.RData[2], test.top.A[7], test.top.A[2], test.top.A[3], test.top.A[9], test.top.RAck[1], test.top.A[1], test.top.A[0], test.top.A[4], test.top.RAck[0], test.top.RData[7], test.top.A[10], test.top.RData[6], test.top.RData[5], test.top.RData[4], test.top.RData[0], test.top.Ack, test.top.A[13], test.top.RW[0], test.top.RW[1], test.top.A[5], test.top.A[8], test.top.WAck[1], test.top.Req, test.top.WAck[0], test.top.A[12], test.top.WData[7], test.top.WData[6], test.top.WData[3], test.top.WData[2], test.top.WData[1], test.top.A[6], test.top.WData[0], test.top.RData[1], test.top.WData[4], test.top.WData[5], test.top.RData[3], test.top.WData[7:0], test.top.RW[1:0], test.top.RData[7:0], test.top.A[15:0], test.top.RAck[1:0], test.top.WAck[1:0]);
+$shm_probe(test.top.WdataAck[0], test.top.W_Address[3], test.top.R_Address[11], test.top.WriteAck, test.top.W_Address[8], test.top.W_Address[11], test.top.W_Address[6], test.top.W_Address[5], test.top.RRW[0], test.top.W_Address[4], test.top.WRW[0], test.top.W_Address[1], test.top.W_Address[0], test.top.RdataAck[1], test.top.R_Address[6], test.top.R_AddressAck[1], test.top.W_AddresAck[3], test.top.R_AddressAck[4], test.top.R_Address[5], test.top.W_AddresAck[1], test.top.WData[1], test.top.R_Address[4], test.top.W_Address[15], test.top.W_AddresAck[2], test.top.W_Address[19], test.top.RData[7], test.top.R_Address[3], test.top.R_Address[10], test.top.R_Address[15], test.top.W_AddresAck[0], test.top.RRW[1], test.top.W_AddresAck[4], test.top.R_Address[0], test.top.R_Address[8], test.top.R_Address[9], test.top.W_Address[7], test.top.ReadAck, test.top.RData[3], test.top.W_Address[12], test.top.WData[7], test.top.RData[0], test.top.RData[2], test.top.RData[1], test.top.WRW[1], test.top.WdataAck[1], test.top.W_Address[17], 
+test.top.W_Address[9], test.top.W_Address[2], test.top.W_Address[18], test.top.R_AddressAck[3], test.top.RData[6], test.top.RData[4], test.top.W_Address[16], test.top.R_Address[7], test.top.RData[5], test.top.WData[5], test.top.W_Address[10], test.top.R_Address[2], test.top.R_Address[12], test.top.WData[4], test.top.WData[3], test.top.WData[2], test.top.WData[0], test.top.WData[6], test.top.W_Address[14], test.top.W_Address[13], test.top.R_Address[14], test.top.R_Address[16], test.top.R_AddressAck[0], test.top.R_Address[13], test.top.RdataAck[0], test.top.R_AddressAck[2], test.top.R_Address[19], test.top.R_Address[18], test.top.R_Address[17], test.top.R_Address[1], test.top.WData[7:0], test.top.W_Address[19:0], test.top.WRW[1:0], test.top.RData[7:0], test.top.WdataAck[1:0], test.top.R_AddressAck[4:0], test.top.R_Address[19:0], test.top.RRW[1:0], test.top.RdataAck[1:0], test.top.W_AddresAck[4:0]);
 end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
-// LAST TIME SAVED: Apr 20 02:55:32 2015
-// NETLIST TIME: Apr 20 22:26:48 2015
+// LAST TIME SAVED: Apr 24 01:42:26 2015
+// NETLIST TIME: Apr 24 02:45:30 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_64 ( Ack, RData, WAck, A, RAck, RW, Req, WData );
+module cdsModule_88 ( RData, R_AddressAck, ReadAck, W_AddresAck,
+     WdataAck, WriteAck, RRW, R_Address, RdataAck, WData, WRW,
+     W_Address );
 
-output  Ack;
+output  ReadAck, WriteAck;
 
-input  Req;
 
+output [4:0]  R_AddressAck;
+output [4:0]  W_AddresAck;
 output [7:0]  RData;
-output [1:0]  WAck;
+output [1:0]  WdataAck;
 
-input [15:0]  A;
-input [1:0]  RAck;
-input [1:0]  RW;
+input [1:0]  WRW;
+input [1:0]  RdataAck;
+input [1:0]  RRW;
 input [7:0]  WData;
+input [19:0]  W_Address;
+input [19:0]  R_Address;
 
 // Buses in the design
 
 wire  [63:0]  Aline;
 
-wire  [3:0]  W1_1;
+wire  [1:0]  RW;
 
-wire  [7:0]  S;
-
-wire  [1:0]  RWT;
-
-wire  [1:0]  WAckT;
-
-wire  [1:0]  RAckT;
-
-wire  [0:1]  net036;
-
-wire  [0:7]  net027;
-
-wire  [0:15]  net031;
-
-wire  [3:0]  B0_1;
-
-wire  [3:0]  cdsbus0;
+wire  [0:19]  net049;
 
 wire  [3:0]  W0_1;
 
-wire  [0:1]  net40;
+wire  [0:4]  net045;
 
 wire  [0:7]  net44;
 
+wire  [3:0]  cdsbus0;
+
+wire  [0:1]  net046;
+
+wire  [4:0]  W_Address_AckT;
+
+wire  [19:0]  R_AddressT;
+
+wire  [7:0]  S;
+
+wire  [19:0]  W_AddressT;
+
 wire  [0:1]  net41;
 
-wire  [15:0]  AT;
-
-wire  [7:0]  WDataT;
+wire  [1:0]  RdataAckT;
 
 wire  [7:0]  RDataT;
 
+wire  [5:0]  Acko;
+
+wire  [1:0]  WdataAckT;
+
+wire  [0:4]  net048;
+
+wire  [1:0]  WRWT;
+
+wire  [7:0]  WDataT;
+
 wire  [3:0]  B1_1;
 
-wire  [3:0]  cdsbus1;
+wire  [1:0]  cdsbus1;
+
+wire  [3:0]  W1_1;
+
+wire  [0:1]  net036;
+
+wire  [3:0]  cdsbus2;
+
+wire  [0:19]  net060;
+
+wire  [3:0]  B0_1;
+
+wire  [0:1]  net064;
+
+wire  [0:7]  net027;
+
+wire  [0:4]  net055;
+
+wire  [19:0]  AT;
 
 // begin interface element definitions
 
-wire net020;
-reg mixedNet99999;
+wire cdsNet0;
+wire cdsNet1;
+reg mixedNet99998;
+reg mixedNet99997;
+reg mixedNet99996;
+reg mixedNet99995;
 reg mixedNet99993;
 reg mixedNet99992;
-reg mixedNet99990;
-reg mixedNet99985;
-reg mixedNet99983;
-reg mixedNet99979;
-reg mixedNet99978;
-reg mixedNet99977;
-reg mixedNet99976;
-reg mixedNet99974;
-assign net027[2] = mixedNet99999;
-assign net027[4] = mixedNet99993;
-assign net027[0] = mixedNet99992;
-assign net027[1] = mixedNet99990;
-assign net027[6] = mixedNet99985;
-assign net027[7] = mixedNet99983;
-assign net020 = mixedNet99979;
-assign net027[5] = mixedNet99978;
-assign net027[3] = mixedNet99977;
-assign net036[0] = mixedNet99976;
-assign net036[1] = mixedNet99974;
+reg mixedNet99988;
+reg mixedNet99980;
+reg mixedNet99975;
+reg mixedNet99972;
+reg mixedNet99970;
+reg mixedNet99969;
+reg mixedNet99968;
+reg mixedNet99967;
+reg mixedNet99966;
+reg mixedNet99957;
+reg mixedNet99944;
+reg mixedNet99942;
+reg mixedNet99937;
+reg mixedNet99936;
+reg mixedNet99933;
+reg mixedNet99927;
+assign cdsNet0 = mixedNet99998;
+assign net045[3] = mixedNet99997;
+assign net045[1] = mixedNet99996;
+assign net036[1] = mixedNet99995;
+assign net027[1] = mixedNet99993;
+assign net027[3] = mixedNet99992;
+assign net036[0] = mixedNet99988;
+assign net048[1] = mixedNet99980;
+assign net027[0] = mixedNet99975;
+assign net027[4] = mixedNet99972;
+assign cdsNet1 = mixedNet99970;
+assign net048[3] = mixedNet99969;
+assign net027[6] = mixedNet99968;
+assign net048[4] = mixedNet99967;
+assign net027[7] = mixedNet99966;
+assign net045[4] = mixedNet99957;
+assign net048[2] = mixedNet99944;
+assign net045[2] = mixedNet99942;
+assign net027[2] = mixedNet99937;
+assign net048[0] = mixedNet99936;
+assign net027[5] = mixedNet99933;
+assign net045[0] = mixedNet99927;
 
 // end interface element definitions
 
@@ -339,45 +455,5 @@ specify
     specparam CDS_VIEWNAME = "schematic";
 endspecify
 
-inv_1xT I22 ( net021, Req);
-inv_1xT I16 ( Ack, net020);
-inv_1xT I19_15_ ( net031[0], A[15]);
-inv_1xT I19_14_ ( net031[1], A[14]);
-inv_1xT I19_13_ ( net031[2], A[13]);
-inv_1xT I19_12_ ( net031[3], A[12]);
-inv_1xT I19_11_ ( net031[4], A[11]);
-inv_1xT I19_10_ ( net031[5], A[10]);
-inv_1xT I19_9_ ( net031[6], A[9]);
-inv_1xT I19_8_ ( net031[7], A[8]);
-inv_1xT I19_7_ ( net031[8], A[7]);
-inv_1xT I19_6_ ( net031[9], A[6]);
-inv_1xT I19_5_ ( net031[10], A[5]);
-inv_1xT I19_4_ ( net031[11], A[4]);
-inv_1xT I19_3_ ( net031[12], A[3]);
-inv_1xT I19_2_ ( net031[13], A[2]);
-inv_1xT I19_1_ ( net031[14], A[1]);
-inv_1xT I19_0_ ( net031[15], A[0]);
-inv_1xT I8_1_ ( WAck[1], net036[0]);
-inv_1xT I8_0_ ( WAck[0], net036[1]);
-inv_1xT I14_1_ ( net40[0], RW[1]);
-inv_1xT I14_0_ ( net40[1], RW[0]);
-inv_1xT I12_1_ ( net41[0], RAck[1]);
-inv_1xT I12_0_ ( net41[1], RAck[0]);
-inv_1xT I10_7_ ( RData[7], net027[0]);
-inv_1xT I10_6_ ( RData[6], net027[1]);
-inv_1xT I10_5_ ( RData[5], net027[2]);
-inv_1xT I10_4_ ( RData[4], net027[3]);
-inv_1xT I10_3_ ( RData[3], net027[4]);
-inv_1xT I10_2_ ( RData[2], net027[5]);
-inv_1xT I10_1_ ( RData[1], net027[6]);
-inv_1xT I10_0_ ( RData[0], net027[7]);
-inv_1xT I4_7_ ( net44[0], WData[7]);
-inv_1xT I4_6_ ( net44[1], WData[6]);
-inv_1xT I4_5_ ( net44[2], WData[5]);
-inv_1xT I4_4_ ( net44[3], WData[4]);
-inv_1xT I4_3_ ( net44[4], WData[3]);
-inv_1xT I4_2_ ( net44[5], WData[2]);
-inv_1xT I4_1_ ( net44[6], WData[1]);
-inv_1xT I4_0_ ( net44[7], WData[0]);
 
 endmodule

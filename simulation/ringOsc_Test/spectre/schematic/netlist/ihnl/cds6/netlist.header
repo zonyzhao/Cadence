@@ -1,0 +1,5 @@
+
+// Library name: 16nm
+// Cell name: and_1x
+// View name: schematic
+subckt and_1x A B Y

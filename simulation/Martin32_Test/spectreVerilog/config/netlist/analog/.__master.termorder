@@ -9,4 +9,5 @@
 "16nm.TH22.schematic.16nm_Tests.Martin32_Test.config.path.termorder" (("A" "B" "Y") ("A" "B" "Y"))
 "16nm.inv_1xt.schematic.16nm_Tests.Martin32_Test.config.path.termorder" nil
 "16nm.or_1x.schematic.16nm_Tests.Martin32_Test.config.path.termorder" nil
+"16nm.nand_1x.schematic.16nm_Tests.Martin32_Test.config.path.termorder" nil
 "16nm.Martin_Sum.schematic.16nm_Tests.Martin32_Test.config.path.termorder" nil

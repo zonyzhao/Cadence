@@ -4,7 +4,7 @@
   blockName "Martin32_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "vdd! gnd! vcc!"
+  globalList "vdd! vcc! gnd!"
   hierDelim "."
   netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Martin32_Test/spectreVerilog/config/netlist/analog"
  )
@@ -17,6 +17,7 @@
  )
 ( model
 ( "16nm/TH22/schematic" "TH22" )
+( "16nm/nand_1x/schematic" "nand_1x" )
 ( "16nm/TH44/schematic" "TH44" )
 ( "16nm/Martin_Sum/schematic" "Martin_Sum" )
 ( "16nm/Martin_Add/schematic" "Martin_Add" )
@@ -37,12 +38,13 @@
 ( "TH22" "ihnl/cds9/map" )
 ( "TH44" "ihnl/cds1/map" )
 ( "Martin_Add" "ihnl/cds7/map" )
+( "nand_1x" "ihnl/cds10/map" )
 ( "Martin_Sum" "ihnl/cds3/map" )
 ( "inv_1xt" "ihnl/cds0/map" )
 ( "inv_1x" "ihnl/cds2/map" )
 ( "Martin_Carry" "ihnl/cds4/map" )
-( "Martin32_Test" "ihnl/cds11/map" )
-( "Martin_Add32" "ihnl/cds10/map" )
+( "Martin32_Test" "ihnl/cds12/map" )
+( "Martin_Add32" "ihnl/cds11/map" )
 ( "nor_1x" "ihnl/cds5/map" )
 ( "Martin_Add4" "ihnl/cds8/map" )
  )

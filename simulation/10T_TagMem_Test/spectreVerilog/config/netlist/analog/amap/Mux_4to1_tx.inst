@@ -1,0 +1,11 @@
+HEADER
+"PSFversion" "1.00"
+"I10n I9n I8n I7n I5n I4n I1n I0n" "tx_gate"
+"I11n I6n" "inv_1x"
+"Av" ":1v"
+"Bv" ":2v"
+"Cv" ":3v"
+"Dv" ":4v"
+"S0v" ":5v"
+"S1v" ":6v"
+"Zv" ":7v"

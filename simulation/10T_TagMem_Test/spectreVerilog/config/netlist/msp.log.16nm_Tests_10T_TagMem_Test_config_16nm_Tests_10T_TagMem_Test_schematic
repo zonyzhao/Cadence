@@ -1,4 +1,4 @@
-Sat Apr 18 13:08:01 2015
+Thu Apr 23 00:43:16 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -9,7 +9,7 @@ GLOBAL ENVIRONMENT INFORMATION:
 	Default View List	
 	Stop View List	
 Switch View List Table:
-	Default IE Libname	analogLib
+	Default IE Libname	UCD_Analog_Parts
 	Default IE Cellname	MOS
 	Detail IE Generation Flag	FALSE
 Power and ground nets:
@@ -51,9 +51,11 @@ Module 10T_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module nor4_1x, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
+Module Decode_4to16_, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
-Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_1to2, lib 16nm, view schematic, configViewString $default
+Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_4to16, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
 Module 10T, lib 16nm, view schematic, configViewString $default
@@ -67,3 +69,4 @@ Module Dcache_TagMem, lib 16nm, view schematic, configViewString $default
 Model pfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model nfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model vdc, lib UCD_Analog_Parts, view spectre
+Model cap, lib UCD_Analog_Parts, view spectre

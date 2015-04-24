@@ -1,6 +1,6 @@
 CADENCE IHNL01070
 $model
-16nm_Tests/6T_DataPath_Test/schematic 16nm_Tests/6T_DataPath_Test/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_6T_DataPath_Test_config/1 cdsModule_64
+16nm_Tests/6T_DataPath_Test/schematic 16nm_Tests/6T_DataPath_Test/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_6T_DataPath_Test_config/1 cdsModule_88
 $endmodel
 $net
 vdd! cds_globals.vdd_
@@ -8,5 +8,4 @@ gnd! cds_globals.gnd_
 vcc! cds_globals.vcc_
 $endnet
 $param
-vdd cds_globals.vdd
 $endparam

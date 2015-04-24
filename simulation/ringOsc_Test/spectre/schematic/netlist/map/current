@@ -20,7 +20,7 @@
 ( "16nm/nand_1x/schematic" "nand_1x" )
 ( "16nm_Tests/ringOsc_Test/schematic" "ringOsc_Test" )
 ( "16nm/inv_1x/schematic" "inv_1x" )
-( "16nm/SG_nand_1x/schematic" "SG_nand_1x" )
+( "16nm/and_1x/schematic" "and_1x" )
 ( "16nm/nor_1x/schematic" "nor_1x" )
  )
 ( term
@@ -29,8 +29,8 @@
  )
 ( "TH22" "ihnl/cds3/map" )
 ( "nand_1x" "ihnl/cds2/map" )
+( "and_1x" "ihnl/cds7/map" )
 ( "inv_1x" "ihnl/cds0/map" )
 ( "ringOsc_Test" "ihnl/cds4/map" )
 ( "nor_1x" "ihnl/cds1/map" )
-( "SG_nand_1x" "ihnl/cds5/map" )
  )

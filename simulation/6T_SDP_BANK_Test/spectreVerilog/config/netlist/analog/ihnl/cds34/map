@@ -11,11 +11,11 @@
 ( "b<2>" "b_2" )
 ( "out<2>" "out_2" )
 ( "Vpass<1>" "Vpass_1" )
-( "bmid<0>" "bmid_0" )
 ( "b<3>" "b_3" )
+( "bmid<0>" "bmid_0" )
 ( "Vpass<0>" "Vpass_0" )
-( "bmid<1>" "bmid_1" )
 ( "amid<2>" "amid_2" )
+( "bmid<1>" "bmid_1" )
 ( "bmid<3>" "bmid_3" )
 ( "Vpass<2>" "Vpass_2" )
 ( "amid<3>" "amid_3" )
@@ -34,8 +34,8 @@
 ( inst
  )
 ( model
-( "TH33~" "_sub88" )
-( "6T_1of4Merge" "_sub89" )
+( "TH33~" "_sub22" )
+( "6T_1of4Merge" "_sub23" )
  )
 ( term
  )

@@ -1,7 +1,8 @@
 HEADER
 "PSFversion" "1.00"
+"A<3>v" "A_3v"
+"A<0>v" "A_0v"
+"A<1>v" "A_1v"
 "B0v" "B0v"
-"Av" "Av"
-"Q0v" "Q0v"
-"Q1v" "Q1v"
+"A<2>v" "A_2v"
 "B1v" "B1v"

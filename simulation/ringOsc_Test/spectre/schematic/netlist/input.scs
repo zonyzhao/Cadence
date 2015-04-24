@@ -1,11 +1,11 @@
 // Generated for: spectre
-// Generated on: Apr  9 23:25:42 2015
+// Generated on: Apr 22 12:22:20 2015
 // Design library name: 16nm_Tests
 // Design cell name: ringOsc_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd!
-parameters vdd=2
+parameters vdd=.850
 include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 
 // Library name: 16nm
@@ -65,86 +65,18 @@ ends TH22
 // End of subcircuit definition.
 
 // Library name: 16nm
-// Cell name: SG_nand_1x
+// Cell name: and_1x
 // View name: schematic
-subckt SG_nand_1x A B Y
-    M1 (Y B vdd! B) pfet w=100n l=20n nfin=1 m=1 degradation=no
-    M0 (Y A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=no
-    M3 (net22 B 0 B) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M2 (Y A net22 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
-ends SG_nand_1x
+subckt and_1x A B Y
+    I7 (A B ntYbar) nand_1x
+    I6 (ntYbar Y) inv_1x
+ends and_1x
 // End of subcircuit definition.
 
 // Library name: 16nm_Tests
 // Cell name: ringOsc_Test
 // View name: schematic
 V1 (vdd! 0) vsource type=dc dc=vdd
-I95\<2\> (net05 net090\<0\>) inv_1x
-I95\<1\> (net05 net090\<1\>) inv_1x
-I95\<0\> (net05 net090\<2\>) inv_1x
-I94\<2\> (net010 net091\<0\>) inv_1x
-I94\<1\> (net010 net091\<1\>) inv_1x
-I94\<0\> (net010 net091\<2\>) inv_1x
-I93\<2\> (net078 net092\<0\>) inv_1x
-I93\<1\> (net078 net092\<1\>) inv_1x
-I93\<0\> (net078 net092\<2\>) inv_1x
-I92\<2\> (net076 net093\<0\>) inv_1x
-I92\<1\> (net076 net093\<1\>) inv_1x
-I92\<0\> (net076 net093\<2\>) inv_1x
-I91\<2\> (net032 net094\<0\>) inv_1x
-I91\<1\> (net032 net094\<1\>) inv_1x
-I91\<0\> (net032 net094\<2\>) inv_1x
-I90\<2\> (net029 net095\<0\>) inv_1x
-I90\<1\> (net029 net095\<1\>) inv_1x
-I90\<0\> (net029 net095\<2\>) inv_1x
-I89\<2\> (net077 net096\<0\>) inv_1x
-I89\<1\> (net077 net096\<1\>) inv_1x
-I89\<0\> (net077 net096\<2\>) inv_1x
-I88\<2\> (net014 net097\<0\>) inv_1x
-I88\<1\> (net014 net097\<1\>) inv_1x
-I88\<0\> (net014 net097\<2\>) inv_1x
-I87\<2\> (net08 net098\<0\>) inv_1x
-I87\<1\> (net08 net098\<1\>) inv_1x
-I87\<0\> (net08 net098\<2\>) inv_1x
-I86\<2\> (net03 net099\<0\>) inv_1x
-I86\<1\> (net03 net099\<1\>) inv_1x
-I86\<0\> (net03 net099\<2\>) inv_1x
-I85\<2\> (SG_0 net0100\<0\>) inv_1x
-I85\<1\> (SG_0 net0100\<1\>) inv_1x
-I85\<0\> (SG_0 net0100\<2\>) inv_1x
-I84\<2\> (nand0 net0101\<0\>) inv_1x
-I84\<1\> (nand0 net0101\<1\>) inv_1x
-I84\<0\> (nand0 net0101\<2\>) inv_1x
-I83\<2\> (nand10 net0102\<0\>) inv_1x
-I83\<1\> (nand10 net0102\<1\>) inv_1x
-I83\<0\> (nand10 net0102\<2\>) inv_1x
-I82\<2\> (nand9 net0103\<0\>) inv_1x
-I82\<1\> (nand9 net0103\<1\>) inv_1x
-I82\<0\> (nand9 net0103\<2\>) inv_1x
-I81\<2\> (nand8 net0104\<0\>) inv_1x
-I81\<1\> (nand8 net0104\<1\>) inv_1x
-I81\<0\> (nand8 net0104\<2\>) inv_1x
-I80\<2\> (nand7 net0105\<0\>) inv_1x
-I80\<1\> (nand7 net0105\<1\>) inv_1x
-I80\<0\> (nand7 net0105\<2\>) inv_1x
-I79\<2\> (nand6 net0106\<0\>) inv_1x
-I79\<1\> (nand6 net0106\<1\>) inv_1x
-I79\<0\> (nand6 net0106\<2\>) inv_1x
-I78\<2\> (nand5 net0107\<0\>) inv_1x
-I78\<1\> (nand5 net0107\<1\>) inv_1x
-I78\<0\> (nand5 net0107\<2\>) inv_1x
-I77\<2\> (nand4 net0108\<0\>) inv_1x
-I77\<1\> (nand4 net0108\<1\>) inv_1x
-I77\<0\> (nand4 net0108\<2\>) inv_1x
-I76\<2\> (nand3 net0109\<0\>) inv_1x
-I76\<1\> (nand3 net0109\<1\>) inv_1x
-I76\<0\> (nand3 net0109\<2\>) inv_1x
-I75\<2\> (nand2 net0110\<0\>) inv_1x
-I75\<1\> (nand2 net0110\<1\>) inv_1x
-I75\<0\> (nand2 net0110\<2\>) inv_1x
-I74\<2\> (nand1 net0111\<0\>) inv_1x
-I74\<1\> (nand1 net0111\<1\>) inv_1x
-I74\<0\> (nand1 net0111\<2\>) inv_1x
 I62 (nC10 nC0) inv_1x
 I13\<2\> (inv1 net026\<0\>) inv_1x
 I13\<1\> (inv1 net026\<1\>) inv_1x
@@ -201,17 +133,7 @@ I31 (nor9 nor9 nor10) nor_1x
 I32 (nor4 nor4 nor5) nor_1x
 I33 (nor10 nor10 nor0) nor_1x
 I34 (nor5 nor5 not6) nor_1x
-I45 (nand2 nand2 nand3) nand_1x
-I44 (nand7 nand7 nand8) nand_1x
-I43 (nand1 nand1 nand2) nand_1x
-I42 (nand6 nand6 nand7) nand_1x
 I41 (nand0 nand0 nand1) nand_1x
-I40 (nand8 nand8 nand9) nand_1x
-I39 (nand3 nand3 nand4) nand_1x
-I35 (nand5 nand5 nand6) nand_1x
-I36 (nand10 nand10 nand0) nand_1x
-I37 (nand4 nand4 nand5) nand_1x
-I38 (nand9 nand9 nand10) nand_1x
 I56 (nC2 nC2 nC3) TH22
 I55 (nC6 nC6 nC7) TH22
 I54 (nC1 nC1 nC2) TH22
@@ -222,20 +144,18 @@ I50 (nC3 nC3 nC4) TH22
 I48 (nC9 nC9 nC10) TH22
 I47 (nC4 nC4 nC5) TH22
 I46 (nC8 nC8 nC9) TH22
-I63 (net08 net08 net03) SG_nand_1x
-I73 (net010 net010 net078) SG_nand_1x
-I72 (net05 net05 net010) SG_nand_1x
-I71 (SG_0 SG_0 net05) SG_nand_1x
-I70 (net078 net078 net076) SG_nand_1x
-I69 (net076 net076 net032) SG_nand_1x
-I68 (net032 net032 net029) SG_nand_1x
-I67 (net077 net077 net014) SG_nand_1x
-I66 (net029 net029 net077) SG_nand_1x
-I65 (net014 net014 net08) SG_nand_1x
-I64 (net03 net03 SG_0) SG_nand_1x
-ic net014=0 net029=0 net076=0 net010=0 SG_0=0 nC10=vdd nC0=0 nand8=0 \
-    nand6=0 nand4=0 nand2=0 nand0=0 nor8=0 not6=0 nor4=0 no2=0 nor0=0 \
-    inv8=0 inv6=0 inv4=0 inv2=0 inv0=0 
+I38 (nand9 nand9 nand10) and_1x
+I37 (nand4 nand4 nand5) and_1x
+I36 (nand10 nand10 nand0) and_1x
+I35 (nand5 nand5 nand6) and_1x
+I39 (nand3 nand3 nand4) and_1x
+I40 (nand8 nand8 nand9) and_1x
+I42 (nand6 nand6 nand7) and_1x
+I43 (nand1 nand1 nand2) and_1x
+I44 (nand7 nand7 nand8) and_1x
+I45 (nand2 nand2 nand3) and_1x
+ic nC10=vdd nC0=0 nand8=0 nand6=0 nand4=0 nand2=0 nand0=0 nor8=0 not6=0 \
+    nor4=0 no2=0 nor0=0 inv8=0 inv6=0 inv4=0 inv2=0 inv0=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
@@ -249,5 +169,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save inv0 nand0 nor0 nC0 SG_0 
+save inv0 nand0 nor0 nC0 
 saveOptions options save=allpub

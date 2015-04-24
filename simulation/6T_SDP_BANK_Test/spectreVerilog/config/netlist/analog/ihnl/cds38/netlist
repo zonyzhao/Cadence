@@ -17,7 +17,7 @@
         WriteData_8 WriteData_7 WriteData_6 WriteData_5 WriteData_4 \
         WriteData_3 WriteData_2 WriteData_1 WriteData_0 WriteAck_7 \
         WriteAck_6 WriteAck_5 WriteAck_4 WriteAck_3 WriteAck_2 \
-        WriteAck_1 WriteAck_0) _sub87
+        WriteAck_1 WriteAck_0) _sub21
     I1 (WAckp_4 WAckp_3 WAckp_2 WAckp_1 WAckp_0 Ap_19 Ap_18 Ap_17 Ap_16 \
         Ap_15 Ap_14 Ap_13 Ap_12 Ap_11 Ap_10 Ap_9 Ap_8 Ap_7 Ap_6 Ap_5 \
         Ap_4 Ap_3 Ap_2 Ap_1 Ap_0 RAddr_Ack_4 RAddr_Ack_3 RAddr_Ack_2 \
@@ -34,6 +34,6 @@
         Write_Address_10 Write_Address_9 Write_Address_8 \
         Write_Address_7 Write_Address_6 Write_Address_5 Write_Address_4 \
         Write_Address_3 Write_Address_2 Write_Address_1 Write_Address_0 \
-        Write_1 Write_0 Write_Ack) _sub92
-ends _sub93
+        Write_1 Write_0 Write_Ack) _sub26
+ends _sub27
 // End of subcircuit definition.

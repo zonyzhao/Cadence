@@ -1,0 +1,50 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Compare22_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "vdd! gnd! vcc!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare22_Test/spectreVerilog/config/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "net36" 0 21  "net36" 0 21  )
+( "a0" 21 0  "a0" 21 0  )
+( "a1" 21 0  "a1" 21 0  )
+( "b1" 21 0  "b1" 21 0  )
+( "net32" 0 21  "net32" 0 21  )
+( "net39" 0 21  "net39" 0 21  )
+( "net37" 0 21  "net37" 0 21  )
+( "net33" 0 21  "net33" 0 21  )
+( "net35" 0 21  "net35" 0 21  )
+( "net34" 0 21  "net34" 0 21  )
+( "net38" 0 21  "net38" 0 21  )
+( "b0" 21 0  "b0" 21 0  )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/Compare22_Test/schematic" "Compare22_Test" )
+ )
+( term
+ )
+( param
+( "vdd" "cds_globals.vdd" )
+ )
+( "Compare22_Test" "ihnl/cds0/map" )
+ )

@@ -515,11 +515,11 @@
 ( "I29<3>" "I29_3" )
  )
 ( model
-( "6T_CONTROL" "_sub85" )
-( "6T_DATA" "_sub84" )
-( "6T_BANK" "_sub87" )
-( "6T_DEMUX_" "_sub86" )
-( "6T_CHUNK" "_sub81" )
+( "6T_CONTROL" "_sub19" )
+( "6T_BANK" "_sub21" )
+( "6T_DEMUX_" "_sub20" )
+( "6T_CHUNK" "_sub16" )
+( "6T_DATAb" "_sub18" )
  )
 ( term
  )

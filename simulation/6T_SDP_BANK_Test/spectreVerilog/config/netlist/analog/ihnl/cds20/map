@@ -6,10 +6,6 @@
   hierDelim "."
  )
 ( net
-( "R1i+1" "R1i\\+1" )
-( "R0i+1" "R0i\\+1" )
-( "gnd!" "0" )
-( "vdd!" "vdd!" )
  )
 ( inst
  )

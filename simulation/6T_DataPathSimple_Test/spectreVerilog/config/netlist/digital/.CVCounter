@@ -1,0 +1,13 @@
+cellViewCounterTable = makeTable('cellViewCounterTableType nil)
+cellViewCounterTable['("UCD_Analog_Parts" "gnd" "symbol" )] =  19
+cellViewCounterTable['("16nm" "inv_1xt" "symbol" )] =  38
+cellViewCounterTable['("16nm" "6T_DEMUX_" "symbol" )] =  1756
+cellViewCounterTable['("UCD_Analog_Parts" "vdc" "symbol" )] =  33
+cellViewCounterTable['("16nm" "6T_CHUNK" "symbol" )] =  1262
+cellViewCounterTable['("16nm" "6T_DATAb" "symbol" )] =  919
+cellViewCounterTable['("basic" "opin" "symbol" )] =  22
+cellViewCounterTable['("16nm" "inv_1xT" "symbol" )] =  36
+cellViewCounterTable['("16nm_Tests" "6T_DataPathSimple_Test" "schematic" )] =  261427
+cellViewCounterTable['("UCD_Analog_Parts" "vcc" "symbol" )] =  20
+cellViewCounterTable['("UCD_Analog_Parts" "vdd" "symbol" )] =  20
+cellViewCounterTable['("basic" "ipin" "symbol" )] =  22

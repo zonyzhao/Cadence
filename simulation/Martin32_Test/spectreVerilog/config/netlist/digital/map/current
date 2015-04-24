@@ -4,7 +4,7 @@
   blockName "Martin32_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "vdd! gnd! vcc!"
+  globalList "vdd! vcc! gnd!"
   hierDelim "."
   hierPrefix "test.top"
   globalHierPrefix "cds_globals."
@@ -21,21 +21,21 @@
 ( "afBar" 31 0  "afBar" 31 0  )
 ( "atBar" 31 0  "atBar" 31 0  )
 ( "bfBar" 31 0  "bfBar" 31 0  )
-( "btBar" 31 0  "btBar" 31 0  )
-( "afT" 31 0  "afT" 31 0  )
-( "atT" 31 0  "atT" 31 0  )
 ( "bfT" 31 0  "bfT" 31 0  )
-( "btT" 31 0  "btT" 31 0  )
+( "btBar" 31 0  "btBar" 31 0  )
 ( "stBar" 31 0  "stBar" 31 0  )
-( "sfBar" 31 0  "sfBar" 31 0  )
-( "sf" 31 0  "sf" 31 0  )
-( "st" 31 0  "st" 31 0  )
+( "afT" 31 0  "afT" 31 0  )
 ( "sfT" 31 0  "sfT" 31 0  )
+( "atT" 31 0  "atT" 31 0  )
+( "sfBar" 31 0  "sfBar" 31 0  )
+( "btT" 31 0  "btT" 31 0  )
+( "stT" 31 0  "stT" 31 0  )
 ( "bt" 31 0  "bt" 31 0  )
 ( "af" 31 0  "af" 31 0  )
-( "stT" 31 0  "stT" 31 0  )
 ( "bf" 31 0  "bf" 31 0  )
 ( "at" 31 0  "at" 31 0  )
+( "sf" 31 0  "sf" 31 0  )
+( "st" 31 0  "st" 31 0  )
  )
 ( net
 ( "gnd!" "cds_globals.gnd_" )

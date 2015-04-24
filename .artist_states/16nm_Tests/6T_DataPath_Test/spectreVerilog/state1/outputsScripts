@@ -57,6 +57,7 @@ list(tmp1 tmp2)
 tmp10 = (let
 (tmp1 tmp2)
 tmp1 = 'fastViewOption
+tmp2 = 't
 list(tmp1 tmp2)
 )
 tmp11 = (let
@@ -221,7 +222,7 @@ list(tmp1 tmp2)
 tmp21 = (let
 (tmp1 tmp2)
 tmp1 = 'currents
-tmp2 = ""
+tmp2 = "selected"
 list(tmp1 tmp2)
 )
 tmp22 = (let
@@ -233,7 +234,7 @@ list(tmp1 tmp2)
 tmp23 = (let
 (tmp1 tmp2)
 tmp1 = 'pwr
-tmp2 = ""
+tmp2 = "all"
 list(tmp1 tmp2)
 )
 tmp24 = (let

@@ -150,7 +150,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>waveformtemplate
-				<value>                            </value>
+				<value></value>
 			</plottingoption>
 		</plottingoptions>
 	</active>
@@ -306,13 +306,12 @@
 						<value>no</value>
 					</plottingoption>
 					<plottingoption>waveformtemplate
-						<value>                            </value>
+						<value></value>
 					</plottingoption>
 				</plottingoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu Apr  9 13:44:15 2015
-</timestamp>
+			<timestamp>Thu Apr 9 13:44:15 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.0.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.0.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -478,13 +477,12 @@
 						<value>no</value>
 					</plottingoption>
 					<plottingoption>waveformtemplate
-						<value>                            </value>
+						<value></value>
 					</plottingoption>
 				</plottingoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu Apr  9 13:45:35 2015
-</timestamp>
+			<timestamp>Thu Apr 9 13:45:35 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/6T_SNMrwh_Test/adexl/results/data/MonteCarlo.1.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.1.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>

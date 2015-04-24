@@ -1,4 +1,4 @@
-Mon Apr 20 02:18:08 2015
+Fri Apr 24 02:41:03 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -41,8 +41,9 @@ Model inv_1xT, lib 16nm, view functional
 	The modules in this partition are:
 Module inv_1xt, lib 16nm, view schematic, configViewString $default
 Module inv_1x, lib 16nm, view schematic, configViewString $default
+Module tx_gate, lib 16nm, view schematic, configViewString $default
+Module Mux_4to1_tx, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
-Module Mux_128to32, lib 16nm, view schematic, configViewString $default
 Module nand3_1x, lib 16nm, view schematic, configViewString $default
 Module and3_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_2to4, lib 16nm, view schematic, configViewString $default
@@ -51,9 +52,11 @@ Module 10T_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module nor4_1x, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
+Module Decode_4to16_, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
-Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_1to2, lib 16nm, view schematic, configViewString $default
+Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_4to16, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
 Module 10T, lib 16nm, view schematic, configViewString $default
@@ -67,3 +70,4 @@ Module Dcache_TagMem, lib 16nm, view schematic, configViewString $default
 Model pfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model nfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model vdc, lib UCD_Analog_Parts, view spectre
+Model cap, lib UCD_Analog_Parts, view spectre

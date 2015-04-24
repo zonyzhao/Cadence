@@ -1,4 +1,4 @@
-inv_1xT I18 ( Req, ReqBar);
+inv_1xT I18 ( Ack, ReqBar);
 inv_1xT I16 ( df, dfBar);
 inv_1xT I15 ( dt, dtBar);
 inv_1xT I12 ( cfBar, cf);

@@ -1,7 +1,12 @@
 HEADER
 "PSFversion" "1.00"
 "I5n I4n I3n I2n I1n I0n I6n I7n" "Martin_Add4"
+"I17<3>v" "I17_3v"
 "I16n" "TH22"
+"I17<2>v" "I17_2v"
+"I17<1>v" "I17_1v"
+"I17<0>v" "I17_0v"
+"I17<3>n I17<2>n I17<1>n I17<0>n" "nand_1x"
 "I15n I14n" "TH44"
 "at<31>v" ":1v"
 "at<30>v" ":2v"

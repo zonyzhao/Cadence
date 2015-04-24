@@ -1,4 +1,4 @@
-Tue Apr 21 19:40:49 2015
+Tue Apr 21 23:20:53 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -67,3 +67,4 @@ Module Dcache_TagMem, lib 16nm, view schematic, configViewString $default
 Model pfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model nfet, lib NCSU_TechLib_FreePDK15, view spectre
 Model vdc, lib UCD_Analog_Parts, view spectre
+Model cap, lib UCD_Analog_Parts, view spectre

@@ -1,6 +1,5 @@
-ic net014=0 net029=0 net076=0 net010=0 SG_0=0 nC10=vdd nC0=0 nand8=0 \
-    nand6=0 nand4=0 nand2=0 nand0=0 nor8=0 not6=0 nor4=0 no2=0 nor0=0 \
-    inv8=0 inv6=0 inv4=0 inv2=0 inv0=0 
+ic nC10=vdd nC0=0 nand8=0 nand6=0 nand4=0 nand2=0 nand0=0 nor8=0 not6=0 \
+    nor4=0 no2=0 nor0=0 inv8=0 inv6=0 inv4=0 inv2=0 inv0=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
@@ -14,5 +13,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save inv0 nand0 nor0 nC0 SG_0 
+save inv0 nand0 nor0 nC0 
 saveOptions options save=allpub

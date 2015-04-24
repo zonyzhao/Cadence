@@ -1,0 +1,8 @@
+HEADER
+"PSFversion" "1.00"
+"N2n" "NCSU_TechLib_FreePDK15_nfet_spectre"
+"M0n" "NCSU_TechLib_FreePDK15_pfet_spectre"
+"Dv" ":1v"
+"GNv" ":2v"
+"GPv" ":3v"
+"Sv" ":4v"

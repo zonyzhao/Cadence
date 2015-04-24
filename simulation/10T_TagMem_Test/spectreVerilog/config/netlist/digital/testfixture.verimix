@@ -33,13 +33,13 @@ initial begin
     W1[31:0] = 32'h00000000;
     W_Addr[6:0] = 7'b0000000;
 
-    lastWriteAddr = 7'b1111111;
-    #1000;
+    lastWriteAddr = 7'b0101010;
+    #600;
 
 // Write only
 	W1[31:0]    = $random;
     W0[31:0]    = ~W1[31:0];
-    W_Addr[6:0] = $random(seed);
+    W_Addr[6:0] = 7'b0101010;
     GoW         = 1'b1;  
     wStart      = $time;
     wait(W_Ack);
@@ -56,11 +56,11 @@ initial begin
     wDelay = $time - wStart;
     $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
 
-	#250;
+	#100;
 
 // Read Only
     rStart = $time;
-    R_Addr[6:0] = 7'b0000000;
+    R_Addr[6:0] = 7'b0101010;
     GoR = 1'b1;
     wait(R_Ack);
     rDelay = $time - rStart;
@@ -75,11 +75,11 @@ initial begin
     $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);  
     readCount = readCount + 1;
 	
-	#250;
+	#100;
 
 //Start Reading+ Writing
     start       = 1;
-    W1[31:0]    = $random;
+    W1[31:0]    = $random(seed);
     W0[31:0]    = ~W1[31:0];
     W_Addr[6:0] = $random;
     GoW         = 1'b1;  

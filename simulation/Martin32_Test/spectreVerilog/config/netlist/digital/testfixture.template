@@ -4,7 +4,7 @@
 module test;
 
 
-wire  Req, df, dt;
+wire  Ack, df, dt;
 
 reg  cf, ct;
 
@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-Martin32_Test top(Req, df, dt, sf, st, af, at, bf, bt, cf, ct); 
+Martin32_Test top(Ack, df, dt, sf, st, af, at, bf, bt, cf, ct); 
  
 
 `define verimix

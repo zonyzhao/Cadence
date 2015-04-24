@@ -1,0 +1,139 @@
+// Library - 16nm_Tests, Cell - 6T_DataPathSimple_Test, View -
+//schematic
+// LAST TIME SAVED: Apr 24 03:07:40 2015
+// NETLIST TIME: Apr 24 03:09:57 2015
+`timescale 1ps / 1ps 
+
+module cdsModule_148 ( Ack, RData, WdataAck, A, RW, RdataAck, WData );
+
+output  Ack;
+
+
+output [7:0]  RData;
+output [1:0]  WdataAck;
+
+input [1:0]  RW;
+input [1:0]  RdataAck;
+input [16:0]  A;
+input [7:0]  WData;
+
+// Buses in the design
+
+wire  [0:16]  net033;
+
+wire  [3:0]  W1_1;
+
+wire  [1:0]  RWT;
+
+wire  [1:0]  WdataAckT;
+
+wire  [3:0]  B0_1;
+
+wire  [3:0]  W0_1;
+
+wire  [1:0]  RdataAckT;
+
+wire  [0:7]  net44;
+
+wire  [7:0]  S;
+
+wire  [63:0]  Aline;
+
+wire  [7:0]  RDataT;
+
+wire  [16:0]  AT;
+
+wire  [7:0]  WDataT;
+
+wire  [3:0]  cdsbus0;
+
+wire  [0:1]  net032;
+
+wire  [0:1]  net41;
+
+wire  [3:0]  B1_1;
+
+wire  [0:1]  net036;
+
+wire  [0:7]  net027;
+
+wire  [3:0]  cdsbus1;
+
+// begin interface element definitions
+
+wire net018;
+reg mixedNet99999;
+reg mixedNet99990;
+reg mixedNet99989;
+reg mixedNet99988;
+reg mixedNet99983;
+reg mixedNet99979;
+reg mixedNet99978;
+reg mixedNet99977;
+reg mixedNet99975;
+reg mixedNet99969;
+reg mixedNet99962;
+assign net027[1] = mixedNet99999;
+assign net027[3] = mixedNet99990;
+assign net027[2] = mixedNet99989;
+assign net018 = mixedNet99988;
+assign net036[0] = mixedNet99983;
+assign net027[4] = mixedNet99979;
+assign net027[5] = mixedNet99978;
+assign net027[6] = mixedNet99977;
+assign net027[7] = mixedNet99975;
+assign net027[0] = mixedNet99969;
+assign net036[1] = mixedNet99962;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "6T_DataPathSimple_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I12_1_ ( WdataAck[1], net036[0]);
+inv_1xT I12_0_ ( WdataAck[0], net036[1]);
+inv_1xT I8_1_ ( net41[0], RdataAck[1]);
+inv_1xT I8_0_ ( net41[1], RdataAck[0]);
+inv_1xT I10_7_ ( RData[7], net027[0]);
+inv_1xT I10_6_ ( RData[6], net027[1]);
+inv_1xT I10_5_ ( RData[5], net027[2]);
+inv_1xT I10_4_ ( RData[4], net027[3]);
+inv_1xT I10_3_ ( RData[3], net027[4]);
+inv_1xT I10_2_ ( RData[2], net027[5]);
+inv_1xT I10_1_ ( RData[1], net027[6]);
+inv_1xT I10_0_ ( RData[0], net027[7]);
+inv_1xT I6 ( Ack, net018);
+inv_1xT I1_1_ ( net032[0], RW[1]);
+inv_1xT I1_0_ ( net032[1], RW[0]);
+inv_1xT I3_16_ ( net033[0], A[16]);
+inv_1xT I3_15_ ( net033[1], A[15]);
+inv_1xT I3_14_ ( net033[2], A[14]);
+inv_1xT I3_13_ ( net033[3], A[13]);
+inv_1xT I3_12_ ( net033[4], A[12]);
+inv_1xT I3_11_ ( net033[5], A[11]);
+inv_1xT I3_10_ ( net033[6], A[10]);
+inv_1xT I3_9_ ( net033[7], A[9]);
+inv_1xT I3_8_ ( net033[8], A[8]);
+inv_1xT I3_7_ ( net033[9], A[7]);
+inv_1xT I3_6_ ( net033[10], A[6]);
+inv_1xT I3_5_ ( net033[11], A[5]);
+inv_1xT I3_4_ ( net033[12], A[4]);
+inv_1xT I3_3_ ( net033[13], A[3]);
+inv_1xT I3_2_ ( net033[14], A[2]);
+inv_1xT I3_1_ ( net033[15], A[1]);
+inv_1xT I3_0_ ( net033[16], A[0]);
+inv_1xT I14_7_ ( net44[0], WData[7]);
+inv_1xT I14_6_ ( net44[1], WData[6]);
+inv_1xT I14_5_ ( net44[2], WData[5]);
+inv_1xT I14_4_ ( net44[3], WData[4]);
+inv_1xT I14_3_ ( net44[4], WData[3]);
+inv_1xT I14_2_ ( net44[5], WData[2]);
+inv_1xT I14_1_ ( net44[6], WData[1]);
+inv_1xT I14_0_ ( net44[7], WData[0]);
+
+endmodule

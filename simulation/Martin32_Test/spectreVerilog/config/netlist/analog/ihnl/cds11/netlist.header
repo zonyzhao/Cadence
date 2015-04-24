@@ -1,0 +1,25 @@
+
+// Library name: 16nm
+// Cell name: Martin_Add32
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Martin_Add32 at_31 at_30 at_29 at_28 at_27 at_26 at_25 at_24 \
+        at_23 at_22 at_21 at_20 at_19 at_18 at_17 at_16 at_15 at_14 \
+        at_13 at_12 at_11 at_10 at_9 at_8 at_7 at_6 at_5 at_4 at_3 at_2 \
+        at_1 at_0 af_31 af_30 af_29 af_28 af_27 af_26 af_25 af_24 af_23 \
+        af_22 af_21 af_20 af_19 af_18 af_17 af_16 af_15 af_14 af_13 \
+        af_12 af_11 af_10 af_9 af_8 af_7 af_6 af_5 af_4 af_3 af_2 af_1 \
+        af_0 bt_31 bt_30 bt_29 bt_28 bt_27 bt_26 bt_25 bt_24 bt_23 \
+        bt_22 bt_21 bt_20 bt_19 bt_18 bt_17 bt_16 bt_15 bt_14 bt_13 \
+        bt_12 bt_11 bt_10 bt_9 bt_8 bt_7 bt_6 bt_5 bt_4 bt_3 bt_2 bt_1 \
+        bt_0 bf_31 bf_30 bf_29 bf_28 bf_27 bf_26 bf_25 bf_24 bf_23 \
+        bf_22 bf_21 bf_20 bf_19 bf_18 bf_17 bf_16 bf_15 bf_14 bf_13 \
+        bf_12 bf_11 bf_10 bf_9 bf_8 bf_7 bf_6 bf_5 bf_4 bf_3 bf_2 bf_1 \
+        bf_0 ct cf st_31 st_30 st_29 st_28 st_27 st_26 st_25 st_24 \
+        st_23 st_22 st_21 st_20 st_19 st_18 st_17 st_16 st_15 st_14 \
+        st_13 st_12 st_11 st_10 st_9 st_8 st_7 st_6 st_5 st_4 st_3 st_2 \
+        st_1 st_0 sf_31 sf_30 sf_29 sf_28 sf_27 sf_26 sf_25 sf_24 sf_23 \
+        sf_22 sf_21 sf_20 sf_19 sf_18 sf_17 sf_16 sf_15 sf_14 sf_13 \
+        sf_12 sf_11 sf_10 sf_9 sf_8 sf_7 sf_6 sf_5 sf_4 sf_3 sf_2 sf_1 \
+        sf_0 df dt Ack

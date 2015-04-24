@@ -7,12 +7,9 @@ ic IBank.Ap_15=0 IBank.Ap_14=0 IBank.Ap_13=0 IBank.Ap_12=0 IBank.Ap_11=0 \
     IBank.I1.I1.Vpass_3=0 IBank.I1.I1.bmid_2=0 IBank.I1.I1.bmid_3=0 \
     IBank.I1.I1.bmid_1=0 IBank.I1.I1.bmid_0=0 IBank.I1.I1.amid_3=0 \
     IBank.I1.I1.amid_2=0 IBank.I1.I1.amid_1=0 IBank.I1.I1.amid_0=0 \
-    IBank.Ap_19=0 IBank.Ap_18=0 IBank.Ap_17=0 IBank.Ap_16=0 WD_AckT_7=0 \
-    WD_AckT_6=0 WD_AckT_5=0 WD_AckT_4=0 WD_AckT_3=0 WD_AckT_2=0 \
-    WD_AckT_1=0 WD_AckT_0=0 \~RD_Ack_7=vdd \~RD_Ack_6=vdd \~RD_Ack_5=vdd \
-    \~RD_Ack_4=vdd \~RD_Ack_3=vdd \~RD_Ack_2=vdd \~RD_Ack_1=vdd \
-    \~RD_Ack_0=vdd RD_AckT_7=0 RD_AckT_6=0 RD_AckT_5=0 RD_AckT_4=0 \
-    RD_AckT_3=0 RD_AckT_2=0 RD_AckT_1=0 RD_AckT_0=0 R_AddressT_19=0 \
+    IBank.Ap_19=0 IBank.Ap_18=0 IBank.Ap_17=0 IBank.Ap_16=0 \~RD_Ack_7=vdd \
+    \~RD_Ack_6=vdd \~RD_Ack_5=vdd \~RD_Ack_4=vdd \~RD_Ack_3=vdd \
+    \~RD_Ack_2=vdd \~RD_Ack_1=vdd \~RD_Ack_0=vdd R_AddressT_19=0 \
     R_AddressT_18=0 R_AddressT_17=0 R_AddressT_16=0 R_AddressT_15=0 \
     R_AddressT_14=0 R_AddressT_13=0 R_AddressT_12=0 R_AddressT_11=0 \
     R_AddressT_10=0 R_AddressT_9=0 R_AddressT_8=0 R_AddressT_7=0 \

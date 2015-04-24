@@ -1,4 +1,56 @@
-    I15 (A B C D net1) nand4_1x
-    I16 (net1 Y) inv_1x
-ends and4_1x
+    I80_3 (Lack_3 RpAck_3 R0_3 R0q_3 R1_3 R1q_3) PCHBd
+    I80_2 (Lack_2 RpAck_2 R0_2 R0q_2 R1_2 R1q_2) PCHBd
+    I80_1 (Lack_1 RpAck_1 R0_1 R0q_1 R1_1 R1q_1) PCHBd
+    I80_0 (Lack_0 RpAck_0 R0_0 R0q_0 R1_0 R1q_0) PCHBd
+    I87 (wack_0 wack_2 wack_3 wack_1 net057) TH44
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) TH44
+    I83_1 (wack_1 B0_1 B1_1 nB0_1 nB1_1 W0_1 W1_1) PCHB_Write
+    I83_0 (wack_0 B0_0 B1_0 nB0_0 nB1_0 W0_0 W1_0) PCHB_Write
+    I85_1 (wack_3 B0_3 B1_3 nB0_3 nB1_3 W0_3 W1_3) PCHB_Write
+    I85_0 (wack_2 B0_2 B1_2 nB0_2 nB1_2 W0_2 W1_2) PCHB_Write
+    I78_3 (Wen B0_3 W0_3) and_1x
+    I78_2 (Wen B0_2 W0_2) and_1x
+    I78_1 (Wen B0_1 W0_1) and_1x
+    I78_0 (Wen B0_0 W0_0) and_1x
+    I77_3 (Wen B1_3 W1_3) and_1x
+    I77_2 (Wen B1_2 W1_2) and_1x
+    I77_1 (Wen B1_1 W1_1) and_1x
+    I77_0 (Wen B1_0 W1_0) and_1x
+    M1_3 (\~R1_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_2 (\~R1_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_1 (\~R1_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M1_0 (\~R1_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_3 (\~R0_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_2 (\~R0_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_1 (\~R0_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0_0 (\~R0_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=yes
+    I35_3 (\~R1_3 R1_3) inv_1x
+    I35_2 (\~R1_2 R1_2) inv_1x
+    I35_1 (\~R1_1 R1_1) inv_1x
+    I35_0 (\~R1_0 R1_0) inv_1x
+    I34_3 (\~R0_3 R0_3) inv_1x
+    I34_2 (\~R0_2 R0_2) inv_1x
+    I34_1 (\~R0_1 R0_1) inv_1x
+    I34_0 (\~R0_0 R0_0) inv_1x
+    I56 (AckThruBot AckThruTop) iprobe
+    I65 (ValAddr RW_0 Wen) TH22
+    I38 (ValAddr RW_1 Go) TH22
+    I67_1 (R0q_3 R0q_2 R1q_3 R1q_2 RpAck_3 RpAck_2 RData_7 RData_6 \
+        RData_5 RData_4 RAck_1) WCHB_Read
+    I67_0 (R0q_1 R0q_0 R1q_1 R1q_0 RpAck_1 RpAck_0 RData_3 RData_2 \
+        RData_1 RData_0 RAck_0) WCHB_Read
+    I82 (intRack net057 Ack) nand_1x
+    I86 (W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 WAck_0 nB0_3 nB0_2 \
+        nB1_3 nB1_2 wack_3 wack_2) WCHB_Write
+    I84 (W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 WAck_1 nB0_1 nB0_0 \
+        nB1_1 nB1_0 wack_1 wack_0) WCHB_Write
+ends _sub18
 // End of subcircuit definition.

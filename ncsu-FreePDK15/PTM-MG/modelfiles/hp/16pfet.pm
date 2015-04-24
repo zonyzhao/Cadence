@@ -2,7 +2,6 @@
 ** Nominal VDD=0.85V
 
 .model pfet pmos level = 72 
-+ bulkmod = 1 
 +lmin    = 1e-008          lmax    = 3e-008        
 ************************************************************
 *                         general                          *
@@ -40,7 +39,7 @@
 +phin    = 0.05            eta0    = 0.778           dsub    = 0.9             k1rsce  = 0             
 +lpe0    = 5e-009          dvtshift= 0               qmfactor= 0               qmtceniv= 0             
 +qmtcencv= 0               etaqm   = 0.54            qm0     = 0.001143        pqm     = 0.66          
-+qm0acc  = 0.001           pqmacc  = 0.66            delvfbacc= 0               u0      = 0.03        
++qm0acc  = 0.001           pqmacc  = 0.66            delvfbacc= 0              u0      = 0.03        
 *======================== mobility ========================*
 +etamob  = 2               up      = 0               lpa     = 1               ua      = 0.3           
 +aua     = 0               bua     = 1e-007          eu      = 1.8             ud      = 0             

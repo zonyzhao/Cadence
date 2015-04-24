@@ -1,6 +1,0 @@
-    M1 (Y B vdd! B) pfet w=100n l=20n nfin=1 m=1 degradation=no
-    M0 (Y A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=no
-    M3 (net22 B 0 B) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M2 (Y A net22 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
-ends SG_nand_1x
-// End of subcircuit definition.

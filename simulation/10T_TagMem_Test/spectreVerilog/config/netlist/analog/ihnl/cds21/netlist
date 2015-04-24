@@ -1,164 +1,201 @@
-    I4_1 (S_1 \~S_1) inv_1x
-    I4_0 (S_0 \~S_0) inv_1x
-    I0_31 (X1_31 En \~S_0 \~S_1 net25_0) nand4_1x
-    I0_30 (X1_30 En \~S_0 \~S_1 net25_1) nand4_1x
-    I0_29 (X1_29 En \~S_0 \~S_1 net25_2) nand4_1x
-    I0_28 (X1_28 En \~S_0 \~S_1 net25_3) nand4_1x
-    I0_27 (X1_27 En \~S_0 \~S_1 net25_4) nand4_1x
-    I0_26 (X1_26 En \~S_0 \~S_1 net25_5) nand4_1x
-    I0_25 (X1_25 En \~S_0 \~S_1 net25_6) nand4_1x
-    I0_24 (X1_24 En \~S_0 \~S_1 net25_7) nand4_1x
-    I0_23 (X1_23 En \~S_0 \~S_1 net25_8) nand4_1x
-    I0_22 (X1_22 En \~S_0 \~S_1 net25_9) nand4_1x
-    I0_21 (X1_21 En \~S_0 \~S_1 net25_10) nand4_1x
-    I0_20 (X1_20 En \~S_0 \~S_1 net25_11) nand4_1x
-    I0_19 (X1_19 En \~S_0 \~S_1 net25_12) nand4_1x
-    I0_18 (X1_18 En \~S_0 \~S_1 net25_13) nand4_1x
-    I0_17 (X1_17 En \~S_0 \~S_1 net25_14) nand4_1x
-    I0_16 (X1_16 En \~S_0 \~S_1 net25_15) nand4_1x
-    I0_15 (X1_15 En \~S_0 \~S_1 net25_16) nand4_1x
-    I0_14 (X1_14 En \~S_0 \~S_1 net25_17) nand4_1x
-    I0_13 (X1_13 En \~S_0 \~S_1 net25_18) nand4_1x
-    I0_12 (X1_12 En \~S_0 \~S_1 net25_19) nand4_1x
-    I0_11 (X1_11 En \~S_0 \~S_1 net25_20) nand4_1x
-    I0_10 (X1_10 En \~S_0 \~S_1 net25_21) nand4_1x
-    I0_9 (X1_9 En \~S_0 \~S_1 net25_22) nand4_1x
-    I0_8 (X1_8 En \~S_0 \~S_1 net25_23) nand4_1x
-    I0_7 (X1_7 En \~S_0 \~S_1 net25_24) nand4_1x
-    I0_6 (X1_6 En \~S_0 \~S_1 net25_25) nand4_1x
-    I0_5 (X1_5 En \~S_0 \~S_1 net25_26) nand4_1x
-    I0_4 (X1_4 En \~S_0 \~S_1 net25_27) nand4_1x
-    I0_3 (X1_3 En \~S_0 \~S_1 net25_28) nand4_1x
-    I0_2 (X1_2 En \~S_0 \~S_1 net25_29) nand4_1x
-    I0_1 (X1_1 En \~S_0 \~S_1 net25_30) nand4_1x
-    I0_0 (X1_0 En \~S_0 \~S_1 net25_31) nand4_1x
-    I6_31 (net25_0 net24_0 net23_0 net22_0 Y_31) nand4_1x
-    I6_30 (net25_1 net24_1 net23_1 net22_1 Y_30) nand4_1x
-    I6_29 (net25_2 net24_2 net23_2 net22_2 Y_29) nand4_1x
-    I6_28 (net25_3 net24_3 net23_3 net22_3 Y_28) nand4_1x
-    I6_27 (net25_4 net24_4 net23_4 net22_4 Y_27) nand4_1x
-    I6_26 (net25_5 net24_5 net23_5 net22_5 Y_26) nand4_1x
-    I6_25 (net25_6 net24_6 net23_6 net22_6 Y_25) nand4_1x
-    I6_24 (net25_7 net24_7 net23_7 net22_7 Y_24) nand4_1x
-    I6_23 (net25_8 net24_8 net23_8 net22_8 Y_23) nand4_1x
-    I6_22 (net25_9 net24_9 net23_9 net22_9 Y_22) nand4_1x
-    I6_21 (net25_10 net24_10 net23_10 net22_10 Y_21) nand4_1x
-    I6_20 (net25_11 net24_11 net23_11 net22_11 Y_20) nand4_1x
-    I6_19 (net25_12 net24_12 net23_12 net22_12 Y_19) nand4_1x
-    I6_18 (net25_13 net24_13 net23_13 net22_13 Y_18) nand4_1x
-    I6_17 (net25_14 net24_14 net23_14 net22_14 Y_17) nand4_1x
-    I6_16 (net25_15 net24_15 net23_15 net22_15 Y_16) nand4_1x
-    I6_15 (net25_16 net24_16 net23_16 net22_16 Y_15) nand4_1x
-    I6_14 (net25_17 net24_17 net23_17 net22_17 Y_14) nand4_1x
-    I6_13 (net25_18 net24_18 net23_18 net22_18 Y_13) nand4_1x
-    I6_12 (net25_19 net24_19 net23_19 net22_19 Y_12) nand4_1x
-    I6_11 (net25_20 net24_20 net23_20 net22_20 Y_11) nand4_1x
-    I6_10 (net25_21 net24_21 net23_21 net22_21 Y_10) nand4_1x
-    I6_9 (net25_22 net24_22 net23_22 net22_22 Y_9) nand4_1x
-    I6_8 (net25_23 net24_23 net23_23 net22_23 Y_8) nand4_1x
-    I6_7 (net25_24 net24_24 net23_24 net22_24 Y_7) nand4_1x
-    I6_6 (net25_25 net24_25 net23_25 net22_25 Y_6) nand4_1x
-    I6_5 (net25_26 net24_26 net23_26 net22_26 Y_5) nand4_1x
-    I6_4 (net25_27 net24_27 net23_27 net22_27 Y_4) nand4_1x
-    I6_3 (net25_28 net24_28 net23_28 net22_28 Y_3) nand4_1x
-    I6_2 (net25_29 net24_29 net23_29 net22_29 Y_2) nand4_1x
-    I6_1 (net25_30 net24_30 net23_30 net22_30 Y_1) nand4_1x
-    I6_0 (net25_31 net24_31 net23_31 net22_31 Y_0) nand4_1x
-    I3_31 (X4_31 En S_0 S_1 net22_0) nand4_1x
-    I3_30 (X4_30 En S_0 S_1 net22_1) nand4_1x
-    I3_29 (X4_29 En S_0 S_1 net22_2) nand4_1x
-    I3_28 (X4_28 En S_0 S_1 net22_3) nand4_1x
-    I3_27 (X4_27 En S_0 S_1 net22_4) nand4_1x
-    I3_26 (X4_26 En S_0 S_1 net22_5) nand4_1x
-    I3_25 (X4_25 En S_0 S_1 net22_6) nand4_1x
-    I3_24 (X4_24 En S_0 S_1 net22_7) nand4_1x
-    I3_23 (X4_23 En S_0 S_1 net22_8) nand4_1x
-    I3_22 (X4_22 En S_0 S_1 net22_9) nand4_1x
-    I3_21 (X4_21 En S_0 S_1 net22_10) nand4_1x
-    I3_20 (X4_20 En S_0 S_1 net22_11) nand4_1x
-    I3_19 (X4_19 En S_0 S_1 net22_12) nand4_1x
-    I3_18 (X4_18 En S_0 S_1 net22_13) nand4_1x
-    I3_17 (X4_17 En S_0 S_1 net22_14) nand4_1x
-    I3_16 (X4_16 En S_0 S_1 net22_15) nand4_1x
-    I3_15 (X4_15 En S_0 S_1 net22_16) nand4_1x
-    I3_14 (X4_14 En S_0 S_1 net22_17) nand4_1x
-    I3_13 (X4_13 En S_0 S_1 net22_18) nand4_1x
-    I3_12 (X4_12 En S_0 S_1 net22_19) nand4_1x
-    I3_11 (X4_11 En S_0 S_1 net22_20) nand4_1x
-    I3_10 (X4_10 En S_0 S_1 net22_21) nand4_1x
-    I3_9 (X4_9 En S_0 S_1 net22_22) nand4_1x
-    I3_8 (X4_8 En S_0 S_1 net22_23) nand4_1x
-    I3_7 (X4_7 En S_0 S_1 net22_24) nand4_1x
-    I3_6 (X4_6 En S_0 S_1 net22_25) nand4_1x
-    I3_5 (X4_5 En S_0 S_1 net22_26) nand4_1x
-    I3_4 (X4_4 En S_0 S_1 net22_27) nand4_1x
-    I3_3 (X4_3 En S_0 S_1 net22_28) nand4_1x
-    I3_2 (X4_2 En S_0 S_1 net22_29) nand4_1x
-    I3_1 (X4_1 En S_0 S_1 net22_30) nand4_1x
-    I3_0 (X4_0 En S_0 S_1 net22_31) nand4_1x
-    I2_31 (X3_31 En \~S_0 S_1 net23_0) nand4_1x
-    I2_30 (X3_30 En \~S_0 S_1 net23_1) nand4_1x
-    I2_29 (X3_29 En \~S_0 S_1 net23_2) nand4_1x
-    I2_28 (X3_28 En \~S_0 S_1 net23_3) nand4_1x
-    I2_27 (X3_27 En \~S_0 S_1 net23_4) nand4_1x
-    I2_26 (X3_26 En \~S_0 S_1 net23_5) nand4_1x
-    I2_25 (X3_25 En \~S_0 S_1 net23_6) nand4_1x
-    I2_24 (X3_24 En \~S_0 S_1 net23_7) nand4_1x
-    I2_23 (X3_23 En \~S_0 S_1 net23_8) nand4_1x
-    I2_22 (X3_22 En \~S_0 S_1 net23_9) nand4_1x
-    I2_21 (X3_21 En \~S_0 S_1 net23_10) nand4_1x
-    I2_20 (X3_20 En \~S_0 S_1 net23_11) nand4_1x
-    I2_19 (X3_19 En \~S_0 S_1 net23_12) nand4_1x
-    I2_18 (X3_18 En \~S_0 S_1 net23_13) nand4_1x
-    I2_17 (X3_17 En \~S_0 S_1 net23_14) nand4_1x
-    I2_16 (X3_16 En \~S_0 S_1 net23_15) nand4_1x
-    I2_15 (X3_15 En \~S_0 S_1 net23_16) nand4_1x
-    I2_14 (X3_14 En \~S_0 S_1 net23_17) nand4_1x
-    I2_13 (X3_13 En \~S_0 S_1 net23_18) nand4_1x
-    I2_12 (X3_12 En \~S_0 S_1 net23_19) nand4_1x
-    I2_11 (X3_11 En \~S_0 S_1 net23_20) nand4_1x
-    I2_10 (X3_10 En \~S_0 S_1 net23_21) nand4_1x
-    I2_9 (X3_9 En \~S_0 S_1 net23_22) nand4_1x
-    I2_8 (X3_8 En \~S_0 S_1 net23_23) nand4_1x
-    I2_7 (X3_7 En \~S_0 S_1 net23_24) nand4_1x
-    I2_6 (X3_6 En \~S_0 S_1 net23_25) nand4_1x
-    I2_5 (X3_5 En \~S_0 S_1 net23_26) nand4_1x
-    I2_4 (X3_4 En \~S_0 S_1 net23_27) nand4_1x
-    I2_3 (X3_3 En \~S_0 S_1 net23_28) nand4_1x
-    I2_2 (X3_2 En \~S_0 S_1 net23_29) nand4_1x
-    I2_1 (X3_1 En \~S_0 S_1 net23_30) nand4_1x
-    I2_0 (X3_0 En \~S_0 S_1 net23_31) nand4_1x
-    I1_31 (X2_31 En S_0 \~S_1 net24_0) nand4_1x
-    I1_30 (X2_30 En S_0 \~S_1 net24_1) nand4_1x
-    I1_29 (X2_29 En S_0 \~S_1 net24_2) nand4_1x
-    I1_28 (X2_28 En S_0 \~S_1 net24_3) nand4_1x
-    I1_27 (X2_27 En S_0 \~S_1 net24_4) nand4_1x
-    I1_26 (X2_26 En S_0 \~S_1 net24_5) nand4_1x
-    I1_25 (X2_25 En S_0 \~S_1 net24_6) nand4_1x
-    I1_24 (X2_24 En S_0 \~S_1 net24_7) nand4_1x
-    I1_23 (X2_23 En S_0 \~S_1 net24_8) nand4_1x
-    I1_22 (X2_22 En S_0 \~S_1 net24_9) nand4_1x
-    I1_21 (X2_21 En S_0 \~S_1 net24_10) nand4_1x
-    I1_20 (X2_20 En S_0 \~S_1 net24_11) nand4_1x
-    I1_19 (X2_19 En S_0 \~S_1 net24_12) nand4_1x
-    I1_18 (X2_18 En S_0 \~S_1 net24_13) nand4_1x
-    I1_17 (X2_17 En S_0 \~S_1 net24_14) nand4_1x
-    I1_16 (X2_16 En S_0 \~S_1 net24_15) nand4_1x
-    I1_15 (X2_15 En S_0 \~S_1 net24_16) nand4_1x
-    I1_14 (X2_14 En S_0 \~S_1 net24_17) nand4_1x
-    I1_13 (X2_13 En S_0 \~S_1 net24_18) nand4_1x
-    I1_12 (X2_12 En S_0 \~S_1 net24_19) nand4_1x
-    I1_11 (X2_11 En S_0 \~S_1 net24_20) nand4_1x
-    I1_10 (X2_10 En S_0 \~S_1 net24_21) nand4_1x
-    I1_9 (X2_9 En S_0 \~S_1 net24_22) nand4_1x
-    I1_8 (X2_8 En S_0 \~S_1 net24_23) nand4_1x
-    I1_7 (X2_7 En S_0 \~S_1 net24_24) nand4_1x
-    I1_6 (X2_6 En S_0 \~S_1 net24_25) nand4_1x
-    I1_5 (X2_5 En S_0 \~S_1 net24_26) nand4_1x
-    I1_4 (X2_4 En S_0 \~S_1 net24_27) nand4_1x
-    I1_3 (X2_3 En S_0 \~S_1 net24_28) nand4_1x
-    I1_2 (X2_2 En S_0 \~S_1 net24_29) nand4_1x
-    I1_1 (X2_1 En S_0 \~S_1 net24_30) nand4_1x
-    I1_0 (X2_0 En S_0 \~S_1 net24_31) nand4_1x
-ends Mux_128to32
+    I0 (KRe KRv KWe KWv R0_31 R0_30 R0_29 R0_28 R0_27 R0_26 R0_25 R0_24 \
+        R0_23 R0_22 R0_21 R0_20 R0_19 R0_18 R0_17 R0_16 R0_15 R0_14 \
+        R0_13 R0_12 R0_11 R0_10 R0_9 R0_8 R0_7 R0_6 R0_5 R0_4 R0_3 R0_2 \
+        R0_1 R0_0 R1_31 R1_30 R1_29 R1_28 R1_27 R1_26 R1_25 R1_24 R1_23 \
+        R1_22 R1_21 R1_20 R1_19 R1_18 R1_17 R1_16 R1_15 R1_14 R1_13 \
+        R1_12 R1_11 R1_10 R1_9 R1_8 R1_7 R1_6 R1_5 R1_4 R1_3 R1_2 R1_1 \
+        R1_0 Re2_7 Re2_6 Re2_5 Re2_4 Re2_3 Re2_2 Re2_1 Re2_0 W0_31 \
+        W0_30 W0_29 W0_28 W0_27 W0_26 W0_25 W0_24 W0_23 W0_22 W0_21 \
+        W0_20 W0_19 W0_18 W0_17 W0_16 W0_15 W0_14 W0_13 W0_12 W0_11 \
+        W0_10 W0_9 W0_8 W0_7 W0_6 W0_5 W0_4 W0_3 W0_2 W0_1 W0_0 W1_31 \
+        W1_30 W1_29 W1_28 W1_27 W1_26 W1_25 W1_24 W1_23 W1_22 W1_21 \
+        W1_20 W1_19 W1_18 W1_17 W1_16 W1_15 W1_14 W1_13 W1_12 W1_11 \
+        W1_10 W1_9 W1_8 W1_7 W1_6 W1_5 W1_4 W1_3 W1_2 W1_1 W1_0 We_7 \
+        We_6 We_5 We_4 We_3 We_2 We_1 We_0 \~R0_31 \~R0_30 \~R0_29 \
+        \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \~R0_22 \~R0_21 \
+        \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \~R0_14 \~R0_13 \
+        \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \~R0_6 \~R0_5 \
+        \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \~R1_30 \~R1_29 \
+        \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \~R1_22 \~R1_21 \
+        \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \~R1_14 \~R1_13 \
+        \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \~R1_6 \~R1_5 \
+        \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0 \~W0_31 \~W0_30 \~W0_29 \
+        \~W0_28 \~W0_27 \~W0_26 \~W0_25 \~W0_24 \~W0_23 \~W0_22 \~W0_21 \
+        \~W0_20 \~W0_19 \~W0_18 \~W0_17 \~W0_16 \~W0_15 \~W0_14 \~W0_13 \
+        \~W0_12 \~W0_11 \~W0_10 \~W0_9 \~W0_8 \~W0_7 \~W0_6 \~W0_5 \
+        \~W0_4 \~W0_3 \~W0_2 \~W0_1 \~W0_0 \~W1_31 \~W1_30 \~W1_29 \
+        \~W1_28 \~W1_27 \~W1_26 \~W1_25 \~W1_24 \~W1_23 \~W1_22 \~W1_21 \
+        \~W1_20 \~W1_19 \~W1_18 \~W1_17 \~W1_16 \~W1_15 \~W1_14 \~W1_13 \
+        \~W1_12 \~W1_11 \~W1_10 \~W1_9 \~W1_8 \~W1_7 \~W1_6 \~W1_5 \
+        \~W1_4 \~W1_3 \~W1_2 \~W1_1 \~W1_0) _sub53
+    I1 (JRi_31 JRi_30 JRi_29 JRi_28 JRi_27 JRi_26 JRi_25 JRi_24 JRi_23 \
+        JRi_22 JRi_21 JRi_20 JRi_19 JRi_18 JRi_17 JRi_16 JRi_15 JRi_14 \
+        JRi_13 JRi_12 JRi_11 JRi_10 JRi_9 JRi_8 JRi_7 JRi_6 JRi_5 JRi_4 \
+        JRi_3 JRi_2 JRi_1 JRi_0 JWi_31 JWi_30 JWi_29 JWi_28 JWi_27 \
+        JWi_26 JWi_25 JWi_24 JWi_23 JWi_22 JWi_21 JWi_20 JWi_19 JWi_18 \
+        JWi_17 JWi_16 JWi_15 JWi_14 JWi_13 JWi_12 JWi_11 JWi_10 JWi_9 \
+        JWi_8 JWi_7 JWi_6 JWi_5 JWi_4 JWi_3 JWi_2 JWi_1 JWi_0 \~R0_31 \
+        \~R0_30 \~R0_29 \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \
+        \~R0_22 \~R0_21 \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \
+        \~R0_14 \~R0_13 \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \
+        \~R0_6 \~R0_5 \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \
+        \~R1_30 \~R1_29 \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \
+        \~R1_22 \~R1_21 \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \
+        \~R1_14 \~R1_13 \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \
+        \~R1_6 \~R1_5 \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0 \~W0_31 \
+        \~W0_30 \~W0_29 \~W0_28 \~W0_27 \~W0_26 \~W0_25 \~W0_24 \~W0_23 \
+        \~W0_22 \~W0_21 \~W0_20 \~W0_19 \~W0_18 \~W0_17 \~W0_16 \~W0_15 \
+        \~W0_14 \~W0_13 \~W0_12 \~W0_11 \~W0_10 \~W0_9 \~W0_8 \~W0_7 \
+        \~W0_6 \~W0_5 \~W0_4 \~W0_3 \~W0_2 \~W0_1 \~W0_0 \~W1_31 \
+        \~W1_30 \~W1_29 \~W1_28 \~W1_27 \~W1_26 \~W1_25 \~W1_24 \~W1_23 \
+        \~W1_22 \~W1_21 \~W1_20 \~W1_19 \~W1_18 \~W1_17 \~W1_16 \~W1_15 \
+        \~W1_14 \~W1_13 \~W1_12 \~W1_11 \~W1_10 \~W1_9 \~W1_8 \~W1_7 \
+        \~W1_6 \~W1_5 \~W1_4 \~W1_3 \~W1_2 \~W1_1 \~W1_0) _sub56
+    C0_31 (\~W1_31 0) capacitor c=1.3f m=1
+    C0_30 (\~W1_30 0) capacitor c=1.3f m=1
+    C0_29 (\~W1_29 0) capacitor c=1.3f m=1
+    C0_28 (\~W1_28 0) capacitor c=1.3f m=1
+    C0_27 (\~W1_27 0) capacitor c=1.3f m=1
+    C0_26 (\~W1_26 0) capacitor c=1.3f m=1
+    C0_25 (\~W1_25 0) capacitor c=1.3f m=1
+    C0_24 (\~W1_24 0) capacitor c=1.3f m=1
+    C0_23 (\~W1_23 0) capacitor c=1.3f m=1
+    C0_22 (\~W1_22 0) capacitor c=1.3f m=1
+    C0_21 (\~W1_21 0) capacitor c=1.3f m=1
+    C0_20 (\~W1_20 0) capacitor c=1.3f m=1
+    C0_19 (\~W1_19 0) capacitor c=1.3f m=1
+    C0_18 (\~W1_18 0) capacitor c=1.3f m=1
+    C0_17 (\~W1_17 0) capacitor c=1.3f m=1
+    C0_16 (\~W1_16 0) capacitor c=1.3f m=1
+    C0_15 (\~W1_15 0) capacitor c=1.3f m=1
+    C0_14 (\~W1_14 0) capacitor c=1.3f m=1
+    C0_13 (\~W1_13 0) capacitor c=1.3f m=1
+    C0_12 (\~W1_12 0) capacitor c=1.3f m=1
+    C0_11 (\~W1_11 0) capacitor c=1.3f m=1
+    C0_10 (\~W1_10 0) capacitor c=1.3f m=1
+    C0_9 (\~W1_9 0) capacitor c=1.3f m=1
+    C0_8 (\~W1_8 0) capacitor c=1.3f m=1
+    C0_7 (\~W1_7 0) capacitor c=1.3f m=1
+    C0_6 (\~W1_6 0) capacitor c=1.3f m=1
+    C0_5 (\~W1_5 0) capacitor c=1.3f m=1
+    C0_4 (\~W1_4 0) capacitor c=1.3f m=1
+    C0_3 (\~W1_3 0) capacitor c=1.3f m=1
+    C0_2 (\~W1_2 0) capacitor c=1.3f m=1
+    C0_1 (\~W1_1 0) capacitor c=1.3f m=1
+    C0_0 (\~W1_0 0) capacitor c=1.3f m=1
+    C2_31 (\~R0_31 0) capacitor c=1.3f m=1
+    C2_30 (\~R0_30 0) capacitor c=1.3f m=1
+    C2_29 (\~R0_29 0) capacitor c=1.3f m=1
+    C2_28 (\~R0_28 0) capacitor c=1.3f m=1
+    C2_27 (\~R0_27 0) capacitor c=1.3f m=1
+    C2_26 (\~R0_26 0) capacitor c=1.3f m=1
+    C2_25 (\~R0_25 0) capacitor c=1.3f m=1
+    C2_24 (\~R0_24 0) capacitor c=1.3f m=1
+    C2_23 (\~R0_23 0) capacitor c=1.3f m=1
+    C2_22 (\~R0_22 0) capacitor c=1.3f m=1
+    C2_21 (\~R0_21 0) capacitor c=1.3f m=1
+    C2_20 (\~R0_20 0) capacitor c=1.3f m=1
+    C2_19 (\~R0_19 0) capacitor c=1.3f m=1
+    C2_18 (\~R0_18 0) capacitor c=1.3f m=1
+    C2_17 (\~R0_17 0) capacitor c=1.3f m=1
+    C2_16 (\~R0_16 0) capacitor c=1.3f m=1
+    C2_15 (\~R0_15 0) capacitor c=1.3f m=1
+    C2_14 (\~R0_14 0) capacitor c=1.3f m=1
+    C2_13 (\~R0_13 0) capacitor c=1.3f m=1
+    C2_12 (\~R0_12 0) capacitor c=1.3f m=1
+    C2_11 (\~R0_11 0) capacitor c=1.3f m=1
+    C2_10 (\~R0_10 0) capacitor c=1.3f m=1
+    C2_9 (\~R0_9 0) capacitor c=1.3f m=1
+    C2_8 (\~R0_8 0) capacitor c=1.3f m=1
+    C2_7 (\~R0_7 0) capacitor c=1.3f m=1
+    C2_6 (\~R0_6 0) capacitor c=1.3f m=1
+    C2_5 (\~R0_5 0) capacitor c=1.3f m=1
+    C2_4 (\~R0_4 0) capacitor c=1.3f m=1
+    C2_3 (\~R0_3 0) capacitor c=1.3f m=1
+    C2_2 (\~R0_2 0) capacitor c=1.3f m=1
+    C2_1 (\~R0_1 0) capacitor c=1.3f m=1
+    C2_0 (\~R0_0 0) capacitor c=1.3f m=1
+    C3_31 (\~R1_31 0) capacitor c=1.3f m=1
+    C3_30 (\~R1_30 0) capacitor c=1.3f m=1
+    C3_29 (\~R1_29 0) capacitor c=1.3f m=1
+    C3_28 (\~R1_28 0) capacitor c=1.3f m=1
+    C3_27 (\~R1_27 0) capacitor c=1.3f m=1
+    C3_26 (\~R1_26 0) capacitor c=1.3f m=1
+    C3_25 (\~R1_25 0) capacitor c=1.3f m=1
+    C3_24 (\~R1_24 0) capacitor c=1.3f m=1
+    C3_23 (\~R1_23 0) capacitor c=1.3f m=1
+    C3_22 (\~R1_22 0) capacitor c=1.3f m=1
+    C3_21 (\~R1_21 0) capacitor c=1.3f m=1
+    C3_20 (\~R1_20 0) capacitor c=1.3f m=1
+    C3_19 (\~R1_19 0) capacitor c=1.3f m=1
+    C3_18 (\~R1_18 0) capacitor c=1.3f m=1
+    C3_17 (\~R1_17 0) capacitor c=1.3f m=1
+    C3_16 (\~R1_16 0) capacitor c=1.3f m=1
+    C3_15 (\~R1_15 0) capacitor c=1.3f m=1
+    C3_14 (\~R1_14 0) capacitor c=1.3f m=1
+    C3_13 (\~R1_13 0) capacitor c=1.3f m=1
+    C3_12 (\~R1_12 0) capacitor c=1.3f m=1
+    C3_11 (\~R1_11 0) capacitor c=1.3f m=1
+    C3_10 (\~R1_10 0) capacitor c=1.3f m=1
+    C3_9 (\~R1_9 0) capacitor c=1.3f m=1
+    C3_8 (\~R1_8 0) capacitor c=1.3f m=1
+    C3_7 (\~R1_7 0) capacitor c=1.3f m=1
+    C3_6 (\~R1_6 0) capacitor c=1.3f m=1
+    C3_5 (\~R1_5 0) capacitor c=1.3f m=1
+    C3_4 (\~R1_4 0) capacitor c=1.3f m=1
+    C3_3 (\~R1_3 0) capacitor c=1.3f m=1
+    C3_2 (\~R1_2 0) capacitor c=1.3f m=1
+    C3_1 (\~R1_1 0) capacitor c=1.3f m=1
+    C3_0 (\~R1_0 0) capacitor c=1.3f m=1
+    C1_31 (\~W0_31 0) capacitor c=1.3f m=1
+    C1_30 (\~W0_30 0) capacitor c=1.3f m=1
+    C1_29 (\~W0_29 0) capacitor c=1.3f m=1
+    C1_28 (\~W0_28 0) capacitor c=1.3f m=1
+    C1_27 (\~W0_27 0) capacitor c=1.3f m=1
+    C1_26 (\~W0_26 0) capacitor c=1.3f m=1
+    C1_25 (\~W0_25 0) capacitor c=1.3f m=1
+    C1_24 (\~W0_24 0) capacitor c=1.3f m=1
+    C1_23 (\~W0_23 0) capacitor c=1.3f m=1
+    C1_22 (\~W0_22 0) capacitor c=1.3f m=1
+    C1_21 (\~W0_21 0) capacitor c=1.3f m=1
+    C1_20 (\~W0_20 0) capacitor c=1.3f m=1
+    C1_19 (\~W0_19 0) capacitor c=1.3f m=1
+    C1_18 (\~W0_18 0) capacitor c=1.3f m=1
+    C1_17 (\~W0_17 0) capacitor c=1.3f m=1
+    C1_16 (\~W0_16 0) capacitor c=1.3f m=1
+    C1_15 (\~W0_15 0) capacitor c=1.3f m=1
+    C1_14 (\~W0_14 0) capacitor c=1.3f m=1
+    C1_13 (\~W0_13 0) capacitor c=1.3f m=1
+    C1_12 (\~W0_12 0) capacitor c=1.3f m=1
+    C1_11 (\~W0_11 0) capacitor c=1.3f m=1
+    C1_10 (\~W0_10 0) capacitor c=1.3f m=1
+    C1_9 (\~W0_9 0) capacitor c=1.3f m=1
+    C1_8 (\~W0_8 0) capacitor c=1.3f m=1
+    C1_7 (\~W0_7 0) capacitor c=1.3f m=1
+    C1_6 (\~W0_6 0) capacitor c=1.3f m=1
+    C1_5 (\~W0_5 0) capacitor c=1.3f m=1
+    C1_4 (\~W0_4 0) capacitor c=1.3f m=1
+    C1_3 (\~W0_3 0) capacitor c=1.3f m=1
+    C1_2 (\~W0_2 0) capacitor c=1.3f m=1
+    C1_1 (\~W0_1 0) capacitor c=1.3f m=1
+    C1_0 (\~W0_0 0) capacitor c=1.3f m=1
+    I2 (GoR GoW R_Addr_4 R_Addr_3 R_Addr_2 R_Addr_1 R_Addr_0 W_Addr_4 \
+        W_Addr_3 W_Addr_2 W_Addr_1 W_Addr_0 JRi_31 JRi_30 JRi_29 JRi_28 \
+        JRi_27 JRi_26 JRi_25 JRi_24 JRi_23 JRi_22 JRi_21 JRi_20 JRi_19 \
+        JRi_18 JRi_17 JRi_16 JRi_15 JRi_14 JRi_13 JRi_12 JRi_11 JRi_10 \
+        JRi_9 JRi_8 JRi_7 JRi_6 JRi_5 JRi_4 JRi_3 JRi_2 JRi_1 JRi_0 \
+        JWi_31 JWi_30 JWi_29 JWi_28 JWi_27 JWi_26 JWi_25 JWi_24 JWi_23 \
+        JWi_22 JWi_21 JWi_20 JWi_19 JWi_18 JWi_17 JWi_16 JWi_15 JWi_14 \
+        JWi_13 JWi_12 JWi_11 JWi_10 JWi_9 JWi_8 JWi_7 JWi_6 JWi_5 JWi_4 \
+        JWi_3 JWi_2 JWi_1 JWi_0 KRv KWv Reset) _sub57
+    I3 (Re Re2_7 Re2_6 Re2_5 Re2_4 Re2_3 Re2_2 Re2_1 Re2_0 \~R0_31 \
+        \~R0_30 \~R0_29 \~R0_28 \~R0_27 \~R0_26 \~R0_25 \~R0_24 \~R0_23 \
+        \~R0_22 \~R0_21 \~R0_20 \~R0_19 \~R0_18 \~R0_17 \~R0_16 \~R0_15 \
+        \~R0_14 \~R0_13 \~R0_12 \~R0_11 \~R0_10 \~R0_9 \~R0_8 \~R0_7 \
+        \~R0_6 \~R0_5 \~R0_4 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_31 \
+        \~R1_30 \~R1_29 \~R1_28 \~R1_27 \~R1_26 \~R1_25 \~R1_24 \~R1_23 \
+        \~R1_22 \~R1_21 \~R1_20 \~R1_19 \~R1_18 \~R1_17 \~R1_16 \~R1_15 \
+        \~R1_14 \~R1_13 \~R1_12 \~R1_11 \~R1_10 \~R1_9 \~R1_8 \~R1_7 \
+        \~R1_6 \~R1_5 \~R1_4 \~R1_3 \~R1_2 \~R1_1 \~R1_0) _sub59
+ends _sub60
 // End of subcircuit definition.

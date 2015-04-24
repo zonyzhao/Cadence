@@ -550,7 +550,7 @@ si: simSetDef().... hnlVerilogTriregbusList is initialized to "nil".
 si: simSetDef().... hnlVerilogPartialNet is initialized to "nil".
 si: simSetDef().... hnlVerilogTriregStrengthList is initialized to "nil".
 Loading the file
-'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 20 22:26:48 2015
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 24 02:45:30 2015
 si: simSetDef().... hnlInvalidNames is initialized to (("always" "always_")
 ("and" "and_") ("assign" "assign_") ("begin" "begin_") ("buf" "buf_") ("bufif0"
 "bufif0_") ("bufif1" "bufif1_") ("case" "case_") ("casex" "casex_") ("casez"
@@ -778,12 +778,6 @@ INFO (VLOGNET-117): Re-netlisting the entire design.
 INFO (VLOGNET-120): Using connection by order (implicit connections) for all the
 stopping cells.
 
-INFO (VLOGNET-169): Module port ordering for lib '16nm', cell 'inv_1xT', view
-'functional' will be
- done using the user specified port order as follows:
-
- => ("Y" "A")
-
 INFO (VLOGNET-126): ---------- Beginning netlist configuration information
 ----------
 
@@ -792,15 +786,14 @@ INFO (VLOGNET-126): ---------- Beginning netlist configuration information
 CELL NAME                   VIEW NAME            NOTE             
 ---------                   ---------            ----             
 
-inv_1xT                     functional           *Stopping View*  
 6T_DataPath_Test            schematic                             
 
 ---------- End of netlist configuration information   ----------
 INFO (VLOGNET-80): The library '16nm_Tests', cell '6T_DataPath_Test', and view
 'config' has been netlisted successfully.
 
-End netlisting Apr 20 22:26:48 2015
-End MS Netlisting: Apr 20 22:26:48 2015
-Begin MS Netlisting: Apr 21 00:28:14 2015
-Begin IE Generation: Apr 21 00:28:14 2015
-Begin Analog Netlisting: Apr 21 00:28:14 2015
+End netlisting Apr 24 02:45:30 2015
+End MS Netlisting: Apr 24 02:45:30 2015
+Begin MS Netlisting: Apr 24 02:58:37 2015
+Begin IE Generation: Apr 24 02:58:37 2015
+Begin Analog Netlisting: Apr 24 02:58:38 2015

@@ -14,15 +14,14 @@ Command arguments:
     -f mmenvOpts
     testfixture.template
     -f verilog.inpfiles
-        /net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v
         ihnl/cds0/netlist
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport33147
+    +vmxsport58520
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 20, 2015  22:26:51
-Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  22:26:51
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  02:45:31
+Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  02:45:31
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -64,7 +63,6 @@ Compiling included source file "saveDefs"
 Compiling included source file "dataDirPath"
 Continuing compilation of source file "saveDefs"
 Continuing compilation of source file "testfixture.template"
-Compiling source file "/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v"
 Compiling source file "ihnl/cds0/netlist"
 Compiling source file "hdlFilesDir/cds_globals.v"
 Highest level modules:
@@ -82,44 +80,7 @@ Message!  Stable DC solution not found within 0
           dc_mode_flag);
 Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to spectre time 0.
 
-
-Message!  At the end of DC initialization the logic values                     
-          of the following ports are X (unknown):                              
-                                                                               
-          net44                                                                
-          net41                                                                
-          net44                                                                
-          net44                                                                
-          net031                                                               
-          net031                                                               
-          net44                                                                
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net44                                                                
-          net44                                                                
-          net44                                                                
-          net021                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net40                                                                
-          net44                                                                
-          net41                                                                
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net031                                                               
-          net40                                                                
-          net031                                                               
-                                                           [Mixed_Sig]         
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-L81 "testfixture.verimix": $finish at simulation time 4642
-Verilog/spectre Interface: 4149 messages sent, 4151 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 435 accelerated events
-CPU time: 0.0 secs to compile + 0.0 secs to link + 4.3 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 20, 2015  22:55:07
+Verilog/spectre Interface: 189 messages sent, 191 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 3 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 4.8 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  02:45:36

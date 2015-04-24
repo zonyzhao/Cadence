@@ -1,7 +1,0 @@
-    I18 (Rack L1 net9) TH22
-    I0 (L0 Rack net10) TH22
-    I2 (net9 net10 Lack) nor_1x
-    I20 (net9 \~R1) inv_1x
-    I19 (net10 \~R0) inv_1x
-ends _sub53
-// End of subcircuit definition.

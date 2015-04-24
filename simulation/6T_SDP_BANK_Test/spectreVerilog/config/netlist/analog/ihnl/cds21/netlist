@@ -1,7 +1,21 @@
-    I18 (Rack L1 net9) TH22
-    I0 (L0 Rack net10) TH22
-    I2 (net9 net10 Lack) nor_1x
-    I20 (net9 \~R1) inv_1x
-    I19 (net10 \~R0) inv_1x
-ends _sub83
+    I29 (net11 net7 net018) nor_1x
+    I23 (net8 net7 Lack_1) nor_1x
+    I12 (net11 net10 Lack_0) nor_1x
+    I26 (net10 net7 net019) nor_1x
+    I25 (net10 net8 net20) nor_1x
+    I24 (net11 net8 net19) nor_1x
+    I34 (net016 net015 net014 net013 net6) and4_1x
+    I28 (net018 Rack net015) _sub17
+    I7 (net19 Rack net016) _sub17
+    I6 (net20 Rack net014) _sub17
+    I27 (net019 Rack net013) TH22
+    I0 (L0_0 net6 net11) TH22
+    I1 (L1_0 net6 net10) TH22
+    I21 (L0_1 net6 net8) TH22
+    I22 (L1_1 net6 net7) TH22
+    I38 (net013 Out_3) inv_1x
+    I37 (net015 Out_2) inv_1x
+    I36 (net014 Out_1) inv_1x
+    I35 (net016 Out_0) inv_1x
+ends WCHB_Read
 // End of subcircuit definition.

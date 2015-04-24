@@ -1,28 +1,36 @@
-ic IDATA.Rack_3=0 IDATA.Rack_2=0 IDATA.Rack_1=0 IDATA.Rack_0=0 RAckT_1=0 \
-    RAckT_0=0 WAckT_1=vdd WAckT_0=vdd \~R0_1_3=vdd \~R0_1_2=vdd \
-    \~R0_1_1=vdd \~R0_1_0=vdd \~R1_1_3=vdd \~R1_1_2=vdd \~R1_1_1=vdd \
-    \~R1_1_0=vdd G01=0 W0_1_3=0 W0_1_2=0 W0_1_1=0 W0_1_0=0 W1_1_3=0 \
-    W1_1_2=0 W1_1_1=0 W1_1_0=0 B0_1_3=0 B0_1_2=0 B0_1_1=0 B0_1_0=0 \
-    B1_1_3=0 B1_1_2=0 B1_1_1=0 B1_1_0=0 S_7=0 S_6=0 S_5=0 S_4=0 S_3=0 \
-    S_2=0 S_1=0 S_0=0 Aline_63=0 Aline_62=0 Aline_61=0 Aline_60=0 \
-    Aline_59=0 Aline_58=0 Aline_57=0 Aline_56=0 Aline_55=0 Aline_54=0 \
-    Aline_53=0 Aline_52=0 Aline_51=0 Aline_50=0 Aline_49=0 Aline_48=0 \
-    Aline_47=0 Aline_46=0 Aline_45=0 Aline_44=0 Aline_43=0 Aline_42=0 \
-    Aline_41=0 Aline_40=0 Aline_39=0 Aline_38=0 Aline_37=0 Aline_36=0 \
-    Aline_35=0 Aline_34=0 Aline_33=0 Aline_32=0 Aline_31=0 Aline_30=0 \
-    Aline_29=0 Aline_28=0 Aline_27=0 Aline_26=0 Aline_25=0 Aline_24=0 \
-    Aline_23=0 Aline_22=0 Aline_21=0 Aline_20=0 Aline_19=0 Aline_18=0 \
-    Aline_17=0 Aline_16=0 Aline_15=0 Aline_14=0 Aline_13=0 Aline_12=0 \
-    Aline_11=0 Aline_10=0 Aline_9=0 Aline_8=0 Aline_7=0 Aline_6=0 \
-    Aline_5=0 Aline_4=0 Aline_3=0 Aline_2=0 Aline_1=0 Aline_0=0 ValAddr=0 \
-    En=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 \
-    AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 RWT_1=0 \
-    RWT_0=0 RDataT_7=0 RDataT_6=0 RDataT_5=0 RDataT_4=0 RDataT_3=0 \
-    RDataT_2=0 RDataT_1=0 RDataT_0=0 WDataT_7=0 WDataT_6=0 WDataT_5=0 \
-    WDataT_4=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 IDATA.R1q_3=0 \
-    IDATA.R0q_3=0 IDATA.I67_3.net18=0 IDATA.Out0_3=vdd IDATA.Out0_2=vdd \
-    IDATA.Out0_1=vdd IDATA.Out0_0=vdd IDATA.Out1_3=vdd IDATA.Out1_2=vdd \
-    IDATA.Out1_1=vdd IDATA.Out1_0=vdd 
+ic ReadAckT=0 net055_0=0 net055_1=0 net055_2=0 net055_3=0 net055_4=0 \
+    W_Address_AckT_4=0 WriteAckT=0 R_AddressT_15=0 R_AddressT_14=0 \
+    R_AddressT_13=0 R_AddressT_12=0 R_AddressT_11=0 R_AddressT_10=0 \
+    R_AddressT_9=0 R_AddressT_8=0 R_AddressT_7=0 R_AddressT_6=0 \
+    R_AddressT_5=0 R_AddressT_4=0 R_AddressT_3=0 R_AddressT_2=0 \
+    R_AddressT_1=0 R_AddressT_0=0 W_AddressT_19=0 W_AddressT_18=0 \
+    W_AddressT_17=0 W_AddressT_16=0 W_AddressT_15=0 W_AddressT_14=0 \
+    W_AddressT_13=0 W_AddressT_12=0 W_AddressT_11=0 W_AddressT_10=0 \
+    W_AddressT_9=0 W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 \
+    W_AddressT_5=0 W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 \
+    W_AddressT_1=0 W_AddressT_0=0 AT_19=0 AT_18=0 AT_17=0 net046_0=0 \
+    net046_1=0 Acko_5=vdd Acko_4=vdd Acko_3=vdd Acko_2=vdd Acko_1=vdd \
+    Acko_0=vdd AT_16=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 \
+    AT_9=0 AT_8=0 AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 \
+    RDataT_3=0 RDataT_2=0 RDataT_1=0 RDataT_0=0 WRWT_1=0 WRWT_0=0 \
+    WdataAckT_1=vdd WdataAckT_0=vdd RdataAckT_1=vdd RDataT_7=0 RDataT_6=0 \
+    RDataT_5=0 RDataT_4=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 \
+    WDataT_7=0 WDataT_6=0 WDataT_5=0 WDataT_4=0 RW_1=0 RW_0=0 S_7=0 S_6=0 \
+    S_5=0 S_4=0 S_3=0 S_2=0 S_1=0 S_0=0 ValAddr=0 Aline_63=0 Aline_62=0 \
+    Aline_61=0 Aline_60=0 Aline_59=0 Aline_58=0 Aline_57=0 Aline_56=0 \
+    Aline_55=0 Aline_54=0 Aline_53=0 Aline_52=0 Aline_51=0 Aline_50=0 \
+    Aline_49=0 Aline_48=0 Aline_47=0 Aline_46=0 Aline_45=0 Aline_44=0 \
+    Aline_43=0 Aline_42=0 Aline_41=0 Aline_40=0 Aline_39=0 Aline_38=0 \
+    Aline_37=0 Aline_36=0 Aline_35=0 Aline_34=0 Aline_33=0 Aline_32=0 \
+    Aline_31=0 Aline_30=0 Aline_29=0 Aline_28=0 Aline_27=0 Aline_26=0 \
+    Aline_25=0 Aline_24=0 Aline_23=0 Aline_22=0 Aline_21=0 Aline_20=0 \
+    Aline_19=0 Aline_18=0 Aline_17=0 Aline_16=0 Aline_15=0 Aline_14=0 \
+    Aline_13=0 Aline_12=0 Aline_11=0 Aline_10=0 Aline_9=0 Aline_8=0 \
+    Aline_7=0 Aline_6=0 Aline_5=0 Aline_4=0 Aline_3=0 Aline_2=0 Aline_1=0 \
+    Aline_0=0 G01=0 W0_1_3=0 W0_1_2=0 W0_1_1=0 W0_1_0=0 W1_1_3=0 W1_1_2=0 \
+    W1_1_1=0 W1_1_0=0 B0_1_3=0 B0_1_2=0 B0_1_1=0 B0_1_0=0 B1_1_3=0 \
+    B1_1_2=0 B1_1_1=0 B1_1_0=0 \~R0_1_3=vdd \~R0_1_2=vdd \~R0_1_1=vdd \
+    \~R0_1_0=vdd \~R1_1_3=vdd \~R1_1_2=vdd \~R1_1_1=vdd 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
@@ -36,5 +44,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save V1:p V0:p 
-saveOptions options save=allpub
+save 
+saveOptions options save=allpub pwr=all currents=selected

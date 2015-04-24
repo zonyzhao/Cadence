@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport37246
+    +vmxsport55105
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 21, 2015  19:52:48
-Tool:	VERILOG-XL	08.20.001-d   Apr 21, 2015  19:52:48
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 22, 2015  13:21:28
+Tool:	VERILOG-XL	08.20.001-d   Apr 22, 2015  13:21:28
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -86,140 +86,140 @@ Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to sp
 Message!  At the end of DC initialization the logic values                     
           of the following ports are X (unknown):                              
                                                                                
-          atBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          atBar                                                                
           afBar                                                                
           bfBar                                                                
-          atBar                                                                
-          btBar                                                                
+          afBar                                                                
           bfBar                                                                
-          atBar                                                                
+          afBar                                                                
           btBar                                                                
           atBar                                                                
-          afBar                                                                
+          btBar                                                                
+          btBar                                                                
+          btBar                                                                
+          btBar                                                                
           btBar                                                                
           btBar                                                                
           afBar                                                                
           btBar                                                                
           btBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          afBar                                                                
           atBar                                                                
+          btBar                                                                
           afBar                                                                
+          bfBar                                                                
           atBar                                                                
-          afBar                                                                
           atBar                                                                
-          afBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          atBar                                                                
+          btBar                                                                
+          bfBar                                                                
           btBar                                                                
           btBar                                                                
+          afBar                                                                
+          bfBar                                                                
+          afBar                                                                
+          btBar                                                                
+          bfBar                                                                
+          afBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          btBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          afBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          atBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          afBar                                                                
+          afBar                                                                
+          afBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          afBar                                                                
+          afBar                                                                
+          afBar                                                                
+          afBar                                                                
+          btBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          bfBar                                                                
           cfBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          bfBar                                                                
+          atBar                                                                
           btBar                                                                
+          atBar                                                                
+          btBar                                                                
+          btBar                                                                
+          atBar                                                                
+          atBar                                                                
+          atBar                                                                
+          atBar                                                                
+          afBar                                                                
+          afBar                                                                
+          afBar                                                                
+          atBar                                                                
+          atBar                                                                
+          afBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          afBar                                                                
+          afBar                                                                
+          btBar                                                                
+          btBar                                                                
+          atBar                                                                
+          atBar                                                                
+          afBar                                                                
+          btBar                                                                
+          btBar                                                                
+          bfBar                                                                
+          bfBar                                                                
+          atBar                                                                
+          atBar                                                                
+          bfBar                                                                
+          afBar                                                                
           ctBar                                                                
-          afBar                                                                
-          afBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          atBar                                                                
-          afBar                                                                
-          afBar                                                                
-          btBar                                                                
-          afBar                                                                
-          afBar                                                                
-          btBar                                                                
-          btBar                                                                
-          btBar                                                                
-          afBar                                                                
-          atBar                                                                
-          atBar                                                                
-          atBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          btBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          afBar                                                                
-          atBar                                                                
-          atBar                                                                
-          atBar                                                                
-          atBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          afBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          afBar                                                                
-          btBar                                                                
-          btBar                                                                
           btBar                                                                
           btBar                                                                
           bfBar                                                                
-          btBar                                                                
-          btBar                                                                
-          bfBar                                                                
-          atBar                                                                
-          atBar                                                                
-          atBar                                                                
-          bfBar                                                                
-          btBar                                                                
-          btBar                                                                
-          bfBar                                                                
-          atBar                                                                
+          afBar                                                                
           btBar                                                                
           afBar                                                                
           btBar                                                                
-          atBar                                                                
-          atBar                                                                
           bfBar                                                                
           btBar                                                                
-          btBar                                                                
+          afBar                                                                
+          afBar                                                                
+          afBar                                                                
           atBar                                                                
-          afBar                                                                
-          afBar                                                                
+          atBar                                                                
           btBar                                                                
           btBar                                                                
           afBar                                                                
           atBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          atBar                                                                
-          atBar                                                                
-          afBar                                                                
-          bfBar                                                                
-          atBar                                                                
-          bfBar                                                                
-          bfBar                                                                
-          atBar                                                                
-          atBar                                                                
-          btBar                                                                
-          btBar                                                                
-          atBar                                                                
-          bfBar                                                                
           btBar                                                                
           atBar                                                                
           afBar                                                                
           btBar                                                                
-          atBar                                                                
           bfBar                                                                
+          afBar                                                                
                                                            [Mixed_Sig]         
           "IE.verimix", 5: ...
-L214 "testfixture.verimix": $finish at simulation time 4380
-Verilog/spectre Interface: 4330 messages sent, 4332 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 4753 accelerated events
-CPU time: 0.0 secs to compile + 0.0 secs to link + 5.3 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 21, 2015  20:01:22
+L238 "testfixture.verimix": $finish at simulation time 44965
+Verilog/spectre Interface: 6141 messages sent, 6143 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 5541 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 5.6 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 22, 2015  13:32:53

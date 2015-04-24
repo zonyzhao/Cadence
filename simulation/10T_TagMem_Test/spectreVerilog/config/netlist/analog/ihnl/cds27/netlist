@@ -1,0 +1,402 @@
+
+// Library name: 16nm_Tests
+// Cell name: 10T_TagMem_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+I36 (GoRT GoWT KReT KWeT R1T_31 R1T_30 R1T_29 R1T_28 R1T_27 R1T_26 \
+        R1T_25 R1T_24 R1T_23 R1T_22 R1T_21 R1T_20 R1T_19 R1T_18 R1T_17 \
+        R1T_16 R1T_15 R1T_14 R1T_13 R1T_12 R1T_11 R1T_10 R1T_9 R1T_8 \
+        R1T_7 R1T_6 R1T_5 R1T_4 R1T_3 R1T_2 R1T_1 R1T_0 R_AddrT_6 \
+        R_AddrT_5 R_AddrT_4 R_AddrT_3 R_AddrT_2 R_AddrT_1 R_AddrT_0 \
+        ResetT W0T_31 W0T_30 W0T_29 W0T_28 W0T_27 W0T_26 W0T_25 W0T_24 \
+        W0T_23 W0T_22 W0T_21 W0T_20 W0T_19 W0T_18 W0T_17 W0T_16 W0T_15 \
+        W0T_14 W0T_13 W0T_12 W0T_11 W0T_10 W0T_9 W0T_8 W0T_7 W0T_6 \
+        W0T_5 W0T_4 W0T_3 W0T_2 W0T_1 W0T_0 W1T_31 W1T_30 W1T_29 W1T_28 \
+        W1T_27 W1T_26 W1T_25 W1T_24 W1T_23 W1T_22 W1T_21 W1T_20 W1T_19 \
+        W1T_18 W1T_17 W1T_16 W1T_15 W1T_14 W1T_13 W1T_12 W1T_11 W1T_10 \
+        W1T_9 W1T_8 W1T_7 W1T_6 W1T_5 W1T_4 W1T_3 W1T_2 W1T_1 W1T_0 \
+        W_AddrT_6 W_AddrT_5 W_AddrT_4 W_AddrT_3 W_AddrT_2 W_AddrT_1 \
+        W_AddrT_0 R0T_31 R0T_30 R0T_29 R0T_28 R0T_27 R0T_26 R0T_25 \
+        R0T_24 R0T_23 R0T_22 R0T_21 R0T_20 R0T_19 R0T_18 R0T_17 R0T_16 \
+        R0T_15 R0T_14 R0T_13 R0T_12 R0T_11 R0T_10 R0T_9 R0T_8 R0T_7 \
+        R0T_6 R0T_5 R0T_4 R0T_3 R0T_2 R0T_1 R0T_0) Dcache_TagMem
+V0 (vcc! 0) vsource type=dc dc=vcc
+V1 (vdd! 0) vsource type=dc dc=vdd
+I17 (\~GoR GoRT) inv_1xt
+I15 (\~GoW GoWT) inv_1xt
+I7 (\~Reset ResetT) inv_1xt
+I26 (KReT \~R_ack) inv_1xt
+I25 (KWeT \~W_ack) inv_1xt
+I39_6 (\~W_Addr_6 W_AddrT_6) inv_1xt
+I39_5 (\~W_Addr_5 W_AddrT_5) inv_1xt
+I39_4 (\~W_Addr_4 W_AddrT_4) inv_1xt
+I39_3 (\~W_Addr_3 W_AddrT_3) inv_1xt
+I39_2 (\~W_Addr_2 W_AddrT_2) inv_1xt
+I39_1 (\~W_Addr_1 W_AddrT_1) inv_1xt
+I39_0 (\~W_Addr_0 W_AddrT_0) inv_1xt
+I38_6 (\~R_Addr_6 R_AddrT_6) inv_1xt
+I38_5 (\~R_Addr_5 R_AddrT_5) inv_1xt
+I38_4 (\~R_Addr_4 R_AddrT_4) inv_1xt
+I38_3 (\~R_Addr_3 R_AddrT_3) inv_1xt
+I38_2 (\~R_Addr_2 R_AddrT_2) inv_1xt
+I38_1 (\~R_Addr_1 R_AddrT_1) inv_1xt
+I38_0 (\~R_Addr_0 R_AddrT_0) inv_1xt
+I24_31 (R1T_31 \~R1_31) inv_1xt
+I24_30 (R1T_30 \~R1_30) inv_1xt
+I24_29 (R1T_29 \~R1_29) inv_1xt
+I24_28 (R1T_28 \~R1_28) inv_1xt
+I24_27 (R1T_27 \~R1_27) inv_1xt
+I24_26 (R1T_26 \~R1_26) inv_1xt
+I24_25 (R1T_25 \~R1_25) inv_1xt
+I24_24 (R1T_24 \~R1_24) inv_1xt
+I24_23 (R1T_23 \~R1_23) inv_1xt
+I24_22 (R1T_22 \~R1_22) inv_1xt
+I24_21 (R1T_21 \~R1_21) inv_1xt
+I24_20 (R1T_20 \~R1_20) inv_1xt
+I24_19 (R1T_19 \~R1_19) inv_1xt
+I24_18 (R1T_18 \~R1_18) inv_1xt
+I24_17 (R1T_17 \~R1_17) inv_1xt
+I24_16 (R1T_16 \~R1_16) inv_1xt
+I24_15 (R1T_15 \~R1_15) inv_1xt
+I24_14 (R1T_14 \~R1_14) inv_1xt
+I24_13 (R1T_13 \~R1_13) inv_1xt
+I24_12 (R1T_12 \~R1_12) inv_1xt
+I24_11 (R1T_11 \~R1_11) inv_1xt
+I24_10 (R1T_10 \~R1_10) inv_1xt
+I24_9 (R1T_9 \~R1_9) inv_1xt
+I24_8 (R1T_8 \~R1_8) inv_1xt
+I24_7 (R1T_7 \~R1_7) inv_1xt
+I24_6 (R1T_6 \~R1_6) inv_1xt
+I24_5 (R1T_5 \~R1_5) inv_1xt
+I24_4 (R1T_4 \~R1_4) inv_1xt
+I24_3 (R1T_3 \~R1_3) inv_1xt
+I24_2 (R1T_2 \~R1_2) inv_1xt
+I24_1 (R1T_1 \~R1_1) inv_1xt
+I24_0 (R1T_0 \~R1_0) inv_1xt
+I42_31 (R0T_31 \~R0_31) inv_1xt
+I42_30 (R0T_30 \~R0_30) inv_1xt
+I42_29 (R0T_29 \~R0_29) inv_1xt
+I42_28 (R0T_28 \~R0_28) inv_1xt
+I42_27 (R0T_27 \~R0_27) inv_1xt
+I42_26 (R0T_26 \~R0_26) inv_1xt
+I42_25 (R0T_25 \~R0_25) inv_1xt
+I42_24 (R0T_24 \~R0_24) inv_1xt
+I42_23 (R0T_23 \~R0_23) inv_1xt
+I42_22 (R0T_22 \~R0_22) inv_1xt
+I42_21 (R0T_21 \~R0_21) inv_1xt
+I42_20 (R0T_20 \~R0_20) inv_1xt
+I42_19 (R0T_19 \~R0_19) inv_1xt
+I42_18 (R0T_18 \~R0_18) inv_1xt
+I42_17 (R0T_17 \~R0_17) inv_1xt
+I42_16 (R0T_16 \~R0_16) inv_1xt
+I42_15 (R0T_15 \~R0_15) inv_1xt
+I42_14 (R0T_14 \~R0_14) inv_1xt
+I42_13 (R0T_13 \~R0_13) inv_1xt
+I42_12 (R0T_12 \~R0_12) inv_1xt
+I42_11 (R0T_11 \~R0_11) inv_1xt
+I42_10 (R0T_10 \~R0_10) inv_1xt
+I42_9 (R0T_9 \~R0_9) inv_1xt
+I42_8 (R0T_8 \~R0_8) inv_1xt
+I42_7 (R0T_7 \~R0_7) inv_1xt
+I42_6 (R0T_6 \~R0_6) inv_1xt
+I42_5 (R0T_5 \~R0_5) inv_1xt
+I42_4 (R0T_4 \~R0_4) inv_1xt
+I42_3 (R0T_3 \~R0_3) inv_1xt
+I42_2 (R0T_2 \~R0_2) inv_1xt
+I42_1 (R0T_1 \~R0_1) inv_1xt
+I42_0 (R0T_0 \~R0_0) inv_1xt
+I11_31 (\~W1_31 W1T_31) inv_1xt
+I11_30 (\~W1_30 W1T_30) inv_1xt
+I11_29 (\~W1_29 W1T_29) inv_1xt
+I11_28 (\~W1_28 W1T_28) inv_1xt
+I11_27 (\~W1_27 W1T_27) inv_1xt
+I11_26 (\~W1_26 W1T_26) inv_1xt
+I11_25 (\~W1_25 W1T_25) inv_1xt
+I11_24 (\~W1_24 W1T_24) inv_1xt
+I11_23 (\~W1_23 W1T_23) inv_1xt
+I11_22 (\~W1_22 W1T_22) inv_1xt
+I11_21 (\~W1_21 W1T_21) inv_1xt
+I11_20 (\~W1_20 W1T_20) inv_1xt
+I11_19 (\~W1_19 W1T_19) inv_1xt
+I11_18 (\~W1_18 W1T_18) inv_1xt
+I11_17 (\~W1_17 W1T_17) inv_1xt
+I11_16 (\~W1_16 W1T_16) inv_1xt
+I11_15 (\~W1_15 W1T_15) inv_1xt
+I11_14 (\~W1_14 W1T_14) inv_1xt
+I11_13 (\~W1_13 W1T_13) inv_1xt
+I11_12 (\~W1_12 W1T_12) inv_1xt
+I11_11 (\~W1_11 W1T_11) inv_1xt
+I11_10 (\~W1_10 W1T_10) inv_1xt
+I11_9 (\~W1_9 W1T_9) inv_1xt
+I11_8 (\~W1_8 W1T_8) inv_1xt
+I11_7 (\~W1_7 W1T_7) inv_1xt
+I11_6 (\~W1_6 W1T_6) inv_1xt
+I11_5 (\~W1_5 W1T_5) inv_1xt
+I11_4 (\~W1_4 W1T_4) inv_1xt
+I11_3 (\~W1_3 W1T_3) inv_1xt
+I11_2 (\~W1_2 W1T_2) inv_1xt
+I11_1 (\~W1_1 W1T_1) inv_1xt
+I11_0 (\~W1_0 W1T_0) inv_1xt
+I9_31 (\~W0_31 W0T_31) inv_1xt
+I9_30 (\~W0_30 W0T_30) inv_1xt
+I9_29 (\~W0_29 W0T_29) inv_1xt
+I9_28 (\~W0_28 W0T_28) inv_1xt
+I9_27 (\~W0_27 W0T_27) inv_1xt
+I9_26 (\~W0_26 W0T_26) inv_1xt
+I9_25 (\~W0_25 W0T_25) inv_1xt
+I9_24 (\~W0_24 W0T_24) inv_1xt
+I9_23 (\~W0_23 W0T_23) inv_1xt
+I9_22 (\~W0_22 W0T_22) inv_1xt
+I9_21 (\~W0_21 W0T_21) inv_1xt
+I9_20 (\~W0_20 W0T_20) inv_1xt
+I9_19 (\~W0_19 W0T_19) inv_1xt
+I9_18 (\~W0_18 W0T_18) inv_1xt
+I9_17 (\~W0_17 W0T_17) inv_1xt
+I9_16 (\~W0_16 W0T_16) inv_1xt
+I9_15 (\~W0_15 W0T_15) inv_1xt
+I9_14 (\~W0_14 W0T_14) inv_1xt
+I9_13 (\~W0_13 W0T_13) inv_1xt
+I9_12 (\~W0_12 W0T_12) inv_1xt
+I9_11 (\~W0_11 W0T_11) inv_1xt
+I9_10 (\~W0_10 W0T_10) inv_1xt
+I9_9 (\~W0_9 W0T_9) inv_1xt
+I9_8 (\~W0_8 W0T_8) inv_1xt
+I9_7 (\~W0_7 W0T_7) inv_1xt
+I9_6 (\~W0_6 W0T_6) inv_1xt
+I9_5 (\~W0_5 W0T_5) inv_1xt
+I9_4 (\~W0_4 W0T_4) inv_1xt
+I9_3 (\~W0_3 W0T_3) inv_1xt
+I9_2 (\~W0_2 W0T_2) inv_1xt
+I9_1 (\~W0_1 W0T_1) inv_1xt
+I9_0 (\~W0_0 W0T_0) inv_1xt
+// BEGIN Hierarchical Interface Elements
+_ie99853 (\~W0_27 0) d2a src="99853" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99854 (\~W1_31 0) d2a src="99854" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99855 (\~W0_9 0) d2a src="99855" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99856 (\~W_Addr_0 0) d2a src="99856" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99857 (\~W0_2 0) d2a src="99857" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99858 (\~R0_7 0) a2d dest="99858" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99859 (\~R1_1 0) a2d dest="99859" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99860 (\~W0_28 0) d2a src="99860" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99861 (\~W1_2 0) d2a src="99861" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99862 (\~R0_10 0) a2d dest="99862" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99863 (\~W0_21 0) d2a src="99863" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99864 (\~W1_3 0) d2a src="99864" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99865 (\~R_Addr_0 0) d2a src="99865" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99866 (\~W0_29 0) d2a src="99866" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99867 (\~W0_3 0) d2a src="99867" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99868 (\~R0_11 0) a2d dest="99868" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99869 (\~R0_23 0) a2d dest="99869" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99870 (\~R1_0 0) a2d dest="99870" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99871 (\~W0_8 0) d2a src="99871" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99872 (\~W0_26 0) d2a src="99872" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99873 (\~W1_10 0) d2a src="99873" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99874 (\~W0_4 0) d2a src="99874" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99875 (\~W1_13 0) d2a src="99875" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99876 (\~R0_16 0) a2d dest="99876" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99877 (\~R0_24 0) a2d dest="99877" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99878 (\~W1_11 0) d2a src="99878" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99879 (\~W1_18 0) d2a src="99879" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99880 (\~R0_25 0) a2d dest="99880" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99881 (\~W0_10 0) d2a src="99881" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99882 (\~W1_12 0) d2a src="99882" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99883 (\~W1_19 0) d2a src="99883" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99884 (\~W1_20 0) d2a src="99884" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99885 (\~W0_11 0) d2a src="99885" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99886 (\~W0_22 0) d2a src="99886" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99887 (\~R1_8 0) a2d dest="99887" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99888 (\~R0_26 0) a2d dest="99888" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99889 (\~R_Addr_5 0) d2a src="99889" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99890 (\~R_Addr_6 0) d2a src="99890" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99891 (\~R1_22 0) a2d dest="99891" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99892 (\~W0_12 0) d2a src="99892" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99893 (\~W0_13 0) d2a src="99893" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99894 (\~W_ack 0) a2d dest="99894" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99895 (\~R_ack 0) a2d dest="99895" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99896 (\~R1_7 0) a2d dest="99896" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99897 (\~R1_5 0) a2d dest="99897" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99898 (\~W0_5 0) d2a src="99898" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99899 (\~W0_14 0) d2a src="99899" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99900 (\~W0_6 0) d2a src="99900" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99901 (\~W0_7 0) d2a src="99901" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99902 (\~R0_17 0) a2d dest="99902" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99903 (\~W1_4 0) d2a src="99903" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99904 (\~R0_0 0) a2d dest="99904" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99905 (\~R_Addr_1 0) d2a src="99905" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99906 (\~R0_1 0) a2d dest="99906" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99907 (\~R0_2 0) a2d dest="99907" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99908 (\~R1_2 0) a2d dest="99908" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99909 (\~Reset 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99910 (\~W_Addr_1 0) d2a src="99910" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99911 (\~W0_15 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99912 (\~W0_18 0) d2a src="99912" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99913 (\~W0_0 0) d2a src="99913" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99914 (\~W0_20 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99915 (\~W1_5 0) d2a src="99915" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99916 (\~R_Addr_3 0) d2a src="99916" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99917 (\~R_Addr_4 0) d2a src="99917" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99918 (\~W0_16 0) d2a src="99918" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99919 (\~W1_6 0) d2a src="99919" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99920 (\~R1_3 0) a2d dest="99920" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99921 (\~R1_4 0) a2d dest="99921" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99922 (\~W0_1 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99923 (\~W1_15 0) d2a src="99923" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99924 (\~W0_31 0) d2a src="99924" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99925 (\~W_Addr_5 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99926 (\~W1_0 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99927 (\~R1_15 0) a2d dest="99927" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99928 (\~R0_20 0) a2d dest="99928" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99929 (\~W0_19 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99930 (\~W1_29 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99931 (\~W1_27 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99932 (\~R1_12 0) a2d dest="99932" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99933 (\~W0_17 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99934 (\~R1_16 0) a2d dest="99934" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99935 (\~W1_16 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99936 (\~W1_30 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99937 (\~GoR 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99938 (\~W0_23 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99939 (\~W1_1 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99940 (\~W0_24 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99941 (\~W1_14 0) d2a src="99941" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99942 (\~W_Addr_3 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99943 (\~R1_17 0) a2d dest="99943" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99944 (\~W_Addr_2 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99945 (\~W1_17 0) d2a src="99945" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99946 (\~R1_9 0) a2d dest="99946" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99947 (\~R0_18 0) a2d dest="99947" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99948 (\~R1_13 0) a2d dest="99948" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99949 (\~R1_18 0) a2d dest="99949" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99950 (\~W1_21 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99951 (\~R0_19 0) a2d dest="99951" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99952 (\~R0_6 0) a2d dest="99952" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99953 (\~W1_7 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99954 (\~R1_19 0) a2d dest="99954" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99955 (\~R0_27 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99956 (\~W1_8 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99957 (\~R0_12 0) a2d dest="99957" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99958 (\~R1_10 0) a2d dest="99958" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99959 (\~R0_28 0) a2d dest="99959" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99960 (\~R0_15 0) a2d dest="99960" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99961 (\~R0_13 0) a2d dest="99961" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99962 (\~W_Addr_4 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (\~W_Addr_6 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99964 (\~R1_14 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (\~GoW 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 rise=2p \
+        fall=2p
+_ie99966 (\~R0_29 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99967 (\~R1_20 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99968 (\~W1_9 0) d2a src="99968" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99969 (\~R0_3 0) a2d dest="99969" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99970 (\~W1_25 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (\~R0_4 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (\~W1_24 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (\~W1_23 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99974 (\~W1_22 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99975 (\~R_Addr_2 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (\~R1_11 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99977 (\~W1_26 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99978 (\~R0_30 0) a2d dest="99978" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99979 (\~W1_28 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99980 (\~R0_8 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99981 (\~R1_21 0) a2d dest="99981" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99982 (\~R0_9 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99983 (\~R1_29 0) a2d dest="99983" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99984 (\~R1_23 0) a2d dest="99984" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99985 (\~R1_30 0) a2d dest="99985" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99986 (\~R1_24 0) a2d dest="99986" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99987 (\~R0_5 0) a2d dest="99987" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99988 (\~R1_25 0) a2d dest="99988" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99989 (\~R0_31 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99990 (\~R1_31 0) a2d dest="99990" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99991 (\~R1_26 0) a2d dest="99991" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99992 (\~R1_27 0) a2d dest="99992" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99993 (\~W0_25 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99994 (\~W0_30 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99995 (\~R1_6 0) a2d dest="99995" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99996 (\~R0_21 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99997 (\~R1_28 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99998 (\~R0_14 0) a2d dest="99998" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99999 (\~R0_22 0) a2d dest="99999" vl=0.3*vdd vh=0.7*vdd timex=20n
+// END Hierarchical Interface Elements

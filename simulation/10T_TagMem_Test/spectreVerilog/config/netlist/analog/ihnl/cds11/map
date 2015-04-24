@@ -6,8 +6,6 @@
   hierDelim "."
  )
 ( net
-( "Sel<0>" "Sel_0" )
-( "Sel<1>" "Sel_1" )
  )
 ( inst
  )

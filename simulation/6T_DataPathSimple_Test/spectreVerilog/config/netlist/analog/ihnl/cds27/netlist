@@ -1,0 +1,26 @@
+    M19 (net13 A 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M18 (net13 B 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M17 (net13 C 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M16 (net13 D 0 0) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M15 (net011 net19 0 0) nfet w=40n l=16n nfin=1 m=1 degradation=no
+    M14 (net42 A 0 0) nfet w=160n l=16n nfin=1 m=1 degradation=no
+    M13 (net43 B net42 0) nfet w=160n l=16n nfin=1 m=1 degradation=no
+    M12 (net44 C net43 0) nfet w=160n l=16n nfin=1 m=1 degradation=no
+    M11 (net19 D net44 0) nfet w=160n l=16n nfin=1 m=1 degradation=no
+    M10 (net19 net011 net13 0) nfet w=80n l=16n nfin=1 m=1 \
+        degradation=no
+    I6 (net011 Y) inv_1x
+    M9 (net011 net19 vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=no
+    M8 (net19 net011 net15 vdd!) pfet w=160n l=16n nfin=1 m=1 \
+        degradation=no
+    M7 (net15 D vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M6 (net15 C vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M5 (net15 B vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M4 (net15 A vdd! vdd!) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M3 (net19 D net45 vdd!) pfet w=320n l=16n nfin=1 m=1 degradation=no
+    M2 (net45 C net46 vdd!) pfet w=320n l=16n nfin=1 m=1 degradation=no
+    M1 (net46 B net47 vdd!) pfet w=320n l=16n nfin=1 m=1 degradation=no
+    M0 (net47 A vdd! vdd!) pfet w=320n l=16n nfin=1 m=1 degradation=no
+ends _sub145
+// End of subcircuit definition.

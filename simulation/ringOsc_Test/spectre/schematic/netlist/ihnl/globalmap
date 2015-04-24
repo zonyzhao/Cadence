@@ -1,5 +1,6 @@
 CADENCE IHNL01070
 $model
+16nm/and_1x/schematic and_1x
 16nm/nand_1x/schematic nand_1x
 16nm/SG_nand_1x/schematic SG_nand_1x
 16nm/nor_1x/schematic nor_1x

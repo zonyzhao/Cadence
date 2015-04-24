@@ -6,13 +6,21 @@
   hierDelim "."
  )
 ( net
-( "~R1" "\\~R1" )
-( "~R0" "\\~R0" )
+( "Lack<1>" "Lack_1" )
+( "L1<1>" "L1_1" )
+( "Out<3>" "Out_3" )
+( "Out<2>" "Out_2" )
+( "L0<1>" "L0_1" )
+( "Lack<0>" "Lack_0" )
+( "L0<0>" "L0_0" )
+( "L1<0>" "L1_0" )
+( "Out<1>" "Out_1" )
+( "Out<0>" "Out_0" )
  )
 ( inst
  )
 ( model
-( "WCHB~" "_sub83" )
+( "TH22~" "_sub17" )
  )
 ( term
  )

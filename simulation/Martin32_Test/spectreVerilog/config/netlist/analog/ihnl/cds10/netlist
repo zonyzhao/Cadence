@@ -1,29 +1,6 @@
-    I5 (Req5 af_23 af_22 af_21 af_20 at_23 at_22 at_21 at_20 bf_23 \
-        bf_22 bf_21 bf_20 bt_23 bt_22 bt_21 bt_20 df19 dt19 df21 dt21 \
-        sf_23 sf_22 sf_21 sf_20 st_23 st_22 st_21 st_20) Martin_Add4
-    I4 (Req4 af_19 af_18 af_17 af_16 at_19 at_18 at_17 at_16 bf_19 \
-        bf_18 bf_17 bf_16 bt_19 bt_18 bt_17 bt_16 df15 dt15 df19 dt19 \
-        sf_19 sf_18 sf_17 sf_16 st_19 st_18 st_17 st_16) Martin_Add4
-    I3 (Req3 af_15 af_14 af_13 af_12 at_15 at_14 at_13 at_12 bf_15 \
-        bf_14 bf_13 bf_12 bt_15 bt_14 bt_13 bt_12 df11 dt11 df15 dt15 \
-        sf_15 sf_14 sf_13 sf_12 st_15 st_14 st_13 st_12) Martin_Add4
-    I2 (Req2 af_11 af_10 af_9 af_8 at_11 at_10 at_9 at_8 bf_11 bf_10 \
-        bf_9 bf_8 bt_11 bt_10 bt_9 bt_8 df7 dt7 df11 dt11 sf_11 sf_10 \
-        sf_9 sf_8 st_11 st_10 st_9 st_8) Martin_Add4
-    I1 (Req1 af_7 af_6 af_5 af_4 at_7 at_6 at_5 at_4 bf_7 bf_6 bf_5 \
-        bf_4 bt_7 bt_6 bt_5 bt_4 df3 dt3 df7 dt7 sf_7 sf_6 sf_5 sf_4 \
-        st_7 st_6 st_5 st_4) Martin_Add4
-    I0 (Req0 af_3 af_2 af_1 af_0 at_3 at_2 at_1 at_0 bf_3 bf_2 bf_1 \
-        bf_0 bt_3 bt_2 bt_1 bt_0 cf ct df3 dt3 sf_3 sf_2 sf_1 sf_0 st_3 \
-        st_2 st_1 st_0) Martin_Add4
-    I6 (Req6 af_27 af_26 af_25 af_24 at_27 at_26 at_25 at_24 bf_27 \
-        bf_26 bf_25 bf_24 bt_27 bt_26 bt_25 bt_24 df21 dt21 df23 dt23 \
-        sf_27 sf_26 sf_25 sf_24 st_27 st_26 st_25 st_24) Martin_Add4
-    I7 (Req7 af_31 af_30 af_29 af_28 at_31 at_30 at_29 at_28 bf_31 \
-        bf_30 bf_29 bf_28 bt_31 bt_30 bt_29 bt_28 df23 dt23 df dt sf_31 \
-        sf_30 sf_29 sf_28 st_31 st_30 st_29 st_28) Martin_Add4
-    I16 (ReqFin2 ReqFin1 Ack) TH22
-    I15 (Req3 Req2 Req1 Req0 ReqFin2) TH44
-    I14 (Req4 Req5 Req6 Req7 ReqFin1) TH44
-ends Martin_Add32
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M3 (net22 B 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (Y A net22 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+ends nand_1x
 // End of subcircuit definition.
