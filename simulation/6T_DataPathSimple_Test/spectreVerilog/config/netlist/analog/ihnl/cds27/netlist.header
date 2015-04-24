@@ -1,8 +1,7 @@
 
 // Library name: 16nm
-// Cell name: WCHB_Write
+// Cell name: TH44~
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt WCHB_Write In_3 In_2 In_1 In_0 Lack Out0_1 Out0_0 Out1_1 Out1_0 \
-        Rack_1 Rack_0
+subckt _sub47 A B C D Y

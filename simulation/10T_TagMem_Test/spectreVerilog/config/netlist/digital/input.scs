@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_182 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
+cdsModule_94 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
      , W_Addr); 
  
 
@@ -82,13 +82,13 @@ initial begin
     W1[31:0] = 32'h00000000;
     W_Addr[6:0] = 7'b0000000;
 
-    lastWriteAddr = 7'b0101010;
+    lastWriteAddr = 7'b0001010;
     #600;
 
 // Write only
 	W1[31:0]    = $random;
     W0[31:0]    = ~W1[31:0];
-    W_Addr[6:0] = 7'b0101010;
+    W_Addr[6:0] = 7'b0001010;
     GoW         = 1'b1;  
     wStart      = $time;
     wait(W_Ack);
@@ -109,7 +109,7 @@ initial begin
 
 // Read Only
     rStart = $time;
-    R_Addr[6:0] = 7'b0101010;
+    R_Addr[6:0] = 7'b0001010;
     GoR = 1'b1;
     wait(R_Ack);
     rDelay = $time - rStart;
@@ -382,10 +382,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 10T_TagMem_Test, View - schematic
 // LAST TIME SAVED: Apr 23 00:43:25 2015
-// NETLIST TIME: Apr 24 04:12:57 2015
+// NETLIST TIME: Apr 24 09:33:52 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_182 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
+module cdsModule_94 ( R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset,
      W0, W1, W_Addr );
 
 output  R_Ack, W_Ack;

@@ -3,7 +3,7 @@ hnlLastStopCellInfo = '(
                           ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1428023252" )
                           ( "UCD_Analog_Parts" "cap" "spectre" "30" "1414043494" )
                           ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
-                          ( "basic" "cds_thru" "spectre" "42" "1413356405" )
+                          ( "basic" "cds_thru" "spectre" "42" "1300441096" )
                        )
 hnlLastNetlistConfig = t
 hnlLastConfigFileVersion = 8

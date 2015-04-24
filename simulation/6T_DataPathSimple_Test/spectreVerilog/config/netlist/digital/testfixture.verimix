@@ -37,7 +37,7 @@ begin
 #500;
 
    A[16:0] 				= 17'h11111;
-   WData[7:0] 			= 8'h22;
+   WData[7:0] 			= 8'h48;
    RW[1:0] 				= 2'b01;
    wStart				= $time;
    start 				= 1;

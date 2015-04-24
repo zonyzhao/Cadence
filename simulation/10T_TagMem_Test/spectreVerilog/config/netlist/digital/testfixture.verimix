@@ -33,13 +33,13 @@ initial begin
     W1[31:0] = 32'h00000000;
     W_Addr[6:0] = 7'b0000000;
 
-    lastWriteAddr = 7'b0101010;
+    lastWriteAddr = 7'b0001010;
     #600;
 
 // Write only
 	W1[31:0]    = $random;
     W0[31:0]    = ~W1[31:0];
-    W_Addr[6:0] = 7'b0101010;
+    W_Addr[6:0] = 7'b0001010;
     GoW         = 1'b1;  
     wStart      = $time;
     wait(W_Ack);
@@ -60,7 +60,7 @@ initial begin
 
 // Read Only
     rStart = $time;
-    R_Addr[6:0] = 7'b0101010;
+    R_Addr[6:0] = 7'b0001010;
     GoR = 1'b1;
     wait(R_Ack);
     rDelay = $time - rStart;

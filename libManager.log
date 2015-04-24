@@ -1,795 +1,337 @@
 \o Program:		@(#)$CDS: libManager version 6.1.6 - CAT33 08/24/2014 13:48 (sjfnl834) $
 \o Sub version:		sub-version  s012 
-\o Arguments:		-mpssession virtuoso6044 -mpshost bull 
+\o Arguments:		-mpssession virtuoso8521 -mpshost bull 
 \o Working Directory:	bull:/root/Desktop/Cadence
 \o Qt version: 		4.7.2
 \o Log file is "/root/Desktop/Cadence/libManager.log".
 \o Opening libManager window.
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1731 76 1223 873))
+\a nrResizeWindow(cdsLibManager list(1280 272 1223 873))
 \o changeWorkingDir("/root/Desktop/Cadence") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
+\w Warning: The directory: '/home/cadence/ncsu-cds-1.6.0.beta/lib/NCSU_TechLib_tsmc02d' does not exist
+\w 	but was defined in libFile '/root/Desktop/Cadence/cds.lib' for Lib 'NCSU_TechLib_tsmc02d'.
 \o Library Manager customization server connected.
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
+\a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: The directory: '/home/cadence/ncsu-cds-1.6.0.beta/lib/NCSU_TechLib_tsmc02d' does not exist
+\w 	but was defined in libFile '/root/Desktop/Cadence/cds.lib' for Lib 'NCSU_TechLib_tsmc02d'.
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "10T_TagMem_Test"
+\a cdsLibManager->cellLineEdit->value = "10T_TagMem_Test"
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->FileNewCVButton->value = t
+\a nrResizeWindow(cdsLibManager list(2586 394 1223 873))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = "16nmML"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(1742 165 1223 873))
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "tx_gate"
-\a cdsLibManager->cellLineEdit->value = "tx_gate"
+\a cdsLibManager->cellListBox->value = "LCFF"
+\a cdsLibManager->cellLineEdit->value = "LCFF"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
 \o MPS request: edit design
 \a nrListItemAction(cdsLibManager->gdmXTView 0 0)
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "or16_1x"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "LCFF_Test"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "inv_1xt"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "inv_4x"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "inv_4x"
+\a cdsLibManager->cellLineEdit->value = "LCFF_Test"
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \o MPS request: edit design
 \a nrListItemAction(cdsLibManager->gdmXTView 1 0)
 \a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = "symbol"
-\a lmgrLogShowPopup("mainListPopup2" 52 34 2 "symbol")
+\a cdsLibManager->cellListBox->value = "inv_test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "inv_Test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "inv_Test"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "inv_test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 43 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellLineEdit->value = "inv_test"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_DataPathSimple_Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "6T_DataPathSimple_Test"
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_DataPath_Test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\a cdsLibManager->cellLineEdit->value = "6T_DataPath_Test"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "config"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "Test"
+\a cdsLibManager->viewListBox->value = "config"
+\a cdsLibManager->viewLineEdit->value = "config"
+\a cdsLibManager->cellLineEdit->value = "Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a lmgrLogShowPopup("mainListPopup1" 79 461 2 "Test")
 \a cdsLibManager->editDeleteButton->value = t
 \a deleteForm->deleteBothRadioButton->value = t
 \a deleteForm->deleteFilterEdit->value = "*"
 \a deleteForm->notDeleteFilterEdit->value = "*"
 \a nrSetWindowVisibility(deleteForm "show")
 \a nrSetCurrentWindow(deleteForm)
-\a nrResizeWindow(deleteForm list(2029 300 627 425))
+\a nrResizeWindow(deleteForm list(2040 389 627 425))
 \a deleteForm->OK->value = t
 \o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
 \a nrSetWindowVisibility(mcMBXDLG "show")
 \a nrSetCurrentWindow(mcMBXDLG)
-\a nrResizeWindow(mcMBXDLG list(2161 381 362 258))
+\a nrResizeWindow(mcMBXDLG list(2172 481 362 226))
 \a mcMBXDLG->pushButton1->value = t
-\o Deleting view "symbol" from cell "inv_4x" in library "16nm".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\o Deleted cellview '16nm/inv_4x/symbol'.
-\o Deletion of 1 view done.
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = nil
-\a nrResizeWindow(workingDialogForm list(2 26 281 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_4x"
-\a cdsLibManager->cellLineEdit->value = "inv_4x"
-\a cdsLibManager->viewListBox->value = "functional"
-\a cdsLibManager->viewLineEdit->value = "functional"
-\a lmgrLogShowPopup("mainListPopup2" 50 8 2 "functional")
-\a cdsLibManager->editDeleteButton->value = t
-\a nrSetWindowVisibility(deleteForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\a nrResizeWindow(deleteForm list(2029 300 627 425))
-\a deleteForm->OK->value = t
-\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
-\a nrSetWindowVisibility(mcMBXDLG "show")
-\a nrSetCurrentWindow(mcMBXDLG)
-\a nrResizeWindow(mcMBXDLG list(2161 366 362 303))
-\a mcMBXDLG->pushButton1->value = t
-\o Deleting view "functional" from cell "inv_4x" in library "16nm".
+\o Deleting cell "Test" from library "16nm_Tests".
 \a nrSetWindowVisibility(workingDialogForm "show")
 \a nrSetCurrentWindow(deleteForm)
 \a nrSetCurrentWindow(cdsLibManager)
-\o Deleted cellview '16nm/inv_4x/functional'.
-\o Deletion of 1 view done.
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = nil
-\a nrResizeWindow(workingDialogForm list(2 26 281 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_4x"
-\a cdsLibManager->cellLineEdit->value = "inv_4x"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "UCD_Digital_Parts"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = "UCD_Digital_Parts"
-\a cdsLibManager->cellListBox->value = "inv"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "inv"
-\a cdsLibManager->viewListBox->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = "symbol"
-\a lmgrLogShowPopup("mainListPopup2" 40 89 2 "symbol")
-\a cdsLibManager->copySimpleButton->value = t
-\a basicCopyForm->CategoryCellsEdit->value = "*"
-\a basicCopyForm->CellsSkipLibraries->value = t
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->ViewsSkipLibraries->value = t
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CopyFromLibrary->value = "16nm"
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyFromLibrary->value = "UCD_Digital_Parts"
-\a basicCopyForm->CopyFromCell->value = "inv"
-\a basicCopyForm->CopyFromView->value = "symbol"
-\a basicCopyForm->CopyToLibrary->value = "UCD_Digital_Parts"
-\a basicCopyForm->CopyToCell->value = "inv"
-\a basicCopyForm->CopyToView->value = "symbol"
-\a basicCopyForm->ViewsViewsToCopy->value = "symbol"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetWindowVisibility(basicCopyForm "show")
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrResizeWindow(basicCopyForm list(2120 163 444 690))
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyToCell->value = "inv_4x"
-\a basicCopyForm->Apply->value = t
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\o ERROR (CLM-173): One or more of the following problems have occurred:\n      1. The source file doesn't exist.\n      2. A destination file will be overwritten.\n      3. A destination file is checked out.\n      4. A destination file is opened for edit.\n      5. A destination file conflicts with another.\n      6. A source OpenAccess cellview master file has zero size.
-\a nrSetWindowVisibility(copyProblemsDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(copyProblemsDialog)
-\a nrResizeWindow(workingDialogForm list(2 26 288 131))
-\a nrResizeWindow(copyProblemsDialog list(1930 272 825 441))
-\a copyProblemsDialog->OK->value = t
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrResizeWindow(workingDialogForm list(2198 349 288 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "UCD_Digital_Parts"
-\a cdsLibManager->libLineEdit->value = "UCD_Digital_Parts"
-\a cdsLibManager->cellListBox->value = "inv"
-\a cdsLibManager->cellLineEdit->value = "inv"
-\a cdsLibManager->viewListBox->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = "symbol"
-\a nrSetCurrentWindow(cdsLibManager)
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(basicCopyForm)
-\a basicCopyForm->OK->value = t
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetWindowVisibility(copyProblemsDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(copyProblemsDialog)
-\a nrResizeWindow(workingDialogForm list(0 0 288 131))
-\a nrResizeWindow(copyProblemsDialog list(1930 272 825 441))
-\a copyProblemsDialog->OK->value = t
-\a nrSetCurrentWindow(basicCopyForm)
-\o ERROR (CLM-160): There is nothing to copy.\nCopy exited.
-\a nrSetWindowVisibility(errorDialog "show")
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(errorDialog)
-\a nrResizeWindow(errorDialog list(2236 353 212 120))
-\a errorDialog->errorOkButton->value = t
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(basicCopyForm)
-\a basicCopyForm->OK->value = t
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetWindowVisibility(copyProblemsDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(copyProblemsDialog)
-\a nrResizeWindow(workingDialogForm list(0 0 288 131))
-\a nrResizeWindow(copyProblemsDialog list(1930 272 825 441))
-\a nrSetWindowVisibility(copyProblemsDialog "hide")
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_4x"
-\a cdsLibManager->viewListBox->value = "symbol"
-\a cdsLibManager->viewLineEdit->value = "symbol"
-\a cdsLibManager->cellLineEdit->value = "inv_4x"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "UCD_Analog_Parts"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libListBox->value = "UCD_Digital_Parts"
-\a cdsLibManager->libLineEdit->value = "UCD_Digital_Parts"
-\a cdsLibManager->cellListBox->value = "tx_gate"
-\a cdsLibManager->cellLineEdit->value = "tx_gate"
-\a cdsLibManager->viewListBox->value = "cmos_sch"
-\a cdsLibManager->viewLineEdit->value = "cmos_sch"
-\a lmgrLogShowPopup("mainListPopup2" 50 11 2 "cmos_sch")
-\a cdsLibManager->copySimpleButton->value = t
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->ViewsViewsToCopy->value = ""
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CopyFromCell->value = ""
-\a basicCopyForm->CopyFromView->value = ""
-\a basicCopyForm->CopyToCell->value = ""
-\a basicCopyForm->CopyToView->value = ""
-\a basicCopyForm->CopyFromLibrary->value = ""
-\a basicCopyForm->CopyToLibrary->value = ""
-\a basicCopyForm->CopyFromLibrary->value = "16nm"
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyFromLibrary->value = "UCD_Digital_Parts"
-\a basicCopyForm->CopyFromCell->value = "tx_gate"
-\a basicCopyForm->CopyFromView->value = "cmos_sch"
-\a basicCopyForm->CopyToLibrary->value = "UCD_Digital_Parts"
-\a basicCopyForm->CopyToCell->value = "tx_gate"
-\a basicCopyForm->CopyToView->value = "cmos_sch"
-\a basicCopyForm->ViewsViewsToCopy->value = "cmos_sch"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetWindowVisibility(basicCopyForm "show")
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrResizeWindow(basicCopyForm list(2120 163 444 690))
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyToView->value = "schematic"
-\a basicCopyForm->CopyToCell->value = "tx_4x"
-\a nrDialogAccept(basicCopyForm)
-\a basicCopyForm->OK->value = t
-\a basicCopyForm->CopyToCell->value = "tx_4x"
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetWindowVisibility(copyProblemsDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(copyProblemsDialog)
-\a nrResizeWindow(workingDialogForm list(0 0 288 131))
-\a nrResizeWindow(copyProblemsDialog list(1930 272 825 441))
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(basicCopyForm)
-\a basicCopyForm->OK->value = t
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetWindowVisibility(copyProblemsDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(copyProblemsDialog)
-\a nrResizeWindow(workingDialogForm list(0 0 288 131))
-\a nrResizeWindow(copyProblemsDialog list(1930 272 825 441))
-\a copyProblemsDialog->OK->value = t
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrResizeWindow(workingDialogForm list(2198 349 288 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "UCD_Digital_Parts"
-\a cdsLibManager->libLineEdit->value = "UCD_Digital_Parts"
-\a cdsLibManager->cellListBox->value = "tx_gate"
-\a cdsLibManager->cellLineEdit->value = "tx_gate"
-\a cdsLibManager->viewListBox->value = "cmos_sch"
-\a cdsLibManager->viewLineEdit->value = "cmos_sch"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "cmos_sch"
-\a cdsLibManager->viewLineEdit->value = "cmos_sch"
-\a nrSetCurrentWindow(cdsLibManager)
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts basic cdsDefTechLib"
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "tx_4x"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "tx_4x"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02"
-\a nrSetCurrentWindow(cdsLibManager)
-\a lmgrLogShowPopup("mainListPopup0" 48 143 2 "NCSU_TechLib_tsmc02")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->libLineEdit->value = "q"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->cellListBox->value = "pmos"
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "nmos"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellLineEdit->value = "nmos"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "nmos"
-\a cdsLibManager->cellLineEdit->value = "nmos"
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->cellListBox->value = "m2_m1"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "metal3"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "ntap"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "poly"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "nwell"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "pmos"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "pactive"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "nwell"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "pmos_hv"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "poly"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "ptap"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "tactive"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellLineEdit->value = "tactive"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "tactive"
-\a cdsLibManager->cellLineEdit->value = "tactive"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc03"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "tactive"
-\a cdsLibManager->cellLineEdit->value = "tactive"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc04_4M2P"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "tactive"
-\a cdsLibManager->cellLineEdit->value = "tactive"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->libListBox->value = "UCD_Analog_Parts"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "NCSU_Devices_FreePDK45"
-\a cdsLibManager->libLineEdit->value = "NCSU_Devices_FreePDK45"
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->cellListBox->value = "metal1"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "metal3"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "nwell"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "pmos"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->libLineEdit->value = ""
-\w Warning: '/root/Desktop/Cadence/cds.lib', Line 18: End of DEFINE command while expecting a path.
-\w Warning: ddGetDisplayValue: 'Library not defined'
-\w Warning: ddGetCombineValue: 'Library not defined'
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02d"
-\a cdsLibManager->cellListBox->value = "pmos"
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\o DB was auto refreshed.
-\a cdsLibManager->cellListBox->value = "metal5"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "m1_p"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "M6_M5"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "M1_POLY"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "M1_N"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "M1_POLY"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "m1_poly"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "metal4"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellLineEdit->value = "metal4"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "metal4"
-\a cdsLibManager->cellLineEdit->value = "metal4"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_hp06"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_ami06"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_FreePDK45"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_FreePDK45"
-\a cdsLibManager->cellListBox->value = "pcont"
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "pdcont"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "pmos_vtg"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "via1Cut"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "via6Cut"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "M5_M4_via"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "via"
-\a cdsLibManager->viewLineEdit->value = "via"
-\a cdsLibManager->cellListBox->value = "M2_M1_viaC"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "via"
-\a cdsLibManager->viewLineEdit->value = "via"
-\a cdsLibManager->cellListBox->value = "AbutContact"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "M5_M4_via"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "via"
-\a cdsLibManager->viewLineEdit->value = "via"
-\a cdsLibManager->cellListBox->value = "contactCut"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "nmos_vtl"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "via3Cut"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "pmos_vtl"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellListBox->value = "pmos_thkox"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "layout"
-\a cdsLibManager->viewLineEdit->value = "layout"
-\a cdsLibManager->cellLineEdit->value = "pmos_thkox"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc03"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "UCD_Analog_Parts"
-\a cdsLibManager->libLineEdit->value = "UCD_Analog_Parts"
-\a cdsLibManager->cellListBox->value = "Voltage_Sources_Index"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "ipulse"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = "ipulse"
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_ami06"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_tsmc02"
-\a cdsLibManager->cellListBox->value = "nactive"
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a cdsLibManager->cellListBox->value = "metal6"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "symbolic"
-\a cdsLibManager->viewLineEdit->value = "symbolic"
-\a nrResizeWindow(cdsLibManager list(2416 208 1223 873))
-\a nrResizeWindow(cdsLibManager list(1816 235 1223 873))
-\a cdsLibManager->cellLineEdit->value = "metal6"
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = "metal6qp"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "NCSU_TechLib_FreePDK15"
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = "NCSU_TechLib_FreePDK15"
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "tx_4x"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a lmgrLogShowPopup("mainListPopup1" 125 444 2 "tx_4x")
-\a cdsLibManager->cellLineEdit->value = "tx_4x"
-\a cdsLibManager->editDeleteButton->value = t
-\a nrSetWindowVisibility(deleteForm "show")
-\a nrResizeWindow(deleteForm list(2029 300 627 425))
-\a nrSetCurrentWindow(deleteForm)
-\a deleteForm->OK->value = t
-\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
-\a nrSetWindowVisibility(mcMBXDLG "show")
-\a nrSetCurrentWindow(mcMBXDLG)
-\a nrResizeWindow(mcMBXDLG list(2161 392 362 228))
-\a mcMBXDLG->pushButton1->value = t
-\o Deleting cell "tx_4x" from library "16nm".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\o Deleted cell '16nm/tx_4x'.
+\o Deleted cell '16nm_Tests/Test'.
 \o Deletion of 1 cell done.
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a nrResizeWindow(workingDialogForm list(2287 508 281 131))
+\a nrResizeWindow(workingDialogForm list(2 26 281 131))
 \a cdsLibManager->libListBox->value = nil
 \a cdsLibManager->libLineEdit->value = ""
-\w Warning: '/root/Desktop/Cadence/cds.lib', Line 18: End of DEFINE command while expecting a path.
-\w Warning: ddGetDisplayValue: 'Library not defined'
-\w Warning: ddGetCombineValue: 'Library not defined'
+\w Warning: The directory: '/home/cadence/ncsu-cds-1.6.0.beta/lib/NCSU_TechLib_tsmc02d' does not exist
+\w 	but was defined in libFile '/root/Desktop/Cadence/cds.lib' for Lib 'NCSU_TechLib_tsmc02d'.
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->FileNewCVButton->value = t
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->libLineEdit->value = "16nm"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "6T_AddressMerge"
+\a cdsLibManager->cellListBox->value = "and_1x"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "tx_gate"
+\a cdsLibManager->cellListBox->value = "inv_1x"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->cellLineEdit->value = "inv_1x"
 \a cdsLibManager->viewListBox->value = nil
-\a lmgrLogShowPopup("mainListPopup1" 56 451 2 "tx_gate")
-\a cdsLibManager->cellLineEdit->value = "tx_gate"
-\a cdsLibManager->editRenameButton->value = t
-\a basicRenameForm->basicRenameFromEdit->value = "tx_gate"
-\a nrSetWindowVisibility(basicRenameForm "show")
-\a basicRenameForm->basicRenameToEdit->value = "tx_gate"
-\a nrSetCurrentWindow(basicRenameForm)
-\a nrResizeWindow(basicRenameForm list(2256 492 343 180))
-\a basicRenameForm->basicRenameToEdit->value = "tx_1x"
-\a nrDialogAccept(basicRenameForm)
-\a basicRenameForm->OK->value = t
-\o View file /net/bull/root/Desktop/Cadence/16nm/tx_gate/schematic/sch.oa is locked by root at host bull.ece.ucdavis.edu
-\a basicRenameForm->basicRenameToEdit->value = "tx_1x"
-\o ERROR (CLM-223): Cell 16nm/tx_gate has files that are locked or are checked out.\nCheck the "Messages" window for a list of which files are causing problem\nRename failed.
-\a nrSetWindowVisibility(errorDialog "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(errorDialog)
-\a nrResizeWindow(errorDialog list(2321 611 490 132))
-\a errorDialog->errorOkButton->value = t
-\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
 \o MPS request: edit design
 \a nrListItemAction(cdsLibManager->gdmXTView 0 0)
 \a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(1741 164 1223 873))
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "ringOsc_Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "levelconverter"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "LCFF_Test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 34 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellLineEdit->value = "LCFF_Test"
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1973 25 1223 873))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(2402 312 1223 873))
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "HS_Dual_Hybrid_Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "LCFF_Test"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrResizeWindow(cdsLibManager list(1877 319 1223 873))
+\a cdsLibManager->cellLineEdit->value = "LCFF_Test"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->FileNewCVButton->value = t
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = "16nmLe"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
+\a cdsLibManager->cellListBox->value = "ringOsc_Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "levelconverter"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a nrListItemAction(cdsLibManager->cellListBox 43 0)
+\a cdsLibManager->cellListBox->value = "levelconverter"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellLineEdit->value = "levelconverter"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "Demux_4to8"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a lmgrLogShowPopup("mainListPopup1" 121 384 1 "Demux_4to8")
+\a cdsLibManager->cellLineEdit->value = "Demux_4to8"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "LCFF"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellListBox->value = "LC_MIT"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a lmgrLogShowPopup("mainListPopup1" 71 423 2 "LC_MIT")
+\a cdsLibManager->cellLineEdit->value = "LC_MIT"
+\a cdsLibManager->editDeleteButton->value = t
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrResizeWindow(deleteForm list(2040 389 627 425))
+\a nrSetCurrentWindow(deleteForm)
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(2172 481 362 273))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting cell "LC_MIT" from library "16nm".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\o Deleted cell '16nm/LC_MIT'.
+\o Deletion of 1 cell done.
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = nil
+\a nrResizeWindow(workingDialogForm list(2 26 281 131))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: The directory: '/home/cadence/ncsu-cds-1.6.0.beta/lib/NCSU_TechLib_tsmc02d' does not exist
+\w 	but was defined in libFile '/root/Desktop/Cadence/cds.lib' for Lib 'NCSU_TechLib_tsmc02d'.
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "LCFF"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "LCFF"
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "symbol"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 1 0)

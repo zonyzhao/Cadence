@@ -485,11 +485,11 @@
 ( "C0<22>" "C0_22" )
  )
 ( model
-( "10T_DUAL_SRAM_CompDetect" "_sub173" )
-( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub177" )
-( "10T_DUAL_SRAM_REGFILE" "_sub180" )
-( "10T_DUAL_SRAM_RPrecharge" "_sub179" )
-( "10T_32x32" "_sub176" )
+( "10T_DUAL_SRAM_CompDetect" "_sub85" )
+( "10T_DUAL_SRAM_AddrCtrl_aValid" "_sub89" )
+( "10T_DUAL_SRAM_REGFILE" "_sub92" )
+( "10T_DUAL_SRAM_RPrecharge" "_sub91" )
+( "10T_32x32" "_sub88" )
  )
 ( term
  )

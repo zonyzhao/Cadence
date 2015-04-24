@@ -6,6 +6,8 @@
   hierDelim "."
  )
 ( net
+( "gnd!" "0" )
+( "vcc!" "vcc!" )
  )
 ( inst
  )

@@ -1,0 +1,22 @@
+simulator( 'spectreVerilog )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/LCFF_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/LCFF_Test/spectreVerilog/config" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "10n"  ?errpreset "conservative"  )
+desVar(	  "vddH" .850	)
+desVar(	  "vddL" .500	)
+desVar(	  "vdd" .500	)
+desVar(	  "vcc" .500	)
+envOption(
+	'mspSetupNetlistSimPrecisionUnit  "ps" 
+	'mspSetupNetlistSimTimeUnit  "ps" 
+	'mspSetupNetlistSwitchRC  t 
+	'analysisOrder  list("tran") 
+)
+saveOption( ?simOutputFormat "psfxl" )
+temp( 27 ) 
+run()
+selectResult( 'tran )
+plot(getData("/tCLK") getData("/tD") getData("/tCLK~") getData("/Q") )

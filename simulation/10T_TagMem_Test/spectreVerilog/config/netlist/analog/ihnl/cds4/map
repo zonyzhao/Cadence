@@ -602,7 +602,7 @@
 ( "I19<2>" "I19_2" )
  )
 ( model
-( "10T_DUAL_SRAM_CompDetect" "_sub173" )
+( "10T_DUAL_SRAM_CompDetect" "_sub85" )
  )
 ( term
  )

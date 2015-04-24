@@ -1,9 +1,4 @@
-    M5 (Y C net21 vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=no
-    M3 (net21 B net018 vdd!) pfet w=300n l=20n nfin=1 m=1 \
-        degradation=no
-    M2 (net018 A vdd! vdd!) pfet w=300n l=20n nfin=1 m=1 degradation=no
-    M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M0 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends nor3_1x
+    I6 (A B AnorB) nor_1x
+    I7 (AnorB Y) inv_1x
+ends or_1x
 // End of subcircuit definition.

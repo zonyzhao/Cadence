@@ -1,0 +1,6 @@
+HEADER
+"PSFversion" "1.00"
+"M21n M20n M19n M15n M13n M11n M10n M9n M5n M4n M3n" "NCSU_TechLib_FreePDK15_nfet_spectre"
+"M22n M18n M17n M16n M14n M12n M8n M6n M0n M2n M1n" "NCSU_TechLib_FreePDK15_pfet_spectre"
+"V3n" "UCD_Analog_Parts_vpwl_spectre"
+"V1n" "UCD_Analog_Parts_vdc_spectre"

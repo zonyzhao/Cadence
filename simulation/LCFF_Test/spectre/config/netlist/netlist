@@ -1,0 +1,76 @@
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_en
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_en A En GND VDD Y
+    M2 (nb A GND GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y En nb GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (nt A VDD VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+    M1 (Y En nt VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+ends inv_en
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1xp
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xp A GND VDD Y
+    M0 (Y A GND GND) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M1 (Y A VDD VDD) pfet w=10n l=20n nfin=1 m=1 degradation=no
+ends inv_1xp
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: LCFF
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt LCFF CLK D GNDH GNDL Q VDDH VDDL \~CLK
+    M4 (PG1 \~CLK net055 GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M5 (PG2 \~CLK Q GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M8 (Q PG1 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M7 (net055 PG2 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M9 (mf CLK PG2 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M3 (net05 CLK PG1 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M10 (net05 \~CLK PG1 VDDL) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M6 (mf \~CLK PG2 VDDL) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M2 (Q net055 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (net055 Q VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    I4 (D \~CLK GNDL VDDL mf) inv_en
+    I5 (net05 CLK GNDL VDDL mf) inv_en
+    I6 (mf GNDL VDDL net05) inv_1xp
+ends LCFF
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: LCFF_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+V5 (tD 0) vsource type=pwl wave=[ 0 0 time2 0 time3 vdd ]
+I1 (tCLK tCLK\~) inv_1x
+V6 (tCLK 0) vsource type=pulse val0=0 val1=vdd period=pClk
+V2 (vdda! gndd!) vsource type=dc dc=vddL
+V1 (vddd! gndd!) vsource type=dc dc=vddH
+V0 (vdd! 0) vsource type=dc dc=vdd
+I0 (tCLK tD gnda! gndd! Q vdda! vddd! tCLK\~) LCFF

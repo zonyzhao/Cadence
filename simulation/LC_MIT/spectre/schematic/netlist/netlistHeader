@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 24 08:29:31 2015
+// Design library name: 16nm
+// Design cell name: LC_MIT
+// Design view name: schematic
+simulator lang=spectre
+global 0 gndd! vdd!

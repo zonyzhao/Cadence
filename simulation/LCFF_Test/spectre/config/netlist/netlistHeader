@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 24 07:35:17 2015
+// Design library name: 16nm_Tests
+// Design cell name: LCFF_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vddd! vdda! gndd! gnda! vdd!

@@ -17,7 +17,5 @@
 (envOpts savestate) ""
 (envOpts setTopLevelAsSubckt) nil
 (envOpts sst2usecolon) nil
-(envOpts stopViewList) ("spectre")
-(envOpts switchViewList) ("spectre" "cmos_sch" "cmos.sch" "schematic" "veriloga")
 (envOpts userCmdLineOption) ""
 (envOpts vcoType) ""

@@ -1,0 +1,7 @@
+HEADER
+"PSFversion" "1.00"
+"V5n" "UCD_Analog_Parts_vpwl_spectre"
+"I1n" "inv_1x"
+"V6n" "UCD_Analog_Parts_vpulse_spectre"
+"V2n V1n V0n" "UCD_Analog_Parts_vdc_spectre"
+"I0n" "LCFF"

@@ -1,0 +1,53 @@
+Begin Incremental Netlisting Apr 24 07:22:21 2015
+End netlisting Apr 24 07:22:21 2015
+Begin Incremental Netlisting Apr 24 07:22:42 2015
+End netlisting Apr 24 07:22:42 2015
+Begin Incremental Netlisting Apr 24 07:23:42 2015
+End netlisting Apr 24 07:23:42 2015
+Begin Incremental Netlisting Apr 24 07:24:50 2015
+End netlisting Apr 24 07:24:50 2015
+Begin Incremental Netlisting Apr 24 07:25:35 2015
+WARNING (OSSHNL-196): The value of the "nlAction" property of library
+'UCD_Analog_Parts', cell 'vcc', view 'symbol'
+has changed since the last
+netlisting session in current run directory. Some
+cell views need to be
+re-netlisted.
+
+End netlisting Apr 24 07:25:35 2015
+Begin Incremental Netlisting Apr 24 07:27:07 2015
+WARNING (OSSHNL-225): The design variable 'vcc', used in the last netlisting
+session in the current
+run directory is not used in this netlisting session. The
+netlist(s) generated
+in the last netlisting session cannot be reused for
+incremental netlisting.
+Therefore re-netlisting the design.
+
+End netlisting Apr 24 07:27:07 2015
+Begin Incremental Netlisting Apr 24 07:27:57 2015
+WARNING (OSSHNL-225): The design variable 'vcc', used in the last netlisting
+session in the current
+run directory is not used in this netlisting session. The
+netlist(s) generated
+in the last netlisting session cannot be reused for
+incremental netlisting.
+Therefore re-netlisting the design.
+
+End netlisting Apr 24 07:27:57 2015
+Begin Incremental Netlisting Apr 24 07:28:38 2015
+End netlisting Apr 24 07:28:38 2015
+Begin Incremental Netlisting Apr 24 07:29:40 2015
+End netlisting Apr 24 07:29:40 2015
+Begin Incremental Netlisting Apr 24 07:31:42 2015
+End netlisting Apr 24 07:31:42 2015
+Begin Incremental Netlisting Apr 24 07:32:50 2015
+End netlisting Apr 24 07:32:50 2015
+Begin Incremental Netlisting Apr 24 07:33:25 2015
+End netlisting Apr 24 07:33:25 2015
+Begin Incremental Netlisting Apr 24 07:34:06 2015
+End netlisting Apr 24 07:34:06 2015
+Begin Incremental Netlisting Apr 24 07:35:17 2015
+End netlisting Apr 24 07:35:17 2015
+Begin Incremental Netlisting Apr 24 07:35:48 2015
+End netlisting Apr 24 07:35:48 2015

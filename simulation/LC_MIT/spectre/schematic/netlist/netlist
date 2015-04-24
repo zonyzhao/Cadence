@@ -1,0 +1,40 @@
+
+// Library name: 16nm
+// Cell name: LC_MIT
+// View name: schematic
+M21 (Y C 0 0) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M20 (net49 net042 net032 net032) nfet w=288n l=20n nfin=6 m=1 \
+        degradation=no
+M19 (net040 net045 net026 net026) nfet w=288n l=20n nfin=6 m=1 \
+        degradation=no
+M15 (net042 net045 net029 net029) nfet w=288n l=20n nfin=6 m=1 \
+        degradation=no
+M13 (C X 0 0) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M11 (net053 B net056 net056) nfet w=288n l=20n nfin=6 m=1 \
+        degradation=no
+M10 (B net020 net38 0) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M9 (B net020 net055 net055) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M5 (A \~X net39 0) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M4 (A \~X net09 net09) nfet w=288n l=20n nfin=6 m=1 degradation=no
+M3 (\~X net020 net057 net057) nfet w=288n l=20n nfin=6 m=1 \
+        degradation=no
+M22 (Y C vdd! vdd!) pfet w=288n l=20n nfin=7 m=1 degradation=no
+M18 (net49 net040 net44 net44) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M17 (net040 net49 net44 net44) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M16 (net042 net045 net031 net031) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M14 (C X vdd! vdd!) pfet w=288n l=20n nfin=7 m=1 degradation=no
+M12 (net053 B net044 net044) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M8 (net052 net020 net39 net054) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M6 (net039 \~X net38 net039) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M0 (\~X net020 net050 net050) pfet w=288n l=20n nfin=7 m=1 \
+        degradation=no
+M2 (B A net011 net011) pfet w=288n l=20n nfin=7 m=1 degradation=no
+M1 (A B net011 net011) pfet w=288n l=20n nfin=7 m=1 degradation=no
+V3 (X 0) vsource type=pwl wave=[ 0 vddL time2 vddL time3 0 ]
+V1 (vdd! gndd!) vsource type=dc dc=vddH

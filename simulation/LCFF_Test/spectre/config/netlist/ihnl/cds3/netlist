@@ -1,0 +1,18 @@
+    M4 (PG1 \~CLK net055 GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M5 (PG2 \~CLK Q GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M8 (Q PG1 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M7 (net055 PG2 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M9 (mf CLK PG2 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M3 (net05 CLK PG1 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M10 (net05 \~CLK PG1 VDDL) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M6 (mf \~CLK PG2 VDDL) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M2 (Q net055 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (net055 Q VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    I4 (D \~CLK GNDL VDDL mf) inv_en
+    I5 (net05 CLK GNDL VDDL mf) inv_en
+    I6 (mf GNDL VDDL net05) inv_1xp
+ends LCFF
+// End of subcircuit definition.

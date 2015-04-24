@@ -48,9 +48,9 @@
 ( inst
  )
 ( model
-( "6T_32x_CTRL" "_sub186" )
-( "6T_32x" "_sub185" )
-( "6T_32x4" "_sub187" )
+( "6T_32x_CTRL" "_sub42" )
+( "6T_32x" "_sub41" )
+( "6T_32x4" "_sub43" )
  )
 ( term
  )

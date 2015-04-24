@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_211 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
+cdsModule_84 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
      WriteAck, RRW, R_Address, RdataAck, WData, WRW, W_Address); 
  
 
@@ -88,44 +88,18 @@ begin
    WRW[1:0] = 2'b00;
    RRW[1:0] = 2'b00;
 
-#500;
+#600;
 
    W_Address[19:0] 		= 20'h11111;
    WData[7:0] 			= 8'h11;
    WRW[1:0] 			= 2'b01;
    wStart				= $time;
-//   start 				= 1;
-wait(WriteAck);
+   start 				= 1;
 
-   WData[7:0] 			= 8'b00000000;
-   W_Address[19:0] 	 	= 20'h0000;
-   WRW[1:0]         	= 2'b00;
-wait(~WriteAck);
-
-   W_Address[19:0] 		= 20'h11111;
-   WData[7:0] 			= 8'h88;
-   WRW[1:0] 			= 2'b01;
-wait(WriteAck);
-
-   WData[7:0] 			= 8'b00000000;
-   W_Address[19:0] 	 	= 20'h0000;
-   WRW[1:0]         	= 2'b00;
-wait(~WriteAck);
-
-   R_Address[19:0] 		= 20'h11111;
-   RdataAck[1:0] 		= 2'b00;
-   RRW[1:0] 			= 2'b10;
-wait(ReadAck);
-
-   R_Address[19:0] 		= 20'h00000;
-   RdataAck[1:0] 		= 2'b11;
-   RRW[1:0] 			= 2'b00;
-wait(ReadAck);
-	$finish;
 end 
 
 
-always @(negedge WriteAck) begin
+always @(posedge WriteAck) begin
 	if (start==1) begin
    	    	wDelay = $time - wStart;
    	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
@@ -134,64 +108,40 @@ always @(negedge WriteAck) begin
           	W_Address[19:0] 	 = 20'h0000;
           	WRW[1:0]         	 = 2'b00;
        	  	wStart = $time;
-   end
- end
+		    wait(~WriteAck);
 
-always @(negedge ReadAck) begin
-	if (start==1) begin
-		rDelay = $time - rStart;
-	   	$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
-   	   	RdataAck[1:0]    = 2'b00;
-   	   	RRW[1:0]         = 2'b00;
-   	   	R_Address[19:0]  = 20'h00000;
-	   	rStart          = $time;
-	end
-end
-
-
-always @(posedge ReadAck) begin
-	if (start==1) begin
-   	  		rDelay = $time - rStart;
-	   		$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
-	  		readCount = readCount + 1;
-	  		if (readCount == 1) begin
-				$finish;
-	  		end
-//   	  		logAddr[7:0] = $random;
-//	 		W_Address[0]   = ~logAddr[0] & ~logAddr[1];
-//	  		W_Address[1]   =  logAddr[0] & ~logAddr[1];
-//	  		W_Address[2]   = ~logAddr[0] &  logAddr[1];
-//     		W_Address[3]   =  logAddr[0] &  logAddr[1];
-//	  		W_Address[4]   = ~logAddr[2] & ~logAddr[3];
-//	  		W_Address[5]   =  logAddr[2] & ~logAddr[3];
-//	  		W_Address[6]   = ~logAddr[2] &  logAddr[3];
-//     		W_Address[7]   =  logAddr[2] &  logAddr[3];
-//			W_Address[8]   = ~logAddr[4] & ~logAddr[5];
-//	  		W_Address[9]   =  logAddr[4] & ~logAddr[5];
-//	  		W_Address[10]  = ~logAddr[4] &  logAddr[5];
-//      	W_Address[11]  =  logAddr[4] &  logAddr[5];
-//	  		W_Address[12]  = ~logAddr[6] & ~logAddr[7];
-//	  		W_Address[13]  =  logAddr[6] & ~logAddr[7];
-//	  		W_Address[14]  = ~logAddr[6] &  logAddr[7];
-//     		W_Address[15]  =  logAddr[6] &  logAddr[7];
-//			W_Address[16]  = 1'b1;
-			W_Address[19:0] = 20'h11111;
-
-   	  		WRW[1:0]  	= 2'b01;
-      		WData[7:0] 	= 8'h48;
-      		wStart 		= $time;
-   end
- end
-
-always @(posedge WriteAck) begin
-	if (start==1) begin
 		   	wDelay = $time - wStart;
    	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
     	  	lastWriteAddr[19:0] <= W_Address[19:0];
-   		  	RdataAck[1:0]    = 2'b11;
+
+   		  	RdataAck[1:0]    = 2'b00;
    	 		RRW[1:0]         = 2'b10;
    	 		R_Address[19:0]  = lastWriteAddr;
 	 		rStart           = $time;
+   end
+ end
+
+always @(posedge ReadAck) begin
+	if (start==1) begin
+		rDelay = $time - rStart;
+	   	$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
+   	   	RdataAck[1:0]    = 2'b11;
+   	   	RRW[1:0]         = 2'b00;
+   	   	R_Address[19:0]  = 20'h00000;
+	   	rStart          = $time;
+		
+		wait(~ReadAck);
+   	  	rDelay = $time - rStart;
+	   	$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
+	  	readCount = readCount + 1;
+	  	if (readCount == 1) begin
+				$finish;
+	  	end
+   	  	
+		WRW[1:0]  	= 2'b01;
+      	WData[7:0] 	= 8'h48;
+      	wStart 		= $time;
+
 	end
 end
 `define _VMX_SIMULATOR_NAME_ "spectre"
@@ -310,10 +260,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 24 01:42:26 2015
-// NETLIST TIME: Apr 24 04:16:57 2015
+// NETLIST TIME: Apr 24 09:32:42 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_211 ( RData, R_AddressAck, ReadAck, W_AddresAck,
+module cdsModule_84 ( RData, R_AddressAck, ReadAck, W_AddresAck,
      WdataAck, WriteAck, RRW, R_Address, RdataAck, WData, WRW,
      W_Address );
 

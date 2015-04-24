@@ -1,13 +1,13 @@
 savedComponent = (let
-(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8)
+(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6)
 (unless tmp1
 tmp1 = make_sevVariableStruct()
 )
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = "timeB"
-tmp1->expression = "30n"
+tmp1->name = "time2"
+tmp1->expression = "5.1n"
 tmp1->index = 1
 (unless tmp2
 tmp2 = make_sevVariableStruct()
@@ -15,8 +15,8 @@ tmp2 = make_sevVariableStruct()
 (unless tmp2
 tmp2 = (ncons nil)
 )
-tmp2->name = "timeE"
-tmp2->expression = "29n"
+tmp2->name = "time3"
+tmp2->expression = "5.15n"
 tmp2->index = 2
 (unless tmp3
 tmp3 = make_sevVariableStruct()
@@ -24,8 +24,8 @@ tmp3 = make_sevVariableStruct()
 (unless tmp3
 tmp3 = (ncons nil)
 )
-tmp3->name = "timeC"
-tmp3->expression = "31n"
+tmp3->name = "pClk"
+tmp3->expression = "2.5n"
 tmp3->index = 3
 (unless tmp4
 tmp4 = make_sevVariableStruct()
@@ -33,8 +33,8 @@ tmp4 = make_sevVariableStruct()
 (unless tmp4
 tmp4 = (ncons nil)
 )
-tmp4->name = "timeD"
-tmp4->expression = "28n"
+tmp4->name = "vdd"
+tmp4->expression = ".400"
 tmp4->index = 4
 (unless tmp5
 tmp5 = make_sevVariableStruct()
@@ -42,8 +42,8 @@ tmp5 = make_sevVariableStruct()
 (unless tmp5
 tmp5 = (ncons nil)
 )
-tmp5->name = "vdd"
-tmp5->expression = ".500"
+tmp5->name = "vddL"
+tmp5->expression = ".400"
 tmp5->index = 5
 (unless tmp6
 tmp6 = make_sevVariableStruct()
@@ -52,25 +52,7 @@ tmp6 = make_sevVariableStruct()
 tmp6 = (ncons nil)
 )
 tmp6->name = "vddH"
-tmp6->expression = ".850"
+tmp6->expression = ".800"
 tmp6->index = 6
-(unless tmp7
-tmp7 = make_sevVariableStruct()
-)
-(unless tmp7
-tmp7 = (ncons nil)
-)
-tmp7->name = "vddL"
-tmp7->expression = ".500"
-tmp7->index = 7
-(unless tmp8
-tmp8 = make_sevVariableStruct()
-)
-(unless tmp8
-tmp8 = (ncons nil)
-)
-tmp8->name = "vcc"
-tmp8->expression = "vdd"
-tmp8->index = 8
-list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8)
+list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6)
 )

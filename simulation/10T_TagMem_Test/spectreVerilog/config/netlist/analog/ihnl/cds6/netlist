@@ -1,6 +1,6 @@
-    I3 (JRi JWi \~R0_0 \~R1_0 \~W0_0 \~W1_0) _sub174
-    I2 (JRi JWi \~R0_1 \~R1_1 \~W0_1 \~W1_1) _sub174
-    I1 (JRi JWi \~R0_2 \~R1_2 \~W0_2 \~W1_2) _sub174
-    I0 (JRi JWi \~R0_3 \~R1_3 \~W0_3 \~W1_3) _sub174
-ends _sub175
+    I3 (JRi JWi \~R0_0 \~R1_0 \~W0_0 \~W1_0) _sub86
+    I2 (JRi JWi \~R0_1 \~R1_1 \~W0_1 \~W1_1) _sub86
+    I1 (JRi JWi \~R0_2 \~R1_2 \~W0_2 \~W1_2) _sub86
+    I0 (JRi JWi \~R0_3 \~R1_3 \~W0_3 \~W1_3) _sub86
+ends _sub87
 // End of subcircuit definition.

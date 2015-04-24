@@ -1,0 +1,13 @@
+CADENCE IHNL01070
+$model
+16nm_Tests/levelconverter/schematic levelconverter
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+vcc! vcc!
+$endnet
+$param
+vdd vdd
+vcc vcc
+$endparam

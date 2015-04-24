@@ -1,0 +1,26 @@
+CADENCE IHNL01070
+$model
+16nm/inv_1xp/schematic 16nm/inv_1xp/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_LCFF_Test_config/0 inv_1xp
+16nm/inv_1x/schematic 16nm/inv_1x/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_LCFF_Test_config/0 inv_1x
+16nm/LCFF/schematic 16nm/LCFF/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_LCFF_Test_config/0 LCFF
+16nm_Tests/LCFF_Test/schematic 16nm_Tests/LCFF_Test/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_LCFF_Test_config/1 LCFF_Test
+16nm/inv_en/schematic 16nm/inv_en/schematic/spectre_spice_verilog_behavioral_functional_hdl_system_verilogNetlist_schematic_cmos.sch_cmos_sch_veriloga_ahdl/16nm_Tests_LCFF_Test_config/0 inv_en
+$endmodel
+$net
+vdd! vdd!
+gndd! gndd!
+gnd! 0
+vdda! vdda!
+gnda! gnda!
+vddd! vddd!
+vcc! vcc!
+$endnet
+$param
+vdd vdd
+pClk pClk
+vcc vcc
+vddH vddH
+vddL vddL
+time3 time3
+time2 time2
+$endparam

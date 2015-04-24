@@ -1,0 +1,17 @@
+CADENCE IHNL01070
+$model
+16nm/LC_MIT/schematic LC_MIT
+$endmodel
+$net
+vdd! vdd!
+gndd! gndd!
+gnd! 0
+vdda! vdda!
+vddd! vddd!
+$endnet
+$param
+vddH vddH
+vddL vddL
+time3 time3
+time2 time2
+$endparam

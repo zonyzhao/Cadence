@@ -1,0 +1,99 @@
+// Generated for: spectre
+// Generated on: Apr 24 07:35:17 2015
+// Design library name: 16nm_Tests
+// Design cell name: LCFF_Test
+// Design view name: config
+simulator lang=spectre
+global 0 vddd! vdda! gndd! gnda! vdd!
+parameters time2=5.25n time3=5.3n pClk=2.5n vdd=.400 vddL=.400 vddH=.800
+include "/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_en
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_en A En GND VDD Y
+    M2 (nb A GND GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y En nb GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (nt A VDD VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+    M1 (Y En nt VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+ends inv_en
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: inv_1xp
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt inv_1xp A GND VDD Y
+    M0 (Y A GND GND) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M1 (Y A VDD VDD) pfet w=10n l=20n nfin=1 m=1 degradation=no
+ends inv_1xp
+// End of subcircuit definition.
+
+// Library name: 16nm
+// Cell name: LCFF
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt LCFF CLK D GNDH GNDL Q VDDH VDDL \~CLK
+    M4 (PG1 \~CLK net055 GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M5 (PG2 \~CLK Q GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M8 (Q PG1 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M7 (net055 PG2 GNDH GNDH) nfet w=60n l=20n nfin=1 m=1 \
+        degradation=no
+    M9 (mf CLK PG2 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M3 (net05 CLK PG1 GNDL) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M10 (net05 \~CLK PG1 VDDL) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M6 (mf \~CLK PG2 VDDL) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M2 (Q net055 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (net055 Q VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    I4 (D \~CLK GNDL VDDL mf) inv_en
+    I5 (net05 CLK GNDL VDDL mf) inv_en
+    I6 (mf GNDL VDDL net05) inv_1xp
+ends LCFF
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: LCFF_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+V5 (tD 0) vsource type=pwl wave=[ 0 0 time2 0 time3 vdd ]
+I1 (tCLK tCLK\~) inv_1x
+V6 (tCLK 0) vsource type=pulse val0=0 val1=vdd period=pClk
+V2 (vdda! gndd!) vsource type=dc dc=vddL
+V1 (vddd! gndd!) vsource type=dc dc=vddH
+V0 (vdd! 0) vsource type=dc dc=vdd
+I0 (tCLK tD gnda! gndd! Q vdda! vddd! tCLK\~) LCFF
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=10n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

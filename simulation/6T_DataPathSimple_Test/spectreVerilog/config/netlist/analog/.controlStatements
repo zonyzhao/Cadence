@@ -1,4 +1,5 @@
-ic DataAckT=0 IDATA.I86.net14=vdd IDATA.I86.net13=vdd IDATA.I86.net12=vdd \
+ic IDATA.I85_1.inAck=vdd IDATA.I85_1.net027=vdd DataAckT=0 \
+    IDATA.I86.net14=vdd IDATA.I86.net13=vdd IDATA.I86.net12=vdd \
     IDATA.I86.net11=vdd IDATA.I86.b1_0=vdd IDATA.I86.b0_0=vdd \
     IDATA.I86.b1_1=vdd IDATA.I86.b0_1=vdd IDATA.I86.nxa=vdd \
     IDATA.I86.n_0=0 IDATA.I86.n_1=0 IDATA.I86.n_2=0 IDATA.I86.n_3=0 \

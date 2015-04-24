@@ -1,26 +1,8 @@
-    I0 (_1of4_1_3 _1of4_1_2 _1of4_1_1 _1of4_1_0 _1of4_2_3 _1of4_2_2 \
-        _1of4_2_1 _1of4_2_0 _1of4_3_3 _1of4_3_2 _1of4_3_1 _1of4_3_0 \
-        A_63 A_62 A_61 A_60 A_59 A_58 A_57 A_56 A_55 A_54 A_53 A_52 \
-        A_51 A_50 A_49 A_48 A_47 A_46 A_45 A_44 A_43 A_42 A_41 A_40 \
-        A_39 A_38 A_37 A_36 A_35 A_34 A_33 A_32 A_31 A_30 A_29 A_28 \
-        A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 A_19 A_18 A_17 A_16 \
-        A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 A_6 A_5 A_4 A_3 A_2 \
-        A_1 A_0 En Ack) Demux_3e1of4
-    I10_3 (_1of4_4_3 net020_0) inv_1x
-    I10_2 (_1of4_4_2 net020_1) inv_1x
-    I10_1 (_1of4_4_1 net020_2) inv_1x
-    I10_0 (_1of4_4_0 net020_3) inv_1x
-    I9 (En net015) inv_1x
-    I6 (En net016) inv_1x
-    I4 (_1of4_3_0 _1of4_3_1 net23) nor_1x
-    I5 (_1of4_3_2 _1of4_3_3 net22) nor_1x
-    I1_3 (net020_0 net23 net016 S_3) nor3_1x
-    I1_2 (net020_1 net23 net016 S_2) nor3_1x
-    I1_1 (net020_2 net23 net016 S_1) nor3_1x
-    I1_0 (net020_3 net23 net016 S_0) nor3_1x
-    I2_3 (net020_0 net22 net015 S_7) nor3_1x
-    I2_2 (net020_1 net22 net015 S_6) nor3_1x
-    I2_1 (net020_2 net22 net015 S_5) nor3_1x
-    I2_0 (net020_3 net22 net015 S_4) nor3_1x
-ends _sub207
+    M2 (net13 vdd! 0 0) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y A net13 0) nfet w=60n l=20n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (net14 0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A net14 vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_weak_1x
 // End of subcircuit definition.

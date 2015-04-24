@@ -1,4 +1,4 @@
-Fri Apr 24 04:14:57 2015
+Fri Apr 24 05:24:04 2015
 
 BUILDING Network design (cell: 6T_DataPathSimple_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -50,6 +50,7 @@ Module WCHB_Write, lib 16nm, view schematic, configViewString $default
 Module TH44~, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module WCHB_Read, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
 Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
 Module or_1x, lib 16nm, view schematic, configViewString $default
 Module THaC, lib 16nm, view schematic, configViewString $default

@@ -1,0 +1,15 @@
+
+// Library name: 16nm_Tests
+// Cell name: levelconverter
+// View name: schematic
+V0 (vcc! 0) vsource type=dc dc=vcc
+V1 (vdd! 0) vsource type=dc dc=vdd
+M6 (Y net012 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+M4 (net38 net25 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+M2 (net25 X 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+M0 (net012 X 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+V2 (X 0) vsource type=pwl wave=[ 0 0 2n vdd ]
+M7 (Y net012 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+M5 (net38 net012 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+M3 (net25 X vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+M1 (net012 net38 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no

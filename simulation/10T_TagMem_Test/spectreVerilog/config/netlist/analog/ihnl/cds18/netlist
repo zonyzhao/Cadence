@@ -34,5 +34,5 @@
     I27 (JRi_28 JRi_29 JRi_30 JRi_31 rn8) nor4_1x
     I21 (rn9 rn10 KRv) nand_1x
     I7 (wn9 wn10 KWv) nand_1x
-ends _sub177
+ends _sub89
 // End of subcircuit definition.

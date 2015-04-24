@@ -1,14 +1,6 @@
-    I11 (outp_0 ack out_0) TH22
-    I10 (outp_1 ack out_1) TH22
-    I6 (b_1 bsel \~out_1 bp_1) _sub195
-    I21 (out_0 \~out_0) inv_1x
-    I20 (out_1 \~out_1) inv_1x
-    I7 (b_0 bsel \~out_0 bp_0) TH33
-    I1 (a_1 asel \~out_1 ap_1) TH33
-    I0 (a_0 asel \~out_0 ap_0) TH33
-    I13 (bp_0 bp_1 b_ack) or_1x
-    I12 (ap_0 ap_1 a_ack) or_1x
-    I15 (ap_1 bp_1 outp_1) or_1x
-    I14 (ap_0 bp_0 outp_0) or_1x
-ends _sub198
+    I3 (A_0 B0 B1) _sub73
+    I2 (A_1 B0 B1) _sub73
+    I1 (A_2 B0 B1) _sub73
+    I0 (A_3 B0 B1) _sub73
+ends _sub74
 // End of subcircuit definition.

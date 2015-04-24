@@ -1,4 +1,4 @@
-Thu Apr 23 00:43:29 2015
+Fri Apr 24 09:33:49 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -40,10 +40,10 @@ Model inv_1xT, lib 16nm, view functional
 	Partition analog, in network toolNetworkId0
 	The modules in this partition are:
 Module inv_1xt, lib 16nm, view schematic, configViewString $default
-Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
-Module Mux_128to32, lib 16nm, view schematic, configViewString $default
+Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module nand3_1x, lib 16nm, view schematic, configViewString $default
+Module Mux_128to32, lib 16nm, view schematic, configViewString $default
 Module and3_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_2to4, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default

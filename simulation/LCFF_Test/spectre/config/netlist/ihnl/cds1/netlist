@@ -1,0 +1,8 @@
+    M2 (nb A GND GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M0 (Y En nb GND) nfet w=80n l=16n nfin=1 ls=105n  m=1 \
+        degradation=no
+    M3 (nt A VDD VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+    M1 (Y En nt VDD) pfet w=200n l=20n nfin=1 m=1 degradation=no
+ends inv_en
+// End of subcircuit definition.

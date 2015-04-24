@@ -1,0 +1,26 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "levelconverter"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "vdd! vcc! gnd!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/levelconverter/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/levelconverter/schematic" "levelconverter" )
+ )
+( term
+ )
+( param
+ )
+( "levelconverter" "ihnl/cds0/map" )
+ )

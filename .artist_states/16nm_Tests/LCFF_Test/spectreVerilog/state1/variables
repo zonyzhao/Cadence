@@ -34,7 +34,7 @@ tmp4 = make_sevVariableStruct()
 tmp4 = (ncons nil)
 )
 tmp4->name = "vddH"
-tmp4->expression = "1"
+tmp4->expression = ".850"
 tmp4->index = 4
 list(tmp1 tmp2 tmp3 tmp4)
 )

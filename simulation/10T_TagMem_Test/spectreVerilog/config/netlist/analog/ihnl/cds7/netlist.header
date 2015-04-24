@@ -4,7 +4,7 @@
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub176 JR_31 JR_30 JR_29 JR_28 JR_27 JR_26 JR_25 JR_24 JR_23 \
+subckt _sub88 JR_31 JR_30 JR_29 JR_28 JR_27 JR_26 JR_25 JR_24 JR_23 \
         JR_22 JR_21 JR_20 JR_19 JR_18 JR_17 JR_16 JR_15 JR_14 JR_13 \
         JR_12 JR_11 JR_10 JR_9 JR_8 JR_7 JR_6 JR_5 JR_4 JR_3 JR_2 JR_1 \
         JR_0 JW_31 JW_30 JW_29 JW_28 JW_27 JW_26 JW_25 JW_24 JW_23 \

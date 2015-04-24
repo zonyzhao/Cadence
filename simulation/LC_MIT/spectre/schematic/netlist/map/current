@@ -1,0 +1,26 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "LC_MIT"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gndd! vdd! gnd!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/LC_MIT/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/LC_MIT/schematic" "LC_MIT" )
+ )
+( term
+ )
+( param
+ )
+( "LC_MIT" "ihnl/cds0/map" )
+ )
