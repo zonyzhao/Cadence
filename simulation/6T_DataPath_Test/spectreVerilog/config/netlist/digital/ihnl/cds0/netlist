@@ -1,9 +1,9 @@
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 24 01:42:26 2015
-// NETLIST TIME: Apr 24 02:45:30 2015
+// NETLIST TIME: Apr 24 04:16:57 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_88 ( RData, R_AddressAck, ReadAck, W_AddresAck,
+module cdsModule_211 ( RData, R_AddressAck, ReadAck, W_AddresAck,
      WdataAck, WriteAck, RRW, R_Address, RdataAck, WData, WRW,
      W_Address );
 
@@ -145,5 +145,81 @@ specify
     specparam CDS_VIEWNAME = "schematic";
 endspecify
 
+inv_1xT I28_19_ ( net060[0], R_Address[19]);
+inv_1xT I28_18_ ( net060[1], R_Address[18]);
+inv_1xT I28_17_ ( net060[2], R_Address[17]);
+inv_1xT I28_16_ ( net060[3], R_Address[16]);
+inv_1xT I28_15_ ( net060[4], R_Address[15]);
+inv_1xT I28_14_ ( net060[5], R_Address[14]);
+inv_1xT I28_13_ ( net060[6], R_Address[13]);
+inv_1xT I28_12_ ( net060[7], R_Address[12]);
+inv_1xT I28_11_ ( net060[8], R_Address[11]);
+inv_1xT I28_10_ ( net060[9], R_Address[10]);
+inv_1xT I28_9_ ( net060[10], R_Address[9]);
+inv_1xT I28_8_ ( net060[11], R_Address[8]);
+inv_1xT I28_7_ ( net060[12], R_Address[7]);
+inv_1xT I28_6_ ( net060[13], R_Address[6]);
+inv_1xT I28_5_ ( net060[14], R_Address[5]);
+inv_1xT I28_4_ ( net060[15], R_Address[4]);
+inv_1xT I28_3_ ( net060[16], R_Address[3]);
+inv_1xT I28_2_ ( net060[17], R_Address[2]);
+inv_1xT I28_1_ ( net060[18], R_Address[1]);
+inv_1xT I28_0_ ( net060[19], R_Address[0]);
+inv_1xT I24_4_ ( R_AddressAck[4], net045[0]);
+inv_1xT I24_3_ ( R_AddressAck[3], net045[1]);
+inv_1xT I24_2_ ( R_AddressAck[2], net045[2]);
+inv_1xT I24_1_ ( R_AddressAck[1], net045[3]);
+inv_1xT I24_0_ ( R_AddressAck[0], net045[4]);
+inv_1xT I27_1_ ( cdsbus1[1], RRW[1]);
+inv_1xT I27_0_ ( cdsbus1[0], RRW[0]);
+inv_1xT I50 ( ReadAck, cdsNet0);
+inv_1xT I49 ( WriteAck, cdsNet1);
+inv_1xT I26_1_ ( net064[0], WRW[1]);
+inv_1xT I26_0_ ( net064[1], WRW[0]);
+inv_1xT I21_4_ ( W_AddresAck[4], net048[0]);
+inv_1xT I21_3_ ( W_AddresAck[3], net048[1]);
+inv_1xT I21_2_ ( W_AddresAck[2], net048[2]);
+inv_1xT I21_1_ ( W_AddresAck[1], net048[3]);
+inv_1xT I21_0_ ( W_AddresAck[0], net048[4]);
+inv_1xT I8_1_ ( WdataAck[1], net036[0]);
+inv_1xT I8_0_ ( WdataAck[0], net036[1]);
+inv_1xT I25_19_ ( net049[0], W_Address[19]);
+inv_1xT I25_18_ ( net049[1], W_Address[18]);
+inv_1xT I25_17_ ( net049[2], W_Address[17]);
+inv_1xT I25_16_ ( net049[3], W_Address[16]);
+inv_1xT I25_15_ ( net049[4], W_Address[15]);
+inv_1xT I25_14_ ( net049[5], W_Address[14]);
+inv_1xT I25_13_ ( net049[6], W_Address[13]);
+inv_1xT I25_12_ ( net049[7], W_Address[12]);
+inv_1xT I25_11_ ( net049[8], W_Address[11]);
+inv_1xT I25_10_ ( net049[9], W_Address[10]);
+inv_1xT I25_9_ ( net049[10], W_Address[9]);
+inv_1xT I25_8_ ( net049[11], W_Address[8]);
+inv_1xT I25_7_ ( net049[12], W_Address[7]);
+inv_1xT I25_6_ ( net049[13], W_Address[6]);
+inv_1xT I25_5_ ( net049[14], W_Address[5]);
+inv_1xT I25_4_ ( net049[15], W_Address[4]);
+inv_1xT I25_3_ ( net049[16], W_Address[3]);
+inv_1xT I25_2_ ( net049[17], W_Address[2]);
+inv_1xT I25_1_ ( net049[18], W_Address[1]);
+inv_1xT I25_0_ ( net049[19], W_Address[0]);
+inv_1xT I12_1_ ( net41[0], RdataAck[1]);
+inv_1xT I12_0_ ( net41[1], RdataAck[0]);
+inv_1xT I10_7_ ( RData[7], net027[0]);
+inv_1xT I10_6_ ( RData[6], net027[1]);
+inv_1xT I10_5_ ( RData[5], net027[2]);
+inv_1xT I10_4_ ( RData[4], net027[3]);
+inv_1xT I10_3_ ( RData[3], net027[4]);
+inv_1xT I10_2_ ( RData[2], net027[5]);
+inv_1xT I10_1_ ( RData[1], net027[6]);
+inv_1xT I10_0_ ( RData[0], net027[7]);
+inv_1xT I4_7_ ( net44[0], WData[7]);
+inv_1xT I4_6_ ( net44[1], WData[6]);
+inv_1xT I4_5_ ( net44[2], WData[5]);
+inv_1xT I4_4_ ( net44[3], WData[4]);
+inv_1xT I4_3_ ( net44[4], WData[3]);
+inv_1xT I4_2_ ( net44[5], WData[2]);
+inv_1xT I4_1_ ( net44[6], WData[1]);
+inv_1xT I4_0_ ( net44[7], WData[0]);
 
 endmodule

@@ -7,12 +7,12 @@ module test;
 wire  Ack;
 
 
-wire [7:0]  RData;
 wire [1:0]  WdataAck;
+wire [7:0]  RData;
 
 reg [1:0]  RW;
-reg [1:0]  RdataAck;
 reg [16:0]  A;
+reg [1:0]  RdataAck;
 reg [7:0]  WData;
 integer dc_mode_flag;
 integer output_change_count;
@@ -23,7 +23,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_148 top(Ack, RData, WdataAck, A, RW, RdataAck, WData); 
+cdsModule_194 top(Ack, RData, WdataAck, A, RW, RdataAck, WData); 
  
 
 `define verimix

@@ -1,4 +1,4 @@
-Fri Apr 24 03:09:38 2015
+Fri Apr 24 04:14:57 2015
 
 BUILDING Network design (cell: 6T_DataPathSimple_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -39,8 +39,8 @@ PARTITIONING INFORMATION:
 Model inv_1xT, lib 16nm, view functional
 	Partition analog, in network toolNetworkId0
 	The modules in this partition are:
-Module inv_1xt, lib 16nm, view schematic, configViewString $default
 Module inv_1x, lib 16nm, view schematic, configViewString $default
+Module inv_1xt, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
 Module nor_1x, lib 16nm, view schematic, configViewString $default
@@ -50,7 +50,6 @@ Module WCHB_Write, lib 16nm, view schematic, configViewString $default
 Module TH44~, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module WCHB_Read, lib 16nm, view schematic, configViewString $default
-Module and_1x, lib 16nm, view schematic, configViewString $default
 Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
 Module or_1x, lib 16nm, view schematic, configViewString $default
 Module THaC, lib 16nm, view schematic, configViewString $default

@@ -1,4 +1,4 @@
-Fri Apr 24 02:41:03 2015
+Fri Apr 24 04:12:54 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -43,6 +43,7 @@ Module inv_1xt, lib 16nm, view schematic, configViewString $default
 Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module tx_gate, lib 16nm, view schematic, configViewString $default
 Module Mux_4to1_tx, lib 16nm, view schematic, configViewString $default
+Module inv_4x, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
 Module nand3_1x, lib 16nm, view schematic, configViewString $default
 Module and3_1x, lib 16nm, view schematic, configViewString $default

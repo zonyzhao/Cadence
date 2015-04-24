@@ -1,8 +1,8 @@
-ic IDATA.I86.net14=vdd IDATA.I86.net13=vdd IDATA.I86.net12=vdd \
+ic DataAckT=0 IDATA.I86.net14=vdd IDATA.I86.net13=vdd IDATA.I86.net12=vdd \
     IDATA.I86.net11=vdd IDATA.I86.b1_0=vdd IDATA.I86.b0_0=vdd \
     IDATA.I86.b1_1=vdd IDATA.I86.b0_1=vdd IDATA.I86.nxa=vdd \
     IDATA.I86.n_0=0 IDATA.I86.n_1=0 IDATA.I86.n_2=0 IDATA.I86.n_3=0 \
-    IDATA.intWack=vdd IDATA.intRack=vdd DataAckT=vdd IDATA.RdataAck_1=0 \
+    IDATA.intWack=vdd IDATA.intRack=vdd IDATA.RdataAck_1=0 \
     IDATA.RdataAck_0=0 IDATA.I67_1.net24=vdd IDATA.I67_1.net20=vdd \
     IDATA.I67_1.net27=vdd IDATA.I67_1.net31=vdd IDATA.I67_1.m_3=vdd \
     IDATA.I67_1.m_2=vdd IDATA.I67_1.m_1=vdd IDATA.I67_1.m_0=vdd \
@@ -55,5 +55,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save V1:p V0:p IDATA.I86:5 
+save vdd! V1:p V0:p IDATA.I86:5 
 saveOptions options save=allpub

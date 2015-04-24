@@ -4,7 +4,7 @@
   blockName "6T_DataPathSimple_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "vcc! vdd! gnd!"
+  globalList "gnd! vdd! vcc!"
   hierDelim "."
   hierPrefix "test.top"
   globalHierPrefix "cds_globals."
@@ -18,31 +18,31 @@
 ( instViewTable
  )
 ( defbus
-( "~R1_1" 3 0  "cdsbus1" 3 0  )
-( "net027" 0 7  "net027" 0 7  )
+( "RData" 7 0  "RData" 7 0  )
+( "net032" 0 1  "net032" 0 1  )
 ( "net036" 0 1  "net036" 0 1  )
 ( "B1_1" 3 0  "B1_1" 3 0  )
-( "net41" 0 1  "net41" 0 1  )
-( "net032" 0 1  "net032" 0 1  )
-( "~R0_1" 3 0  "cdsbus0" 3 0  )
-( "WDataT" 7 0  "WDataT" 7 0  )
+( "net033" 0 16  "net033" 0 16  )
+( "~R0_1" 3 0  "cdsbus1" 3 0  )
+( "W0_1" 3 0  "W0_1" 3 0  )
+( "net027" 0 7  "net027" 0 7  )
+( "WdataAckT" 1 0  "WdataAckT" 1 0  )
+( "B0_1" 3 0  "B0_1" 3 0  )
 ( "AT" 16 0  "AT" 16 0  )
-( "RDataT" 7 0  "RDataT" 7 0  )
+( "WDataT" 7 0  "WDataT" 7 0  )
+( "RWT" 1 0  "RWT" 1 0  )
 ( "WData" 7 0  "WData" 7 0  )
-( "Aline" 63 0  "Aline" 63 0  )
-( "S" 7 0  "S" 7 0  )
+( "RDataT" 7 0  "RDataT" 7 0  )
+( "RdataAck" 1 0  "RdataAck" 1 0  )
 ( "A" 16 0  "A" 16 0  )
 ( "net44" 0 7  "net44" 0 7  )
-( "RdataAckT" 1 0  "RdataAckT" 1 0  )
-( "W0_1" 3 0  "W0_1" 3 0  )
+( "net41" 0 1  "net41" 0 1  )
 ( "WdataAck" 1 0  "WdataAck" 1 0  )
-( "B0_1" 3 0  "B0_1" 3 0  )
-( "WdataAckT" 1 0  "WdataAckT" 1 0  )
-( "RWT" 1 0  "RWT" 1 0  )
-( "RdataAck" 1 0  "RdataAck" 1 0  )
-( "RData" 7 0  "RData" 7 0  )
+( "RdataAckT" 1 0  "RdataAckT" 1 0  )
+( "Aline" 63 0  "Aline" 63 0  )
+( "S" 7 0  "S" 7 0  )
+( "~R1_1" 3 0  "cdsbus0" 3 0  )
 ( "W1_1" 3 0  "W1_1" 3 0  )
-( "net033" 0 16  "net033" 0 16  )
 ( "RW" 1 0  "RW" 1 0  )
  )
 ( net
@@ -53,12 +53,12 @@
 ( inst
  )
 ( model
-( "16nm_Tests/6T_DataPathSimple_Test/schematic" "cdsModule_148" )
+( "16nm_Tests/6T_DataPathSimple_Test/schematic" "cdsModule_194" )
  )
 ( term
  )
 ( param
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_148" "ihnl/cds0/map" )
+( "cdsModule_194" "ihnl/cds0/map" )
  )

@@ -1,6 +1,6 @@
-    M4 (Y C vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+    M4 (Y C vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M1 (Y B vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M0 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
     M6 (net026 C 0 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
     M3 (net22 B net026 0) nfet w=180n l=20n nfin=1 m=1 degradation=no
     M2 (Y A net22 0) nfet w=180n l=20n nfin=1 m=1 degradation=no

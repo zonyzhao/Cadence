@@ -1,5 +1,6 @@
 hnlLastStopCellInfo = '(
-                        )
+                           ( "16nm" "inv_1xT" "functional" "40" "1427939694" )
+                       )
 hnlLastNetlistConfig = t
 hnlLastConfigFileVersion = 8
 hnlLastConfigFileTimeStamp = "1429753713"

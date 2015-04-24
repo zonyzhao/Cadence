@@ -1,0 +1,56 @@
+    I80_3 (Lack_3 RpAck_3 R0_3 R0q_3 R1_3 R1q_3) PCHBd
+    I80_2 (Lack_2 RpAck_2 R0_2 R0q_2 R1_2 R1q_2) PCHBd
+    I80_1 (Lack_1 RpAck_1 R0_1 R0q_1 R1_1 R1q_1) PCHBd
+    I80_0 (Lack_0 RpAck_0 R0_0 R0q_0 R1_0 R1q_0) PCHBd
+    I82 (intRack intWack Ack) nand_1x
+    I78_3 (Wen B0_3 W0_3) nand_1x
+    I78_2 (Wen B0_2 W0_2) nand_1x
+    I78_1 (Wen B0_1 W0_1) nand_1x
+    I78_0 (Wen B0_0 W0_0) nand_1x
+    I77_3 (Wen B1_3 W1_3) nand_1x
+    I77_2 (Wen B1_2 W1_2) nand_1x
+    I77_1 (Wen B1_1 W1_1) nand_1x
+    I77_0 (Wen B1_0 W1_0) nand_1x
+    I83_1 (wack_1 B0_1 B1_1 nB0_1 nB1_1 W0_1 W1_1) PCHB_Write
+    I83_0 (wack_0 B0_0 B1_0 nB0_0 nB1_0 W0_0 W1_0) PCHB_Write
+    I85_1 (wack_3 B0_3 B1_3 nB0_3 nB1_3 W0_3 W1_3) PCHB_Write
+    I85_0 (wack_2 B0_2 B1_2 nB0_2 nB1_2 W0_2 W1_2) PCHB_Write
+    M1_3 (\~R1_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M1_2 (\~R1_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M1_1 (\~R1_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M1_0 (\~R1_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M0_3 (\~R0_3 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M0_2 (\~R0_2 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M0_1 (\~R0_1 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M0_0 (\~R0_0 Go vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    I35_3 (\~R1_3 R1_3) inv_1x
+    I35_2 (\~R1_2 R1_2) inv_1x
+    I35_1 (\~R1_1 R1_1) inv_1x
+    I35_0 (\~R1_0 R1_0) inv_1x
+    I34_3 (\~R0_3 R0_3) inv_1x
+    I34_2 (\~R0_2 R0_2) inv_1x
+    I34_1 (\~R0_1 R0_1) inv_1x
+    I34_0 (\~R0_0 R0_0) inv_1x
+    I56 (AckThruBot AckThruTop) iprobe
+    I65 (ValAddr RW_0 Wen) TH22
+    I38 (ValAddr RW_1 Go) TH22
+    I67_1 (R0q_3 R0q_2 R1q_3 R1q_2 RpAck_3 RpAck_2 Read_1of4_7 \
+        Read_1of4_6 Read_1of4_5 Read_1of4_4 RdataAck_1) WCHB_Read
+    I67_0 (R0q_1 R0q_0 R1q_1 R1q_0 RpAck_1 RpAck_0 Read_1of4_3 \
+        Read_1of4_2 Read_1of4_1 Read_1of4_0 RdataAck_0) WCHB_Read
+    I87 (wack_0 wack_2 wack_3 wack_1 intWack) _sub208
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) _sub208
+    I86 (W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 WdataAck_1 nB0_3 nB0_2 \
+        nB1_3 nB1_2 wack_3 wack_2) WCHB_Write
+    I84 (W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 WdataAck_0 nB0_1 nB0_0 \
+        nB1_1 nB1_0 wack_1 wack_0) WCHB_Write
+ends _sub209
+// End of subcircuit definition.

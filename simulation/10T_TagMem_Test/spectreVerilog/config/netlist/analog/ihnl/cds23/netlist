@@ -1,4 +1,4 @@
-    N2 (S GN D 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M0 (D GP S vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-ends tx_gate
+    M0 (Y A 0 0) nfet w=240n l=20n nfin=2 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=400n l=20n nfin=2 m=1 degradation=yes
+ends inv_4x
 // End of subcircuit definition.

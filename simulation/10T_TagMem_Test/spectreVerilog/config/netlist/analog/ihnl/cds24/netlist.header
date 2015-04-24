@@ -1,7 +1,7 @@
 
 // Library name: 16nm
-// Cell name: Mux_4to1_tx
+// Cell name: tx_gate
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt Mux_4to1_tx A B C D S0 S1 Z
+subckt tx_gate D GN GP S

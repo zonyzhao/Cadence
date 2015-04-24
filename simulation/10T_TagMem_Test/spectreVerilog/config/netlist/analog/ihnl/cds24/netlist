@@ -1,12 +1,4 @@
-    I10 (Z net19 S1 net25) tx_gate
-    I9 (Z S1 net19 net24) tx_gate
-    I8 (Z net19 S1 net23) tx_gate
-    I7 (Z S1 net19 net22) tx_gate
-    I5 (net22 S0 net14 D) tx_gate
-    I4 (net23 S0 net14 C) tx_gate
-    I1 (net24 net14 S0 B) tx_gate
-    I0 (net25 net14 S0 A) tx_gate
-    I11 (S1 net19) inv_1x
-    I6 (S0 net14) inv_1x
-ends Mux_4to1_tx
+    N2 (S GN D 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (S GP D vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=yes
+ends tx_gate
 // End of subcircuit definition.

@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_62 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
+cdsModule_182 top(R0, R1, R_Ack, W_Ack, GoR, GoW, R_Addr, Reset, W0, W1
      , W_Addr); 
  
 
