@@ -79,7 +79,7 @@
 (opts sensformat) ""
 (opts senstype) ""
 (opts simstat) ""
-(opts temp) "27"
+(opts temp) "30.0"
 (opts tempeffects) ""
 (opts title) ""
 (opts tmevthmod) ""

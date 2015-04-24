@@ -1,15 +1,15 @@
     I3 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P4 B1P4) _sub75
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P4 B1P4) _sub186
     I1 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P2 B1P2) _sub75
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P2 B1P2) _sub186
     I2 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P3 B1P3) _sub75
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P3 B1P3) _sub186
     I0 (A_31 A_30 A_29 A_28 A_27 A_26 A_25 A_24 A_23 A_22 A_21 A_20 \
         A_19 A_18 A_17 A_16 A_15 A_14 A_13 A_12 A_11 A_10 A_9 A_8 A_7 \
-        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P1 B1P1) _sub75
+        A_6 A_5 A_4 A_3 A_2 A_1 A_0 B0P1 B1P1) _sub186
     M0 (B0P1 B0 net67 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M1 (net67 S_0 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M2 (net66 S_0 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
@@ -26,10 +26,10 @@
     M18 (net60 S_3 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M19 (B0P4 B0 net60 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (B1P1 B1 net66 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    I4 (B0P1 B1P1 S_0 W0 W1) _sub76
-    I5 (B0P2 B1P2 S_1 W0 W1) _sub76
-    I6 (B0P3 B1P3 S_2 W0 W1) _sub76
-    I7 (B0P4 B1P4 S_3 W0 W1) _sub76
+    I4 (B0P1 B1P1 S_0 W0 W1) _sub187
+    I5 (B0P2 B1P2 S_1 W0 W1) _sub187
+    I6 (B0P3 B1P3 S_2 W0 W1) _sub187
+    I7 (B0P4 B1P4 S_3 W0 W1) _sub187
     I11 (B1P1 B1P2 B1P3 B1P4 SM1) nand4_1x
     I10 (B0P1 B0P2 B0P3 B0P4 SM0) nand4_1x
     C7 (B1P4 0) capacitor c=1.2822f m=1
@@ -40,5 +40,5 @@
     C2 (B0P2 0) capacitor c=1.2822f m=1
     C1 (B1P1 0) capacitor c=1.2822f m=1
     C0 (B0P1 0) capacitor c=1.2822f m=1
-ends _sub77
+ends _sub188
 // End of subcircuit definition.

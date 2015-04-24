@@ -12,4 +12,4 @@ cellViewCounterTable['("UCD_Analog_Parts" "vdc" "symbol" )] =  33
 cellViewCounterTable['("16nm" "inv_1xT" "symbol" )] =  36
 cellViewCounterTable['("UCD_Analog_Parts" "gnd" "symbol" )] =  19
 cellViewCounterTable['("16nm" "6T_CHUNK" "symbol" )] =  1262
-cellViewCounterTable['("16nm_Tests" "6T_DataPath_Test" "schematic" )] =  227671
+cellViewCounterTable['("16nm_Tests" "6T_DataPath_Test" "schematic" )] =  232279

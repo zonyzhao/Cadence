@@ -1,11 +1,11 @@
-    I7 (b_0 bsel \~out_0 bmid_0) _sub68
-    I6 (b_1 bsel \~out_1 bmid_1) _sub68
-    I5 (b_2 bsel \~out_2 bmid_2) _sub68
-    I4 (b_3 bsel \~out_3 bmid_3) _sub68
-    I3 (a_3 asel \~out_3 amid_3) _sub68
-    I2 (a_2 asel \~out_2 amid_2) _sub68
-    I1 (a_1 asel \~out_1 amid_1) _sub68
-    I0 (a_0 asel \~out_0 amid_0) _sub68
+    I7 (b_0 bsel \~out_0 bmid_0) _sub179
+    I6 (b_1 bsel \~out_1 bmid_1) _sub179
+    I5 (b_2 bsel \~out_2 bmid_2) _sub179
+    I4 (b_3 bsel \~out_3 bmid_3) _sub179
+    I3 (a_3 asel \~out_3 amid_3) _sub179
+    I2 (a_2 asel \~out_2 amid_2) _sub179
+    I1 (a_1 asel \~out_1 amid_1) _sub179
+    I0 (a_0 asel \~out_0 amid_0) _sub179
     I11 (Vpass_0 ack out_0) TH22
     I10 (Vpass_1 ack out_1) TH22
     I9 (Vpass_2 ack out_2) TH22
@@ -20,5 +20,5 @@
     I20 (out_1 \~out_1) inv_1x
     I19 (out_2 \~out_2) inv_1x
     I18 (out_3 \~out_3) inv_1x
-ends _sub69
+ends _sub180
 // End of subcircuit definition.

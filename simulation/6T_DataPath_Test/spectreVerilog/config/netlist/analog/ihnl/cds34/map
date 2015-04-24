@@ -127,8 +127,8 @@
 ( "I80<2>" "I80_2" )
  )
 ( model
-( "TH44~" "_sub81" )
-( "6T_DATAb" "_sub82" )
+( "TH44~" "_sub192" )
+( "6T_DATAb" "_sub193" )
  )
 ( term
  )

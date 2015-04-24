@@ -46,11 +46,11 @@
         Read_1of4_6 Read_1of4_5 Read_1of4_4 RdataAck_1) WCHB_Read
     I67_0 (R0q_1 R0q_0 R1q_1 R1q_0 RpAck_1 RpAck_0 Read_1of4_3 \
         Read_1of4_2 Read_1of4_1 Read_1of4_0 RdataAck_0) WCHB_Read
-    I87 (wack_0 wack_2 wack_3 wack_1 intWack) _sub47
-    I43 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) _sub47
+    I87 (wack_0 wack_2 wack_3 wack_1 intWack) _sub156
+    I43 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) _sub156
     I86 (W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 WdataAck_1 nB0_3 nB0_2 \
         nB1_3 nB1_2 wack_3 wack_2) WCHB_Write
     I84 (W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 WdataAck_0 nB0_1 nB0_0 \
         nB1_1 nB1_0 wack_1 wack_0) WCHB_Write
-ends _sub48
+ends _sub157
 // End of subcircuit definition.

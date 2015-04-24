@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport41136
+    +vmxsport42732
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  09:32:47
-Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  09:32:47
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  12:25:18
+Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  12:25:18
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.

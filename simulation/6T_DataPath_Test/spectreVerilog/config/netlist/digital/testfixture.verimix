@@ -53,7 +53,7 @@ always @(posedge WriteAck) begin
    	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
           	lastWriteAddr[19:0] <= W_Address[19:0];
    	  		WData[7:0] 			 = 8'b00000000;
-          	W_Address[19:0] 	 = 20'h0000;
+          	W_Address[19:0] 	 = 20'h00000;
           	WRW[1:0]         	 = 2'b00;
        	  	wStart = $time;
 		    wait(~WriteAck);
@@ -82,7 +82,7 @@ always @(posedge ReadAck) begin
    	  	rDelay = $time - rStart;
 	   	$fdisplay(rLog, "%h %h %t %t", R_Address[19:0], RData[7:0], $time, rDelay);   	   
 	  	readCount = readCount + 1;
-	  	if (readCount == 1) begin
+	  	if (readCount == 3) begin
 				$finish;
 	  	end
    	  	

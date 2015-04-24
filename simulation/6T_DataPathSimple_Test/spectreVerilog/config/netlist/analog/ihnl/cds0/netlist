@@ -4,5 +4,5 @@
     M0 (Q0 A B0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M3 (Q0 Q1 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
     M2 (Q1 Q0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-ends _sub39
+ends _sub148
 // End of subcircuit definition.
