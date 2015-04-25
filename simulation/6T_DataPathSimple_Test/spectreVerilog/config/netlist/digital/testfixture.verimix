@@ -1,6 +1,7 @@
 
 // Vermix stimulus file.
 // Default verimix stimulus. 
+// Simple Tag Memory Data PAth
 
 
 integer rLog;
@@ -73,7 +74,7 @@ always @(posedge Ack) begin
    	  			rDelay = $time - rStart;
 	   			$fdisplay(rLog, "%h %h %t %t", A[16:0], RData[7:0], $time, rDelay);   	   
 	  			readCount = readCount + 1;
-	  			if (readCount == 2) begin
+	  			if (readCount == 5) begin
 					$finish;
 	  			end
 				readOrWrite=1;

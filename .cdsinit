@@ -57,3 +57,8 @@ ddsOpenLibManager()
 setShellEnvVar("CDS_Netlisting_Mode=Analog")
 cdsSetNetlistMode()
 cdsGetNetlistMode()
+
+; Auto update CDF term order
+envSetVal("auCore.misc" "updateCDFtermOrder" 'boolean t)
+
+loadi("CCScheckAndUpdateCDF.il")

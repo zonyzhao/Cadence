@@ -23,7 +23,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_159 top(Ack, RData, WdataAck, A, RW, RdataAck, WData); 
+cdsModule_241 top(Ack, RData, WdataAck, A, RW, RdataAck, WData); 
  
 
 `define verimix

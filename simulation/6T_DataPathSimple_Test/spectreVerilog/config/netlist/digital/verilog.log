@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport44600
+    +vmxsport33272
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  12:12:58
-Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  12:12:58
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  14:31:44
+Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  14:31:44
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -72,3 +72,54 @@ test
 cds_globals
 
 Verilog/spectre Mixed-Signal Interface 2.0
+
+Message!  Stable DC solution not found within 0                                
+          iterations. Using last calculated state to start                     
+          transient analysis. See Artist Mixed-Signal                          
+          Simulation Help for more info on obtaining an                        
+          initial solution.                                 [Mixed_Sig]        
+          "IE.verimix", 5: $vmx_initialize("spectre",                          
+          dc_mode_flag);
+Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to spectre time 0.
+
+
+Message!  At the end of DC initialization the logic values                     
+          of the following ports are X (unknown):                              
+                                                                               
+          net41                                                                
+          net033                                                               
+          net44                                                                
+          net44                                                                
+          net44                                                                
+          net44                                                                
+          net033                                                               
+          net033                                                               
+          net033                                                               
+          net44                                                                
+          net033                                                               
+          net033                                                               
+          net033                                                               
+          net033                                                               
+          net44                                                                
+          net41                                                                
+          net033                                                               
+          net44                                                                
+          net44                                                                
+          net033                                                               
+          net033                                                               
+          net032                                                               
+          net033                                                               
+          net033                                                               
+          net033                                                               
+          net032                                                               
+          net033                                                               
+          net033                                                               
+          net033                                                               
+                                                           [Mixed_Sig]         
+          "IE.verimix", 5: $vmx_initialize("spectre",                          
+          dc_mode_flag);
+L78 "testfixture.verimix": $finish at simulation time 3510
+Verilog/spectre Interface: 3247 messages sent, 3249 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 519 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 5.3 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  15:09:58

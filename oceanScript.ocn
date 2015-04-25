@@ -5,7 +5,7 @@ modelFile(
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
 analysis('tran ?stop "50n"  ?errpreset "conservative"  )
-desVar(	  "vdd" 0.5	)
+desVar(	  "vdd" .500	)
 desVar(	  "vcc" "vdd"	)
 envOption(
 	'mspSetupNetlistSimPrecisionUnit  "ps" 
@@ -18,6 +18,7 @@ option(	'checklimitdest  ""
 	'temp  "30.0" 
 )
 saveOption( ?simOutputFormat "psfxl" )
+save( 'i "/V1/MINUS" "/V0/MINUS" )
 converge( 'ic "/ResetT" "0" )
 converge( 'ic "/R_AddrT<0>" "0" )
 converge( 'ic "/R_AddrT<1>" "0" )
@@ -170,4 +171,4 @@ converge( 'ic "/I36/I0/I1/I7/I3/Q" "vdd" )
 temp( 30.0 ) 
 run()
 selectResult( 'tran )
-plot(getData("/R_Addr<6:0>") getData("/GoR") getData("/R1<31:0>") getData("/R0<31:0>") getData("/R_Ack") getData("/W_Addr<6:0>") getData("/GoW") getData("/W1<31:0>") getData("/W0<31:0>") getData("/W_Ack") getData("/I36/I0/I1/I7/I3/Qb") getData("/I36/I0/I1/I7/I3/Q") getData("/I36/I0/~W0<0>") getData("/I36/I0/~R1<0>") getData("/I36/I0/~R0<0>") getData("/I36/I0/~W1<0>") )
+plot(getData("/R_Addr<6:0>") getData("/GoR") getData("/R1<31:0>") getData("/R0<31:0>") getData("/R_Ack") getData("/W_Addr<6:0>") getData("/GoW") getData("/W1<31:0>") getData("/W0<31:0>") getData("/W_Ack") getData("/I36/I0/I1/I7/I3/Qb") getData("/I36/I0/I1/I7/I3/Q") getData("/I36/I0/~W0<0>") getData("/I36/I0/~R1<0>") getData("/I36/I0/~R0<0>") getData("/I36/I0/~W1<0>") getData("/V1/MINUS") getData("/V0/MINUS") getData("/vdd!") getData("/vcc!") )

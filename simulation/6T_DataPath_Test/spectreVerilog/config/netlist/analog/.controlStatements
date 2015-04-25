@@ -1,64 +1,77 @@
-ic IDATA.I80_3.net022=vdd IDATA.I80_3.net027=vdd IDATA.Lack_3=0 \
-    IDATA.I80_3.net031=0 IDATA.I80_3.net030=0 IDATA.I83_1.oE=vdd \
-    IDATA.I83_1.inAck=vdd IDATA.I83_1.net027=vdd IDATA.I83_1.outValid=0 \
-    IDATA.I83_1.inValid=0 I36.I3.ap_0=vdd I36.I3.ap_1=vdd I36.I3.bp_0=vdd \
-    I36.I3.bp_1=vdd I36.I1.Vpass_3=0 I36.I1.Vpass_2=0 I36.I1.Vpass_1=0 \
-    I36.I1.Vpass_0=0 I36.I1.\~out_3=vdd I36.I1.\~out_2=vdd \
-    I36.I1.\~out_1=vdd I36.I1.\~out_0=vdd I36.I1.bmid_1=vdd \
-    I36.I1.bmid_0=vdd I36.I1.amid_0=vdd I36.I1.amid_1=vdd \
-    I36.I1.bmid_2=vdd I36.I1.bmid_3=vdd I36.I1.amid_3=vdd \
-    I36.I1.amid_2=vdd I36.I3.\~out_1=vdd I36.I3.\~out_0=vdd Acko_0=vdd \
-    I36.I3.outp_1=0 I36.I3.outp_0=0 IDATA.I67_1.outAck=vdd \
-    IDATA.I67_1.net31=vdd IDATA.I67_1.net27=vdd IDATA.I67_1.net24=vdd \
-    IDATA.I67_1.net20=vdd IDATA.I67_1.m_0=vdd IDATA.I67_1.m_1=vdd \
-    IDATA.I67_1.m_2=vdd IDATA.I67_1.m_3=vdd IDATA.I67_1.n0_0=0 \
-    IDATA.I67_1.n1_0=0 IDATA.I67_1.n0_1=0 IDATA.I67_1.n1_1=0 \
-    IDATA.RpAck_3=vdd IDATA.RpAck_2=vdd IDATA.RpAck_1=vdd \
-    IDATA.RpAck_0=vdd IDATA.R0q_3=0 IDATA.R0q_2=0 IDATA.R0q_1=0 \
-    IDATA.R0q_0=0 IDATA.R1q_3=0 IDATA.R1q_2=0 IDATA.R1q_1=0 IDATA.R1q_0=0 \
-    IDATA.R0_3=0 IDATA.R0_2=0 IDATA.R0_1=0 IDATA.R0_0=0 IDATA.R1_3=0 \
-    IDATA.R1_2=0 IDATA.R1_1=0 IDATA.R1_0=0 IDATA.nB0_3=0 IDATA.nB0_2=0 \
-    IDATA.wack_3=0 IDATA.wack_2=0 IDATA.nB1_3=0 IDATA.nB1_2=0 RW_1=0 \
-    RW_0=0 IDATA.Wen=0 ICHUNK.I0.I0.I7.I3.Q0=vdd ICHUNK.I0.I0.I7.I3.Q1=0 \
-    WdataAckT_0=vdd IDATA.I84.nxa=vdd IDATA.I84.net14=vdd \
-    IDATA.I84.net13=vdd IDATA.I84.net12=vdd IDATA.I84.net11=vdd \
-    IDATA.nB0_1=0 IDATA.nB0_0=0 IDATA.nB1_1=0 IDATA.nB1_0=0 IDATA.wack_1=0 \
-    IDATA.wack_0=0 IDATA.I84.n_0=0 IDATA.I84.n_1=0 IDATA.I84.n_2=0 \
-    IDATA.I84.n_3=0 DataAck=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 AT_3=0 AT_2=0 \
-    AT_1=0 AT_0=0 AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_15=0 AT_14=0 AT_13=0 \
-    AT_12=0 AT_19=0 AT_18=0 AT_17=0 AT_16=0 S_7=0 S_6=0 S_5=0 S_4=0 S_3=0 \
-    S_2=0 S_1=0 S_0=0 ValAddr=0 Aline_63=0 Aline_62=0 Aline_61=0 \
-    Aline_60=0 Aline_59=0 Aline_58=0 Aline_57=0 Aline_56=0 Aline_55=0 \
-    Aline_54=0 Aline_53=0 Aline_52=0 Aline_51=0 Aline_50=0 Aline_49=0 \
-    Aline_48=0 Aline_47=0 Aline_46=0 Aline_45=0 Aline_44=0 Aline_43=0 \
-    Aline_42=0 Aline_41=0 Aline_40=0 Aline_39=0 Aline_38=0 Aline_37=0 \
-    Aline_36=0 Aline_35=0 Aline_34=0 Aline_33=0 Aline_32=0 Aline_31=0 \
-    Aline_30=0 Aline_29=0 Aline_28=0 Aline_27=0 Aline_26=0 Aline_25=0 \
-    Aline_24=0 Aline_23=0 Aline_22=0 Aline_21=0 Aline_20=0 Aline_19=0 \
-    Aline_18=0 Aline_17=0 Aline_16=0 Aline_15=0 Aline_14=0 Aline_13=0 \
-    Aline_12=0 Aline_11=0 Aline_10=0 Aline_9=0 Aline_8=0 Aline_7=0 \
-    Aline_6=0 Aline_5=0 Aline_4=0 Aline_3=0 Aline_2=0 Aline_1=0 Aline_0=0 \
-    \~R0_1_3=vdd \~R0_1_2=vdd \~R0_1_1=vdd \~R0_1_0=vdd \~R1_1_3=vdd \
-    \~R1_1_2=vdd \~R1_1_1=vdd \~R1_1_0=vdd G01=0 W0_1_3=0 W0_1_2=0 \
-    W0_1_1=0 W0_1_0=0 W1_1_3=0 W1_1_2=0 W1_1_1=0 W1_1_0=0 B0_1_3=0 \
-    B0_1_2=0 B0_1_1=0 B0_1_0=0 B1_1_3=0 B1_1_2=0 B1_1_1=0 B1_1_0=0 \
-    W_Address_AckT_4=vdd W_Address_AckT_3=vdd W_Address_AckT_2=vdd \
-    W_Address_AckT_1=vdd W_Address_AckT_0=vdd ReadAckT=0 net046_0=0 \
-    net046_1=0 net055_0=0 net055_1=0 net055_2=0 net055_3=0 net055_4=0 \
-    R_AddressT_19=0 R_AddressT_18=0 R_AddressT_17=0 R_AddressT_16=0 \
-    R_AddressT_15=0 R_AddressT_14=0 R_AddressT_13=0 R_AddressT_12=0 \
-    R_AddressT_11=0 R_AddressT_10=0 R_AddressT_9=0 R_AddressT_8=0 \
-    R_AddressT_7=0 R_AddressT_6=0 R_AddressT_5=0 R_AddressT_4=0 \
-    R_AddressT_3=0 R_AddressT_2=0 R_AddressT_1=0 R_AddressT_0=0 \
-    WriteAckT=0 WRWT_1=0 WRWT_0=0 W_AddressT_19=0 W_AddressT_18=0 \
-    W_AddressT_17=0 W_AddressT_16=0 W_AddressT_15=0 W_AddressT_14=0 \
-    W_AddressT_13=0 W_AddressT_12=0 W_AddressT_11=0 W_AddressT_10=0 \
-    W_AddressT_9=0 W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 \
-    W_AddressT_5=0 W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 \
-    W_AddressT_1=0 W_AddressT_0=0 RdataAckT_1=0 RdataAckT_0=0 RDataT_7=0 \
-    RDataT_6=0 RDataT_5=0 RDataT_4=0 RDataT_3=0 RDataT_2=0 RDataT_1=0 \
-    RDataT_0=0 WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 WDataT_7=0 \
-    WDataT_6=0 WDataT_5=0 WDataT_4=0 
+ic WdataAckT_1=0 WdataAckT_0=0 I36.I0.I22.Vpass_3=0 I36.I0.I22.Vpass_2=0 \
+    I36.I0.I22.Vpass_1=0 I36.I0.I22.Vpass_0=0 I36.I0.I22.amid_3=0 \
+    I36.I0.I22.bmid_0=0 I36.I0.I22.amid_2=0 I36.I0.I22.bmid_1=0 \
+    I36.I0.I22.amid_1=0 I36.I0.I22.bmid_2=0 I36.I0.I22.amid_0=0 \
+    I36.I0.I22.bmid_3=0 I36.I3.ap_0=0 I36.I3.ap_1=0 I36.I3.bp_0=0 \
+    I36.I3.bp_1=0 I36.I1.amid_3=0 I36.I1.bmid_0=0 I36.I1.amid_2=0 \
+    I36.I1.bmid_1=0 I36.I1.amid_1=0 I36.I1.bmid_2=0 I36.I1.amid_0=0 \
+    I36.I1.bmid_3=0 IDATA.I86.nxa=vdd IDATA.I86.net14=vdd \
+    IDATA.I86.net13=vdd IDATA.I86.net12=vdd IDATA.I86.net11=vdd \
+    IDATA.I86.b0_0=vdd IDATA.I86.b1_1=vdd IDATA.I86.b0_1=vdd \
+    IDATA.I86.b1_0=vdd IDATA.I86.n_0=0 IDATA.I86.n_1=0 IDATA.I86.n_2=0 \
+    IDATA.I86.n_3=0 IDATA.I85_1.oE=vdd IDATA.I85_1.net027=vdd \
+    IDATA.I85_1.inAck=vdd IDATA.I85_1.outValid=0 IDATA.I85_1.inValid=0 \
+    IDATA.intWack=vdd IDATA.intRack=vdd IDATA.Lack_0=0 IDATA.Lack_1=0 \
+    IDATA.Lack_2=0 IDATA.I84.b0_1=vdd IDATA.I84.b1_1=vdd \
+    IDATA.I84.b0_0=vdd IDATA.I84.b1_0=vdd W_Address_AckT_4=0 \
+    W_Address_AckT_3=0 W_Address_AckT_2=0 W_Address_AckT_1=0 \
+    W_Address_AckT_0=0 Acko_5=vdd Acko_4=vdd Acko_3=vdd Acko_2=vdd \
+    Acko_1=vdd IDATA.I80_3.net022=vdd IDATA.I80_3.net027=vdd \
+    IDATA.Lack_3=0 IDATA.I80_3.net031=0 IDATA.I80_3.net030=0 \
+    IDATA.I83_1.oE=vdd IDATA.I83_1.inAck=vdd IDATA.I83_1.net027=vdd \
+    IDATA.I83_1.outValid=0 IDATA.I83_1.inValid=0 I36.I1.Vpass_3=0 \
+    I36.I1.Vpass_2=0 I36.I1.Vpass_1=0 I36.I1.Vpass_0=0 I36.I1.\~out_3=vdd \
+    I36.I1.\~out_2=vdd I36.I1.\~out_1=vdd I36.I1.\~out_0=vdd \
+    I36.I3.\~out_1=vdd I36.I3.\~out_0=vdd Acko_0=vdd I36.I3.outp_1=0 \
+    I36.I3.outp_0=0 IDATA.I67_1.outAck=vdd IDATA.I67_1.net31=vdd \
+    IDATA.I67_1.net27=vdd IDATA.I67_1.net24=vdd IDATA.I67_1.net20=vdd \
+    IDATA.I67_1.m_0=vdd IDATA.I67_1.m_1=vdd IDATA.I67_1.m_2=vdd \
+    IDATA.I67_1.m_3=vdd IDATA.I67_1.n0_0=0 IDATA.I67_1.n1_0=0 \
+    IDATA.I67_1.n0_1=0 IDATA.I67_1.n1_1=0 IDATA.RpAck_3=vdd \
+    IDATA.RpAck_2=vdd IDATA.RpAck_1=vdd IDATA.RpAck_0=vdd IDATA.R0q_3=0 \
+    IDATA.R0q_2=0 IDATA.R0q_1=0 IDATA.R0q_0=0 IDATA.R1q_3=0 IDATA.R1q_2=0 \
+    IDATA.R1q_1=0 IDATA.R1q_0=0 IDATA.R0_3=0 IDATA.R0_2=0 IDATA.R0_1=0 \
+    IDATA.R0_0=0 IDATA.R1_3=0 IDATA.R1_2=0 IDATA.R1_1=0 IDATA.R1_0=0 \
+    IDATA.nB0_3=0 IDATA.nB0_2=0 IDATA.wack_3=0 IDATA.wack_2=0 \
+    IDATA.nB1_3=0 IDATA.nB1_2=0 RW_1=0 RW_0=0 IDATA.Wen=0 \
+    ICHUNK.I0.I0.I7.I3.Q0=vdd ICHUNK.I0.I0.I7.I3.Q1=0 IDATA.I84.nxa=vdd \
+    IDATA.I84.net14=vdd IDATA.I84.net13=vdd IDATA.I84.net12=vdd \
+    IDATA.I84.net11=vdd IDATA.nB0_1=0 IDATA.nB0_0=0 IDATA.nB1_1=0 \
+    IDATA.nB1_0=0 IDATA.wack_1=0 IDATA.wack_0=0 IDATA.I84.n_0=0 \
+    IDATA.I84.n_1=0 IDATA.I84.n_2=0 IDATA.I84.n_3=0 DataAck=0 AT_11=0 \
+    AT_10=0 AT_9=0 AT_8=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 AT_7=0 AT_6=0 AT_5=0 \
+    AT_4=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_19=0 AT_18=0 AT_17=0 AT_16=0 \
+    S_7=0 S_6=0 S_5=0 S_4=0 S_3=0 S_2=0 S_1=0 S_0=0 ValAddr=0 Aline_63=0 \
+    Aline_62=0 Aline_61=0 Aline_60=0 Aline_59=0 Aline_58=0 Aline_57=0 \
+    Aline_56=0 Aline_55=0 Aline_54=0 Aline_53=0 Aline_52=0 Aline_51=0 \
+    Aline_50=0 Aline_49=0 Aline_48=0 Aline_47=0 Aline_46=0 Aline_45=0 \
+    Aline_44=0 Aline_43=0 Aline_42=0 Aline_41=0 Aline_40=0 Aline_39=0 \
+    Aline_38=0 Aline_37=0 Aline_36=0 Aline_35=0 Aline_34=0 Aline_33=0 \
+    Aline_32=0 Aline_31=0 Aline_30=0 Aline_29=0 Aline_28=0 Aline_27=0 \
+    Aline_26=0 Aline_25=0 Aline_24=0 Aline_23=0 Aline_22=0 Aline_21=0 \
+    Aline_20=0 Aline_19=0 Aline_18=0 Aline_17=0 Aline_16=0 Aline_15=0 \
+    Aline_14=0 Aline_13=0 Aline_12=0 Aline_11=0 Aline_10=0 Aline_9=0 \
+    Aline_8=0 Aline_7=0 Aline_6=0 Aline_5=0 Aline_4=0 Aline_3=0 Aline_2=0 \
+    Aline_1=0 Aline_0=0 \~R0_1_3=vdd \~R0_1_2=vdd \~R0_1_1=vdd \
+    \~R0_1_0=vdd \~R1_1_3=vdd \~R1_1_2=vdd \~R1_1_1=vdd \~R1_1_0=vdd G01=0 \
+    W0_1_3=0 W0_1_2=0 W0_1_1=0 W0_1_0=0 W1_1_3=0 W1_1_2=0 W1_1_1=0 \
+    W1_1_0=0 B0_1_3=0 B0_1_2=0 B0_1_1=0 B0_1_0=0 B1_1_3=0 B1_1_2=0 \
+    B1_1_1=0 B1_1_0=0 ReadAckT=0 net046_0=0 net046_1=0 net055_0=0 \
+    net055_1=0 net055_2=0 net055_3=0 net055_4=0 R_AddressT_19=0 \
+    R_AddressT_18=0 R_AddressT_17=0 R_AddressT_16=0 R_AddressT_15=0 \
+    R_AddressT_14=0 R_AddressT_13=0 R_AddressT_12=0 R_AddressT_11=0 \
+    R_AddressT_10=0 R_AddressT_9=0 R_AddressT_8=0 R_AddressT_7=0 \
+    R_AddressT_6=0 R_AddressT_5=0 R_AddressT_4=0 R_AddressT_3=0 \
+    R_AddressT_2=0 R_AddressT_1=0 R_AddressT_0=0 WriteAckT=0 WRWT_1=0 \
+    WRWT_0=0 W_AddressT_19=0 W_AddressT_18=0 W_AddressT_17=0 \
+    W_AddressT_16=0 W_AddressT_15=0 W_AddressT_14=0 W_AddressT_13=0 \
+    W_AddressT_12=0 W_AddressT_11=0 W_AddressT_10=0 W_AddressT_9=0 \
+    W_AddressT_8=0 W_AddressT_7=0 W_AddressT_6=0 W_AddressT_5=0 \
+    W_AddressT_4=0 W_AddressT_3=0 W_AddressT_2=0 W_AddressT_1=0 \
+    W_AddressT_0=0 RdataAckT_1=0 RdataAckT_0=0 RDataT_7=0 RDataT_6=0 \
+    RDataT_5=0 RDataT_4=0 RDataT_3=0 RDataT_2=0 RDataT_1=0 RDataT_0=0 \
+    WDataT_3=0 WDataT_2=0 WDataT_1=0 WDataT_0=0 WDataT_7=0 WDataT_6=0 \
+    WDataT_5=0 WDataT_4=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
@@ -72,16 +85,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save IMUX:90 IMUX:80 IMUX:79 IMUX:78 IMUX:77 IMUX:76 IMUX:75 IMUX:74 \
-    IMUX:73 IMUX:72 IMUX:71 IMUX:70 IMUX:69 IMUX:68 IMUX:67 IMUX:66 \
-    IMUX:65 IMUX:64 IMUX:63 IMUX:62 IMUX:61 IMUX:60 IMUX:59 IMUX:58 \
-    IMUX:57 IMUX:56 IMUX:55 IMUX:54 IMUX:53 IMUX:52 IMUX:51 IMUX:50 \
-    IMUX:49 IMUX:48 IMUX:47 IMUX:46 IMUX:45 IMUX:44 IMUX:43 IMUX:42 \
-    IMUX:41 IMUX:40 IMUX:39 IMUX:38 IMUX:37 IMUX:36 IMUX:35 IMUX:34 \
-    IMUX:33 IMUX:32 IMUX:31 IMUX:30 IMUX:29 IMUX:28 IMUX:27 IMUX:26 \
-    IMUX:25 IMUX:24 IMUX:23 IMUX:22 IMUX:21 IMUX:20 IMUX:19 IMUX:18 \
-    IMUX:17 IMUX:89 IMUX:88 IMUX:87 IMUX:86 IMUX:85 IMUX:84 IMUX:83 \
-    IMUX:82 IMUX:4 IMUX:3 IMUX:2 IMUX:1 IMUX:8 IMUX:7 IMUX:6 IMUX:5 \
-    IMUX:12 IMUX:11 IMUX:10 IMUX:9 IMUX:16 IMUX:15 IMUX:14 IMUX:13 IMUX:81 \
-    V1:p V0:p V1:p V0:p 
+save V0:p V0:p V1:p V1:p 
 saveOptions options save=allpub

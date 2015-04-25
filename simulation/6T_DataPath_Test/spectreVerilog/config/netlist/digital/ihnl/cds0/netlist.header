@@ -1,139 +1,139 @@
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
-// LAST TIME SAVED: Apr 24 09:46:22 2015
-// NETLIST TIME: Apr 24 12:25:13 2015
+// LAST TIME SAVED: Apr 24 13:57:30 2015
+// NETLIST TIME: Apr 24 18:44:18 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_195 ( RData, R_AddressAck, ReadAck, W_AddresAck,
+module cdsModule_15 ( RData, R_AddressAck, ReadAck, W_AddresAck,
      WdataAck, WriteAck, RRW, R_Address, RdataAck, WData, WRW,
      W_Address );
 
 output  ReadAck, WriteAck;
 
 
-output [4:0]  W_AddresAck;
 output [4:0]  R_AddressAck;
-output [1:0]  WdataAck;
 output [7:0]  RData;
+output [1:0]  WdataAck;
+output [4:0]  W_AddresAck;
 
 input [1:0]  RRW;
 input [1:0]  RdataAck;
+input [19:0]  W_Address;
 input [7:0]  WData;
 input [1:0]  WRW;
 input [19:0]  R_Address;
-input [19:0]  W_Address;
 
 // Buses in the design
 
-wire  [0:19]  net060;
-
-wire  [1:0]  RW;
-
-wire  [0:4]  net055;
-
-wire  [7:0]  S;
-
-wire  [0:1]  net41;
-
-wire  [1:0]  cdsbus0;
-
-wire  [63:0]  Aline;
-
 wire  [3:0]  B0_1;
-
-wire  [1:0]  RdataAckT;
-
-wire  [3:0]  cdsbus1;
-
-wire  [19:0]  W_AddressT;
-
-wire  [3:0]  W1_1;
-
-wire  [0:19]  net049;
-
-wire  [0:1]  net036;
 
 wire  [19:0]  R_AddressT;
 
-wire  [5:0]  Acko;
+wire  [0:7]  net027;
 
-wire  [3:0]  W0_1;
-
-wire  [3:0]  B1_1;
-
-wire  [3:0]  cdsbus2;
-
-wire  [7:0]  WDataT;
+wire  [0:1]  net036;
 
 wire  [1:0]  WdataAckT;
 
-wire  [0:4]  net048;
+wire  [0:19]  net049;
+
+wire  [1:0]  RdataAckT;
+
+wire  [63:0]  Aline;
+
+wire  [3:0]  W1_1;
 
 wire  [1:0]  WRWT;
 
-wire  [0:7]  net44;
+wire  [1:0]  RW;
 
-wire  [0:4]  net045;
+wire  [19:0]  W_AddressT;
 
-wire  [0:1]  net064;
+wire  [3:0]  B1_1;
 
-wire  [0:7]  net027;
-
-wire  [4:0]  W_Address_AckT;
+wire  [3:0]  cdsbus0;
 
 wire  [19:0]  AT;
 
+wire  [3:0]  cdsbus1;
+
+wire  [0:1]  net064;
+
+wire  [1:0]  cdsbus2;
+
+wire  [3:0]  W0_1;
+
+wire  [5:0]  Acko;
+
+wire  [0:1]  net41;
+
+wire  [0:4]  net045;
+
+wire  [0:19]  net060;
+
+wire  [4:0]  W_Address_AckT;
+
+wire  [0:7]  net44;
+
+wire  [7:0]  S;
+
 wire  [7:0]  RDataT;
+
+wire  [0:4]  net048;
+
+wire  [7:0]  WDataT;
+
+wire  [0:4]  net055;
 
 wire  [0:1]  net046;
 
 // begin interface element definitions
 
-wire cdsNet1;
 wire cdsNet0;
-reg mixedNet99998;
-reg mixedNet99989;
-reg mixedNet99988;
-reg mixedNet99963;
+wire cdsNet1;
+reg mixedNet99996;
+reg mixedNet99982;
+reg mixedNet99980;
+reg mixedNet99977;
+reg mixedNet99976;
+reg mixedNet99975;
+reg mixedNet99974;
+reg mixedNet99973;
+reg mixedNet99972;
+reg mixedNet99971;
+reg mixedNet99969;
+reg mixedNet99967;
+reg mixedNet99966;
 reg mixedNet99959;
-reg mixedNet99954;
-reg mixedNet99953;
-reg mixedNet99951;
-reg mixedNet99948;
+reg mixedNet99956;
+reg mixedNet99950;
+reg mixedNet99947;
 reg mixedNet99946;
 reg mixedNet99945;
-reg mixedNet99944;
-reg mixedNet99941;
 reg mixedNet99940;
-reg mixedNet99939;
-reg mixedNet99937;
-reg mixedNet99936;
-reg mixedNet99934;
-reg mixedNet99933;
-reg mixedNet99932;
-reg mixedNet99930;
-reg mixedNet99926;
-assign cdsNet1 = mixedNet99998;
-assign net045[3] = mixedNet99989;
-assign net036[0] = mixedNet99988;
-assign net027[7] = mixedNet99963;
-assign net045[4] = mixedNet99959;
-assign net045[1] = mixedNet99954;
-assign net045[0] = mixedNet99953;
-assign net045[2] = mixedNet99951;
-assign net027[2] = mixedNet99948;
-assign net027[1] = mixedNet99946;
-assign cdsNet0 = mixedNet99945;
-assign net048[0] = mixedNet99944;
-assign net036[1] = mixedNet99941;
-assign net027[0] = mixedNet99940;
-assign net027[3] = mixedNet99939;
-assign net027[4] = mixedNet99937;
-assign net048[3] = mixedNet99936;
-assign net027[6] = mixedNet99934;
-assign net048[4] = mixedNet99933;
-assign net027[5] = mixedNet99932;
-assign net048[2] = mixedNet99930;
-assign net048[1] = mixedNet99926;
+reg mixedNet99929;
+reg mixedNet99927;
+assign net027[6] = mixedNet99996;
+assign net027[2] = mixedNet99982;
+assign net036[0] = mixedNet99980;
+assign net027[1] = mixedNet99977;
+assign net027[3] = mixedNet99976;
+assign net036[1] = mixedNet99975;
+assign net045[3] = mixedNet99974;
+assign net045[0] = mixedNet99973;
+assign cdsNet0 = mixedNet99972;
+assign net045[1] = mixedNet99971;
+assign net045[2] = mixedNet99969;
+assign cdsNet1 = mixedNet99967;
+assign net045[4] = mixedNet99966;
+assign net027[0] = mixedNet99959;
+assign net027[5] = mixedNet99956;
+assign net048[2] = mixedNet99950;
+assign net048[3] = mixedNet99947;
+assign net048[4] = mixedNet99946;
+assign net027[7] = mixedNet99945;
+assign net048[1] = mixedNet99940;
+assign net048[0] = mixedNet99929;
+assign net027[4] = mixedNet99927;
 
 // end interface element definitions
 

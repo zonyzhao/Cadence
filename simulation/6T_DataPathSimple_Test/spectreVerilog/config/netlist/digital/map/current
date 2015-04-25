@@ -53,12 +53,12 @@
 ( inst
  )
 ( model
-( "16nm_Tests/6T_DataPathSimple_Test/schematic" "cdsModule_159" )
+( "16nm_Tests/6T_DataPathSimple_Test/schematic" "cdsModule_241" )
  )
 ( term
  )
 ( param
 ( "vdd" "cds_globals.vdd" )
  )
-( "cdsModule_159" "ihnl/cds0/map" )
+( "cdsModule_241" "ihnl/cds0/map" )
  )

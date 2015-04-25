@@ -1,14 +1,24 @@
-    I11 (outp_0 ack out_0) TH22
-    I10 (outp_1 ack out_1) TH22
-    I1 (a_1 asel \~out_1 ap_1) _sub179
-    I0 (a_0 asel \~out_0 ap_0) _sub179
-    I7 (b_0 bsel \~out_0 bp_0) _sub179
-    I6 (b_1 bsel \~out_1 bp_1) _sub179
+    I13 (bmid_0 bmid_1 bmid_2 bmid_3 b_ack) or4_1x
+    I12 (amid_0 amid_1 amid_2 amid_3 a_ack) or4_1x
+    I11 (Vpass_0 ack out_0) TH22
+    I10 (Vpass_1 ack out_1) TH22
+    I9 (Vpass_2 ack out_2) TH22
+    I8 (Vpass_3 ack out_3) TH22
     I21 (out_0 \~out_0) inv_1x
     I20 (out_1 \~out_1) inv_1x
-    I13 (bp_0 bp_1 b_ack) nand_1x
-    I12 (ap_0 ap_1 a_ack) nand_1x
-    I14 (ap_0 bp_0 outp_0) nand_1x
-    I15 (ap_1 bp_1 outp_1) nand_1x
-ends _sub182
+    I19 (out_2 \~out_2) inv_1x
+    I18 (out_3 \~out_3) inv_1x
+    I7 (b_0 bsel \~out_0 bmid_0) TH33
+    I6 (b_1 bsel \~out_1 bmid_1) TH33
+    I5 (b_2 bsel \~out_2 bmid_2) TH33
+    I4 (b_3 bsel \~out_3 bmid_3) TH33
+    I3 (a_3 asel \~out_3 amid_3) TH33
+    I2 (a_2 asel \~out_2 amid_2) TH33
+    I1 (a_1 asel \~out_1 amid_1) TH33
+    I0 (a_0 asel \~out_0 amid_0) TH33
+    I17 (amid_3 bmid_3 Vpass_3) or_1x
+    I16 (amid_2 bmid_2 Vpass_2) or_1x
+    I15 (amid_1 bmid_1 Vpass_1) or_1x
+    I14 (amid_0 bmid_0 Vpass_0) or_1x
+ends _sub0
 // End of subcircuit definition.

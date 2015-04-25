@@ -4,4 +4,4 @@
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub151 B0 B1 S W0 W1
+subckt _sub233 B0 B1 S W0 W1
