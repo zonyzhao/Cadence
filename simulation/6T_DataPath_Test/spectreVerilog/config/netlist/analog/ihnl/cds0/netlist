@@ -1,6 +1,8 @@
-    M5 (net017 C net21 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
+    M5 (net017 C net21 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=no
     M4 (Y D net017 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
-    M3 (net21 B net018 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
+    M3 (net21 B net018 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=no
     M2 (net018 A vdd! vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
     M7 (Y D 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no

@@ -106,9 +106,9 @@
 ( inst
  )
 ( model
-( "6T_SetRead" "_sub9" )
-( "6T_CHUNK" "_sub10" )
-( "6T_32x4" "_sub8" )
+( "6T_SetRead" "_sub41" )
+( "6T_CHUNK" "_sub42" )
+( "6T_32x4" "_sub40" )
  )
 ( term
  )

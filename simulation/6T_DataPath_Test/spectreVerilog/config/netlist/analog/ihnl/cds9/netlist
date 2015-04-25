@@ -10,5 +10,5 @@
     I6 (b_1 bsel \~out_1 bp_1) TH33
     I1 (a_1 asel \~out_1 ap_1) TH33
     I0 (a_0 asel \~out_0 ap_0) TH33
-ends _sub2
+ends _sub34
 // End of subcircuit definition.

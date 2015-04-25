@@ -1,14 +1,14 @@
-    I25 (A4_1of4_3 A4_1of4_2 A4_1of4_1 A4_1of4_0 A_Ack_3 C_Ack_3 Asel \
-        B4_1of4_3 B4_1of4_2 B4_1of4_1 B4_1of4_0 B_Ack_3 Bsel C4_1of4_3 \
-        C4_1of4_2 C4_1of4_1 C4_1of4_0) _sub0
-    I24 (A3_1of4_3 A3_1of4_2 A3_1of4_1 A3_1of4_0 A_Ack_2 C_Ack_2 Asel \
-        B3_1of4_3 B3_1of4_2 B3_1of4_1 B3_1of4_0 B_Ack_2 Bsel C3_1of4_3 \
-        C3_1of4_2 C3_1of4_1 C3_1of4_0) _sub0
-    I23 (A2_1of4_3 A2_1of4_2 A2_1of4_1 A2_1of4_0 A_Ack_1 C_Ack_1 Asel \
-        B2_1of4_3 B2_1of4_2 B2_1of4_1 B2_1of4_0 B_Ack_1 Bsel C2_1of4_3 \
-        C2_1of4_2 C2_1of4_1 C2_1of4_0) _sub0
-    I22 (A1_1of4_3 A1_1of4_2 A1_1of4_1 A1_1of4_0 A_Ack_0 C_Ack_0 Asel \
-        B1_1of4_3 B1_1of4_2 B1_1of4_1 B1_1of4_0 B_Ack_0 Bsel C1_1of4_3 \
-        C1_1of4_2 C1_1of4_1 C1_1of4_0) _sub0
-ends _sub1
+    I25 (A_Ack_3 B_Ack_3 C4_1of4_3 C4_1of4_2 C4_1of4_1 C4_1of4_0 \
+        A4_1of4_3 A4_1of4_2 A4_1of4_1 A4_1of4_0 Asel B4_1of4_3 \
+        B4_1of4_2 B4_1of4_1 B4_1of4_0 Bsel C_Ack_3) _sub32
+    I24 (A_Ack_2 B_Ack_2 C3_1of4_3 C3_1of4_2 C3_1of4_1 C3_1of4_0 \
+        A3_1of4_3 A3_1of4_2 A3_1of4_1 A3_1of4_0 Asel B3_1of4_3 \
+        B3_1of4_2 B3_1of4_1 B3_1of4_0 Bsel C_Ack_2) _sub32
+    I23 (A_Ack_1 B_Ack_1 C2_1of4_3 C2_1of4_2 C2_1of4_1 C2_1of4_0 \
+        A2_1of4_3 A2_1of4_2 A2_1of4_1 A2_1of4_0 Asel B2_1of4_3 \
+        B2_1of4_2 B2_1of4_1 B2_1of4_0 Bsel C_Ack_1) _sub32
+    I22 (A_Ack_0 B_Ack_0 C1_1of4_3 C1_1of4_2 C1_1of4_1 C1_1of4_0 \
+        A1_1of4_3 A1_1of4_2 A1_1of4_1 A1_1of4_0 Asel B1_1of4_3 \
+        B1_1of4_2 B1_1of4_1 B1_1of4_0 Bsel C_Ack_0) _sub32
+ends _sub33
 // End of subcircuit definition.

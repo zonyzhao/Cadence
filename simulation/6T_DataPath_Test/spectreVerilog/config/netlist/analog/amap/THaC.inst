@@ -4,6 +4,6 @@ HEADER
 "I2n I9n" "inv_1x"
 "M4n M3n M0n M2n M1n" "NCSU_TechLib_FreePDK15_pfet_spectre"
 "Av" ":1v"
-"B+v" ":2v"
+"Yv" ":2v"
 "C-v" ":3v"
-"Yv" ":4v"
+"B+v" ":4v"

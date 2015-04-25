@@ -3,5 +3,5 @@
     I0 (\~R0 Pch vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 \
         degradation=yes
     I3 (Re2 Re Pch) TH22
-ends _sub90
+ends _sub53
 // End of subcircuit definition.

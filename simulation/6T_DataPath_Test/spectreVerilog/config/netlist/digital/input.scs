@@ -27,7 +27,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_15 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
+cdsModule_47 top(RData, R_AddressAck, ReadAck, W_AddresAck, WdataAck, 
      WriteAck, RRW, R_Address, RdataAck, WData, WRW, W_Address); 
  
 
@@ -114,7 +114,6 @@ always @(posedge WriteAck) begin
 		   	wDelay = $time - wStart;
    	  		$fdisplay(wLog, "%h %h %t %t", W_Address[19:0], WData[7:0], $time, wDelay);
     	  	lastWriteAddr[19:0] <= W_Address[19:0];
-			#500;
    		  	RdataAck[1:0]    = 2'b00;
    	 		RRW[1:0]         = 2'b10;
    	 		R_Address[19:0]  = lastWriteAddr;
@@ -137,7 +136,6 @@ always @(posedge ReadAck) begin
 	  	if (readCount == 3) begin
 				$finish;
 	  	end
-		#500;
    	  	W_Address[19:0] 	= 20'h11111;
 		WRW[1:0]  	= 2'b01;
       	WData[7:0] 	= 8'h48;
@@ -261,10 +259,10 @@ end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - 6T_DataPath_Test, View - schematic
 // LAST TIME SAVED: Apr 24 13:57:30 2015
-// NETLIST TIME: Apr 24 18:44:18 2015
+// NETLIST TIME: Apr 24 19:57:09 2015
 `timescale 1ps / 1ps 
 
-module cdsModule_15 ( RData, R_AddressAck, ReadAck, W_AddresAck,
+module cdsModule_47 ( RData, R_AddressAck, ReadAck, W_AddresAck,
      WdataAck, WriteAck, RRW, R_Address, RdataAck, WData, WRW,
      W_Address );
 

@@ -1,4 +1,4 @@
-Tue Apr 21 23:20:53 2015
+Fri Apr 24 20:03:02 2015
 
 BUILDING Network design (cell: 10T_TagMem_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -40,10 +40,10 @@ Model inv_1xT, lib 16nm, view functional
 	Partition analog, in network toolNetworkId1
 	The modules in this partition are:
 Module inv_1xt, lib 16nm, view schematic, configViewString $default
-Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module nand4_1x, lib 16nm, view schematic, configViewString $default
-Module Mux_128to32, lib 16nm, view schematic, configViewString $default
+Module inv_1x, lib 16nm, view schematic, configViewString $default
 Module nand3_1x, lib 16nm, view schematic, configViewString $default
+Module Mux_128to32, lib 16nm, view schematic, configViewString $default
 Module and3_1x, lib 16nm, view schematic, configViewString $default
 Module Decode_2to4, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
@@ -51,9 +51,11 @@ Module 10T_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_RPrecharge, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module nor4_1x, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
+Module Decode_4to16_, lib 16nm, view schematic, configViewString $default
 Module and4_1x, lib 16nm, view schematic, configViewString $default
-Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_1to2, lib 16nm, view schematic, configViewString $default
+Module and2, lib 16nm, view schematic, configViewString $default
 Module Decode_4to16, lib 16nm, view schematic, configViewString $default
 Module 10T_DUAL_SRAM_AddrCtrl_aValid, lib 16nm, view schematic, configViewString $default
 Module 10T, lib 16nm, view schematic, configViewString $default

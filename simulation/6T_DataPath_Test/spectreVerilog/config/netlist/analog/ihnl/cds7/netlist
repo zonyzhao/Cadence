@@ -20,5 +20,5 @@
     I16 (amid_2 bmid_2 Vpass_2) or_1x
     I15 (amid_1 bmid_1 Vpass_1) or_1x
     I14 (amid_0 bmid_0 Vpass_0) or_1x
-ends _sub0
+ends _sub32
 // End of subcircuit definition.

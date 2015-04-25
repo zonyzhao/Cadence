@@ -1,12 +1,13 @@
     I34 (outAck net027) inv_1x
     I5 (net029 B1) inv_1x
     I4 (net18 B0) inv_1x
-    I12 (inValid inAck outValid outAck) THaC
+    I12 (inValid outAck outValid inAck) THaC
     M5 (net026 oE 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M4 (net22 oE 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (net029 R1i net026 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M2 (net18 R0i net22 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (net029 oE vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=no
+    M1 (net029 oE vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
+        degradation=no
     M0 (net18 oE vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=no
     I6 (net029 net18 outValid) nand_1x
     I9 (R0i R1i inValid) or_1x
