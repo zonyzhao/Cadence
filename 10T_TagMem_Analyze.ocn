@@ -30,10 +30,11 @@ hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crown
 		           
 ;vLoad = list(  .250 .325 0.45 .475 .50 .525 .675 .85 1.0 1.125 )	
 ;vLoad = list( .195 .480 .485 .490 .495 .50 .505 .510 1.3 )
-vLoad = list(   .125 .150 .250 .300 .310 .320 .330 .340 .350 .40 .450 .460 .470 .480 .490 .50 .510 .520 .530 .540 .550 .60  .65 .850  .950 1.0  1.1  1.15 1.2 1.25 )	
-            		            
+vLoad = list(   .125 .150 .175 .200 .250 .275 .300 .325 .350 .400 .450 .475 .500 .525 .550 .650 .750 .850 .950 1.0 1.050 1.075 1.10 1.125 1.150 1.175 1.20 1.25 )    		            
+
 ;tLoad = list( 30 60 90 )
 tLoad = list( 60 )
+
 
 jobList 	= nil
 mVs   		= nil
@@ -65,70 +66,72 @@ close( outF)
 j = 1
 foreach(job jobList	
     	printf("%s\n" job )
-    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) <200) || (evalstring(nthelem(j mVs)) == 300)
+    	unless( (openResults( job ) == nil) || (evalstring(nthelem(j mVs)) <175)
     		selectResult( 'tran )
     		unless( i("/V1/MINUS")  == nil
-			Volts       = evalstring( nthelem(j mVs) )*0.001;
-        	leakage     = average( clip( i( "/V1/MINUS" ) 450p 550p ) ) *1e3
-        	leakagePwr  = leakage*Volts
-			peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
-			peakPwr     = peakCurrent*Volts
+				Volts       = evalstring( nthelem(j mVs) )*0.001;
+				peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
+				peakPwr     = peakCurrent*Volts
 	
-			cHost       = sprintf(nil "%s" nthelem(j hList))
-        	nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-        	nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-			shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
-			shellCmd2   = strcat("scp " cHost ":/tmp2/tagWLog.csv " nameW  )
-			shell( shellCmd1 )
-			shell( shellCmd2 )
+				cHost       = sprintf(nil "%s" nthelem(j hList))
+        		nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/tag_logs/tagRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+        		nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/tag_logs/tagWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+				shellCmd1   = strcat("scp " cHost ":/tmp2/tagRLog.csv " nameR  )
+				shellCmd2   = strcat("scp " cHost ":/tmp2/tagWLog.csv " nameW  )
+				shell( shellCmd1 )
+				shell( shellCmd2 )
         
-        	printf("Reading %s\n" nameR)
-        	fidR   = infile( nameR )
-			;gets( s fidR )
-			;gets( s fidR )
-			;gets( s fidR )         
-        	fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEnd     rDelay )
-        	fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEndNull rNull )
-        	close( fidR )
+        		printf("Reading %s\n" nameR)
+        		fidR   = infile( nameR )
+				;gets( s fidR )
+				;gets( s fidR )
+				;gets( s fidR )         
+        		fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEnd     rDelay )
+        		fscanf( fidR "%s %s %s %s %s" rAddr  rData1 rData0 rEndNull rNull )
+        		close( fidR )
                     
-        	printf("Reading %s\n" nameW)
-        	fidW   = infile( nameW )
-			;gets( s fidW )	
-			;gets( s fidW )
-			;gets( s fidW )
-        	fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEnd     wDelay )
-        	fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEndNull wNull  )
-        	close(fidW)
-			unless( (rEnd == nil) || (rEndNull == nil) || (wEnd == nil) || (wEndNull == nil)
-	    		rStart       = evalstring( strcat(rEnd "p")) - evalstring( strcat(rDelay "p"))
-            	rEnd         = evalstring( strcat(rEnd "p"))
-            	rEndNull     = evalstring( strcat(rEndNull "p"))
- 	    		rEnergy      = integ( i("/V1/MINUS")  rStart rEnd    )*1e12*Volts
-	    		rnullEnergy  = integ( i("/V1/MINUS")  rEnd   rEndNull)*1e12*Volts
+        		printf("Reading %s\n" nameW)
+        		fidW   = infile( nameW )
+				;gets( s fidW )	
+				;gets( s fidW )
+				;gets( s fidW )
+        		fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEnd     wDelay )
+        		fscanf( fidW "%s %s %s %s %s" wAddr  wData1 wData0 wEndNull wNull  )
+        		close(fidW)
+				unless( (rEnd == nil) || (rEndNull == nil) || (wEnd == nil) || (wEndNull == nil)
+	    			rStart       = evalstring( strcat(rEnd "p")) - evalstring( strcat(rDelay "p"))
+            		rEnd         = evalstring( strcat(rEnd "p"))
+            		rEndNull     = evalstring( strcat(rEndNull "p"))
+ 	    			rEnergy      = integ( i("/V1/MINUS")  rStart rEnd    )*1e12*Volts
+	    			rnullEnergy  = integ( i("/V1/MINUS")  rEnd   rEndNull)*1e12*Volts
 
-	    		rCycle       = evalstring( rDelay ) + evalstring( rNull )
-	    		rCycleEnergy = rEnergy +  rnullEnergy
-	    		rEDP	 = rCycle*rCycleEnergy
+	    			rCycle       = evalstring( rDelay ) + evalstring( rNull )
+	    			rCycleEnergy = rEnergy +  rnullEnergy
+	    			rEDP	 = rCycle*rCycleEnergy
 
            
-            	wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
-            	wEnd        = evalstring( strcat(wEnd "p") )
-            	wEndNull    = evalstring( strcat(wEndNull "p") )
-	    		wEnergy     = integ( i("/V1/MINUS") wStart wEnd    )*1e12*Volts
-	    		wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
+            		wStart      = evalstring( strcat(wEnd "p") ) - evalstring( strcat(wDelay "p"))
+            		wEnd        = evalstring( strcat(wEnd "p") )
+            		wEndNull    = evalstring( strcat(wEndNull "p") )
+	    			wEnergy     = integ( i("/V1/MINUS") wStart wEnd    )*1e12*Volts
+	    			wnullEnergy = integ( i("/V1/MINUS") wEnd   wEndNull)*1e12*Volts
 
-	    		wCycle       = evalstring( wDelay) + evalstring( wNull )
-	    		wCycleEnergy = wEnergy +  wnullEnergy
-	    		wEDP	 = wCycle*wCycleEnergy
+	    			wCycle       = evalstring( wDelay) + evalstring( wNull )
+	    			wCycleEnergy = wEnergy +  wnullEnergy
+	    			wEDP	 = wCycle*wCycleEnergy
 	          
-	   			outF      	 =   outfile(file,    "a")       
-            	fprintf( outF "%s,%s,%g,%g,%g,%g,%s,%g,%s,%g,%d,%g,%g,%s,%g,%s,%g,%d,%g,%g\n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy rCycle rCycleEnergy rEDP wDelay wEnergy wNull wnullEnergy wCycle wCycleEnergy wEDP)
-            	close( outF )
-        )
-      ) 
+					leakage     = average( clip( i( "/V1/MINUS" ) 500p 1500p ) ) *1e3
+        			leakagePwr  = leakage*Volts
+
+
+
+	   				outF      	 =   outfile(file,    "a")       
+            		fprintf( outF "%s,%s,%g,%g,%g,%g,%s,%g,%s,%g,%d,%g,%g,%s,%g,%s,%g,%d,%g,%g\n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr rDelay rEnergy rNull rnullEnergy rCycle rCycleEnergy rEDP wDelay wEnergy wNull wnullEnergy wCycle wCycleEnergy wEDP)
+            		close( outF )
+        	)
+      	) 
     )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
     j     = j + 1
 )    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

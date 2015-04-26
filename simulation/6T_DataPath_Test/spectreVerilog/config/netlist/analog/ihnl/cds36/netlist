@@ -14,12 +14,12 @@ I36 (W_AddressT_19 W_AddressT_18 W_AddressT_17 W_AddressT_16 \
         R_AddressT_11 R_AddressT_10 R_AddressT_9 R_AddressT_8 \
         R_AddressT_7 R_AddressT_6 R_AddressT_5 R_AddressT_4 \
         R_AddressT_3 R_AddressT_2 R_AddressT_1 R_AddressT_0 net055_0 \
-        net055_1 net055_2 net055_3 net055_4 net046_0 net046_1 Acko_0 \
-        WRWT_1 WRWT_0 ReadAckT Acko_5 Acko_4 Acko_3 Acko_2 Acko_1 AT_19 \
+        net055_1 net055_2 net055_3 net055_4 net046_0 net046_1 DataAck \
+        WRWT_1 WRWT_0 ReadAckT Acko_4 Acko_3 Acko_2 Acko_1 Acko_0 AT_19 \
         AT_18 AT_17 AT_16 AT_15 AT_14 AT_13 AT_12 AT_11 AT_10 AT_9 AT_8 \
         AT_7 AT_6 AT_5 AT_4 AT_3 AT_2 AT_1 AT_0 RW_1 RW_0 \
         W_Address_AckT_4 W_Address_AckT_3 W_Address_AckT_2 \
-        W_Address_AckT_1 W_Address_AckT_0) _sub35
+        W_Address_AckT_1 W_Address_AckT_0) _sub15
 ICHUNK (\~R0_1_3 \~R0_1_2 \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \
         \~R1_1_0 Aline_63 Aline_62 Aline_61 Aline_60 Aline_59 Aline_58 \
         Aline_57 Aline_56 Aline_55 Aline_54 Aline_53 Aline_52 Aline_51 \
@@ -32,7 +32,7 @@ ICHUNK (\~R0_1_3 \~R0_1_2 \~R0_1_1 \~R0_1_0 \~R1_1_3 \~R1_1_2 \~R1_1_1 \
         Aline_8 Aline_7 Aline_6 Aline_5 Aline_4 Aline_3 Aline_2 Aline_1 \
         Aline_0 B0_1_3 B0_1_2 B0_1_1 B0_1_0 B1_1_3 B1_1_2 B1_1_1 B1_1_0 \
         S_7 S_6 S_5 S_4 S_3 S_2 S_1 S_0 W0_1_3 W0_1_2 W0_1_1 W0_1_0 \
-        W1_1_3 W1_1_2 W1_1_1 W1_1_0 G01) _sub42
+        W1_1_3 W1_1_2 W1_1_1 W1_1_0 G01) _sub22
 IMUX (Aline_63 Aline_62 Aline_61 Aline_60 Aline_59 Aline_58 Aline_57 \
         Aline_56 Aline_55 Aline_54 Aline_53 Aline_52 Aline_51 Aline_50 \
         Aline_49 Aline_48 Aline_47 Aline_46 Aline_45 Aline_44 Aline_43 \
@@ -44,7 +44,7 @@ IMUX (Aline_63 Aline_62 Aline_61 Aline_60 Aline_59 Aline_58 Aline_57 \
         Aline_7 Aline_6 Aline_5 Aline_4 Aline_3 Aline_2 Aline_1 Aline_0 \
         S_7 S_6 S_5 S_4 S_3 S_2 S_1 S_0 AT_3 AT_2 AT_1 AT_0 AT_7 AT_6 \
         AT_5 AT_4 AT_11 AT_10 AT_9 AT_8 AT_15 AT_14 AT_13 AT_12 AT_16 \
-        ValAddr) _sub43
+        ValAddr) _sub23
 V1 (vcc! 0) vsource type=dc dc=vdd
 V0 (vdd! 0) vsource type=dc dc=vdd
 IDATA (DataAck B0_1_3 B0_1_2 B0_1_1 B0_1_0 B1_1_3 B1_1_2 B1_1_1 B1_1_0 \
@@ -53,7 +53,7 @@ IDATA (DataAck B0_1_3 B0_1_2 B0_1_1 B0_1_0 B1_1_3 B1_1_2 B1_1_1 B1_1_0 \
         RDataT_7 RDataT_6 RDataT_5 RDataT_4 WDataT_3 WDataT_2 WDataT_1 \
         WDataT_0 WDataT_7 WDataT_6 WDataT_5 WDataT_4 \~R1_1_3 \~R1_1_2 \
         \~R1_1_1 \~R1_1_0 \~R0_1_3 \~R0_1_2 \~R0_1_1 \~R0_1_0 net56 \
-        net57 WdataAckT_1 WdataAckT_0 RdataAckT_1 RdataAckT_0) _sub45
+        net57 WdataAckT_1 WdataAckT_0 RdataAckT_1 RdataAckT_0) _sub25
 I53_4 (net055_0 net045_0) inv_1xt
 I53_3 (net055_1 net045_1) inv_1xt
 I53_2 (net055_2 net045_2) inv_1xt
@@ -130,142 +130,141 @@ I5_3 (net44_4 WDataT_3) inv_1xt
 I5_2 (net44_5 WDataT_2) inv_1xt
 I5_1 (net44_6 WDataT_1) inv_1xt
 I5_0 (net44_7 WDataT_0) inv_1xt
-I18_5 (DataAck Acko_5) inv_1x
 I18_4 (DataAck Acko_4) inv_1x
 I18_3 (DataAck Acko_3) inv_1x
 I18_2 (DataAck Acko_2) inv_1x
 I18_1 (DataAck Acko_1) inv_1x
 I18_0 (DataAck Acko_0) inv_1x
 // BEGIN Hierarchical Interface Elements
-_ie99924 (net060_4 0) d2a src="99924" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99924 (net027_1 0) a2d dest="99924" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99925 (net049_1 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99925 (net049_2 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99926 (net049_3 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99926 (net060_3 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99927 (net060_16 0) d2a src="99927" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99927 (net027_4 0) a2d dest="99927" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99928 (net44_0 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99928 (net049_17 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99929 (net048_0 0) a2d dest="99929" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99930 (net060_10 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99929 (net44_1 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99931 (net049_10 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99930 (net060_15 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99932 (net44_5 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99931 (net060_9 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99933 (net060_18 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99932 (\~RRW_0 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99934 (net049_9 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99933 (net060_6 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99935 (net060_17 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99934 (net41_0 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99936 (net44_4 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99935 (net049_8 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99937 (net44_6 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99936 (net049_7 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99937 (net060_7 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
 _ie99938 (net44_3 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99939 (net060_14 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99939 (net049_16 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99940 (net048_1 0) a2d dest="99940" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99941 (net060_11 0) d2a src="99941" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99940 (net060_5 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99942 (net060_13 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99941 (net41_1 0) d2a src="99941" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99943 (net060_15 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99942 (net049_15 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99944 (net049_5 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99943 (net049_10 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99945 (net027_7 0) a2d dest="99945" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99946 (net048_4 0) a2d dest="99946" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99947 (net048_3 0) a2d dest="99947" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99948 (net41_0 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99944 (net049_4 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99949 (net049_8 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99945 (net060_4 0) d2a src="99945" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99950 (net048_2 0) a2d dest="99950" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99951 (net049_14 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99946 (net060_11 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99952 (net064_0 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99947 (net045_2 0) a2d dest="99947" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99948 (net060_19 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99953 (\~RRW_1 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99949 (net060_1 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99954 (net060_19 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99950 (\~RRW_1 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99955 (net049_0 0) d2a src="99955" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99951 (net060_2 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99956 (net027_5 0) a2d dest="99956" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99957 (net049_1 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99952 (net049_5 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99958 (net060_8 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99953 (net060_0 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99959 (net027_0 0) a2d dest="99959" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99960 (net049_11 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99954 (net048_3 0) a2d dest="99954" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99955 (net048_2 0) a2d dest="99955" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99956 (net060_3 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99961 (net44_7 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99957 (net060_10 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99962 (net060_16 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99958 (net049_11 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99963 (net44_2 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99959 (net44_0 0) d2a src="99959" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99964 (net049_16 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99960 (net060_18 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99965 (net049_18 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99961 (net44_5 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
-_ie99966 (net045_4 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99967 (\~WriteAck 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd \
+_ie99962 (net049_9 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99963 (net045_0 0) a2d dest="99963" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99964 (net036_0 0) a2d dest="99964" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99965 (net060_13 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99966 (net44_2 0) d2a src="99966" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99967 (net049_6 0) d2a src="99967" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99968 (net027_6 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99969 (net049_19 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99970 (net060_8 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99971 (net048_4 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99972 (net049_18 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99973 (net048_0 0) a2d dest="99973" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99974 (net44_7 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99975 (net049_2 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99976 (net049_12 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99977 (net027_0 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99978 (net060_12 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99979 (net027_2 0) a2d dest="99979" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99980 (net036_1 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99981 (net027_5 0) a2d dest="99981" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99982 (net048_1 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99983 (net064_1 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99984 (net027_4 0) a2d dest="99984" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99985 (net049_14 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99986 (net060_17 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99987 (net064_0 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99988 (net045_3 0) a2d dest="99988" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99989 (net045_1 0) a2d dest="99989" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99990 (net049_13 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99991 (\~ReadAck 0) a2d dest="99991" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99992 (net060_14 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99993 (net027_3 0) a2d dest="99993" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99994 (net045_4 0) a2d dest="99994" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99995 (net44_4 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99996 (net44_6 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
+        rise=2p fall=2p
+_ie99997 (\~WriteAck 0) a2d dest="99997" vl=0.3*vdd vh=0.7*vdd \
         timex=20n
-_ie99968 (\~RRW_0 0) d2a src="99968" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99969 (net045_2 0) a2d dest="99969" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99970 (net44_1 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99971 (net045_1 0) a2d dest="99971" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99972 (\~ReadAck 0) a2d dest="99972" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99973 (net045_0 0) a2d dest="99973" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99974 (net045_3 0) a2d dest="99974" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99975 (net036_1 0) a2d dest="99975" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99976 (net027_3 0) a2d dest="99976" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99977 (net027_1 0) a2d dest="99977" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99978 (net060_2 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99979 (net049_7 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99980 (net036_0 0) a2d dest="99980" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99981 (net060_12 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99982 (net027_2 0) a2d dest="99982" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99983 (net049_3 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99984 (net049_17 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99985 (net060_6 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99986 (net060_5 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99987 (net049_19 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99988 (net41_1 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99989 (net064_1 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99990 (net060_0 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99991 (net049_15 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99992 (net049_12 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99993 (net049_6 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99994 (net049_4 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99995 (net060_1 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99996 (net027_6 0) a2d dest="99996" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99997 (net060_7 0) d2a src="99997" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99998 (net049_13 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99999 (net060_9 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
+_ie99998 (net027_7 0) a2d dest="99998" vl=0.3*vdd vh=0.7*vdd timex=20n
+_ie99999 (net049_0 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
 // END Hierarchical Interface Elements

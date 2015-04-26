@@ -1,6 +1,12 @@
-    I15 (net18 Lack) inv_1x
-    I2 (\~R1 \~R0 net18) nand_1x
-    I10 (Rack L1 \~R1) _sub154
-    I0 (L0 Rack \~R0) _sub154
-ends _sub155
+    M5 (net017 C net21 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=no
+    M4 (Y D net017 vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
+    M3 (net21 B net018 vdd!) pfet w=400n l=20n nfin=1 m=1 \
+        degradation=no
+    M2 (net018 A vdd! vdd!) pfet w=400n l=20n nfin=1 m=1 degradation=no
+    M7 (Y D 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M6 (Y C 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (Y B 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+ends nor4_1x
 // End of subcircuit definition.

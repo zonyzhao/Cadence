@@ -4,11 +4,10 @@
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub239 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go \
-        Read_1of4_3 Read_1of4_2 Read_1of4_1 Read_1of4_0 Read_1of4_7 \
-        Read_1of4_6 Read_1of4_5 Read_1of4_4 RW_1 RW_0 Reset ValAddr \
-        W0_3 W0_2 W0_1 W0_0 W1_3 W1_2 W1_1 W1_0 W1_1of4_3 W1_1of4_2 \
-        W1_1of4_1 W1_1of4_0 W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 \
-        AckThruBot AckThruTop RdataAck_1 RdataAck_0 WdataAck_1 \
-        WdataAck_0 \~R0_3 \~R0_2 \~R0_1 \~R0_0 \~R1_3 \~R1_2 \~R1_1 \
-        \~R1_0
+subckt _sub9 Ack B0_3 B0_2 B0_1 B0_0 B1_3 B1_2 B1_1 B1_0 Go W0_3 W0_2 W0_1 \
+        W0_0 W1_3 W1_2 W1_1 W1_0 RW_1 RW_0 Reset ValAddr Read_1of4_3 \
+        Read_1of4_2 Read_1of4_1 Read_1of4_0 Read_1of4_7 Read_1of4_6 \
+        Read_1of4_5 Read_1of4_4 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 \
+        W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 \~R1_3 \~R1_2 \~R1_1 \
+        \~R1_0 \~R0_3 \~R0_2 \~R0_1 \~R0_0 AckThruTop AckThruBot \
+        WdataAck_1 WdataAck_0 RdataAck_1 RdataAck_0

@@ -410,7 +410,7 @@ simNCVerilogVCompScriptFile = "compare.rule"
 simNCVerilogVCompMaxCompareMismatches = 200
 
 ;Path to Database
-simNCVerilogVCompCompareResultsDirPath = "/net/kafka/nfs/rstdenis/Cadence/simulation/10T_TagMem_Test/spectreVerilog/config/netlist/digital"
+simNCVerilogVCompCompareResultsDirPath = "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPathSimple_Test/spectreVerilog/config/netlist/digital"
 
 ;Difference Database
 simNCVerilogVCompCompareResultsDirName = "diff.db.out"

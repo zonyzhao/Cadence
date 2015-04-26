@@ -1,13 +1,13 @@
 "16nm.and_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.or2_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
-"16nm.10T.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
+"16nm.10T.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("~R0" "~R1" "~W0" "~W1" "JWi" "JRi") ("JRi" "JWi" "~R0" "~R1" "~W0" "~W1"))
 "16nm.Mux_4to1_tx.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
-"16nm.Decode_4to16_.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
+"16nm.Decode_4to16_.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("A<15>" "A<14>" "A<13>" "A<12>" "A<11>" "A<10>" "A<9>" "A<8>" "A<7>" "A<6>" "A<5>" "A<4>" "A<3>" "A<2>" "A<1>" "A<0>" "En" "I<3>" "I<2>" "I<1>" "I<0>") ("A<15>" "A<14>" "A<13>" "A<12>" "A<11>" "A<10>" "A<9>" "A<8>" "A<7>" "A<6>" "A<5>" "A<4>" "A<3>" "A<2>" "A<1>" "A<0>" "En" "I<3>" "I<2>" "I<1>" "I<0>"))
 "16nm.nand_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.Decode_2to4.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("I<1>" "I<0>" "Sel<3>" "Sel<2>" "Sel<1>" "Sel<0>" "En") ("En" "I<1>" "I<0>" "Sel<3>" "Sel<2>" "Sel<1>" "Sel<0>"))
 "16nm.and3.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.nand4_1x.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
-"16nm.10T_RPrecharge.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
+"16nm.10T_RPrecharge.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("Re2" "Re" "~R0" "~R1") ("Re" "Re2" "~R0" "~R1"))
 "16nm.tx_gate.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.TH44.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" nil
 "16nm.TH22.schematic.16nm_Tests.10T_TagMem_Test.config.path.termorder" (("A" "B" "Y") ("A" "B" "Y"))

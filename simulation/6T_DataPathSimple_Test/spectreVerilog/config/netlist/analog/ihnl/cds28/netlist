@@ -10,7 +10,7 @@
     I29 (net13 Out0_0) inv_1x
     I31 (net11 Out0_1) inv_1x
     I28 (net14 Out1_0) inv_1x
-    I12 (n_0 n_1 n_2 n_3 Lack) nor4_1x
+    I12 (n_0 n_1 n_2 n_3 Lack) or4_1x
     I19 (n_3 n_1 b1_0) nor_1x
     I22 (n_2 n_3 b1_1) nor_1x
     I21 (n_0 n_1 b0_1) nor_1x

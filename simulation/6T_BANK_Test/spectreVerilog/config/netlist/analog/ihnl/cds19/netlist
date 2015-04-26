@@ -1,20 +1,21 @@
-    M8 (net11 A 0 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M5 (net7 A net33 A) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M6 (net7 net021 net11 net021) nfet w=120n l=20n nfin=1 m=1 \
-        degradation=no
-    M9 (net11 C\- 0 C\-) nfet w=120n l=20n nfin=1 m=1 degradation=no
-    M7 (net33 \~B\+ 0 \~B\+) nfet w=120n l=20n nfin=1 m=1 \
-        degradation=no
-    I2 (net7 net021) inv_1x
-    I9 (B\+ \~B\+) inv_1x
-    I8 (net021 Y) inv_1x
-    M4 (net7 net021 net17 net021) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    M3 (net7 C\- net32 C\-) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    M0 (net32 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-    M2 (net17 \~B\+ vdd! \~B\+) pfet w=100n l=20n nfin=1 m=1 \
-        degradation=yes
-    M1 (net17 A vdd! A) pfet w=100n l=20n nfin=1 m=1 degradation=yes
-ends THaC
+    I23 (n0_1 n1_1 Lack_1) nor_1x
+    I12 (n0_0 n1_0 Lack_0) nor_1x
+    I34 (net31 net27 net24 net20 outAck) and4_1x
+    I29 (n0_0 n1_1 m_2) nand_1x
+    I26 (n1_0 n1_1 m_3) nand_1x
+    I25 (n1_0 n0_1 m_1) nand_1x
+    I24 (n0_0 n0_1 m_0) nand_1x
+    I28 (Rack m_2 net24) TH22
+    I27 (Rack m_3 net20) TH22
+    I0 (L0_0 outAck n0_0) TH22
+    I7 (Rack m_0 net31) TH22
+    I1 (L1_0 outAck n1_0) TH22
+    I21 (L0_1 outAck n0_1) TH22
+    I6 (Rack m_1 net27) TH22
+    I22 (L1_1 outAck n1_1) TH22
+    I42 (net20 Out_3) inv_1x
+    I41 (net24 Out_2) inv_1x
+    I39 (net31 Out_0) inv_1x
+    I40 (net27 Out_1) inv_1x
+ends WCHB_Read
 // End of subcircuit definition.

@@ -1087,7 +1087,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 20
@@ -1142,7 +1142,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 21
@@ -1197,7 +1197,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 22
@@ -1252,7 +1252,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 23
@@ -1307,8 +1307,8 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
-tmp1->save = 't
+tmp1->plot = nil
+tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 24
 tmp1->timeStamp = nil
@@ -5157,7 +5157,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 94
@@ -5212,7 +5212,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 95
@@ -5267,7 +5267,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 96
@@ -5322,7 +5322,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 97
@@ -5377,7 +5377,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 98
@@ -5432,7 +5432,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 99
@@ -5487,7 +5487,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 100
@@ -5542,7 +5542,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 101
@@ -5652,7 +5652,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 103

@@ -1,8 +1,7 @@
     I32 (net019 R0i\+1) inv_1x
     I5 (net032 R1i\+1) inv_1x
     I35 (Ai net027) inv_1x
-    M16 (net019 R0i net034 0) nfet w=60n l=20n nfin=1 m=1 \
-        degradation=no
+    M16 (net019 R0i net034 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M3 (net032 R1i net033 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M4 (net034 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M5 (net033 net022 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no

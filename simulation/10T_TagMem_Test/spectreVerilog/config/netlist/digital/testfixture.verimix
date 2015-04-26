@@ -34,7 +34,7 @@ initial begin
     W_Addr[6:0] = 7'b0000000;
 
     lastWriteAddr = 7'b0001010;
-    #600;
+    #2000;
 
 // Write only
 	W1[31:0]    = $random;
@@ -56,7 +56,7 @@ initial begin
     wDelay = $time - wStart;
     $fdisplay(wLog, "%h %h %h %t %t", W_Addr, W1, W0, $time, wDelay);
 
-	#100;
+	#2000;
 
 // Read Only
     rStart = $time;
@@ -75,7 +75,7 @@ initial begin
     $fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);  
     readCount = readCount + 1;
 	
-	#100;
+	#2000;
 
 //Start Reading+ Writing
     start       = 1;
@@ -122,7 +122,7 @@ always @(negedge R_Ack) begin
    	   	$fdisplay(rLog, "%h %h %h %t %t", R_Addr, R1, R0, $time, rDelay);   	 
 	   	readCount = readCount + 1;
 
-	   	if (readCount == 3) begin
+	   	if (readCount >= 1) begin
 			$finish;
 		end  
 

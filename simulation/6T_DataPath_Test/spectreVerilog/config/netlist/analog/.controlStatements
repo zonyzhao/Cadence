@@ -1,18 +1,27 @@
-ic I36.I3.\~out_1=0 WdataAckT_1=0 WdataAckT_0=0 I36.I0.I22.Vpass_3=0 \
-    I36.I0.I22.Vpass_2=0 I36.I0.I22.Vpass_1=0 I36.I0.I22.Vpass_0=0 \
-    I36.I0.I22.amid_3=0 I36.I0.I22.bmid_0=0 I36.I0.I22.amid_2=0 \
-    I36.I0.I22.bmid_1=0 I36.I0.I22.amid_1=0 I36.I0.I22.bmid_2=0 \
-    I36.I0.I22.amid_0=0 I36.I0.I22.bmid_3=0 I36.I3.ap_0=0 I36.I3.ap_1=0 \
-    I36.I3.bp_0=0 I36.I3.bp_1=0 I36.I1.amid_3=0 I36.I1.bmid_0=0 \
-    I36.I1.amid_2=0 I36.I1.bmid_1=0 I36.I1.amid_1=0 I36.I1.bmid_2=0 \
-    I36.I1.amid_0=0 I36.I1.bmid_3=0 IDATA.intWack=vdd IDATA.intRack=vdd \
-    IDATA.Lack_0=0 IDATA.Lack_1=0 IDATA.Lack_2=0 W_Address_AckT_4=0 \
-    W_Address_AckT_3=0 W_Address_AckT_2=0 W_Address_AckT_1=0 \
-    W_Address_AckT_0=0 Acko_5=vdd Acko_4=vdd Acko_3=vdd Acko_2=vdd \
-    Acko_1=vdd IDATA.Lack_3=0 I36.I1.Vpass_3=0 I36.I1.Vpass_2=0 \
-    I36.I1.Vpass_1=0 I36.I1.Vpass_0=0 I36.I1.\~out_3=vdd \
-    I36.I1.\~out_2=vdd I36.I1.\~out_1=vdd I36.I1.\~out_0=vdd \
-    I36.I3.\~out_0=vdd Acko_0=vdd I36.I3.outp_1=0 I36.I3.outp_0=0 \
+ic IDATA.I3_1.outAck=vdd IDATA.I3_1.net31=vdd IDATA.I3_1.net27=vdd \
+    IDATA.I3_1.net24=vdd IDATA.I3_1.net20=vdd IDATA.I3_1.m_3=vdd \
+    IDATA.I3_1.m_0=vdd IDATA.I3_1.m_1=vdd IDATA.I3_1.m_2=vdd \
+    IDATA.I3_1.n0_0=0 IDATA.I3_1.n1_0=0 IDATA.I3_1.n0_1=0 \
+    IDATA.I3_1.n1_1=0 IDATA.I12_1.oE=vdd IDATA.I12_1.inAck=vdd \
+    IDATA.I12_1.net027=vdd IDATA.I10.nxa=vdd IDATA.I10.net14=vdd \
+    IDATA.I10.net13=vdd IDATA.I10.net12=vdd IDATA.I10.net11=vdd \
+    IDATA.I10.b1_1=vdd IDATA.I10.b0_0=vdd IDATA.I10.b0_1=vdd \
+    IDATA.I10.b1_0=vdd IDATA.I10.n_0=0 IDATA.I10.n_1=0 IDATA.I10.n_2=0 \
+    IDATA.I10.n_3=0 I36.I3.net13=vdd I36.I3.outp_1=vdd I36.I3.outp_0=vdd \
+    I36.I3.net20=vdd I36.I3.net19=vdd WdataAckT_1=0 WdataAckT_0=0 \
+    I36.I0.I22.Vpass_3=0 I36.I0.I22.Vpass_2=0 I36.I0.I22.Vpass_1=0 \
+    I36.I0.I22.Vpass_0=0 I36.I0.I22.amid_3=0 I36.I0.I22.bmid_0=0 \
+    I36.I0.I22.amid_2=0 I36.I0.I22.bmid_1=0 I36.I0.I22.amid_1=0 \
+    I36.I0.I22.bmid_2=0 I36.I0.I22.amid_0=0 I36.I0.I22.bmid_3=0 \
+    I36.I3.ap_0=0 I36.I3.ap_1=0 I36.I3.bp_0=0 I36.I3.bp_1=0 \
+    I36.I1.amid_3=0 I36.I1.bmid_0=0 I36.I1.amid_2=0 I36.I1.bmid_1=0 \
+    I36.I1.amid_1=0 I36.I1.bmid_2=0 I36.I1.amid_0=0 I36.I1.bmid_3=0 \
+    IDATA.intWack=vdd IDATA.intRack=vdd IDATA.Lack_0=0 IDATA.Lack_1=0 \
+    IDATA.Lack_2=0 W_Address_AckT_4=0 W_Address_AckT_3=0 \
+    W_Address_AckT_2=0 W_Address_AckT_1=0 W_Address_AckT_0=0 Acko_4=vdd \
+    Acko_3=vdd Acko_2=vdd Acko_1=vdd IDATA.Lack_3=0 I36.I1.Vpass_3=0 \
+    I36.I1.Vpass_2=0 I36.I1.Vpass_1=0 I36.I1.Vpass_0=0 I36.I1.\~out_3=vdd \
+    I36.I1.\~out_2=vdd I36.I1.\~out_1=vdd I36.I1.\~out_0=vdd Acko_0=vdd \
     IDATA.RpAck_3=vdd IDATA.RpAck_2=vdd IDATA.RpAck_1=vdd \
     IDATA.RpAck_0=vdd IDATA.R0q_3=0 IDATA.R0q_2=0 IDATA.R0q_1=0 \
     IDATA.R0q_0=0 IDATA.R1q_3=0 IDATA.R1q_2=0 IDATA.R1q_1=0 IDATA.R1q_0=0 \
@@ -59,6 +68,7 @@ simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     audit=detailed inventory=detailed maxnotes=5 maxwarns=5 digits=5 \
     cols=80 pivrel=1e-3 sensfile="../psf/sens.output" checklimitdest=psf 
 tran tran stop=50n errpreset=conservative \
+    readic="/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPathSimple_Test/spectreVerilog/config/netlist/spectre.ic" \
     readns="/net/kafka/nfs/rstdenis/Cadence/simulation/6T_DataPathSimple_Test/spectreVerilog/config/netlist/spectre.ic" \
     write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile

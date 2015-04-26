@@ -3,5 +3,5 @@
     M2 (net18 Go 0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
     M1 (\~R1 SM1_1 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
     M0 (\~R1 SM1_0 net18 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-ends _sub152
+ends _sub39
 // End of subcircuit definition.

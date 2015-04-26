@@ -1,8 +1,20 @@
-    I18 (pV_0 pV_1 pV_2 pV_3 ValAddr) nand4_1x
-    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
-    I19_3 (AddrAck_3 _1of4_5_3 pV_3) nand_1x
-    I19_2 (AddrAck_2 _1of4_5_2 pV_2) nand_1x
-    I19_1 (AddrAck_1 _1of4_5_1 pV_1) nand_1x
-    I19_0 (AddrAck_0 _1of4_5_0 pV_0) nand_1x
-ends _sub157
+    I26 (b1_1 Rack_1 net12) TH22
+    I7 (b1_0 Rack_0 net14) TH22
+    I24 (b0_1 Rack_1 net11) TH22
+    I6 (b0_0 Rack_0 net13) TH22
+    I3 (In_3 nxa n_3) TH22
+    I2 (In_2 nxa n_2) TH22
+    I1 (In_1 nxa n_1) TH22
+    I0 (In_0 nxa n_0) TH22
+    I30 (net12 Out1_1) inv_1x
+    I29 (net13 Out0_0) inv_1x
+    I31 (net11 Out0_1) inv_1x
+    I28 (net14 Out1_0) inv_1x
+    I12 (n_0 n_1 n_2 n_3 Lack) or4_1x
+    I19 (n_3 n_1 b1_0) nor_1x
+    I22 (n_2 n_3 b1_1) nor_1x
+    I21 (n_0 n_1 b0_1) nor_1x
+    I20 (n_0 n_2 b0_0) nor_1x
+    I27 (net14 net13 net12 net11 nxa) and4_1x
+ends WCHB_Write
 // End of subcircuit definition.

@@ -1,50 +1,164 @@
-ic IBank.ValAddr=0 IBank.I20.B0q_3=0 IBank.I20.B1q_3=0 IBank.I20.B0q_2=0 \
-    IBank.I20.B1q_2=0 IBank.I20.B0q_1=0 IBank.I20.B1q_1=0 \
-    IBank.I20.B0q_0=0 IBank.I20.B1q_0=0 IBank.I20.wack_3=vdd \
-    IBank.I20.wack_2=vdd IBank.I20.wack_1=vdd IBank.I20.wack_0=vdd \
-    IBank.I20.B0p_3=0 IBank.I20.B1p_3=0 IBank.I20.B0p_2=0 \
-    IBank.I20.B1p_2=0 IBank.I20.B0p_1=0 IBank.I20.B1p_1=0 \
-    IBank.I20.B0p_0=0 IBank.I20.B1p_0=0 IBank.net027=0 IBank.I20.Wen=0 \
-    IBank.I20.Lack_3=vdd IBank.I20.Lack_2=vdd IBank.I20.Lack_1=vdd \
-    IBank.I20.Lack_0=vdd IBank.I20.RpAck_3=vdd IBank.I20.RpAck_2=vdd \
-    IBank.I20.RpAck_1=vdd IBank.I20.RpAck_0=vdd IBank.I20.Rack_3=vdd \
-    IBank.I20.Rack_2=vdd IBank.I20.Rack_1=vdd IBank.I20.Rack_0=vdd \
-    IBank.I20.Out1_3=vdd IBank.I20.Out1_2=vdd IBank.I20.Out1_1=vdd \
-    IBank.I20.Out1_0=vdd IBank.I20.Out0_3=vdd IBank.I20.Out0_2=vdd \
-    IBank.I20.Out0_1=vdd IBank.I20.Out0_0=vdd IBank.I20.R1q_3=0 \
-    IBank.I20.R1q_2=0 IBank.I20.R1q_1=0 IBank.I20.R1q_0=0 \
-    IBank.I20.R0q_3=0 IBank.I20.R0q_2=0 IBank.I20.R0q_1=0 \
-    IBank.I20.R0q_0=0 IBank.I20.R0_3=0 IBank.I20.R0_2=0 IBank.I20.R0_1=0 \
+ic IBank.I20.intRack=vdd IBank.I20.intWack=vdd IBank.I20.Wen=0 \
+    IBank.I20.nB1_1=0 IBank.I20.nB1_0=0 IBank.I20.wack_0=0 \
+    IBank.I20.nB0_1=0 IBank.I20.nB0_0=0 IBank.I20.wack_1=0 \
+    IBank.I20.nB1_3=0 IBank.I20.nB1_2=0 IBank.I20.nB0_3=0 \
+    IBank.I20.nB0_2=0 IBank.I20.wack_2=0 IBank.I20.wack_3=0 \
+    IBank.I20.Lack_3=0 IBank.I20.Lack_2=0 IBank.I20.Lack_1=0 \
+    IBank.I20.Lack_0=0 IBank.I20.R0_3=0 IBank.I20.R0_2=0 IBank.I20.R0_1=0 \
     IBank.I20.R0_0=0 IBank.I20.R1_3=0 IBank.I20.R1_2=0 IBank.I20.R1_1=0 \
-    IBank.I20.R1_0=0 IBank.\~R1_1_3=vdd IBank.\~R1_1_2=vdd \
-    IBank.\~R1_1_1=vdd IBank.\~R1_1_0=vdd IBank.\~R0_1_3=vdd \
-    IBank.\~R0_1_2=vdd IBank.\~R0_1_1=vdd IBank.\~R0_1_0=vdd \
-    IBank.B0_1_3=0 IBank.B0_1_2=0 IBank.B0_1_1=0 IBank.B0_1_0=0 \
-    IBank.B1_1_3=0 IBank.B1_1_2=0 IBank.B1_1_1=0 IBank.B1_1_0=0 \
-    IBank.W1_1_3=0 IBank.W1_1_2=0 IBank.W1_1_1=0 IBank.W1_1_0=0 \
-    IBank.W0_1_3=0 IBank.W0_1_2=0 IBank.W0_1_1=0 IBank.W0_1_0=0 \
-    IBank.G01=0 RAckT_7=vdd RAckT_6=vdd RAckT_5=vdd RAckT_4=vdd \
-    RAckT_3=vdd RAckT_2=vdd RAckT_1=vdd RAckT_0=vdd ReaDataT_31=0 \
-    ReaDataT_30=0 ReaDataT_29=0 ReaDataT_28=0 ReaDataT_27=0 ReaDataT_26=0 \
-    ReaDataT_25=0 ReaDataT_24=0 ReaDataT_23=0 ReaDataT_22=0 ReaDataT_21=0 \
-    ReaDataT_20=0 ReaDataT_19=0 ReaDataT_18=0 ReaDataT_17=0 ReaDataT_16=0 \
-    ReaDataT_15=0 ReaDataT_14=0 ReaDataT_13=0 ReaDataT_12=0 ReaDataT_11=0 \
-    ReaDataT_10=0 ReaDataT_9=0 ReaDataT_8=0 ReaDataT_7=0 ReaDataT_6=0 \
-    ReaDataT_5=0 ReaDataT_4=0 ReaDataT_3=0 ReaDataT_2=0 ReaDataT_1=0 \
-    ReaDataT_0=0 AckT=vdd net018_0=vdd net018_1=vdd net018_2=vdd \
-    net018_3=vdd net018_4=vdd RWT_1=0 RWT_0=0 AT_19=0 AT_18=0 AT_17=0 \
-    AT_16=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 \
-    AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 AT_0=0 WAck_7=vdd \
-    WAck_6=vdd WAck_5=vdd WAck_4=vdd WAck_3=vdd WAck_2=vdd WAck_1=vdd \
-    WAck_0=vdd WriteDataT_31=0 WriteDataT_30=0 WriteDataT_29=0 \
-    WriteDataT_28=0 WriteDataT_27=0 WriteDataT_26=0 WriteDataT_25=0 \
-    WriteDataT_24=0 WriteDataT_23=0 WriteDataT_22=0 WriteDataT_21=0 \
-    WriteDataT_20=0 WriteDataT_19=0 WriteDataT_18=0 WriteDataT_17=0 \
-    WriteDataT_16=0 WriteDataT_15=0 WriteDataT_14=0 WriteDataT_13=0 \
-    WriteDataT_12=0 WriteDataT_11=0 WriteDataT_10=0 WriteDataT_9=0 \
-    WriteDataT_8=0 WriteDataT_7=0 WriteDataT_6=0 WriteDataT_5=0 \
-    WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 WriteDataT_1=0 \
-    WriteDataT_0=0 
+    IBank.I20.R1_0=0 IBank.I20.RpAck_3=vdd IBank.I20.RpAck_2=vdd \
+    IBank.I20.I3_1.outAck=vdd IBank.I20.I3_1.net31=vdd \
+    IBank.I20.I3_1.net27=vdd IBank.I20.I3_1.net24=vdd \
+    IBank.I20.I3_1.net20=vdd IBank.I20.I3_1.m_3=vdd IBank.I20.I3_1.m_2=vdd \
+    IBank.I20.I3_1.m_1=vdd IBank.I20.I3_1.m_0=vdd IBank.I20.I3_1.n0_0=0 \
+    IBank.I20.I3_1.n1_0=0 IBank.I20.I3_1.n0_1=0 IBank.I20.I3_1.n1_1=0 \
+    IBank.I20.R0q_3=0 IBank.I20.R0q_2=0 IBank.I20.R1q_3=0 \
+    IBank.I20.R1q_2=0 IBank.I20.I12_1.oE=vdd IBank.I20.I12_1.inAck=vdd \
+    IBank.I20.I12_1.net027=vdd IBank.I20.I12_1.outValid=0 \
+    IBank.I20.I12_1.inValid=0 IBank.I20.I10.n_0=0 IBank.I20.I10.n_1=0 \
+    IBank.I20.I10.n_2=0 IBank.I20.I10.n_3=0 IBank.I20.I10.net14=vdd \
+    IBank.I20.I10.net13=vdd IBank.I20.I10.net12=vdd \
+    IBank.I20.I10.net11=vdd IBank.I20.I10.b0_1=vdd IBank.I20.I10.b1_1=vdd \
+    IBank.I20.I10.b0_0=vdd IBank.I20.I10.b1_0=vdd IBank.I20.I10.nxa=vdd \
+    IBank.I0.I0.B0P1=vdd IBank.I0.I0.B1P1=vdd IBank.I0.I0.I0.I7.I3.Q1=vdd \
+    IBank.I0.I0.I0.I7.I3.Q0=0 IBank.net027=0 IBank.outAck=0 \
+    IBank.\~R1_4_3=vdd IBank.\~R1_4_2=vdd IBank.\~R1_4_1=vdd \
+    IBank.\~R1_4_0=vdd IBank.\~R0_4_3=vdd IBank.\~R0_4_2=vdd \
+    IBank.\~R0_4_1=vdd IBank.\~R0_4_0=vdd IBank.\~R1_3_3=vdd \
+    IBank.\~R1_3_2=vdd IBank.\~R1_3_1=vdd IBank.\~R1_3_0=vdd \
+    IBank.\~R0_3_3=vdd IBank.\~R0_3_2=vdd IBank.\~R0_3_1=vdd \
+    IBank.\~R0_3_0=vdd IBank.\~R1_2_3=vdd IBank.\~R1_2_2=vdd \
+    IBank.\~R1_2_1=vdd IBank.\~R1_2_0=vdd IBank.\~R0_2_3=vdd \
+    IBank.\~R0_2_2=vdd IBank.\~R0_2_1=vdd IBank.\~R0_2_0=vdd \
+    IBank.\~R0_1_3=vdd IBank.\~R0_1_2=vdd IBank.\~R0_1_1=vdd \
+    IBank.\~R0_1_0=vdd IBank.\~R1_1_3=vdd IBank.\~R1_1_2=vdd \
+    IBank.\~R1_1_1=vdd IBank.\~R1_1_0=vdd ReadDataAckT_7=0 \
+    ReadDataAckT_6=0 WDataAckT_7=0 WDataAckT_6=0 ReadDataAckT_5=0 \
+    ReadDataAckT_4=0 WDataAckT_5=0 WDataAckT_4=0 ReadDataAckT_3=0 \
+    ReadDataAckT_2=0 WDataAckT_3=0 WDataAckT_2=0 ReaDataT_3=0 ReaDataT_2=0 \
+    ReaDataT_1=0 ReaDataT_0=0 ReaDataT_7=0 ReaDataT_6=0 ReaDataT_5=0 \
+    ReaDataT_4=0 WDataAckT_1=0 WDataAckT_0=0 WriteDataT_7=0 WriteDataT_6=0 \
+    WriteDataT_5=0 WriteDataT_4=0 WriteDataT_3=0 WriteDataT_2=0 \
+    WriteDataT_1=0 WriteDataT_0=0 ReadDataAckT_1=0 ReadDataAckT_0=0 \
+    ReaDataT_31=0 ReaDataT_30=0 ReaDataT_29=0 ReaDataT_28=0 ReaDataT_27=0 \
+    ReaDataT_26=0 ReaDataT_25=0 ReaDataT_24=0 ReaDataT_23=0 ReaDataT_22=0 \
+    ReaDataT_21=0 ReaDataT_20=0 ReaDataT_19=0 ReaDataT_18=0 ReaDataT_17=0 \
+    ReaDataT_16=0 ReaDataT_15=0 ReaDataT_14=0 ReaDataT_13=0 ReaDataT_12=0 \
+    ReaDataT_11=0 ReaDataT_10=0 ReaDataT_9=0 ReaDataT_8=0 WriteDataT_31=0 \
+    WriteDataT_30=0 WriteDataT_29=0 WriteDataT_28=0 WriteDataT_27=0 \
+    WriteDataT_26=0 WriteDataT_25=0 WriteDataT_24=0 WriteDataT_23=0 \
+    WriteDataT_22=0 WriteDataT_21=0 WriteDataT_20=0 WriteDataT_19=0 \
+    WriteDataT_18=0 WriteDataT_17=0 WriteDataT_16=0 WriteDataT_15=0 \
+    WriteDataT_14=0 WriteDataT_13=0 WriteDataT_12=0 WriteDataT_11=0 \
+    WriteDataT_10=0 WriteDataT_9=0 WriteDataT_8=0 IBank.net042=0 \
+    IBank.G04=0 IBank.B1_4_3=0 IBank.B1_4_2=0 IBank.B1_4_1=0 \
+    IBank.B1_4_0=0 IBank.B0_4_3=0 IBank.B0_4_2=0 IBank.B0_4_1=0 \
+    IBank.B0_4_0=0 IBank.W1_4_3=0 IBank.W1_4_2=0 IBank.W1_4_1=0 \
+    IBank.W1_4_0=0 IBank.W0_4_3=0 IBank.W0_4_2=0 IBank.W0_4_1=0 \
+    IBank.W0_4_0=0 IBank.B1_3_3=0 IBank.B1_3_2=0 IBank.B1_3_1=0 \
+    IBank.B1_3_0=0 IBank.B0_3_3=0 IBank.B0_3_2=0 IBank.B0_3_1=0 \
+    IBank.B0_3_0=0 IBank.W0_3_3=0 IBank.W0_3_2=0 IBank.W0_3_1=0 \
+    IBank.W0_3_0=0 IBank.W1_3_3=0 IBank.W1_3_2=0 IBank.W1_3_1=0 \
+    IBank.W1_3_0=0 IBank.G03=0 IBank.ck_3=0 IBank.ck_2=0 IBank.Reset=0 \
+    IBank.ck_1=0 IBank.ck_0=0 IBank.ValAddr=0 IBank.RW_1=0 IBank.RW_0=0 \
+    RWT_1=0 RWT_0=0 IBank.net059_0=0 IBank.net059_1=0 IBank.net059_2=0 \
+    IBank.net059_3=0 IBank.net059_4=0 IBank.net059_5=0 IBank.net059_6=0 \
+    IBank.net059_7=0 IBank.net087_0=0 IBank.net087_1=0 IBank.net087_2=0 \
+    IBank.net087_3=0 IBank.net087_4=0 IBank.net087_5=0 IBank.net087_6=0 \
+    IBank.net087_7=0 IBank.net087_8=0 IBank.net087_9=0 IBank.net087_10=0 \
+    IBank.net087_11=0 IBank.net087_12=0 IBank.net087_13=0 \
+    IBank.net087_14=0 IBank.net087_15=0 IBank.net087_16=0 \
+    IBank.net087_17=0 IBank.net087_18=0 IBank.net087_19=0 \
+    IBank.net087_20=0 IBank.net087_21=0 IBank.net087_22=0 \
+    IBank.net087_23=0 IBank.net087_24=0 IBank.net087_25=0 \
+    IBank.net087_26=0 IBank.net087_27=0 IBank.net087_28=0 \
+    IBank.net087_29=0 IBank.net087_30=0 IBank.net087_31=0 \
+    IBank.net087_32=0 IBank.net087_33=0 IBank.net087_34=0 \
+    IBank.net087_35=0 IBank.net087_36=0 IBank.net087_37=0 \
+    IBank.net087_38=0 IBank.net087_39=0 IBank.net087_40=0 \
+    IBank.net087_41=0 IBank.net087_42=0 IBank.net087_43=0 \
+    IBank.net087_44=0 IBank.net087_45=0 IBank.net087_46=0 \
+    IBank.net087_47=0 IBank.net087_48=0 IBank.net087_49=0 \
+    IBank.net087_50=0 IBank.net087_51=0 IBank.net087_52=0 \
+    IBank.net087_53=0 IBank.net087_54=0 IBank.net087_55=0 \
+    IBank.net087_56=0 IBank.net087_57=0 IBank.net087_58=0 \
+    IBank.net087_59=0 IBank.net087_60=0 IBank.net087_61=0 \
+    IBank.net087_62=0 IBank.net087_63=0 IBank.net0157_0=0 \
+    IBank.net0157_1=0 IBank.net0157_2=0 IBank.net0157_3=0 \
+    IBank.net0157_4=0 IBank.net0157_5=0 IBank.net0157_6=0 \
+    IBank.net0157_7=0 IBank.net0157_8=0 IBank.net0157_9=0 \
+    IBank.net0157_10=0 IBank.net0157_11=0 IBank.net0157_12=0 \
+    IBank.net0157_13=0 IBank.net0157_14=0 IBank.net0157_15=0 \
+    IBank.net0157_16=0 IBank.net0157_17=0 IBank.net0157_18=0 \
+    IBank.net0157_19=0 IBank.net0157_20=0 IBank.net0157_21=0 \
+    IBank.net0157_22=0 IBank.net0157_23=0 IBank.net0157_24=0 \
+    IBank.net0157_25=0 IBank.net0157_26=0 IBank.net0157_27=0 \
+    IBank.net0157_28=0 IBank.net0157_29=0 IBank.net0157_30=0 \
+    IBank.net0157_31=0 IBank.net0157_32=0 IBank.net0157_33=0 \
+    IBank.net0157_34=0 IBank.net0157_35=0 IBank.net0157_36=0 \
+    IBank.net0157_37=0 IBank.net0157_38=0 IBank.net0157_39=0 \
+    IBank.net0157_40=0 IBank.net0157_41=0 IBank.net0157_42=0 \
+    IBank.net0157_43=0 IBank.net0157_44=0 IBank.net0157_45=0 \
+    IBank.net0157_46=0 IBank.net0157_47=0 IBank.net0157_48=0 \
+    IBank.net0157_49=0 IBank.net0157_50=0 IBank.net0157_51=0 \
+    IBank.net0157_52=0 IBank.net0157_53=0 IBank.net0157_54=0 \
+    IBank.net0157_55=0 IBank.net0157_56=0 IBank.net0157_57=0 \
+    IBank.net0157_58=0 IBank.net0157_59=0 IBank.net0157_60=0 \
+    IBank.net0157_61=0 IBank.net0157_62=0 IBank.net0157_63=0 \
+    IBank.net0131_0=0 IBank.net0131_1=0 IBank.net0131_2=0 \
+    IBank.net0131_3=0 IBank.net0131_4=0 IBank.net0131_5=0 \
+    IBank.net0131_6=0 IBank.net0131_7=0 IBank.net096_0=0 IBank.net096_1=0 \
+    IBank.net096_2=0 IBank.net096_3=0 IBank.net096_4=0 IBank.net096_5=0 \
+    IBank.net096_6=0 IBank.net096_7=0 IBank.net096_8=0 IBank.net096_9=0 \
+    IBank.net096_10=0 IBank.net096_11=0 IBank.net096_12=0 \
+    IBank.net096_13=0 IBank.net096_14=0 IBank.net096_15=0 \
+    IBank.net096_16=0 IBank.net096_17=0 IBank.net096_18=0 \
+    IBank.net096_19=0 IBank.net096_20=0 IBank.net096_21=0 \
+    IBank.net096_22=0 IBank.net096_23=0 IBank.net096_24=0 \
+    IBank.net096_25=0 IBank.net096_26=0 IBank.net096_27=0 \
+    IBank.net096_28=0 IBank.net096_29=0 IBank.net096_30=0 \
+    IBank.net096_31=0 IBank.net096_32=0 IBank.net096_33=0 \
+    IBank.net096_34=0 IBank.net096_35=0 IBank.net096_36=0 \
+    IBank.net096_37=0 IBank.net096_38=0 IBank.net096_39=0 \
+    IBank.net096_40=0 IBank.net096_41=0 IBank.net096_42=0 \
+    IBank.net096_43=0 IBank.net096_44=0 IBank.net096_45=0 \
+    IBank.net096_46=0 IBank.net096_47=0 IBank.net096_48=0 \
+    IBank.net096_49=0 IBank.net096_50=0 IBank.net096_51=0 \
+    IBank.net096_52=0 IBank.net096_53=0 IBank.net096_54=0 \
+    IBank.net096_55=0 IBank.net096_56=0 IBank.net096_57=0 \
+    IBank.net096_58=0 IBank.net096_59=0 IBank.net096_60=0 \
+    IBank.net096_61=0 IBank.net096_62=0 IBank.net096_63=0 IBank.net068_0=0 \
+    IBank.net068_1=0 IBank.net068_2=0 IBank.net068_3=0 IBank.net068_4=0 \
+    IBank.net068_5=0 IBank.net068_6=0 IBank.net068_7=0 IBank.A_1_63=0 \
+    IBank.A_1_62=0 IBank.A_1_61=0 IBank.A_1_60=0 IBank.A_1_59=0 \
+    IBank.A_1_58=0 IBank.A_1_57=0 IBank.A_1_56=0 IBank.A_1_55=0 \
+    IBank.A_1_54=0 IBank.A_1_53=0 IBank.A_1_52=0 IBank.A_1_51=0 \
+    IBank.A_1_50=0 IBank.A_1_49=0 IBank.A_1_48=0 IBank.A_1_47=0 \
+    IBank.A_1_46=0 IBank.A_1_45=0 IBank.A_1_44=0 IBank.A_1_43=0 \
+    IBank.A_1_42=0 IBank.A_1_41=0 IBank.A_1_40=0 IBank.A_1_39=0 \
+    IBank.A_1_38=0 IBank.A_1_37=0 IBank.A_1_36=0 IBank.A_1_35=0 \
+    IBank.A_1_34=0 IBank.A_1_33=0 IBank.A_1_32=0 IBank.A_1_31=0 \
+    IBank.A_1_30=0 IBank.A_1_29=0 IBank.A_1_28=0 IBank.A_1_27=0 \
+    IBank.A_1_26=0 IBank.A_1_25=0 IBank.A_1_24=0 IBank.A_1_23=0 \
+    IBank.A_1_22=0 IBank.A_1_21=0 IBank.A_1_20=0 IBank.A_1_19=0 \
+    IBank.A_1_18=0 IBank.A_1_17=0 IBank.A_1_16=0 IBank.A_1_15=0 \
+    IBank.A_1_14=0 IBank.A_1_13=0 IBank.A_1_12=0 IBank.A_1_11=0 \
+    IBank.A_1_10=0 IBank.A_1_9=0 IBank.A_1_8=0 IBank.A_1_7=0 IBank.A_1_6=0 \
+    IBank.A_1_5=0 IBank.A_1_4=0 IBank.A_1_3=0 IBank.A_1_2=0 IBank.A_1_1=0 \
+    IBank.A_1_0=0 IBank.S_1_7=0 IBank.S_1_6=0 IBank.S_1_5=0 IBank.S_1_4=0 \
+    IBank.S_1_3=0 IBank.S_1_2=0 IBank.S_1_1=0 IBank.S_1_0=0 AT_16=0 \
+    IBank.AvAck_0=0 AT_7=0 AT_6=0 AT_5=0 AT_4=0 AT_3=0 AT_2=0 AT_1=0 \
+    AT_0=0 AT_11=0 AT_10=0 AT_9=0 AT_8=0 AT_15=0 AT_14=0 AT_13=0 AT_12=0 \
+    IBank.AvAck_3=0 IBank.AvAck_2=0 IBank.AvAck_1=0 AT_19=0 AT_18=0 \
+    AT_17=0 IBank.B1_2_3=0 IBank.B1_2_2=0 IBank.B1_2_1=0 IBank.B1_2_0=0 \
+    IBank.B0_2_3=0 IBank.B0_2_2=0 IBank.B0_2_1=0 IBank.B0_2_0=0 \
+    IBank.W1_2_3=0 IBank.W1_2_2=0 IBank.W1_2_1=0 IBank.W1_2_0=0 \
+    IBank.W0_2_3=0 IBank.W0_2_2=0 IBank.W0_2_1=0 IBank.W0_2_0=0 \
+    IBank.G02=0 IBank.B0_1_3=0 IBank.B0_1_2=0 IBank.B0_1_1=0 \
+    IBank.B0_1_0=0 IBank.B1_1_3=0 IBank.B1_1_2=0 IBank.B1_1_1=0 \
+    IBank.B1_1_0=0 IBank.W1_1_3=0 IBank.W1_1_2=0 IBank.W1_1_1=0 \
+    IBank.W1_1_0=0 IBank.W0_1_3=0 IBank.W0_1_2=0 IBank.W0_1_1=0 \
+    IBank.W0_1_0=0 IBank.G01=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     inventory=detailed maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
@@ -58,5 +172,4 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save V1:p V1:p V0:p V0:p IBank.I20.I24:3 
 saveOptions options save=allpub

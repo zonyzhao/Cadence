@@ -14,8 +14,8 @@
 ( inst
  )
 ( model
-( "6T_4x" "_sub231" )
-( "6T" "_sub230" )
+( "6T_4x" "_sub1" )
+( "6T" "_sub0" )
  )
 ( term
  )

@@ -1,8 +1,15 @@
-    M5 (Q0 Q1 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M4 (Q1 Q0 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Q1 A B1 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
-    M0 (Q0 A B0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
-    M3 (Q0 Q1 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-    M2 (Q1 Q0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-ends _sub36
+    I26 (net20 net19 net13) and_1x
+    I11 (outp_0 ack net20) TH22
+    I10 (outp_1 ack net19) TH22
+    I15 (ap_1 bp_1 outp_1) nor_1x
+    I14 (ap_0 bp_0 outp_0) nor_1x
+    I13 (bp_0 bp_1 b_ack) or_1x
+    I12 (ap_0 ap_1 a_ack) or_1x
+    I27 (net20 out_0) inv_1x
+    I28 (net19 out_1) inv_1x
+    I7 (b_0 bsel net13 bp_0) TH33
+    I6 (b_1 bsel net13 bp_1) TH33
+    I1 (a_1 asel net13 ap_1) TH33
+    I0 (a_0 asel net13 ap_0) TH33
+ends _sub14
 // End of subcircuit definition.

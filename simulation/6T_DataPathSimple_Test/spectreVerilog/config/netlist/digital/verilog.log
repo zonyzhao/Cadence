@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport33272
+    +vmxsport51771
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  14:31:44
-Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  14:31:44
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 24, 2015  22:59:11
+Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  22:59:11
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -119,7 +119,7 @@ Message!  At the end of DC initialization the logic values
           "IE.verimix", 5: $vmx_initialize("spectre",                          
           dc_mode_flag);
 L78 "testfixture.verimix": $finish at simulation time 3510
-Verilog/spectre Interface: 3247 messages sent, 3249 messages received.
+Verilog/spectre Interface: 3246 messages sent, 3248 messages received.
 0 simulation events (use +profile or +listcounts option to count) + 519 accelerated events
-CPU time: 0.0 secs to compile + 0.0 secs to link + 5.3 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  15:09:58
+CPU time: 0.0 secs to compile + 0.0 secs to link + 4.1 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 24, 2015  23:38:00
