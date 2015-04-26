@@ -1,0 +1,26 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+ )
+( net
+( "SM0<1>" "SM0_1" )
+( "~R1" "\\~R1" )
+( "SM0<0>" "SM0_0" )
+( "~R0" "\\~R0" )
+( "gnd!" "0" )
+( "SM1<1>" "SM1_1" )
+( "SM1<0>" "SM1_0" )
+ )
+( inst
+ )
+( model
+( "6T_SetRead" "_sub67" )
+ )
+( term
+ )
+( param
+ )
+ )

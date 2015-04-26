@@ -1,12 +1,12 @@
-    I5_3 (R0q_3 R1q_3 Lack_3 R0_3 R1_3 RpAck_3) PCHBd
-    I5_2 (R0q_2 R1q_2 Lack_2 R0_2 R1_2 RpAck_2) PCHBd
-    I5_1 (R0q_1 R1q_1 Lack_1 R0_1 R1_1 RpAck_1) PCHBd
-    I5_0 (R0q_0 R1q_0 Lack_0 R0_0 R1_0 RpAck_0) PCHBd
+    IRPCHB_3 (R0q_3 R1q_3 Lack_3 R0_3 R1_3 RpAck_3) PCHBd
+    IRPCHB_2 (R0q_2 R1q_2 Lack_2 R0_2 R1_2 RpAck_2) PCHBd
+    IRPCHB_1 (R0q_1 R1q_1 Lack_1 R0_1 R1_1 RpAck_1) PCHBd
+    IRPCHB_0 (R0q_0 R1q_0 Lack_0 R0_0 R1_0 RpAck_0) PCHBd
     I8 (intRack intWack Ack) nand_1x
-    I12_1 (B0_1 B1_1 wack_1 nB0_1 nB1_1 W0_1 W1_1) PCHB_Write
-    I12_0 (B0_0 B1_0 wack_0 nB0_0 nB1_0 W0_0 W1_0) PCHB_Write
-    I15_1 (B0_3 B1_3 wack_3 nB0_3 nB1_3 W0_3 W1_3) PCHB_Write
-    I15_0 (B0_2 B1_2 wack_2 nB0_2 nB1_2 W0_2 W1_2) PCHB_Write
+    IWPCHB0_1 (B0_1 B1_1 wack_1 nB0_1 nB1_1 W0_1 W1_1) PCHB_Write
+    IWPCHB0_0 (B0_0 B1_0 wack_0 nB0_0 nB1_0 W0_0 W1_0) PCHB_Write
+    IWPCHB1_1 (B0_3 B1_3 wack_3 nB0_3 nB1_3 W0_3 W1_3) PCHB_Write
+    IWPCHB1_0 (B0_2 B1_2 wack_2 nB0_2 nB1_2 W0_2 W1_2) PCHB_Write
     I13_3 (Wen B0_3 W0_3) and_1x
     I13_2 (Wen B0_2 W0_2) and_1x
     I13_1 (Wen B0_1 W0_1) and_1x
@@ -42,15 +42,15 @@
     I1 (AckThruBot AckThruTop) iprobe
     I9 (ValAddr RW_0 Wen) TH22
     I7 (ValAddr RW_1 Go) TH22
-    I3_1 (RpAck_3 RpAck_2 R0q_3 R0q_2 R1q_3 R1q_2 RdataAck_1 \
+    IRWCHB_1 (RpAck_3 RpAck_2 R0q_3 R0q_2 R1q_3 R1q_2 RdataAck_1 \
         Read_1of4_7 Read_1of4_6 Read_1of4_5 Read_1of4_4) WCHB_Read
-    I3_0 (RpAck_1 RpAck_0 R0q_1 R0q_0 R1q_1 R1q_0 RdataAck_0 \
+    IRWCHB_0 (RpAck_1 RpAck_0 R0q_1 R0q_0 R1q_1 R1q_0 RdataAck_0 \
         Read_1of4_3 Read_1of4_2 Read_1of4_1 Read_1of4_0) WCHB_Read
-    I16 (wack_0 wack_2 wack_3 wack_1 intWack) _sub41
-    I0 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) _sub41
-    I14 (WdataAck_1 W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 wack_3 \
+    I16 (wack_0 wack_2 wack_3 wack_1 intWack) _sub105
+    I0 (Lack_3 Lack_2 Lack_1 Lack_0 intRack) _sub105
+    IWWCHB1 (WdataAck_1 W2_1of4_3 W2_1of4_2 W2_1of4_1 W2_1of4_0 wack_3 \
         wack_2 nB1_3 nB1_2 nB0_3 nB0_2) WCHB_Write
-    I10 (WdataAck_0 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 wack_1 \
+    IWWCHB0 (WdataAck_0 W1_1of4_3 W1_1of4_2 W1_1of4_1 W1_1of4_0 wack_1 \
         wack_0 nB1_1 nB1_0 nB0_1 nB0_0) WCHB_Write
-ends _sub42
+ends _sub106
 // End of subcircuit definition.

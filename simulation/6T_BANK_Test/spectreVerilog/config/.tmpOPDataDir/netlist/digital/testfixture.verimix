@@ -1,0 +1,16 @@
+
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+initial
+begin 
+
+   A[19:0] = 20'b00000000000000000000;
+
+   RW[1:0] = 2'b00;
+
+   ReadDataAck[7:0] = 8'b00000000;
+
+   WriteData[31:0] = 32'b00000000000000000000000000000000;
+
+end 

@@ -1,4 +1,4 @@
-Sun Apr 19 18:14:54 2015
+Sun Apr 26 00:52:16 2015
 
 BUILDING Network design (cell: 6T_BANK_Test, lib: 16nm_Tests, view: config)
 GLOBAL ENVIRONMENT INFORMATION:
@@ -54,17 +54,17 @@ Module 6T_DEMUX_, lib 16nm, view schematic, configViewString $default
 Module nand_1x, lib 16nm, view schematic, configViewString $default
 Module TH44, lib 16nm, view schematic, configViewString $default
 Module 6T_CONTROL, lib 16nm, view schematic, configViewString $default
-Module and_1x, lib 16nm, view schematic, configViewString $default
 Module TH22, lib 16nm, view schematic, configViewString $default
-Module WCHB~, lib 16nm, view schematic, configViewString $default
+Module WCHB_Write, lib 16nm, view schematic, configViewString $default
+Module TH44~, lib 16nm, view schematic, configViewString $default
+Module WCHB_Read, lib 16nm, view schematic, configViewString $default
+Module and_1x, lib 16nm, view schematic, configViewString $default
 Module inv_weak_1x, lib 16nm, view schematic, configViewString $default
 Module or_1x, lib 16nm, view schematic, configViewString $default
 Module THaC, lib 16nm, view schematic, configViewString $default
-Module PCHB_FIFO, lib 16nm, view schematic, configViewString $default
-Module WCHB, lib 16nm, view schematic, configViewString $default
-Module TH22~, lib 16nm, view schematic, configViewString $default
+Module PCHB_Write, lib 16nm, view schematic, configViewString $default
 Module PCHBd, lib 16nm, view schematic, configViewString $default
-Module 6T_DATA, lib 16nm, view schematic, configViewString $default
+Module 6T_DATAb, lib 16nm, view schematic, configViewString $default
 Module 6T_SetRead, lib 16nm, view schematic, configViewString $default
 Module 6T_32x_CTRL, lib 16nm, view schematic, configViewString $default
 Module 6T, lib 16nm, view schematic, configViewString $default

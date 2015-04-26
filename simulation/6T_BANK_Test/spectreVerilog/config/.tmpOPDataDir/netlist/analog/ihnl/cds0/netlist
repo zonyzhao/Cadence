@@ -1,0 +1,8 @@
+    M5 (Q0 Q1 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M4 (Q1 Q0 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Q1 A B1 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
+    M0 (Q0 A B0 0) nfet w=120n l=20n nfin=2 m=1 degradation=no
+    M3 (Q0 Q1 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+    M2 (Q1 Q0 vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends _sub62
+// End of subcircuit definition.

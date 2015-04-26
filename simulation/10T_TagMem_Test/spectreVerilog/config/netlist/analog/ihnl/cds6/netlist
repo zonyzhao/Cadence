@@ -1,6 +1,6 @@
-    I3 (\~R0_0 \~R1_0 \~W0_0 \~W1_0 JWi JRi) _sub11
-    I2 (\~R0_1 \~R1_1 \~W0_1 \~W1_1 JWi JRi) _sub11
-    I1 (\~R0_2 \~R1_2 \~W0_2 \~W1_2 JWi JRi) _sub11
-    I0 (\~R0_3 \~R1_3 \~W0_3 \~W1_3 JWi JRi) _sub11
-ends _sub12
+    I3 (\~R0_0 \~R1_0 \~W0_0 \~W1_0 JWi JRi) _sub77
+    I2 (\~R0_1 \~R1_1 \~W0_1 \~W1_1 JWi JRi) _sub77
+    I1 (\~R0_2 \~R1_2 \~W0_2 \~W1_2 JWi JRi) _sub77
+    I0 (\~R0_3 \~R1_3 \~W0_3 \~W1_3 JWi JRi) _sub77
+ends _sub78
 // End of subcircuit definition.

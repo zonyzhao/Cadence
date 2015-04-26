@@ -1,0 +1,276 @@
+partition...
+      ...successful.
+simulate...
+
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 14.1.0.303.isr3 32bit -- 16 Dec 2014
+
+Copyright (C) 1989-2014 Cadence Design Systems, Inc. All rights reserved
+
+        worldwide. Cadence, Virtuoso and Spectre are registered trademarks of
+        Cadence Design Systems, Inc. All others are the property of their
+        respective holders.
+
+
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA
+        Security, Inc.
+
+
+User: root   Host: bull   HostID: EDA94F20   PID: 7498
+
+Memory  available: 13.5086 GB  physical: 33.6883 GB
+
+CPU Type: Intel(R) Xeon(R) CPU E5-1607 0 @ 3.00GHz
+          Processor PhysicalID CoreID Frequency Load
+              0         0        0     1200.0    28.9
+              1         0        1     1200.0    30.2
+              2         0        2     3000.0    26.3
+              3         0        3     3000.0    14.7
+
+
+
+Simulating `analog/input.scs' on bull at 5:43:22 PM, Sat Apr 25, 2015 (process
+        id: 7498).
+
+Current working directory:
+        /net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/.tmpOPDataDir/netlist
+
+Command line:
+    /apps/cadence/MMSIM141/tools/bin/spectre analog/input.scs +escchars  \
+        +log ../psf/spectre.out -format psfxl -raw ../psf +lqtimeout  \
+        900 -maxw 5 -maxn 5 -mixmod -slvhost bull  \
+        -slave\"/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/.tmpOPDataDir/netlist/digital\
+        verilog.vmx\ \ -a\ +sxl_keep_minimum\ \ +typdelays\ -y\ ./hdlFilesDir\
+        +libext+.v+\ +incdir+hdlFilesDir\ +sdf_verbose\ +sdf_nocheck_celltype\
+        -l\ verilog.log\ +vmxwavedir../../psf\ -f\ mmenvOpts\
+        testfixture.template\ -f\ verilog.inpfiles\"
+
+Reading file: 
+        /net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/.tmpOPDataDir/netlist/analog/input.scs
+
+Reading file: 
+        /apps/cadence/MMSIM141/tools.lnx86/spectre/etc/configs/spectre.cfg
+
+Reading file:  /software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include
+
+Reading file:  /software/cadence/ncsu-FreePDK15/PTM-MG/models
+
+Reading file:  /software/cadence/ncsu-FreePDK15/PTM-MG/modelfiles/hp/16nfet.pm
+
+Reading file:  /software/cadence/ncsu-FreePDK15/PTM-MG/modelfiles/hp/16pfet.pm
+
+Reading file:  /software/cadence/ncsu-FreePDK15/PTM-MG/param.inc
+
+Time for NDB Parsing: CPU = 78.988 ms, elapsed = 201.054 ms.
+
+Time accumulated: CPU = 97.984 ms, elapsed = 201.063 ms.
+Peak resident memory used = 32.2 Mbytes.
+
+
+Reading link: 
+        /apps/cadence/MMSIM141/tools.lnx86/spectre/etc/ahdl/discipline.h
+
+Reading file: 
+        /apps/cadence/MMSIM141/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+
+Reading link:  /apps/cadence/MMSIM141/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file: 
+        /apps/cadence/MMSIM141/tools.lnx86/spectre/etc/ahdl/constants.vams
+
+Time for Elaboration: CPU = 4.02739 s, elapsed = 4.03479 s.
+Time accumulated: CPU = 4.12637 s, elapsed = 4.23609 s.
+
+Peak resident memory used = 168 Mbytes.
+
+
+Time for EDB Visiting: CPU = 2.99654 s, elapsed = 3.00098 s.
+Time accumulated: CPU = 7.12392 s, elapsed = 7.23734 s.
+
+Peak resident memory used = 408 Mbytes.
+
+
+
+Notice from spectre during topology check.
+
+    No connections to node `IBank.Reset'.
+
+    Only one connection to the following 2 nodes:
+
+        IBank.net0170
+        IBank.net0173
+
+
+    No DC path from node `IBank.Reset' to ground, Gmin installed to provide
+        path.
+
+
+Global user options:
+
+             reltol = 0.001
+            vabstol = 1e-06
+            iabstol = 1e-12
+
+               temp = 27
+
+               tnom = 27
+             scalem = 1
+              scale = 1
+               gmin = 1e-12
+             rforce = 1
+           maxnotes = 5
+
+           maxwarns = 5
+
+             digits = 5
+
+               cols = 80
+
+             pivrel = 0.001
+
+           sensfile = ../psf/sens.output
+
+     checklimitdest = psf
+
+               save = allpub
+
+               tnom = 27
+
+             scalem = 1
+
+              scale = 1
+
+
+
+Circuit inventory:
+
+              nodes 42273
+
+                a2d 46    
+
+            bsimcmg 117272
+
+          capacitor 1024  
+
+                d2a 62    
+
+             iprobe 4     
+
+            vsource 2     
+
+
+
+Analysis and control statement inventory:
+
+                 dc 1     
+
+               info 7     
+
+
+Output statements:
+
+             .probe 0     
+
+           .measure 0     
+
+               save 0     
+
+
+
+Time for parsing: CPU = 1.1101 ks (18m  30.1s), elapsed = 1.11214 ks (18m 
+        32.1s).
+
+Time accumulated: CPU = 1.11722 ks (18m  37.2s), elapsed = 1.11938 ks (18m 
+        39.4s).
+
+Peak resident memory used = 582 Mbytes.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+
+Pre-Simulation Summary
+
+~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Warning from spectre.
+
+    WARNING (SPECTRE-16707): Only tran supports psfxl format, result of other
+
+        analyses will be in psfbin format.
+
+
+
+
+******************
+DC Analysis `dcOp'
+******************
+
+Important parameter values:
+
+    reltol = 1e-03
+
+    abstol(V) = 1 uV
+
+    abstol(I) = 1 pA
+
+    temp = 27 C
+
+    tnom = 27 C
+
+    tempeffects = all
+    gmindc = 1 pS
+
+Trying `homotopy = gmin'.
+
+
+Notice from spectre during DC analysis `dcOp'.
+
+    Bad pivoting is found during DC analysis. Option dc_pivot_check=yes is
+        recommended for possible improvement of convergence.
+
+
+Convergence achieved in 138 iterations.
+
+Total time required for dc analysis `dcOp': CPU = 1.82051 ks (30m  20.5s),
+        elapsed = 1.82954 ks (30m  29.5s).
+
+Time accumulated: CPU = 2.93789 ks (48m  57.9s), elapsed = 2.94932 ks (49m 
+        9.3s).
+Peak resident memory used = 740 Mbytes.
+
+
+dcOpInfo: writing operating point information to rawfile.
+
+modelParameter: writing model parameter values to rawfile.
+
+element: writing instance parameter values to rawfile.
+
+outputParameter: writing output parameter values to rawfile.
+
+designParamVals: writing netlist parameters to rawfile.
+
+primitives: writing primitives to rawfile.
+
+subckts: writing subcircuits to rawfile.
+
+
+Aggregate audit (6:33:04 PM, Sat Apr 25, 2015):
+
+Time used: CPU = 2.95 ks (49m  8.2s), elapsed = 2.98 ks (49m  41.3s), util. =
+        98.9%.
+Time spent in licensing: elapsed = 70.5 ms.
+
+Peak memory used = 762 Mbytes.
+Simulation started at: 5:43:22 PM, Sat Apr 25, 2015, ended at: 6:33:04 PM, Sat
+        Apr 25, 2015, with elapsed time (wall clock): 2.98 ks (49m  41.3s).
+
+spectre completes with 0 errors, 1 warning, and 4 notices.
+
+reading simulation data...
+      ...successful.

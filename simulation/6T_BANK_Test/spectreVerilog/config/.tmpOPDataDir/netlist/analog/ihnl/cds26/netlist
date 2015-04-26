@@ -1,0 +1,8 @@
+    I18 (pV_0 pV_1 pV_2 pV_3 ValAddr) nand4_1x
+    I14 (InAck_0 InAck_1 InAck_2 InAck_3 OutAck) TH44
+    I19_3 (AddrAck_3 _1of4_5_3 pV_3) nand_1x
+    I19_2 (AddrAck_2 _1of4_5_2 pV_2) nand_1x
+    I19_1 (AddrAck_1 _1of4_5_1 pV_1) nand_1x
+    I19_0 (AddrAck_0 _1of4_5_0 pV_0) nand_1x
+ends _sub71
+// End of subcircuit definition.

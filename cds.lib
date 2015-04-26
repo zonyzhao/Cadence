@@ -15,7 +15,7 @@ DEFINE NCSU_TechLib_ami06       /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechL
 DEFINE NCSU_TechLib_ami16       /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_ami16
 DEFINE NCSU_TechLib_hp06        /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_hp06
 DEFINE NCSU_TechLib_tsmc02      /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc02
-DEFINE NCSU_TechLib_tsmc02d     /home/cadence/ncsu-cds-1.6.0.beta/lib/NCSU_TechLib_tsmc02d
+DEFINE NCSU_TechLib_tsmc02d     /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc02d
 DEFINE NCSU_TechLib_tsmc03      /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc03
 DEFINE NCSU_TechLib_tsmc03d     /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc03d
 DEFINE NCSU_TechLib_tsmc04_4M2P /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc04_4M2P

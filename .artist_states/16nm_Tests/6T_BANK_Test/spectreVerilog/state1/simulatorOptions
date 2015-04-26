@@ -47,7 +47,7 @@
 (opts maxwarnstologfile) ""
 (opts minr) ""
 (opts multithread) "on"
-(opts narrate) ""
+(opts narrate) "yes"
 (opts nonconv_topnum) ""
 (opts notation) ""
 (opts note) ""

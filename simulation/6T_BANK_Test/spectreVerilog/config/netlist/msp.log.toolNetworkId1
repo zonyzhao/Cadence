@@ -1,0 +1,33 @@
+Sun Apr 26 01:46:10 2015
+
+BUILDING Network design (cell: 6T_BANK_Test, lib: 16nm_Tests, view: config)
+GLOBAL ENVIRONMENT INFORMATION:
+	simLibName =	16nm_Tests
+	simCellName =	6T_BANK_Test
+	simViewName =	config
+	Netlist Directory	/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist
+	Default View List	
+	Stop View List	
+Switch View List Table:
+	Default IE Libname	UCD_Analog_Parts
+	Default IE Cellname	MOS
+	Detail IE Generation Flag	FALSE
+Power and ground nets:
+	veed! veea! vee! vssd! vssa! vss! gndd! gnda! gnd! vccd! vcca! vcc! vddd! vdda! vdd! 
+SIMULATOR AND PARTITIONING VIEW LIST INFO:
+	Simulator verilog, for network toolNetworkId1, list of views:
+		verilog verilogNetlist 
+	    views in stop view set:
+		msps verilogNetlist system hdl functional behavioral verilog 
+	Simulator spectre, for network toolNetworkId1, list of views:
+		spectre spice 
+	    views in stop view set:
+		spectre auLvs ahdl veriloga spice 
+
+CONFIGURATION INFORMATION:
+Network is using configuration. Here are the config's stop list and switch list:
+	Default View List:	spectre spice verilog behavioral functional hdl system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+	Stop View List:	spectre spice verilog verilogNetlist
+	Top module LibName:	16nm_Tests
+	Top module CellName:	6T_BANK_Test
+	Top module ViewName:	schematic

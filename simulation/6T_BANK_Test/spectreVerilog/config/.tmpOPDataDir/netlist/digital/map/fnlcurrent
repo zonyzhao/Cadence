@@ -1,0 +1,60 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "6T_BANK_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  hierPrefix "test.top"
+  globalHierPrefix "cds_globals."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/.tmpOPDataDir/netlist/digital"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+ )
+( instViewTable
+ )
+( defbus
+( "net018" 0 4  "net018" 0 4  )
+( "~RAck" 7 0  "cdsbus5" 7 0  )
+( "~WriteData" 31 0  "cdsbus4" 31 0  )
+( "RW" 1 0  "RW" 1 0  )
+( "~WAck" 7 0  "cdsbus3" 7 0  )
+( "ReadData" 31 0  "ReadData" 31 0  )
+( "RWT" 1 0  "RWT" 1 0  )
+( "WriteDataT" 31 0  "WriteDataT" 31 0  )
+( "A" 19 0  "A" 19 0  )
+( "~ReadData" 31 0  "cdsbus2" 31 0  )
+( "ReadDataAckT" 7 0  "ReadDataAckT" 7 0  )
+( "ReaDataT" 31 0  "ReaDataT" 31 0  )
+( "AT" 19 0  "AT" 19 0  )
+( "~RW" 1 0  "cdsbus1" 1 0  )
+( "~A" 19 0  "cdsbus0" 19 0  )
+( "net013" 0 4  "net013" 0 4  )
+( "WDataAckT" 7 0  "WDataAckT" 7 0  )
+( "ReadDataAck" 7 0  "ReadDataAck" 7 0  )
+( "WriteDataAck" 7 0  "WriteDataAck" 7 0  )
+( "WriteData" 31 0  "WriteData" 31 0  )
+( "Ctrl_Ack" 4 0  "Ctrl_Ack" 4 0  )
+ )
+( net
+( "gnd!" "cds_globals.gnd_" )
+( "vcc!" "cds_globals.vcc_" )
+( "vdd!" "cds_globals.vdd_" )
+ )
+( inst
+ )
+( model
+( "16nm_Tests/6T_BANK_Test/schematic" "cdsModule_75" )
+ )
+( term
+ )
+( param
+( "vcc" "cds_globals.vcc" )
+( "vdd" "cds_globals.vdd" )
+ )
+( "cdsModule_75" "ihnl/cds0/map" )
+ )

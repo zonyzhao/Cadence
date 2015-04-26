@@ -1,6 +1,6 @@
 HEADER
 "PSFversion" "1.00"
-"I0n I2n I6n I8n" "_sub17"
+"I0n I2n I6n I8n" "_sub83"
 "I4n I1n" "Decode_2to4"
 "I24<1>v" "I24_1v"
 "I10n I11n" "nand4_1x"
