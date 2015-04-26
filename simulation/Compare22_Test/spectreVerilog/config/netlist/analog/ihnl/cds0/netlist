@@ -1,13 +1,4 @@
-    M10 (y0 v vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
-    M0 (y1 v vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=yes
-    M9 (net26 v 0 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M8 (y0 a1 net35 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M7 (net35 b0 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M6 (net36 b1 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M5 (y0 a1 net36 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M4 (net38 b0 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M3 (net37 b1 net26 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M2 (y1 a1 net37 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-    M1 (y1 a0 net38 0) nfet w=120n l=16n nfin=1 m=1 degradation=no
-ends Compare_DR
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1xt
 // End of subcircuit definition.

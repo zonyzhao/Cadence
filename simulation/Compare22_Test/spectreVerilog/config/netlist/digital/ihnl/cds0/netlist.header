@@ -1,6 +1,6 @@
 // Library - 16nm_Tests, Cell - Compare22_Test, View - schematic
-// LAST TIME SAVED: Apr 23 04:33:41 2015
-// NETLIST TIME: Apr 23 04:42:14 2015
+// LAST TIME SAVED: Apr 26 05:48:24 2015
+// NETLIST TIME: Apr 26 06:59:43 2015
 `timescale 1ps / 1ps 
 
 module Compare22_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
@@ -8,40 +8,40 @@ module Compare22_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
 output  Hit, Miss, Valid;
 
 
-input [21:0]  b0;
-input [21:0]  b1;
-input [21:0]  a1;
-input [21:0]  a0;
+input [23:0]  a0;
+input [23:0]  b1;
+input [23:0]  a1;
+input [23:0]  b0;
 
 // Buses in the design
 
-wire  [0:21]  net38;
+wire  [0:23]  net026;
 
-wire  [0:21]  net34;
+wire  [0:23]  net030;
 
-wire  [0:21]  net35;
+wire  [0:23]  net031;
 
-wire  [0:21]  net33;
+wire  [0:23]  net033;
 
-wire  [0:21]  net37;
+wire  [0:23]  net032;
 
-wire  [0:21]  net39;
+wire  [0:23]  net029;
 
-wire  [0:21]  net32;
+wire  [0:23]  net027;
 
-wire  [0:21]  net36;
+wire  [0:23]  net028;
 
 // begin interface element definitions
 
-wire net21;
 wire net23;
 wire net22;
-reg mixedNet99968;
-reg mixedNet99967;
-reg mixedNet99966;
-assign net21 = mixedNet99968;
-assign net23 = mixedNet99967;
-assign net22 = mixedNet99966;
+wire net21;
+reg mixedNet99912;
+reg mixedNet99911;
+reg mixedNet99910;
+assign net23 = mixedNet99912;
+assign net22 = mixedNet99911;
+assign net21 = mixedNet99910;
 
 // end interface element definitions
 

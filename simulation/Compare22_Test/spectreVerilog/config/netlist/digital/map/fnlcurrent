@@ -4,7 +4,7 @@
   blockName "Compare22_Test"
   repList "$default"
   stopList "spectre spice verilog verilogNetlist"
-  globalList "vdd! gnd! vcc!"
+  globalList "vdd! vcc! gnd!"
   hierDelim "."
   hierPrefix "test.top"
   globalHierPrefix "cds_globals."
@@ -18,18 +18,18 @@
 ( instViewTable
  )
 ( defbus
-( "net36" 0 21  "net36" 0 21  )
-( "a0" 21 0  "a0" 21 0  )
-( "a1" 21 0  "a1" 21 0  )
-( "b1" 21 0  "b1" 21 0  )
-( "net32" 0 21  "net32" 0 21  )
-( "net39" 0 21  "net39" 0 21  )
-( "net37" 0 21  "net37" 0 21  )
-( "net33" 0 21  "net33" 0 21  )
-( "net35" 0 21  "net35" 0 21  )
-( "net34" 0 21  "net34" 0 21  )
-( "net38" 0 21  "net38" 0 21  )
-( "b0" 21 0  "b0" 21 0  )
+( "net028" 0 23  "net028" 0 23  )
+( "net027" 0 23  "net027" 0 23  )
+( "net029" 0 23  "net029" 0 23  )
+( "net032" 0 23  "net032" 0 23  )
+( "net033" 0 23  "net033" 0 23  )
+( "net031" 0 23  "net031" 0 23  )
+( "net030" 0 23  "net030" 0 23  )
+( "net026" 0 23  "net026" 0 23  )
+( "b0" 23 0  "b0" 23 0  )
+( "a1" 23 0  "a1" 23 0  )
+( "b1" 23 0  "b1" 23 0  )
+( "a0" 23 0  "a0" 23 0  )
  )
 ( net
 ( "gnd!" "cds_globals.gnd_" )

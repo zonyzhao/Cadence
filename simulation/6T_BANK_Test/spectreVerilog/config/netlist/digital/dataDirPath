@@ -1,1 +1,1 @@
-`define _VMX_DATA_PATH_ "../../psf"
+`define _VMX_DATA_PATH_ "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/psf"

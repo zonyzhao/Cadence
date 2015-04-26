@@ -26,7 +26,7 @@ IBank (AckT AT_19 AT_18 AT_17 AT_16 AT_15 AT_14 AT_13 AT_12 AT_11 AT_10 \
         WDataAckT_3 WDataAckT_2 WDataAckT_1 WDataAckT_0 ReadDataAckT_7 \
         ReadDataAckT_6 ReadDataAckT_5 ReadDataAckT_4 ReadDataAckT_3 \
         ReadDataAckT_2 ReadDataAckT_1 ReadDataAckT_0 CtrlAckT_4 \
-        CtrlAckT_3 CtrlAckT_2 CtrlAckT_1 CtrlAckT_0) _sub109
+        CtrlAckT_3 CtrlAckT_2 CtrlAckT_1 CtrlAckT_0) _sub53
 I15_4 (CtrlAckT_4 net013_0) inv_1xt
 I15_3 (CtrlAckT_3 net013_1) inv_1xt
 I15_2 (CtrlAckT_2 net013_2) inv_1xt

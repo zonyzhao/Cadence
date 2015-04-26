@@ -1,4 +1,4 @@
  #!/bin/sh
 xargs cat > netlist <<End-Of-List
- .ieModels.spectre ihnl/cds0/netlist.header ihnl/cds0/netlist ihnl/cds1/netlist.header ihnl/cds1/netlist ihnl/cds2/netlist.header ihnl/cds2/netlist ihnl/cds3/netlist.header ihnl/cds3/netlist ihnl/cds4/netlist.header ihnl/cds4/netlist ihnl/cds5/netlist.header ihnl/cds5/netlist ihnl/cds6/netlist.header ihnl/cds6/netlist ihnl/cds7/netlist.header ihnl/cds7/netlist ihnl/cds8/netlist.header ihnl/cds8/netlist ihnl/cds9/netlist 
+ .ieModels.spectre ihnl/cds0/netlist.header ihnl/cds0/netlist ihnl/cds1/netlist.header ihnl/cds1/netlist ihnl/cds2/netlist.header ihnl/cds2/netlist ihnl/cds3/netlist.header ihnl/cds3/netlist ihnl/cds4/netlist.header ihnl/cds4/netlist ihnl/cds5/netlist.header ihnl/cds5/netlist ihnl/cds6/netlist.header ihnl/cds6/netlist ihnl/cds7/netlist.header ihnl/cds7/netlist ihnl/cds8/netlist.header ihnl/cds8/netlist ihnl/cds9/netlist.header ihnl/cds9/netlist ihnl/cds10/netlist 
 End-Of-List

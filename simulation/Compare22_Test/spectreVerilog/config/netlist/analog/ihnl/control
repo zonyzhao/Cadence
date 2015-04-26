@@ -1,14 +1,14 @@
 hnlLastStopCellInfo = '(
                            ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
+                          ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1429836495" )
                           ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1428023252" )
-                          ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1428023184" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 1
-hnlLastConfigFileTimeStamp = "1429788861"
+hnlLastConfigFileVersion = 2
+hnlLastConfigFileTimeStamp = "1430053875"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "Compare22_Test" "config" 1 "1429788861" )
+( "16nm_Tests" "Compare22_Test" "config" 2 "1430053875" )
 ) 
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"

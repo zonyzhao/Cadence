@@ -1,6 +1,6 @@
 HEADER
 "PSFversion" "1.00"
-"I25n I9n I18n I2n" "_sub44"
+"ISRAM3n ISRAM1n ISRAM2n ISRAM0n" "_sub44"
 "M1n M0n M3n M10n M9n M6n M7n M13n M12n M15n M16n M22n M21n M18n M19n M4n" "NCSU_TechLib_FreePDK15_nfet_spectre"
 "I4n I11n I20n I27n" "_sub45"
 "I16n I13n" "nand4_1x"

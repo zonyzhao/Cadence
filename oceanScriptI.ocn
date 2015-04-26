@@ -5,7 +5,7 @@ resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVeri
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
-analysis('tran ?stop "6n "  ?errpreset "conservative"  )
+analysis('tran ?stop "500n "  ?errpreset "conservative"  )
 desVar(	  "vdd" .7	)
 desVar(	  "vcc" "vdd"	)
 envOption(

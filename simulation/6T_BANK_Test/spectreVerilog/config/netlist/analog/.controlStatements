@@ -1,23 +1,4 @@
-ic IBank.IDATA0.IWPCHB1_1.inValid=0 IBank.IDATA0.IWPCHB1_1.outValid=0 \
-    IBank.IDATA0.IWPCHB1_1.oE=vdd IBank.IDATA0.IWPCHB1_1.net027=vdd \
-    IBank.IDATA0.IWPCHB1_1.inAck=vdd IBank.IDATA0.intWack=vdd \
-    IBank.IDATA0.intRack=vdd IBank.IDATA0.IWPCHB0_1.inValid=0 \
-    IBank.IDATA0.IWPCHB0_1.outValid=0 IBank.IDATA0.IWWCHB1.b1_1=vdd \
-    IBank.IDATA0.IWWCHB1.b1_0=vdd IBank.IDATA0.IWWCHB1.b0_0=vdd \
-    IBank.IDATA0.IWWCHB1.b0_1=vdd IBank.IDATA0.IWWCHB1.nxa=vdd \
-    IBank.IDATA0.IWWCHB1.n_0=0 IBank.IDATA0.IWWCHB1.n_1=0 \
-    IBank.IDATA0.IWWCHB1.n_2=0 IBank.IDATA0.IWWCHB1.n_3=0 \
-    IBank.IDATA0.IWWCHB1.\~Out1_0=vdd IBank.IDATA0.IWWCHB1.\~Out0_0=vdd \
-    IBank.IDATA0.IWWCHB1.\~Out1_1=vdd IBank.IDATA0.IWWCHB1.\~Out0_1=vdd \
-    IBank.IDATA0.IRPCHB_3.\~ack=vdd IBank.IDATA0.IRPCHB_3.oE=vdd \
-    IBank.IDATA0.IRPCHB_3.inValid=0 IBank.IDATA0.IRPCHB_3.outValid=0 \
-    IBank.IDATA0.IRWCHB_1.outAck=vdd IBank.IDATA0.IRWCHB_1.\~Out_0=vdd \
-    IBank.IDATA0.IRWCHB_1.\~Out_1=vdd IBank.IDATA0.IRWCHB_1.\~Out_2=vdd \
-    IBank.IDATA0.IRWCHB_1.\~Out_3=vdd IBank.IDATA0.IRWCHB_1.m_1=vdd \
-    IBank.IDATA0.IRWCHB_1.m_2=vdd IBank.IDATA0.IRWCHB_1.m_3=vdd \
-    IBank.IDATA0.IRWCHB_1.m_0=vdd IBank.IDATA0.IRWCHB_1.n0_0=0 \
-    IBank.IDATA0.IRWCHB_1.n1_0=0 IBank.IDATA0.IRWCHB_1.n0_1=0 \
-    IBank.IDATA0.IRWCHB_1.n1_1=0 IBank.ICHUNK0.IARRAY0.ISRAM0.I7.I3.Q1=vdd \
+ic IBank.ICHUNK0.IARRAY0.ISRAM0.I7.I3.Q1=vdd \
     IBank.ICHUNK0.IARRAY0.ISRAM0.I7.I3.Q0=0 IBank.IDATA0.IWWCHB0.n_0=0 \
     IBank.IDATA0.IWWCHB0.n_1=0 IBank.IDATA0.IWWCHB0.n_2=0 \
     IBank.IDATA0.IWWCHB0.n_3=0 IBank.IDATA0.IWWCHB0.nxa=vdd \
@@ -92,7 +73,7 @@ ic IBank.IDATA0.IWPCHB1_1.inValid=0 IBank.IDATA0.IWPCHB1_1.outValid=0 \
     IBank.A_2_9=0 IBank.A_2_8=0 IBank.A_2_7=0 IBank.A_2_6=0 IBank.A_2_5=0 \
     IBank.A_2_4=0 IBank.A_2_3=0 IBank.A_2_2=0 IBank.A_2_1=0 IBank.A_2_0=0 \
     CtrlAckT_4=vdd CtrlAckT_3=vdd CtrlAckT_2=vdd CtrlAckT_1=vdd \
-    CtrlAckT_0=vdd AckT=0 AckT=0 IBank.\~R1_4_3=vdd IBank.\~R1_4_2=vdd \
+    CtrlAckT_0=vdd AckT=0 IBank.\~R1_4_3=vdd IBank.\~R1_4_2=vdd \
     IBank.\~R1_4_1=vdd IBank.\~R1_4_0=vdd IBank.\~R0_4_3=vdd \
     IBank.\~R0_4_2=vdd IBank.\~R0_4_1=vdd IBank.\~R0_4_0=vdd \
     IBank.\~R1_3_3=vdd IBank.\~R1_3_2=vdd IBank.\~R1_3_1=vdd \
@@ -161,12 +142,14 @@ ic IBank.IDATA0.IWPCHB1_1.inValid=0 IBank.IDATA0.IWPCHB1_1.outValid=0 \
     IBank.B1_1_2=0 IBank.B1_1_1=0 IBank.B1_1_0=0 IBank.W1_1_3=0 \
     IBank.W1_1_2=0 IBank.W1_1_1=0 IBank.W1_1_0=0 IBank.W0_1_3=0 \
     IBank.W0_1_2=0 IBank.W0_1_1=0 IBank.W0_1_0=0 IBank.G01=0 
-simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     inventory=detailed narrate=yes maxnotes=5 maxwarns=5 digits=5 cols=80 \
     pivrel=1e-3 sensfile="../psf/sens.output" checklimitdest=psf 
-tran tran stop=6n  errpreset=conservative write="spectre.ic" \
-    writefinal="spectre.fc" annotate=status maxiters=5 
+tran tran stop=500n  errpreset=conservative \
+    readic="/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist/spectre.ic" \
+    readns="/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist/spectre.dc" \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
 element info what=inst where=rawfile
@@ -174,6 +157,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save IBank.IDATA0:47 IBank.IDATA0:48 IBank.IDATA0:22 IBank.IDATA0:1 \
-    IBank.IDATA0:10 V0:p V0:p V1:p V1:p vcc! vdd! 
+save V0:p V0:p V1:p V1:p vcc! vdd! 
 saveOptions options save=allpub

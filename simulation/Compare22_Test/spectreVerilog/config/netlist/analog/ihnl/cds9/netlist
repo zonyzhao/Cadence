@@ -1,293 +1,45 @@
-
-// Library name: 16nm_Tests
-// Cell name: Compare22_Test
-// View name: schematic
-// Inherited view list: spectre spice verilog behavioral functional hdl
-// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-V1 (vcc! 0) vsource type=dc dc=vdd
-V0 (vdd! 0) vsource type=dc dc=vdd
-I4 (net20 net012 net15 net38_0 net38_1 net38_2 net38_3 net38_4 net38_5 \
-        net38_6 net38_7 net38_8 net38_9 net38_10 net38_11 net38_12 \
-        net38_13 net38_14 net38_15 net38_16 net38_17 net38_18 net38_19 \
-        net38_20 net38_21 net39_0 net39_1 net39_2 net39_3 net39_4 \
-        net39_5 net39_6 net39_7 net39_8 net39_9 net39_10 net39_11 \
-        net39_12 net39_13 net39_14 net39_15 net39_16 net39_17 net39_18 \
-        net39_19 net39_20 net39_21 net36_0 net36_1 net36_2 net36_3 \
-        net36_4 net36_5 net36_6 net36_7 net36_8 net36_9 net36_10 \
-        net36_11 net36_12 net36_13 net36_14 net36_15 net36_16 net36_17 \
-        net36_18 net36_19 net36_20 net36_21 net37_0 net37_1 net37_2 \
-        net37_3 net37_4 net37_5 net37_6 net37_7 net37_8 net37_9 \
-        net37_10 net37_11 net37_12 net37_13 net37_14 net37_15 net37_16 \
-        net37_17 net37_18 net37_19 net37_20 net37_21) Compare22_DRn
-I13 (net012 net22) inv_1xt
-I15 (net20 net23) inv_1xt
-I14 (net15 net21) inv_1xt
-I8_21 (net32_0 net36_0) inv_1xt
-I8_20 (net32_1 net36_1) inv_1xt
-I8_19 (net32_2 net36_2) inv_1xt
-I8_18 (net32_3 net36_3) inv_1xt
-I8_17 (net32_4 net36_4) inv_1xt
-I8_16 (net32_5 net36_5) inv_1xt
-I8_15 (net32_6 net36_6) inv_1xt
-I8_14 (net32_7 net36_7) inv_1xt
-I8_13 (net32_8 net36_8) inv_1xt
-I8_12 (net32_9 net36_9) inv_1xt
-I8_11 (net32_10 net36_10) inv_1xt
-I8_10 (net32_11 net36_11) inv_1xt
-I8_9 (net32_12 net36_12) inv_1xt
-I8_8 (net32_13 net36_13) inv_1xt
-I8_7 (net32_14 net36_14) inv_1xt
-I8_6 (net32_15 net36_15) inv_1xt
-I8_5 (net32_16 net36_16) inv_1xt
-I8_4 (net32_17 net36_17) inv_1xt
-I8_3 (net32_18 net36_18) inv_1xt
-I8_2 (net32_19 net36_19) inv_1xt
-I8_1 (net32_20 net36_20) inv_1xt
-I8_0 (net32_21 net36_21) inv_1xt
-I7_21 (net33_0 net37_0) inv_1xt
-I7_20 (net33_1 net37_1) inv_1xt
-I7_19 (net33_2 net37_2) inv_1xt
-I7_18 (net33_3 net37_3) inv_1xt
-I7_17 (net33_4 net37_4) inv_1xt
-I7_16 (net33_5 net37_5) inv_1xt
-I7_15 (net33_6 net37_6) inv_1xt
-I7_14 (net33_7 net37_7) inv_1xt
-I7_13 (net33_8 net37_8) inv_1xt
-I7_12 (net33_9 net37_9) inv_1xt
-I7_11 (net33_10 net37_10) inv_1xt
-I7_10 (net33_11 net37_11) inv_1xt
-I7_9 (net33_12 net37_12) inv_1xt
-I7_8 (net33_13 net37_13) inv_1xt
-I7_7 (net33_14 net37_14) inv_1xt
-I7_6 (net33_15 net37_15) inv_1xt
-I7_5 (net33_16 net37_16) inv_1xt
-I7_4 (net33_17 net37_17) inv_1xt
-I7_3 (net33_18 net37_18) inv_1xt
-I7_2 (net33_19 net37_19) inv_1xt
-I7_1 (net33_20 net37_20) inv_1xt
-I7_0 (net33_21 net37_21) inv_1xt
-I5_21 (net35_0 net39_0) inv_1xt
-I5_20 (net35_1 net39_1) inv_1xt
-I5_19 (net35_2 net39_2) inv_1xt
-I5_18 (net35_3 net39_3) inv_1xt
-I5_17 (net35_4 net39_4) inv_1xt
-I5_16 (net35_5 net39_5) inv_1xt
-I5_15 (net35_6 net39_6) inv_1xt
-I5_14 (net35_7 net39_7) inv_1xt
-I5_13 (net35_8 net39_8) inv_1xt
-I5_12 (net35_9 net39_9) inv_1xt
-I5_11 (net35_10 net39_10) inv_1xt
-I5_10 (net35_11 net39_11) inv_1xt
-I5_9 (net35_12 net39_12) inv_1xt
-I5_8 (net35_13 net39_13) inv_1xt
-I5_7 (net35_14 net39_14) inv_1xt
-I5_6 (net35_15 net39_15) inv_1xt
-I5_5 (net35_16 net39_16) inv_1xt
-I5_4 (net35_17 net39_17) inv_1xt
-I5_3 (net35_18 net39_18) inv_1xt
-I5_2 (net35_19 net39_19) inv_1xt
-I5_1 (net35_20 net39_20) inv_1xt
-I5_0 (net35_21 net39_21) inv_1xt
-I6_21 (net34_0 net38_0) inv_1xt
-I6_20 (net34_1 net38_1) inv_1xt
-I6_19 (net34_2 net38_2) inv_1xt
-I6_18 (net34_3 net38_3) inv_1xt
-I6_17 (net34_4 net38_4) inv_1xt
-I6_16 (net34_5 net38_5) inv_1xt
-I6_15 (net34_6 net38_6) inv_1xt
-I6_14 (net34_7 net38_7) inv_1xt
-I6_13 (net34_8 net38_8) inv_1xt
-I6_12 (net34_9 net38_9) inv_1xt
-I6_11 (net34_10 net38_10) inv_1xt
-I6_10 (net34_11 net38_11) inv_1xt
-I6_9 (net34_12 net38_12) inv_1xt
-I6_8 (net34_13 net38_13) inv_1xt
-I6_7 (net34_14 net38_14) inv_1xt
-I6_6 (net34_15 net38_15) inv_1xt
-I6_5 (net34_16 net38_16) inv_1xt
-I6_4 (net34_17 net38_17) inv_1xt
-I6_3 (net34_18 net38_18) inv_1xt
-I6_2 (net34_19 net38_19) inv_1xt
-I6_1 (net34_20 net38_20) inv_1xt
-I6_0 (net34_21 net38_21) inv_1xt
-// BEGIN Hierarchical Interface Elements
-_ie99909 (net34_8 0) d2a src="99909" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99910 (net34_7 0) d2a src="99910" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99911 (net34_6 0) d2a src="99911" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99912 (net33_6 0) d2a src="99912" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99913 (net33_5 0) d2a src="99913" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99914 (net32_2 0) d2a src="99914" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99915 (net32_1 0) d2a src="99915" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99916 (net35_9 0) d2a src="99916" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99917 (net33_12 0) d2a src="99917" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99918 (net33_11 0) d2a src="99918" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99919 (net34_10 0) d2a src="99919" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99920 (net32_9 0) d2a src="99920" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99921 (net32_3 0) d2a src="99921" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99922 (net32_4 0) d2a src="99922" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99923 (net32_5 0) d2a src="99923" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99924 (net32_6 0) d2a src="99924" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99925 (net32_7 0) d2a src="99925" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99926 (net32_8 0) d2a src="99926" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99927 (net34_11 0) d2a src="99927" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99928 (net34_12 0) d2a src="99928" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99929 (net34_13 0) d2a src="99929" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99930 (net34_14 0) d2a src="99930" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99931 (net34_15 0) d2a src="99931" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99932 (net34_16 0) d2a src="99932" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99933 (net34_17 0) d2a src="99933" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99934 (net34_18 0) d2a src="99934" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99935 (net34_19 0) d2a src="99935" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99936 (net34_20 0) d2a src="99936" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99937 (net34_21 0) d2a src="99937" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99938 (net33_0 0) d2a src="99938" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99939 (net33_1 0) d2a src="99939" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99940 (net33_2 0) d2a src="99940" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99941 (net33_3 0) d2a src="99941" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99942 (net33_4 0) d2a src="99942" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99943 (net33_7 0) d2a src="99943" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99944 (net33_8 0) d2a src="99944" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99945 (net33_9 0) d2a src="99945" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99946 (net33_10 0) d2a src="99946" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99947 (net32_10 0) d2a src="99947" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99948 (net32_11 0) d2a src="99948" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99949 (net32_12 0) d2a src="99949" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99950 (net32_13 0) d2a src="99950" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99951 (net32_14 0) d2a src="99951" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99952 (net32_15 0) d2a src="99952" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99953 (net32_16 0) d2a src="99953" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99954 (net32_17 0) d2a src="99954" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99955 (net32_18 0) d2a src="99955" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99956 (net32_19 0) d2a src="99956" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99957 (net32_20 0) d2a src="99957" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99958 (net32_21 0) d2a src="99958" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99959 (net34_0 0) d2a src="99959" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99960 (net34_1 0) d2a src="99960" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99961 (net34_2 0) d2a src="99961" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99962 (net34_3 0) d2a src="99962" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99963 (net34_4 0) d2a src="99963" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99964 (net34_5 0) d2a src="99964" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99965 (net32_0 0) d2a src="99965" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99966 (net22 0) a2d dest="99966" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99967 (net23 0) a2d dest="99967" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99968 (net21 0) a2d dest="99968" vl=0.3*vdd vh=0.7*vdd timex=20n
-_ie99969 (net35_10 0) d2a src="99969" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99970 (net35_11 0) d2a src="99970" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99971 (net35_12 0) d2a src="99971" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99972 (net35_13 0) d2a src="99972" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99973 (net35_14 0) d2a src="99973" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99974 (net35_15 0) d2a src="99974" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99975 (net35_16 0) d2a src="99975" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99976 (net35_17 0) d2a src="99976" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99977 (net35_18 0) d2a src="99977" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99978 (net35_19 0) d2a src="99978" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99979 (net35_20 0) d2a src="99979" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99980 (net35_21 0) d2a src="99980" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99981 (net33_13 0) d2a src="99981" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99982 (net33_14 0) d2a src="99982" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99983 (net33_15 0) d2a src="99983" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99984 (net33_16 0) d2a src="99984" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99985 (net33_17 0) d2a src="99985" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99986 (net33_18 0) d2a src="99986" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99987 (net33_19 0) d2a src="99987" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99988 (net33_20 0) d2a src="99988" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99989 (net33_21 0) d2a src="99989" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99990 (net35_0 0) d2a src="99990" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99991 (net35_1 0) d2a src="99991" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99992 (net35_2 0) d2a src="99992" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99993 (net35_3 0) d2a src="99993" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99994 (net35_4 0) d2a src="99994" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99995 (net35_5 0) d2a src="99995" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99996 (net35_6 0) d2a src="99996" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99997 (net35_7 0) d2a src="99997" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99998 (net35_8 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-_ie99999 (net34_9 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
-        rise=2p fall=2p
-// END Hierarchical Interface Elements
+    I46 (net47_0 net47_1 net47_2 net47_3 net46_0 net46_1 net46_2 \
+        net46_3 s2_n3_y0_3 s2_n3_y0_2 s2_n3_y0_1 s2_n3_y0_0 s2_n3_y1_3 \
+        s2_n3_y1_2 s2_n3_y1_1 s2_n3_y1_0 s3_y0_3 s3_y0_2 s3_y0_1 \
+        s3_y0_0 s3_y1_3 s3_y1_2 s3_y1_1 s3_y1_0) Compare4_DR
+    I41 (a0_23 a0_22 a0_21 a0_20 a1_23 a1_22 a1_21 a1_20 b0_23 b0_22 \
+        b0_21 b0_20 b1_23 b1_22 b1_21 b1_20 _6y0_3 _6y0_2 _6y0_1 _6y0_0 \
+        _6y1_3 _6y1_2 _6y1_1 _6y1_0) Compare4_DR
+    I16 (a0_19 a0_18 a0_17 a0_16 a1_19 a1_18 a1_17 a1_16 b0_19 b0_18 \
+        b0_17 b0_16 b1_19 b1_18 b1_17 b1_16 _5y0_3 _5y0_2 _5y0_1 _5y0_0 \
+        _5y1_3 _5y1_2 _5y1_1 _5y1_0) Compare4_DR
+    I11 (a0_7 a0_6 a0_5 a0_4 a1_7 a1_6 a1_5 a1_4 b0_7 b0_6 b0_5 b0_4 \
+        b1_7 b1_6 b1_5 b1_4 _2y0_3 _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 \
+        _2y1_1 _2y1_0) Compare4_DR
+    I10 (a0_3 a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 b0_1 b0_0 \
+        b1_3 b1_2 b1_1 b1_0 _1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 \
+        _1y1_1 _1y1_0) Compare4_DR
+    I14 (a0_11 a0_10 a0_9 a0_8 a1_11 a1_10 a1_9 a1_8 b0_11 b0_10 b0_9 \
+        b0_8 b1_11 b1_10 b1_9 b1_8 _3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 \
+        _3y1_2 _3y1_1 _3y1_0) Compare4_DR
+    I13 (a0_15 a0_14 a0_13 a0_12 a1_15 a1_14 a1_13 a1_12 b0_15 b0_14 \
+        b0_13 b0_12 b1_15 b1_14 b1_13 b1_12 _4y0_3 _4y0_2 _4y0_1 _4y0_0 \
+        _4y1_3 _4y1_2 _4y1_1 _4y1_0) Compare4_DR
+    I43 (s2_n1_y0_3 s2_n1_y0_2 s2_n1_y0_1 s2_n1_y0_0 s2_n1_y1_3 \
+        s2_n1_y1_2 s2_n1_y1_1 s2_n1_y1_0 s2_n2_y0_3 s2_n2_y0_2 \
+        s2_n2_y0_1 s2_n2_y0_0 s2_n2_y1_3 s2_n2_y1_2 s2_n2_y1_1 \
+        s2_n2_y1_0 net47_0 net47_1 net47_2 net47_3 net46_0 net46_1 \
+        net46_2 net46_3) Compare4_DR
+    I42 (_3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 _3y1_2 _3y1_1 _3y1_0 _4y0_3 \
+        _4y0_2 _4y0_1 _4y0_0 _4y1_3 _4y1_2 _4y1_1 _4y1_0 s2_n2_y0_3 \
+        s2_n2_y0_2 s2_n2_y0_1 s2_n2_y0_0 s2_n2_y1_3 s2_n2_y1_2 \
+        s2_n2_y1_1 s2_n2_y1_0) Compare4_DR
+    I45 (_5y0_3 _5y0_2 _5y0_1 _5y0_0 _5y1_3 _5y1_2 _5y1_1 _5y1_0 _6y0_3 \
+        _6y0_2 _6y0_1 _6y0_0 _6y1_3 _6y1_2 _6y1_1 _6y1_0 s2_n3_y0_3 \
+        s2_n3_y0_2 s2_n3_y0_1 s2_n3_y0_0 s2_n3_y1_3 s2_n3_y1_2 \
+        s2_n3_y1_1 s2_n3_y1_0) Compare4_DR
+    I44 (_1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 _1y1_1 _1y1_0 _2y0_3 \
+        _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 _2y1_1 _2y1_0 s2_n1_y0_3 \
+        s2_n1_y0_2 s2_n1_y0_1 s2_n1_y0_0 s2_n1_y1_3 s2_n1_y1_2 \
+        s2_n1_y1_1 s2_n1_y1_0) Compare4_DR
+    I48 (\~Eq Eq sfy0_0 sfy1_0 sfy0_1 sfy1_1 net50) Compare_DR
+    I49 (Eq \~Eq vAck) or_1x
+    I47 (sfy0_1 sfy0_0 sfy1_1 sfy1_0 s3_y0_1 s3_y0_0 s3_y1_1 s3_y1_0 \
+        s3_y0_3 s3_y0_2 s3_y1_3 s3_y1_2) Compare2_DR
+ends Compare24_DR
+// End of subcircuit definition.

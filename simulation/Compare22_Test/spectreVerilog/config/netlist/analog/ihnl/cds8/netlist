@@ -1,4 +1,4 @@
-    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
-    M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=1 m=1 degradation=no
-ends inv_1xt
+    I2 (y0_1 y1_1 a0_1 a1_1 b0_1 b1_1 net15) Compare_DR
+    I0 (y0_0 y1_0 a0_0 a1_0 b0_0 b1_0 net16) Compare_DR
+ends Compare2_DR
 // End of subcircuit definition.

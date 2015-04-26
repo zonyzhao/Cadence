@@ -1,5 +1,5 @@
     I1 (b0 b1 net11) nor_1x
     I0 (a0 a1 net12) nor_1x
-    I2 (net12 net11 v) _sub90
+    I2 (net12 net11 v) _sub7
 ends Valid_DR
 // End of subcircuit definition.

@@ -1,10 +1,18 @@
-    I6 (a0_3 a1_3 b0_3 b1_3 net13 y0_3 y1_3) Compare_DR
-    I4 (a0_2 a1_2 b0_2 b1_2 net14 y0_2 y1_2) Compare_DR
-    I2 (a0_1 a1_1 b0_1 b1_1 net15 y0_1 y1_1) Compare_DR
-    I0 (a0_0 a1_0 b0_0 b1_0 net16 y0_0 y1_0) Compare_DR
-    I7 (a0_3 a1_3 b0_3 b1_3 net13) Valid_DR
-    I5 (a0_2 a1_2 b0_2 b1_2 net14) Valid_DR
-    I3 (a0_1 a1_1 b0_1 b1_1 net15) Valid_DR
-    I1 (a0_0 a1_0 b0_0 b1_0 net16) Valid_DR
-ends Compare4_DR
+    M10 (net023 vAck vdd! vdd!) pfet w=80n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net015 vAck vdd! vdd!) pfet w=80n l=20n nfin=1 m=1 \
+        degradation=yes
+    M9 (net26 vAck 0 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M8 (net023 a1 net35 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M7 (net35 b0 net26 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M6 (net36 b1 net26 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M5 (net023 a0 net36 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M4 (net38 b0 net26 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M3 (net37 b1 net26 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (net015 a1 net37 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M1 (net015 a0 net38 0) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    I61 (a0 a1 b0 b1 vAck) Valid_DR
+    I6 (net015 y1) inv_1x
+    I5 (net023 y0) inv_1x
+ends Compare_DR
 // End of subcircuit definition.

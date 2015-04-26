@@ -19,10 +19,10 @@ Command arguments:
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport50999
+    +vmxsport49454
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 23, 2015  04:51:39
-Tool:	VERILOG-XL	08.20.001-d   Apr 23, 2015  04:51:39
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 26, 2015  06:59:44
+Tool:	VERILOG-XL	08.20.001-d   Apr 26, 2015  06:59:44
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -59,125 +59,14 @@ Compiling included source file "simOptions.verimix"
 Continuing compilation of source file "IE.verimix"
 Continuing compilation of source file "testfixture.template"
 Compiling included source file "testfixture.verimix"
-Continuing compilation of source file "testfixture.template"
-Compiling included source file "saveDefs"
-Compiling included source file "dataDirPath"
-Continuing compilation of source file "saveDefs"
-Continuing compilation of source file "testfixture.template"
-Compiling source file "/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v"
-Compiling source file "ihnl/cds0/netlist"
-Compiling source file "hdlFilesDir/cds_globals.v"
-Highest level modules:
-test
-cds_globals
 
-Verilog/spectre Mixed-Signal Interface 2.0
+Error!    Identifier (compLog) not declared                 [Verilog-IDSND]    
+          "testfixture.verimix", 19: 
 
-Message!  Stable DC solution not found within 0                                
-          iterations. Using last calculated state to start                     
-          transient analysis. See Artist Mixed-Signal                          
-          Simulation Help for more info on obtaining an                        
-          initial solution.                                 [Mixed_Sig]        
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to spectre time 0.
+Error!    Identifier (vAck) not declared                    [Verilog-IDSND]    
+          "testfixture.verimix", 36: 
 
-
-Message!  At the end of DC initialization the logic values                     
-          of the following ports are X (unknown):                              
-                                                                               
-          net34                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net35                                                                
-          net32                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net33                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net32                                                                
-          net34                                                                
-          net33                                                                
-          net33                                                                
-          net35                                                                
-          net32                                                                
-          net32                                                                
-          net33                                                                
-          net33                                                                
-          net34                                                                
-          net34                                                                
-          net34                                                                
-                                                           [Mixed_Sig]         
-          "IE.verimix", 5: $vmx_initialize("spectre",                          
-          dc_mode_flag);
-Verilog/spectre Interface: 2494 messages sent, 2496 messages received.
-0 simulation events (use +profile or +listcounts option to count) + 273 accelerated events
-CPU time: 0.0 secs to compile + 0.0 secs to link + 5.1 secs in simulation
-End of Tool:	VERILOG-XL	08.20.001-d   Apr 23, 2015  04:54:32
+Error!    syntax error                                      [Verilog]          
+          "testfixture.verimix", 40: a0<-
+3 errors
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 26, 2015  06:59:45

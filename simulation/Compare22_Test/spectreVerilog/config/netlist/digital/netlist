@@ -1,6 +1,6 @@
 // Library - 16nm_Tests, Cell - Compare22_Test, View - schematic
-// LAST TIME SAVED: Apr 23 04:33:41 2015
-// NETLIST TIME: Apr 23 04:42:14 2015
+// LAST TIME SAVED: Apr 26 05:48:24 2015
+// NETLIST TIME: Apr 26 06:59:43 2015
 `timescale 1ps / 1ps 
 
 module Compare22_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
@@ -8,40 +8,40 @@ module Compare22_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
 output  Hit, Miss, Valid;
 
 
-input [21:0]  b0;
-input [21:0]  b1;
-input [21:0]  a1;
-input [21:0]  a0;
+input [23:0]  a0;
+input [23:0]  b1;
+input [23:0]  a1;
+input [23:0]  b0;
 
 // Buses in the design
 
-wire  [0:21]  net38;
+wire  [0:23]  net026;
 
-wire  [0:21]  net34;
+wire  [0:23]  net030;
 
-wire  [0:21]  net35;
+wire  [0:23]  net031;
 
-wire  [0:21]  net33;
+wire  [0:23]  net033;
 
-wire  [0:21]  net37;
+wire  [0:23]  net032;
 
-wire  [0:21]  net39;
+wire  [0:23]  net029;
 
-wire  [0:21]  net32;
+wire  [0:23]  net027;
 
-wire  [0:21]  net36;
+wire  [0:23]  net028;
 
 // begin interface element definitions
 
-wire net21;
 wire net23;
 wire net22;
-reg mixedNet99968;
-reg mixedNet99967;
-reg mixedNet99966;
-assign net21 = mixedNet99968;
-assign net23 = mixedNet99967;
-assign net22 = mixedNet99966;
+wire net21;
+reg mixedNet99912;
+reg mixedNet99911;
+reg mixedNet99910;
+assign net23 = mixedNet99912;
+assign net22 = mixedNet99911;
+assign net21 = mixedNet99910;
 
 // end interface element definitions
 
@@ -56,93 +56,101 @@ endspecify
 inv_1xT I18 ( Miss, net22);
 inv_1xT I17 ( Valid, net21);
 inv_1xT I16 ( Hit, net23);
-inv_1xT I12_21_ ( net32[0], b0[21]);
-inv_1xT I12_20_ ( net32[1], b0[20]);
-inv_1xT I12_19_ ( net32[2], b0[19]);
-inv_1xT I12_18_ ( net32[3], b0[18]);
-inv_1xT I12_17_ ( net32[4], b0[17]);
-inv_1xT I12_16_ ( net32[5], b0[16]);
-inv_1xT I12_15_ ( net32[6], b0[15]);
-inv_1xT I12_14_ ( net32[7], b0[14]);
-inv_1xT I12_13_ ( net32[8], b0[13]);
-inv_1xT I12_12_ ( net32[9], b0[12]);
-inv_1xT I12_11_ ( net32[10], b0[11]);
-inv_1xT I12_10_ ( net32[11], b0[10]);
-inv_1xT I12_9_ ( net32[12], b0[9]);
-inv_1xT I12_8_ ( net32[13], b0[8]);
-inv_1xT I12_7_ ( net32[14], b0[7]);
-inv_1xT I12_6_ ( net32[15], b0[6]);
-inv_1xT I12_5_ ( net32[16], b0[5]);
-inv_1xT I12_4_ ( net32[17], b0[4]);
-inv_1xT I12_3_ ( net32[18], b0[3]);
-inv_1xT I12_2_ ( net32[19], b0[2]);
-inv_1xT I12_1_ ( net32[20], b0[1]);
-inv_1xT I12_0_ ( net32[21], b0[0]);
-inv_1xT I11_21_ ( net33[0], b1[21]);
-inv_1xT I11_20_ ( net33[1], b1[20]);
-inv_1xT I11_19_ ( net33[2], b1[19]);
-inv_1xT I11_18_ ( net33[3], b1[18]);
-inv_1xT I11_17_ ( net33[4], b1[17]);
-inv_1xT I11_16_ ( net33[5], b1[16]);
-inv_1xT I11_15_ ( net33[6], b1[15]);
-inv_1xT I11_14_ ( net33[7], b1[14]);
-inv_1xT I11_13_ ( net33[8], b1[13]);
-inv_1xT I11_12_ ( net33[9], b1[12]);
-inv_1xT I11_11_ ( net33[10], b1[11]);
-inv_1xT I11_10_ ( net33[11], b1[10]);
-inv_1xT I11_9_ ( net33[12], b1[9]);
-inv_1xT I11_8_ ( net33[13], b1[8]);
-inv_1xT I11_7_ ( net33[14], b1[7]);
-inv_1xT I11_6_ ( net33[15], b1[6]);
-inv_1xT I11_5_ ( net33[16], b1[5]);
-inv_1xT I11_4_ ( net33[17], b1[4]);
-inv_1xT I11_3_ ( net33[18], b1[3]);
-inv_1xT I11_2_ ( net33[19], b1[2]);
-inv_1xT I11_1_ ( net33[20], b1[1]);
-inv_1xT I11_0_ ( net33[21], b1[0]);
-inv_1xT I9_21_ ( net35[0], a1[21]);
-inv_1xT I9_20_ ( net35[1], a1[20]);
-inv_1xT I9_19_ ( net35[2], a1[19]);
-inv_1xT I9_18_ ( net35[3], a1[18]);
-inv_1xT I9_17_ ( net35[4], a1[17]);
-inv_1xT I9_16_ ( net35[5], a1[16]);
-inv_1xT I9_15_ ( net35[6], a1[15]);
-inv_1xT I9_14_ ( net35[7], a1[14]);
-inv_1xT I9_13_ ( net35[8], a1[13]);
-inv_1xT I9_12_ ( net35[9], a1[12]);
-inv_1xT I9_11_ ( net35[10], a1[11]);
-inv_1xT I9_10_ ( net35[11], a1[10]);
-inv_1xT I9_9_ ( net35[12], a1[9]);
-inv_1xT I9_8_ ( net35[13], a1[8]);
-inv_1xT I9_7_ ( net35[14], a1[7]);
-inv_1xT I9_6_ ( net35[15], a1[6]);
-inv_1xT I9_5_ ( net35[16], a1[5]);
-inv_1xT I9_4_ ( net35[17], a1[4]);
-inv_1xT I9_3_ ( net35[18], a1[3]);
-inv_1xT I9_2_ ( net35[19], a1[2]);
-inv_1xT I9_1_ ( net35[20], a1[1]);
-inv_1xT I9_0_ ( net35[21], a1[0]);
-inv_1xT I10_21_ ( net34[0], a0[21]);
-inv_1xT I10_20_ ( net34[1], a0[20]);
-inv_1xT I10_19_ ( net34[2], a0[19]);
-inv_1xT I10_18_ ( net34[3], a0[18]);
-inv_1xT I10_17_ ( net34[4], a0[17]);
-inv_1xT I10_16_ ( net34[5], a0[16]);
-inv_1xT I10_15_ ( net34[6], a0[15]);
-inv_1xT I10_14_ ( net34[7], a0[14]);
-inv_1xT I10_13_ ( net34[8], a0[13]);
-inv_1xT I10_12_ ( net34[9], a0[12]);
-inv_1xT I10_11_ ( net34[10], a0[11]);
-inv_1xT I10_10_ ( net34[11], a0[10]);
-inv_1xT I10_9_ ( net34[12], a0[9]);
-inv_1xT I10_8_ ( net34[13], a0[8]);
-inv_1xT I10_7_ ( net34[14], a0[7]);
-inv_1xT I10_6_ ( net34[15], a0[6]);
-inv_1xT I10_5_ ( net34[16], a0[5]);
-inv_1xT I10_4_ ( net34[17], a0[4]);
-inv_1xT I10_3_ ( net34[18], a0[3]);
-inv_1xT I10_2_ ( net34[19], a0[2]);
-inv_1xT I10_1_ ( net34[20], a0[1]);
-inv_1xT I10_0_ ( net34[21], a0[0]);
+inv_1xT I20_23_ ( net028[0], a0[23]);
+inv_1xT I20_22_ ( net028[1], a0[22]);
+inv_1xT I20_21_ ( net028[2], a0[21]);
+inv_1xT I20_20_ ( net028[3], a0[20]);
+inv_1xT I20_19_ ( net028[4], a0[19]);
+inv_1xT I20_18_ ( net028[5], a0[18]);
+inv_1xT I20_17_ ( net028[6], a0[17]);
+inv_1xT I20_16_ ( net028[7], a0[16]);
+inv_1xT I20_15_ ( net028[8], a0[15]);
+inv_1xT I20_14_ ( net028[9], a0[14]);
+inv_1xT I20_13_ ( net028[10], a0[13]);
+inv_1xT I20_12_ ( net028[11], a0[12]);
+inv_1xT I20_11_ ( net028[12], a0[11]);
+inv_1xT I20_10_ ( net028[13], a0[10]);
+inv_1xT I20_9_ ( net028[14], a0[9]);
+inv_1xT I20_8_ ( net028[15], a0[8]);
+inv_1xT I20_7_ ( net028[16], a0[7]);
+inv_1xT I20_6_ ( net028[17], a0[6]);
+inv_1xT I20_5_ ( net028[18], a0[5]);
+inv_1xT I20_4_ ( net028[19], a0[4]);
+inv_1xT I20_3_ ( net028[20], a0[3]);
+inv_1xT I20_2_ ( net028[21], a0[2]);
+inv_1xT I20_1_ ( net028[22], a0[1]);
+inv_1xT I20_0_ ( net028[23], a0[0]);
+inv_1xT I9_23_ ( net029[0], a1[23]);
+inv_1xT I9_22_ ( net029[1], a1[22]);
+inv_1xT I9_21_ ( net029[2], a1[21]);
+inv_1xT I9_20_ ( net029[3], a1[20]);
+inv_1xT I9_19_ ( net029[4], a1[19]);
+inv_1xT I9_18_ ( net029[5], a1[18]);
+inv_1xT I9_17_ ( net029[6], a1[17]);
+inv_1xT I9_16_ ( net029[7], a1[16]);
+inv_1xT I9_15_ ( net029[8], a1[15]);
+inv_1xT I9_14_ ( net029[9], a1[14]);
+inv_1xT I9_13_ ( net029[10], a1[13]);
+inv_1xT I9_12_ ( net029[11], a1[12]);
+inv_1xT I9_11_ ( net029[12], a1[11]);
+inv_1xT I9_10_ ( net029[13], a1[10]);
+inv_1xT I9_9_ ( net029[14], a1[9]);
+inv_1xT I9_8_ ( net029[15], a1[8]);
+inv_1xT I9_7_ ( net029[16], a1[7]);
+inv_1xT I9_6_ ( net029[17], a1[6]);
+inv_1xT I9_5_ ( net029[18], a1[5]);
+inv_1xT I9_4_ ( net029[19], a1[4]);
+inv_1xT I9_3_ ( net029[20], a1[3]);
+inv_1xT I9_2_ ( net029[21], a1[2]);
+inv_1xT I9_1_ ( net029[22], a1[1]);
+inv_1xT I9_0_ ( net029[23], a1[0]);
+inv_1xT I24_23_ ( net026[0], b0[23]);
+inv_1xT I24_22_ ( net026[1], b0[22]);
+inv_1xT I24_21_ ( net026[2], b0[21]);
+inv_1xT I24_20_ ( net026[3], b0[20]);
+inv_1xT I24_19_ ( net026[4], b0[19]);
+inv_1xT I24_18_ ( net026[5], b0[18]);
+inv_1xT I24_17_ ( net026[6], b0[17]);
+inv_1xT I24_16_ ( net026[7], b0[16]);
+inv_1xT I24_15_ ( net026[8], b0[15]);
+inv_1xT I24_14_ ( net026[9], b0[14]);
+inv_1xT I24_13_ ( net026[10], b0[13]);
+inv_1xT I24_12_ ( net026[11], b0[12]);
+inv_1xT I24_11_ ( net026[12], b0[11]);
+inv_1xT I24_10_ ( net026[13], b0[10]);
+inv_1xT I24_9_ ( net026[14], b0[9]);
+inv_1xT I24_8_ ( net026[15], b0[8]);
+inv_1xT I24_7_ ( net026[16], b0[7]);
+inv_1xT I24_6_ ( net026[17], b0[6]);
+inv_1xT I24_5_ ( net026[18], b0[5]);
+inv_1xT I24_4_ ( net026[19], b0[4]);
+inv_1xT I24_3_ ( net026[20], b0[3]);
+inv_1xT I24_2_ ( net026[21], b0[2]);
+inv_1xT I24_1_ ( net026[22], b0[1]);
+inv_1xT I24_0_ ( net026[23], b0[0]);
+inv_1xT I21_23_ ( net027[0], b1[23]);
+inv_1xT I21_22_ ( net027[1], b1[22]);
+inv_1xT I21_21_ ( net027[2], b1[21]);
+inv_1xT I21_20_ ( net027[3], b1[20]);
+inv_1xT I21_19_ ( net027[4], b1[19]);
+inv_1xT I21_18_ ( net027[5], b1[18]);
+inv_1xT I21_17_ ( net027[6], b1[17]);
+inv_1xT I21_16_ ( net027[7], b1[16]);
+inv_1xT I21_15_ ( net027[8], b1[15]);
+inv_1xT I21_14_ ( net027[9], b1[14]);
+inv_1xT I21_13_ ( net027[10], b1[13]);
+inv_1xT I21_12_ ( net027[11], b1[12]);
+inv_1xT I21_11_ ( net027[12], b1[11]);
+inv_1xT I21_10_ ( net027[13], b1[10]);
+inv_1xT I21_9_ ( net027[14], b1[9]);
+inv_1xT I21_8_ ( net027[15], b1[8]);
+inv_1xT I21_7_ ( net027[16], b1[7]);
+inv_1xT I21_6_ ( net027[17], b1[6]);
+inv_1xT I21_5_ ( net027[18], b1[5]);
+inv_1xT I21_4_ ( net027[19], b1[4]);
+inv_1xT I21_3_ ( net027[20], b1[3]);
+inv_1xT I21_2_ ( net027[21], b1[2]);
+inv_1xT I21_1_ ( net027[22], b1[1]);
+inv_1xT I21_0_ ( net027[23], b1[0]);
 
 endmodule

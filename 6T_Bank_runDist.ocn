@@ -1,8 +1,13 @@
 simulator( 'spectreVerilog )
 design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist/analog/netlist")
 resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config" )
-modelFile( '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" ""))
-analysis('tran ?stop "12n "  ?errpreset "conservative"  )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "500n "  ?errpreset "conservative"  
+		?readic "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist/spectre.ic"
+		?readns "/net/kafka/nfs/rstdenis/Cadence/simulation/6T_BANK_Test/spectreVerilog/config/netlist/spectre.dc"
+		)
 desVar(	  "vdd" .7	)
 desVar(	  "vcc" "vdd"	)
 envOption(

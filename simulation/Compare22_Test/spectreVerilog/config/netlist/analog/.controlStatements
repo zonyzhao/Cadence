@@ -1,22 +1,25 @@
-ic net20=0 net15=0 net012=0 net39_0=0 net39_1=0 net39_2=0 net39_3=0 \
-    net39_4=0 net39_5=0 net39_6=0 net39_7=0 net39_8=0 net39_9=0 net39_10=0 \
-    net39_11=0 net39_12=0 net39_13=0 net39_14=0 net39_15=0 net39_16=0 \
-    net39_17=0 net39_18=0 net39_19=0 net39_20=0 net39_21=0 net38_0=0 \
-    net38_1=0 net38_2=0 net38_3=0 net38_4=0 net38_5=0 net38_6=0 net38_7=0 \
-    net38_8=0 net38_9=0 net38_10=0 net38_11=0 net38_12=0 net38_13=0 \
-    net38_14=0 net38_15=0 net38_16=0 net38_17=0 net38_18=0 net38_19=0 \
-    net38_20=0 net38_21=0 net37_0=0 net37_1=0 net37_2=0 net37_3=0 \
-    net37_4=0 net37_5=0 net37_6=0 net37_7=0 net37_8=0 net37_9=0 net37_10=0 \
-    net37_11=0 net37_12=0 net37_13=0 net37_14=0 net37_15=0 net37_16=0 \
-    net37_17=0 net37_18=0 net37_19=0 net37_20=0 net37_21=0 net36_0=0 \
-    net36_1=0 net36_2=0 net36_3=0 net36_4=0 net36_5=0 net36_6=0 net36_7=0 \
-    net36_8=0 net36_9=0 net36_10=0 net36_11=0 net36_12=0 net36_13=0 \
-    net36_14=0 net36_15=0 net36_16=0 net36_17=0 net36_18=0 net36_19=0 \
-    net36_20=0 net36_21=0 
+ic net033_0=0 net033_1=0 net033_2=0 net033_3=0 net033_4=0 net033_5=0 \
+    net033_6=0 net033_7=0 net033_8=0 net033_9=0 net033_10=0 net033_11=0 \
+    net033_12=0 net033_13=0 net033_14=0 net033_15=0 net033_16=0 \
+    net033_17=0 net033_18=0 net033_19=0 net033_20=0 net033_21=0 \
+    net033_22=0 net033_23=0 net032_0=0 net032_1=0 net032_2=0 net032_3=0 \
+    net032_4=0 net032_5=0 net032_6=0 net032_7=0 net032_8=0 net032_9=0 \
+    net032_10=0 net032_11=0 net032_12=0 net032_13=0 net032_14=0 \
+    net032_15=0 net032_16=0 net032_17=0 net032_18=0 net032_19=0 \
+    net032_20=0 net032_21=0 net032_22=0 net032_23=0 net031_0=0 net031_1=0 \
+    net031_2=0 net031_3=0 net031_4=0 net031_5=0 net031_6=0 net031_7=0 \
+    net031_8=0 net031_9=0 net031_10=0 net031_11=0 net031_12=0 net031_13=0 \
+    net031_14=0 net031_15=0 net031_16=0 net031_17=0 net031_18=0 \
+    net031_19=0 net031_20=0 net031_21=0 net031_22=0 net031_23=0 net030_0=0 \
+    net030_1=0 net030_2=0 net030_3=0 net030_4=0 net030_5=0 net030_6=0 \
+    net030_7=0 net030_8=0 net030_9=0 net030_10=0 net030_11=0 net030_12=0 \
+    net030_13=0 net030_14=0 net030_15=0 net030_16=0 net030_17=0 \
+    net030_18=0 net030_19=0 net030_20=0 net030_21=0 net030_22=0 \
+    net030_23=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
-    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
-    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
-    sensfile="../psf/sens.output" checklimitdest=psf 
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
 tran tran stop=10n errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile

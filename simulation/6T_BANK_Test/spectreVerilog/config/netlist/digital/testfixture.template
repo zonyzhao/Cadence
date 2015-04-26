@@ -24,7 +24,7 @@ time vmx_time_offset;
 
 
 
-cdsModule_111 top(Ack, Ctrl_Ack, ReadData, WriteDataAck, A, RW, 
+cdsModule_55 top(Ack, Ctrl_Ack, ReadData, WriteDataAck, A, RW, 
      ReadDataAck, WriteData); 
  
 

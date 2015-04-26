@@ -7,10 +7,10 @@ module test;
 wire  Hit, Miss, Valid;
 
 
-reg [21:0]  b0;
-reg [21:0]  b1;
-reg [21:0]  a1;
-reg [21:0]  a0;
+reg [23:0]  a0;
+reg [23:0]  b1;
+reg [23:0]  a1;
+reg [23:0]  b0;
 integer dc_mode_flag;
 integer output_change_count;
 integer max_dc_iter;
