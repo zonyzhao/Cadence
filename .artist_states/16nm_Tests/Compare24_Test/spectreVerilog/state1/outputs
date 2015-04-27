@@ -4222,7 +4222,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 77
@@ -4332,7 +4332,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 79
@@ -4387,7 +4387,7 @@ list(tmp1 tmp2)
 list(tmp1)
 )
 tmp1->value = nil
-tmp1->plot = 't
+tmp1->plot = nil
 tmp1->save = nil
 tmp1->march = nil
 tmp1->index = 80

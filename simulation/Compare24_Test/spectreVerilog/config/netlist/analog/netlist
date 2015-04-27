@@ -141,7 +141,7 @@ ends inv_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
 //system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
-subckt _sub5 A B Y
+subckt _sub8 A B Y
     I6 (net010 Y) inv_1x
     M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
     M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
@@ -158,7 +158,7 @@ subckt _sub5 A B Y
     M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=no
     M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
         degradation=no
-ends _sub5
+ends _sub8
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -169,7 +169,7 @@ ends _sub5
 subckt Valid_DR a0 a1 b0 b1 v
     I1 (b0 b1 net11) nor_1x
     I0 (a0 a1 net12) nor_1x
-    I2 (net12 net11 v) _sub5
+    I2 (net12 net11 v) _sub8
 ends Valid_DR
 // End of subcircuit definition.
 

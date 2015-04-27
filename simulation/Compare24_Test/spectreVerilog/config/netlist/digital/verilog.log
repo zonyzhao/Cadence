@@ -14,15 +14,14 @@ Command arguments:
     -f mmenvOpts
     testfixture.template
     -f verilog.inpfiles
-        /net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v
         ihnl/cds0/netlist
         hdlFilesDir/cds_globals.v
     +vmxslave
     +vmxhostbull
-    +vmxsport50839
+    +vmxsport50211
 
-Tool:	VERILOG-XL	08.20.001-d log file created Apr 27, 2015  04:41:12
-Tool:	VERILOG-XL	08.20.001-d   Apr 27, 2015  04:41:12
+Tool:	VERILOG-XL	08.20.001-d log file created Apr 27, 2015  05:16:18
+Tool:	VERILOG-XL	08.20.001-d   Apr 27, 2015  05:16:18
 
 Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
 Unpublished -- rights reserved under the copyright laws of the United States.
@@ -64,7 +63,6 @@ Compiling included source file "saveDefs"
 Compiling included source file "dataDirPath"
 Continuing compilation of source file "saveDefs"
 Continuing compilation of source file "testfixture.template"
-Compiling source file "/net/bull/root/Desktop/Cadence/16nm/inv_1xT/functional/verilog.v"
 Compiling source file "ihnl/cds0/netlist"
 Compiling source file "hdlFilesDir/cds_globals.v"
 Highest level modules:
@@ -72,3 +70,17 @@ test
 cds_globals
 
 Verilog/spectre Mixed-Signal Interface 2.0
+
+Message!  Stable DC solution not found within 0                                
+          iterations. Using last calculated state to start                     
+          transient analysis. See Artist Mixed-Signal                          
+          Simulation Help for more info on obtaining an                        
+          initial solution.                                 [Mixed_Sig]        
+          "IE.verimix", 5: $vmx_initialize("spectre",                          
+          dc_mode_flag);
+Switching from DC to transient.  VERILOG time 0 (units of 1ps) corresponds to spectre time 0.
+
+Verilog/spectre Interface: 212 messages sent, 214 messages received.
+0 simulation events (use +profile or +listcounts option to count) + 3 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 3.8 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Apr 27, 2015  05:16:23

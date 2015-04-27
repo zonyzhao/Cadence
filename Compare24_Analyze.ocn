@@ -1,0 +1,119 @@
+simulator( 'spectreVerilog )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_Test/spectreVerilog/config/netlist/analog/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_Test/spectreVerilog/config" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "12n"  ?errpreset "conservative"  )
+desVar(	  "vdd" .500	)
+envOption(
+	'analysisOrder  list("tran") 
+)
+option(	'multithread  "on" 
+	'temp  "30.0" 
+)
+saveOption( ?simOutputFormat "psfxl" )
+save( 'v "/vcc!" "/vdd!" )
+save( 'i "/V0/MINUS" "/V1/MINUS" "/V1/PLUS" "/V0/PLUS" )
+temp( 30.0 ) 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;hList = 	list( "adder" "asp" "blind" "boa" "boom" "brown" \
+;		      "cobra"  "copper" "coral" "corn" "crowned" \
+;		      "deathadder" "fierce" "garter" "gopher" 	 \
+;		      "hognose" "indigo" "krait" "mamba" "milk"  \
+;		      "python" "queen" "racer" "rainbow" "rat" 	 \
+;		      "rattle" "redbelly" "ribbon" "scarlet" 	 \
+;		      "swamp" "timber" "viper" )
+
+hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rainbow" "rat" "rattle" "redbelly" "ribbon" "scarlet" "swamp" "timber" "viper" )
+		           
+;vLoad = list(  .250 .325 0.45 .475 .50 .525 .675 .85 1.0 1.125 )	
+;vLoad = list( .195 .480 .485 .490 .495 .50 .505 .510 1.3 )
+vLoad = list( .125 .150 .175 .200 .250 .275 .300 .325 .350 .400 .450 .475 .500 .525 .550 .650 .750 .850 .950 1.0 1.050 1.075 1.10 1.125 1.150 1.175 1.20 1.25 )    		            
+
+;tLoad = list( 30 60 90 )
+tLoad = list( 30 )
+
+jobList 	= nil
+mVs   		= nil
+temps   	= nil
+j=1
+foreach( degC  tLoad
+    foreach( val  vLoad
+	desVar( "vdd" val )
+	temp(degC)
+        	
+	volt    = round( evalstring( desVar( "vdd" )) * 1000 )
+	mVs     = append1( mVs sprintf( nil "%d" volt ))
+	temps   = append1( temps sprintf(nil "%d" degC ))
+		   
+	jobName = strcat("/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_Test/spectreVerilog/config/distributed/Compare24_" sprintf( nil "%d" volt ) "mV_" sprintf( nil "%d" degC) "C/psf" )
+	jobList = append1( jobList jobName ) 	      
+
+	j = j + 1
+    )
+)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+file      =  strcat( "/root/Desktop/Cadence/simData/CacheData/Compare24Data.csv"  )
+outF      =   outfile(file,    "w")
+fprintf( outF,   "Vdd [mv],Temp [C],Leakage [mA],Leakage [mW],peak Current [mA],peakPwr [mW],rDelay [ps],rEnergy [pJ],rNull [ps],rnullEnergy [pJ],rCycle Total [ps],rCycleEgy Total [pJ],rCycle EDP [pJ*ps],wDelay [ps],Wenergy [pJ],Wnull [ps],WnullEnergy [pJ],WCycle Total [ps],WCycleEgy Total [pJ],wCycle EDP [pJ*ps]\n" )
+close( outF)	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+j = 1
+foreach(job jobList	
+    	printf("%s\n" job )
+    	unless((openResults( job ) == nil) || (evalstring(nthelem(j mVs)) < 200) ;|| (evalstring(nthelem(j mVs)) >1200)
+    		selectResult( 'tran )
+    		unless( i("/V1/MINUS")  == nil
+				Volts       = evalstring( nthelem(j mVs) )*0.001;
+				peakCurrent = ymax( i( "/V1/MINUS" ))*1e3
+				peakPwr     = peakCurrent*Volts
+	
+				cHost       = sprintf(nil "%s" nthelem(j hList))
+        		name       = strcat( "/root/Desktop/Cadence/simData/CacheData/Compare24_logs/compare24Log_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
+				shellCmd1   = strcat("scp " cHost ":/tmp2/compareLog.csv " name  )
+				shell( shellCmd1 )
+        
+				cEnd=nil;
+				cNull=nil;
+				cDelay=nil;
+				cEndNull=nil;
+        		printf("Reading %s from host: %s\n" name, cHost)
+        		fid   = infile( name )
+				;gets( s fid )       
+        		fscanf( fid "%s %s %s %s %s %s %s %s %s", a1,  a0, b1, b0, miss, hit, correct, cEnd, 	 cDelay )
+        		fscanf( fid "%s %s %s %s %s %s %s %s %s", a1,  a0, b1, b0, miss, hit, correct, cEndNull, cNull  )
+        		close( fid )
+				unless( (cEnd == nil) || (cEndNull == nil) 
+	    			cStart       = evalstring( strcat(cEnd "p")) - evalstring( strcat(cDelay "p"))
+            		cEnd         = evalstring( strcat(cEnd "p"))
+            		cEndNull     = evalstring( strcat(cEndNull "p"))
+ 	    			cEnergy      = integ( i("/V1/MINUS")  cStart cEnd    )*1e12*Volts
+	    			cnullEnergy  = integ( i("/V1/MINUS")  cEnd   cEndNull)*1e12*Volts
+
+	    			cCycle       = evalstring( cDelay ) + evalstring( cNull )
+	    			cCycleEnergy = cEnergy +  cnullEnergy
+	    			cEDP	 = cCycle*cCycleEnergy
+	          
+					leakage     = average( clip( i( "/V1/MINUS" ) (cEndNull+500p) (cEndNull+1000p) ) ) *1e3
+        			leakagePwr  = leakage*Volts
+
+
+	   				outF      	 =   outfile(file,    "a")       
+            		fprintf( outF "%s,%s,%g,%g,%g,%g,%s,%g,%s,%g,%d,%g,%g\n" nthelem(j mVs) nthelem(j temps) leakage leakagePwr peakCurrent peakPwr cDelay cEnergy cNull cnullEnergy cCycle cCycleEnergy cEDP)
+            		close( outF )
+        	)
+      	) 
+    )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    j     = j + 1
+)    
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+printf("Completed.")
+;openAnalysis   = strcat("gedit " file   )
+;shell( openAnalysis )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

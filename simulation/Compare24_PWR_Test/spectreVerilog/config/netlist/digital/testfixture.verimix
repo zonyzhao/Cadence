@@ -156,7 +156,7 @@ always @(posedge Valid) begin
 		end else begin
 			isCorrect =0;
 		end
-		$fdisplay(compLog, "%h %h %h %h %h %h %d %t $t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+		$fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
     	a0[23:0]=24'h000000;
    		a1[23:0]=24'h000000;
    		b0[23:0]=24'h000000;

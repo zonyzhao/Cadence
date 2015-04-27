@@ -1,6 +1,6 @@
 // Library - 16nm_Tests, Cell - Compare24_Test, View - schematic
 // LAST TIME SAVED: Apr 27 03:53:58 2015
-// NETLIST TIME: Apr 27 04:41:10 2015
+// NETLIST TIME: Apr 27 05:16:36 2015
 `timescale 1ps / 1ps 
 
 module Compare24_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
