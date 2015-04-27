@@ -1,0 +1,191 @@
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer compLog;
+integer seed;
+integer go;
+integer count;
+integer isCorrect;
+integer eqOrNeq;
+
+real start;
+real delay;
+
+
+initial begin
+
+	seed	= 5;
+    start 	= $time;
+	go	 	= 0;
+    count 	= 0;
+	eqOrNeq = 1;
+	isCorrect = 0;
+    compLog=$fopen("/tmp2/compareLog.csv");
+    //$fdisplay(rLog, "A1, A0, B1, B0, Miss, Hit, Correct?, total_sim_time(ps), delay(ps)");
+
+   a0[23:0]=24'h000000;
+   a1[23:0]=24'h000000;
+   b0[23:0]=24'h000000;
+   b1[23:0]=24'h000000;
+
+#1000;
+
+// Same inputs   
+   a0[23:0]=24'hffffff;
+   b0[23:0]=24'hffffff;
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+    start=$time;
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+
+	    
+	start=$time;
+   a0[23:0]=24'h000000;
+   a1[23:0]=24'h000000;
+   b0[23:0]=24'h000000;
+   b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+    $fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+
+	#2000; // Check Leakage
+
+    start=$time;
+
+	// Opposite Inputs   
+   a1[23:0]=24'hffffff;
+   	b0[23:0]=24'hffffff;
+   	a0[23:0]=~a0[23:0];
+   	b1[23:0]=~b0[23:0];
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+	$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    start=$time;
+
+	// AA  & 55 same 
+   a0[23:0]=24'h555555;
+   b0[23:0]=24'h555555;
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    start=$time;
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    start=$time;
+
+	// AA  & 55 opposites
+   	a0[23:0]=24'haaaaaa;
+   	b0[23:0]=~a0[23:0];
+	a1[23:0]=~a0[23:0];
+   	b1[23:0]=~b0[23:0];
+
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    start=$time;
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+	
+	delay=$time-start;
+		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    start=$time;
+
+// random inputs, alternate equal and not equal (both random);
+   a0[23:0]=$random(seed);
+   b0[23:0]=a0[23:0];
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+	eqOrNeq=1;
+	go = 1;
+
+end
+
+
+always @(posedge Valid) begin
+	if (go==1) begin
+		delay=$time-start;
+		if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+			isCorrect =1;
+		end else begin
+			isCorrect =0;
+		end
+		$fdisplay(compLog, "%b %b %b %b %b %b %d %t $t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    	a0[23:0]=24'h000000;
+   		a1[23:0]=24'h000000;
+   		b0[23:0]=24'h000000;
+   		b1[23:0]=24'h000000;
+		start=$time;
+	end
+end 
+
+
+always @(negedge Valid) begin
+	if (go==1) begin
+		delay=$time-start;
+		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+		if (eqOrNeq == 1) begin
+			a1 = $random;
+			b1 = $random;
+			eqOrNeq = 0;
+		end else begin
+			a1 = $random;
+			b1 = a1;
+			eqOrNeq = 1;
+		end
+		count = count + 1;
+		if (count >= 20 ) begin
+			$finish;
+		end
+    	a0 = ~a1;
+		b0 = ~b1;
+		start=$time;
+	end
+end
+
