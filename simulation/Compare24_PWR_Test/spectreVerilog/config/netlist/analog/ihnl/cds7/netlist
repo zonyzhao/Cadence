@@ -1,0 +1,13 @@
+    M4 (net62 net56 GND GND) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M7 (Out net57 GND GND) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M0 (net57 In GND GND) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M2 (net56 In GND GND) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M9 (net57 net62 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M10 (net62 net57 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M8 (Out net57 VDDH VDDH) pfet w=100n l=20n nfin=1 m=1 \
+        degradation=no
+    M3 (net56 In VDDL VDDL) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends LevelConverter
+// End of subcircuit definition.

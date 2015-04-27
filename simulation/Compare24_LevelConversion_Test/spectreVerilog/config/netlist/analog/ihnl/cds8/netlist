@@ -1,0 +1,143 @@
+    I48 (\~Eq Eq sfy0_0 sfy1_0 sfy0_1 sfy1_1 net50 VDDH GND) \
+        Compare_DR_PWR
+    I49 (Eq \~Eq GND VDDH net086) nor_1x_PWR
+    I57 (net086 GND VDDH vAck) inv_1x_PWR
+    I47 (sfy0_1 sfy0_0 sfy1_1 sfy1_0 s3_y0_1 s3_y0_0 s3_y1_1 s3_y1_0 \
+        s3_y0_3 s3_y0_2 s3_y1_3 s3_y1_2 VDDH GND) Compare2_DR_PWR
+    I46 (s3_y0_3 s3_y0_2 s3_y0_1 s3_y0_0 s3_y1_3 s3_y1_2 s3_y1_1 \
+        s3_y1_0 net47_0 net47_1 net47_2 net47_3 net46_0 net46_1 net46_2 \
+        net46_3 s2_n3_y0_3 s2_n3_y0_2 s2_n3_y0_1 s2_n3_y0_0 s2_n3_y1_3 \
+        s2_n3_y1_2 s2_n3_y1_1 s2_n3_y1_0 VDDH GND) Compare4_DR_PWR
+    I41 (_6y0_3 _6y0_2 _6y0_1 _6y0_0 _6y1_3 _6y1_2 _6y1_1 _6y1_0 a0_23 \
+        a0_22 a0_21 a0_20 a1_23 a1_22 a1_21 a1_20 b0_23 b0_22 b0_21 \
+        b0_20 b1_23 b1_22 b1_21 b1_20 VDDH GND) Compare4_DR_PWR
+    I16 (_5y0_3 _5y0_2 _5y0_1 _5y0_0 _5y1_3 _5y1_2 _5y1_1 _5y1_0 a0_19 \
+        a0_18 a0_17 a0_16 a1_19 a1_18 a1_17 a1_16 b0_19 b0_18 b0_17 \
+        b0_16 b1_19 b1_18 b1_17 b1_16 VDDH GND) Compare4_DR_PWR
+    I11 (_2y0_3 _2y0_2 _2y0_1 _2y0_0 _2y1_3 _2y1_2 _2y1_1 _2y1_0 a0_7 \
+        a0_6 a0_5 a0_4 a1_7 a1_6 a1_5 a1_4 b0_7 b0_6 b0_5 b0_4 b1_7 \
+        b1_6 b1_5 b1_4 VDDH GND) Compare4_DR_PWR
+    I10 (_1y0_3 _1y0_2 _1y0_1 _1y0_0 _1y1_3 _1y1_2 _1y1_1 _1y1_0 a0_3 \
+        a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 b0_1 b0_0 b1_3 \
+        b1_2 b1_1 b1_0 VDDH GND) Compare4_DR_PWR
+    I14 (_3y0_3 _3y0_2 _3y0_1 _3y0_0 _3y1_3 _3y1_2 _3y1_1 _3y1_0 a0_11 \
+        a0_10 a0_9 a0_8 a1_11 a1_10 a1_9 a1_8 b0_11 b0_10 b0_9 b0_8 \
+        b1_11 b1_10 b1_9 b1_8 VDDH GND) Compare4_DR_PWR
+    I13 (_4y0_3 _4y0_2 _4y0_1 _4y0_0 _4y1_3 _4y1_2 _4y1_1 _4y1_0 a0_15 \
+        a0_14 a0_13 a0_12 a1_15 a1_14 a1_13 a1_12 b0_15 b0_14 b0_13 \
+        b0_12 b1_15 b1_14 b1_13 b1_12 VDDH GND) Compare4_DR_PWR
+    I43 (net47_0 net47_1 net47_2 net47_3 net46_0 net46_1 net46_2 \
+        net46_3 s2_n1_y0_3 s2_n1_y0_2 s2_n1_y0_1 s2_n1_y0_0 s2_n1_y1_3 \
+        s2_n1_y1_2 s2_n1_y1_1 s2_n1_y1_0 s2_n2_y0_3 s2_n2_y0_2 \
+        s2_n2_y0_1 s2_n2_y0_0 s2_n2_y1_3 s2_n2_y1_2 s2_n2_y1_1 \
+        s2_n2_y1_0 VDDH GND) Compare4_DR_PWR
+    I42 (s2_n2_y0_3 s2_n2_y0_2 s2_n2_y0_1 s2_n2_y0_0 s2_n2_y1_3 \
+        s2_n2_y1_2 s2_n2_y1_1 s2_n2_y1_0 _3y0_3 _3y0_2 _3y0_1 _3y0_0 \
+        _3y1_3 _3y1_2 _3y1_1 _3y1_0 _4y0_3 _4y0_2 _4y0_1 _4y0_0 _4y1_3 \
+        _4y1_2 _4y1_1 _4y1_0 VDDH GND) Compare4_DR_PWR
+    I45 (s2_n3_y0_3 s2_n3_y0_2 s2_n3_y0_1 s2_n3_y0_0 s2_n3_y1_3 \
+        s2_n3_y1_2 s2_n3_y1_1 s2_n3_y1_0 _5y0_3 _5y0_2 _5y0_1 _5y0_0 \
+        _5y1_3 _5y1_2 _5y1_1 _5y1_0 _6y0_3 _6y0_2 _6y0_1 _6y0_0 _6y1_3 \
+        _6y1_2 _6y1_1 _6y1_0 VDDH GND) Compare4_DR_PWR
+    I44 (s2_n1_y0_3 s2_n1_y0_2 s2_n1_y0_1 s2_n1_y0_0 s2_n1_y1_3 \
+        s2_n1_y1_2 s2_n1_y1_1 s2_n1_y1_0 _1y0_3 _1y0_2 _1y0_1 _1y0_0 \
+        _1y1_3 _1y1_2 _1y1_1 _1y1_0 _2y0_3 _2y0_2 _2y0_1 _2y0_0 _2y1_3 \
+        _2y1_2 _2y1_1 _2y1_0 VDDH GND) Compare4_DR_PWR
+    I56_23 (b1_23 GND VDDH VDDL B1_23) LevelConverter
+    I56_22 (b1_22 GND VDDH VDDL B1_22) LevelConverter
+    I56_21 (b1_21 GND VDDH VDDL B1_21) LevelConverter
+    I56_20 (b1_20 GND VDDH VDDL B1_20) LevelConverter
+    I56_19 (b1_19 GND VDDH VDDL B1_19) LevelConverter
+    I56_18 (b1_18 GND VDDH VDDL B1_18) LevelConverter
+    I56_17 (b1_17 GND VDDH VDDL B1_17) LevelConverter
+    I56_16 (b1_16 GND VDDH VDDL B1_16) LevelConverter
+    I56_15 (b1_15 GND VDDH VDDL B1_15) LevelConverter
+    I56_14 (b1_14 GND VDDH VDDL B1_14) LevelConverter
+    I56_13 (b1_13 GND VDDH VDDL B1_13) LevelConverter
+    I56_12 (b1_12 GND VDDH VDDL B1_12) LevelConverter
+    I56_11 (b1_11 GND VDDH VDDL B1_11) LevelConverter
+    I56_10 (b1_10 GND VDDH VDDL B1_10) LevelConverter
+    I56_9 (b1_9 GND VDDH VDDL B1_9) LevelConverter
+    I56_8 (b1_8 GND VDDH VDDL B1_8) LevelConverter
+    I56_7 (b1_7 GND VDDH VDDL B1_7) LevelConverter
+    I56_6 (b1_6 GND VDDH VDDL B1_6) LevelConverter
+    I56_5 (b1_5 GND VDDH VDDL B1_5) LevelConverter
+    I56_4 (b1_4 GND VDDH VDDL B1_4) LevelConverter
+    I56_3 (b1_3 GND VDDH VDDL B1_3) LevelConverter
+    I56_2 (b1_2 GND VDDH VDDL B1_2) LevelConverter
+    I56_1 (b1_1 GND VDDH VDDL B1_1) LevelConverter
+    I56_0 (b1_0 GND VDDH VDDL B1_0) LevelConverter
+    I55_23 (b0_23 GND VDDH VDDL B0_23) LevelConverter
+    I55_22 (b0_22 GND VDDH VDDL B0_22) LevelConverter
+    I55_21 (b0_21 GND VDDH VDDL B0_21) LevelConverter
+    I55_20 (b0_20 GND VDDH VDDL B0_20) LevelConverter
+    I55_19 (b0_19 GND VDDH VDDL B0_19) LevelConverter
+    I55_18 (b0_18 GND VDDH VDDL B0_18) LevelConverter
+    I55_17 (b0_17 GND VDDH VDDL B0_17) LevelConverter
+    I55_16 (b0_16 GND VDDH VDDL B0_16) LevelConverter
+    I55_15 (b0_15 GND VDDH VDDL B0_15) LevelConverter
+    I55_14 (b0_14 GND VDDH VDDL B0_14) LevelConverter
+    I55_13 (b0_13 GND VDDH VDDL B0_13) LevelConverter
+    I55_12 (b0_12 GND VDDH VDDL B0_12) LevelConverter
+    I55_11 (b0_11 GND VDDH VDDL B0_11) LevelConverter
+    I55_10 (b0_10 GND VDDH VDDL B0_10) LevelConverter
+    I55_9 (b0_9 GND VDDH VDDL B0_9) LevelConverter
+    I55_8 (b0_8 GND VDDH VDDL B0_8) LevelConverter
+    I55_7 (b0_7 GND VDDH VDDL B0_7) LevelConverter
+    I55_6 (b0_6 GND VDDH VDDL B0_6) LevelConverter
+    I55_5 (b0_5 GND VDDH VDDL B0_5) LevelConverter
+    I55_4 (b0_4 GND VDDH VDDL B0_4) LevelConverter
+    I55_3 (b0_3 GND VDDH VDDL B0_3) LevelConverter
+    I55_2 (b0_2 GND VDDH VDDL B0_2) LevelConverter
+    I55_1 (b0_1 GND VDDH VDDL B0_1) LevelConverter
+    I55_0 (b0_0 GND VDDH VDDL B0_0) LevelConverter
+    I50_23 (a0_23 GND VDDH VDDL A0_23) LevelConverter
+    I50_22 (a0_22 GND VDDH VDDL A0_22) LevelConverter
+    I50_21 (a0_21 GND VDDH VDDL A0_21) LevelConverter
+    I50_20 (a0_20 GND VDDH VDDL A0_20) LevelConverter
+    I50_19 (a0_19 GND VDDH VDDL A0_19) LevelConverter
+    I50_18 (a0_18 GND VDDH VDDL A0_18) LevelConverter
+    I50_17 (a0_17 GND VDDH VDDL A0_17) LevelConverter
+    I50_16 (a0_16 GND VDDH VDDL A0_16) LevelConverter
+    I50_15 (a0_15 GND VDDH VDDL A0_15) LevelConverter
+    I50_14 (a0_14 GND VDDH VDDL A0_14) LevelConverter
+    I50_13 (a0_13 GND VDDH VDDL A0_13) LevelConverter
+    I50_12 (a0_12 GND VDDH VDDL A0_12) LevelConverter
+    I50_11 (a0_11 GND VDDH VDDL A0_11) LevelConverter
+    I50_10 (a0_10 GND VDDH VDDL A0_10) LevelConverter
+    I50_9 (a0_9 GND VDDH VDDL A0_9) LevelConverter
+    I50_8 (a0_8 GND VDDH VDDL A0_8) LevelConverter
+    I50_7 (a0_7 GND VDDH VDDL A0_7) LevelConverter
+    I50_6 (a0_6 GND VDDH VDDL A0_6) LevelConverter
+    I50_5 (a0_5 GND VDDH VDDL A0_5) LevelConverter
+    I50_4 (a0_4 GND VDDH VDDL A0_4) LevelConverter
+    I50_3 (a0_3 GND VDDH VDDL A0_3) LevelConverter
+    I50_2 (a0_2 GND VDDH VDDL A0_2) LevelConverter
+    I50_1 (a0_1 GND VDDH VDDL A0_1) LevelConverter
+    I50_0 (a0_0 GND VDDH VDDL A0_0) LevelConverter
+    I54_23 (a1_23 GND VDDH VDDL A1_23) LevelConverter
+    I54_22 (a1_22 GND VDDH VDDL A1_22) LevelConverter
+    I54_21 (a1_21 GND VDDH VDDL A1_21) LevelConverter
+    I54_20 (a1_20 GND VDDH VDDL A1_20) LevelConverter
+    I54_19 (a1_19 GND VDDH VDDL A1_19) LevelConverter
+    I54_18 (a1_18 GND VDDH VDDL A1_18) LevelConverter
+    I54_17 (a1_17 GND VDDH VDDL A1_17) LevelConverter
+    I54_16 (a1_16 GND VDDH VDDL A1_16) LevelConverter
+    I54_15 (a1_15 GND VDDH VDDL A1_15) LevelConverter
+    I54_14 (a1_14 GND VDDH VDDL A1_14) LevelConverter
+    I54_13 (a1_13 GND VDDH VDDL A1_13) LevelConverter
+    I54_12 (a1_12 GND VDDH VDDL A1_12) LevelConverter
+    I54_11 (a1_11 GND VDDH VDDL A1_11) LevelConverter
+    I54_10 (a1_10 GND VDDH VDDL A1_10) LevelConverter
+    I54_9 (a1_9 GND VDDH VDDL A1_9) LevelConverter
+    I54_8 (a1_8 GND VDDH VDDL A1_8) LevelConverter
+    I54_7 (a1_7 GND VDDH VDDL A1_7) LevelConverter
+    I54_6 (a1_6 GND VDDH VDDL A1_6) LevelConverter
+    I54_5 (a1_5 GND VDDH VDDL A1_5) LevelConverter
+    I54_4 (a1_4 GND VDDH VDDL A1_4) LevelConverter
+    I54_3 (a1_3 GND VDDH VDDL A1_3) LevelConverter
+    I54_2 (a1_2 GND VDDH VDDL A1_2) LevelConverter
+    I54_1 (a1_1 GND VDDH VDDL A1_1) LevelConverter
+    I54_0 (a1_0 GND VDDH VDDL A1_0) LevelConverter
+ends Compare24_DR_PWR
+// End of subcircuit definition.

@@ -1,0 +1,46 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Compare24_PWR_Test"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  globalList "gnd! vdd! vcc! vddd!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_PWR_Test/spectreVerilog/config/netlist/analog"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/LevelConverter/schematic" "LevelConverter" )
+( "16nm/Compare2_DR_PWR/schematic" "Compare2_DR_PWR" )
+( "16nm/Compare4_DR_PWR/schematic" "Compare4_DR_PWR" )
+( "16nm/Valid_DR_PWR/schematic" "Valid_DR_PWR" )
+( "16nm/inv_1x_PWR/schematic" "inv_1x_PWR" )
+( "16nm/Compare24_DR_PWR/schematic" "Compare24_DR_PWR" )
+( "16nm/nor_1x_PWR/schematic" "nor_1x_PWR" )
+( "16nm_Tests/Compare24_PWR_Test/schematic" "Compare24_PWR_Test" )
+( "16nm/TH22~_PWR/schematic" "_sub7" )
+( "16nm/inv_1xt/schematic" "inv_1xt" )
+( "16nm/Compare_DR_PWR/schematic" "Compare_DR_PWR" )
+ )
+( term
+ )
+( param
+ )
+( "nor_1x_PWR" "ihnl/cds2/map" )
+( "Compare2_DR_PWR" "ihnl/cds5/map" )
+( "inv_1xt" "ihnl/cds9/map" )
+( "_sub7" "ihnl/cds1/map" )
+( "Compare24_DR_PWR" "ihnl/cds8/map" )
+( "Compare_DR_PWR" "ihnl/cds4/map" )
+( "Compare4_DR_PWR" "ihnl/cds6/map" )
+( "LevelConverter" "ihnl/cds7/map" )
+( "Compare24_PWR_Test" "ihnl/cds10/map" )
+( "Valid_DR_PWR" "ihnl/cds3/map" )
+( "inv_1x_PWR" "ihnl/cds0/map" )
+ )

@@ -1,5 +1,5 @@
 // Generated for: spectre
-// Generated on: Apr 27 01:17:39 2015
+// Generated on: Apr 27 04:41:10 2015
 // Design library name: 16nm_Tests
 // Design cell name: Compare24_Test
 // Design view name: config
@@ -113,7 +113,7 @@ include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 // Cell name: inv_1xt
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt inv_1xt A Y
     M0 (Y A 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=no
     M1 (Y A vcc! vcc!) pfet w=100n l=20n nfin=7 m=1 degradation=no
@@ -124,7 +124,7 @@ ends inv_1xt
 // Cell name: nor_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt nor_1x A B Y
     M3 (Y B or_pd_ps vdd!) pfet w=200n l=20n nfin=1 m=1 degradation=no
     M2 (or_pd_ps A vdd! vdd!) pfet w=200n l=20n nfin=1 m=1 \
@@ -138,7 +138,7 @@ ends nor_1x
 // Cell name: inv_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt inv_1x A Y
     M0 (Y A 0 0) nfet w=288n l=20n nfin=7 m=1 degradation=no
     M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=7 m=1 degradation=no
@@ -149,8 +149,8 @@ ends inv_1x
 // Cell name: TH22~
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
-subckt _sub3 A B Y
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt _sub5 A B Y
     I6 (net010 Y) inv_1x
     M5 (net010 net5 0 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
     M4 (net5 net010 net9 0) nfet w=48n l=16n nfin=1 m=1 degradation=no
@@ -167,18 +167,18 @@ subckt _sub3 A B Y
     M7 (net037 A vdd! vdd!) pfet w=80n l=16n nfin=1 m=1 degradation=no
     M6 (net5 net010 net037 vdd!) pfet w=80n l=16n nfin=1 m=1 \
         degradation=no
-ends _sub3
+ends _sub5
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: Valid_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Valid_DR a0 a1 b0 b1 v
     I1 (b0 b1 net11) nor_1x
     I0 (a0 a1 net12) nor_1x
-    I2 (net12 net11 v) _sub3
+    I2 (net12 net11 v) _sub5
 ends Valid_DR
 // End of subcircuit definition.
 
@@ -186,7 +186,7 @@ ends Valid_DR
 // Cell name: Compare_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Compare_DR y0 y1 a0 a1 b0 b1 vAck
     M10 (net023 vAck vdd! vdd!) pfet w=80n l=20n nfin=1 m=1 \
         degradation=yes
@@ -211,7 +211,7 @@ ends Compare_DR
 // Cell name: Compare4_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Compare4_DR a0_3 a0_2 a0_1 a0_0 a1_3 a1_2 a1_1 a1_0 b0_3 b0_2 \
         b0_1 b0_0 b1_3 b1_2 b1_1 b1_0 y0_3 y0_2 y0_1 y0_0 y1_3 y1_2 \
         y1_1 y1_0
@@ -226,7 +226,7 @@ ends Compare4_DR
 // Cell name: or_1x
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt or_1x A B Y
     I6 (A B AnorB) nor_1x
     I7 (AnorB Y) inv_1x
@@ -237,7 +237,7 @@ ends or_1x
 // Cell name: Compare2_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Compare2_DR y0_1 y0_0 y1_1 y1_0 a0_1 a0_0 a1_1 a1_0 b0_1 b0_0 \
         b1_1 b1_0
     I2 (y0_1 y1_1 a0_1 a1_1 b0_1 b1_1 net15) Compare_DR
@@ -249,7 +249,7 @@ ends Compare2_DR
 // Cell name: Compare24_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Compare24_DR a0_23 a0_22 a0_21 a0_20 a0_19 a0_18 a0_17 a0_16 \
         a0_15 a0_14 a0_13 a0_12 a0_11 a0_10 a0_9 a0_8 a0_7 a0_6 a0_5 \
         a0_4 a0_3 a0_2 a0_1 a0_0 a1_23 a1_22 a1_21 a1_20 a1_19 a1_18 \
@@ -310,7 +310,7 @@ ends Compare24_DR
 // Cell name: Compare24_Test
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-// system verilogNetlist schematic cmos_sch veriloga ahdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 V0 (vcc! 0) vsource type=dc dc=vdd
 V1 (vdd! 0) vsource type=dc dc=vdd
 I13 (MissT net22) inv_1xt
@@ -620,10 +620,23 @@ _ie99998 (net028_4 0) d2a src="99998" val0=0.0 val1=vdd valx=vdd/2 \
 _ie99999 (net028_5 0) d2a src="99999" val0=0.0 val1=vdd valx=vdd/2 \
         rise=2p fall=2p
 // END Hierarchical Interface Elements
-simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
-    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
-    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
-    checklimitdest=psf 
+ic a1T_23=0 a1T_22=0 a1T_21=0 a1T_20=0 a1T_19=0 a1T_18=0 a1T_17=0 a1T_16=0 \
+    a1T_15=0 a1T_14=0 a1T_13=0 a1T_12=0 a1T_11=0 a1T_10=0 a1T_9=0 a1T_8=0 \
+    a1T_7=0 a1T_6=0 a1T_5=0 a1T_4=0 a1T_3=0 a1T_2=0 a1T_1=0 a1T_0=0 \
+    a0T_23=0 a0T_22=0 a0T_21=0 a0T_20=0 a0T_19=0 a0T_18=0 a0T_17=0 \
+    a0T_16=0 a0T_15=0 a0T_14=0 a0T_13=0 a0T_12=0 a0T_11=0 a0T_10=0 a0T_9=0 \
+    a0T_8=0 a0T_7=0 a0T_6=0 a0T_5=0 a0T_4=0 a0T_3=0 a0T_2=0 a0T_1=0 \
+    a0T_0=0 b0T_23=0 b0T_22=0 b0T_21=0 b0T_20=0 b0T_19=0 b0T_18=0 b0T_17=0 \
+    b0T_16=0 b0T_15=0 b0T_14=0 b0T_13=0 b0T_12=0 b0T_11=0 b0T_10=0 b0T_9=0 \
+    b0T_8=0 b0T_7=0 b0T_6=0 b0T_5=0 b0T_4=0 b0T_3=0 b0T_2=0 b0T_1=0 \
+    b0T_0=0 b1T_23=0 b1T_22=0 b1T_21=0 b1T_20=0 b1T_19=0 b1T_18=0 b1T_17=0 \
+    b1T_16=0 b1T_15=0 b1T_14=0 b1T_13=0 b1T_12=0 b1T_11=0 b1T_10=0 b1T_9=0 \
+    b1T_8=0 b1T_7=0 b1T_6=0 b1T_5=0 b1T_4=0 b1T_3=0 b1T_2=0 b1T_1=0 \
+    b1T_0=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
+    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
 tran tran stop=12n errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile

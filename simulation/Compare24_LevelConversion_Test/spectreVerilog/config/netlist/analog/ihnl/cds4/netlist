@@ -1,0 +1,22 @@
+    M10 (net023 vAck VDD VDD) pfet w=80n l=20n nfin=1 m=1 \
+        degradation=yes
+    M0 (net015 vAck VDD VDD) pfet w=80n l=20n nfin=1 m=1 \
+        degradation=yes
+    M9 (net26 vAck GND GND) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M8 (net023 a1 net35 GND) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    M7 (net35 b0 net26 GND) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M6 (net36 b1 net26 GND) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M5 (net023 a0 net36 GND) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    M4 (net38 b0 net26 GND) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M3 (net37 b1 net26 GND) nfet w=120n l=20n nfin=1 m=1 degradation=no
+    M2 (net015 a1 net37 GND) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    M1 (net015 a0 net38 GND) nfet w=120n l=20n nfin=1 m=1 \
+        degradation=no
+    I6 (net015 GND VDD y1) inv_1x_PWR
+    I5 (net023 GND VDD y0) inv_1x_PWR
+    I61 (vAck a0 a1 b0 b1 VDD GND) Valid_DR_PWR
+ends Compare_DR_PWR
+// End of subcircuit definition.

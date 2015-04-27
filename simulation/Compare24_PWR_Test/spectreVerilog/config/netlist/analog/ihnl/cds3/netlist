@@ -1,0 +1,5 @@
+    I2 (net12 net11 GND VDD v) _sub7
+    I1 (b0 b1 GND VDD net11) nor_1x_PWR
+    I0 (a0 a1 GND VDD net12) nor_1x_PWR
+ends Valid_DR_PWR
+// End of subcircuit definition.

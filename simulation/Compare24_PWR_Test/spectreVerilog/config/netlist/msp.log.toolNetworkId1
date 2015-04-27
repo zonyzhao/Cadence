@@ -1,0 +1,55 @@
+Mon Apr 27 04:41:23 2015
+
+BUILDING Network design (cell: Compare24_PWR_Test, lib: 16nm_Tests, view: config)
+GLOBAL ENVIRONMENT INFORMATION:
+	simLibName =	16nm_Tests
+	simCellName =	Compare24_PWR_Test
+	simViewName =	config
+	Netlist Directory	/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_PWR_Test/spectreVerilog/config/netlist
+	Default View List	
+	Stop View List	
+Switch View List Table:
+	Default IE Libname	analogLib
+	Default IE Cellname	MOS
+	Detail IE Generation Flag	FALSE
+Power and ground nets:
+	veed! veea! vee! vssd! vssa! vss! gndd! gnda! gnd! vccd! vcca! vcc! vddd! vdda! vdd! 
+SIMULATOR AND PARTITIONING VIEW LIST INFO:
+	Simulator verilog, for network toolNetworkId1, list of views:
+		verilog verilogNetlist 
+	    views in stop view set:
+		msps verilogNetlist system hdl functional behavioral verilog 
+	Simulator spectre, for network toolNetworkId1, list of views:
+		spectre spice 
+	    views in stop view set:
+		spectre auLvs ahdl veriloga spice 
+
+CONFIGURATION INFORMATION:
+Network is using configuration. Here are the config's stop list and switch list:
+	Default View List:	spectre spice verilog behavioral functional hdl system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+	Stop View List:	spectre spice verilog verilogNetlist
+	Top module LibName:	16nm_Tests
+	Top module CellName:	Compare24_PWR_Test
+	Top module ViewName:	schematic
+
+PARTITIONING INFORMATION:
+	Partition digital, in network toolNetworkId1
+	The modules in this partition are:
+	The models in this partition are:
+Model inv_1xT, lib 16nm, view functional
+	Partition analog, in network toolNetworkId1
+	The modules in this partition are:
+Module inv_1xt, lib 16nm, view schematic, configViewString $default
+Module LevelConverter, lib 16nm, view schematic, configViewString $default
+Module nor_1x_PWR, lib 16nm, view schematic, configViewString $default
+Module inv_1x_PWR, lib 16nm, view schematic, configViewString $default
+Module TH22~_PWR, lib 16nm, view schematic, configViewString $default
+Module Valid_DR_PWR, lib 16nm, view schematic, configViewString $default
+Module Compare_DR_PWR, lib 16nm, view schematic, configViewString $default
+Module Compare4_DR_PWR, lib 16nm, view schematic, configViewString $default
+Module Compare2_DR_PWR, lib 16nm, view schematic, configViewString $default
+Module Compare24_DR_PWR, lib 16nm, view schematic, configViewString $default
+	The models in this partition are:
+Model pfet, lib NCSU_TechLib_FreePDK15, view spectre
+Model nfet, lib NCSU_TechLib_FreePDK15, view spectre
+Model vdc, lib UCD_Analog_Parts, view spectre

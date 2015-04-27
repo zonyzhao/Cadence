@@ -1,0 +1,3 @@
+projectDir = '"/net/kafka/nfs/rstdenis/Cadence/simulation"
+designInfo = '("16nm_Tests" "Compare24_PWR_Test" "config" "spectreVerilog")
+descriptionText = "None"

@@ -4,11 +4,11 @@ hnlLastStopCellInfo = '(
                           ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1428568474" )
                        )
 hnlLastNetlistConfig = t
-hnlLastConfigFileVersion = 3
-hnlLastConfigFileTimeStamp = "1430121363"
+hnlLastConfigFileVersion = 1
+hnlLastConfigFileTimeStamp = "1430132121"
 hnlLastSupportNewConfig = t
 hnlLastConfigInfo = '( 
-( "16nm_Tests" "Compare24_Test" "config" 3 "1430121363" )
+( "16nm_Tests" "Compare24_Test" "config" 1 "1430132121" )
 ) 
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"

@@ -1,0 +1,18 @@
+    M5 (net010 net5 GND GND) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M4 (net5 net010 net9 GND) nfet w=48n l=16n nfin=1 m=1 \
+        degradation=no
+    M3 (net9 B GND GND) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M2 (net9 A GND GND) nfet w=48n l=16n nfin=1 m=1 degradation=no
+    M1 (net5 B net17 GND) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M0 (net17 A GND GND) nfet w=80n l=16n nfin=1 m=1 degradation=no
+    M11 (net010 net5 VDD VDD) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=no
+    M10 (net5 B net032 VDD) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M9 (net032 A VDD VDD) pfet w=160n l=16n nfin=1 m=1 degradation=no
+    M8 (net037 B VDD VDD) pfet w=80n l=16n nfin=1 m=1 degradation=no
+    M7 (net037 A VDD VDD) pfet w=80n l=16n nfin=1 m=1 degradation=no
+    M6 (net5 net010 net037 VDD) pfet w=80n l=16n nfin=1 m=1 \
+        degradation=no
+    I6 (net010 GND VDD Y) inv_1x_PWR
+ends _sub1
+// End of subcircuit definition.

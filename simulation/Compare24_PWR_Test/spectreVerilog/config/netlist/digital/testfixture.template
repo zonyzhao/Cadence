@@ -1,0 +1,44 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Hit, Miss, Valid;
+
+
+reg [23:0]  a1;
+reg [23:0]  b1;
+reg [23:0]  a0;
+reg [23:0]  b0;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+Compare24_PWR_Test top(Hit, Miss, Valid, a0, a1, b0, b1); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 

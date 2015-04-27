@@ -1,0 +1,4 @@
+    I2 (y0_1 y1_1 a0_1 a1_1 b0_1 b1_1 net15 VDD GND) Compare_DR_PWR
+    I0 (y0_0 y1_0 a0_0 a1_0 b0_0 b1_0 net16 VDD GND) Compare_DR_PWR
+ends Compare2_DR_PWR
+// End of subcircuit definition.

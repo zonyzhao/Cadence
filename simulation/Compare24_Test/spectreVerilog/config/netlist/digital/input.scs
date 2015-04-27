@@ -1,5 +1,5 @@
 
-`timescale 1ns / 1ns
+`timescale 1ps / 1ps
 
 module test;
 
@@ -63,7 +63,8 @@ initial begin
 	go	 	= 0;
     count 	= 0;
 	eqOrNeq = 1;
-    compLog=$fopen("/tmp2/compareLog.csv");
+	isCorrect = 0;
+    compLog=$fopen("/tmp2/compare_LCLog.csv");
     //$fdisplay(rLog, "A1, A0, B1, B0, Miss, Hit, Correct?, total_sim_time(ps), delay(ps)");
 
    a0[23:0]=24'h000000;
@@ -87,7 +88,7 @@ initial begin
 	end else begin
 		isCorrect =0;
 	end
-    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
 
 	    
 	start=$time;
@@ -98,13 +99,16 @@ initial begin
 	wait(~Valid);
 
 	delay=$time-start;
-    $fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    $fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+
+	#2000; // Check Leakage
+
     start=$time;
 
 	// Opposite Inputs   
-   a1[23:0]=24'hffffff;
+    a1[23:0]=24'hffffff;
    	b0[23:0]=24'hffffff;
-   	a0[23:0]=~a0[23:0];
+   	a0[23:0]=~a1[23:0];
    	b1[23:0]=~b0[23:0];
 	wait(Valid);
 
@@ -114,7 +118,7 @@ initial begin
 	end else begin
 		isCorrect =0;
 	end
-    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
 
    	a0[23:0]=24'h000000;
    	a1[23:0]=24'h000000;
@@ -123,7 +127,7 @@ initial begin
 	wait(~Valid);
 
 	delay=$time-start;
-	$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+	$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
     start=$time;
 
 	// AA  & 55 same 
@@ -139,7 +143,7 @@ initial begin
 	end else begin
 		isCorrect =0;
 	end
-    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
     start=$time;
    	a0[23:0]=24'h000000;
    	a1[23:0]=24'h000000;
@@ -148,7 +152,7 @@ initial begin
 	wait(~Valid);
 
 	delay=$time-start;
-		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+	$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
     start=$time;
 
 	// AA  & 55 opposites
@@ -165,7 +169,7 @@ initial begin
 	end else begin
 		isCorrect =0;
 	end
-    $fdisplay(compLog, "%b %b %b %b %b %b %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
     start=$time;
    	a0[23:0]=24'h000000;
    	a1[23:0]=24'h000000;
@@ -174,14 +178,15 @@ initial begin
 	wait(~Valid);
 	
 	delay=$time-start;
-		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
-    start=$time;
+		$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
 
 // random inputs, alternate equal and not equal (both random);
    a0[23:0]=$random(seed);
    b0[23:0]=a0[23:0];
    a1[23:0]=~a0[23:0];
    b1[23:0]=~b0[23:0];
+	eqOrNeq=1;
+    start=$time;
 	go = 1;
 
 end
@@ -195,7 +200,7 @@ always @(posedge Valid) begin
 		end else begin
 			isCorrect =0;
 		end
-		$fdisplay(compLog, "%b %b %b %b %b %b %d %t $t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+		$fdisplay(compLog, "%h %h %h %h %h %h %d %t $t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
     	a0[23:0]=24'h000000;
    		a1[23:0]=24'h000000;
    		b0[23:0]=24'h000000;
@@ -208,7 +213,7 @@ end
 always @(negedge Valid) begin
 	if (go==1) begin
 		delay=$time-start;
-		$fdisplay(compLog, "%b %b %b %b %b %b n/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+		$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
 		if (eqOrNeq == 1) begin
 			a1 = $random;
 			b1 = $random;
@@ -366,9 +371,9 @@ test.top.b0[18], test.top.b1[15], test.top.b1[16], test.top.b1[17], test.top.b1[
 end
 // End SST2 Save Waveforms
 // Library - 16nm_Tests, Cell - Compare24_Test, View - schematic
-// LAST TIME SAVED: Apr 27 01:15:07 2015
-// NETLIST TIME: Apr 27 01:17:40 2015
-`timescale 1ns / 1ns 
+// LAST TIME SAVED: Apr 27 03:53:58 2015
+// NETLIST TIME: Apr 27 04:41:10 2015
+`timescale 1ps / 1ps 
 
 module Compare24_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
 

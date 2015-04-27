@@ -1,0 +1,11 @@
+HEADER
+"PSFversion" "1.00"
+"I2n" "_sub7"
+"I1n I0n" "nor_1x_PWR"
+"vv" ":1v"
+"a0v" ":2v"
+"a1v" ":3v"
+"b0v" ":4v"
+"b1v" ":5v"
+"VDDv" ":6v"
+"GNDv" ":7v"

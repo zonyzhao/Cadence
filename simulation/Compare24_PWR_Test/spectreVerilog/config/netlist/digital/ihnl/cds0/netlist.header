@@ -1,0 +1,55 @@
+// Library - 16nm_Tests, Cell - Compare24_PWR_Test, View - schematic
+// LAST TIME SAVED: Apr 27 03:53:35 2015
+// NETLIST TIME: Apr 27 04:41:50 2015
+`timescale 1ps / 1ps 
+
+module Compare24_PWR_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
+
+output  Hit, Miss, Valid;
+
+
+input [23:0]  a1;
+input [23:0]  b1;
+input [23:0]  a0;
+input [23:0]  b0;
+
+// Buses in the design
+
+wire  [23:0]  b1T;
+
+wire  [0:23]  net027;
+
+wire  [23:0]  b0T;
+
+wire  [23:0]  a0T;
+
+wire  [0:23]  net026;
+
+wire  [0:23]  net029;
+
+wire  [0:23]  net028;
+
+wire  [23:0]  a1T;
+
+// begin interface element definitions
+
+wire net23;
+wire net21;
+wire net22;
+reg mixedNet99926;
+reg mixedNet99925;
+reg mixedNet99914;
+assign net23 = mixedNet99926;
+assign net21 = mixedNet99925;
+assign net22 = mixedNet99914;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "Compare24_PWR_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+

@@ -3,7 +3,7 @@
 // Cell name: Compare24_DR
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-//system verilogNetlist schematic cmos_sch veriloga ahdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 subckt Compare24_DR a0_23 a0_22 a0_21 a0_20 a0_19 a0_18 a0_17 a0_16 \
         a0_15 a0_14 a0_13 a0_12 a0_11 a0_10 a0_9 a0_8 a0_7 a0_6 a0_5 \
         a0_4 a0_3 a0_2 a0_1 a0_0 a1_23 a1_22 a1_21 a1_20 a1_19 a1_18 \

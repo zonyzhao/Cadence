@@ -1,0 +1,16 @@
+
+// Library name: 16nm
+// Cell name: Compare24_DR_PWR
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos_sch veriloga ahdl
+subckt Compare24_DR_PWR A0_23 A0_22 A0_21 A0_20 A0_19 A0_18 A0_17 A0_16 \
+        A0_15 A0_14 A0_13 A0_12 A0_11 A0_10 A0_9 A0_8 A0_7 A0_6 A0_5 \
+        A0_4 A0_3 A0_2 A0_1 A0_0 A1_23 A1_22 A1_21 A1_20 A1_19 A1_18 \
+        A1_17 A1_16 A1_15 A1_14 A1_13 A1_12 A1_11 A1_10 A1_9 A1_8 A1_7 \
+        A1_6 A1_5 A1_4 A1_3 A1_2 A1_1 A1_0 B0_23 B0_22 B0_21 B0_20 \
+        B0_19 B0_18 B0_17 B0_16 B0_15 B0_14 B0_13 B0_12 B0_11 B0_10 \
+        B0_9 B0_8 B0_7 B0_6 B0_5 B0_4 B0_3 B0_2 B0_1 B0_0 B1_23 B1_22 \
+        B1_21 B1_20 B1_19 B1_18 B1_17 B1_16 B1_15 B1_14 B1_13 B1_12 \
+        B1_11 B1_10 B1_9 B1_8 B1_7 B1_6 B1_5 B1_4 B1_3 B1_2 B1_1 B1_0 \
+        Eq \~Eq vAck VDDL VDDH GND

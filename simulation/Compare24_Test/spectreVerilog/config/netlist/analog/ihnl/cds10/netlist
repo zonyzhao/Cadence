@@ -3,7 +3,7 @@
 // Cell name: Compare24_Test
 // View name: schematic
 // Inherited view list: spectre spice verilog behavioral functional hdl
-// system verilogNetlist schematic cmos_sch veriloga ahdl
+// system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
 V0 (vcc! 0) vsource type=dc dc=vdd
 V1 (vdd! 0) vsource type=dc dc=vdd
 I13 (MissT net22) inv_1xt

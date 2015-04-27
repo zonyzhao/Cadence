@@ -70,7 +70,7 @@ vtoolsUseUpperCaseFlag = 'nil
 hnlVerilogCreatePM = 'nil
 
 ;Netlist SwitchRC
-simVerilogHandleSwitchRCData = 'nil
+simVerilogHandleSwitchRCData = t
 
 ;Skip Null Port
 simVerilogProcessNullPorts = 'nil
@@ -143,13 +143,13 @@ vlogifVicSimSimulator = "Verilog-XL"
 simVerilogSimTimeValue = 1
 
 ;Unit
-simVerilogSimTimeUnit = "ns"
+simVerilogSimTimeUnit = "ps"
 
 ;Global Sim Precision
 simVerilogSimPrecisionValue = 1
 
 ;Unit
-simVerilogSimPrecisionUnit = "ns"
+simVerilogSimPrecisionUnit = "ps"
 
 ;Force ReNetlist Reasons
 vtoolsifForceReNetlisting = 'nil

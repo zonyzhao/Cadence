@@ -1,0 +1,123 @@
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.net029[2], "99999"); // /net029<2>
+	$vmx_define_export( test.top.net029[10], "99998"); // /net029<10>
+	$vmx_define_export( test.top.net029[11], "99997"); // /net029<11>
+	$vmx_define_export( test.top.net029[0], "99996"); // /net029<0>
+	$vmx_define_export( test.top.net029[15], "99995"); // /net029<15>
+	$vmx_define_export( test.top.net027[20], "99994"); // /net027<20>
+	$vmx_define_export( test.top.net026[15], "99993"); // /net026<15>
+	$vmx_define_export( test.top.net026[22], "99992"); // /net026<22>
+	$vmx_define_export( test.top.net028[23], "99991"); // /net028<23>
+	$vmx_define_export( test.top.net028[22], "99990"); // /net028<22>
+	$vmx_define_export( test.top.net028[21], "99989"); // /net028<21>
+	$vmx_define_export( test.top.net029[9], "99988"); // /net029<9>
+	$vmx_define_export( test.top.net026[0], "99987"); // /net026<0>
+	$vmx_define_export( test.top.net026[23], "99986"); // /net026<23>
+	$vmx_define_export( test.top.net027[16], "99985"); // /net027<16>
+	$vmx_define_export( test.top.net027[21], "99984"); // /net027<21>
+	$vmx_define_export( test.top.net027[0], "99983"); // /net027<0>
+	$vmx_define_export( test.top.net027[19], "99982"); // /net027<19>
+	$vmx_define_export( test.top.net028[18], "99981"); // /net028<18>
+	$vmx_define_export( test.top.net026[8], "99980"); // /net026<8>
+	$vmx_define_export( test.top.net026[5], "99979"); // /net026<5>
+	$vmx_define_export( test.top.net026[4], "99978"); // /net026<4>
+	$vmx_define_export( test.top.net026[3], "99977"); // /net026<3>
+	$vmx_define_export( test.top.net026[2], "99976"); // /net026<2>
+	$vmx_define_export( test.top.net026[1], "99975"); // /net026<1>
+	$vmx_define_export( test.top.net029[5], "99974"); // /net029<5>
+	$vmx_define_export( test.top.net027[3], "99973"); // /net027<3>
+	$vmx_define_export( test.top.net029[17], "99972"); // /net029<17>
+	$vmx_define_export( test.top.net028[16], "99971"); // /net028<16>
+	$vmx_define_export( test.top.net027[23], "99970"); // /net027<23>
+	$vmx_define_export( test.top.net029[1], "99969"); // /net029<1>
+	$vmx_define_export( test.top.net027[10], "99968"); // /net027<10>
+	$vmx_define_export( test.top.net027[9], "99967"); // /net027<9>
+	$vmx_define_export( test.top.net028[9], "99966"); // /net028<9>
+	$vmx_define_export( test.top.net029[21], "99965"); // /net029<21>
+	$vmx_define_export( test.top.net029[20], "99964"); // /net029<20>
+	$vmx_define_export( test.top.net028[19], "99963"); // /net028<19>
+	$vmx_define_export( test.top.net028[10], "99962"); // /net028<10>
+	$vmx_define_export( test.top.net028[17], "99961"); // /net028<17>
+	$vmx_define_export( test.top.net029[16], "99960"); // /net029<16>
+	$vmx_define_export( test.top.net028[7], "99959"); // /net028<7>
+	$vmx_define_export( test.top.net027[11], "99958"); // /net027<11>
+	$vmx_define_export( test.top.net027[12], "99957"); // /net027<12>
+	$vmx_define_export( test.top.net027[13], "99956"); // /net027<13>
+	$vmx_define_export( test.top.net028[11], "99955"); // /net028<11>
+	$vmx_define_export( test.top.net028[8], "99954"); // /net028<8>
+	$vmx_define_export( test.top.net029[8], "99953"); // /net029<8>
+	$vmx_define_export( test.top.net027[14], "99952"); // /net027<14>
+	$vmx_define_export( test.top.net027[15], "99951"); // /net027<15>
+	$vmx_define_export( test.top.net027[18], "99950"); // /net027<18>
+	$vmx_define_export( test.top.net029[18], "99949"); // /net029<18>
+	$vmx_define_export( test.top.net026[17], "99948"); // /net026<17>
+	$vmx_define_export( test.top.net027[6], "99947"); // /net027<6>
+	$vmx_define_export( test.top.net028[3], "99946"); // /net028<3>
+	$vmx_define_export( test.top.net027[7], "99945"); // /net027<7>
+	$vmx_define_export( test.top.net028[12], "99944"); // /net028<12>
+	$vmx_define_export( test.top.net028[13], "99943"); // /net028<13>
+	$vmx_define_export( test.top.net029[23], "99942"); // /net029<23>
+	$vmx_define_export( test.top.net026[16], "99941"); // /net026<16>
+	$vmx_define_export( test.top.net029[19], "99940"); // /net029<19>
+	$vmx_define_export( test.top.net027[17], "99939"); // /net027<17>
+	$vmx_define_export( test.top.net026[6], "99938"); // /net026<6>
+	$vmx_define_export( test.top.net026[7], "99937"); // /net026<7>
+	$vmx_define_export( test.top.net029[12], "99936"); // /net029<12>
+	$vmx_define_export( test.top.net029[13], "99935"); // /net029<13>
+	$vmx_define_export( test.top.net029[14], "99934"); // /net029<14>
+	$vmx_define_export( test.top.net027[8], "99933"); // /net027<8>
+	$vmx_define_export( test.top.net027[2], "99932"); // /net027<2>
+	$vmx_define_export( test.top.net028[4], "99931"); // /net028<4>
+	$vmx_define_export( test.top.net028[5], "99930"); // /net028<5>
+	$vmx_define_export( test.top.net028[6], "99929"); // /net028<6>
+	$vmx_define_export( test.top.net028[14], "99928"); // /net028<14>
+	$vmx_define_export( test.top.net027[4], "99927"); // /net027<4>
+	$vmx_define_import( test.top.mixedNet99926, "99926"); // /net23
+	$vmx_define_import( test.top.mixedNet99925, "99925"); // /net21
+	$vmx_define_export( test.top.net026[18], "99924"); // /net026<18>
+	$vmx_define_export( test.top.net026[19], "99923"); // /net026<19>
+	$vmx_define_export( test.top.net026[20], "99922"); // /net026<20>
+	$vmx_define_export( test.top.net026[9], "99921"); // /net026<9>
+	$vmx_define_export( test.top.net029[6], "99920"); // /net029<6>
+	$vmx_define_export( test.top.net026[14], "99919"); // /net026<14>
+	$vmx_define_export( test.top.net028[20], "99918"); // /net028<20>
+	$vmx_define_export( test.top.net028[15], "99917"); // /net028<15>
+	$vmx_define_export( test.top.net027[5], "99916"); // /net027<5>
+	$vmx_define_export( test.top.net027[1], "99915"); // /net027<1>
+	$vmx_define_import( test.top.mixedNet99914, "99914"); // /net22
+	$vmx_define_export( test.top.net026[10], "99913"); // /net026<10>
+	$vmx_define_export( test.top.net026[13], "99912"); // /net026<13>
+	$vmx_define_export( test.top.net026[12], "99911"); // /net026<12>
+	$vmx_define_export( test.top.net026[11], "99910"); // /net026<11>
+	$vmx_define_export( test.top.net029[4], "99909"); // /net029<4>
+	$vmx_define_export( test.top.net028[0], "99908"); // /net028<0>
+	$vmx_define_export( test.top.net028[1], "99907"); // /net028<1>
+	$vmx_define_export( test.top.net026[21], "99906"); // /net026<21>
+	$vmx_define_export( test.top.net028[2], "99905"); // /net028<2>
+	$vmx_define_export( test.top.net029[3], "99904"); // /net029<3>
+	$vmx_define_export( test.top.net029[7], "99903"); // /net029<7>
+	$vmx_define_export( test.top.net027[22], "99902"); // /net027<22>
+	$vmx_define_export( test.top.net029[22], "99901"); // /net029<22>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task

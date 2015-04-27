@@ -1,0 +1,8 @@
+
+// Library name: 16nm
+// Cell name: Compare2_DR_PWR
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+//system verilogNetlist schematic cmos.sch cmos_sch veriloga ahdl
+subckt Compare2_DR_PWR y0_1 y0_0 y1_1 y1_0 a0_1 a0_0 a1_1 a1_0 b0_1 \
+        b0_0 b1_1 b1_0 VDD GND

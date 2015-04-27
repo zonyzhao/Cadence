@@ -1,0 +1,528 @@
+
+`timescale 1ps / 1ps
+
+module test;
+
+
+wire  Hit, Miss, Valid;
+
+
+reg [23:0]  a1;
+reg [23:0]  b1;
+reg [23:0]  a0;
+reg [23:0]  b0;
+integer dc_mode_flag;
+integer output_change_count;
+integer max_dc_iter;
+integer dc_iterations;
+time vmx_time_offset;
+
+
+
+
+Compare24_PWR_Test top(Hit, Miss, Valid, a0, a1, b0, b1); 
+ 
+
+`define verimix
+`ifdef verimix
+
+  //Parasitic Simulation annotate definitions
+  `include "annotate_msb"
+
+  //vms and dc iteration loop definitions
+  `include "IE.verimix"
+
+  //please enter any additional stimulus in the testfixture.verimix file
+  `include "testfixture.verimix"
+
+  //$save_waveform definitions
+  `include "saveDefs"
+
+`endif
+
+
+endmodule 
+// Vermix stimulus file.
+// Default verimix stimulus. 
+
+integer compLog;
+integer seed;
+integer go;
+integer count;
+integer isCorrect;
+integer eqOrNeq;
+
+real start;
+real delay;
+
+
+initial begin
+
+	seed	= 5;
+    start 	= $time;
+	go	 	= 0;
+    count 	= 0;
+	eqOrNeq = 1;
+	isCorrect = 0;
+    compLog=$fopen("/tmp2/compare_LCLog.csv");
+    //$fdisplay(rLog, "A1, A0, B1, B0, Miss, Hit, Correct?, total_sim_time(ps), delay(ps)");
+
+   a0[23:0]=24'h000000;
+   a1[23:0]=24'h000000;
+   b0[23:0]=24'h000000;
+   b1[23:0]=24'h000000;
+
+#1000;
+
+// Same inputs   
+   a0[23:0]=24'hffffff;
+   b0[23:0]=24'hffffff;
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+    start=$time;
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+
+	    
+	start=$time;
+   a0[23:0]=24'h000000;
+   a1[23:0]=24'h000000;
+   b0[23:0]=24'h000000;
+   b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+    $fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+
+	#2000; // Check Leakage
+
+    start=$time;
+
+	// Opposite Inputs   
+    a1[23:0]=24'hffffff;
+   	b0[23:0]=24'hffffff;
+   	a0[23:0]=~a1[23:0];
+   	b1[23:0]=~b0[23:0];
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+	$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    start=$time;
+
+	// AA  & 55 same 
+   a0[23:0]=24'h555555;
+   b0[23:0]=24'h555555;
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    start=$time;
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+
+	delay=$time-start;
+	$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+    start=$time;
+
+	// AA  & 55 opposites
+   	a0[23:0]=24'haaaaaa;
+   	b0[23:0]=~a0[23:0];
+	a1[23:0]=~a0[23:0];
+   	b1[23:0]=~b0[23:0];
+
+	wait(Valid);
+
+	delay=$time-start;
+	if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+		isCorrect =1;
+	end else begin
+		isCorrect =0;
+	end
+    $fdisplay(compLog, "%h %h %h %h %h %h %d %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    start=$time;
+   	a0[23:0]=24'h000000;
+   	a1[23:0]=24'h000000;
+   	b0[23:0]=24'h000000;
+   	b1[23:0]=24'h000000;
+	wait(~Valid);
+	
+	delay=$time-start;
+		$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+
+// random inputs, alternate equal and not equal (both random);
+   a0[23:0]=$random(seed);
+   b0[23:0]=a0[23:0];
+   a1[23:0]=~a0[23:0];
+   b1[23:0]=~b0[23:0];
+	eqOrNeq=1;
+    start=$time;
+	go = 1;
+
+end
+
+
+always @(posedge Valid) begin
+	if (go==1) begin
+		delay=$time-start;
+		if((a0[23:0] == b0[23:0]) && (a1[23:0] == b1[23:0]) && ((Hit==1) && (Miss==0)) || (a0[23:0] != b0[23:0]) && ((Hit==0) && (Miss==1))) begin
+			isCorrect =1;
+		end else begin
+			isCorrect =0;
+		end
+		$fdisplay(compLog, "%h %h %h %h %h %h %d %t $t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, isCorrect, $time, delay );
+    	a0[23:0]=24'h000000;
+   		a1[23:0]=24'h000000;
+   		b0[23:0]=24'h000000;
+   		b1[23:0]=24'h000000;
+		start=$time;
+	end
+end 
+
+
+always @(negedge Valid) begin
+	if (go==1) begin
+		delay=$time-start;
+		$fdisplay(compLog, "%h %h %h %h %h %h \tn/A %t %t", a1[23:0], a0[23:0], b1[23:0], b0[23:0], Miss, Hit, $time, delay );
+		if (eqOrNeq == 1) begin
+			a1 = $random;
+			b1 = $random;
+			eqOrNeq = 0;
+		end else begin
+			a1 = $random;
+			b1 = a1;
+			eqOrNeq = 1;
+		end
+		count = count + 1;
+		if (count >= 20 ) begin
+			$finish;
+		end
+    	a0 = ~a1;
+		b0 = ~b1;
+		start=$time;
+	end
+end
+
+`define _VMX_SIMULATOR_NAME_ "spectre"
+`define _VMX_MAX_DC_ITER_ 0
+`define _VMX_DC_INTERVAL_ 0
+`include "simOptions.verimix"
+
+// Begin Interface Element Header and Verimix Synchronization task
+initial begin
+	$vmx_initialize( `_VMX_SIMULATOR_NAME_ , dc_mode_flag);
+	$vmx_define_export( test.top.net029[2], "99999"); // /net029<2>
+	$vmx_define_export( test.top.net029[10], "99998"); // /net029<10>
+	$vmx_define_export( test.top.net029[11], "99997"); // /net029<11>
+	$vmx_define_export( test.top.net029[0], "99996"); // /net029<0>
+	$vmx_define_export( test.top.net029[15], "99995"); // /net029<15>
+	$vmx_define_export( test.top.net027[20], "99994"); // /net027<20>
+	$vmx_define_export( test.top.net026[15], "99993"); // /net026<15>
+	$vmx_define_export( test.top.net026[22], "99992"); // /net026<22>
+	$vmx_define_export( test.top.net028[23], "99991"); // /net028<23>
+	$vmx_define_export( test.top.net028[22], "99990"); // /net028<22>
+	$vmx_define_export( test.top.net028[21], "99989"); // /net028<21>
+	$vmx_define_export( test.top.net029[9], "99988"); // /net029<9>
+	$vmx_define_export( test.top.net026[0], "99987"); // /net026<0>
+	$vmx_define_export( test.top.net026[23], "99986"); // /net026<23>
+	$vmx_define_export( test.top.net027[16], "99985"); // /net027<16>
+	$vmx_define_export( test.top.net027[21], "99984"); // /net027<21>
+	$vmx_define_export( test.top.net027[0], "99983"); // /net027<0>
+	$vmx_define_export( test.top.net027[19], "99982"); // /net027<19>
+	$vmx_define_export( test.top.net028[18], "99981"); // /net028<18>
+	$vmx_define_export( test.top.net026[8], "99980"); // /net026<8>
+	$vmx_define_export( test.top.net026[5], "99979"); // /net026<5>
+	$vmx_define_export( test.top.net026[4], "99978"); // /net026<4>
+	$vmx_define_export( test.top.net026[3], "99977"); // /net026<3>
+	$vmx_define_export( test.top.net026[2], "99976"); // /net026<2>
+	$vmx_define_export( test.top.net026[1], "99975"); // /net026<1>
+	$vmx_define_export( test.top.net029[5], "99974"); // /net029<5>
+	$vmx_define_export( test.top.net027[3], "99973"); // /net027<3>
+	$vmx_define_export( test.top.net029[17], "99972"); // /net029<17>
+	$vmx_define_export( test.top.net028[16], "99971"); // /net028<16>
+	$vmx_define_export( test.top.net027[23], "99970"); // /net027<23>
+	$vmx_define_export( test.top.net029[1], "99969"); // /net029<1>
+	$vmx_define_export( test.top.net027[10], "99968"); // /net027<10>
+	$vmx_define_export( test.top.net027[9], "99967"); // /net027<9>
+	$vmx_define_export( test.top.net028[9], "99966"); // /net028<9>
+	$vmx_define_export( test.top.net029[21], "99965"); // /net029<21>
+	$vmx_define_export( test.top.net029[20], "99964"); // /net029<20>
+	$vmx_define_export( test.top.net028[19], "99963"); // /net028<19>
+	$vmx_define_export( test.top.net028[10], "99962"); // /net028<10>
+	$vmx_define_export( test.top.net028[17], "99961"); // /net028<17>
+	$vmx_define_export( test.top.net029[16], "99960"); // /net029<16>
+	$vmx_define_export( test.top.net028[7], "99959"); // /net028<7>
+	$vmx_define_export( test.top.net027[11], "99958"); // /net027<11>
+	$vmx_define_export( test.top.net027[12], "99957"); // /net027<12>
+	$vmx_define_export( test.top.net027[13], "99956"); // /net027<13>
+	$vmx_define_export( test.top.net028[11], "99955"); // /net028<11>
+	$vmx_define_export( test.top.net028[8], "99954"); // /net028<8>
+	$vmx_define_export( test.top.net029[8], "99953"); // /net029<8>
+	$vmx_define_export( test.top.net027[14], "99952"); // /net027<14>
+	$vmx_define_export( test.top.net027[15], "99951"); // /net027<15>
+	$vmx_define_export( test.top.net027[18], "99950"); // /net027<18>
+	$vmx_define_export( test.top.net029[18], "99949"); // /net029<18>
+	$vmx_define_export( test.top.net026[17], "99948"); // /net026<17>
+	$vmx_define_export( test.top.net027[6], "99947"); // /net027<6>
+	$vmx_define_export( test.top.net028[3], "99946"); // /net028<3>
+	$vmx_define_export( test.top.net027[7], "99945"); // /net027<7>
+	$vmx_define_export( test.top.net028[12], "99944"); // /net028<12>
+	$vmx_define_export( test.top.net028[13], "99943"); // /net028<13>
+	$vmx_define_export( test.top.net029[23], "99942"); // /net029<23>
+	$vmx_define_export( test.top.net026[16], "99941"); // /net026<16>
+	$vmx_define_export( test.top.net029[19], "99940"); // /net029<19>
+	$vmx_define_export( test.top.net027[17], "99939"); // /net027<17>
+	$vmx_define_export( test.top.net026[6], "99938"); // /net026<6>
+	$vmx_define_export( test.top.net026[7], "99937"); // /net026<7>
+	$vmx_define_export( test.top.net029[12], "99936"); // /net029<12>
+	$vmx_define_export( test.top.net029[13], "99935"); // /net029<13>
+	$vmx_define_export( test.top.net029[14], "99934"); // /net029<14>
+	$vmx_define_export( test.top.net027[8], "99933"); // /net027<8>
+	$vmx_define_export( test.top.net027[2], "99932"); // /net027<2>
+	$vmx_define_export( test.top.net028[4], "99931"); // /net028<4>
+	$vmx_define_export( test.top.net028[5], "99930"); // /net028<5>
+	$vmx_define_export( test.top.net028[6], "99929"); // /net028<6>
+	$vmx_define_export( test.top.net028[14], "99928"); // /net028<14>
+	$vmx_define_export( test.top.net027[4], "99927"); // /net027<4>
+	$vmx_define_import( test.top.mixedNet99926, "99926"); // /net23
+	$vmx_define_import( test.top.mixedNet99925, "99925"); // /net21
+	$vmx_define_export( test.top.net026[18], "99924"); // /net026<18>
+	$vmx_define_export( test.top.net026[19], "99923"); // /net026<19>
+	$vmx_define_export( test.top.net026[20], "99922"); // /net026<20>
+	$vmx_define_export( test.top.net026[9], "99921"); // /net026<9>
+	$vmx_define_export( test.top.net029[6], "99920"); // /net029<6>
+	$vmx_define_export( test.top.net026[14], "99919"); // /net026<14>
+	$vmx_define_export( test.top.net028[20], "99918"); // /net028<20>
+	$vmx_define_export( test.top.net028[15], "99917"); // /net028<15>
+	$vmx_define_export( test.top.net027[5], "99916"); // /net027<5>
+	$vmx_define_export( test.top.net027[1], "99915"); // /net027<1>
+	$vmx_define_import( test.top.mixedNet99914, "99914"); // /net22
+	$vmx_define_export( test.top.net026[10], "99913"); // /net026<10>
+	$vmx_define_export( test.top.net026[13], "99912"); // /net026<13>
+	$vmx_define_export( test.top.net026[12], "99911"); // /net026<12>
+	$vmx_define_export( test.top.net026[11], "99910"); // /net026<11>
+	$vmx_define_export( test.top.net029[4], "99909"); // /net029<4>
+	$vmx_define_export( test.top.net028[0], "99908"); // /net028<0>
+	$vmx_define_export( test.top.net028[1], "99907"); // /net028<1>
+	$vmx_define_export( test.top.net026[21], "99906"); // /net026<21>
+	$vmx_define_export( test.top.net028[2], "99905"); // /net028<2>
+	$vmx_define_export( test.top.net029[3], "99904"); // /net029<3>
+	$vmx_define_export( test.top.net029[7], "99903"); // /net029<7>
+	$vmx_define_export( test.top.net027[22], "99902"); // /net027<22>
+	$vmx_define_export( test.top.net029[22], "99901"); // /net029<22>
+	$vmx_end_definition;
+	vmx_time_offset = 0;
+	max_dc_iter = `_VMX_MAX_DC_ITER_ ;
+	dc_mode_flag = 1;
+	$vmx_start_sim( `_VMX_SIMULATOR_NAME_ );
+	dc_iterations = 0;
+	while(dc_mode_flag !=  0)
+	begin
+		# `_VMX_DC_INTERVAL_ $vmx_do_dc( `_VMX_SIMULATOR_NAME_ ,
+output_change_count);
+		dc_iterations = (dc_iterations + 1);
+		if( (output_change_count == 0) ||  (dc_iterations >= max_dc_iter) )
+		begin
+			dc_mode_flag = 0;
+			vmx_time_offset = $time;
+		end
+	end
+end
+// End Interface Element Footer and Verimix Synchronization task
+initial begin
+end
+
+`include "dataDirPath"
+// Begin SST2 Save Waveforms
+initial begin
+$shm_open(`_VMX_DATA_PATH_);
+$shm_probe(test.top.a0[3], test.top.a0[4], test.top.a0[5], test.top.a0[6], test.top.a0[7], test.top.a0[8], test.top.a0[9], test.top.a0[10], test.top.a0[11], test.top.a0[12], test.top.a0[13], test.top.a0[14], test.top.a0[15], test.top.a0[16], test.top.a0[17], test.top.a0[18], test.top.a0[19], test.top.a0[20], test.top.a0[21], test.top.a0[22], test.top.a1[23], test.top.a1[22], test.top.a1[21], test.top.a1[20], test.top.a1[19], test.top.a1[9], test.top.a1[17], test.top.a1[18], test.top.b1[6], test.top.a1[6], test.top.b1[15], test.top.a1[2], test.top.a1[3], test.top.a1[4], test.top.a1[5], test.top.b1[23], test.top.b1[22], test.top.b1[21], test.top.b0[4], test.top.b0[5], test.top.b0[6], test.top.b0[7], test.top.b0[8], test.top.b0[9], test.top.a0[23], test.top.Valid, test.top.a1[16], test.top.b0[20], test.top.b1[2], test.top.b1[1], test.top.b1[0], test.top.b0[19], test.top.b0[18], test.top.b0[17], test.top.a1[8], test.top.b0[22], test.top.a1[7], test.top.b1[8], test.top.b1[16], test.top.b1[18], test.top.b1[17], 
+test.top.b1[14], test.top.a0[0], test.top.b1[7], test.top.b0[23], test.top.a1[11], test.top.a1[12], test.top.a1[13], test.top.b1[3], test.top.b0[0], test.top.b0[2], test.top.a1[1], test.top.a1[10], test.top.b0[1], test.top.b0[3], test.top.b1[12], test.top.b0[11], test.top.b0[12], test.top.a1[15], test.top.a1[14], test.top.b0[16], test.top.b0[15], test.top.a0[2], test.top.a0[1], test.top.a1[0], test.top.Hit, test.top.Miss, test.top.b1[19], test.top.b1[13], test.top.b0[14], test.top.b0[13], test.top.b0[21], test.top.b1[9], test.top.b1[11], test.top.b1[10], test.top.b1[5], test.top.b1[4], test.top.b1[20], test.top.b0[10], test.top.b1[23:0], test.top.b0[23:0], test.top.a1[23:0], test.top.a0[23:0]);
+end
+// End SST2 Save Waveforms
+// Library - 16nm_Tests, Cell - Compare24_PWR_Test, View - schematic
+// LAST TIME SAVED: Apr 27 03:53:35 2015
+// NETLIST TIME: Apr 27 04:41:50 2015
+`timescale 1ps / 1ps 
+
+module Compare24_PWR_Test ( Hit, Miss, Valid, a0, a1, b0, b1 );
+
+output  Hit, Miss, Valid;
+
+
+input [23:0]  a1;
+input [23:0]  b1;
+input [23:0]  a0;
+input [23:0]  b0;
+
+// Buses in the design
+
+wire  [23:0]  b1T;
+
+wire  [0:23]  net027;
+
+wire  [23:0]  b0T;
+
+wire  [23:0]  a0T;
+
+wire  [0:23]  net026;
+
+wire  [0:23]  net029;
+
+wire  [0:23]  net028;
+
+wire  [23:0]  a1T;
+
+// begin interface element definitions
+
+wire net23;
+wire net21;
+wire net22;
+reg mixedNet99926;
+reg mixedNet99925;
+reg mixedNet99914;
+assign net23 = mixedNet99926;
+assign net21 = mixedNet99925;
+assign net22 = mixedNet99914;
+
+// end interface element definitions
+
+
+
+specify 
+    specparam CDS_LIBNAME  = "16nm_Tests";
+    specparam CDS_CELLNAME = "Compare24_PWR_Test";
+    specparam CDS_VIEWNAME = "schematic";
+endspecify
+
+inv_1xT I18 ( Miss, net22);
+inv_1xT I17 ( Valid, net21);
+inv_1xT I16 ( Hit, net23);
+inv_1xT I20_23_ ( net028[0], a0[23]);
+inv_1xT I20_22_ ( net028[1], a0[22]);
+inv_1xT I20_21_ ( net028[2], a0[21]);
+inv_1xT I20_20_ ( net028[3], a0[20]);
+inv_1xT I20_19_ ( net028[4], a0[19]);
+inv_1xT I20_18_ ( net028[5], a0[18]);
+inv_1xT I20_17_ ( net028[6], a0[17]);
+inv_1xT I20_16_ ( net028[7], a0[16]);
+inv_1xT I20_15_ ( net028[8], a0[15]);
+inv_1xT I20_14_ ( net028[9], a0[14]);
+inv_1xT I20_13_ ( net028[10], a0[13]);
+inv_1xT I20_12_ ( net028[11], a0[12]);
+inv_1xT I20_11_ ( net028[12], a0[11]);
+inv_1xT I20_10_ ( net028[13], a0[10]);
+inv_1xT I20_9_ ( net028[14], a0[9]);
+inv_1xT I20_8_ ( net028[15], a0[8]);
+inv_1xT I20_7_ ( net028[16], a0[7]);
+inv_1xT I20_6_ ( net028[17], a0[6]);
+inv_1xT I20_5_ ( net028[18], a0[5]);
+inv_1xT I20_4_ ( net028[19], a0[4]);
+inv_1xT I20_3_ ( net028[20], a0[3]);
+inv_1xT I20_2_ ( net028[21], a0[2]);
+inv_1xT I20_1_ ( net028[22], a0[1]);
+inv_1xT I20_0_ ( net028[23], a0[0]);
+inv_1xT I9_23_ ( net029[0], a1[23]);
+inv_1xT I9_22_ ( net029[1], a1[22]);
+inv_1xT I9_21_ ( net029[2], a1[21]);
+inv_1xT I9_20_ ( net029[3], a1[20]);
+inv_1xT I9_19_ ( net029[4], a1[19]);
+inv_1xT I9_18_ ( net029[5], a1[18]);
+inv_1xT I9_17_ ( net029[6], a1[17]);
+inv_1xT I9_16_ ( net029[7], a1[16]);
+inv_1xT I9_15_ ( net029[8], a1[15]);
+inv_1xT I9_14_ ( net029[9], a1[14]);
+inv_1xT I9_13_ ( net029[10], a1[13]);
+inv_1xT I9_12_ ( net029[11], a1[12]);
+inv_1xT I9_11_ ( net029[12], a1[11]);
+inv_1xT I9_10_ ( net029[13], a1[10]);
+inv_1xT I9_9_ ( net029[14], a1[9]);
+inv_1xT I9_8_ ( net029[15], a1[8]);
+inv_1xT I9_7_ ( net029[16], a1[7]);
+inv_1xT I9_6_ ( net029[17], a1[6]);
+inv_1xT I9_5_ ( net029[18], a1[5]);
+inv_1xT I9_4_ ( net029[19], a1[4]);
+inv_1xT I9_3_ ( net029[20], a1[3]);
+inv_1xT I9_2_ ( net029[21], a1[2]);
+inv_1xT I9_1_ ( net029[22], a1[1]);
+inv_1xT I9_0_ ( net029[23], a1[0]);
+inv_1xT I24_23_ ( net026[0], b0[23]);
+inv_1xT I24_22_ ( net026[1], b0[22]);
+inv_1xT I24_21_ ( net026[2], b0[21]);
+inv_1xT I24_20_ ( net026[3], b0[20]);
+inv_1xT I24_19_ ( net026[4], b0[19]);
+inv_1xT I24_18_ ( net026[5], b0[18]);
+inv_1xT I24_17_ ( net026[6], b0[17]);
+inv_1xT I24_16_ ( net026[7], b0[16]);
+inv_1xT I24_15_ ( net026[8], b0[15]);
+inv_1xT I24_14_ ( net026[9], b0[14]);
+inv_1xT I24_13_ ( net026[10], b0[13]);
+inv_1xT I24_12_ ( net026[11], b0[12]);
+inv_1xT I24_11_ ( net026[12], b0[11]);
+inv_1xT I24_10_ ( net026[13], b0[10]);
+inv_1xT I24_9_ ( net026[14], b0[9]);
+inv_1xT I24_8_ ( net026[15], b0[8]);
+inv_1xT I24_7_ ( net026[16], b0[7]);
+inv_1xT I24_6_ ( net026[17], b0[6]);
+inv_1xT I24_5_ ( net026[18], b0[5]);
+inv_1xT I24_4_ ( net026[19], b0[4]);
+inv_1xT I24_3_ ( net026[20], b0[3]);
+inv_1xT I24_2_ ( net026[21], b0[2]);
+inv_1xT I24_1_ ( net026[22], b0[1]);
+inv_1xT I24_0_ ( net026[23], b0[0]);
+inv_1xT I21_23_ ( net027[0], b1[23]);
+inv_1xT I21_22_ ( net027[1], b1[22]);
+inv_1xT I21_21_ ( net027[2], b1[21]);
+inv_1xT I21_20_ ( net027[3], b1[20]);
+inv_1xT I21_19_ ( net027[4], b1[19]);
+inv_1xT I21_18_ ( net027[5], b1[18]);
+inv_1xT I21_17_ ( net027[6], b1[17]);
+inv_1xT I21_16_ ( net027[7], b1[16]);
+inv_1xT I21_15_ ( net027[8], b1[15]);
+inv_1xT I21_14_ ( net027[9], b1[14]);
+inv_1xT I21_13_ ( net027[10], b1[13]);
+inv_1xT I21_12_ ( net027[11], b1[12]);
+inv_1xT I21_11_ ( net027[12], b1[11]);
+inv_1xT I21_10_ ( net027[13], b1[10]);
+inv_1xT I21_9_ ( net027[14], b1[9]);
+inv_1xT I21_8_ ( net027[15], b1[8]);
+inv_1xT I21_7_ ( net027[16], b1[7]);
+inv_1xT I21_6_ ( net027[17], b1[6]);
+inv_1xT I21_5_ ( net027[18], b1[5]);
+inv_1xT I21_4_ ( net027[19], b1[4]);
+inv_1xT I21_3_ ( net027[20], b1[3]);
+inv_1xT I21_2_ ( net027[21], b1[2]);
+inv_1xT I21_1_ ( net027[22], b1[1]);
+inv_1xT I21_0_ ( net027[23], b1[0]);
+
+endmodule
