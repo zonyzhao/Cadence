@@ -5,7 +5,7 @@
 // Design view name: config
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters vdd=0.4 vcc=vdd
+parameters vdd=1.25 vcc=vdd
 include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 // BEGIN Flat Interface Elements
 // Flattened IE at /~ReadData<10> uses port path 99999

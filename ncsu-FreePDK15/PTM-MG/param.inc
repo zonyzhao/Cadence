@@ -13,6 +13,13 @@
 .param fin_height=26n
 .param fin_width=12n
 .param lg=20n
+
+.param sigma=0.0333
+.param vton=agauss(0,sigma,1) delvton=’vton-sigma*0.05’
+.param vtop=agauss(0,sigma,1) delvtop=’vtop+sigma*0.05’
+*.param vton=agauss(0,0.05v,1) delvton=’vton-sigma*0.05’
+*.param vtop=agauss(0,0.05v,1) delvtop=’vtop+sigma*0.05’
+
 .endl
 
 .lib 14nm

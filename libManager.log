@@ -1,252 +1,28 @@
 \o Program:		@(#)$CDS: libManager version 6.1.6 - CAT33 08/24/2014 13:48 (sjfnl834) $
 \o Sub version:		sub-version  s012 
-\o Arguments:		-mpssession virtuoso27118 -mpshost bull 
+\o Arguments:		-mpssession virtuoso3155 -mpshost bull 
 \o Working Directory:	bull:/root/Desktop/Cadence
 \o Qt version: 		4.7.2
 \o Log file is "/root/Desktop/Cadence/libManager.log".
 \o Opening libManager window.
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1683 208 1223 873))
+\a nrResizeWindow(cdsLibManager list(1921 118 1280 992))
 \o changeWorkingDir("/root/Desktop/Cadence") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
 \o Library Manager customization server connected.
+\o MPS service: map window
+\a nrSetCurrentWindow(cdsLibManager)
 \a nrSetCurrentWindow(cdsLibManager)
 \a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->libListBox->value = "16nm_Tests"
 \a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "Compare24_LevelConversion_Test"
-\a cdsLibManager->cellLineEdit->value = "Compare24_LevelConversion_Test"
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a lmgrLogShowPopup("mainListPopup1" 115 378 2 "Compare24_LevelConversion_Test")
-\a cdsLibManager->editRenameButton->value = t
-\a basicRenameForm->basicRenameFromEdit->value = "Compare24_LevelConversion_Test"
-\a nrSetWindowVisibility(basicRenameForm "show")
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_LevelConversion_Test"
-\a nrSetCurrentWindow(basicRenameForm)
-\a nrResizeWindow(basicRenameForm list(2123 465 343 180))
-\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->cellListBox->value = "Compare24_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a lmgrLogShowPopup("mainListPopup1" 33 397 2 "Compare24_Test")
 \a cdsLibManager->cellLineEdit->value = "Compare24_Test"
-\a cdsLibManager->editRenameButton->value = t
-\a basicRenameForm->basicRenameFromEdit->value = "Compare24_Test"
-\a nrSetWindowVisibility(basicRenameForm "show")
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_Test"
-\a nrSetCurrentWindow(basicRenameForm)
-\a nrResizeWindow(basicRenameForm list(2123 465 343 180))
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_PWR_Test"
-\a nrDialogAccept(basicRenameForm)
-\a basicRenameForm->OK->value = t
-\o Renaming Cell "Compare24_Test" to "Compare24_PWR_Test" in library "16nm_Tests".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_PWR_Test"
-\a nrResizeWindow(workingDialogForm list(2154 481 281 131))
+\a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->cellLineEdit->value = ""
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "Compare24_LevelConversion_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a lmgrLogShowPopup("mainListPopup1" 137 386 2 "Compare24_LevelConversion_Test")
-\a cdsLibManager->cellLineEdit->value = "Compare24_LevelConversion_Test"
-\a cdsLibManager->editRenameButton->value = t
-\a basicRenameForm->basicRenameFromEdit->value = "Compare24_LevelConversion_Test"
-\a nrSetWindowVisibility(basicRenameForm "show")
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_LevelConversion_Test"
-\a nrSetCurrentWindow(basicRenameForm)
-\a nrResizeWindow(basicRenameForm list(2123 465 343 180))
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_Test"
-\a nrDialogAccept(basicRenameForm)
-\a basicRenameForm->OK->value = t
-\o Renaming Cell "Compare24_LevelConversion_Test" to "Compare24_Test" in library "16nm_Tests".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(workingDialogForm)
-\a basicRenameForm->basicRenameToEdit->value = "Compare24_Test"
-\a nrResizeWindow(workingDialogForm list(2154 481 281 131))
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "Compare24_Test"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "Compare24_Test"
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->cellLineEdit->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "Compare24_Test"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "Compare24_Test"
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a lmgrLogShowPopup("mainListPopup2" 105 7 2 "")
-\a cdsLibManager->editDeleteButton->value = t
-\a deleteForm->deleteBothRadioButton->value = t
-\a deleteForm->deleteFilterEdit->value = "*"
-\a deleteForm->notDeleteFilterEdit->value = "*"
-\a nrSetWindowVisibility(deleteForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\a nrResizeWindow(deleteForm list(1981 432 627 425))
-\a deleteForm->OK->value = t
-\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
-\a nrSetWindowVisibility(mcMBXDLG "show")
-\a nrSetCurrentWindow(mcMBXDLG)
-\a nrResizeWindow(mcMBXDLG list(2113 518 362 243))
-\a mcMBXDLG->pushButton1->value = t
-\o Deleting view "config" from cell "Compare24_Test" in library "16nm_Tests".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\o Deleted cellview '16nm_Tests/Compare24_Test/config'.
-\o Deletion of 1 view done.
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = nil
-\a nrResizeWindow(workingDialogForm list(0 0 281 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "Compare24_Test"
-\a cdsLibManager->cellLineEdit->value = "Compare24_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a lmgrLogShowPopup("mainListPopup2" 26 1 2 "config")
-\a cdsLibManager->editDeleteButton->value = t
-\a nrSetWindowVisibility(deleteForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\a nrResizeWindow(deleteForm list(1981 432 627 425))
-\a deleteForm->OK->value = t
-\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
-\a nrSetWindowVisibility(mcMBXDLG "show")
-\a nrSetCurrentWindow(mcMBXDLG)
-\a nrResizeWindow(mcMBXDLG list(2113 518 362 243))
-\a mcMBXDLG->pushButton1->value = t
-\o Deleting view "config" from cell "Compare24_PWR_Test" in library "16nm_Tests".
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(deleteForm)
-\o Deleted cellview '16nm_Tests/Compare24_PWR_Test/config'.
-\o Deletion of 1 view done.
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = nil
-\a nrResizeWindow(workingDialogForm list(0 0 281 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm_Tests"
-\a cdsLibManager->libLineEdit->value = "16nm_Tests"
-\a cdsLibManager->cellListBox->value = "Compare24_PWR_Test"
-\a cdsLibManager->cellLineEdit->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->FileNewCVButton->value = t
-\a cdsLibManager->viewLineEdit->value = ""
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewLineEdit->value = ""
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "Compare24_Test"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "Compare24_Test"
-\a cdsLibManager->FileNewCVButton->value = t
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\a cdsLibManager->viewLineEdit->value = "config"
-\a cdsLibManager->cellLineEdit->value = "Compare24_PWR_Test"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "config"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1535 171 1223 873))
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libLineEdit->value = "16nm"
 \a nrSetWindowVisibility(cdsLibManager "hide")
 \o libManager is exiting.
 \a exit(0)
