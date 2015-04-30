@@ -1,0 +1,4 @@
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 nf=1 dvtshift=0 m=1
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 dvtshift=0 m=1
+ends inv_1x
+// End of subcircuit definition.

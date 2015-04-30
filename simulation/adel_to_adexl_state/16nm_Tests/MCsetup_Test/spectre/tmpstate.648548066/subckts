@@ -1,0 +1,28 @@
+_subcktKeepList = nil
+savedComponent = (let
+(tmp1)
+(unless tmp1
+tmp1 = make_sevSubcktStruct()
+)
+(unless tmp1
+tmp1 = (ncons nil)
+)
+tmp1->index = 1
+tmp1->inLastSet = nil
+tmp1->fullName = "/I0"
+tmp1->voltage = 't
+tmp1->current = 't
+tmp1->power = 't
+tmp1->vDepth = nil
+tmp1->iDepth = ""
+tmp1->pDepth = ""
+tmp1->compress = nil
+tmp1->ignoreParasitics = nil
+tmp1->ports = nil
+tmp1->userOptions = nil
+tmp1->selectionDetail = nil
+list(tmp1)
+)
+_subcktKeepList = nconc( _subcktKeepList savedComponent) 
+savedComponent = _subcktKeepList 
+_subcktKeepList = 'unbound

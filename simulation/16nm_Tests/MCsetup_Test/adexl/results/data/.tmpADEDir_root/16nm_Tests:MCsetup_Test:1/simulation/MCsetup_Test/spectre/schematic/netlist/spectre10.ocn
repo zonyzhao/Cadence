@@ -1,0 +1,21 @@
+simulator( 'spectre )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MCsetup_Test:1/16nm_Tests_MCsetup_Test_spectre/dcOp/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MCsetup_Test:1/16nm_Tests_MCsetup_Test_spectre/dcOp" )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" "")
+)
+analysis('dc ?saveOppoint t  )
+desVar(	  "vdd" ".500\\"	)
+desVar(	  "time2" 5n	)
+envOption(
+	'cmd64bit  t 
+	'autoDisplay  nil 
+	'analysisOrder  list("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens") 
+)
+option(	'multithread  "on" 
+)
+save( 'i "/V0/MINUS" )
+run()
+selectResult( 'dcOp )
+plot(getData("/V0/MINUS") )

@@ -41,14 +41,14 @@ mpfet d g s x pfet L=l NFIN=nfin
 ***********************************************************************************
 .LIB ptm16lstp
 
-.subckt nfet d g s x l=lg nfin=1
+.subckt nfet d g s x l=lg nfin=1 dvtshift=0
 .include 'modelfiles/lstp/16nfet.pm'
-mnfet d g s x nfet L=l NFIN=nfin
+mnfet d g s x nfet L=l NFIN=nfin 
 .ends nfet
 
-.subckt pfet d g s x l=lg nfin=1
+.subckt pfet d g s x l=lg nfin=1 dvtshift=0
 .include 'modelfiles/lstp/16pfet.pm'
-mpfet d g s x pfet L=l NFIN=nfin
+mpfet d g s x pfet L=l NFIN=nfin 
 .ends pfet
 
 .lib 'param.inc' 16nm
@@ -123,14 +123,14 @@ mpfet d g s x pfet L=l NFIN=nfin
 ***********************************************************************************
 .LIB ptm16hp
 
-.subckt nfet d g s x l=lg nfin=1
+.subckt nfet d g s x l=lg nfin=1 dvtshift=ndvtshift
 .include 'modelfiles/hp/16nfet.pm'
-mnfet d g s x nfet L=l NFIN=nfin
+mnfet d g s x nfet L=l NFIN=nfin 
 .ends nfet
 
-.subckt pfet d g s x l=lg nfin=1
+.subckt pfet d g s x l=lg nfin=1 dvtshift=pdvtshift
 .include 'modelfiles/hp/16pfet.pm'
-mpfet d g s x pfet L=l NFIN=nfin
+mpfet d g s x pfet L=l NFIN=nfin 
 .ends pfet
 
 .lib 'param.inc' 16nm

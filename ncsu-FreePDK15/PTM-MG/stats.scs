@@ -1,0 +1,10 @@
+simulator lang=spectre
+
+statistics {
+    mismatch {
+        vary ndvtshift dist=gauss std=0.03
+		vary pdvtshift dist=gauss std=0.03
+    }
+}
+
+

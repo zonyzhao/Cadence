@@ -1,0 +1,316 @@
+'(nil version 1.0 bBox ((2 73) (552 661)))
+(unless printInfoDpl
+printInfoDpl = (ncons nil)
+)
+(unless printInfoDpl->expTable
+printInfoDpl->expTable = (ncons nil)
+)
+printInfoDpl->expTable->waves = (let
+(tmp1)
+tmp1 = nil
+list(tmp1)
+)
+printInfoDpl->expTable->origWaves = (let
+(tmp1)
+tmp1 = nil
+list(tmp1)
+)
+printInfoDpl->expTable->expressions = (let
+(tmp1)
+tmp1 = "OPT(\"I0.M1.mpfet\" \"??\")"
+list(tmp1)
+)
+printInfoDpl->expTable->aliases = (let
+(tmp1)
+tmp1 = "OPT(\"I0.M1.mpfet\" \"??\")"
+list(tmp1)
+)
+(unless printInfoDpl->optionDpl
+printInfoDpl->optionDpl = (ncons nil)
+)
+printInfoDpl->optionDpl->format = 'suffix
+printInfoDpl->optionDpl->numSigDigits = 4
+printInfoDpl->optionDpl->linLog = "Linear"
+printInfoDpl->optionDpl->from = nil
+printInfoDpl->optionDpl->to = nil
+printInfoDpl->optionDpl->step = nil
+(unless printInfoDpl->printOptions
+printInfoDpl->printOptions = (ncons nil)
+)
+printInfoDpl->printType = "simple wave"
+printInfoDpl->origStrList = (let
+(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8 tmp9 tmp10 tmp11 tmp12 tmp13 tmp14 tmp15 tmp16 tmp17 tmp18 tmp19 tmp20 tmp21 tmp22 tmp23 tmp24 tmp25 tmp26 tmp27 tmp28 tmp29 tmp30 tmp31 tmp32 tmp33 tmp34 tmp35 tmp36 tmp37 tmp38 tmp39 tmp40 tmp41 tmp42 tmp43 tmp44 tmp45 tmp46 tmp47 tmp48 tmp49 tmp50 tmp51 tmp52 tmp53 tmp54 tmp55 tmp56 tmp57 tmp58 tmp59 tmp60 tmp61 tmp62 tmp63 tmp64 tmp65 tmp66 tmp67 tmp68 tmp69 tmp70 tmp71 tmp72 tmp73 tmp74 tmp75 tmp76 tmp77 tmp78 tmp79 tmp80 tmp81 tmp82 tmp83 tmp84 tmp85 tmp86 tmp87 tmp88 tmp89 tmp90 tmp91 tmp92 tmp93 tmp94 tmp95 tmp96 tmp97 tmp98 tmp99 tmp100 tmp101 tmp102 tmp103 tmp104 tmp105 tmp106 tmp107 tmp108 tmp109 tmp110 tmp111 tmp112 tmp113 tmp114 tmp115 tmp116 tmp117 tmp118 tmp119 tmp120 tmp121 tmp122 tmp123 tmp124 tmp125 tmp126 tmp127 tmp128 tmp129 tmp130 tmp131 tmp132 tmp133 tmp134 tmp135 tmp136)
+tmp1 = "signal                     OPT(\"I0.M1.mpfet\" \"??\")"
+tmp2 = "beta                           6.47m                  "
+tmp3 = "cdd                           23.54a                  "
+tmp4 = "cddi                        -441.1y                   "
+tmp5 = "cde                           -0                      "
+tmp6 = "cdei                          -0                      "
+tmp7 = "cdg                           23.54a                  "
+tmp8 = "cdgi                           6.823z                 "
+tmp9 = "cds                           -7.264z                 "
+tmp10 = "cdsi                          -7.264z                 "
+tmp11 = "cdt                            0                      "
+tmp12 = "ced                           -0                      "
+tmp13 = "cedi                          -0                      "
+tmp14 = "cee                            0                      "
+tmp15 = "ceei                           0                      "
+tmp16 = "ceg                            0                      "
+tmp17 = "cegi                          -0                      "
+tmp18 = "ces                            0                      "
+tmp19 = "cesi                           0                      "
+tmp20 = "cgbov                         -0                      "
+tmp21 = "cgd                           23.54a                  "
+tmp22 = "cgdext                        23.54a                  "
+tmp23 = "cgdi                        -987.4y                   "
+tmp24 = "cge                            0                      "
+tmp25 = "cgei                           0                      "
+tmp26 = "cgg                           47.09a                  "
+tmp27 = "cggi                          15.33z                  "
+tmp28 = "cgs                           23.55a                  "
+tmp29 = "cgsext                        23.54a                  "
+tmp30 = "cgsi                          16.31z                  "
+tmp31 = "cgt                            0                      "
+tmp32 = "cjdt                          -0                      "
+tmp33 = "cjst                          -0                      "
+tmp34 = "csd                          546.3y                   "
+tmp35 = "csdi                         546.3y                   "
+tmp36 = "cse                           -0                      "
+tmp37 = "csei                           0                      "
+tmp38 = "csg                           23.54a                  "
+tmp39 = "csgi                           8.503z                 "
+tmp40 = "css                           23.55a                  "
+tmp41 = "cssi                           9.049z                 "
+tmp42 = "cst                            0                      "
+tmp43 = "didsdvd                        8.058n                 "
+tmp44 = "didsdvg                       82.77n                  "
+tmp45 = "didsdvs                      -90.83n                  "
+tmp46 = "didsdvth                       0                      "
+tmp47 = "digddvd                        5.428y                 "
+tmp48 = "digddvg                       82.67y                  "
+tmp49 = "digddvs                      -88.1y                   "
+tmp50 = "digddvth                       0                      "
+tmp51 = "digidldvd                     -0                      "
+tmp52 = "digidldvg                     -0                      "
+tmp53 = "digidldvs                      0                      "
+tmp54 = "digidldvth                     0                      "
+tmp55 = "digisldvd                     -0                      "
+tmp56 = "digisldvg                     -0                      "
+tmp57 = "digisldvs                      0                      "
+tmp58 = "digisldvth                     0                      "
+tmp59 = "digsdvd                       10.64y                  "
+tmp60 = "digsdvg                      163.6y                   "
+tmp61 = "digsdvs                     -174.3y                   "
+tmp62 = "digsdvth                       0                      "
+tmp63 = "diiidvd                       -0                      "
+tmp64 = "diiidvg                       -0                      "
+tmp65 = "diiidvs                        0                      "
+tmp66 = "diiidvth                       0                      "
+tmp67 = "dithdvd                       -6.667n                 "
+tmp68 = "dithdvg                      -41.38n                  "
+tmp69 = "dithdvs                       48.05n                  "
+tmp70 = "dithdvth                       0                      "
+tmp71 = "gds                            8.058n                 "
+tmp72 = "gm                            82.77n                  "
+tmp73 = "gmbs                          -0                      "
+tmp74 = "id                            -2.638n                 "
+tmp75 = "ideff                         -2.638n                 "
+tmp76 = "ids                           -2.638n                 "
+tmp77 = "idsgen                        -0                      "
+tmp78 = "igbacc                        -0                      "
+tmp79 = "igbd                           0                      "
+tmp80 = "igbinv                        -0                      "
+tmp81 = "igbs                           0                      "
+tmp82 = "igcd                          -1.317y                 "
+tmp83 = "igcs                          -2.608y                 "
+tmp84 = "igd                            0                      "
+tmp85 = "igidl                         -0                      "
+tmp86 = "igisl                         -0                      "
+tmp87 = "igs                            0                      "
+tmp88 = "igtot                         -3.925y                 "
+tmp89 = "iii                           -0                      "
+tmp90 = "ijdb                           0                      "
+tmp91 = "ijsb                           0                      "
+tmp92 = "iseff                          2.638n                 "
+tmp93 = "isub                           0                      "
+tmp94 = "ith                            1.319n                 "
+tmp95 = "linearity_factor               1                      "
+tmp96 = "lpoly                         18n                     "
+tmp97 = "para_cdbox                     0                      "
+tmp98 = "para_cgbox                     0                      "
+tmp99 = "para_csbox                     0                      "
+tmp100 = "para_qds_fr                    0                      "
+tmp101 = "para_qgd_fr                   13.59a                  "
+tmp102 = "para_qgd_ov                    9.945a                 "
+tmp103 = "para_qgs_fr                   13.59a                  "
+tmp104 = "para_qgs_ov                    9.945a                 "
+tmp105 = "para_rd                        1.948K                 "
+tmp106 = "para_rg                        0                      "
+tmp107 = "para_rs                        1.948K                 "
+tmp108 = "pwr                            1.319n                 "
+tmp109 = "qb                            99.84z                  "
+tmp110 = "qbi                           99.84z                  "
+tmp111 = "qd                           -11.77a                  "
+tmp112 = "qdi                          217.5y                   "
+tmp113 = "qg                            11.67a                  "
+tmp114 = "qgi                         -100.3z                   "
+tmp115 = "qs                           150y                     "
+tmp116 = "qsi                          271y                     "
+tmp117 = "region                         0                      "
+tmp118 = "reversed                       0                      "
+tmp119 = "rout                         124.1M                   "
+tmp120 = "sft                           30                      "
+tmp121 = "tdevice                      303.1                    "
+tmp122 = "temp_sh                       30                      "
+tmp123 = "vdet                        -500m                     "
+tmp124 = "vds                          500m                     "
+tmp125 = "vdssat                        21.77m                  "
+tmp126 = "vdst                        -500m                     "
+tmp127 = "ves                            0                      "
+tmp128 = "vest                           0                      "
+tmp129 = "vfb                          566.8m                   "
+tmp130 = "vgd                         -500m                     "
+tmp131 = "vgdt                         500m                     "
+tmp132 = "vget                           0                      "
+tmp133 = "vgs                           -5.139u                 "
+tmp134 = "vgst                           0                      "
+tmp135 = "vgt                         -312.4m                   "
+tmp136 = "vth                         -312.4m                   "
+list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8 tmp9 tmp10 tmp11 tmp12 tmp13 tmp14 tmp15 tmp16 tmp17 tmp18 tmp19 tmp20 tmp21 tmp22 tmp23 tmp24 tmp25 tmp26 tmp27 tmp28 tmp29 tmp30 tmp31 tmp32 tmp33 tmp34 tmp35 tmp36 tmp37 tmp38 tmp39 tmp40 tmp41 tmp42 tmp43 tmp44 tmp45 tmp46 tmp47 tmp48 tmp49 tmp50 tmp51 tmp52 tmp53 tmp54 tmp55 tmp56 tmp57 tmp58 tmp59 tmp60 tmp61 tmp62 tmp63 tmp64 tmp65 tmp66 tmp67 tmp68 tmp69 tmp70 tmp71 tmp72 tmp73 tmp74 tmp75 tmp76 tmp77 tmp78 tmp79 tmp80 tmp81 tmp82 tmp83 tmp84 tmp85 tmp86 tmp87 tmp88 tmp89 tmp90 tmp91 tmp92 tmp93 tmp94 tmp95 tmp96 tmp97 tmp98 tmp99 tmp100 tmp101 tmp102 tmp103 tmp104 tmp105 tmp106 tmp107 tmp108 tmp109 tmp110 tmp111 tmp112 tmp113 tmp114 tmp115 tmp116 tmp117 tmp118 tmp119 tmp120 tmp121 tmp122 tmp123 tmp124 tmp125 tmp126 tmp127 tmp128 tmp129 tmp130 tmp131 tmp132 tmp133 tmp134 tmp135 tmp136)
+)
+printInfoDpl->title = nil
+printInfoDpl->xCol = nil
+printInfoDpl->width = 23
+printInfoDpl->numSpaces = 4
+printInfoDpl->noMerge = nil
+printInfoDpl->resultsDir = nil
+printInfoDpl->resultName = nil
+printInfoDpl->unitList = (let
+(tmp1 tmp2)
+tmp1 = ""
+tmp2 = ""
+list(tmp1 tmp2)
+)
+printInfoDpl->waveNameList = (let
+(tmp1 tmp2)
+tmp1 = "signal"
+tmp2 = "OPT(\"I0.M1.mpfet\" \"??\")"
+list(tmp1 tmp2)
+)
+(unless printInfoDpl->context
+printInfoDpl->context = (ncons nil)
+)
+printInfoDpl->context->runObjFile = "runObjFile"
+printInfoDpl->context->netlistDir = "/net/kafka/nfs/rstdenis/Cadence/simulation/MCsetup_Test/spectre/schematic/netlist"
+printInfoDpl->context->relativeDir = "/net/kafka/nfs/rstdenis/Cadence/simulation/MCsetup_Test/spectre"
+printInfoDpl->context->dataDir = "/net/kafka/nfs/rstdenis/Cadence/simulation/MCsetup_Test/spectre/schematic"
+(unless printInfoDpl->context->cache
+printInfoDpl->context->cache = (ncons nil)
+)
+(unless printInfoDpl->context->simData
+printInfoDpl->context->simData = (ncons nil)
+)
+printInfoDpl->context->simData->drl = nil
+(unless printInfoDpl->context->simData->instData
+printInfoDpl->context->simData->instData = (ncons nil)
+)
+printInfoDpl->context->simData->dataDir = "/net/kafka/nfs/rstdenis/Cadence/simulation/MCsetup_Test/spectre/schematic"
+printInfoDpl->context->simData->simulator = "spectre"
+printInfoDpl->context->simData->aliasList = (let
+(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8 tmp9)
+tmp1 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'subckts
+list(tmp1)
+)
+tmp2 = "subckts-info.subckts"
+list(tmp1 tmp2)
+)
+tmp2 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'primitives
+list(tmp1)
+)
+tmp2 = "primitives-info.primitives"
+list(tmp1 tmp2)
+)
+tmp3 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'designParamVals
+list(tmp1)
+)
+tmp2 = "designParamVals-info"
+list(tmp1 tmp2)
+)
+tmp4 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'output
+list(tmp1)
+)
+tmp2 = "outputParameter-info"
+list(tmp1 tmp2)
+)
+tmp5 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'instance
+list(tmp1)
+)
+tmp2 = "element-info"
+list(tmp1 tmp2)
+)
+tmp6 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'model
+list(tmp1)
+)
+tmp2 = "modelParameter-info"
+list(tmp1 tmp2)
+)
+tmp7 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'tranOp
+list(tmp1)
+)
+tmp2 = "finalTimeOP-info"
+list(tmp1 tmp2)
+)
+tmp8 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'tran
+list(tmp1)
+)
+tmp2 = "tran-tran"
+list(tmp1 tmp2)
+)
+tmp9 = (let
+(tmp1 tmp2)
+tmp1 = (let
+(tmp1)
+tmp1 = 'variables
+list(tmp1)
+)
+tmp2 = "variables"
+list(tmp1 tmp2)
+)
+list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8 tmp9)
+)
+printInfoDpl->context->simulator = nil
+printInfoDpl->realExpList = nil
+printInfoDpl->saveLoadFile = "/net/kafka/nfs/rstdenis/Cadence/simulation/adel_to_adexl_state/16nm_Tests/MCsetup_Test/spectre/tmpstate.648531096/printSetup"
+printInfoDpl->saveNeeded = nil

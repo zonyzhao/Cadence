@@ -1,0 +1,38 @@
+// Generated for: spectre
+// Generated on: Apr 29 03:14:43 2015
+// Design library name: 16nm_Tests
+// Design cell name: MCsetup_Test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters vdd=.850 time2=5n
+include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+
+// Library name: 16nm
+// Cell name: inv_1x
+// View name: schematic
+subckt inv_1x A Y
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 m=1 degradation=no
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 m=1 degradation=no
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: 16nm_Tests
+// Cell name: MCsetup_Test
+// View name: schematic
+I0 (in Y) inv_1x
+V1 (in 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 vdd ]
+V0 (vdd! 0) vsource type=dc dc=vdd
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

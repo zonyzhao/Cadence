@@ -13,7 +13,7 @@
 +coremod = 0               cgeomod = 2               capmod  = 0               tnom    = 300.15        
 *======================== process =========================*
 +eot     = 8e-010          eotbox  = 1.4e-007        tfin    = 1.2e-008        toxp    = 1.35e-009     
-+nbody   = 1e+023          phig    = 4.4061           epsrox  = 3.9             epsrsub = 11.9          
++nbody   = 1e+023          phig    = 4.4061          epsrox  = 3.9             epsrsub = 11.9          
 +easub   = 4.05            ni0sub  = 1.1e+016        bg0sub  = 1.12            nc0sub  = 2.86e+025     
 +nsd     = 3e+026          ngate   = 0               nfin    = 1               d       = 4e-008        
 +nseg    = 5               l       = 2e-008        
@@ -23,7 +23,7 @@
 +fech    = 1               deltaw  = 0               deltawcv= 0               fechcv  = 1             
 +hepi    = 9.5e-009      
 *======================== geometry ========================*
-+tsili   = 9e-009          rhoc    = 1.5e-12          cratio  = 0.5             deltaprsd= 0             
++tsili   = 9e-009          rhoc    = 1.5e-12         cratio  = 0.5             deltaprsd= 0             
 +sdterm  = 0               ldg     = 3e-009          epsrsp  = 3.9             tgate   = 9e-009        
 +tmask   = 0               asiliend= 0               arsdend = 0               prsdend = 0             
 +nsde    = 3e+025          rgeoa   = 1               rgeob   = 0               rgeoc   = 0             
@@ -51,7 +51,7 @@
 +brdw    = 1e-007          rgfin   = 0.001           rgext   = 0               rshs    = 0             
 +vsat    = 90000         
 *======================= saturation =======================*
-+deltavsat= 1               ksativ  = 0.8             avsat   = 0               avsat1  = 0             
++deltavsat= 1              ksativ  = 0.8             avsat   = 0               avsat1  = 0             
 +bvsat   = 1e-007          bvsat1  = 1e-007          mexp    = 3               amexp   = 0             
 +bmexp   = 1               ptwg    = 0               aptwg   = 0               bptwg   = 1e-007        
 *========================== rout ==========================*

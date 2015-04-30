@@ -1,1 +1,2 @@
-.lib '/project/ncsu-FreePDK15/PTM-MG/models' ptm16hp
+.lib 'PTM-MG/models' ptm16hp
+

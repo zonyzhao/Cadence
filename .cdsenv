@@ -4,7 +4,7 @@ license ADEL_UseNextLicense     string  "always"
 license VSEL_UseNextLicense     string  "always"
 
 asimenv.startup simulator string "spectreVerilog"
-asimenv.startup hostMode string "distributed"
+;asimenv.startup hostMode string "distributed"
 
 ;asimenv.distributed copyMode boolean t
 ;asimenv.distributed copyModeDir string "/tmp2"

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<setupdb version="5">state1
+	<active>Active Setup
+		<vars>
+			<var>time2
+				<value>5n</value>
+				<dependentTests>
+					<dependentTest omitted="0">16nm_Tests:MCsetup_Test:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vdd
+				<value>.500</value>
+				<dependentTests>
+					<dependentTest omitted="0">16nm_Tests:MCsetup_Test:1</dependentTest>
+				</dependentTests>
+			</var>
+		</vars>
+		<parameters>
+			<location>16nm/inv_1x/schematic/M0</location>
+		</parameters>
+	</active>
+	<history>History</history>
+</setupdb>

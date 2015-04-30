@@ -1,0 +1,14 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 6.1.6 - CAT33 08/24/2014 13:49 (sjfnl834) $
+\o Sub version:		sub-version  s012 
+\o Arguments:		-cdslib /root/Desktop/Cadence/cds.lib -mpssession virtuoso24238 -mpshost bull 
+\o Working Directory:	bull:/root/Desktop/Cadence
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.7.2
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "cdsDefTechLib"
+\a nrResizeWindow(cdsLibEditor list(2560 25 500 400))
+\a nrResizeWindow(cdsLibEditor list(2560 25 1016 583))
+\a cdsLibEditor->fileExitButton->value = t
+\a nrSetWindowVisibility(cdsLibEditor "hide")
+\a exit(0)
