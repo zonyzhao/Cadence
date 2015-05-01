@@ -1,0 +1,12 @@
+Begin Incremental Netlisting May  1 00:26:22 2015
+WARNING (OSSHNL-225): The design variable 'DPAR_2', used in the last netlisting
+session in the current
+run directory is not used in this netlisting session. The
+netlist(s) generated
+in the last netlisting session cannot be reused for
+incremental netlisting.
+Therefore re-netlisting the design.
+
+End netlisting May  1 00:26:23 2015
+Begin Incremental Netlisting May  1 00:26:24 2015
+End netlisting May  1 00:26:24 2015

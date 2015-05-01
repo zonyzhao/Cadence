@@ -14,9 +14,24 @@
 					<dependentTest omitted="0">16nm_Tests:MCsetup_Test:1</dependentTest>
 				</dependentTests>
 			</var>
+			<var>ndvtshift
+				<value></value>
+			</var>
+			<var>pdvtshift
+				<value></value>
+			</var>
 		</vars>
 		<parameters>
-			<location>16nm/inv_1x/schematic/M0</location>
+			<location>16nm/inv_1x/schematic/M0
+				<parameter enabled="1">dvtshift
+					<value>ndvtshift</value>
+				</parameter>
+			</location>
+			<location>16nm/inv_1x/schematic/M1
+				<parameter enabled="1">dvtshift
+					<value>pdvtshift</value>
+				</parameter>
+			</location>
 		</parameters>
 	</active>
 	<history>History</history>

@@ -1,0 +1,15 @@
+CADENCE IHNL01070
+$model
+16nm/inv_1x/schematic inv_1x
+16nm_Tests/MCsetup_Test/schematic MCsetup_Test
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+$endnet
+$param
+vdd vdd
+DPAR_2 DPAR_2
+DPAR_1 DPAR_1
+time2 time2
+$endparam

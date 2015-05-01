@@ -1,0 +1,7 @@
+
+// Library name: 16nm_Tests
+// Cell name: MCsetup_Test
+// View name: schematic
+I0 (in Y) inv_1x
+V1 (in 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 vdd ]
+V0 (vdd! 0) vsource type=dc dc=vdd

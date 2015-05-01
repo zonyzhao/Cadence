@@ -385,17 +385,5 @@ hnlPrintTopCellHeader hnlPrintTopCellFooter hnlPrintPorts hnlPrintDeviceHeader
 hnlPrintDeviceFooter hnlPrintInst) .
 Loading the file
 '/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/spectre.ile'.Loading the file
-'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting Apr 30 02:50:37 2015
-WARNING (OSSHNL-159): The primitive, 'NCSU_TechLib_FreePDK15/nfet/spectre', has
-been updated since the last netlisting session
-in this current run directory.
-Therefore, re-netlisting all cell views where
-this primitive is instantiated.
-
-WARNING (OSSHNL-159): The primitive, 'NCSU_TechLib_FreePDK15/pfet/spectre', has
-been updated since the last netlisting session
-in this current run directory.
-Therefore, re-netlisting all cell views where
-this primitive is instantiated.
-
-End netlisting Apr 30 02:50:37 2015
+'/apps/cadence/IC616/tools.lnx86/dfII/etc/skill/hnl/driver.ile'.Begin Incremental Netlisting May  1 00:47:56 2015
+End netlisting May  1 00:47:56 2015
