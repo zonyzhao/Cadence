@@ -40,7 +40,7 @@ temp( 30.0 )
 hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crowned" "deathadder" "fierce" "garter" "gopher" "hognose" "indigo" "krait" "mamba" "milk" "python" "queen" "racer" "rainbow" "rat" "rattle" "redbelly" "ribbon" "scarlet" "swamp" "timber" "viper" )
 		           
 vLoad = list(   .125 .150 .175 .200 .250 .275 .300 .325 .350 .400 .450 .475 .500 .525 .550 .650 .750 .850 .950 1.0 1.050 1.075 1.10 1.125 1.150 1.175 1.20 1.25 )    		            
-tLoad = list( 30 )
+tLoad = list( 60 )
 
 jobList 	= nil
 mVs   		= nil
@@ -70,21 +70,21 @@ fprintf( outF,   "Vdd [mv],Temp [C],Leakage [mA],Leakage [mW],peak Current [mA],
 close(outF)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;file8K    =  strcat( "/root/Desktop/Cadence/simData/CacheData/8K_BankData.csv"  )
-;file16K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/16K_BankData.csv" )
-;file32K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/32K_BankData.csv" )
+file8K    =  strcat( "/root/Desktop/Cadence/simData/CacheData/8K_BankData.csv"  )
+file16K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/16K_BankData.csv" )
+file32K   =  strcat( "/root/Desktop/Cadence/simData/CacheData/32K_BankData.csv" )
 
-;out8K     =   outfile(file8K,  "w")
-;out16K    =   outfile(file16K, "w")
-;out32K    =   outfile(file32K, "w")
+out8K     =   outfile(file8K,  "w")
+out16K    =   outfile(file16K, "w")
+out32K    =   outfile(file32K, "w")
 
-;fprintf( out8K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], ) \n"  )	
-;fprintf( out16K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ],  \n" )	
-;fprintf( out32K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ],  \n" )	
+fprintf( out8K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ], ) \n"  )	
+fprintf( out16K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ],  \n" )	
+fprintf( out32K,  "Vdd [mv], Temp [C], Leakage [mA], LeakagePw [mW], RW_Energy [pJ], RW_Energy_Null [pJ], Cycle_Energy [pJ],  \n" )	
 
-;close(out8K)
-;close(out16K)
-;close(out32K)
+close(out8K)
+close(out16K)
+close(out32K)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 j = 1
@@ -100,8 +100,8 @@ foreach(job jobList
 				cHost       = sprintf(nil "%s" nthelem(j hList))
         		nameR       = strcat( "/root/Desktop/Cadence/simData/CacheData/2Kbank_logs/2KBankRLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
         		nameW       = strcat( "/root/Desktop/Cadence/simData/CacheData/2Kbank_logs/2KBankWLog_" nthelem(j mVs) "mV_" nthelem(j temps) "C.log" )
-				shellCmd1   = strcat("scp " cHost ":/tmp2/bankRLog.csv " nameR  )
-				shellCmd2   = strcat("scp " cHost ":/tmp2/bankWLog.csv " nameW  )
+				shellCmd1   = strcat("scp " cHost ":/tmp/bankRLog.csv " nameR  )
+				shellCmd2   = strcat("scp " cHost ":/tmp/bankWLog.csv " nameW  )
 				shell( shellCmd1 )
 				shell( shellCmd2 )
 
@@ -141,7 +141,7 @@ foreach(job jobList
 	    			wCycleEnergy = wEnergy +  wnullEnergy
 	    			wEDP	 = wCycle*wCycleEnergy
 	          
-					leakage     = average( clip( i( "/V1/MINUS" ) (wEndNull+500p) (wEndNull+1000p) ) ) *1e3
+					leakage     = average( clip( i( "/V1/MINUS" ) (wEndNull+500p) (wEndNull+1500p) ) ) *1e3
         			leakagePwr  = leakage*Volts
 
 	   				outF       =  outfile(file, "a")       
@@ -151,40 +151,40 @@ foreach(job jobList
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	          
 
-;            	leak8K    = leakage*4   ;;mA
-;            	leak16K   = leak8K*2    ;;mA
-;            	leak32K   = leak16K*2   ;;mA
+            	leak8K    = leakage*4   ;;mA
+            	leak16K   = leak8K*2    ;;mA
+            	leak32K   = leak16K*2   ;;mA
             
-;            	leak8KPwr  = leak8K*Volts  ;;mW
-;            	leak16KPwr = leak16K*Volts ;;mW
-;            	leak32KPwr = leak32K*Volts ;;mW
+            	leak8KPwr  = leak8K*Volts  ;;mW
+            	leak16KPwr = leak16K*Volts ;;mW
+            	leak32KPwr = leak32K*Volts ;;mW
            
-;            	leakageEnergy     = 1e-3*leakagePwr*2*(rEnd-rStart)*1e12         ;; read is longer than write
-;            	leakageEnergyNull = 1e-3*leakagePwr*2*(rEndNull-rEnd)*1e12       ;; read is longer than write
+            	leakageEnergy     = 1e-3*leakagePwr*2*(rEnd-rStart)*1e12         ;; read is longer than write
+            	leakageEnergyNull = 1e-3*leakagePwr*2*(rEndNull-rEnd)*1e12       ;; read is longer than write
            
-;            	rwEnergy8K   = rEnergy+wEnergy+leakageEnergy 
-;            	rwEnergy16K  = 2*rwEnergy8K
-;            	rwEnergy32K  = 4*rwEnergy8K
+            	rwEnergy8K   = rEnergy+wEnergy+leakageEnergy 
+            	rwEnergy16K  = 2*rwEnergy8K
+            	rwEnergy32K  = 4*rwEnergy8K
                      
-;            	rwEnergyNull8K  = rnullEnergy+wnullEnergy+leakageEnergyNull 
-;            	rwEnergyNull16K = 2*rwEnergyNull8K
-;            	rwEnergyNull32K = 4*rwEnergyNull8K
+            	rwEnergyNull8K  = rnullEnergy+wnullEnergy+leakageEnergyNull 
+            	rwEnergyNull16K = 2*rwEnergyNull8K
+            	rwEnergyNull32K = 4*rwEnergyNull8K
             
-;            	rwCycleEnergy8K  =  rwEnergy8K +   rwEnergyNull8K
-;            	rwCycleEnergy16K =  rwEnergy16K +  rwEnergyNull16K
-;            	rwCycleEnergy32K =  rwEnergy32K +  rwEnergyNull32K
+            	rwCycleEnergy8K  =  rwEnergy8K +   rwEnergyNull8K
+            	rwCycleEnergy16K =  rwEnergy16K +  rwEnergyNull16K
+            	rwCycleEnergy32K =  rwEnergy32K +  rwEnergyNull32K
 	      
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
        
- ;           	out8K     =   outfile(file8K,  "a")
- ;           	out16K    =   outfile(file16K, "a")
- ;           	out32K    =   outfile(file32K, "a")                       
- ;           	fprintf( out8K  "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak8K leak8KPwr rwEnergy8K rwEnergyNull8K rwCycleEnergy8K)
- ;           	fprintf( out16K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak16K leak16KPwr rwEnergy16K rwEnergyNull16K rwCycleEnergy16K)
- ;           	fprintf( out32K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak32K leak32KPwr rwEnergy32K rwEnergyNull32K rwCycleEnergy32K)            
- ;           	close( out8K)
- ;           	close( out16K)
- ;           	close( out32K)
+            	out8K     =   outfile(file8K,  "a")
+            	out16K    =   outfile(file16K, "a")
+            	out32K    =   outfile(file32K, "a")                       
+            	fprintf( out8K  "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak8K leak8KPwr rwEnergy8K rwEnergyNull8K rwCycleEnergy8K)
+            	fprintf( out16K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak16K leak16KPwr rwEnergy16K rwEnergyNull16K rwCycleEnergy16K)
+            	fprintf( out32K "%s,\t %s,\t %g,\t %g,\t %g,\t %g,\t %g\n" nthelem(j mVs) nthelem(j temps) leak32K leak32KPwr rwEnergy32K rwEnergyNull32K rwCycleEnergy32K)            
+            	close( out8K)
+            	close( out16K)
+            	close( out32K)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
         	)
       	) 

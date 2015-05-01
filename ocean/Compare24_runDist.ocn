@@ -4,7 +4,7 @@ resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/Compare24_Test/spectreVe
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
-analysis('tran ?stop "12n"  ?errpreset "conservative"  )
+analysis('tran ?stop "500n"  ?errpreset "conservative"  )
 desVar(	  "vdd" .500	)
 envOption(
 	'analysisOrder  list("tran") 
@@ -129,7 +129,7 @@ hList = list( "asp" "boa" "boom" "brown" "cobra"  "copper" "coral" "corn" "crown
 vLoad = list( .125 .150 .175 .200 .250 .275 .300 .325 .350 .400 .450 .475 .500 .525 .550 .650 .750 .850 .950 1.0 1.050 1.075 1.10 1.125 1.150 1.175 1.20 1.25 )    		            
 
 ;tLoad = list( 30 60 90 )
-tLoad = list( 30 )
+tLoad = list( 60 )
 
 jobList 	= nil
 mVs   		= nil
