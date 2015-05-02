@@ -10,6 +10,7 @@
 ( inst
  )
 ( model
+( "inv_1x" "inv_1x" )
  )
 ( term
  )

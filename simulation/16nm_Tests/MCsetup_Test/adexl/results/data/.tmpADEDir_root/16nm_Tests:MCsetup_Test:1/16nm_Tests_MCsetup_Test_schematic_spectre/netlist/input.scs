@@ -1,20 +1,19 @@
 // Generated for: spectre
-// Generated on: May  1 23:41:11 2015
+// Generated on: May  2 03:25:09 2015
 // Design library name: 16nm_Tests
 // Design cell name: MCsetup_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd!
-parameters ndvtshift=0 pdvtshift=0 time2=5n vdd=.500
+parameters time2=5n vdd=.500
 include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs"
 
 // Library name: 16nm
 // Cell name: inv_1x
 // View name: schematic
 subckt inv_1x A Y
-    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 nf=1 dvtshift=ndvtshift m=1
-    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 dvtshift=pdvtshift \
-        m=1
+    M0 (Y A 0 0) nfet w=60n l=20n nfin=1 nf=1 m=1
+    M1 (Y A vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 m=1
 ends inv_1x
 // End of subcircuit definition.
 
@@ -28,12 +27,6 @@ simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=30.0 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
     sensfile="../psf/sens.output" checklimitdest=psf 
-mc1 montecarlo numruns=200 seed=1 variations=process sampling=standard \
-    donominal=yes scalarfile="../monteCarlo/mcdata" \
-    paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
-    processparamfile="../monteCarlo/processParam" \
-    processscalarfile="../monteCarlo/processData"  paramdumpmode=yes \
-    savefamilyplots=yes savedatainseparatedir=yes wfseparation=yes {
 tran tran stop=12n errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
@@ -43,6 +36,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-}
 save V0:p Y 
 saveOptions options save=allpub

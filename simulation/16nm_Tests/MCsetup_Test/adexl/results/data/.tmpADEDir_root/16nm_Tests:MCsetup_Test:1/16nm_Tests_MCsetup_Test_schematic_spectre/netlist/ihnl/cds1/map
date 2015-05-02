@@ -10,6 +10,8 @@
 ( inst
  )
 ( model
+( "inv_1x" "inv_1x" )
+( "MCsetup_Test" "MCsetup_Test" )
  )
 ( term
  )

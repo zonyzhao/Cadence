@@ -6,7 +6,7 @@
   stopList "spectre"
   globalList "gnd! vdd!"
   hierDelim "."
-  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist"
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MCsetup_Test:1/16nm_Tests_MCsetup_Test_schematic_spectre/netlist"
  )
 ( instViewTable
  )
