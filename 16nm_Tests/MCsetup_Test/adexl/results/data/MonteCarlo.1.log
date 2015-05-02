@@ -1,33 +1,61 @@
 Starting Monte Carlo Sampling...
 
-Current time: Thu Apr 30 02:50:27 2015 
+Current time: Sat May  2 02:59:22 2015 
 MonteCarlo.1
 Number of points completed: 200
 Number of simulation errors: 0
 MonteCarlo.1 completed. 
-Current time: Thu Apr 30 02:51:47 2015 
+Current time: Sat May  2 03:00:41 2015 
 Monte Carlo Sampling yield summary:
 Number of spec values are in this yield data: 2
 16nm_Tests:MCsetup_Test:1	Nominal - 
-	pv("I0.M0.mnfet" "vth" ?result "tranOp"):	Yield	100%
-		Min 0.32701	Max 0.32701	Mean 0.32701	Number of errors 0
+	OP("/I0/M0" "vth"):	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
 16nm_Tests:MCsetup_Test:1	Nominal - 
-	pv("I0.M1.mpfet" "vth" ?result "tranOp"):	Yield	100%
-		Min -0.312373	Max -0.312373	Mean -0.312373	Number of errors 0
+	OP("/I0/M1" "vth"):	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
 
 16nm_Tests:MCsetup_Test:1
-	Overall Yield	100%	Number of points passed	94	Total number of points	94
+	Overall Yield	0%	Number of points passed	0	Total number of points	0
 
-Estimated yield = 100% (94/94), 0 errors
-Estimated yield (No opregions) = 100% (94/94)
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)
 Monte Carlo Sampling yield summary:
 Number of spec values are in this yield data: 2
 16nm_Tests:MCsetup_Test:1	Nominal - 
-	pv("I0.M0.mnfet" "vth" ?result "tranOp"):	Yield	100%
-		Min 0.32701	Max 0.32701	Mean 0.32701	Number of errors 0
+	OP("/I0/M0" "vth"):	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
 16nm_Tests:MCsetup_Test:1	Nominal - 
-	pv("I0.M1.mpfet" "vth" ?result "tranOp"):	Yield	100%
-		Min -0.312373	Max -0.312373	Mean -0.312373	Number of errors 0
+	OP("/I0/M1" "vth"):	Yield	0%
+		Min 0	Max 0	Mean 0	Number of errors 0
+
+16nm_Tests:MCsetup_Test:1
+	Overall Yield	0%	Number of points passed	0	Total number of points	0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 2
+16nm_Tests:MCsetup_Test:1	Nominal - 
+	OP("/I0/M0" "vth"):	Yield	100%
+		Min 0.216475	Max 0.424741	Mean 0.326912	Number of errors 0
+16nm_Tests:MCsetup_Test:1	Nominal - 
+	OP("/I0/M1" "vth"):	Yield	100%
+		Min -0.418028	Max -0.215438	Mean -0.312407	Number of errors 0
+
+16nm_Tests:MCsetup_Test:1
+	Overall Yield	100%	Number of points passed	200	Total number of points	200
+
+Estimated yield = 100% (200/200), 0 errors
+Estimated yield (No opregions) = 100% (200/200)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 2
+16nm_Tests:MCsetup_Test:1	Nominal - 
+	OP("/I0/M0" "vth"):	Yield	100%
+		Min 0.216475	Max 0.424741	Mean 0.326912	Number of errors 0
+16nm_Tests:MCsetup_Test:1	Nominal - 
+	OP("/I0/M1" "vth"):	Yield	100%
+		Min -0.418028	Max -0.215438	Mean -0.312407	Number of errors 0
 
 16nm_Tests:MCsetup_Test:1
 	Overall Yield	100%	Number of points passed	200	Total number of points	200

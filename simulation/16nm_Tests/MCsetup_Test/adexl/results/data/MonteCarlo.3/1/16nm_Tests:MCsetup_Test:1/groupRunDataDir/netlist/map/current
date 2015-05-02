@@ -1,0 +1,28 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "MCsetup_Test"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gnd! vdd!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm_Tests/MCsetup_Test/schematic" "MCsetup_Test" )
+ )
+( term
+ )
+( param
+ )
+( "inv_1x" "ihnl/cds0/map" )
+( "MCsetup_Test" "ihnl/cds1/map" )
+ )

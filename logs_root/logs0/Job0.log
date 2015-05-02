@@ -1,16 +1,16 @@
-\# Program start time UTC 2015.05.01 07:15:57.454
-\# Local time Friday 1 May 2015, 12:15 am
+\# Program start time UTC 2015.05.01 09:53:27.840
+\# Local time Friday 1 May 2015, 2:53 am
 \o Program:		@(#)$CDS: virtuoso version 6.1.6 01/19/2015 20:41 (sjfnl169) $
 \o Hierarchy:		/apps/cadence/IC616/tools.lnx86/dfII/
 \o Sub version:		sub-version  IC6.1.6.500.10  (32-bit addresses)
-\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso14140 -mpshost bull -davinciService DaVinciService_14140_1430464552 -log /root/Desktop/Cadence/logs_root/logs0/Job0.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_14140 -nograph -nostdin -axlChildIdFlag 0
+\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso21528 -mpshost bull -davinciService DaVinciService_21528_1430474003 -log /root/Desktop/Cadence/logs_root/logs0/Job0.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_21528 -nograph -nostdin -axlChildIdFlag 0
 \# Host name (type):	bull (x86_64)
 \# Operating system:	Linux 2.6.32-504.16.2.el6.x86_64 #1 SMP Tue Mar 10 17:01:00 EDT 2015
 \# Linux /etc/issue:	Red Hat Enterprise Linux Client release 6.6 (Santiago)
 \# Linux /etc/issue:	Kernel \r on an \m
 \# X display name (WxH):	bull:80 (1024x868)
 \# Available geometry:			TL(0:0) BR(1023:867)
-\# X server:			RealVNC Ltd (VNC nograph server, PID 25543)
+\# X server:			RealVNC Ltd (VNC nograph server, PID 22305)
 \# Depth of Visual (Root):	16 (16)
 \# Number of Planes Used:	16
 \# X version:		11.0 (vendor release 3370)
@@ -18,18 +18,18 @@
 \# 			current id 0x0, current max 0x3ffffa (4194298)
 \# Max data seg size:	     unlimited
 \# Max process size:	     unlimited
-\# Initial sbrk value:	        410 MB
-\# Available memory:	     42,923 MB
+\# Initial sbrk value:	        418 MB
+\# Available memory:	     41,746 MB
 \# System memory:	     48,512 MB
-\# Maximum memory size:	      3,739 MB
-\# Max mem available:	      3,739 MB
+\# Maximum memory size:	      3,731 MB
+\# Max mem available:	      3,731 MB
 \# Initial memory used:	         53 MB
 \#        process size:	        455 MB
 \# Qt version:		4.7.2
 \# Window Manager:	other
 \# User Name:		root
 \o Working Directory:	bull:/root/Desktop/Cadence
-\# Process Id:		25551
+\# Process Id:		22313
 \o 
 \o COPYRIGHT © 1992-2014  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
 \o           © 1992-2014  UNIX SYSTEMS Laboratories INC.,
@@ -81,11 +81,11 @@
 \o Loading relXpert.cxt 
 \o Loading mmsimenv.cxt 
 \o Loading spectreMixi.cxt 
+\# Memory report: using         173 MB, process size 606 MB at UTC 2015.05.01 09:53:30.012
 \o *Info*    Client has finished starting ... 
 \o 
 \p > 
-\# Available memory:         42,730 MB at UTC 2015.05.01 07:16:07.732
-\# Memory report: using         176 MB, process size 609 MB at UTC 2015.05.01 07:16:07.732
+\# Available memory:         41,630 MB at UTC 2015.05.01 09:53:38.125
 \o Job 0 timed out after no activity in 300 seconds.
 \o Loading viva.cxt 
 \o Loading lce.cxt 

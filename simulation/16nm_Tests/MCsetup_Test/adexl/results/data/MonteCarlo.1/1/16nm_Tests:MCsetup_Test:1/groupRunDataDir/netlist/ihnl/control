@@ -1,6 +1,6 @@
 hnlLastStopCellInfo = '(
-                           ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1430387365" )
-                          ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1430387350" )
+                           ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1430537487" )
+                          ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1430537475" )
                           ( "UCD_Analog_Parts" "vpwl" "spectre" "34" "1414043471" )
                           ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
                        )
@@ -786,6 +786,8 @@ hnlLastConstants = '(
                       "M_E"
                     )
 hnlLastDesignVars = '(
+                      "ndvtshift"
+                      "pdvtshift"
                       "time2"
                       "vdd"
                     )

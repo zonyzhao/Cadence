@@ -1,16 +1,16 @@
-\# Program start time UTC 2015.05.01 07:47:52.865
-\# Local time Friday 1 May 2015, 12:47 am
+\# Program start time UTC 2015.05.02 03:14:03.129
+\# Local time Friday 1 May 2015, 8:14 pm
 \o Program:		@(#)$CDS: virtuoso version 6.1.6 01/19/2015 20:41 (sjfnl169) $
 \o Hierarchy:		/apps/cadence/IC616/tools.lnx86/dfII/
 \o Sub version:		sub-version  IC6.1.6.500.10  (32-bit addresses)
-\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso14140 -mpshost bull -davinciService DaVinciService_14140_1430464552 -log /root/Desktop/Cadence/logs_root/logs0/Job2.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_14140 -nograph -nostdin -axlChildIdFlag 2
+\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso21528 -mpshost bull -davinciService DaVinciService_21528_1430474003 -log /root/Desktop/Cadence/logs_root/logs0/Job2.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_21528 -nograph -nostdin -axlChildIdFlag 2
 \# Host name (type):	bull (x86_64)
 \# Operating system:	Linux 2.6.32-504.16.2.el6.x86_64 #1 SMP Tue Mar 10 17:01:00 EDT 2015
 \# Linux /etc/issue:	Red Hat Enterprise Linux Client release 6.6 (Santiago)
 \# Linux /etc/issue:	Kernel \r on an \m
 \# X display name (WxH):	bull:80 (1024x868)
 \# Available geometry:			TL(0:0) BR(1023:867)
-\# X server:			RealVNC Ltd (VNC nograph server, PID 14340)
+\# X server:			RealVNC Ltd (VNC nograph server, PID 6950)
 \# Depth of Visual (Root):	16 (16)
 \# Number of Planes Used:	16
 \# X version:		11.0 (vendor release 3370)
@@ -18,18 +18,18 @@
 \# 			current id 0x0, current max 0x3ffffa (4194298)
 \# Max data seg size:	     unlimited
 \# Max process size:	     unlimited
-\# Initial sbrk value:	        426 MB
-\# Available memory:	     42,208 MB
+\# Initial sbrk value:	        418 MB
+\# Available memory:	     41,209 MB
 \# System memory:	     48,512 MB
-\# Maximum memory size:	      3,723 MB
-\# Max mem available:	      3,723 MB
+\# Maximum memory size:	      3,732 MB
+\# Max mem available:	      3,732 MB
 \# Initial memory used:	         53 MB
 \#        process size:	        455 MB
 \# Qt version:		4.7.2
 \# Window Manager:	other
 \# User Name:		root
 \o Working Directory:	bull:/root/Desktop/Cadence
-\# Process Id:		14341
+\# Process Id:		6951
 \o 
 \o COPYRIGHT © 1992-2014  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
 \o           © 1992-2014  UNIX SYSTEMS Laboratories INC.,
@@ -77,9 +77,9 @@
 \o loading vars from ./.cdsenv for tool license
 \o loading vars from ./.cdsenv for tool asimenv
 \o Loading spectrei.cxt 
+\# Memory report: using         165 MB, process size 599 MB at UTC 2015.05.02 03:14:05.269
 \o Loading devCheck.cxt 
 \o Loading relXpert.cxt 
-\# Memory report: using         167 MB, process size 601 MB at UTC 2015.05.01 07:47:55.029
 \o Loading mmsimenv.cxt 
 \o Loading spectreMixi.cxt 
 \o *Info*    Client has finished starting ... 
@@ -94,9 +94,9 @@
 \o 	View         = schematic
 \o 	Simulator    = spectre
 \o 	State Path   = $AXL_SETUPDB_DIR/test_states
-\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.9
-\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.9.rdb
-\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.9/1/16nm_Tests:MCsetup_Test:1
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.11
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.11.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.11/1/16nm_Tests:MCsetup_Test:1
 \o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
 \o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
 \o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
@@ -118,7 +118,7 @@
 \o 
 \o 
 \o 
-\o *Info*    Run start for Point ID (7 1) on testbench [
+\o *Info*    Run start for Point ID (1 1) on testbench [
 \o           16nm_Tests:MCsetup_Test:1 ].
 \o 
 \o Resetting statistical vars
@@ -133,35 +133,43 @@
 \o Setting var vdd = ".500"
 \o 
 \o *Info*    Netlist Directory =
-\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.9/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.11/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
 \o 
 \o 
 \o *Info*    Data Directory    =
-\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.9/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.11/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
 \o 
 \o 
-\o *Info*    Creating Netlist for Point ID (7 1)
+\o *Info*    Creating Netlist for Point ID (1 1)
 \o 
 \o generate netlist...
 \o Loading seCore.cxt 
-\o Begin Incremental Netlisting May  1 00:47:56 2015
-\o End netlisting May  1 00:47:56 2015
+\o Begin Incremental Netlisting May  1 20:14:06 2015
+\o WARNING (OSSHNL-226): There are more design variables used in the current netlisting session as
+\o compared to the last session in the current run directory. The netlist(s)
+\o generated in the last netlisting session cannot be reused for incremental
+\o netlisting. Therefore re-netlisting the design.
 \o 
-\o 	The netlist is up to date.
-\o 	Time taken to compare the design with netlist:   0.0s
+\o End netlisting May  1 20:14:07 2015
+\o 
+\o Netlisting Statistics:
+\o 	Number of components:    5
+\o 
+\o 	Elapsed time:          1.0s (5.00/s)
+\o Errors: 0	Warnings: 0
 \o       ...successful.
 \o compose simulator input file...
 \o       ...successful.
 \o 
 \o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
-\o           ] for Point ID (7 1).
+\o           ] for Point ID (1 1).
 \o 
 \o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
 \o 
-\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.9/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.11/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
 \o generate netlist...
-\o Begin Incremental Netlisting May  1 00:47:57 2015
-\o End netlisting May  1 00:47:57 2015
+\o Begin Incremental Netlisting May  1 20:14:08 2015
+\o End netlisting May  1 20:14:08 2015
 \o 
 \o 	The netlist is up to date.
 \o 	Time taken to compare the design with netlist:   0.0s
@@ -175,2015 +183,323 @@
 \o name, or any value in the "Results" tab of the Outputs section and 
 \o choose "Output Log" menu option.
 \o Loading paraplot.cxt 
-\o *Info*    Client has finished evaluating ... 
+\o INFO (ADE-3067): Errors encountered during simulation. For more information, right-click
+\o         on a test name in the 'Results' tab of the Outputs pane and choose 'Output Log'
+\o         to view the simulation run log.
+\o *Info*    Monte Carlo Simulation unsuccessful...
+\o *Info*    See simulation output log for more information.
 \o 
+\o *Error*   Error ID  = 5052
+\o *Error*   Error Msg = 
+\o Nominal simulation might have failed. Either
+\o           fix the problem in the test setup or disable the test and
+\o           re-run.
 \o 
-\o *Info*    Run complete for Point ID (7 1) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 2) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 3) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 4) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\# Available memory:         42,025 MB at UTC 2015.05.01 07:48:03.427
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 5) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 6) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 7) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 8) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 9) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 10) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 11) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 12) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 13) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 14) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 15) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 16) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 17) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 18) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 19) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 20) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 21) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 22) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 23) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 24) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 25) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 26) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 27) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 28) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 29) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 30) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 31) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 32) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 33) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 34) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
+\o To view the simulator output, right-click on the
+\o           test name, result name, or any corner column in the
+\o           "Detail" view 
+\o of the "Results" tab and choose "Output Log"
+\o           menu option.
 \o 
 \o 
-\o *Info*    Client has finished evaluating ... 
 \o 
 \o 
-\o *Info*    Run complete for Point ID (7 35) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 36) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 37) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 38) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 39) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 40) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 41) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 42) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 43) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 44) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 45) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 46) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 47) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 48) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 49) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 50) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 51) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 52) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 53) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 54) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 55) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 56) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 57) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 58) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 59) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 60) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 61) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 62) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 63) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 64) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 65) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 66) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
 \o 
+\o *Error*   Error ID  = 5011
+\o *Error*   Error Msg = Simulator failed to complete the simulation.
 \o 
-\o *Info*    Client has finished evaluating ... 
+\o           Error found by spectre during circuit read-in.
+\o Error found
+\o           by spectre during circuit read-in.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" 8:
+\o           Parameter `ndvtshift' was previously defined. Please try to
+\o           add `+spice' in
+\o  command line or option `redefinedparams'
+\o           in netlist to avoid these type of errors.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" 10:
+\o           Parameter `pdvtshift' was previously defined. Please try to
+\o           add `+spice' i
+\o n command line or option `redefinedparams'
+\o           in netlist to avoid these type of errors.
 \o 
 \o 
-\o *Info*    Run complete for Point ID (7 67) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
 \o 
 \o 
 \o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\# Available memory:         41,058 MB at UTC 2015.05.02 03:14:13.410
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
 \o 
 \o 
-\o *Info*    Client has finished evaluating ... 
+\o *Info*    Configuring the session ...
 \o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.12
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.12.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.12/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
 \o 
-\o *Info*    Run complete for Point ID (7 68) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
 \o 
+\o *Info*    Spectre controlMode is set "batch".
 \o 
 \o 
 \o 
 \o 
-\o *Info*    Client has finished evaluating ... 
 \o 
 \o 
-\o *Info*    Run complete for Point ID (7 69) on testbench [
+\o *Info*    Run start for Point ID (2 1) on testbench [
 \o           16nm_Tests:MCsetup_Test:1 ].
 \o 
+\o Resetting statistical vars
 \o 
+\o *Info*    Setting parameter values ...
 \o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
 \o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.12/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
 \o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 70) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
 \o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.12/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
 \o 
 \o 
+\o *Info*    Creating Netlist for Point ID (2 1)
 \o 
+\o generate netlist...
+\o Begin Incremental Netlisting May  1 20:14:48 2015
+\o End netlisting May  1 20:14:48 2015
 \o 
-\o INFO (ADE-3071): Simulation completed successfully.
-\o reading simulation data...
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
 \o       ...successful.
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 71) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 72) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 73) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 74) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 75) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 76) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 77) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 78) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 79) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 80) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 81) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 82) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 83) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 84) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 85) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 86) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 87) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 88) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 89) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 90) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 91) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 92) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 93) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 94) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 95) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 96) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 97) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 98) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 99) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 100) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 101) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 102) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 103) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 104) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 105) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 106) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 107) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 108) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 109) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 110) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 111) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 112) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 113) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 114) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 115) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 116) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 117) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 118) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 119) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 120) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 121) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 122) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 123) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 124) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 125) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 126) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 127) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 128) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 129) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 130) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 131) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 132) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 133) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 134) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 135) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 136) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 137) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 138) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 139) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 140) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 141) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 142) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 143) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 144) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 145) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 146) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 147) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 148) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 149) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 150) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 151) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 152) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 153) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 154) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 155) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 156) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 157) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 158) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 159) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 160) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 161) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 162) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 163) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 164) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 165) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 166) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 167) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 168) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 169) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 170) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 171) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 172) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 173) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 174) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 175) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 176) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 177) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 178) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 179) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 180) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 181) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 182) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 183) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 184) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 185) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 186) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 187) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 188) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 189) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 190) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 191) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 192) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 193) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 194) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 195) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 196) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 197) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 198) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 199) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
-\o 
-\o 
-\o 
-\o 
-\o 
-\o *Info*    Monte Carlo Simulation completed successfully...
-\o *Info*    Client has finished evaluating ... 
-\o 
-\o 
-\o *Info*    Run complete for Point ID (7 200) on testbench [
-\o           16nm_Tests:MCsetup_Test:1 ].
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (2 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.12/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May  1 20:14:49 2015
+\o End netlisting May  1 20:14:49 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o INFO (ADE-3067): Errors encountered during simulation. For more information, right-click
+\o         on a test name in the 'Results' tab of the Outputs pane and choose 'Output Log'
+\o         to view the simulation run log.
+\o *Info*    Monte Carlo Simulation unsuccessful...
+\o *Info*    See simulation output log for more information.
+\o 
+\o *Error*   Error ID  = 5052
+\o *Error*   Error Msg = 
+\o Nominal simulation might have failed. Either
+\o           fix the problem in the test setup or disable the test and
+\o           re-run.
+\o 
+\o To view the simulator output, right-click on the
+\o           test name, result name, or any corner column in the
+\o           "Detail" view 
+\o of the "Results" tab and choose "Output Log"
+\o           menu option.
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Error*   Error ID  = 5011
+\o *Error*   Error Msg = Simulator failed to complete the simulation.
+\o 
+\o           Error found by spectre during circuit read-in.
+\o Error found
+\o           by spectre during circuit read-in.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" 8:
+\o           Parameter `ndvtshift' was previously defined. Please try to
+\o           add `+spice' in
+\o  command line or option `redefinedparams'
+\o           in netlist to avoid these type of errors.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" 10:
+\o           Parameter `pdvtshift' was previously defined. Please try to
+\o           add `+spice' i
+\o n command line or option `redefinedparams'
+\o           in netlist to avoid these type of errors.
 \o 
 \o 
 \o 
 \o 
 \o 
 \o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.13
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.13.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.13/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (3 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.13/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.13/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (3 1)
+\o 
+\o generate netlist...
+\o Begin Incremental Netlisting May  1 20:17:58 2015
+\o WARNING (OSSHNL-226): There are more design variables used in the current netlisting session as
+\o compared to the last session in the current run directory. The netlist(s)
+\o generated in the last netlisting session cannot be reused for incremental
+\o netlisting. Therefore re-netlisting the design.
+\o 
+\o End netlisting May  1 20:17:58 2015
+\o 
+\o Netlisting Statistics:
+\o 	Number of components:    5
+\o 
+\o 	Elapsed time:          0.0s
+\o Errors: 0	Warnings: 0
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (3 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.13/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May  1 20:17:59 2015
+\o End netlisting May  1 20:18:00 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   1.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o INFO (ADE-3067): Errors encountered during simulation. For more information, right-click
+\o         on a test name in the 'Results' tab of the Outputs pane and choose 'Output Log'
+\o         to view the simulation run log.
+\o *Info*    Monte Carlo Simulation unsuccessful...
+\o *Info*    See simulation output log for more information.
+\o 
+\o *Error*   Error ID  = 5052
+\o *Error*   Error Msg = 
+\o Nominal simulation might have failed. Either
+\o           fix the problem in the test setup or disable the test and
+\o           re-run.
+\o 
+\o To view the simulator output, right-click on the
+\o           test name, result name, or any corner column in the
+\o           "Detail" view 
+\o of the "Results" tab and choose "Output Log"
+\o           menu option.
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Error*   Error ID  = 5011
+\o *Error*   Error Msg = Simulator failed to complete the simulation.
+\o 
+\o           Error found by spectre during circuit read-in.
+\o Error found
+\o           by spectre during circuit read-in.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs"
+\o           8: Parameter `ndvtshift' was previously defined. Please try
+\o           to add `+spice' 
+\o in command line or option
+\o           `redefinedparams' in netlist to avoid these type of
+\o           errors.
+\o ERROR (SFE-59):
+\o           "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs"
+\o           10: Parameter `pdvtshift' was previously defined. Please
+\o           try to add `+spice'
+\o  in command line or option
+\o           `redefinedparams' in netlist to avoid these type of errors.
+\o 
+\o 
+\o 
+\o 
+\o 
 \o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
-\o Job 2 timed out after no activity in 300 seconds.
 \o Simulation design variables differ from those on the cellView,
 \o they have been saved in the file "/tmp/saved-design-variables".
 \o To save future changes, copy variables to cellView before exiting.
 \o Loading lce.cxt 
+\o 
+\o *Info*    Received signal SIGTERM.
+\o 
+\o 

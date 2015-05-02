@@ -1,4 +1,4 @@
-(envOpts analysisOrder) ("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens")
+(envOpts analysisOrder) ("tran")
 (envOpts autoDisplay) t
 (envOpts cmd64bit) t
 (envOpts cpfIsPommardEnabled) t
@@ -19,5 +19,5 @@
 (envOpts sst2usecolon) nil
 (envOpts stopViewList) ("spectre")
 (envOpts switchViewList) ("spectre" "cmos_sch" "cmos.sch" "schematic" "veriloga")
-(envOpts userCmdLineOption) ""
+(envOpts userCmdLineOption) "+spice"
 (envOpts vcoType) ""

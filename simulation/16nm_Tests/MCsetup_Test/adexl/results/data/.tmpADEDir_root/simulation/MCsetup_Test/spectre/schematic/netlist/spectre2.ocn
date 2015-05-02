@@ -1,18 +1,19 @@
 simulator( 'spectre )
-design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist/netlist")
-resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir" )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir" )
 modelFile( 
-    '("/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include" nil)
-    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs" nil)
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" nil)
 )
 analysis('tran ?stop "12n"  ?errpreset "conservative"  )
 desVar(	  "vdd" .500	)
 desVar(	  "time2" 5n	)
+desVar(	  "pdvtshift" 0	)
+desVar(	  "ndvtshift" 0	)
 envOption(
 	'firstRun  t 
 	'cmd64bit  t 
 	'autoDisplay  nil 
-	'userCmdLineOption  "  -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/sharedData/Job1/ahdl/input.ahdlSimDB" 
+	'userCmdLineOption  " +spice -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/sharedData/Job9/ahdl/input.ahdlSimDB" 
 	'analysisOrder  list("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens") 
 )
 option(	'multithread  "on" 
@@ -24,5 +25,5 @@ temp( 30.0 )
 run()
 selectResult( 'tran )
 plot(getData("/V0/MINUS") getData("/Y") )
-plot( pv("I0.M0.mnfet" "vth" ?result "tranOp") )
-plot( pv("I0.M1.mpfet" "vth" ?result "tranOp") )
+plot( OP("/I0/M1" "vth") )
+plot( OP("/I0/M0" "vth") )

@@ -1,10 +1,40 @@
 simulator lang=spectre
+parameter pdvtmean=0
++ndvtmean=0
++pdvtshift=0
++ndvtshift=0
+
+//statistics
+//{             
+//    process
+//    {
+        // NOTE: lmin=1.8e-7
+        // units of xl are meters, so going to make it an order of magnitude smaller
+//        vary xl dist=gauss std=1.8e-8
+        // NOTE: wmin=1.8e-7
+        // units of wl are meter, so going to make it an oder of magnitude smaller
+//        vary wl dist=gauss std=1.8e-8
+        // tox=4.2e-09 m
+//        vary tox dist=gauss std=4.2e-10
+//    }
+//    mismatch
+//    {
+//        // Going to vary the same thins, but assuming 2 oders smaller from min
+//        // same die mismatch should be less (thus this one)
+//        vary xl dist=gauss std=1.8e-9
+//        vary wl dist=gauss std=1.8e-8 
+//        // tox=4.2e-09 m
+//       vary tox dist=gauss std=4.2e-11
+//    }
+//}
 
 statistics {
-    mismatch {
-        vary pdvtshift dist=gauss std=0.03
-	vary ndvtshift dist=gauss std=0.03
-    }
+	process {
+	    vary pdvtshift dist=gauss std=0.03
+		vary ndvtshift dist=gauss std=0.03
+	}         
+	mismatch {
+       vary pdvtshift dist=gauss std=0.03
+		vary ndvtshift dist=gauss std=0.03
+   }
 }
-
-

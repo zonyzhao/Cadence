@@ -9,7 +9,7 @@ gnd! 0
 $endnet
 $param
 vdd vdd
-DPAR_2 DPAR_2
-DPAR_1 DPAR_1
+pdvtshift pdvtshift
+ndvtshift ndvtshift
 time2 time2
 $endparam

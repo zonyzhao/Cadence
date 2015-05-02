@@ -4,7 +4,7 @@
   blockName "MCsetup_Test"
   repList "spectre cmos_sch cmos.sch schematic veriloga"
   stopList "spectre"
-  globalList "vdd! gnd!"
+  globalList "gnd! vdd!"
   hierDelim "."
   netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist"
  )

@@ -1,5 +1,0 @@
-
-// Library name: 16nm
-// Cell name: inv_1x
-// View name: schematic
-subckt inv_1x A Y
