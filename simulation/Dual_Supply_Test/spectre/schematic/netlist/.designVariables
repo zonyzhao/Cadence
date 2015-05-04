@@ -1,0 +1,2 @@
+parameters timeE=15n timeF=15.25n timeC=8n timeD=8.25n VDDH=.600 VDDL=.400 \
+    timeB=1.25n timeA=1n

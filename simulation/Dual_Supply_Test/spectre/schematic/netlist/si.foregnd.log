@@ -1,0 +1,75 @@
+Begin Incremental Netlisting May  3 20:47:08 2015
+End netlisting May  3 20:47:08 2015
+Begin Incremental Netlisting May  3 20:47:30 2015
+End netlisting May  3 20:47:30 2015
+Begin Incremental Netlisting May  3 20:50:09 2015
+WARNING (OSSHNL-159): The primitive, 'NCSU_TechLib_FreePDK15/nfet/spectre', has
+been updated since the last netlisting session
+in this current run directory.
+Therefore, re-netlisting all cell views where
+this primitive is instantiated.
+
+End netlisting May  3 20:50:09 2015
+Begin Incremental Netlisting May  3 20:52:57 2015
+End netlisting May  3 20:52:58 2015
+Begin Incremental Netlisting May  3 20:56:38 2015
+WARNING (OSSHNL-226): There are more design variables used in the current
+netlisting session as
+compared to the last session in the current run directory.
+The netlist(s)
+generated in the last netlisting session cannot be reused for
+incremental
+netlisting. Therefore re-netlisting the design.
+
+End netlisting May  3 20:56:39 2015
+Begin Incremental Netlisting May  3 21:02:11 2015
+WARNING (OSSHNL-226): There are more design variables used in the current
+netlisting session as
+compared to the last session in the current run directory.
+The netlist(s)
+generated in the last netlisting session cannot be reused for
+incremental
+netlisting. Therefore re-netlisting the design.
+
+End netlisting May  3 21:02:11 2015
+Begin Incremental Netlisting May  3 21:06:51 2015
+WARNING (OSSHNL-226): There are more design variables used in the current
+netlisting session as
+compared to the last session in the current run directory.
+The netlist(s)
+generated in the last netlisting session cannot be reused for
+incremental
+netlisting. Therefore re-netlisting the design.
+
+End netlisting May  3 21:06:51 2015
+Begin Incremental Netlisting May  3 21:07:22 2015
+End netlisting May  3 21:07:22 2015
+Begin Incremental Netlisting May  3 21:11:31 2015
+End netlisting May  3 21:11:32 2015
+Begin Incremental Netlisting May  3 21:14:02 2015
+End netlisting May  3 21:14:03 2015
+Begin Incremental Netlisting May  3 21:51:01 2015
+End netlisting May  3 21:51:02 2015
+Begin Incremental Netlisting May  3 21:55:18 2015
+End netlisting May  3 21:55:18 2015
+Begin Incremental Netlisting May  3 22:00:02 2015
+End netlisting May  3 22:00:02 2015
+Begin Incremental Netlisting May  3 22:04:58 2015
+ERROR (OSSHNL-109): The cellview '16nm_Tests/Dual_Supply_Test/schematic' has
+been modified since the last extraction. Validate
+that the schematic is correct
+and run Check and Save to correct this error.
+
+End netlisting May  3 22:04:58 2015
+Begin Incremental Netlisting May  3 22:05:03 2015
+End netlisting May  3 22:05:03 2015
+Begin Incremental Netlisting May  3 22:12:28 2015
+End netlisting May  3 22:12:28 2015
+Begin Incremental Netlisting May  3 22:16:26 2015
+End netlisting May  3 22:16:26 2015
+Begin Incremental Netlisting May  3 22:21:12 2015
+End netlisting May  3 22:21:12 2015
+Begin Incremental Netlisting May  3 22:27:16 2015
+End netlisting May  3 22:27:16 2015
+Begin Incremental Netlisting May  3 22:31:51 2015
+End netlisting May  3 22:31:51 2015

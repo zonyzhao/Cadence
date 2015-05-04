@@ -1,0 +1,46 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Dual_Supply_Test"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Test/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "16nm/6T_CHUNK_PWR/schematic" "_sub19" )
+( "16nm_Tests/Dual_Supply_Test/schematic" "Dual_Supply_Test" )
+( "16nm/6T_SetRead_PWR/schematic" "_sub13" )
+( "16nm/inv_1x_PWR/schematic" "inv_1x_PWR" )
+( "16nm/nand4_1x_PWR/schematic" "nand4_1x_PWR" )
+( "16nm/6T_32x_PWR/schematic" "_sub17" )
+( "16nm/inv_4x_PWR/schematic" "inv_4x_PWR" )
+( "16nm/6T_32x_CTRL_PWR/schematic" "_sub14" )
+( "16nm/6T_PWR/schematic" "_sub15" )
+( "16nm/6T_32x4_PWR/schematic" "_sub18" )
+( "16nm/6T_4x_PWR/schematic" "_sub16" )
+ )
+( term
+ )
+( param
+ )
+( "inv_4x_PWR" "ihnl/cds11/map" )
+( "_sub17" "ihnl/cds4/map" )
+( "_sub18" "ihnl/cds6/map" )
+( "_sub13" "ihnl/cds0/map" )
+( "_sub19" "ihnl/cds7/map" )
+( "nand4_1x_PWR" "ihnl/cds5/map" )
+( "Dual_Supply_Test" "ihnl/cds9/map" )
+( "_sub14" "ihnl/cds1/map" )
+( "_sub16" "ihnl/cds3/map" )
+( "_sub15" "ihnl/cds2/map" )
+( "inv_1x_PWR" "ihnl/cds8/map" )
+ )
