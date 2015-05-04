@@ -1,5 +1,0 @@
-
-// Library name: 16nm
-// Cell name: inv_16x_PWR
-// View name: schematic
-subckt inv_16x_PWR A GND VDD Y

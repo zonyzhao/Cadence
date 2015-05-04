@@ -788,6 +788,7 @@ hnlLastConstants = '(
                       "M_E"
                     )
 hnlLastDesignVars = '(
+                      "C"
                       "timeE"
                       "timeF"
                       "timeC"

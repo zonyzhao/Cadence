@@ -8,5 +8,5 @@
     M5 (net24 S GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M4 (net25 S GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M3 (B0 W0 net25 GND) nfet w=60n l=20n nfin=1 nf=1 m=1
-ends _sub14
+ends _sub21
 // End of subcircuit definition.

@@ -6,17 +6,81 @@
 \o Log file is "/root/Desktop/Cadence/libManager.log".
 \o Opening libManager window.
 \a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1712 153 1276 992))
+\a nrResizeWindow(cdsLibManager list(1280 25 1916 1120))
 \o changeWorkingDir("/root/Desktop/Cadence") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
 \o Library Manager customization server connected.
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_1xT"
-\a cdsLibManager->cellListBox->value = "inv_1x_PWR"
-\a lmgrLogShowPopup("mainListPopup1" 61 214 2 "inv_1x_PWR")
-\a cdsLibManager->cellLineEdit->value = "inv_1x_PWR"
+\a cdsLibManager->cellListBox->value = "DCache"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "DCache"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "UCD_Analog_Parts"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "6T_BANK"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellLineEdit->value = "6T_BANK"
+\a cdsLibManager->viewListBox->value = "symbol2"
+\a cdsLibManager->viewLineEdit->value = "symbol2"
+\a cdsLibManager->viewListBox->value = "symbol3"
+\a cdsLibManager->viewLineEdit->value = "symbol3"
+\a lmgrLogShowPopup("mainListPopup2" 18 55 2 "symbol3")
+\a cdsLibManager->editDeleteButton->value = t
+\a deleteForm->deleteBothRadioButton->value = t
+\a deleteForm->deleteFilterEdit->value = "*"
+\a deleteForm->notDeleteFilterEdit->value = "*"
+\a nrSetWindowVisibility(deleteForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrResizeWindow(deleteForm list(1925 373 627 425))
+\a deleteForm->OK->value = t
+\o QUESTION (CLM-199): The following 1 items are marked for deletion.  Are you sure?
+\a nrSetWindowVisibility(mcMBXDLG "show")
+\a nrSetCurrentWindow(mcMBXDLG)
+\a nrResizeWindow(mcMBXDLG list(2057 447 362 279))
+\a mcMBXDLG->pushButton1->value = t
+\o Deleting view "symbol3" from cell "6T_BANK" in library "16nm".
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(deleteForm)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\o Deleted cellview '16nm/6T_BANK/symbol3'.
+\o Deletion of 1 view done.
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->viewListBox->value = nil
+\a nrResizeWindow(workingDialogForm list(2 26 281 131))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a cdsLibManager->cellListBox->value = "6T_BANK"
+\a cdsLibManager->cellLineEdit->value = "6T_BANK"
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a cdsLibManager->viewListBox->value = "symbol2"
+\a cdsLibManager->viewLineEdit->value = "symbol2"
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a lmgrLogShowPopup("mainListPopup2" 57 25 2 "symbol")
 \a cdsLibManager->copySimpleButton->value = t
 \a basicCopyForm->CategoryCellsEdit->value = "*"
 \a basicCopyForm->CellsSkipLibraries->value = t
@@ -26,19 +90,21 @@
 \a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
 \a basicCopyForm->CopyFromLibrary->value = "16nm"
 \a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyFromCell->value = "inv_1x_PWR"
-\a basicCopyForm->CopyToCell->value = "inv_1x_PWR"
-\a basicCopyForm->CellsViewsToCopy->value = "schematic symbol"
+\a basicCopyForm->CopyFromCell->value = "6T_BANK"
+\a basicCopyForm->CopyFromView->value = "symbol"
+\a basicCopyForm->CopyToCell->value = "6T_BANK"
+\a basicCopyForm->CopyToView->value = "symbol"
+\a basicCopyForm->ViewsViewsToCopy->value = "symbol"
 \a basicCopyForm->CellsSkipLibrariesEdit->value = ""
 \a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
 \a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
 \a nrSetWindowVisibility(basicCopyForm "show")
 \a nrSetCurrentWindow(basicCopyForm)
-\a nrResizeWindow(basicCopyForm list(2128 297 444 638))
-\a basicCopyForm->CopyToCell->value = "inv_4x_PWR"
+\a nrResizeWindow(basicCopyForm list(2016 194 444 690))
+\a basicCopyForm->CopyToView->value = "symbol3"
 \a nrDialogAccept(basicCopyForm)
 \a basicCopyForm->OK->value = t
-\a basicCopyForm->CopyToCell->value = "inv_4x_PWR"
+\a basicCopyForm->CopyToView->value = "symbol3"
 \o Beginning simple copy to library "16nm".
 \o Processing files to be copied...
 \a nrSetWindowVisibility(workingDialogForm "show")
@@ -49,100 +115,28 @@
 \a nrResizeWindow(workingDialogForm list(0 107 288 131))
 \a cdsLibManager->libListBox->value = nil
 \a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->cellLineEdit->value = ""
 \a cdsLibManager->libLineEdit->value = ""
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_1x_PWR"
-\a cdsLibManager->cellLineEdit->value = "inv_1x_PWR"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "inv_4x_PWR"
-\a lmgrLogShowPopup("mainListPopup1" 99 468 2 "inv_4x_PWR")
-\a cdsLibManager->cellLineEdit->value = "inv_4x_PWR"
-\a cdsLibManager->copySimpleButton->value = t
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsViewsToCopy->value = ""
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CopyFromCell->value = ""
-\a basicCopyForm->CopyToCell->value = ""
-\a basicCopyForm->CopyFromLibrary->value = ""
-\a basicCopyForm->CopyToLibrary->value = ""
-\a basicCopyForm->CopyFromLibrary->value = "16nm"
-\a basicCopyForm->CopyToLibrary->value = "16nm"
-\a basicCopyForm->CopyFromCell->value = "inv_4x_PWR"
-\a basicCopyForm->CopyToCell->value = "inv_4x_PWR"
-\a basicCopyForm->CellsViewsToCopy->value = "schematic symbol"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
-\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
-\a nrSetWindowVisibility(basicCopyForm "show")
-\a nrSetCurrentWindow(basicCopyForm)
-\a nrResizeWindow(basicCopyForm list(2128 297 444 638))
-\a basicCopyForm->CopyToCell->value = "inv_16x_PWR"
-\a nrDialogAccept(basicCopyForm)
-\a basicCopyForm->OK->value = t
-\a basicCopyForm->CopyToCell->value = "inv_16x_PWR"
-\o Beginning simple copy to library "16nm".
-\o Processing files to be copied...
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetWindowVisibility(workingDialogForm "show")
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(workingDialogForm)
-\a nrResizeWindow(workingDialogForm list(2 107 288 131))
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a cdsLibManager->cellListBox->value = "inv_4x_PWR"
-\a cdsLibManager->cellLineEdit->value = "inv_4x_PWR"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
-\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellListBox->value = "inv_4x_PWR"
-\a cdsLibManager->cellLineEdit->value = "inv_4x_PWR"
+\a cdsLibManager->cellListBox->value = "6T_BANK"
+\a cdsLibManager->cellLineEdit->value = "6T_BANK"
 \a cdsLibManager->viewListBox->value = "symbol"
 \a cdsLibManager->viewLineEdit->value = "symbol"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 1 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(2002 452 1276 992))
-\a nrResizeWindow(cdsLibManager list(2022 936 1276 992))
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(1643 399 1276 992))
-\a nrResizeWindow(cdsLibManager list(1643 399 1920 1124))
-\a cdsLibManager->cellListBox->value = "inv_16x_PWR"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "inv_16x_PWR"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewListBox->value = "symbol"
+\a cdsLibManager->viewLineEdit->value = "symbol"
+\a nrSetCurrentWindow(cdsLibManager)
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm_Tests ATSim NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib"
+\a cdsLibManager->viewListBox->value = "symbol3"
+\a cdsLibManager->viewLineEdit->value = "symbol3"
 \o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "inv_4x_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "inv_4x_PWR"
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\o MPS request: edit design
-\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
+\a nrListItemAction(cdsLibManager->gdmXTView 3 0)
+\a nrResizeWindow(cdsLibManager list(1243 402 1916 1120))
 \a nrSetWindowVisibility(cdsLibManager "hide")
 \o libManager is exiting.
 \a exit(0)

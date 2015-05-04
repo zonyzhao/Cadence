@@ -1,5 +1,0 @@
-
-// Library name: 16nm
-// Cell name: LevelConverter
-// View name: schematic
-subckt LevelConverter Out GND VDDH VDDL In

@@ -1,4 +1,4 @@
-CADENCE IHNL010713
+CADENCE IHNL010711
 
 16nm 6T_SetRead_PWR schematic cds0
 16nm 6T_32x_CTRL_PWR schematic cds1
@@ -9,5 +9,5 @@ CADENCE IHNL010713
 16nm 6T_32x4_PWR schematic cds6
 16nm 6T_CHUNK_PWR schematic cds7
 16nm inv_1x_PWR schematic cds8
-16nm_Tests Dual_Supply_Test schematic cds9
-16nm inv_4x_PWR schematic cds11
+16nm inv_4x_PWR schematic cds9
+16nm_Tests Dual_Supply_Test schematic cds10

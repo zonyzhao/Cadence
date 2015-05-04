@@ -10,10 +10,10 @@
 ( inst
  )
 ( model
-( "6T_32x_CTRL_PWR" "_sub14" )
+( "6T_32x_CTRL_PWR" "_sub21" )
 ( "nand4_1x_PWR" "nand4_1x_PWR" )
-( "6T_32x4_PWR" "_sub18" )
-( "6T_32x_PWR" "_sub17" )
+( "6T_32x4_PWR" "_sub25" )
+( "6T_32x_PWR" "_sub24" )
  )
 ( term
  )

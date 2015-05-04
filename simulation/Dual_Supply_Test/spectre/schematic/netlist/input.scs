@@ -1,30 +1,30 @@
 // Generated for: spectre
-// Generated on: May  3 22:27:16 2015
+// Generated on: May  4 02:48:12 2015
 // Design library name: 16nm_Tests
 // Design cell name: Dual_Supply_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters timeE=15n timeF=15.25n timeC=8n timeD=8.25n VDDH=.600 VDDL=.400 \
-    timeB=1.25n timeA=1n
+parameters C=0.5 timeE=15n timeF=15.25n timeC=8n timeD=8.25n VDDH=.600 \
+    VDDL=.400 timeB=1.25n timeA=1n
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 
 // Library name: 16nm
 // Cell name: 6T_SetRead_PWR
 // View name: schematic
-subckt _sub13 \~R0 \~R1 Go SM0\<0\> SM0\<1\> SM1\<0\> SM1\<1\> GND
+subckt _sub20 \~R0 \~R1 Go SM0\<0\> SM0\<1\> SM1\<0\> SM1\<1\> GND
     M5 (\~R0 SM0\<0\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
     M3 (\~R0 SM0\<1\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
     M2 (net18 Go GND GND) nfet w=40n l=16n nfin=1 nf=1 m=1
     M1 (\~R1 SM1\<1\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
     M0 (\~R1 SM1\<0\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-ends _sub13
+ends _sub20
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: 6T_32x_CTRL_PWR
 // View name: schematic
-subckt _sub14 B0 B1 S W0 W1 VDD GND
+subckt _sub21 B0 B1 S W0 W1 VDD GND
     M10 (B1 B0 net22 VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
     M9 (net22 W1 VDD VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
     M8 (B0 B1 net23 VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
@@ -35,50 +35,50 @@ subckt _sub14 B0 B1 S W0 W1 VDD GND
     M5 (net24 S GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M4 (net25 S GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M3 (B0 W0 net25 GND) nfet w=60n l=20n nfin=1 nf=1 m=1
-ends _sub14
+ends _sub21
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: 6T_PWR
 // View name: schematic
-subckt _sub15 A B0 B1 VDD GND
+subckt _sub22 A B0 B1 VDD GND
     M5 (Q0 Q1 GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M4 (Q1 Q0 GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
     M1 (Q1 A B1 GND) nfet w=120n l=20n nfin=2 nf=1 m=1
     M0 (Q0 A B0 GND) nfet w=120n l=20n nfin=2 nf=1 m=1
     M3 (Q0 Q1 VDD VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
     M2 (Q1 Q0 VDD VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
-ends _sub15
+ends _sub22
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: 6T_4x_PWR
 // View name: schematic
-subckt _sub16 A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD
-    I3 (A\<0\> B0 B1 VDD GND) _sub15
-    I2 (A\<1\> B0 B1 VDD GND) _sub15
-    I1 (A\<2\> B0 B1 VDD GND) _sub15
-    I0 (A\<3\> B0 B1 VDD GND) _sub15
-ends _sub16
+subckt _sub23 A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD
+    I3 (A\<0\> B0 B1 VDD GND) _sub22
+    I2 (A\<1\> B0 B1 VDD GND) _sub22
+    I1 (A\<2\> B0 B1 VDD GND) _sub22
+    I0 (A\<3\> B0 B1 VDD GND) _sub22
+ends _sub23
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: 6T_32x_PWR
 // View name: schematic
-subckt _sub17 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
+subckt _sub24 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
         A\<24\> A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> \
         A\<16\> A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> \
         A\<8\> A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0 \
         B1 GND VDD\<0\> VDD\<1\>
-    I7 (A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD\<0\>) _sub16
-    I6 (A\<7\> A\<6\> A\<5\> A\<4\> B0 B1 GND VDD\<0\>) _sub16
-    I5 (A\<11\> A\<10\> A\<9\> A\<8\> B0 B1 GND VDD\<0\>) _sub16
-    I4 (A\<15\> A\<14\> A\<13\> A\<12\> B0 B1 GND VDD\<0\>) _sub16
-    I3 (A\<19\> A\<18\> A\<17\> A\<16\> B0 B1 GND VDD\<1\>) _sub16
-    I2 (A\<23\> A\<22\> A\<21\> A\<20\> B0 B1 GND VDD\<1\>) _sub16
-    I1 (A\<27\> A\<26\> A\<25\> A\<24\> B0 B1 GND VDD\<1\>) _sub16
-    I0 (A\<31\> A\<30\> A\<29\> A\<28\> B0 B1 GND VDD\<1\>) _sub16
-ends _sub17
+    I7 (A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD\<0\>) _sub23
+    I6 (A\<7\> A\<6\> A\<5\> A\<4\> B0 B1 GND VDD\<0\>) _sub23
+    I5 (A\<11\> A\<10\> A\<9\> A\<8\> B0 B1 GND VDD\<0\>) _sub23
+    I4 (A\<15\> A\<14\> A\<13\> A\<12\> B0 B1 GND VDD\<0\>) _sub23
+    I3 (A\<19\> A\<18\> A\<17\> A\<16\> B0 B1 GND VDD\<1\>) _sub23
+    I2 (A\<23\> A\<22\> A\<21\> A\<20\> B0 B1 GND VDD\<1\>) _sub23
+    I1 (A\<27\> A\<26\> A\<25\> A\<24\> B0 B1 GND VDD\<1\>) _sub23
+    I0 (A\<31\> A\<30\> A\<29\> A\<28\> B0 B1 GND VDD\<1\>) _sub23
+ends _sub24
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -99,36 +99,36 @@ ends nand4_1x_PWR
 // Library name: 16nm
 // Cell name: 6T_32x4_PWR
 // View name: schematic
-subckt _sub18 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
+subckt _sub25 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
         A\<24\> A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> \
         A\<16\> A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> \
         A\<8\> A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0 \
         B1 GND S\<3\> S\<2\> S\<1\> S\<0\> SM0 SM1 VDD\<7\> VDD\<6\> \
         VDD\<5\> VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> VDD\<0\> VDDM W0 W1
-    I4 (B0P1 B1P1 S\<0\> W0 W1 VDDM GND) _sub14
-    I5 (B0P2 B1P2 S\<1\> W0 W1 VDDM GND) _sub14
-    I6 (B0P3 B1P3 S\<2\> W0 W1 VDDM GND) _sub14
-    I7 (B0P4 B1P4 S\<3\> W0 W1 VDDM GND) _sub14
+    I4 (B0P1 B1P1 S\<0\> W0 W1 VDDM GND) _sub21
+    I5 (B0P2 B1P2 S\<1\> W0 W1 VDDM GND) _sub21
+    I6 (B0P3 B1P3 S\<2\> W0 W1 VDDM GND) _sub21
+    I7 (B0P4 B1P4 S\<3\> W0 W1 VDDM GND) _sub21
     I3 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0P4 B1P4 \
-        GND VDD\<6\> VDD\<7\>) _sub17
+        GND VDD\<6\> VDD\<7\>) _sub24
     I1 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0P2 B1P2 \
-        GND VDD\<2\> VDD\<3\>) _sub17
+        GND VDD\<2\> VDD\<3\>) _sub24
     I2 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0P3 B1P3 \
-        GND VDD\<4\> VDD\<5\>) _sub17
+        GND VDD\<4\> VDD\<5\>) _sub24
     I0 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0P1 B1P1 \
-        GND VDD\<0\> VDD\<1\>) _sub17
+        GND VDD\<0\> VDD\<1\>) _sub24
     I11 (B1P1 B1P2 B1P3 B1P4 GND VDDM SM1) nand4_1x_PWR
     I10 (B0P1 B0P2 B0P3 B0P4 GND VDDM SM0) nand4_1x_PWR
     M1 (B0P1 B0 net066 GND) nfet w=60n l=20n nfin=1 nf=1 m=1
@@ -163,13 +163,13 @@ subckt _sub18 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
     M14 (B0P3 net028 VDDM VDDM) pfet w=100n l=20n nfin=1 nf=1 m=1
     M20 (B0P4 net026 VDDM VDDM) pfet w=100n l=20n nfin=1 nf=1 m=1
     M23 (B1P4 net026 VDDM VDDM) pfet w=100n l=20n nfin=1 nf=1 m=1
-ends _sub18
+ends _sub25
 // End of subcircuit definition.
 
 // Library name: 16nm
 // Cell name: 6T_CHUNK_PWR
 // View name: schematic
-subckt _sub19 \~R0\<3\> \~R0\<2\> \~R0\<1\> \~R0\<0\> \~R1\<3\> \~R1\<2\> \
+subckt _sub26 \~R0\<3\> \~R0\<2\> \~R0\<1\> \~R0\<0\> \~R1\<3\> \~R1\<2\> \
         \~R1\<1\> \~R1\<0\> A\<63\> A\<62\> A\<61\> A\<60\> A\<59\> \
         A\<58\> A\<57\> A\<56\> A\<55\> A\<54\> A\<53\> A\<52\> A\<51\> \
         A\<50\> A\<49\> A\<48\> A\<47\> A\<46\> A\<45\> A\<44\> A\<43\> \
@@ -185,70 +185,70 @@ subckt _sub19 \~R0\<3\> \~R0\<2\> \~R0\<1\> \~R0\<0\> \~R1\<3\> \~R1\<2\> \
         VDD\<11\> VDD\<10\> VDD\<9\> VDD\<8\> VDD\<7\> VDD\<6\> VDD\<5\> \
         VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> VDD\<0\>
     I7 (\~R0\<3\> \~R1\<3\> Go SM0_0_bit3 SM0_1_bit3 SM1_0_bit3 SM1_1_bit3 \
-        GND) _sub13
+        GND) _sub20
     I6 (\~R0\<2\> \~R1\<2\> Go SM0_0_bit2 SM0_1_bit2 SM1_0_bit2 SM1_1_bit2 \
-        GND) _sub13
+        GND) _sub20
     I5 (\~R0\<1\> \~R1\<1\> Go SM0_0_bit1 SM0_1_bit1 SM1_0_bit1 SM1_1_bit1 \
-        GND) _sub13
+        GND) _sub20
     I4 (\~R0\<0\> \~R1\<0\> Go SM0_0_bit0 SM0_1_bit0 SM1_0_bit0 SM1_1_bit0 \
-        GND) _sub13
+        GND) _sub20
     I11 (A\<63\> A\<62\> A\<61\> A\<60\> A\<59\> A\<58\> A\<57\> A\<56\> \
         A\<55\> A\<54\> A\<53\> A\<52\> A\<51\> A\<50\> A\<49\> A\<48\> \
         A\<47\> A\<46\> A\<45\> A\<44\> A\<43\> A\<42\> A\<41\> A\<40\> \
         A\<39\> A\<38\> A\<37\> A\<36\> A\<35\> A\<34\> A\<33\> A\<32\> \
         B0\<3\> B1\<3\> GND S\<7\> S\<6\> S\<5\> S\<4\> SM0_1_bit3 \
         SM1_1_bit3 VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> VDD\<11\> \
-        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<3\> W1\<3\>) _sub18
+        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<3\> W1\<3\>) _sub25
     I10 (A\<63\> A\<62\> A\<61\> A\<60\> A\<59\> A\<58\> A\<57\> A\<56\> \
         A\<55\> A\<54\> A\<53\> A\<52\> A\<51\> A\<50\> A\<49\> A\<48\> \
         A\<47\> A\<46\> A\<45\> A\<44\> A\<43\> A\<42\> A\<41\> A\<40\> \
         A\<39\> A\<38\> A\<37\> A\<36\> A\<35\> A\<34\> A\<33\> A\<32\> \
         B0\<2\> B1\<2\> GND S\<7\> S\<6\> S\<5\> S\<4\> SM0_1_bit2 \
         SM1_1_bit2 VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> VDD\<11\> \
-        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<2\> W1\<2\>) _sub18
+        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<2\> W1\<2\>) _sub25
     I9 (A\<63\> A\<62\> A\<61\> A\<60\> A\<59\> A\<58\> A\<57\> A\<56\> \
         A\<55\> A\<54\> A\<53\> A\<52\> A\<51\> A\<50\> A\<49\> A\<48\> \
         A\<47\> A\<46\> A\<45\> A\<44\> A\<43\> A\<42\> A\<41\> A\<40\> \
         A\<39\> A\<38\> A\<37\> A\<36\> A\<35\> A\<34\> A\<33\> A\<32\> \
         B0\<1\> B1\<1\> GND S\<7\> S\<6\> S\<5\> S\<4\> SM0_1_bit1 \
         SM1_1_bit1 VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> VDD\<11\> \
-        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<1\> W1\<1\>) _sub18
+        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<1\> W1\<1\>) _sub25
     I8 (A\<63\> A\<62\> A\<61\> A\<60\> A\<59\> A\<58\> A\<57\> A\<56\> \
         A\<55\> A\<54\> A\<53\> A\<52\> A\<51\> A\<50\> A\<49\> A\<48\> \
         A\<47\> A\<46\> A\<45\> A\<44\> A\<43\> A\<42\> A\<41\> A\<40\> \
         A\<39\> A\<38\> A\<37\> A\<36\> A\<35\> A\<34\> A\<33\> A\<32\> \
         B0\<0\> B1\<0\> GND S\<7\> S\<6\> S\<5\> S\<4\> SM0_1_bit0 \
         SM1_1_bit0 VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> VDD\<11\> \
-        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<0\> W1\<0\>) _sub18
+        VDD\<10\> VDD\<9\> VDD\<8\> VDDM W0\<0\> W1\<0\>) _sub25
     I3 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0\<3\> \
         B1\<3\> GND S\<3\> S\<2\> S\<1\> S\<0\> SM0_0_bit3 SM1_0_bit3 \
         VDD\<7\> VDD\<6\> VDD\<5\> VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> \
-        VDD\<0\> VDDM W0\<3\> W1\<3\>) _sub18
+        VDD\<0\> VDDM W0\<3\> W1\<3\>) _sub25
     I2 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0\<2\> \
         B1\<2\> GND S\<3\> S\<2\> S\<1\> S\<0\> SM0_0_bit2 SM1_0_bit2 \
         VDD\<7\> VDD\<6\> VDD\<5\> VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> \
-        VDD\<0\> VDDM W0\<2\> W1\<2\>) _sub18
+        VDD\<0\> VDDM W0\<2\> W1\<2\>) _sub25
     I1 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0\<1\> \
         B1\<1\> GND S\<3\> S\<2\> S\<1\> S\<0\> SM0_0_bit1 SM1_0_bit1 \
         VDD\<7\> VDD\<6\> VDD\<5\> VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> \
-        VDD\<0\> VDDM W0\<1\> W1\<1\>) _sub18
+        VDD\<0\> VDDM W0\<1\> W1\<1\>) _sub25
     I0 (A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> A\<24\> \
         A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> A\<16\> \
         A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> A\<8\> \
         A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0\<0\> \
         B1\<0\> GND S\<3\> S\<2\> S\<1\> S\<0\> SM0_0_bit0 SM1_0_bit0 \
         VDD\<7\> VDD\<6\> VDD\<5\> VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> \
-        VDD\<0\> VDDM W0\<0\> W1\<0\>) _sub18
-ends _sub19
+        VDD\<0\> VDDM W0\<0\> W1\<0\>) _sub25
+ends _sub26
 // End of subcircuit definition.
 
 // Library name: 16nm
@@ -278,15 +278,15 @@ I0 (\~R0_1\<3\> \~R0_1\<2\> \~R0_1\<1\> \~R0_1\<0\> \~R1_1\<3\> \
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
         0 0 0 0 0 0 0 0 0 vcc! VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> \
         VDD\<11\> VDD\<10\> VDD\<9\> VDD\<8\> VDD\<7\> VDD\<6\> VDD\<5\> \
-        VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> VDD\<0\>) _sub19
+        VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> VDD\<0\>) _sub26
 V0 (vcc! 0) vsource type=dc dc=VDDL
 V1 (vdd! 0) vsource type=dc dc=VDDH
 V5 (sH 0) vsource type=pwl wave=[ 0 VDDH timeA VDDH timeB 0 timeC 0 timeD \
         VDDH timeE VDDH timeF 0 ]
 V2 (sL 0) vsource type=pwl wave=[ 0 0 timeA 0 timeB VDDL timeC VDDL timeD \
         0 timeE 0 timeF VDDL ]
-M4 (Vline VH vdd! vdd!) pfet w=800n l=20n nfin=8 nf=1 m=1
-M3 (Vline VL vcc! vcc!) pfet w=800n l=20n nfin=8 nf=1 m=1
+M4 (Vline VH vdd! vdd!) pfet w=800n l=20n nfin=16 nf=1 m=1
+M3 (Vline VL vcc! vcc!) pfet w=800n l=20n nfin=16 nf=1 m=1
 M0\<3\> (\~R1_1\<3\> net016\<0\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
         m=1
 M0\<2\> (\~R1_1\<2\> net016\<1\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
@@ -322,7 +322,7 @@ I14\<3\> (vcc! VDD\<11\>) iprobe
 I14\<2\> (vcc! VDD\<10\>) iprobe
 I14\<1\> (vcc! VDD\<9\>) iprobe
 I14\<0\> (vcc! VDD\<8\>) iprobe
-C0 (Vline 0) capacitor c=2.5p m=1
+C0 (Vline 0) capacitor c=C m=1
 I25 (net035 0 vdd! VH) inv_4x_PWR
 ic Vline=VDDL VH=VDDH sH=VDDH VL=0 sL=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
