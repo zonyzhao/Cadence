@@ -1,0 +1,70 @@
+Starting Monte Carlo Sampling...
+
+Current time: Thu May  7 00:37:54 2015 
+MonteCarlo.1
+Number of points completed: 1000
+Number of simulation errors: 0
+MonteCarlo.1 completed. 
+Current time: Thu May  7 19:55:55 2015 
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 0
+
+Estimated yield = 0% (0/0), 0 errors
+Estimated yield (No opregions) = 0% (0/0)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 6
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth"):	Yield	100%
+		Min 0.110178	Max 0.550608	Mean 0.327078	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth"):	Yield	100%
+		Min 0.10079	Max 0.538018	Mean 0.314734	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth"):	Yield	100%
+		Min -0.527541	Max -0.0906661	Mean -0.312569	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth"):	Yield	100%
+		Min -0.546161	Max -0.108709	Mean -0.330916	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth"):	Yield	100%
+		Min 0.112718	Max 0.550608	Mean 0.327131	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth"):	Yield	100%
+		Min 0.100607	Max 0.538017	Mean 0.314722	Number of errors 0
+
+16nm_Tests:MC_6TWrite_Test:1
+	Overall Yield	100%	Number of points passed	1000	Total number of points	1000
+
+Estimated yield = 100% (1000/1000), 0 errors
+Estimated yield (No opregions) = 100% (1000/1000)
+Monte Carlo Sampling yield summary:
+Number of spec values are in this yield data: 6
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth"):	Yield	100%
+		Min 0.110178	Max 0.550608	Mean 0.327078	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth"):	Yield	100%
+		Min 0.10079	Max 0.538018	Mean 0.314734	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth"):	Yield	100%
+		Min -0.527541	Max -0.0906661	Mean -0.312569	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth"):	Yield	100%
+		Min -0.546161	Max -0.108709	Mean -0.330916	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth"):	Yield	100%
+		Min 0.112718	Max 0.550608	Mean 0.327131	Number of errors 0
+16nm_Tests:MC_6TWrite_Test:1	Nominal - 
+	OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth"):	Yield	100%
+		Min 0.100607	Max 0.538017	Mean 0.314722	Number of errors 0
+
+16nm_Tests:MC_6TWrite_Test:1
+	Overall Yield	100%	Number of points passed	1000	Total number of points	1000
+
+Estimated yield = 100% (1000/1000), 0 errors
+Estimated yield (No opregions) = 100% (1000/1000)

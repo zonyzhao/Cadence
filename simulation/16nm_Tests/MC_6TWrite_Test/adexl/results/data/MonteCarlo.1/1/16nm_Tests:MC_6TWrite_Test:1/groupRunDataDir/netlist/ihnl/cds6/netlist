@@ -1,0 +1,8 @@
+    M6 (net18 Go 0 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+    M5 (\~R0 SM0\<0\> net18 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+    M3 (\~R0 SM0\<1\> net18 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+    M2 (net12 Go 0 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+    M1 (\~R1 SM1\<1\> net12 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+    M0 (\~R1 SM1\<0\> net12 0) nfet w=40n l=16n nfin=1 nf=1 m=1
+ends _sub26
+// End of subcircuit definition.

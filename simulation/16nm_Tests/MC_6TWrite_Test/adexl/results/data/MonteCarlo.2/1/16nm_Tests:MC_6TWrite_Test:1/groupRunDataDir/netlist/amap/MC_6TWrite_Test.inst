@@ -1,0 +1,7 @@
+HEADER
+"PSFversion" "1.00"
+"ICHUNKn" "_sub27"
+"V7<3>n V7<2>n V7<1>n V7<0>n V8<3>n V8<2>n V8<1>n V8<0>n V6n V2n" "UCD_Analog_Parts_vpwl_spectre"
+"M0<3>n M0<2>n M0<1>n M0<0>n M1<3>n M1<2>n M1<1>n M1<0>n" "NCSU_TechLib_FreePDK15_pfet_spectre"
+"V0n V1n" "UCD_Analog_Parts_vdc_spectre"
+"I4<3>n I4<2>n I4<1>n I4<0>n I6<3>n I6<2>n I6<1>n I6<0>n" "inv_1x"

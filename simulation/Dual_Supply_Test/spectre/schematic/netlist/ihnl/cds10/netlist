@@ -15,8 +15,8 @@ V5 (sH 0) vsource type=pwl wave=[ 0 VDDH timeA VDDH timeB 0 timeC 0 timeD \
         VDDH timeE VDDH timeF 0 ]
 V2 (sL 0) vsource type=pwl wave=[ 0 0 timeA 0 timeB VDDL timeC VDDL timeD \
         0 timeE 0 timeF VDDL ]
-M4 (Vline VH vdd! vdd!) pfet w=800n l=20n nfin=16 nf=1 m=1
-M3 (Vline VL vcc! vcc!) pfet w=800n l=20n nfin=16 nf=1 m=1
+M4 (Vline VH vdd! vdd!) pfet w=800n l=20n nfin=32 nf=1 m=1
+M3 (Vline VL vcc! vcc!) pfet w=800n l=20n nfin=32 nf=1 m=1
 M0\<3\> (\~R1_1\<3\> net016\<0\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
         m=1
 M0\<2\> (\~R1_1\<2\> net016\<1\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \

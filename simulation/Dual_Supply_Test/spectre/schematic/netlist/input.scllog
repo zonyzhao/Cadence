@@ -1,20 +1,8 @@
 Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
 Version 14.1.0.303.isr3 32bit -- 16 Dec 2014
-Simulating `input.scs' on bull at 2:48:12 AM, Mon May 4, 2015 (process id: 19460).
-H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre0_18600_24" )
+Simulating `input.scs' on bull at 3:13:33 PM, Mon May 4, 2015 (process id: 29367).
+H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre0_18600_26" )
 H->sclSetResultDir( "../psf" )
 H->sclRun( "all" )
-sclCkt0xf60d0a0 = H->sclGetCircuit(  "" )
-sclParam0xf60d0a0 = H->sclGetParameter( sclCkt0xf60d0a0 "C" )
-H->sclSetAttribute( sclParam0xf60d0a0 "value" "0.722222222222222" )
-H->sclSetResultDir( "../psf" )
-H->sclRun( "all" )
-sclCkt0xf60d0a0 = H->sclGetCircuit(  "" )
-sclParam0xf60d0a1 = H->sclGetParameter( sclCkt0xf60d0a0 "C" )
-H->sclSetAttribute( sclParam0xf60d0a1 "value" "0.944444444444444" )
-H->sclSetResultDir( "../psf" )
-H->sclRun( "all" )
-sclCkt0xf60d0a0 = H->sclGetCircuit(  "" )
-sclParam0xf60d0a2 = H->sclGetParameter( sclCkt0xf60d0a0 "C" )
-H->sclSetAttribute( sclParam0xf60d0a2 "value" "1.16666666666667" )
-H->sclSetResultDir( "../psf" )
+sclCkt0xe6f70a0 = H->sclGetCircuit(  "" )
+H->sclQuit(  )

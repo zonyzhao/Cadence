@@ -1,0 +1,69 @@
+
+// Library name: 16nm_Tests
+// Cell name: MC_6TWrite_Test
+// View name: schematic
+// Inherited view list: spectre spice verilog behavioral functional hdl
+// system verilogNetlist schematic cmos_sch veriloga ahdl
+ICHUNK (\~R0_1\<3\> \~R0_1\<2\> \~R0_1\<1\> \~R0_1\<0\> \~R1_1\<3\> \
+        \~R1_1\<2\> \~R1_1\<1\> \~R1_1\<0\> Aline\<63\> Aline\<62\> \
+        Aline\<61\> Aline\<60\> Aline\<59\> Aline\<58\> Aline\<57\> \
+        Aline\<56\> Aline\<55\> Aline\<54\> Aline\<53\> Aline\<52\> \
+        Aline\<51\> Aline\<50\> Aline\<49\> Aline\<48\> Aline\<47\> \
+        Aline\<46\> Aline\<45\> Aline\<44\> Aline\<43\> Aline\<42\> \
+        Aline\<41\> Aline\<40\> Aline\<39\> Aline\<38\> Aline\<37\> \
+        Aline\<36\> Aline\<35\> Aline\<34\> Aline\<33\> Aline\<32\> \
+        Aline\<31\> Aline\<30\> Aline\<29\> Aline\<28\> Aline\<27\> \
+        Aline\<26\> Aline\<25\> Aline\<24\> Aline\<23\> Aline\<22\> \
+        Aline\<21\> Aline\<20\> Aline\<19\> Aline\<18\> Aline\<17\> \
+        Aline\<16\> Aline\<15\> Aline\<14\> Aline\<13\> Aline\<12\> \
+        Aline\<11\> Aline\<10\> Aline\<9\> Aline\<8\> Aline\<7\> \
+        Aline\<6\> Aline\<5\> Aline\<4\> Aline\<3\> Aline\<2\> Aline\<1\> \
+        Aline\<0\> 0 0 0 0 B1_1\<3\> B1_1\<2\> B1_1\<1\> B1_1\<0\> S\<7\> \
+        S\<6\> S\<5\> S\<4\> S\<3\> S\<2\> S\<1\> S\<0\> 0 0 0 0 W1_1\<3\> \
+        W1_1\<2\> W1_1\<1\> W1_1\<0\> 0) _sub27
+V7\<3\> (B1_1\<3\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V7\<2\> (B1_1\<2\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V7\<1\> (B1_1\<1\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V7\<0\> (B1_1\<0\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V8\<3\> (W1_1\<3\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V8\<2\> (W1_1\<2\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V8\<1\> (W1_1\<1\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V8\<0\> (W1_1\<0\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 \
+        time3 vdd time4 vdd time5 0 ]
+V6 (S\<0\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 time3 vdd \
+        time4 vdd time5 0 ]
+V2 (Aline\<0\> 0) vsource type=pwl mag=0 phase=0 wave=[ 0 0 time2 0 time3 \
+        vdd time4 vdd time5 0 ]
+M0\<3\> (\~R1_1\<3\> net15\<0\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M0\<2\> (\~R1_1\<2\> net15\<1\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M0\<1\> (\~R1_1\<1\> net15\<2\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M0\<0\> (\~R1_1\<0\> net15\<3\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M1\<3\> (\~R0_1\<3\> net15\<0\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M1\<2\> (\~R0_1\<2\> net15\<1\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M1\<1\> (\~R0_1\<1\> net15\<2\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M1\<0\> (\~R0_1\<0\> net15\<3\> vdd! vdd!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+V0 (vcc! 0) vsource type=dc dc=vdd
+V1 (vdd! 0) vsource type=dc dc=vdd
+I4\<3\> (\~R1_1\<3\> 0) inv_1x
+I4\<2\> (\~R1_1\<2\> 0) inv_1x
+I4\<1\> (\~R1_1\<1\> 0) inv_1x
+I4\<0\> (\~R1_1\<0\> 0) inv_1x
+I6\<3\> (\~R0_1\<3\> 0) inv_1x
+I6\<2\> (\~R0_1\<2\> 0) inv_1x
+I6\<1\> (\~R0_1\<1\> 0) inv_1x
+I6\<0\> (\~R0_1\<0\> 0) inv_1x

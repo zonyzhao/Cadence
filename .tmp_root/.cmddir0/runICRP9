@@ -1,0 +1,7 @@
+#!/bin/sh
+cdsVncserver :80
+sleep 3
+cd /root/Desktop/Cadence
+virtuoso -noautostart -mpssession "virtuoso6172" -mpshost "bull" -davinciService "DaVinciService_6172_1430983762" -log '/root/Desktop/Cadence/logs_root/logs0/Job9.log'  -licenseLockFileName '/root/Desktop/Cadence/.tmp_root/.bull_6172'  -axlChildIdFlag 9 1>/dev/null  2>/dev/null 
+exit $?
+

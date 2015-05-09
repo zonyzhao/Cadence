@@ -2,7 +2,6 @@
 simulator lang=spectre insensitive=yes
 //**********************************************************
 //**********************************************************
-inline subckt nfet (d g s x)
 model nfet bsimcmg type=n 
 + level=72  			lmin=1e-008          lmax=3e-008        
 //**********************************************************
@@ -39,7 +38,7 @@ model nfet bsimcmg type=n
 //=========================vth===========================*
 + cdsc=0.018           	cdscd=0.007          dvt0=0.01        	dvt1=0.69          
 + phin=0.05           	eta0=0.5261          dsub=0.9           k1rsce=0             
-+ lpe0=5e-009          	dvtshift=ndvtshift   qmfactor=0         qmtceniv=0             
++ lpe0=5e-009          	dvtshift=ndvtshift+nmmdvtshift   		qmfactor=0         qmtceniv=0             
 + qmtcencv=0          	etaqm=0.54           qm0=0.001143       pqm=0.66          
 + qm0acc=0.001          pqmacc=0.66          delvfbacc=0        u0=0.0448        
 //=======================mobility========================*
@@ -145,9 +144,9 @@ model nfet bsimcmg type=n
 //=========================1/f===========================*
 + lintnoi=0            	em=41000000        noia=6.25e+039       noib=3.125e+024    
 + noic=87500000        	ntnoi=1             
-//ends nfet
 
-//inline subckt pfet (d g s x)
+
+
 model pfet bsimcmg type=p
 + level=72  			lmin=1e-008          lmax=3e-008        
 //**********************************************************
@@ -184,7 +183,7 @@ model pfet bsimcmg type=p
 //=========================vth===========================*
 + cdsc=0.018           	cdscd=0.007           	dvt0=0.01           dvt1=0.69          
 + phin=0.05            	eta0=0.778            	dsub=0.9            k1rsce=0             
-+ lpe0=5e-009          	dvtshift=pdvtshift    	qmfactor=0          qmtceniv=0             
++ lpe0=5e-009          	dvtshift=pdvtshift+pmmdvtshift		    	qmfactor=0          qmtceniv=0             
 + qmtcencv=0            etaqm=0.54        		qm0=0.001143        pqm=0.66          
 + qm0acc=0.001          pqmacc=0.66         	delvfbacc=0         u0=0.03        
 //=======================mobility========================*
@@ -297,6 +296,8 @@ model pfet bsimcmg type=p
 parameters				vddp=1*vdd				
 +						ndvtshift=0
 +						pdvtshift=0
++						nmmdvtshift=0
++						pmmdvtshift=0
 + 						fin_height=26n 
 + 						fin_width=12n
 +						lg=20n
@@ -308,10 +309,8 @@ statistics
 {             
 	process
 	{
-//		tox=1.35e-09 m
-//		vary ttox 		dist=gauss std=0.135
-		vary ndvtshift 	dist=gauss std=0.0666
-		vary pdvtshift 	dist=gauss std=0.0666
+		vary ndvtshift 	dist=gauss std=0.0333
+		vary pdvtshift 	dist=gauss std=0.0333
 //		vary fin_h 		dist=gauss std=.26
 //		vary fin_w  	dist=gauss std=.12
 //		vary lentg      dist=gauss std=.2
@@ -320,10 +319,8 @@ statistics
 	}
 	mismatch
 	{
-// 		tox=1.3e-09 m
-//		vary ttox dist=gauss std=0.0135
-		vary ndvtshift 	dist=gauss std=0.0333
-		vary pdvtshift 	dist=gauss std=0.0333
+		vary nmmdvtshift 	dist=gauss std=0.00333
+		vary pmmdvtshift 	dist=gauss std=0.00333
 //		vary ttox dist=unif N=3*0.042 percent=no
 //		vary ttox dist=lnorm std=1 percent=yes	
 	}

@@ -11,9 +11,6 @@
  )
 ( model
 ( "6T_CHUNK_PWR" "_sub26" )
-( "inv_4x_PWR" "inv_4x_PWR" )
-( "Dual_Supply_Test" "Dual_Supply_Test" )
-( "inv_1x_PWR" "inv_1x_PWR" )
  )
 ( term
  )

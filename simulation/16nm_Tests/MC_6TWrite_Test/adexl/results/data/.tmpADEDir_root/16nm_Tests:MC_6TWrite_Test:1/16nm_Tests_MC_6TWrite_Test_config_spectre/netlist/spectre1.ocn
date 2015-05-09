@@ -1,0 +1,61 @@
+simulator( 'spectre )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/spectre/config/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/spectre/config" )
+modelFile( 
+    '("./ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "4n"  ?errpreset "conservative"  )
+desVar(	  "vdd" .500	)
+desVar(	  "time5" 3n	)
+desVar(	  "time4" 2.85n	)
+desVar(	  "time3" 2.22n	)
+desVar(	  "time2" 2n	)
+option(	'temp  "30.0" 
+)
+option( ?categ 'turboOpts
+	'apsplus  t 
+	'uniMode  "APS" 
+)
+temp( 30.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("./ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+option( ?categ 'turboOpts
+	'uniMode  "Spectre" 
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )

@@ -1,0 +1,33 @@
+simulator( 'spectre )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir" )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" nil)
+)
+analysis('tran ?stop "4n"  ?errpreset "conservative"  )
+desVar(	  "vdd" .500	)
+desVar(	  "time5" 3n	)
+desVar(	  "time4" 2.85n	)
+desVar(	  "time3" 2.22n	)
+desVar(	  "time2" 2n	)
+envOption(
+	'firstRun  t 
+	'autoDisplay  nil 
+	'userCmdLineOption  "  -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.2/sharedData/Job8/ahdl/input.ahdlSimDB" 
+	'analysisOrder  list("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens") 
+)
+option(	'temp  "30.0" 
+)
+option( ?categ 'turboOpts
+	'apsplus  t 
+)
+temp( 30.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth") )
