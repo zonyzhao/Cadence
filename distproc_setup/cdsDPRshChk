@@ -1,0 +1,79 @@
+#!/bin/csh -f
+
+set WCB=/usr/bin/wc
+set ENVB=/usr/bin/env
+set AWKB=/usr/bin/awk
+set UNIQB=/usr/bin/uniq
+set RCPB=/usr/bin/rcp
+set FILEB=/usr/bin/file
+set UNAMEB=/bin/uname
+set IDB=/usr/bin/id
+set CUTB=/usr/bin/cut
+if ("`/bin/uname`" == "Linux" ) then
+# {
+        set TYPEB=which
+        set GREPB=/bin/grep
+        set SEDB=/bin/sed
+        set LSB=/bin/ls
+        set CATB=/bin/cat
+        set PINGB=/bin/ping
+        set CPB=/bin/cp
+        set PWDB=/bin/pwd
+        set HOSTNAMEB=/bin/hostname
+        set PSB="/bin/ps -A -o %p%P"
+        set SORTB=/bin/sort
+        set TOUCHB=/bin/touch
+        set DATEB=/bin/date
+        set SLEEPB=/bin/sleep
+        set MKDIRB=/bin/mkdir
+        set RMB=/bin/rm
+        set MVB=/bin/mv
+# }
+else
+# {
+        set TYPEB=/usr/bin/type
+        set GREPB=/usr/bin/grep
+        set SEDB=/usr/bin/sed
+        set LSB=/usr/bin/ls
+        set CATB=/usr/bin/cat
+        set PINGB=/usr/sbin/ping
+        set CPB=/usr/bin/cp
+        set PWDB=/usr/bin/pwd
+        set HOSTNAMEB=/usr/bin/hostname
+        set PSB="/usr/bin/ps -ef -o pid,ppid"
+        if("`/bin/uname`" == "HP-UX" ) then
+                set PSB="/usr/bin/ps -ef"
+				# | $AWKB '{print $1}'"
+        endif
+        set SORTB=/usr/bin/sort
+        set TOUCHB=/usr/bin/touch
+        set DATEB=/usr/bin/date
+        set SLEEPB=/usr/bin/sleep
+        set MKDIRB=/usr/bin/mkdir
+        set RMB=/usr/bin/rm
+        set MVB=/usr/bin/mv
+# }
+endif
+set ind = 1
+set REMSHB =  "$argv[$ind]"
+set ind = `expr $ind + 1`
+$RMB -rf "/tmp/unameFile.ok"
+$RMB -rf "/tmp/unameFile.problem"
+
+set REMSHB=`cds_root virtuoso`/tools/dfII/bin/cdsDPrsh
+set MACHINE="$argv[$ind]"
+echo "$REMSHB $MACHINE $UNAMEB" >> /tmp/args2check
+set DP_OS=`$REMSHB  $MACHINE $UNAMEB `
+
+
+if ( "$status" != "0" ) then
+  echo "FAILED" >> /tmp/unameFile.problem
+
+endif
+if ( "$DP_OS" == "" ) then
+		echo "Required" >> /tmp/unameFile.problem
+        else
+                echo "OK" >>  /tmp/unameFile.ok
+endif
+
+ 

@@ -1,0 +1,7 @@
+#instructions to setup cadence DP
+1) chkconfig rsh,rexec,rlogin,xinetd on
+2) add /etc/securetty file
+3) add ~/.rhosts file with permission 0600
+4) add rsa key everywhere
+5) on client machines, mv /usr/bin/rcp to /usr/bin/rcp.old
+6) on client machines, ln -s /usr/bin/scp /usr/bin/rcp

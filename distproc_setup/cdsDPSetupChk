@@ -1,0 +1,1828 @@
+#!/bin/csh -f
+
+###############################################################################
+# default values of the variables
+###############################################################################
+unset echo
+
+set chkDPScript_version = "5.0.0"      # The version of the script
+set warning_count = 0
+set error_count = 0
+set exitStatus = 0
+set nargc = $#argv
+set argc = $#argv
+
+set logFileName = "~/cdsDPSetupChk.log" # Default LogFile Name
+set debugModeFlag = 0
+set enableClkSyncChk = 0
+set copyMode = 0
+set loginShell = "none"
+set remoteShell = "rsh"
+set check_host_list = 0
+set ams_simulator = 0
+
+###############################################################################
+# setup some alias for outputing the messages to the std output and/or log file.
+###############################################################################
+unalias printTerm
+unalias printFile
+unalias printTermFile
+unalias printNNLTerm
+unalias printNNLFile
+unalias printNNLTermFile
+unalias CATB_FILE
+
+alias printTerm 'echo \!* ;'
+alias printFile 'echo \!* >> $logFileName'
+alias printTermFile 'echo \!*; echo \!* >> $logFileName;'
+alias printNNLTerm 'echo -n \!* ;'
+alias printNNLFile 'echo -n \!* >> $logFileName'
+alias printNNLTermFile 'echo -n \!*; echo -n \!* >> $logFileName;'
+
+###############################################################################
+# set some macros to make the script platform independent
+###############################################################################
+
+#printTermFile "cdsDPSetupChk $*"
+#printTermFile " "
+
+
+set WCB=/usr/bin/wc
+set ENVB=/usr/bin/env 
+set AWKB=/usr/bin/awk 
+set UNIQB=/usr/bin/uniq
+set RCPB=/usr/bin/rcp
+set FILEB=/usr/bin/file
+set UNAMEB=/bin/uname
+set IDB=/usr/bin/id
+set CUTB=/usr/bin/cut
+set REMSHB=`cds_root virtuoso`/tools/dfII/bin/cdsDPrsh
+if ( "$status" != "0" ) then
+	printTermFile " "
+	printTermFile "ERROR (201): Unable to identify the icms root."
+	printTermFile "##############################################################################"
+	set error_count=`expr $error_count + 1`
+	printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+	exit 1
+endif
+
+if ("`/bin/uname`" == "Linux" ) then
+# {
+        set TYPEB=which 
+        set GREPB=/bin/grep
+        set SEDB=/bin/sed
+        set LSB=/bin/ls
+        set CATB=/bin/cat
+        set PINGB=/bin/ping
+        set CPB=/bin/cp
+        set PWDB=/bin/pwd
+        set HOSTNAMEB=/bin/hostname
+        set PSB="/bin/ps -A -o %U%a"
+        set SORTB=/bin/sort
+        set TOUCHB=/bin/touch
+        set DATEB=/bin/date
+        set SLEEPB=/bin/sleep
+        set MKDIRB=/bin/mkdir
+	set RMB=/bin/rm
+	set MVB=/bin/mv
+# }
+else
+# {
+        set TYPEB=/usr/bin/type 
+        set GREPB=/usr/bin/grep
+        set SEDB=/usr/bin/sed
+        set LSB=/usr/bin/ls
+        set CATB=/usr/bin/cat
+        set PINGB=/usr/sbin/ping
+        set CPB=/usr/bin/cp
+        set PWDB=/usr/bin/pwd
+        set HOSTNAMEB=/usr/bin/hostname
+        set PSB="/usr/bin/ps -ef -o user,args"
+	if("`/bin/uname`" == "HP-UX" ) then
+		set PSB="/usr/bin/ps -ef"
+	endif
+        set SORTB=/usr/bin/sort
+        set TOUCHB=/usr/bin/touch
+        set DATEB=/usr/bin/date
+        set SLEEPB=/usr/bin/sleep
+        set MKDIRB=/usr/bin/mkdir
+	set RMB=/usr/bin/rm
+	set MVB=/usr/bin/mv
+# }
+endif
+alias CATB_FILE '$CATB \!* ; $CATB \!* >> $logFileName;'
+set USER=`$IDB | $AWKB '{print $1}' | $SEDB s/"^uid=[0-9]*("// | $SEDB s/")"//`
+###############################################################################
+if ( "$#argv" != "0" ) then
+	if ( "$argv[1]" != "-gui" ) then
+	    if ( -e ~/.runningDPScript.${USER} ) then
+		if ( "$argv[1]" == "-h" || "$argv[1]" == "-help" ) then
+			set display_usage=1
+			goto SHOW_USAGE
+		endif
+		echo "ERROR (202): The script is already running."
+		exit 0	
+	    endif
+	endif
+else
+	set display_usage=1
+	goto SHOW_USAGE
+endif
+
+###############################################################################
+# Read and parse, command line arguments
+###############################################################################
+set ind = 1
+set display_usage = 0
+set display_help_flag = 0
+set gui=0  # It in non gui mode.
+while ( $argc != 0 )
+#{
+        switch ($argv[$ind])
+#	{
+		case "-gui":
+			set gui=1
+			setenv gui 1
+			alias printTermFile 'echo \!* >> $logFileName;'
+			alias printNNLTermFile 'echo -n \!* >> $logFileName;'
+			alias CATB_FILE '$CATB \!* >> $logFileName;'
+		breaksw
+
+                case "-log":
+			set display_help_flag = 1
+                        set ind = `expr $ind + 1`
+                        set argc = `expr $argc - 1`
+                        if ( $argc != 0 && $gui == 0 ) then
+                                set newLogFileName = $argv[$ind]
+				set fc = `echo $newLogFileName | $CUTB -c1`
+				if ( "$fc" == "-" ) then
+					echo "ERROR (203): The logfile name specified is invalid: $argv[$ind]"
+					echo "The log file name cannot have - as the first character."
+                        		set ind = `expr $ind - 1`
+                        		set argc = `expr $argc + 1`
+					set display_usage = 1
+					set exitStatus = 1
+					break
+				endif
+				###############################################################################
+				# a new log file is specifed.
+				# 1. check if a file with the $newLogFileName exits, if yes mv it to .<pid>
+				# 2. mv the contents of $logFileName to $newLogFileName.
+				###############################################################################
+				if ( -e "$newLogFileName" ) then
+					echo "The file $newLogFileName, already exists."
+					echo "The older file will be saved to $newLogFileName.$$"
+        				$MVB $newLogFileName $newLogFileName.$$
+				endif
+        			$MVB $logFileName $newLogFileName
+				set logFileName = $newLogFileName
+			else if ( $argc != 0 && $gui == 1 ) then
+                                set newLogFileName = $argv[$ind]
+				set logFileName = $newLogFileName
+                        else
+				echo "ERROR (204): Log file name is not specified for the -log option."
+				set display_usage = 1
+				set exitStatus = 1
+				break
+                        endif
+                breaksw
+
+                case "-mode":
+			set display_help_flag = 1
+                        set ind = `expr $ind + 1`
+                        set argc = `expr $argc - 1`
+                        if ( $argc != 0 ) then
+				if ("$argv[$ind]" == "n") then
+					set copyMode = 0
+				else if ("$argv[$ind]" == "c") then
+					set copyMode = 1
+				else
+					echo "ERROR (205): The mode $argv[$ind] is invalid."
+					set display_usage = 1
+					set exitStatus = 1
+				endif
+                        else
+				echo "ERROR (206): Value not specified for the -mode option."
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                breaksw
+                
+                case "-remoteShell"
+                      	set display_help_flag = 1
+                        set ind = `expr $ind + 1`
+                        set argc = `expr $argc - 1`
+                        if ( $argc != 0 ) then
+				set remoteShell = $argv[$ind]
+                                if ( $remoteShell == "ssh") then
+                                    set REMSHB = "$remoteShell"
+                                endif    
+			else
+				echo "ERROR (241): The remote shell $argv[$ind] is invalid."
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                        if ( "$remoteShell" != "rsh" && "$remoteShell" != "ssh" ) then
+				echo "ERROR (233): The remoteShell $remoteShell is invalid."
+				echo "The -remoteShell option must be set to one of the following:"
+				echo "rsh, ssh"
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                        $TYPEB "$remoteShell"
+                        if( "$status" != "0") then
+				echo "ERROR (234): The remoteShell $remoteShell command is not found."
+				echo "Make sure that the path setting is proper."
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                breaksw
+
+
+                case "-shell":
+			set display_help_flag = 1
+                        set ind = `expr $ind + 1`
+                        set argc = `expr $argc - 1`
+                        if ( $argc != 0 ) then
+				set loginShell = $argv[$ind]
+			else
+				echo "ERROR (241): The login shell $argv[$ind] is invalid."
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+			if ( "$loginShell" != "none" && "$loginShell" != "csh" && "$loginShell" != "ksh" && "$loginShell" != "sh") then
+				echo "ERROR (207): The loginShell $loginShell is invalid."
+				echo "The -shell option must be set to one of the following:"
+				echo "none, csh, sh or ksh"
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                breaksw
+
+                case "-hosts":
+			$TOUCHB /tmp/adp_chkdp_hosts_list.$$
+			set display_help_flag = 1
+                        set ind = `expr $ind + 1`
+                        set argc = `expr $argc - 1`
+                        if ( $argc != 0 ) then
+				set check_host_list = 1
+				foreach i ( $argv[$ind] )
+					echo $i >> /tmp/adp_chkdp_hosts_list.$$
+				end
+			else
+				echo "ERROR (242): The value $argv[$ind] specified for -hosts is invalid."
+				set display_usage = 1
+				set exitStatus = 1
+                        endif
+                breaksw
+
+                case "-help":
+                case "-h":
+			if ( "$display_help_flag" != "1" ) then
+				set display_usage = 1
+				set exitStatus = 0
+				break
+			endif
+                breaksw
+
+                case "-version":
+                case "-V":
+			if ( "$display_help_flag" != "1" ) then
+                        	echo '@(#)$CDS: cdsDPSetupChk version ' $chkDPScript_version
+                        	exit 0
+			endif
+                breaksw
+
+                case "-enable_chk_clk_sync":
+                        set enableClkSyncChk = 1
+                breaksw
+
+                case "-debug":
+                case "-d":
+			set debugModeFlag = 1
+                breaksw
+
+                case "-ams":
+			set ams_simulator = 1
+                breaksw
+
+                default:
+			echo "ERROR (208): The option $argv[$ind] is invalid."
+			set display_usage = 1
+			set exitStatus = 1
+			break
+                breaksw
+#	}
+        endsw
+
+	if ( $argc != 0 ) then
+        	set ind = `expr $ind + 1`
+        	set argc = `expr $argc - 1`
+	endif
+#}
+end
+
+
+SHOW_USAGE:
+if ( "$display_usage" == "1" || "$nargc" == "0" ) then
+	echo "Usage: cdsDPSetupChk [-help|-h] | [-version|-V] | "
+	echo "   [-log <FileName>] [-mode <DPMode>] [-shell <loginShell>] "
+	echo "   [-remoteShell <remoteShell>] [-enable_chk_clk_sync] "
+	echo "           "
+	echo "   -help|-h, Displays the usage of cdsDPSetupChk" 
+	echo "   -version, Displays the version of cdsDPSetupChk"
+	echo "   -log <FileName>, Script output will be logged to <FileName>."
+	echo "   -mode <DPMode>, Distributed Processing mode."
+	echo "       Valid values: c(for copy)|n(for network) mode"
+	echo "       If environment variable asimenv.distributed copyMode is t,"
+	echo "       then this option should be set to c." 
+	echo "       If environment variable asimenv.distributed copyMode is nil,"
+	echo "       then this option should be set to n." 
+	echo "   -shell <loginShell>, Specifies the login shell for the job."
+	echo "       loginShell should be of the same value as the environment "
+	echo "       variable asimenv.distributed loginShell."
+	echo "       Valid options: none/csh/sh/ksh" 
+	echo "   -remoteShell <remoteShell>, Specifies the remote shell for the job."
+	echo "       remoteShell should be of the same value as the environment "
+	echo "       variable asimenv.distributed remoteShell."
+	echo "       Valid options: rsh/ssh" 
+	echo "   -enable_chk_clk_sync, If specified, the synchronization between "
+	echo "       the system clocks of LBS cluster master host and other hosts"
+	echo "       in the cluster will be checked."
+	exit $exitStatus
+endif
+
+
+echo "$$ $logFileName" >> ~/.runningDPScript.${USER}
+
+printTermFile "##############################################################################"
+printTermFile "Checking Distributed Processing (DP) setup.........."
+printTermFile "##############################################################################"
+
+###############################################################################
+# get current user's login id
+###############################################################################
+printTermFile "Current User is: " $USER
+printTermFile "Submission host name is: `hostname`"
+
+
+#############################################################################################################
+# If not run in the debug mode, Remove all the temporary files                                      #
+#############################################################################################################
+if ( $debugModeFlag == 0 ) then
+	if ( "$gui" == "1" ) then
+		`cds_root virtuoso`/tools/dfII/bin/cdsDPMonitorScript &
+		set CLEAN_THESE="$RMB -rf /tmp/adp_chkdp_*.$$ ~/.runningDPScript.${USER} ${logFileName}"
+	else
+		set CLEAN_THESE="$RMB -rf /tmp/adp_chkdp_*.$$ ~/.runningDPScript.$USER"
+	endif
+else
+	set CLEAN_THESE="~/.runningDPScript.$USER"
+endif
+
+printTermFile " "
+printTermFile "Checking for DP environment variables....."
+printTermFile "##############################################################################"
+printTermFile " "
+
+#############################################################################################################
+#                              Check if LBS_CLUSTER_MASTER is set				    # 
+#############################################################################################################
+$ENVB | $GREPB LBS_BASE_SYSTEM > /tmp/adp_chkdp_env_base.$$
+if ("$status" == "0") then
+	if( "$LBS_BASE_SYSTEM" == "LBS_SGE") then
+		printTermFile "Presently DP is set for SGE. This script is not supported for cheking"
+		printTermFile "SGE related setup."
+                $CLEAN_THESE
+                exit 1
+        endif        
+endif        
+                
+$TOUCHB /tmp/adp_chkdp_env_master.$$ /tmp/adp_chkdp_env_base.$$
+$ENVB | $GREPB LBS_CLUSTER_MASTER > /tmp/adp_chkdp_env_master.$$
+
+if ("$status" != "0") then
+#{
+        printTermFile "LBS_CLUSTER_MASTER is not set. Checking DP for LSF setup...."
+
+	$ENVB | $GREPB LBS_BASE_SYSTEM > /tmp/adp_chkdp_env_base.$$
+	if("$status" != "0") then
+		printTermFile ""
+		printTermFile "ERROR (209): The DP environment variables are not set."
+		printTermFile "To use the LBS mode, set LBS_CLUSTER_MASTER to the name of the cluster" 
+		printTermFile "master host. To use the LSF mode, set LBS_BASE_SYSTEM to LBS_LSF"
+                printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+
+	if( "$LBS_BASE_SYSTEM" != "LBS_LSF") then
+		printTermFile ""
+		printTermFile "ERROR (210): The environment variable LBS_BASE_SYSTEM is set incorrectly."
+		printTermFile "Add setenv LBS_BASE_SYSTEM LBS_LSF to the startup file."
+		printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+                $CLEAN_THESE
+		exit 1
+	endif
+	set check_dp=LBS_LSF
+else
+	$ENVB | $GREPB LBS_BASE_SYSTEM > /tmp/adp_chkdp_env_base.$$
+	if ("$status" == "0") then
+	   if( "$LBS_BASE_SYSTEM" == "LBS_LSF") then
+	      set check_dp=LBS_LSF
+	   else if( "$LBS_BASE_SYSTEM" == "LBS_DEFAULT") then
+	      set check_dp=LBS_DEF
+	   else
+	      printTermFile ""
+              printTermFile "ERROR (243): The environment variable LBS_BASE_SYSTEM is set incorrectly."
+              printTermFile "To use LBS mode, Either set LBS_BASE_SYSTEM to LBS_DEFAULT or not set it" 
+              printTermFile "to the name of the cluster master host. To use LSF mode, set LBS_BASE_SYSTEM to LBS_LSF."
+              printTermFile "##############################################################################"
+              set error_count=`expr $error_count + 1`
+              printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+              $CLEAN_THESE
+              exit 1 
+	   endif
+	else
+	    set check_dp=LBS_DEF
+	endif
+# }
+endif
+
+if ($check_dp == LBS_LSF ) then
+# { HERE GOES LSF RELATED STUFF
+        $TOUCHB /tmp/adp_chkdp_lsf_exe.$$
+        if( "`$UNAMEB`" == "Linux" ) then
+        $TYPEB lsload > /tmp/adp_chkdp_lsf_exe.$$
+        else
+        $TYPEB lsload | $AWKB '{print $3}' > /tmp/adp_chkdp_lsf_exe.$$
+        endif
+        set LSF_PATH=`$SEDB s/lsload// /tmp/adp_chkdp_lsf_exe.$$`
+        if ( "$LSF_PATH" == "" ) then
+                printTermFile " "
+                printTermFile "ERROR (211): The path is not set for LSF binaries."
+                printTermFile "No further testing can be done. Set the path to include"
+                printTermFile "the path of LSF binaries and then re-run the script."
+                printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+                exit 1
+        endif
+	
+	lsid >& /tmp/adp_chkdp_lsid_log.$$
+	set status_lsid=$status
+	lsload >& /tmp/adp_chkdp_lsload_log.$$
+	set status_lsload=$status
+	bhosts -w >& /tmp/adp_chkdp_bhosts_log.$$
+	set status_bhosts=$status
+	bjobs >& /tmp/adp_chkdp_bjobs_log.$$
+	set status_bjobs=$status
+	$GREPB "No unfinished job found" /tmp/adp_chkdp_bjobs_log.$$
+	set status_bjobs_no_jobs=$status
+
+	if ( "$status_lsid" != "0" || "$status_lsload" != "0" || "$status_bhosts" != "0" || ( "$status_bjobs" != "0" && "$status_bjobs_no_jobs" != "0" ) ) then
+		printTermFile " "
+		printTermFile "ERROR (212): LSF is not set properly."
+		printTermFile "Consult your System Administrator to resolve the issue."
+		printTermFile "Make sure that the LSF commands lsid, lsload, bhosts and bjobs are working."
+               	printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+
+	#############################################################################################################
+	#               Check if cdsfrb_lsf has root ownership and sticky bit is set
+	#############################################################################################################
+	if( "`$UNAMEB`" == "Linux" ) then
+	set cdsfrb_lsf_file=`$TYPEB cdsfrb_lsf`
+	else
+	set cdsfrb_lsf_file=`$TYPEB cdsfrb_lsf | $AWKB '{print $3}'`
+	endif
+	if ( "$cdsfrb_lsf_file" == "") then 
+		printTermFile " "
+		printTermFile "ERROR (213): The file cdsfrb_lsf is not found in the path."
+		printTermFile "Set the path to include this file."
+		printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+
+	#############################################################################################################
+	#                Check if cdsfrb_lsf has root ownership
+	#############################################################################################################
+	$TOUCHB /tmp/adp_chkdp_cdsfrb_chk.$$
+	$LSB -al $cdsfrb_lsf_file > /tmp/adp_chkdp_cdsfrb_chk.$$	
+	set Owner=`$CATB /tmp/adp_chkdp_cdsfrb_chk.$$ | $AWKB '{print $3}'`
+        set x=$cdsfrb_lsf_file
+        $CATB /tmp/adp_chkdp_cdsfrb_chk.$$ | $GREPB "^l..." > /dev/null
+        if ( "$status" == "0") then
+                printTermFile " "
+                printTermFile "WARNING (203): $x is a link." 
+                printTermFile "Ensure that the executable to which it points has root ownership."
+                printTermFile "##############################################################################"
+                set warning_count=`expr $warning_count + 1`
+        else if ("$Owner" != "root") then
+		printTermFile " "
+		printTermFile "ERROR (214): The file $cdsfrb_lsf_file,"
+		printTermFile "does not have root ownership."
+		printTermFile "Consult your System Administrator to resolve the issue."
+                printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+
+	#############################################################################################################
+	#                Check if the sticky bit for cdsfrb_lsf is set
+	#############################################################################################################
+	$TOUCHB /tmp/adp_chkdp_sticky.$$ /tmp/adp_chkdp_lsf_jobs.$$ /tmp/adp_chkdp_lsf_err.$$
+	#set x=$cdsfrb_lsf_file
+	$CATB /tmp/adp_chkdp_cdsfrb_chk.$$ | $GREPB "^l..." > /dev/null
+	if ("$status" == "0") then
+                printTermFile " "
+                printTermFile "WARNING (204): $x is a link."
+                printTermFile "Ensure that the executable to which it points has the sticky bit set."
+                printTermFile "##############################################################################"
+                set warning_count=`expr $warning_count + 1`
+	else
+        	$CATB /tmp/adp_chkdp_cdsfrb_chk.$$ | $GREPB "...s" > /dev/null
+		if ("$status" != "0" ) then
+                	printTermFile " "
+			printTermFile "ERROR (215): The sticky bit is not set for $x"
+			printTermFile "Contact your System Administrator, and set its sticky bit to root"
+			printTermFile "##############################################################################"
+			set error_count=`expr $error_count + 1`
+			printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+			$CLEAN_THESE
+			exit 1
+		endif
+	endif
+
+#############################################################################################################
+# Check for LSF version compatibility
+#############################################################################################################
+	printTermFile " "
+	printTermFile "##############################################################################"
+	printNNLTermFile "Check for LSF version compatibility........."
+	$TOUCHB /tmp/adp_chkdp_machines_bhosts.$$  /tmp/adp_chkdp_machines.$$
+	bhosts -w >& /tmp/adp_chkdp_machines_bhosts.$$
+	$CATB /tmp/adp_chkdp_machines_bhosts.$$ | $GREPB -v HOST_NAME | $AWKB '{print $1}' >& /tmp/adp_chkdp_machines.$$
+
+	$TOUCHB /tmp/adp_chkdp_icms_version.$$
+	virtuoso  -version >& /tmp/adp_chkdp_icms_version.$$
+	if ( "$status" != "0" ) then
+		printTermFile " "
+		printTermFile "ERROR (216): The script failed to identify the icms version in the local path."
+		CATB_FILE /tmp/adp_chkdp_icms_version.$$
+		printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif 
+
+	set ICMS_VERSION=`$CATB /tmp/adp_chkdp_icms_version.$$ | $AWKB '{print $4}'`
+
+	$TOUCHB /tmp/adp_chkdp_lsf_version.$$
+	lsid  -V >& /tmp/adp_chkdp_lsf_version.$$
+        if ( "$status" != "0" ) then     
+                printTermFile " "      
+                printTermFile "ERROR (217): The script failed to identify LSF version in local path."   
+                CATB_FILE /tmp/adp_chkdp_lsf_version.$$
+		printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+                exit 1 
+        endif  
+
+	set LSF_VERSION=`$CATB /tmp/adp_chkdp_lsf_version.$$ |$GREPB LSF| $SEDB s/","// |  $AWKB '{print $2}'`
+
+        switch ($ICMS_VERSION)
+	case "5.00.32":
+	case "5.0.0":
+	case "5.0.1":
+	case "5.0.2":
+		if ( "$LSF_VERSION" != "4.0.1" ) then
+			printTermFile "WARNING (205): The LSF version in use is $LSF_VERSION."
+			printTermFile "For $ICMS_VERSION the supported LSF version is 4.0.1"
+			printTermFile "Therefore, DP may not work with $LSF_VERSION version of LSF."
+			set warning_count=`expr $warning_count + 1`
+		else
+			printTermFile "Compatible."
+		endif
+		breaksw
+	case "5.1.0":
+	case "6.1.0":
+	case "6.1.1":
+	case "6.1.2":
+	case "6.1.3":
+              if ( !( ("$LSF_VERSION" == "6.1") || ("$LSF_VERSION" == "5.1")) ) then
+			printTermFile "WARNING (205): The LSF version in use is $LSF_VERSION."
+			printTermFile "For $ICMS_VERSION the supported LSF versions are 5.1 and 6.1"
+			printTermFile "Therefore, DP may not work with $LSF_VERSION version of LSF."
+			set warning_count=`expr $warning_count + 1`
+		else
+			printTermFile "Compatible."
+                endif
+                breaksw
+
+	default:
+		printTermFile "WARNING (206): This script not supported for $ICMS_VERSION dfII release."
+		set warning_count=`expr $warning_count + 1`
+	endsw	
+	printTermFile "##############################################################################"	
+	printTermFile " "
+
+# } LSF_SPECIFIC_DONE
+endif 
+
+if ($check_dp == LBS_DEF ) then
+# { THIS PORTION IS FOR LBS SETUP.
+	printTermFile "Environment variable LBS_CLUSTER_MASTER is set to" $LBS_CLUSTER_MASTER
+	printTermFile "Checking for LBS mode setup "
+
+	#############################################################################################################
+	#	Check if LBS_BASE_SYSTEM=LBS_DEFAULT or unset ( if not flag error )
+	#############################################################################################################
+	$ENVB | $GREPB LBS_BASE_SYSTEM > /tmp/adp_chkdp_env_base_system.$$
+	if ("$status" == "0") then
+		if("$LBS_BASE_SYSTEM" != "LBS_DEFAULT") then	
+			printTermFile " "
+                	printTermFile "ERROR (218): The variable LBS_BASE_SYSTEM is incorrectly set."
+			printTermFile "To rectify, do one of the following:"
+			printTermFile " 1. Either set LBS_BASE_SYSTEM=LBS_DEFAULT"
+			printTermFile " 			OR"
+			printTermFile " 2. Unset LBS_BASE_SYSTEM variable"
+                	printTermFile "##############################################################################"
+			set error_count=`expr $error_count + 1`
+			printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+			$CLEAN_THESE
+			exit 1
+		endif
+	endif
+
+	printNNLTermFile "Checking if cdsqmgr is running properly on" \"$LBS_CLUSTER_MASTER\" "........."
+	set cluster_master=$LBS_CLUSTER_MASTER
+	#############################################################################################################
+	# 			Check for  cdsqmgr running on Cluster Master			    #
+	#############################################################################################################
+        set DP_OS=`$REMSHB  $cluster_master $UNAMEB`
+	if ("$DP_OS" == "" ) then
+		printTermFile " "
+                printTermFile "ERROR (219): The script failed to detect the OS type of $LBS_CLUSTER_MASTER"
+		printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+	
+        if ( "$DP_OS" == "Linux" ) then
+                set PSB_DP="/bin/ps -A -o %U%a"
+                set GREPB_DP=/bin/grep
+        else if ( "$DP_OS" == "HP-UX" ) then
+                set PSB_DP="/usr/bin/ps -ef"
+                set GREPB_DP=/usr/bin/grep
+        else
+                set PSB_DP="/usr/bin/ps -ef -o user,args"
+                set GREPB_DP=/usr/bin/grep
+        endif
+
+	$REMSHB  $cluster_master "$PSB_DP | $GREPB_DP cdsqmgr" > /tmp/adp_chkdp_cdsqmgr_check.$$
+	$GREPB -v grep /tmp/adp_chkdp_cdsqmgr_check.$$ | $GREPB -v ps > /tmp/adp_chkdp_cdsqmgr_check.1.$$
+	if ("$status" != "0") then
+		printTermFile " "
+		printTermFile "ERROR (220): cdsqmgr is not running on the $LBS_CLUSTER_MASTER"
+		printTermFile "Make sure that cdsqmgr is being run from the root account."
+		printTermFile "Before running cdsqmgr, kill any cdsNameServer running on $LBS_CLUSTER_MASTER"
+		printTermFile "USE : cdsqmgr <queue_config_file>"
+        	printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+
+	#############################################################################################################
+	#		Make sure that only one copy of cdsqmgr is running					#    
+	#############################################################################################################
+	
+	$GREPB -v grep /tmp/adp_chkdp_cdsqmgr_check.$$ | $GREPB -v ps | $AWKB '{if ($1 == "'$USER'" || $1 == "root") print}' > /tmp/adp_chkdp_cdsqmgr_check.2.$$
+	set no_of_times=`$WCB -l /tmp/adp_chkdp_cdsqmgr_check.2.$$ | $AWKB '{print $1}'`
+	
+	if ( "$no_of_times" != "1" ) then
+	    	if ( "$no_of_times" != "0" ) then
+		    printTermFile " "
+		    printTermFile "ERROR (221): Multiple copies of cdsqmgr are running on $LBS_CLUSTER_MASTER"
+		    printTermFile "Kill all of them along with cdsNameServer and re-run cdsqmgr from the root account." 
+		    printTermFile "##############################################################################"
+		else
+		    printTermFile "ERROR (222): cdsqmgr is not running from the root or $USER account"
+		    printTermFile "Make sure that cdsqmgr is being run from the root account."
+		    printTermFile "Before running cdsqmgr, kill existing copies of cdsqmgr and"
+		    printTermFile "cdsNameServer running on $LBS_CLUSTER_MASTER"
+		    printTermFile "USE : cdsqmgr <queue_config_file>"
+		    printTermFile "##############################################################################"
+		endif
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+		exit 1
+	endif
+	printTermFile "Ok"
+
+	#############################################################################################################
+	#       check, whether the cdsqmgr has been running from root #
+	#############################################################################################################
+	#set Owner=`$AWKB '{print $1}' /tmp/adp_chkdp_cdsqmgr_check.1.$$`
+	#if ( "$Owner"  != "root" && "$Owner" != "$USER" ) then
+	#	printTermFile " "
+        #	printTermFile "ERROR (222): cdsqmgr is not running from the root or $USER account"
+        #	printTermFile "Make sure that cdsqmgr is being run from the root account."
+        #	printTermFile "Before running cdsqmgr, kill existing copies of cdsqmgr and"
+        #	printTermFile "cdsNameServer running on $LBS_CLUSTER_MASTER"
+        #	printTermFile "USE : cdsqmgr <queue_config_file>"
+        #	printTermFile "##############################################################################"
+	#	set error_count=`expr $error_count + 1`
+	#	printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+	#	$CLEAN_THESE
+	#	exit 1
+	#endif
+	
+	#printTermFile "Ok"
+
+	printNNLTermFile "Checking if cdsNameServer is running properly on" \"$LBS_CLUSTER_MASTER\" "........."
+	#############################################################################################################
+	#                       Check for cdsNameServer running on Cluster Master 	                       #
+	#############################################################################################################
+        set DP_OS=`$REMSHB  $cluster_master $UNAMEB`
+        if ("$DP_OS" == "" ) then
+                printTermFile " "       
+                printTermFile "ERROR (223): The script failed to detect the OS type of $LBS_CLUSTER_MASTER"
+                printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+                exit 1
+        endif
+        if ( "$DP_OS" == "Linux" ) then
+                set PSB_DP="/bin/ps -A -o %U%a"
+                set GREPB_DP=/bin/grep
+        else if ( "$DP_OS" == "HP-UX" ) then
+                set PSB_DP="/usr/bin/ps -ef"
+                set GREPB_DP=/usr/bin/grep
+        else
+                set PSB_DP="/usr/bin/ps -ef -o user,args"
+                set GREPB_DP=/usr/bin/grep
+        endif
+
+	$REMSHB  $cluster_master "$PSB_DP | $GREPB_DP cdsNameServer" > /tmp/adp_chkdp_cdsNameServer_check.$$
+	$GREPB -v grep /tmp/adp_chkdp_cdsNameServer_check.$$ | $GREPB -v ps > /tmp/adp_chkdp_cdsNameServer_check.1.$$
+	if ("$status" != "0") then
+		printTermFile " "
+        	printTermFile "ERROR (224): cdsNameServer is not running on $LBS_CLUSTER_MASTER"
+		printTermFile "It might have been killed explicitly, after cdsqmgr was run."
+        	printTermFile "Kill any cdsqmgr running on $LBS_CLUSTER_MASTER" 
+        	printTermFile "Re-run cdsqmgr from the root account on $cluster_master"
+        	printTermFile "USE : cdsqmgr <queue_config_file>"
+        	printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+		$CLEAN_THESE
+        	exit 1
+	endif
+
+	printTermFile "Ok"
+	
+	printTermFile "Checking for queue config file..." 
+	#############################################################################################################
+	# 					Check if the queueConf File exists				    #
+	#			        quueConfigFile is taken from the running cdsqmgr process		    #
+	#############################################################################################################
+	if( "`$UNAMEB`" == "HP-UX" ) then
+	   set q_conf_file=`$AWKB 'NF == 9 {print $9} NF == 10 {print $10}' /tmp/adp_chkdp_cdsqmgr_check.1.$$`
+	else
+	   set q_conf_file=`$AWKB '{print $3}' /tmp/adp_chkdp_cdsqmgr_check.1.$$`
+	endif
+
+	set env_var=0
+        $ENVB | $GREPB CDS_QUEUE_CONF_FILE >& /dev/null
+        if("$status" == "0") then
+		set env_var=1	
+		printTermFile Using variable CDS_QUEUE_CONF_FILE as this is  set to $CDS_QUEUE_CONF_FILE
+		set queue_config_file=$CDS_QUEUE_CONF_FILE
+		set q_conf_file=$CDS_QUEUE_CONF_FILE
+	endif
+
+	set queue_config_file=$q_conf_file
+	printTermFile "********************************************************************************"
+	printTermFile " The queue config file identified is $queue_config_file                        "
+	printTermFile " This may not be correct due to the OS command's (ps) limitations.             "
+	printTermFile " You can set the env variable CDS_QUEUE_CONF_FILE to specify the queue config  "
+	printTermFile " file used by the cdsqmgr daemon running on $LBS_CLUSTER_MASTER                     "
+	printTermFile "********************************************************************************"
+	set ps_file=0
+        if (! -e "$q_conf_file" || ! -f "$q_conf_file") then
+		set ps_file=1
+        endif
+
+
+	if ( "$ps_file" ==  "1" && "$env_var" == "0" ) then
+		printTermFile " "
+                printTermFile "ERROR (225): The Queue Config File $q_conf_file does not exist."
+                printTermFile "Kill cdsqmgr and cdsNameServer and re-run cdsqmgr from the root account." 
+                printTermFile "USE : cdsqmgr <queue_config_file>"
+                printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+		printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+                $CLEAN_THESE
+                exit 1
+        endif
+
+
+	#############################################################################################################
+	#1. Fetch out the names of machines from the Queue config File and store them in /tmp/adp_chkdp_machines.$$.
+	#############################################################################################################
+	$GREPB -v ^$ $queue_config_file | $AWKB 'count != 0 {print $1;count--;if(count==0)next}count == 0 {count = $2}' > /tmp/adp_chkdp_machines_1.$$
+	
+	#############################################################################################################
+	# Append the Submission Host Name to /tmp/adp_chkdp_machines.$$ 
+	#############################################################################################################
+	hostname >> /tmp/adp_chkdp_machines_1.$$
+
+	#############################################################################################################
+	# Remove the name of cluster_master and multiple entries of a machine from the list of machines 
+	#############################################################################################################
+	$GREPB -v $LBS_CLUSTER_MASTER /tmp/adp_chkdp_machines_1.$$ | $SORTB | $UNIQB > /tmp/adp_chkdp_machines.$$
+
+#}
+endif
+# LBS specific testing is done
+
+############################################################
+############ HERE GOES THE COMMON TESTING ##################
+############################################################
+if ("$check_host_list" == "1" ) then
+# {
+	$RMB -rf /tmp/adp_chkdp_machines.$$
+	$TOUCHB /tmp/adp_chkdp_machines.$$
+	printTermFile "Using the hosts as specified for the -hosts option........"
+	$CATB /tmp/adp_chkdp_hosts_list.$$ | $SORTB | $UNIQB >> /tmp/adp_chkdp_machines.$$
+# }
+endif
+
+############################################################
+# {  check if these machines are up.
+############################################################
+$TOUCHB /tmp/adp_chkdp_ping_prob.$$ /tmp/adp_chkdp_machines_ok.$$
+set OS_NAME=`$UNAMEB`	
+
+printTermFile "##############################################################################"
+printTermFile "Checking if the hosts are up......"
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          $i ....... "
+	if ( "$OS_NAME" == "SunOS" ) then
+		set up=`$PINGB $i | $AWKB '{print $3}'`
+		if ( "$up" != "alive" ) then
+			echo $i	>> /tmp/adp_chkdp_ping_prob.$$
+			printTermFile Not up
+		else 
+			echo $i >> /tmp/adp_chkdp_machines_ok.$$
+			printTermFile "Ok"
+		endif
+		continue
+	else if ( "$OS_NAME" == "AIX" ) then
+                set up=`$PINGB -c 1 $i| $GREPB "1 packets received"`
+		set done=$status
+        else if ( "$OS_NAME" ==  "HP-UX" ) then
+                set up=`$PINGB $i -n 1 | $GREPB "1 packets received"`
+                set done=$status
+        else
+                set up=`$PINGB -c 1 $i | $GREPB "1" | $GREPB  "received"`
+                set done=$status
+        endif
+	
+        if ( "$done" != "0" ) then
+                echo $i >> /tmp/adp_chkdp_ping_prob.$$
+		printTermFile Not up
+        else
+                echo $i >> /tmp/adp_chkdp_machines_ok.$$
+		printTermFile "Ok"
+        endif
+end
+
+if (! -z "/tmp/adp_chkdp_ping_prob.$$" ) then
+        printTermFile "WARNING (207): Jobs may not be submitted to the following host(s), because"
+        printTermFile "these host(s) are not responding."
+	printTermFile "Consult your System Administrator to resolve the issue."
+	CATB_FILE /tmp/adp_chkdp_ping_prob.$$
+        set warning_count=`expr $warning_count + 1`
+endif	
+printTermFile "##############################################################################"
+printTermFile " "
+# }
+
+$RMB -rf /tmp/adp_chkdp_machines.$$
+$CPB /tmp/adp_chkdp_machines_ok.$$ /tmp/adp_chkdp_machines.$$
+
+#############################################################################################################
+# { See if there is any password related issue with the machines.
+#############################################################################################################
+set SH=`hostname`
+$TOUCHB /tmp/adp_chkdp_passwd_prob.$$ /tmp/adp_chkdp_machines_ok_passwd.$$
+printTermFile "##############################################################################"
+printTermFile "Checking for password related requirements(from Submission to Cluster Hosts)"
+foreach i (`$CATB /tmp/adp_chkdp_machines_ok.$$`)
+	printNNLTermFile "          from $SH to $i ........"
+#         set DP_OS=`$REMSHB  $i $UNAMEB `
+       echo " `cds_root virtuoso`/tools/dfII/bin/cdsDPRshChk $REMSHB $i &" >> /tmp/CHECKTHIS2
+	 `cds_root virtuoso`/tools/dfII/bin/cdsDPRshChk $REMSHB $i &
+        
+	$SLEEPB 4
+        if ( -e "/tmp/unameFile.ok") then
+                  echo $i >> /tmp/adp_chkdp_machines_ok_passwd.$$
+		printTermFile "OK"
+        else       
+        $SLEEPB 4
+             if ( -e "/tmp/unameFile.ok") then
+                  echo $i >> /tmp/adp_chkdp_machines_ok_passwd.$$
+  		  printTermFile "OK"
+             else     
+                $SLEEPB 4
+                if ( -e "/tmp/unameFile.ok") then
+                   echo $i >> /tmp/adp_chkdp_machines_ok_passwd.$$
+  		   printTermFile "OK"
+                else   
+                   echo $i >> /tmp/adp_chkdp_passwd_prob.$$
+	           printTermFile "Required"
+                endif
+             endif   
+        endif
+end
+
+
+if (! -z "/tmp/adp_chkdp_passwd_prob.$$" ) then
+        printTermFile "WARNING (208): Jobs may not be submitted to the following host(s),"
+	printTermFile "because these host(s) require a password at login or the remote shell"
+	printTermFile "command has failed."
+        CATB_FILE /tmp/adp_chkdp_passwd_prob.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+printTermFile "##############################################################################"
+printTermFile " "
+# }
+
+$RMB -rf /tmp/adp_chkdp_machines.$$
+$CPB /tmp/adp_chkdp_machines_ok_passwd.$$ /tmp/adp_chkdp_machines.$$
+
+
+#############################################################################################################
+# { Check if login from cluster_master machines to SH needs passwd or not.
+#############################################################################################################
+$TOUCHB /tmp/adp_chkdp_rev_passwd_prob.$$ /tmp/adp_chkdp_machines_ok_rev_passwd.$$
+printTermFile "##############################################################################"
+printTermFile "Checking for password requirements in reverse direction (from Clusters to Submission Hosts)"
+foreach i (`$CATB /tmp/adp_chkdp_machines_ok_passwd.$$`)
+	printNNLTermFile "          from $i to $SH ........"
+	$TOUCHB /tmp/adp_chkdp_rev_passwdlog.$i.$$
+        set REMSHB_SH="$REMSHB"
+        $REMSHB  $i "$REMSHB_SH  $SH $UNAMEB -a" >& /tmp/adp_chkdp_rev_passwdlog.$i.$$
+        if ( "$status" != "0" ) then
+                 echo $i >> /tmp/adp_chkdp_rev_passwd_prob.$$
+		 printTermFile "$REMSHB  $i  $REMSHB_SH  $SH $UNAMEB FAILED."
+		 continue
+	endif
+	$GREPB $SH /tmp/adp_chkdp_rev_passwdlog.$i.$$ >& /dev/null
+        if ( "$status" != "0" ) then
+                 echo $i >> /tmp/adp_chkdp_rev_passwd_prob.$$
+		 printTermFile "Required"
+        else
+                 echo $i >> /tmp/adp_chkdp_machines_ok_rev_passwd.$$
+		 printTermFile "Ok"
+        endif
+end
+
+if (! -z "/tmp/adp_chkdp_rev_passwd_prob.$$" ) then
+        printTermFile "WARNING (209): Jobs submitted to the following host(s) will "
+	printTermFile "not be executed because a password is required at login from "
+	printTermFile "these host(s) to $SH or the remote shell command has failed."
+        CATB_FILE /tmp/adp_chkdp_rev_passwd_prob.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+printTermFile "##############################################################################"
+printTermFile " "
+# }
+
+$RMB -rf /tmp/adp_chkdp_machines.$$
+$CPB /tmp/adp_chkdp_machines_ok_rev_passwd.$$ /tmp/adp_chkdp_machines.$$
+
+########################################################
+# {  Check if the hierarchy is visible on all executaion hosts.
+#    1. Check if spectre binary is available
+#    2. Check if cdsserv binary is available
+########################################################
+
+$TYPEB cds_root >& /dev/null
+if ( "$status" != "0") then
+        printTermFile " "
+        printTermFile "ERROR (226): The Cadence hierarchy is not installed or the unix path is not set properly."
+	printTermFile "Refer to the Cadence Tools Installation Guide"
+        printTermFile " "
+	set error_count=`expr $error_count + 1`
+	printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+	$CLEAN_THESE
+	exit 1
+endif
+
+#############################################################################################################
+# { if login shell is specified, then check if the path for the Cadence Hierarchy is set in the startup script.
+#############################################################################################################
+
+
+printTermFile "##############################################################################"
+printTermFile "Checking for hierarchy compatibility with login shell: $loginShell"
+
+printTermFile "              1. Check for the hier locations "
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+if ( "$loginShell" == "none" ) then
+        if( "`$UNAMEB`" == "Linux" ) then
+                set cds_root_bin = `$TYPEB cds_root`
+        else
+                set cds_root_bin = `$TYPEB cds_root | $AWKB '{print $3}' `
+        endif
+else
+                set cds_root_bin = "cds_root"
+endif
+
+set cds_root_path = `$cds_root_bin $cds_root_bin`
+$TOUCHB /tmp/adp_chkdp_hier_absent.$$ /tmp/adp_chkdp_hier_cds_root_ok.$$
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+        printNNLTermFile "          $i ........."
+        set hier_path=`$REMSHB  $i "$cds_root_bin $cds_root_bin"`
+	if ( "$status" != "0" ) then
+		echo $i >> /tmp/adp_chkdp_hier_absent.$$
+		printTermFile "$REMSHB  $i $cds_root_bin $cds_root_bin FAILED."
+		continue
+	endif
+	set hier_path=`echo $hier_path | $AWKB '{print $1}'`
+	set fc=`echo $hier_path | $CUTB -c1`
+	if ( "$loginShell" == "none" &&  ( "XX$hier_path" == "XX" || "$hier_path" != "$cds_root_path" ) ) then
+		echo $i >> /tmp/adp_chkdp_hier_absent.$$
+		printTermFile Not Ok
+	else if ( "$loginShell" != "none" && ( "XX$hier_path" == "XX" ||  "$fc" != "/" ) ) then
+                echo $i >> /tmp/adp_chkdp_hier_absent.$$
+		printTermFile Not Ok
+        else
+		echo $i >> /tmp/adp_chkdp_hier_cds_root_ok.$$
+                printTermFile Ok
+        endif
+end
+
+if (! -z "/tmp/adp_chkdp_hier_absent.$$" ) then
+        printTermFile "WARNING (210): The Cadence hierarchy is not detected or is corrupted on"
+	printTermFile "the following host(s) or the remote shell command has failed."
+        printTermFile "Consult your System Administrator to resolve the issue."
+        CATB_FILE /tmp/adp_chkdp_hier_absent.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+$RMB -rf /tmp/adp_chkdp_machines.$$
+$CPB /tmp/adp_chkdp_hier_cds_root_ok.$$ /tmp/adp_chkdp_machines.$$
+
+#{ Check if spectre binary is available
+
+printTermFile "              2. Check for the presence of spectre binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+set chk_cds_root=`cds_root spectre`
+if( "$chk_cds_root" == "" ) then
+       printTermFile "ERROR (227): The binary spectre is not found on `hostname`"
+       printTermFile "Check the hierarchy and make sure that the binary spectre is an executable."
+       printTermFile "##############################################################################"
+       set error_count=`expr $error_count + 1`
+       printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+	$CLEAN_THESE
+       exit 1
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set spectre_exe=`$TYPEB spectre`
+	else
+		set spectre_exe=`$TYPEB spectre | $AWKB '{print $3}'`
+	endif
+else
+	set spectre_exe=spectre
+endif 
+
+$TOUCHB /tmp/adp_chkdp_spectre_miss.$$
+
+spectre -version >& /tmp/adp_chkdp_loc_spectre_ver.$$
+set loc_spectre_ver=`$CATB /tmp/adp_chkdp_loc_spectre_ver.$$ | $AWKB '{print $4}'`
+printTermFile "                 <<< Local spectre version : $loc_spectre_ver >>> "
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$spectre_exe -version" >& /tmp/adp_chkdp_spectre_exe.$i.$$
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_spectre_miss.$$
+                printTermFile "$REMSHB $i $spectre_exe -version FAILED."
+                continue
+	endif
+
+        $GREPB -i "version" /tmp/adp_chkdp_spectre_exe.$i.$$ >& /dev/null
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_spectre_miss.$$
+                printTermFile Not Ok
+                continue
+	else
+		set rem_spectre_ver=`$CATB /tmp/adp_chkdp_spectre_exe.$i.$$ | $GREPB version | $AWKB '{print $4}'`
+		printNNLTermFile " $rem_spectre_ver ..... "
+		if ( "$loc_spectre_ver" != "$rem_spectre_ver" ) then
+			echo $i >> /tmp/adp_chkdp_spectre_miss.$$
+			printTermFile spectre version mismatch.
+		else
+			printTermFile Ok
+		endif
+	endif
+end
+
+if (! -z "/tmp/adp_chkdp_spectre_miss.$$" ) then
+	printTermFile "WARNING (211): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+	printTermFile "host(s). Refer to the Cadence Installation Guide."
+	CATB_FILE /tmp/adp_chkdp_spectre_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+# OVER }
+
+printTermFile "              3. Check for the presence of cdsserv binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+#{ Check if cdsserv binary is available
+set chk_cds_root=`cds_root cdsserv`
+if( "$chk_cds_root" == "" ) then
+       printTermFile "ERROR (228): The binary cdsserv is not found on `hostname`"
+       printTermFile "Check the hierarchy and make sure that the binary cdsserv is an executable."
+       printTermFile "##############################################################################"
+		set error_count=`expr $error_count + 1`
+       printTermFile "Setup check terminates with $error_count errors and $warning_count warnings."
+	$CLEAN_THESE
+       exit 1
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set cdsserv_exe=`$TYPEB cdsserv`
+	else
+		set cdsserv_exe=`$TYPEB cdsserv | $AWKB '{print $3}'`
+	endif
+else
+	set cdsserv_exe=cdsserv
+endif
+
+cdsserv -version >& /tmp/adp_chkdp_loc_cdsserv_ver.$$
+set loc_cdsserv_ver=`$CATB /tmp/adp_chkdp_loc_cdsserv_ver.$$ | $AWKB '{print $4}'`
+printTermFile "                 <<< Local cdsserv version : $loc_cdsserv_ver >>> "
+
+$TOUCHB /tmp/adp_chkdp_cdsserv_miss.$$ 
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+        printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$cdsserv_exe -version" >& /tmp/adp_chkdp_cdsserv_exe.$i.$$
+        if ( "$status" != "0") then
+                echo $i >> /tmp/adp_chkdp_cdsserv_miss.$$
+                printTermFile "$REMSHB  $i $cdsserv_exe -version FAILED".
+                continue
+        endif
+
+        $GREPB -i "version" /tmp/adp_chkdp_cdsserv_exe.$i.$$ >& /dev/null
+        if ( "$status" != "0") then
+                echo $i >> /tmp/adp_chkdp_cdsserv_miss.$$
+		printTermFile Not Ok
+		continue
+	else
+                set rem_cdsserv_ver=`$CATB /tmp/adp_chkdp_cdsserv_exe.$i.$$ | $GREPB version | $AWKB '{print $4}'`
+                printNNLTermFile " $rem_cdsserv_ver ..... "
+                if ( "$loc_cdsserv_ver" != "$rem_cdsserv_ver" ) then
+			echo $i >> /tmp/adp_chkdp_cdsserv_miss.$$
+                        printTermFile cdsserv version mismatch.
+                else
+                        printTermFile Ok
+                endif
+
+        endif
+end
+
+if (! -z "/tmp/adp_chkdp_cdsserv_miss.$$" ) then
+        printTermFile "WARNING (212): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+        printTermFile "host(s). Refer to the Cadence Installation Guide."
+        CATB_FILE /tmp/adp_chkdp_cdsserv_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+printTermFile "##############################################################################"
+printTermFile " "
+# OVER }
+
+#############################################################################################################
+# { Check if the NC binaries required for AMS simulator are available or not 
+#
+# General Process of determining the version of NC binaries:
+# ---------------------------------------------------------
+# ncvlog -version
+# TOOL:   ncvlog  05.40-a003 Engineering Build Dated Mon Aug 16 18:06:35 2004 Generated on amslinux_5.cadence.com
+#
+# Output of the "ncvlog -version" is parsed. Following assumptions are made 
+# about the output of "ncvlog -version" command.
+# 1. Output contains the word "TOOL".
+# 2. In case, ncvlog -version is failed, word "TOOL is not present in the o/p. 
+# 3. Third word of the o/p contains the version string for the form "x.y-zz".
+#    Here x.y is of the interest to the script.
+#
+# If the script is failing then please check if the above assumptions are valid.
+#############################################################################################################
+
+if( "$ams_simulator" == "1" ) then
+
+#{ Check if ncvlog binary is available
+
+printTermFile "              4. Check for the presence of ncvlog binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+set ncvlog_supp_ver="05.40"
+set chk_cds_root=`cds_root ncvlog`
+if( "$chk_cds_root" == "" ) then
+	printTermFile "WARNING (221): The binary ncvlog is not found on `hostname`"
+	printTermFile "Check the hierarchy and make sure that the binary ncvlog is an executable."
+	printTermFile "##############################################################################"
+	set warning_count=`expr $warning_count + 1`
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set ncvlog_exe=`$TYPEB ncvlog`
+	else
+		set ncvlog_exe=`$TYPEB ncvlog | $AWKB '{print $3}'`
+	endif
+else
+	set ncvlog_exe=ncvlog
+endif 
+
+$TOUCHB /tmp/adp_chkdp_ncvlog_miss.$$
+
+printNNLTermFile "          host `hostname` ......."
+ncvlog -version >& /tmp/adp_chkdp_loc_ncvlog_ver.$$
+if ( "$status" != "0") then
+	printTermFile "WARNING (222): ncvlog -version FAILED"
+	set warning_count=`expr $warning_count + 1`
+else
+	set loc_ncvlog_ver=`$CATB /tmp/adp_chkdp_loc_ncvlog_ver.$$ | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+	printNNLTermFile " $loc_ncvlog_ver ..... "
+	if ( "$loc_ncvlog_ver" != "$ncvlog_supp_ver" ) then
+		echo $i >> /tmp/adp_chkdp_ncvlog_miss.$$
+		printTermFile unsupported ncvlog version.
+	else
+		printTermFile Ok
+	endif
+endif
+
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$ncvlog_exe -version" >& /tmp/adp_chkdp_ncvlog_exe.$i.$$
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncvlog_miss.$$
+                printTermFile "$REMSHB $i $ncvlog_exe -version FAILED."
+                continue
+	endif
+
+        $GREPB -i "TOOL" /tmp/adp_chkdp_ncvlog_exe.$i.$$ >& /dev/null
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncvlog_miss.$$
+                printTermFile Not Ok
+                continue
+	else
+		set rem_ncvlog_ver=`$CATB /tmp/adp_chkdp_ncvlog_exe.$i.$$ | $GREPB TOOL | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+		printNNLTermFile " $rem_ncvlog_ver ..... "
+		if ( "$rem_ncvlog_ver" != "$ncvlog_supp_ver" ) then
+			echo $i >> /tmp/adp_chkdp_ncvlog_miss.$$
+			printTermFile unsupported ncvlog version.
+		else
+			printTermFile Ok
+		endif
+	endif
+end
+
+if (! -z "/tmp/adp_chkdp_ncvlog_miss.$$" ) then
+	printTermFile "WARNING (223): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+	printTermFile "host(s). Refer to the Cadence Installation Guide."
+	CATB_FILE /tmp/adp_chkdp_ncvlog_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+# OVER }
+
+#{ Check if ncvhdl binary is available
+
+printTermFile "              5. Check for the presence of ncvhdl binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+set ncvhdl_supp_ver="05.40"
+set chk_cds_root=`cds_root ncvhdl`
+if( "$chk_cds_root" == "" ) then
+	printTermFile "WARNING (224): The binary ncvhdl is not found on `hostname`"
+	printTermFile "Check the hierarchy and make sure that the binary ncvhdl is an executable."
+	printTermFile "##############################################################################"
+	set warning_count=`expr $warning_count + 1`
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set ncvhdl_exe=`$TYPEB ncvhdl`
+	else
+		set ncvhdl_exe=`$TYPEB ncvhdl | $AWKB '{print $3}'`
+	endif
+else
+	set ncvhdl_exe=ncvhdl
+endif 
+
+$TOUCHB /tmp/adp_chkdp_ncvhdl_miss.$$
+
+printNNLTermFile "          host `hostname` ......."
+ncvhdl -version >& /tmp/adp_chkdp_loc_ncvhdl_ver.$$
+if ( "$status" != "0") then
+	printTermFile "WARNING (225): ncvhdl -version FAILED"
+	set warning_count=`expr $warning_count + 1`
+else
+	set loc_ncvhdl_ver=`$CATB /tmp/adp_chkdp_loc_ncvhdl_ver.$$ | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+	printNNLTermFile " $loc_ncvhdl_ver ..... "
+	if ( "$loc_ncvhdl_ver" != "$ncvhdl_supp_ver" ) then
+		echo $i >> /tmp/adp_chkdp_ncvhdl_miss.$$
+		printTermFile unsupported ncvhdl version.
+	else
+		printTermFile Ok
+	endif
+endif
+
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$ncvhdl_exe -version" >& /tmp/adp_chkdp_ncvhdl_exe.$i.$$
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncvhdl_miss.$$
+                printTermFile "$REMSHB $i $ncvhdl_exe -version FAILED."
+                continue
+	endif
+
+        $GREPB -i "TOOL" /tmp/adp_chkdp_ncvhdl_exe.$i.$$ >& /dev/null
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncvhdl_miss.$$
+                printTermFile Not Ok
+                continue
+	else
+		set rem_ncvhdl_ver=`$CATB /tmp/adp_chkdp_ncvhdl_exe.$i.$$ | $GREPB TOOL | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+		printNNLTermFile " $rem_ncvhdl_ver ..... "
+		if ( "$rem_ncvhdl_ver" != "$ncvhdl_supp_ver" ) then
+			echo $i >> /tmp/adp_chkdp_ncvhdl_miss.$$
+			printTermFile unsupported ncvhdl version.
+		else
+			printTermFile Ok
+		endif
+	endif
+end
+
+if (! -z "/tmp/adp_chkdp_ncvhdl_miss.$$" ) then
+	printTermFile "WARNING (226): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+	printTermFile "host(s). Refer to the Cadence Installation Guide."
+	CATB_FILE /tmp/adp_chkdp_ncvhdl_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+# OVER }
+
+#{ Check if ncelab binary is available
+
+printTermFile "              6. Check for the presence of ncelab binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+set ncelab_supp_ver="05.40"
+set chk_cds_root=`cds_root ncelab`
+if( "$chk_cds_root" == "" ) then
+	printTermFile "WARNING (227): The binary ncelab is not found on `hostname`"
+	printTermFile "Check the hierarchy and make sure that the binary ncelab is an executable."
+	printTermFile "##############################################################################"
+	set warning_count=`expr $warning_count + 1`
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set ncelab_exe=`$TYPEB ncelab`
+	else
+		set ncelab_exe=`$TYPEB ncelab | $AWKB '{print $3}'`
+	endif
+else
+	set ncelab_exe=ncelab
+endif 
+
+$TOUCHB /tmp/adp_chkdp_ncelab_miss.$$
+
+printNNLTermFile "          host `hostname` ......."
+ncelab -version >& /tmp/adp_chkdp_loc_ncelab_ver.$$
+if ( "$status" != "0") then
+	printTermFile "WARNING (228): ncelab -version FAILED"
+	set warning_count=`expr $warning_count + 1`
+else
+	set loc_ncelab_ver=`$CATB /tmp/adp_chkdp_loc_ncelab_ver.$$ | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+	printNNLTermFile " $loc_ncelab_ver ..... "
+	if ( "$loc_ncelab_ver" != "$ncelab_supp_ver" ) then
+		echo $i >> /tmp/adp_chkdp_ncelab_miss.$$
+		printTermFile unsupported ncelab version.
+	else
+		printTermFile Ok
+	endif
+endif
+
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$ncelab_exe -version" >& /tmp/adp_chkdp_ncelab_exe.$i.$$
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncelab_miss.$$
+                printTermFile "$REMSHB $i $ncelab_exe -version FAILED."
+                continue
+	endif
+
+        $GREPB -i "TOOL" /tmp/adp_chkdp_ncelab_exe.$i.$$ >& /dev/null
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncelab_miss.$$
+                printTermFile Not Ok
+                continue
+	else
+		set rem_ncelab_ver=`$CATB /tmp/adp_chkdp_ncelab_exe.$i.$$ | $GREPB TOOL | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+		printNNLTermFile " $rem_ncelab_ver ..... "
+		if ( "$rem_ncelab_ver" != "$ncelab_supp_ver" ) then
+			echo $i >> /tmp/adp_chkdp_ncelab_miss.$$
+			printTermFile unsupported ncelab version.
+		else
+			printTermFile Ok
+		endif
+	endif
+end
+
+if (! -z "/tmp/adp_chkdp_ncelab_miss.$$" ) then
+	printTermFile "WARNING (229): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+	printTermFile "host(s). Refer to the Cadence Installation Guide."
+	CATB_FILE /tmp/adp_chkdp_ncelab_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+# OVER }
+
+#{ Check if ncsim binary is available
+
+printTermFile "              7. Check for the presence of ncsim binary."
+printTermFile "             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+set ncsim_supp_ver="05.40"
+set chk_cds_root=`cds_root ncsim`
+if( "$chk_cds_root" == "" ) then
+	printTermFile "WARNING (230): The binary ncsim is not found on `hostname`"
+	printTermFile "Check the hierarchy and make sure that the binary ncsim is an executable."
+	printTermFile "##############################################################################"
+	set warning_count=`expr $warning_count + 1`
+endif
+
+if( "$loginShell" == "none" ) then
+	if( "`$UNAMEB`" == "Linux" ) then
+		set ncsim_exe=`$TYPEB ncsim`
+	else
+		set ncsim_exe=`$TYPEB ncsim | $AWKB '{print $3}'`
+	endif
+else
+	set ncsim_exe=ncsim
+endif 
+
+$TOUCHB /tmp/adp_chkdp_ncsim_miss.$$
+
+printNNLTermFile "          host `hostname` ......."
+ncsim -version >& /tmp/adp_chkdp_loc_ncsim_ver.$$
+if ( "$status" != "0") then
+	printTermFile "WARNING (231): ncsim -version FAILED"
+	set warning_count=`expr $warning_count + 1`
+else
+	set loc_ncsim_ver=`$CATB /tmp/adp_chkdp_loc_ncsim_ver.$$ | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+	printNNLTermFile " $loc_ncsim_ver ..... "
+	if ( "$loc_ncsim_ver" != "$ncsim_supp_ver" ) then
+		echo $i >> /tmp/adp_chkdp_ncsim_miss.$$
+		printTermFile unsupported ncsim version.
+	else
+		printTermFile Ok
+	endif
+endif
+
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+	printNNLTermFile "          host $i ......."
+        $REMSHB  $i "$ncsim_exe -version" >& /tmp/adp_chkdp_ncsim_exe.$i.$$
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncsim_miss.$$
+                printTermFile "$REMSHB $i $ncsim_exe -version FAILED."
+                continue
+	endif
+
+        $GREPB -i "TOOL" /tmp/adp_chkdp_ncsim_exe.$i.$$ >& /dev/null
+	if ( "$status" != "0") then
+		echo $i >> /tmp/adp_chkdp_ncsim_miss.$$
+                printTermFile Not Ok
+                continue
+	else
+		set rem_ncsim_ver=`$CATB /tmp/adp_chkdp_ncsim_exe.$i.$$ | $GREPB TOOL | $AWKB '{print $3}' | $CUTB -f1 -d'-'`
+		printNNLTermFile " $rem_ncsim_ver ..... "
+		if ( "$rem_ncsim_ver" != "$ncsim_supp_ver" ) then
+			echo $i >> /tmp/adp_chkdp_ncsim_miss.$$
+			printTermFile unsupported ncsim version.
+		else
+			printTermFile Ok
+		endif
+	endif
+end
+
+if (! -z "/tmp/adp_chkdp_ncsim_miss.$$" ) then
+	printTermFile "WARNING (232): The Cadence hierarchy is not detected, not"
+	printTermFile "installed properly or is incompatible with the following"
+	printTermFile "host(s). Refer to the Cadence Installation Guide."
+	CATB_FILE /tmp/adp_chkdp_ncsim_miss.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+
+# OVER }
+
+endif
+
+# } Done with the AMS simulator specific check
+
+# } Done with the hierarchy check
+
+#####################################################
+#  Check for tmp area
+#####################################################
+$TOUCHB /tmp/adp_chkdp_space_prob.$$
+printTermFile "##############################################################################"
+printTermFile "Checking for space in /tmp area......."
+foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+        printNNLTermFile "          host $i ......."
+        set DP_OS=`$REMSHB  $i $UNAMEB`
+	if ( "$DP_OS" != "Linux" ) then
+        	$REMSHB  $i "/usr/bin/touch /tmp/adp_chkdp_chk_tmp_space.$$"
+		set space_avail=`$REMSHB  $i "/usr/bin/ls /tmp/adp_chkdp_chk_tmp_space.$$"`
+	else
+		$REMSHB  $i "/bin/touch /tmp/adp_chkdp_chk_tmp_space.$$"
+		set space_avail=`$REMSHB  $i "/bin/ls /tmp/adp_chkdp_chk_tmp_space.$$"`
+	endif 
+        if ( "$space_avail" == "") then
+                echo $i >> /tmp/adp_chkdp_space_prob.$$
+        	printTermFile "Insufficient space"
+	else
+        	printTermFile Ok
+        endif
+end
+
+if (! -z "/tmp/adp_chkdp_space_prob.$$" ) then
+        printTermFile "WARNING (213): The tmp area on the following host(s) is not writeable."
+        printTermFile "Before running DP, remove all unneccessary files from the tmp area of these host(s)."
+        CATB_FILE /tmp/adp_chkdp_space_prob.$$
+        set warning_count=`expr $warning_count + 1`
+endif
+printTermFile "##############################################################################"
+printTermFile " "
+#########################################################
+#  Network Mode
+#########################################################
+
+if ( "$copyMode" == "0") then
+# {
+	printTermFile "##############################################################################"
+	printTermFile "Checking for Network Mode......"
+	set PWD=`$PWDB`
+	set HOME=`echo ~`
+	set HOME_DIR=`echo ~`/simulation
+        $ENVB | $GREPB CDS_SIM_DIR_DP >& /dev/null
+        if("$status" != "0") then
+                printTermFile " "
+                printTermFile "WARNING (214): The simulation directory is not specified."
+		printTermFile "For this run, $HOME_DIR will be used as the simulation directory."
+                printTermFile "To specify a simulation directory, set the environment variable CDS_SIM_DIR_DP"
+		set warning_count=`expr $warning_count + 1`
+                printTermFile " "
+		$MKDIRB -p $HOME_DIR
+		if ( "$status" != "0" ) then
+                	printTermFile " "
+                	printTermFile "WARNING (215): The script failed to create the simulation directory $HOME_DIR"
+                	printTermFile "For this run, $HOME will be used as the simulation directory."
+			printTermFile " "
+			set warning_count=`expr $warning_count + 1`
+			set HOME_DIR=$HOME
+		endif
+	else
+		set HOME_DIR=$CDS_SIM_DIR_DP
+		$LSB $CDS_SIM_DIR_DP >& /dev/null
+		if ( "$status" != "0" ) then
+			$MKDIRB -p $CDS_SIM_DIR_DP
+			if ( "$status" != "0" ) then
+                		printTermFile " "
+                		printTermFile "WARNING (216): The script failed to create the simulation directory $HOME_DIR"
+                		printTermFile "For this run, $HOME will be used as the simulation directory."
+				printTermFile " "
+				set warning_count=`expr $warning_count + 1`
+				set HOME_DIR=$HOME
+			endif
+		endif
+        endif
+
+        $TOUCHB $HOME_DIR/.network_mode.$$ /tmp/adp_chkdp_file_absent.$$
+	set file_touch=$HOME_DIR/.network_mode.$$
+        foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+        	printNNLTermFile "          $i ......."
+		set DP_OS=`$REMSHB  $i $UNAMEB`
+		if ( "$DP_OS" != "Linux" ) then
+                	set file_present=`$REMSHB  $i "/usr/bin/ls $file_touch"`
+		else
+                	set file_present=`$REMSHB  $i "/bin/ls $file_touch"`
+		endif
+
+                if ( "$file_present" == "") then
+                        echo $i >> /tmp/adp_chkdp_file_absent.$$
+                	printTermFile Not Usable
+		else
+                	printTermFile Ok
+                endif
+        end
+	$RMB $HOME_DIR/.network_mode.$$
+        if (! -z "/tmp/adp_chkdp_file_absent.$$" ) then
+                printTermFile "WARNING (217): The file system is not exported on the following host(s)"
+                printTermFile "Consult your System Administrator to resolve the issue."
+                CATB_FILE /tmp/adp_chkdp_file_absent.$$
+                set warning_count=`expr $warning_count + 1`
+        endif
+	printTermFile "##############################################################################"
+	printTermFile " "
+#}
+else 
+#{
+	printTermFile "##############################################################################"
+	printTermFile "Checking for Copy Mode......"
+	
+	$TOUCHB /tmp/adp_chkdp_rcp_issue.$$
+	echo "Copy Mode Test" > /tmp/adp_chkdp_copy_mode_local.$$
+	set temp_file=/tmp/adp_chkdp_copy_mode_local.$$
+	foreach i (`$CATB /tmp/adp_chkdp_machines.$$`)
+		printNNLTermFile "          $i ......."
+		$RCPB ${temp_file} ${i}:/tmp/.
+		if ( "$status" != "0" ) then
+			echo $i >> /tmp/adp_chkdp_rcp_issue.$$
+			printTermFile "${RCPB} ${temp_file} ${i}:/tmp FAILED."
+			continue
+		endif
+		set SH=`hostname`
+		set rem_file=$temp_file.$i
+		$REMSHB $i ${RCPB} ${temp_file} ${SH}:$rem_file
+		if ( "$status" != "0" ) then
+			echo $i >> /tmp/adp_chkdp_rcp_issue.$$
+			printTermFile $REMSHB $i ${RCPB} $temp_file ${SH}:$rem_file FAILED.
+		else
+			printTermFile Ok
+		endif
+	end
+
+        if (! -z "/tmp/adp_chkdp_rcp_issue.$$" ) then
+                printTermFile "WARNING (218): The remote shell command failed on following hosts."
+                printTermFile "Consult your System Administrator to resolve the issue."
+                CATB_FILE /tmp/adp_chkdp_rcp_issue.$$
+                set warning_count=`expr $warning_count + 1`
+        endif
+
+	printTermFile "##############################################################################"
+	printTermFile " "
+# }
+endif
+
+#############################################################################################################
+# {	       Time Stamp Of all the machines in Q-Config File including the submission host		    #
+#   Read the names from /tmp/adp_chkdp_machines.$$ and check if its date stamp matches with Cluster Master. #
+#############################################################################################################
+if ("$enableClkSyncChk" == "1" ) then
+
+	if ( $check_dp == LBS_LSF ) then
+		printTermFile "     Clock synchronization is not required for LSF Mode."
+	else
+	  printTermFile " "
+	  printTermFile "##############################################################################"
+	  printTermFile "Checking for clock synchronization......"
+	  printTermFile " "
+	  $TOUCHB /tmp/adp_chkdp_machines.mess.$$
+          set DP_OS_CM=`$REMSHB  $cluster_master $UNAMEB`
+          if ( "$DP_OS_CM" == "Linux" ) then
+                set DATEB_DP_CM=/bin/date
+	  else
+		set DATEB_DP_CM=/usr/bin/date
+          endif
+	  foreach j (`$CATB /tmp/adp_chkdp_machines.$$`)
+		printNNLTermFile "Checking $j "
+		set count=60
+		set success=0
+		set ignore=0
+                set DP_OS=`$REMSHB  $j $UNAMEB`
+                if ( "$DP_OS" == "Linux" ) then
+                        set DATEB_DP=/bin/date
+		else
+			set DATEB_DP=/usr/bin/date
+                endif
+
+		while( $count != "0")
+			printNNLTermFile "."
+			set date_machine=`$REMSHB  $j "$DATEB_DP -u"`
+			set date_machine=`echo $date_machine | $AWKB '{print $1 $2 $3 $4}'|$CUTB -d: -f1,2`
+			if ( "$date_machine" == "" ) then
+				echo $j >> /tmp/adp_chkdp_machines.mess.$$
+				set ignore=1
+				break
+			endif
+                	printNNLTermFile "."
+			set date_master=`$REMSHB  $cluster_master "$DATEB_DP_CM -u"`
+			set date_master=`echo $date_master | $AWKB '{print $1 $2 $3 $4}'|$CUTB -d: -f1,2`
+			if ( "$date_master"  != "$date_machine" ) then
+	        		#echo $i >> /tmp/adp_chkdp_machines.mess.$$
+				set success=`expr $success - 1`
+			else
+				set success=`expr $success + 1`
+			endif
+			set count=`expr $count - 10`
+			$SLEEPB 10
+		end	
+		if ( "$success" < "1" && "$ignore" != "1" ) then
+			echo $j >> /tmp/adp_chkdp_machines.mess.$$
+			printTermFile "Not in Sync with $cluster_master"
+		else
+			printNNLTermFile "Ok"
+		endif	
+		printTermFile " "
+	  end
+	
+	  if ( ! -z "/tmp/adp_chkdp_machines.mess.$$" ) then
+		printTermFile " "
+		printTermFile "WARNING (219): Jobs may not be submitted or completed on the"
+		printTermFile "following host(s), because their system times are not in sync"
+		printTermFile "with $LBS_CLUSTER_MASTER or the network is slow."
+		CATB_FILE /tmp/adp_chkdp_machines.mess.$$
+		printTermFile " "
+		set warning_count=`expr $warning_count + 1`
+	  endif
+        printTermFile "##############################################################################"
+        printTermFile " "
+	endif
+endif
+# } TIME_STAMP_CHECKING_DONE
+
+
+#############################################################################################################
+# { Finally Check the artmonitor
+#############################################################################################################
+printTermFile "##############################################################################"
+printNNLTermFile "Checking if artmonitor works..."
+if( "`$UNAMEB`" == "Linux" ) then
+	set art_monitor = `$TYPEB artmonitor`
+else
+	set art_monitor = `$TYPEB artmonitor|$AWKB '{print $3}'`
+endif
+$art_monitor >& /tmp/adp_chkdp_art_err.$$
+
+cat /tmp/adp_chkdp_art_err.$$ | $GREPB "There was an error connecting to the  Analog Design Environment" >& /dev/null
+
+if( "$status" == "0" ) then
+	printTermFile "FAILED."
+	printTermFile " "
+	printTermFile "WARNING (220): Although the setup appears to be fine, artmonitor "
+	printTermFile "is not responding. Therefore, DP may not run. It might be a network"
+	printTermFile "or the DP daemon related issue."
+        set warning_count=`expr $warning_count + 1`
+else 
+	printTermFile Ok
+endif
+printTermFile "##############################################################################"
+printTermFile " "
+# } ARTMONITOR CHECK DONE
+
+
+printTermFile
+if ("$warning_count" == "0") then
+     printTermFile "Setup check completes successfully."
+else
+     printTermFile "Setup check completes with $error_count errors and $warning_count warnings."
+endif
+$CLEAN_THESE
+exit 0

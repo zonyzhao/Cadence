@@ -1,0 +1,17 @@
+#!/bin/csh -f
+
+set OS_TYPE=`/bin/uname`
+if($OS_TYPE == "Linux" || $OS_TYPE == "SunOS" ) then
+        /usr/bin/ssh -n $* 
+else
+	set x=1
+	set ARGS=
+	foreach i (`echo  $*`)
+	        if ( $x == "1" ) then
+	       	        set x=0
+	                continue
+	        endif
+	        set ARGS="$ARGS $i"
+	end
+        /usr/bin/remsh $1 -n $ARGS
+endif
