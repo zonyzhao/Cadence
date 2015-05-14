@@ -6,18 +6,12 @@
 \o Log file is "/root/Desktop/Cadence/libManager.log".
 \o Opening libManager window.
 \a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(0 186 1276 994))
 \o changeWorkingDir("/root/Desktop/Cadence") unnecessary.
 \o ddSetForcedLib("") unnecessary.
 \o MPS service: map window
-\a nrResizeWindow(cdsLibManager list(1771 36 1276 994))
 \o Library Manager customization server connected.
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrResizeWindow(cdsLibManager list(0 171 1276 994))
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = "ATSim"
 \a cdsLibManager->libListBox->value = "16nm"
-\a cdsLibManager->libLineEdit->value = "16nm"
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->cellListBox->value = "nand5_1x"
-\a cdsLibManager->cellLineEdit->value = "nand5_1x"
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libLineEdit->value = "16nm_Tests"
