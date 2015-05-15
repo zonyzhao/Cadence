@@ -18,8 +18,8 @@ vcc! vcc!
 $endnet
 $param
 vdd vdd
-time4 time4
 time5 time5
+time4 time4
 time3 time3
 time2 time2
 $endparam

@@ -1,6 +1,6 @@
 simulator( 'spectre )
-design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/netlist")
-resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir" )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir" )
 modelFile( 
     '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" nil)
 )
@@ -13,10 +13,11 @@ desVar(	  "time2" 2n	)
 envOption(
 	'firstRun  t 
 	'autoDisplay  nil 
-	'userCmdLineOption  "  -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/sharedData/Job9/ahdl/input.ahdlSimDB" 
+	'userCmdLineOption  "  -ahdloutdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.4/sharedData/Job1/ahdl/input.ahdlSimDB" 
 	'analysisOrder  list("tran" "pz" "dcmatch" "stb" "envlp" "ac" "dc" "lf" "noise" "xf" "sp" "pss" "pac" "pstb" "pnoise" "pxf" "psp" "qpss" "qpac" "qpnoise" "qpxf" "qpsp" "hb" "hbac" "hbnoise" "sens") 
 )
-option(	'temp  "30.0" 
+option(	'multithread  "on" 
+	'temp  "30.0" 
 )
 option( ?categ 'turboOpts
 	'apsplus  t 
@@ -31,3 +32,4 @@ plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth") )
 plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth") )
 plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth") )
 plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth") )
+plot( cross(VT("/ICHUNK/IARRAY0/B0P1") vdd 1 "either" nil nil) )

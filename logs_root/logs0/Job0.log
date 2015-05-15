@@ -1,0 +1,95 @@
+\# Program start time UTC 2015.05.14 07:06:07.627
+\# Local time Thursday 14 May 2015, 12:06 am
+\o Program:		@(#)$CDS: virtuoso version 6.1.6 01/19/2015 20:41 (sjfnl169) $
+\o Hierarchy:		/apps/cadence/IC616/tools.lnx86/dfII/
+\o Sub version:		sub-version  IC6.1.6.500.10  (32-bit addresses)
+\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso6623 -mpshost bull -davinciService DaVinciService_6623_1431587161 -log /root/Desktop/Cadence/logs_root/logs0/Job0.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_6623 -nograph -nostdin -axlChildIdFlag 0
+\# Host name (type):	bull (x86_64)
+\# Operating system:	Linux 2.6.32-504.16.2.el6.x86_64 #1 SMP Tue Mar 10 17:01:00 EDT 2015
+\# Linux /etc/issue:	Red Hat Enterprise Linux Client release 6.6 (Santiago)
+\# Linux /etc/issue:	Kernel \r on an \m
+\# X display name (WxH):	bull:80 (1024x868)
+\# Available geometry:			TL(0:0) BR(1023:867)
+\# X server:			RealVNC Ltd (VNC nograph server, PID 15939)
+\# Depth of Visual (Root):	16 (16)
+\# Number of Planes Used:	16
+\# X version:		11.0 (vendor release 3370)
+\# X resource pool:	base 0x800000, mask 0x3fffff (4194303), shift 0
+\# 			current id 0x0, current max 0x3ffffa (4194298)
+\# Max data seg size:	     unlimited
+\# Max process size:	     unlimited
+\# Initial sbrk value:	        407 MB
+\# Available memory:	     46,268 MB
+\# System memory:	     48,512 MB
+\# Maximum memory size:	      3,742 MB
+\# Max mem available:	      3,742 MB
+\# Initial memory used:	         53 MB
+\#        process size:	        455 MB
+\# Qt version:		4.7.2
+\# Window Manager:	other
+\# User Name:		root
+\o Working Directory:	bull:/root/Desktop/Cadence
+\# Process Id:		15951
+\o 
+\o COPYRIGHT © 1992-2014  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+\o           © 1992-2014  UNIX SYSTEMS Laboratories INC.,
+\o                          Reproduced with permission.
+\o 
+\o This Cadence Design Systems program and online documentation are
+\o proprietary/confidential information and may be disclosed/used only
+\o as authorized in a license agreement controlling such use and disclosure.
+\o 
+\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)
+\o Use/reproduction/disclosure is subject to restriction
+\o set forth at FAR 1252.227-19 or its equivalent.
+\o Loading geView.cxt 
+\o Loading menuBuilder.cxt 
+\o Loading schView.cxt 
+\o Loading selectSv.cxt 
+\o Loading LVS.cxt 
+\o Loading layerProc.cxt 
+\o Loading pte2.cxt 
+\o Loading xlUI.cxt 
+\o Loading auCore.cxt 
+\o Loading vhdl.cxt 
+\o Loading seismic.cxt 
+\o Loading ci.cxt 
+\o Loading ams.cxt 
+\o Loading oasis.cxt 
+\o Loading analog.cxt 
+\o Loading asimenv.cxt 
+\o Loading par.cxt 
+\o Loading socket.cxt 
+\o Loading alvs.cxt 
+\o Loading awv.cxt 
+\o Loading adexl.cxt 
+\o *Info*    Exporting services from client ... 
+\o 
+\o 
+\o ---------------------------------------------------------------------------
+\o Welcome to the FreePDK 45nm Free, Open-Source Process Design Kit
+\o ---------------------------------------------------------------------------
+\o 
+\o loading vars from .cdsenv for tool ddserv
+\o loading vars from .cdsenv for tool license
+\o loading vars from .cdsenv for tool asimenv
+\o loading vars from ./.cdsenv for tool ddserv
+\o loading vars from ./.cdsenv for tool license
+\o loading vars from ./.cdsenv for tool asimenv
+\o Loading spectrei.cxt 
+\o Loading devCheck.cxt 
+\o Loading relXpert.cxt 
+\# Memory report: using         167 MB, process size 601 MB at UTC 2015.05.14 07:06:10.058
+\o Loading mmsimenv.cxt 
+\o Loading spectreMixi.cxt 
+\o *Info*    Client has finished starting ... 
+\o 
+\p > 
+\# Available memory:         46,122 MB at UTC 2015.05.14 07:06:17.921
+\o Loading viva.cxt 
+\o Loading lce.cxt 
+\o 
+\o *Info*    Received signal SIGTERM.
+\o 
+\o 
+\o Loading simui.cxt 
