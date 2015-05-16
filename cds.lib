@@ -3,6 +3,9 @@ DEFINE cdsDefTechLib $CDSHOME/tools/dfII/etc/cdsDefTechLib
 DEFINE 16nm             /net/bull/root/Desktop/Cadence/16nm
 DEFINE 16nm_Tests       /net/bull/root/Desktop/Cadence/16nm_Tests
 DEFINE ATSim            /net/bull/root/Desktop/Cadence/ATSim
+DEFINE MIPS_Proc        /net/bull/root/Desktop/Cadence/MIPS_Proc
+DEFINE MIPS_Proc_Tests  /net/bbull/root/Desktop/Cadence/MIPS_Proc_Tests
+
 
 DEFINE NCSU_TechLib_FreePDK15 ./ncsu-FreePDK15/cdslib/NCSU_TechLib_FreePDK15
 DEFINE NCSU_TechLib_FreePDK45 /home/cadence/ncsu-FreePDK45/ncsu_basekit/lib/NCSU_TechLib_FreePDK45
