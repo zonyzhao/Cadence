@@ -1,17 +1,19 @@
 #
+SOFTINCLUDE ${AUSHOME}/tools/affirma_ams/etc/connect_lib/cds.lib 
+
 DEFINE cdsDefTechLib $CDSHOME/tools/dfII/etc/cdsDefTechLib
 DEFINE 16nm             /net/bull/root/Desktop/Cadence/16nm
 DEFINE 16nm_Tests       /net/bull/root/Desktop/Cadence/16nm_Tests
 DEFINE ATSim            /net/bull/root/Desktop/Cadence/ATSim
-DEFINE MIPS_Proc        /net/bull/root/Desktop/Cadence/MIPS_Proc
-DEFINE MIPS_Proc_Tests  /net/bbull/root/Desktop/Cadence/MIPS_Proc_Tests
 
-
-DEFINE NCSU_TechLib_FreePDK15 ./ncsu-FreePDK15/cdslib/NCSU_TechLib_FreePDK15
+DEFINE NCSU_TechLib_FreePDK15 		./ncsu-FreePDK15/cdslib/NCSU_TechLib_FreePDK15
 DEFINE NCSU_TechLib_FreePDK45 /home/cadence/ncsu-FreePDK45/ncsu_basekit/lib/NCSU_TechLib_FreePDK45
 DEFINE NCSU_Devices_FreePDK45 /home/cadence/ncsu-FreePDK45/ncsu_basekit/lib/NCSU_Devices_FreePDK45
 
 DEFINE basic                    /apps/cadence/IC616/tools/dfII/etc/cdslib/basic
+
+DEFINE analogLib 		${CDSHOME}/tools/dfII/etc/cdslib/basic
+DEFINE sample 			${CDSHOME}/tools/dfII/samples/cdslib/sample
 DEFINE UCD_Analog_Parts         /home/cadence/ncsu-cdk-1.6.0.beta/lib/UCD_Analog_Parts
 DEFINE UCD_Digital_Parts        /home/cadence/ncsu-cdk-1.6.0.beta/lib/UCD_Digital_Parts
 DEFINE NCSU_TechLib_ami06       /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_ami06
