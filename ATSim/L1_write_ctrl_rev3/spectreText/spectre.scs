@@ -3,34 +3,34 @@
 
 simulator lang=spectre
 
-subckt L1_write_ctrl_rev3 TagWE WriteToL1MissTagAck TagWDataSel L2DataOutTagAck TagWrRegReq WriteToL1MissReq TagWrRegAck L2DataOutReqTagWAck
+subckt L1_write_ctrl_rev3 TagWE WriteToL1Ack TagWDataSel L2DataOutTagAck TagWrRegReq WriteToL1Req TagWrRegAck L2DataOutReq TagWAck
  
-I0  (p1 WriteToL1MissReq TagWrRegAck)   nand_1x   
+I0  (p1 WriteToL1Req TagWrRegAck)   nand_1x   
 I1  (p2 L2DataOutReq TagWrRegAck Y2_n1) nand3_1x  
 I2  (Y2_n1 y2) inv_1x
 I3  (p3 TagWAck_n1 L2DataOutReq) nand_1x   
 I4  (TagWAck_n1  TagWAck) inv_1x    
-I5  (p4 WriteToL1MissReq WriteToL1MissReq) nand_1x   
-I6  (p5 TagWAck_n1 Y0_n1 Y2_n1) nand_3x   
+I5  (p4 WriteToL1Req WriteToL1Req) nand_1x   
+I6  (p5 TagWAck_n1 Y0_n1 Y2_n1) nand3_1x   
 I7  (Y0_n1 y0)   inv_1x    
 I8  (p6 TagWAck_n1 TagWrRegAck Y2_n1)   nand3_1x  
 I9  (p7 TagWAck L2DataOutReq_n1 Y0_n1)   nand3_1x  
 I10 (L2DataOutReq_n1 L2DataOutReq) inv_1x
 I11 (p8 TagWrRegAck Y0_n1) nand_1x
-I12 (p9 WriteToL1MissReq_n1 TagWAck y0) nand3_1x
-I13 (WriteToL1MissReq_n1 WriteToL1MissReq) inv_1x
+I12 (p9 WriteToL1Req_n1 TagWAck y0) nand3_1x
+I13 (WriteToL1Req_n1 WriteToL1Req) inv_1x
 I14 (p10 TagWrRegAck y0) nand_1x
-I15 (p11 TagWAck_n1 L2DataOutReq_n1 TagWrRegAck_n1) nand_1x
+I15 (p11 TagWAck_n1 L2DataOutReq_n1 TagWrRegAck_n1) nand3_1x
 I16 (TagWrRegAck_n1 TagWrRegAck) inv_1x
 I17 (p12 L2DataOutReq_n1 y0) nand_1x
-I18 (p13 WriteToL1MissReq_n1 L2DataOutReq_n1 y2)   nand3_1x  
+I18 (p13 WriteToL1Req_n1 L2DataOutReq_n1 y2)   nand3_1x  
 I19 (y0 p10 p11 p12)   nand3_1x  
 I20 (y1 p1 p3 p6 p7 p8) nand5_1x
 I21 (y2 p7 p9 p11 p13) nand4_1x
 I22 (TagWE p1 p2 p6)   nand3_1x 	
-I23 (WriteToL1MissTagAck p9 p10)  nand_1x 	
+I23 (WriteToL1Ack p9 p10)  nand_1x 	
 I24 (TagWDataSel p2 p3 p5) nand3_1x
-I25 (L2DataOutTagAck p7 p8) nand2_1x
+I25 (L2DataOutTagAck p7 p8) nand_1x
 I26 (TagWrRegReq p2 p3 p4 p6) nand4_1x
 
 ends L1_write_ctrl_rev3

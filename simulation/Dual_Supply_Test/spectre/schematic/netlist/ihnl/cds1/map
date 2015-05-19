@@ -10,7 +10,7 @@
 ( inst
  )
 ( model
-( "6T_32x_CTRL_PWR" "_sub21" )
+( "6T_32x_CTRL_PWR" "_sub1" )
  )
 ( term
  )

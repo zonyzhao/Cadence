@@ -1,79 +1,33 @@
-Begin Incremental Netlisting May  3 20:47:08 2015
-End netlisting May  3 20:47:08 2015
-Begin Incremental Netlisting May  3 20:47:30 2015
-End netlisting May  3 20:47:30 2015
-Begin Incremental Netlisting May  3 20:50:09 2015
-WARNING (OSSHNL-159): The primitive, 'NCSU_TechLib_FreePDK15/nfet/spectre', has
-been updated since the last netlisting session
-in this current run directory.
-Therefore, re-netlisting all cell views where
-this primitive is instantiated.
-
-End netlisting May  3 20:50:09 2015
-Begin Incremental Netlisting May  3 20:52:57 2015
-End netlisting May  3 20:52:58 2015
-Begin Incremental Netlisting May  3 20:56:38 2015
-WARNING (OSSHNL-226): There are more design variables used in the current
-netlisting session as
-compared to the last session in the current run directory.
-The netlist(s)
-generated in the last netlisting session cannot be reused for
-incremental
-netlisting. Therefore re-netlisting the design.
-
-End netlisting May  3 20:56:39 2015
-Begin Incremental Netlisting May  3 21:02:11 2015
-WARNING (OSSHNL-226): There are more design variables used in the current
-netlisting session as
-compared to the last session in the current run directory.
-The netlist(s)
-generated in the last netlisting session cannot be reused for
-incremental
-netlisting. Therefore re-netlisting the design.
-
-End netlisting May  3 21:02:11 2015
-Begin Incremental Netlisting May  3 21:06:51 2015
-WARNING (OSSHNL-226): There are more design variables used in the current
-netlisting session as
-compared to the last session in the current run directory.
-The netlist(s)
-generated in the last netlisting session cannot be reused for
-incremental
-netlisting. Therefore re-netlisting the design.
-
-End netlisting May  3 21:06:51 2015
-Begin Incremental Netlisting May  3 21:07:22 2015
-End netlisting May  3 21:07:22 2015
-Begin Incremental Netlisting May  3 21:11:31 2015
-End netlisting May  3 21:11:32 2015
-Begin Incremental Netlisting May  3 21:14:02 2015
-End netlisting May  3 21:14:03 2015
-Begin Incremental Netlisting May  3 21:51:01 2015
-End netlisting May  3 21:51:02 2015
-Begin Incremental Netlisting May  3 21:55:18 2015
-End netlisting May  3 21:55:18 2015
-Begin Incremental Netlisting May  3 22:00:02 2015
-End netlisting May  3 22:00:02 2015
-Begin Incremental Netlisting May  3 22:04:58 2015
+Begin Incremental Netlisting May 17 08:04:15 2015
+End netlisting May 17 08:04:15 2015
+Begin Incremental Netlisting May 17 08:08:07 2015
+End netlisting May 17 08:08:07 2015
+Begin Incremental Netlisting May 17 08:12:23 2015
+End netlisting May 17 08:12:23 2015
+Begin Incremental Netlisting May 17 08:41:05 2015
+End netlisting May 17 08:41:05 2015
+Begin Incremental Netlisting May 17 08:47:00 2015
+End netlisting May 17 08:47:01 2015
+Begin Incremental Netlisting May 17 08:49:41 2015
+End netlisting May 17 08:49:41 2015
+Begin Incremental Netlisting May 17 08:57:50 2015
+End netlisting May 17 08:57:51 2015
+Begin Incremental Netlisting May 17 09:03:27 2015
+End netlisting May 17 09:03:27 2015
+Begin Incremental Netlisting May 17 09:07:28 2015
+End netlisting May 17 09:07:28 2015
+Begin Incremental Netlisting May 17 09:17:22 2015
 ERROR (OSSHNL-109): The cellview '16nm_Tests/Dual_Supply_Test/schematic' has
 been modified since the last extraction. Validate
 that the schematic is correct
 and run Check and Save to correct this error.
 
-End netlisting May  3 22:04:58 2015
-Begin Incremental Netlisting May  3 22:05:03 2015
-End netlisting May  3 22:05:03 2015
-Begin Incremental Netlisting May  3 22:12:28 2015
-End netlisting May  3 22:12:28 2015
-Begin Incremental Netlisting May  3 22:16:26 2015
-End netlisting May  3 22:16:26 2015
-Begin Incremental Netlisting May  3 22:21:12 2015
-End netlisting May  3 22:21:12 2015
-Begin Incremental Netlisting May  3 22:27:16 2015
-End netlisting May  3 22:27:16 2015
-Begin Incremental Netlisting May  3 22:31:51 2015
-End netlisting May  3 22:31:51 2015
-Begin Incremental Netlisting May  4 02:09:02 2015
+End netlisting May 17 09:17:22 2015
+Begin Incremental Netlisting May 17 09:17:27 2015
+End netlisting May 17 09:17:27 2015
+Begin Incremental Netlisting May 17 09:20:51 2015
+End netlisting May 17 09:20:51 2015
+Begin Incremental Netlisting May 17 09:25:21 2015
 WARNING (OSSHNL-226): There are more design variables used in the current
 netlisting session as
 compared to the last session in the current run directory.
@@ -82,29 +36,109 @@ generated in the last netlisting session cannot be reused for
 incremental
 netlisting. Therefore re-netlisting the design.
 
+End netlisting May 17 09:25:21 2015
+Begin Incremental Netlisting May 17 09:26:21 2015
+End netlisting May 17 09:26:22 2015
+Begin Incremental Netlisting May 17 09:28:25 2015
+End netlisting May 17 09:28:25 2015
+Begin Incremental Netlisting May 17 14:18:14 2015
+End netlisting May 17 14:18:15 2015
+Begin Incremental Netlisting May 17 14:47:07 2015
+End netlisting May 17 14:47:07 2015
+Begin Incremental Netlisting May 17 15:07:03 2015
+End netlisting May 17 15:07:04 2015
+Begin Incremental Netlisting May 17 15:09:06 2015
+End netlisting May 17 15:09:07 2015
+Begin Incremental Netlisting May 17 15:11:22 2015
+End netlisting May 17 15:11:23 2015
+Begin Incremental Netlisting May 17 15:14:10 2015
+End netlisting May 17 15:14:10 2015
+Begin Incremental Netlisting May 17 15:21:46 2015
+End netlisting May 17 15:21:47 2015
+Begin Incremental Netlisting May 17 15:24:12 2015
+End netlisting May 17 15:24:12 2015
+Begin Incremental Netlisting May 17 15:28:23 2015
+End netlisting May 17 15:28:23 2015
+Begin Incremental Netlisting May 17 15:28:47 2015
+End netlisting May 17 15:28:47 2015
+Begin Incremental Netlisting May 17 19:16:26 2015
+End netlisting May 17 19:16:27 2015
+Begin Incremental Netlisting May 17 19:19:03 2015
 ERROR (OSSHNL-109): The cellview '16nm_Tests/Dual_Supply_Test/schematic' has
 been modified since the last extraction. Validate
 that the schematic is correct
 and run Check and Save to correct this error.
 
-End netlisting May  4 02:09:02 2015
-Begin Incremental Netlisting May  4 02:09:20 2015
-End netlisting May  4 02:09:20 2015
-Begin Incremental Netlisting May  4 02:22:48 2015
-End netlisting May  4 02:22:48 2015
-Begin Incremental Netlisting May  4 02:33:26 2015
-End netlisting May  4 02:33:27 2015
-Begin Incremental Netlisting May  4 02:48:11 2015
-WARNING (OSSHNL-225): The design variable 'nfin', used in the last netlisting
-session in the current
-run directory is not used in this netlisting session. The
-netlist(s) generated
-in the last netlisting session cannot be reused for
-incremental netlisting.
-Therefore re-netlisting the design.
-
-End netlisting May  4 02:48:12 2015
-Begin Incremental Netlisting May  4 15:07:20 2015
-End netlisting May  4 15:07:21 2015
-Begin Incremental Netlisting May  4 15:13:30 2015
-End netlisting May  4 15:13:30 2015
+End netlisting May 17 19:19:03 2015
+Begin Incremental Netlisting May 17 19:19:46 2015
+End netlisting May 17 19:19:47 2015
+Begin Incremental Netlisting May 17 19:25:13 2015
+End netlisting May 17 19:25:14 2015
+Begin Incremental Netlisting May 17 19:33:58 2015
+End netlisting May 17 19:33:58 2015
+Begin Incremental Netlisting May 17 19:37:41 2015
+End netlisting May 17 19:37:41 2015
+Begin Incremental Netlisting May 18 15:04:55 2015
+End netlisting May 18 15:04:56 2015
+Begin Incremental Netlisting May 18 15:06:06 2015
+End netlisting May 18 15:06:06 2015
+Begin Incremental Netlisting May 18 15:06:26 2015
+End netlisting May 18 15:06:26 2015
+Begin Incremental Netlisting May 18 15:06:48 2015
+End netlisting May 18 15:06:48 2015
+Begin Incremental Netlisting May 18 15:19:41 2015
+End netlisting May 18 15:19:41 2015
+Begin Incremental Netlisting May 18 15:21:29 2015
+End netlisting May 18 15:21:29 2015
+Begin Incremental Netlisting May 18 15:21:59 2015
+End netlisting May 18 15:21:59 2015
+Begin Incremental Netlisting May 18 15:22:29 2015
+End netlisting May 18 15:22:29 2015
+Begin Incremental Netlisting May 18 22:28:36 2015
+End netlisting May 18 22:28:36 2015
+Begin Incremental Netlisting May 18 22:33:10 2015
+End netlisting May 18 22:33:10 2015
+Begin Incremental Netlisting May 18 22:34:23 2015
+End netlisting May 18 22:34:23 2015
+Begin Incremental Netlisting May 18 22:42:14 2015
+End netlisting May 18 22:42:15 2015
+Begin Incremental Netlisting May 18 22:43:39 2015
+End netlisting May 18 22:43:40 2015
+Begin Incremental Netlisting May 18 22:44:10 2015
+End netlisting May 18 22:44:10 2015
+Begin Incremental Netlisting May 18 22:47:21 2015
+End netlisting May 18 22:47:21 2015
+Begin Incremental Netlisting May 18 22:51:33 2015
+End netlisting May 18 22:51:33 2015
+Begin Incremental Netlisting May 18 22:57:53 2015
+End netlisting May 18 22:57:53 2015
+Begin Incremental Netlisting May 18 23:00:55 2015
+End netlisting May 18 23:00:56 2015
+Begin Incremental Netlisting May 18 23:06:02 2015
+End netlisting May 18 23:06:03 2015
+Begin Incremental Netlisting May 19 00:29:33 2015
+End netlisting May 19 00:29:34 2015
+Begin Incremental Netlisting May 19 01:49:42 2015
+End netlisting May 19 01:49:43 2015
+Begin Incremental Netlisting May 19 01:57:47 2015
+End netlisting May 19 01:57:48 2015
+Begin Incremental Netlisting May 19 02:12:11 2015
+End netlisting May 19 02:12:11 2015
+Begin Incremental Netlisting May 19 02:23:18 2015
+End netlisting May 19 02:23:19 2015
+Begin Incremental Netlisting May 19 02:37:00 2015
+End netlisting May 19 02:37:01 2015
+Begin Incremental Netlisting May 19 02:40:26 2015
+End netlisting May 19 02:40:26 2015
+Begin Incremental Netlisting May 19 03:45:29 2015
+End netlisting May 19 03:45:30 2015
+Begin Incremental Netlisting May 19 03:48:20 2015
+End netlisting May 19 03:48:21 2015
+Begin Incremental Netlisting May 19 03:51:19 2015
+End netlisting May 19 03:51:19 2015
+Begin Incremental Netlisting May 19 04:19:17 2015
+End netlisting May 19 04:19:18 2015
+Begin Incremental Netlisting May 19 04:19:52 2015
+End netlisting May 19 04:19:52 2015
+Begin Incremental Netlisting May 19 05:15:32 2015
+End netlisting May 19 05:15:40 2015

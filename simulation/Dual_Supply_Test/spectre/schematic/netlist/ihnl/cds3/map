@@ -10,8 +10,8 @@
 ( inst
  )
 ( model
-( "6T_PWR" "_sub22" )
-( "6T_4x_PWR" "_sub23" )
+( "6T_PWR" "_sub2" )
+( "6T_4x_PWR" "_sub3" )
  )
 ( term
  )

@@ -10,9 +10,9 @@
 ( inst
  )
 ( model
-( "6T_CHUNK_PWR" "_sub26" )
-( "6T_32x4_PWR" "_sub25" )
-( "6T_SetRead_PWR" "_sub20" )
+( "6T_CHUNK_PWR" "_sub6" )
+( "6T_32x4_PWR" "_sub5" )
+( "6T_SetRead_PWR" "_sub0" )
  )
 ( term
  )

@@ -2,4 +2,4 @@
 // Library name: 16nm
 // Cell name: 6T_32x_CTRL_PWR
 // View name: schematic
-subckt _sub21 B0 B1 S W0 W1 VDD GND
+subckt _sub1 B0 B1 S W0 W1 VDD GND

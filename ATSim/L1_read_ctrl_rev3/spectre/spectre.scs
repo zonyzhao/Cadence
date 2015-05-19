@@ -1,0 +1,40 @@
+// "spectre" description for "ATSim", "L1_read_ctrl_rev3", "spectre" 
+
+
+simulator lang=spectre
+
+subckt L1_read_ctrl_rev3 L1RE  ReadFromL1Ack  ReadWBFromL1Ack  L1RdRegReq OutFIFOReq  L1WBRegReq ReadFromL1Req  L1RdRegAck  ReadWBFromL1Req  OutFIFOAck  L1RAck  L1WBRegAck
+
+
+  I1 (p1  ReadFromL1Req  L1RdRegAck)  nand_1x
+  I2 (p2  ReadWBFromL1Req  L1RdRegAck) nand_1x
+  I3 (p3  ReadFromL1Req ReadFromL1Req)  nand_1x
+  I4 (p4  ReadWBFromL1Req ReadWBFromL1Req)  nand_1x
+  I5 (p5  OutFIFOAck OutFIFOAck)  nand_1x
+  I6 (p6  L1RAck_n1  L1RdRegAck  y1)  nand3_1x
+  I7 (L1RAck_n1  L1RAck) inv_1x
+  I8 (p7  L1WBRegAck L1WBRegAck)  nand_1x
+  I9 (p8  L1RAck  y0)  nand_1x
+  I10 (p9  L1RdRegAck  y0)  nand_1x
+  I11 (p10  ReadFromL1Req_n1  L1RAck  OutFIFOAck_n1  y0  y1)  nand5_1x
+  I12 (ReadFromL1Req_n1  ReadFromL1Req) inv_1x
+  I13 (OutFIFOAck_n1  OutFIFOAck) inv_1x
+  I14 (p11  L1RAck  y0_n1)  nand_1x
+  I15 (y0_n1  y0) inv_1x
+  I16 (p12  ReadWBFromL1Req_n1  L1RAck  L1WBRegAck_n1  y0_n1  y1) nand5_1x
+  I17 (ReadWBFromL1Req_n1  ReadWBFromL1Req)  inv_1x
+  I18 (L1WBRegAck_n1  L1WBRegAck)  inv_1x
+  I19 (p13  ReadFromL1Req_n1  L1RdRegAck  y0_n1)  nand3_1x
+  I20 (p14  OutFIFOAck_n1  L1WBRegAck_n1  y1)  nand3_1x
+  I21 (p15  L1RAck_n1  L1RdRegAck_n1  OutFIFOAck_n1  L1WBRegAck_n1) nand4_1x
+  I22 (L1RdRegAck_n1  L1RdRegAck) inv_1x
+  I23 (y0  p1  p5  p8  p9)  nand4_1x
+  I24 (y1  p14  p15)  nand_1x
+  I25 (L1RE  p1  p2  p6)  nand3_1x
+  I26 (ReadFromL1Ack  p1  p5  p8  p9)  nand4_1x
+  I27 (ReadWBFromL1Ack  p7  p11  p13)  nand3_1x
+  I28 (L1RdRegReq  p3  p4  p6)  nand3_1x
+  I29 (OutFIFOReq  p10 p10)  nand_1x
+  I30 (L1WBRegReq  p12 p12) nand_1x
+
+ends L1_read_ctrl_rev3

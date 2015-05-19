@@ -1,0 +1,8 @@
+// "spectre" description for "ATSim", "Tag_write_ctrl_rev3", "spectre" 
+
+
+simulator lang=spectre
+
+subckt Tag_write_ctrl_rev3
+
+ends Tag_write_ctrl_rev3

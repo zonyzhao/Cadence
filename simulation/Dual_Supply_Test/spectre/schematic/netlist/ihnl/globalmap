@@ -1,16 +1,16 @@
 CADENCE IHNL01070
 $model
-16nm/6T_PWR/schematic _sub22
-16nm/6T_4x_PWR/schematic _sub23
-16nm/6T_CHUNK_PWR/schematic _sub26
-16nm/6T_32x_PWR/schematic _sub24
-16nm/6T_32x4_PWR/schematic _sub25
+16nm/6T_PWR/schematic _sub2
+16nm/6T_4x_PWR/schematic _sub3
+16nm/6T_CHUNK_PWR/schematic _sub6
+16nm/6T_32x_PWR/schematic _sub4
+16nm/6T_32x4_PWR/schematic _sub5
 16nm/nand4_1x_PWR/schematic nand4_1x_PWR
 16nm/inv_4x_PWR/schematic inv_4x_PWR
-16nm/6T_32x_CTRL_PWR/schematic _sub21
+16nm/6T_32x_CTRL_PWR/schematic _sub1
 16nm/inv_1x_PWR/schematic inv_1x_PWR
 16nm_Tests/Dual_Supply_Test/schematic Dual_Supply_Test
-16nm/6T_SetRead_PWR/schematic _sub20
+16nm/6T_SetRead_PWR/schematic _sub0
 $endmodel
 $net
 vdd! vdd!

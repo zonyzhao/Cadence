@@ -789,12 +789,13 @@ hnlLastConstants = '(
                     )
 hnlLastDesignVars = '(
                       "C"
-                      "timeE"
-                      "timeF"
-                      "timeC"
-                      "timeD"
                       "VDDH"
                       "VDDL"
-                      "timeB"
+                      "nfin"
                       "timeA"
+                      "timeB"
+                      "timeC"
+                      "timeD"
+                      "timeE"
+                      "timeF"
                     )

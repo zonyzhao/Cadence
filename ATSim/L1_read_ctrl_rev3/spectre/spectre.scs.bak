@@ -1,0 +1,8 @@
+// "spectre" description for "ATSim", "L1_read_ctrl_rev3", "spectre" 
+
+
+simulator lang=spectre
+
+subckt L1_read_ctrl_rev3
+
+ends L1_read_ctrl_rev3

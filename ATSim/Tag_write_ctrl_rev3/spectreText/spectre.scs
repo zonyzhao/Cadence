@@ -16,7 +16,7 @@ subckt Tag_write_ctrl_rev3 TagWE WriteToL1MissTagAck TagWDataSel L2DataOutTagAck
   I10 (p7 TagWAck L2DataOutReq_n1 y0_n1) 				nand3_1x
   I11 (L2DataOutReq_n1 L2DataOutReq) 					inv_1x
   I12 (p8 TagWrRegAck y0_n1) 							nand_1x
-  I13 (p9 WriteToL1MissReq_n1 TagWAck y0) 				nand_1x
+  I13 (p9 WriteToL1MissReq_n1 TagWAck y0) 				nand3_1x
   I14 (WriteToL1MissReq_n1 WriteToL1MissReq) 			inv_1x
   I15 (p10 TagWrRegAck y0)					   			nand_1x
   I16 (p11 TagWAck_n1 L2DataOutReq_n1 TagWrRegAck_n1) 	nand3_1x

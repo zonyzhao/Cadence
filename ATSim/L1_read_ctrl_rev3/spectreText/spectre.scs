@@ -12,7 +12,7 @@ subckt L1_read_ctrl_rev3 OutFIFOReq ReadFromL1Ack ReadWBFromL1Ack L1RAck L1RE \
   I2 (p3 ReadFromL1Req ReadFromL1Req) nand_1x 
   I3 (p4 ReadWBFromL1Req ReadWBFromL1Req) nand_1x
   I4 (p5 OutFIFOAck OutFIFOAck) nand_1x
-  I5 (p6 L1RAck_n1 L1RdRegAck y1) nand_1x
+  I5 (p6 L1RAck_n1 L1RdRegAck y1) nand3_1x
   I6 (L1RAck_n1 L1RAck) inv_1x 
   I7 (p7 L1WBRegAck L1WBRegAck) nand_1x
   I8 (p8 L1RAck y0) nand_1x
@@ -30,7 +30,7 @@ subckt L1_read_ctrl_rev3 OutFIFOReq ReadFromL1Ack ReadWBFromL1Ack L1RAck L1RE \
   I20 (p15 L1RAck_n1 L1RdRegAck_n1 OutFIFOAck_n1 L1WBRegAck_n1) nand4_1x
   I21 (L1RdRegAck_n1 L1RdRegAck) inv_1x 
   I22 (y0 p1 p5 p8 p9) nand4_1x
-  I23 (y1 p14 p15) nand2_1x
+  I23 (y1 p14 p15) nand_1x
   I24 (L1RE p1 p2 p6) nand3_1x
   I25 (ReadFromL1Ack p1 p5 p8 p9) nand4_1x
   I26 (ReadWBFromL1Ack p7 p11 p13) nand3_1x

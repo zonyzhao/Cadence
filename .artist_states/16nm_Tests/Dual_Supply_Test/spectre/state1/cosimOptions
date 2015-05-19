@@ -2,7 +2,7 @@
 (cosim enable) nil
 (cosim inputs) nil
 (cosim matlabStartCmd) "matlab"
-(cosim matlabStartDir) ""
+(cosim matlabStartDir) "/root/Desktop/Cadence"
 (cosim outputs) nil
 (cosim port) 38520
 (cosim server) ""
