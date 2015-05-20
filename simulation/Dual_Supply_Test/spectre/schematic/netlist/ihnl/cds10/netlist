@@ -33,7 +33,6 @@ M2\<0\> (\~R0_1\<0\> net016\<3\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
         m=1
 I1 (sH 0 vdd! net035) inv_1x_PWR
 IVDDL (net024 Vline) iprobe
-IVDDH (net017 Vline) iprobe
 I12 (vcc! net039) iprobe
 ILine (Vline VDD\<0\>) iprobe
 I18\<14\> (net039 VDD\<15\>) iprobe
@@ -51,6 +50,7 @@ I18\<3\> (net039 VDD\<4\>) iprobe
 I18\<2\> (net039 VDD\<3\>) iprobe
 I18\<1\> (net039 VDD\<2\>) iprobe
 I18\<0\> (net039 VDD\<1\>) iprobe
+IVDDH (net017 Vline) iprobe
 C0 (Vline 0) capacitor c=C m=1
-I10 (sH 0 vdd! VL) inv_4x_PWR
 I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR

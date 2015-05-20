@@ -788,6 +788,7 @@ hnlLastConstants = '(
                       "M_E"
                     )
 hnlLastDesignVars = '(
+                      "timeSim"
                       "C"
                       "VDDH"
                       "VDDL"

@@ -18,6 +18,7 @@ gnd! 0
 vcc! vcc!
 $endnet
 $param
+timeSim timeSim
 nfin nfin
 VDDH VDDH
 timeA timeA

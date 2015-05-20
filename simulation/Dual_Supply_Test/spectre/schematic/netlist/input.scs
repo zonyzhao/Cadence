@@ -1,12 +1,12 @@
 // Generated for: spectre
-// Generated on: May 19 02:23:19 2015
+// Generated on: May 19 20:19:47 2015
 // Design library name: 16nm_Tests
 // Design cell name: Dual_Supply_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters C=0.8753152p VDDH=.600 VDDL=.450 nfin=32 timeA=1n timeB=1.01n \
-    timeC=8n timeD=8.01n timeE=15n timeF=15.01n
+parameters timeSim=22n C=0.8753152p VDDH=.600 VDDL=.450 nfin=8 timeA=1n \
+    timeB=1.01n timeC=8n timeD=8.01n timeE=15n timeF=15.01n
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 
 // Library name: 16nm
@@ -303,7 +303,6 @@ M2\<0\> (\~R0_1\<0\> net016\<3\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
         m=1
 I1 (sH 0 vdd! net035) inv_1x_PWR
 IVDDL (net024 Vline) iprobe
-IVDDH (net017 Vline) iprobe
 I12 (vcc! net039) iprobe
 ILine (Vline VDD\<0\>) iprobe
 I18\<14\> (net039 VDD\<15\>) iprobe
@@ -321,15 +320,16 @@ I18\<3\> (net039 VDD\<4\>) iprobe
 I18\<2\> (net039 VDD\<3\>) iprobe
 I18\<1\> (net039 VDD\<2\>) iprobe
 I18\<0\> (net039 VDD\<1\>) iprobe
+IVDDH (net017 Vline) iprobe
 C0 (Vline 0) capacitor c=C m=1
-I10 (sH 0 vdd! VL) inv_4x_PWR
 I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR
 ic Vline=VDDL VH=VDDH sH=VDDH VL=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
     sensfile="../psf/sens.output" checklimitdest=psf 
-tran tran stop=22n errpreset=conservative write="spectre.ic" \
+tran tran stop=timeSim errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
@@ -338,5 +338,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save Vline VL VH IVDDH:1 IVDDL:1 ILine:1 
+save IVDDH:1 IVDDL:1 ILine:1 
 saveOptions options save=allpub
