@@ -1,2 +1,3 @@
-parameters timeSim=22n C=0.8753152p VDDH=.600 VDDL=.450 nfin=8 timeA=1n \
-    timeB=1.01n timeC=8n timeD=8.01n timeE=15n timeF=15.01n
+parameters timeStop=28n C=0.8753152p VDDH=.600 VDDL=.450 nfin=12 timeA=5n \
+    timeB=timeA+10p timeC=timeA+7n timeD=timeC+10p timeE=timeC+7n \
+    timeF=timeE+10p

@@ -6,8 +6,8 @@ tmp1 = make_sevVariableStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = "timeSim"
-tmp1->expression = "22n"
+tmp1->name = "timeStop"
+tmp1->expression = "28n"
 tmp1->index = 1
 (unless tmp2
 tmp2 = make_sevVariableStruct()
@@ -52,7 +52,7 @@ tmp6 = make_sevVariableStruct()
 tmp6 = (ncons nil)
 )
 tmp6->name = "timeA"
-tmp6->expression = "1n"
+tmp6->expression = "5n"
 tmp6->index = 6
 (unless tmp7
 tmp7 = make_sevVariableStruct()
@@ -61,7 +61,7 @@ tmp7 = make_sevVariableStruct()
 tmp7 = (ncons nil)
 )
 tmp7->name = "timeB"
-tmp7->expression = "1.01n"
+tmp7->expression = "timeA+10p"
 tmp7->index = 7
 (unless tmp8
 tmp8 = make_sevVariableStruct()
@@ -70,7 +70,7 @@ tmp8 = make_sevVariableStruct()
 tmp8 = (ncons nil)
 )
 tmp8->name = "timeC"
-tmp8->expression = "8n"
+tmp8->expression = "timeA+7n"
 tmp8->index = 8
 (unless tmp9
 tmp9 = make_sevVariableStruct()
@@ -79,7 +79,7 @@ tmp9 = make_sevVariableStruct()
 tmp9 = (ncons nil)
 )
 tmp9->name = "timeD"
-tmp9->expression = "8.01n"
+tmp9->expression = "timeC+10p"
 tmp9->index = 9
 (unless tmp10
 tmp10 = make_sevVariableStruct()
@@ -88,7 +88,7 @@ tmp10 = make_sevVariableStruct()
 tmp10 = (ncons nil)
 )
 tmp10->name = "timeE"
-tmp10->expression = "15n"
+tmp10->expression = "timeC+7n"
 tmp10->index = 10
 (unless tmp11
 tmp11 = make_sevVariableStruct()
@@ -97,7 +97,7 @@ tmp11 = make_sevVariableStruct()
 tmp11 = (ncons nil)
 )
 tmp11->name = "timeF"
-tmp11->expression = "15.01n"
+tmp11->expression = "timeE+10p"
 tmp11->index = 11
 list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8 tmp9 tmp10 tmp11)
 )

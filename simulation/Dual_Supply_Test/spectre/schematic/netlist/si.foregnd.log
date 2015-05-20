@@ -397,3 +397,21 @@ incremental
 netlisting. Therefore re-netlisting the design.
 
 End netlisting May 19 20:19:47 2015
+Begin Incremental Netlisting May 19 23:21:47 2015
+End netlisting May 19 23:21:47 2015
+Begin Incremental Netlisting May 19 23:30:00 2015
+End netlisting May 19 23:30:00 2015
+Begin Incremental Netlisting May 19 23:32:11 2015
+WARNING (OSSHNL-225): The design variable 'timeSim', used in the last netlisting
+session in the current
+run directory is not used in this netlisting session. The
+netlist(s) generated
+in the last netlisting session cannot be reused for
+incremental netlisting.
+Therefore re-netlisting the design.
+
+End netlisting May 19 23:32:12 2015
+Begin Incremental Netlisting May 19 23:36:26 2015
+End netlisting May 19 23:36:27 2015
+Begin Incremental Netlisting May 19 23:40:14 2015
+End netlisting May 19 23:40:15 2015

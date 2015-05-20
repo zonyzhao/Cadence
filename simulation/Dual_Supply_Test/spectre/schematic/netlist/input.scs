@@ -1,12 +1,13 @@
 // Generated for: spectre
-// Generated on: May 19 20:19:47 2015
+// Generated on: May 19 23:32:12 2015
 // Design library name: 16nm_Tests
 // Design cell name: Dual_Supply_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters timeSim=22n C=0.8753152p VDDH=.600 VDDL=.450 nfin=8 timeA=1n \
-    timeB=1.01n timeC=8n timeD=8.01n timeE=15n timeF=15.01n
+parameters timeStop=28n C=0.8753152p VDDH=.600 VDDL=.450 nfin=12 timeA=5n \
+    timeB=timeA+10p timeC=timeA+7n timeD=timeC+10p timeE=timeC+7n \
+    timeF=timeE+10p
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 
 // Library name: 16nm
@@ -329,7 +330,7 @@ simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
     sensfile="../psf/sens.output" checklimitdest=psf 
-tran tran stop=timeSim errpreset=conservative write="spectre.ic" \
+tran tran stop=timeStop errpreset=conservative write="spectre.ic" \
     writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile

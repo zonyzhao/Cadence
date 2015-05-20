@@ -18,10 +18,11 @@ gnd! 0
 vcc! vcc!
 $endnet
 $param
-timeSim timeSim
 nfin nfin
+timeSim timeSim
 VDDH VDDH
 timeA timeA
+timeStop timeStop
 VDDL VDDL
 timeB timeB
 timeC timeC
