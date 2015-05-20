@@ -34,7 +34,7 @@ tmp4 = make_sevVariableStruct()
 tmp4 = (ncons nil)
 )
 tmp4->name = "nfin"
-tmp4->expression = "7"
+tmp4->expression = "32"
 tmp4->index = 4
 (unless tmp5
 tmp5 = make_sevVariableStruct()

@@ -5,7 +5,7 @@
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters C=0.8753152p VDDH=.600 VDDL=.450 nfin=7 timeA=1n timeB=1.01n \
+parameters C=0.8753152p VDDH=.600 VDDL=.450 nfin=32 timeA=1n timeB=1.01n \
     timeC=8n timeD=8.01n timeE=15n timeF=15.01n
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
 

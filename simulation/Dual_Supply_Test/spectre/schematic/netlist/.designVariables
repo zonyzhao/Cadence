@@ -1,2 +1,2 @@
-parameters C=0.8753152p VDDH=.600 VDDL=.450 nfin=7 timeA=1n timeB=1.01n \
+parameters C=0.8753152p VDDH=.600 VDDL=.450 nfin=32 timeA=1n timeB=1.01n \
     timeC=8n timeD=8.01n timeE=15n timeF=15.01n
