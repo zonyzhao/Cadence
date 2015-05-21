@@ -1,8 +1,8 @@
 CADENCE IHNL01070
 $model
 20nm/6T_SetRead_PWR/schematic _sub26
-20nm/inv_4x_PWR/schematic inv_4x_PWR
 20nm/6T_32x_CTRL_PWR/schematic _sub21
+20nm/inv_4x_PWR/schematic inv_4x_PWR
 20nm/6T_4x_PWR/schematic _sub23
 20nm/6T_32x_PWR/schematic _sub24
 20nm/6T_CHUNK_PWR/schematic _sub27

@@ -1,0 +1,29 @@
+CADENCE IHNL01070
+$model
+20nm/6T_SetRead_PWR/schematic _sub26
+20nm/inv_4x_PWR/schematic inv_4x_PWR
+20nm/6T_32x_CTRL_PWR/schematic _sub21
+20nm/6T_4x_PWR/schematic _sub23
+20nm/6T_32x_PWR/schematic _sub24
+20nm/6T_CHUNK_PWR/schematic _sub27
+20nm/6T_PWR/schematic _sub22
+20nm/nand4_1x_PWR/schematic nand4_1x_PWR
+20nm/Dual_Supply_Test/schematic Dual_Supply_Test
+20nm/inv_1x_PWR/schematic inv_1x_PWR
+20nm/6T_32x4_PWR/schematic _sub25
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+vcc! vcc!
+$endnet
+$param
+nfin nfin
+VDDH VDDH
+timeStop timeStop
+VDDL VDDL
+pulseWidth pulseWidth
+period period
+C C
+startDelay startDelay
+$endparam

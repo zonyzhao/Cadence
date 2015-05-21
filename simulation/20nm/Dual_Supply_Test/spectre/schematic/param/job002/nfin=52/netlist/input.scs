@@ -6,7 +6,7 @@
 simulator lang=spectre
 global 0 vdd! vcc!
 parameters nfin=52 VDDH=.600 VDDL=.450 timeStop=32n period=14n \
-    pulseWidth=7n startDelay=5n C=596.31f
+    pulseWidth=7n startDelay=5n C=29.3f
 include "/software/cadence/ncsu-FreePDK15/hspice_20nm_hp.include"
 
 // Library name: 20nm

@@ -1,0 +1,2 @@
+parameters nfin=57 VDDH=.600 VDDL=.450 timeStop=32n period=14n \
+    pulseWidth=7n startDelay=5n C=60f

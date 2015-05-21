@@ -1,7 +1,7 @@
 simulator( 'spectre )
 hostMode( 'distributed )
-design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Test/spectre/schematic/netlist/netlist")
-resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Test/spectre/schematic" )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/20nm/Dual_Supply_Test/spectre/schematic/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/20nm/Dual_Supply_Test/spectre/schematic" )
 modelFile( 
     '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
 )
@@ -32,11 +32,8 @@ selectResult( 'tran )
 cVline = clip(v("/Vline" ?result "tran") clipStart VAR("timeStop"))
 clipStart = (1.25 * VAR("period"))
 vDiff = (VAR("VDDH") - VAR("VDDL"))
-
-
 tFallSettleStart = cross(clip(v("/VH" ?result "tran") clipStart VAR("timeStop")) (0.5 * VAR("VDDH")) 1 "rising")
 tFallSettleEnd = cross(cVline (1.005 * VAR("VDDL")) 1 "falling")
-
 tFallStart = cross(cVline (VAR("VDDH") - (0.1 * vDiff)) 1 "falling")
 tFallEnd = cross(cVline (VAR("VDDH") - (0.9 * vDiff)) 1 "falling")
 tLeakageEnd = (clipStart + (0.51 * VAR("period")))
@@ -59,11 +56,6 @@ TPRise 				= (tTPRiseEnd - tRiseSettleStart)
 TRise 				= (tRiseEnd - tRiseStart)
 TSettleFall 		= (tFallSettleEnd - tFallSettleStart)
 TSettleRise 		= (tRiseSettleEnd - tRiseSettleStart)
-
-
-
-
-
 
 file  =  strcat(  "/root/Desktop/"  "DualSupplyResults.matlab"  )
 out   = outfile(file, "w")

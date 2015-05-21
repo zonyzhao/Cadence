@@ -1,0 +1,12 @@
+    M10 (B1 B0 net22 VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M9 (net22 W1 VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M8 (B0 B1 net23 VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M7 (net23 W0 VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M2 (B1 S VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M0 (B0 S VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M6 (B1 W1 net24 GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+    M5 (net24 S GND GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+    M4 (net25 S GND GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+    M3 (B0 W0 net25 GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+ends _sub21
+// End of subcircuit definition.

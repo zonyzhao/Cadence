@@ -1,1 +1,1 @@
-include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_20nm_hp.include"
+include "/software/cadence/ncsu-FreePDK15/hspice_20nm_hp.include"

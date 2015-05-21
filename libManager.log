@@ -12,127 +12,197 @@
 \o MPS service: map window
 \w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
 \o Library Manager customization server connected.
-\a cdsLibManager->libListBox->value = "16nm_Tests"
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libListBox->value = "20nm"
+\a nrResizeWindow(cdsLibManager list(2132 147 1276 994))
+\a cdsLibManager->libLineEdit->value = "20nm"
+\a cdsLibManager->cellListBox->value = "6T_PWR"
+\a nrListItemAction(cdsLibManager->cellListBox 5 0)
+\o MPS request: edit design
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
 \a cdsLibManager->libListBox->value = "20nm"
 \a cdsLibManager->libLineEdit->value = "20nm"
+\a cdsLibManager->cellListBox->value = "6T_PWR"
+\a cdsLibManager->cellLineEdit->value = "6T_PWR"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(2416 148 1276 994))
+\a nrSetCurrentWindow(cdsLibManager)
+\a lmgrLogShowPopup("mainListPopup1" 73 83 2 "6T_PWR")
+\a cdsLibManager->copySimpleButton->value = t
+\a basicCopyForm->CategoryCellsEdit->value = "*"
+\a basicCopyForm->CellsSkipLibraries->value = t
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->ViewsSkipLibraries->value = t
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CopyFromLibrary->value = "16nm"
+\a basicCopyForm->CopyToLibrary->value = "16nm"
+\a basicCopyForm->CopyFromLibrary->value = "20nm"
+\a basicCopyForm->CopyFromCell->value = "6T_PWR"
+\a basicCopyForm->CopyToLibrary->value = "20nm"
+\a basicCopyForm->CopyToCell->value = "6T_PWR"
+\a basicCopyForm->CellsViewsToCopy->value = "schematic symbol"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = ""
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim MIPS_Proc MIPS_Proc_Tests NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib connectLib sample"
+\a basicCopyForm->ViewsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim MIPS_Proc MIPS_Proc_Tests NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib connectLib sample"
+\a nrSetWindowVisibility(basicCopyForm "show")
+\a nrSetCurrentWindow(basicCopyForm)
+\a nrResizeWindow(basicCopyForm list(2752 292 444 638))
+\a basicCopyForm->CopyToCell->value = "6T_DS_Bit"
+\a nrDialogAccept(basicCopyForm)
+\a basicCopyForm->OK->value = t
+\a basicCopyForm->CopyToCell->value = "6T_DS_Bit"
+\o Beginning simple copy to library "20nm".
+\o Processing files to be copied...
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrSetWindowVisibility(workingDialogForm "show")
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(workingDialogForm)
+\a nrResizeWindow(workingDialogForm list(2908 461 288 131))
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
+\a cdsLibManager->libListBox->value = "20nm"
+\a cdsLibManager->libLineEdit->value = "20nm"
+\a cdsLibManager->cellListBox->value = "6T_PWR"
+\a cdsLibManager->cellLineEdit->value = "6T_PWR"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "*"
+\a basicCopyForm->CellsSkipLibrariesEdit->value = "16nm 16nm_Tests ATSim MIPS_Proc MIPS_Proc_Tests NCSU_Devices_FreePDK45 NCSU_TechLib_FreePDK15 NCSU_TechLib_FreePDK45 NCSU_TechLib_ami06 NCSU_TechLib_ami16 NCSU_TechLib_hp06 NCSU_TechLib_tsmc02 NCSU_TechLib_tsmc02d NCSU_TechLib_tsmc03 NCSU_TechLib_tsmc03d NCSU_TechLib_tsmc04_4M2P UCD_Analog_Parts UCD_Digital_Parts basic cdsDefTechLib connectLib sample"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_DS_Bit"
+\a nrResizeWindow(cdsLibManager list(1962 135 1276 994))
+\a cdsLibManager->cellLineEdit->value = "6T_DS_Bit"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\o MPS request: edit design
+\a nrListItemAction(cdsLibManager->gdmXTView 0 0)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellListBox->value = "6T_PWR"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "6T_32x_PWR"
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 3 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellListBox->value = "6T_32x_CTRL_PWR"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 2 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellListBox->value = "6T_32x4_PWR"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 1 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
 \a cdsLibManager->cellListBox->value = "Dual_Supply_Test"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrListItemAction(cdsLibManager->cellListBox 8 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellListBox->value = "6T_SetRead_PWR"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
 \a nrListItemAction(cdsLibManager->cellListBox 7 0)
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \o MPS request: edit design
-\a cdsLibManager->cellLineEdit->value = "Dual_Supply_Test"
-\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = "6T_SetRead_PWR"
+\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
-\a cdsLibManager->libListBox->value = "20nm"
-\a cdsLibManager->libLineEdit->value = "20nm"
-\a cdsLibManager->cellListBox->value = "Dual_Supply_Test"
-\a cdsLibManager->cellLineEdit->value = "Dual_Supply_Test"
+\a cdsLibManager->cellListBox->value = "6T_PWR"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\a cdsLibManager->cellListBox->value = "6T_SetRead_PWR"
+\a cdsLibManager->viewListBox->value = "schematic"
+\a cdsLibManager->viewLineEdit->value = "schematic"
+\a cdsLibManager->cellListBox->value = "Dual_Supply_Test"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a nrSetCurrentWindow(cdsLibManager)
 \a cdsLibManager->cellListBox->value = "6T_32x_CTRL_PWR"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "6T_SetRead_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "inv_4x_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellListBox->value = "nand4_1x_PWR"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "6T_4x_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
+\a nrResizeWindow(cdsLibManager list(1624 120 1276 994))
 \a cdsLibManager->cellListBox->value = "6T_32x4_PWR"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "6T_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "inv_1x_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellListBox->value = "nand4_1x_PWR"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->cellLineEdit->value = "nand4_1x_PWR"
-\a nrSetCurrentWindow(cdsLibManager)
-\a nrSetCurrentWindow(cdsLibManager)
-\a cdsLibManager->libListBox->value = nil
-\a cdsLibManager->cellListBox->value = nil
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->libLineEdit->value = ""
-\w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
-\a cdsLibManager->libListBox->value = "20nm"
-\a cdsLibManager->libLineEdit->value = "20nm"
-\a cdsLibManager->cellListBox->value = "nand4_1x_PWR"
-\a cdsLibManager->cellLineEdit->value = "nand4_1x_PWR"
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = ""
-\a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->viewListBox->value = "schematic"
-\a cdsLibManager->viewLineEdit->value = "schematic"
-\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->cellLineEdit->value = "6T_32x4_PWR"
 \a cdsLibManager->libListBox->value = "16nm"
 \a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "nand4_1x_PWR"
-\a cdsLibManager->cellLineEdit->value = "nand4_1x_PWR"
+\a cdsLibManager->cellListBox->value = "6T_32x4_PWR"
+\a cdsLibManager->cellLineEdit->value = "6T_32x4_PWR"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->libListBox->value = "20nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
 \a cdsLibManager->cellListBox->value = nil
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
-\a cdsLibManager->cellLineEdit->value = ""
-\a cdsLibManager->cellListBox->value = "nand4_1x_PWR"
-\a cdsLibManager->cellLineEdit->value = "nand4_1x_PWR"
+\a nrListItemAction(cdsLibManager->cellListBox 30 0)
+\a cdsLibManager->cellListBox->value = "6T_32x4_PWR"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = ""
 \a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellListBox->value = "6T_32x4"
 \a cdsLibManager->viewListBox->value = "schematic"
 \a cdsLibManager->viewLineEdit->value = "schematic"
-\a cdsLibManager->libLineEdit->value = "20nm"
-\a nrSetWindowVisibility(cdsLibManager "hide")
-\o libManager is exiting.
-\a exit(0)
+\a nrListItemAction(cdsLibManager->cellListBox 29 0)
+\a cdsLibManager->viewLineEdit->value = ""
+\a cdsLibManager->viewListBox->value = nil
+\o MPS request: edit design
+\a cdsLibManager->cellListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = "6T_32x4w"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = nil
+\a cdsLibManager->cellLineEdit->value = ""
+\a cdsLibManager->libLineEdit->value = ""
+\w Warning: '/root/Desktop/Cadence/cds.lib', Line 16: path /apps/cadence/IC616/tools.lnx86/dfII/etc/cdslib/basic already belongs to LIB basic.
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a nrSetCurrentWindow(cdsLibManager)
+\a cdsLibManager->libListBox->value = "20nm"
+\a cdsLibManager->libListBox->value = "16nm"
+\a cdsLibManager->libLineEdit->value = "16nm"
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(1591 656 1276 994))
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(1697 919 1276 994))

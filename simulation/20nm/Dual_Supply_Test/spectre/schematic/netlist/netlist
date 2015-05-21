@@ -126,14 +126,14 @@ subckt _sub25 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
     M22 (B1P4 B1 net077 GND) nfet w=60n l=24 nfin=1 nf=1 m=1
     M19 (B0P4 B0 net078 GND) nfet w=60n l=24 nfin=1 nf=1 m=1
     M4 (B1P1 B1 net067 GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M0 (net066 net031 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M3 (net067 net031 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M9 (net071 net030 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M6 (net068 net030 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M12 (net072 net028 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M15 (net073 net028 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M21 (net077 net026 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
-    M18 (net078 net026 GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M0 (net066 S\<0\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M3 (net067 S\<0\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M9 (net071 S\<1\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M6 (net068 S\<1\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M12 (net072 S\<2\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M15 (net073 S\<2\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M21 (net077 S\<3\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
+    M18 (net078 S\<3\> GND GND) nfet w=60n l=24 nfin=1 nf=1 m=1
     C7 (B1P4 GND) capacitor c=1.2822f m=1
     C3 (B1P2 GND) capacitor c=1.2822f m=1
     C5 (B1P3 GND) capacitor c=1.2822f m=1
@@ -142,14 +142,14 @@ subckt _sub25 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
     C2 (B0P2 GND) capacitor c=1.2822f m=1
     C1 (B1P1 GND) capacitor c=1.2822f m=1
     C0 (B0P1 GND) capacitor c=1.2822f m=1
-    M5 (B1P1 net031 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M2 (B0P1 net031 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M11 (B1P2 net030 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M8 (B0P2 net030 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M17 (B1P3 net028 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M14 (B0P3 net028 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M20 (B0P4 net026 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
-    M23 (B1P4 net026 VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M5 (B1P1 S\<0\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M2 (B0P1 S\<0\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M11 (B1P2 S\<1\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M8 (B0P2 S\<1\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M17 (B1P3 S\<2\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M14 (B0P3 S\<2\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M20 (B0P4 S\<3\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
+    M23 (B1P4 S\<3\> VDDM VDDM) pfet w=100n l=24 nfin=1 nf=1 m=1
 ends _sub25
 // End of subcircuit definition.
 
