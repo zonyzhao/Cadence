@@ -2,7 +2,6 @@
 ** Nominal VDD=0.9V
 
 .model nfet nmos level = 72 
-+ bulkmod = 1 
 +lmin    = 1e-008          lmax    = 2.4e-008      
 ************************************************************
 *                         general                          *

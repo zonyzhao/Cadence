@@ -1,0 +1,4 @@
+ #!/bin/sh
+xargs cat > netlist <<End-Of-List
+ ihnl/cds33/netlist.header ihnl/cds33/netlist ihnl/cds34/netlist.header ihnl/cds34/netlist ihnl/cds35/netlist.header ihnl/cds35/netlist ihnl/cds36/netlist.header ihnl/cds36/netlist ihnl/cds37/netlist.header ihnl/cds37/netlist ihnl/cds38/netlist.header ihnl/cds38/netlist ihnl/cds39/netlist.header ihnl/cds39/netlist ihnl/cds40/netlist.header ihnl/cds40/netlist ihnl/cds41/netlist.header ihnl/cds41/netlist ihnl/cds42/netlist.header ihnl/cds42/netlist ihnl/cds43/netlist 
+End-Of-List

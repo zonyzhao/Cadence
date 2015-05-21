@@ -1,0 +1,22 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+ )
+( net
+ )
+( inst
+ )
+( model
+( "6T_32x_CTRL_PWR" "_sub12" )
+( "nand4_1x_PWR" "nand4_1x_PWR" )
+( "6T_32x4_PWR" "_sub16" )
+( "6T_32x_PWR" "_sub15" )
+ )
+( term
+ )
+( param
+ )
+ )

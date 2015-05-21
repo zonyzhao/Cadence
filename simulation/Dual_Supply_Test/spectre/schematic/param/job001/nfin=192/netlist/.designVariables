@@ -1,0 +1,2 @@
+parameters C=5.9631e-13 startDelay=5e-09 pulseWidth=7e-09 period=1.4e-08 \
+    timeStop=3.2e-08 VDDL=0.45 VDDH=0.6 nfin=192

@@ -1,0 +1,56 @@
+
+// Library name: 16nm_Tests
+// Cell name: Dual_Supply_Test
+// View name: schematic
+I19 (\~R0_1\<3\> \~R0_1\<2\> \~R0_1\<1\> \~R0_1\<0\> \~R1_1\<3\> \
+        \~R1_1\<2\> \~R1_1\<1\> \~R1_1\<0\> 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        0 0 0 0 0 0 0 0 0 vcc! VDD\<15\> VDD\<14\> VDD\<13\> VDD\<12\> \
+        VDD\<11\> VDD\<10\> VDD\<9\> VDD\<8\> VDD\<7\> VDD\<6\> VDD\<5\> \
+        VDD\<4\> VDD\<3\> VDD\<2\> VDD\<1\> VDD\<0\>) _sub17
+V2 (vcc! 0) vsource type=dc dc=VDDL
+V1 (vdd! 0) vsource type=dc dc=VDDH
+V0 (sH 0) vsource type=pwl wave=[ 0 VDDH timeA VDDH timeB 0 timeC 0 timeD \
+        VDDH timeE VDDH timeF 0 ]
+M0 (net017 VH vdd! vdd!) pfet w=800n l=20n nfin=nfin nf=1 m=1
+M1 (net024 VL vcc! vcc!) pfet w=800n l=20n nfin=nfin nf=1 m=1
+M3\<3\> (\~R1_1\<3\> net016\<0\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M3\<2\> (\~R1_1\<2\> net016\<1\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M3\<1\> (\~R1_1\<1\> net016\<2\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M3\<0\> (\~R1_1\<0\> net016\<3\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M2\<3\> (\~R0_1\<3\> net016\<0\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M2\<2\> (\~R0_1\<2\> net016\<1\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M2\<1\> (\~R0_1\<1\> net016\<2\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+M2\<0\> (\~R0_1\<0\> net016\<3\> vcc! vcc!) pfet w=100n l=20n nfin=1 nf=1 \
+        m=1
+I1 (sH 0 vdd! net035) inv_1x_PWR
+IVDDL (net024 Vline) iprobe
+I12 (vcc! net039) iprobe
+ILine (Vline VDD\<0\>) iprobe
+I18\<14\> (net039 VDD\<15\>) iprobe
+I18\<13\> (net039 VDD\<14\>) iprobe
+I18\<12\> (net039 VDD\<13\>) iprobe
+I18\<11\> (net039 VDD\<12\>) iprobe
+I18\<10\> (net039 VDD\<11\>) iprobe
+I18\<9\> (net039 VDD\<10\>) iprobe
+I18\<8\> (net039 VDD\<9\>) iprobe
+I18\<7\> (net039 VDD\<8\>) iprobe
+I18\<6\> (net039 VDD\<7\>) iprobe
+I18\<5\> (net039 VDD\<6\>) iprobe
+I18\<4\> (net039 VDD\<5\>) iprobe
+I18\<3\> (net039 VDD\<4\>) iprobe
+I18\<2\> (net039 VDD\<3\>) iprobe
+I18\<1\> (net039 VDD\<2\>) iprobe
+I18\<0\> (net039 VDD\<1\>) iprobe
+IVDDH (net017 Vline) iprobe
+C0 (Vline 0) capacitor c=C m=1
+I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR

@@ -1,0 +1,4 @@
+    M0 (Y A GND GND) nfet w=240n l=20n nfin=4 nf=1 m=1
+    M1 (Y A VDD VDD) pfet w=400n l=20n nfin=4 nf=1 m=1
+ends inv_4x_PWR
+// End of subcircuit definition.

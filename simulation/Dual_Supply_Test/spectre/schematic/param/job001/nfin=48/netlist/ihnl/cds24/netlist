@@ -1,0 +1,8 @@
+    M5 (Q0 Q1 GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
+    M4 (Q1 Q0 GND GND) nfet w=60n l=20n nfin=1 nf=1 m=1
+    M1 (Q1 A B1 GND) nfet w=120n l=20n nfin=2 nf=1 m=1
+    M0 (Q0 A B0 GND) nfet w=120n l=20n nfin=2 nf=1 m=1
+    M3 (Q0 Q1 VDD VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
+    M2 (Q1 Q0 VDD VDD) pfet w=100n l=20n nfin=1 nf=1 m=1
+ends _sub9
+// End of subcircuit definition.

@@ -1,0 +1,35 @@
+CADENCE IHNL01070
+$model
+16nm/6T_PWR/schematic _sub13
+16nm/6T_4x_PWR/schematic _sub14
+16nm/6T_CHUNK_PWR/schematic _sub17
+16nm/6T_32x_PWR/schematic _sub15
+16nm/6T_32x4_PWR/schematic _sub16
+16nm/nand4_1x_PWR/schematic nand4_1x_PWR
+16nm/inv_4x_PWR/schematic inv_4x_PWR
+16nm/6T_32x_CTRL_PWR/schematic _sub12
+16nm/inv_1x_PWR/schematic inv_1x_PWR
+16nm_Tests/Dual_Supply_Test/schematic Dual_Supply_Test
+16nm/6T_SetRead_PWR/schematic _sub11
+$endmodel
+$net
+vdd! vdd!
+gnd! 0
+vcc! vcc!
+$endnet
+$param
+nfin nfin
+VDDH VDDH
+vdd vdd
+timeWait timeWait
+timeA timeA
+timeStop timeStop
+VDDL VDDL
+timeB timeB
+timeC timeC
+C C
+timeD timeD
+timeF timeF
+timerf timerf
+timeE timeE
+$endparam

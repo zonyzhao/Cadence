@@ -1,0 +1,22 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  hierDelim "."
+ )
+( net
+ )
+( inst
+ )
+( model
+( "6T_CHUNK_PWR" "_sub17" )
+( "inv_4x_PWR" "inv_4x_PWR" )
+( "Dual_Supply_Test" "Dual_Supply_Test" )
+( "inv_1x_PWR" "inv_1x_PWR" )
+ )
+( term
+ )
+( param
+ )
+ )

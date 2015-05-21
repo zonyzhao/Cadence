@@ -1,0 +1,89 @@
+simulator( 'spectre )
+hostMode( 'distributed )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Test/spectre/schematic/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Test/spectre/schematic" )
+modelFile( 
+    '("/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include" "")
+)
+analysis('tran ?stop "VAR(\"timeStop\")"  ?errpreset "conservative"  )
+desVar(	  "nfin" 12	)
+desVar(	  "VDDH" .600	)
+desVar(	  "VDDL" .450	)
+desVar(	  "timeStop" 32n	)
+desVar(	  "period" 14n	)
+desVar(	  "pulseWidth" 7n	)
+desVar(	  "startDelay" 5n	)
+desVar(	  "C" 596.31f	)
+envOption(
+	'cmd64bit  t 
+	'analysisOrder  list("tran") 
+)
+option(	'multithread  "on" 
+)
+save( 'v "/Vline" "/VL" "/VH" )
+save( 'i "/IVDDL/dst" "/IVDDH/src" "/ILine/src" )
+converge( 'ic "/VL" "0" )
+converge( 'ic "/VH" "VDDH" )
+converge( 'ic "/Vline" "VDDL" )
+converge( 'ic "/I19/I0/I0/I7/I3/Q0" "0" )
+converge( 'ic "/I19/I0/I0/I7/I3/Q1" "VDDL" )
+converge( 'ic "/sH" "VDDH" )
+
+temp( 27 ) 
+paramAnalysis("nfin" ?values '(12 15 18 25 32 36 42 48 54 60 64 66 72 78 84 90 96 102 108 114 120 126 132 138 144 150 156 162 168 174 180 186 192 198 204 210 216 222 228 234 240 246 252 ))
+paramRun( ?jobName "job" ?queue "c2107" )
+selectResult( 'tran )
+
+
+vDiff 				= (VAR("VDDH") - VAR("VDDL"))
+clipStart 			= (1.25 * VAR("period"))
+gVline	   			= clip(v("/Vline" ?result "tran") clipStart VAR("timeStop"))
+gVH					= clip(v("/VH" ?result "tran") clipStart VAR("timeStop"))
+
+tRiseStart 			= cross( gVline (VAR("VDDL") + (0.1 * vDiff)) 1 "rising")
+tRiseEnd 			= cross( gVline (VAR("VDDL") + (0.9 * vDiff)) 1 "rising")
+tFallStart 			= cross( gVline (VAR("VDDH") - (0.1 * vDiff)) 1 "falling")
+tFallEnd 			= cross( gVline (VAR("VDDH") - (0.9 * vDiff)) 1 "falling")
+tRiseSettleStart	= cross( cgVH (0.5 * VAR("VDDH")) 1 "falling")
+tRiseSettleEnd 		= cross( gVline (0.99 * VAR("VDDH")) 1 "rising")
+tLeakageStart 		= clipStart + 0.49*VAR("period")
+tLeakageEnd 		= clipStart + 0.51*VAR("period")
+tFallSettleStart 	= cross( gVH (0.5 * VAR("VDDH")) 1 "rising")
+tFallSettleEnd   	= cross( gVline (1.005 * VAR("VDDL")) 1 "falling")
+tTPRiseEnd 		 	= cross( gVline VAR("VDDL") + (0.5 * vDiff) 1 "rising")
+tTPFallEnd 		 	= cross( gVline VAR("VDDH") - (0.5 * vDiff) 1 "falling") 
+
+TFall       		= tFallStart - tFallEnd
+TRise       		= tRiseStart - tRiseEnd
+TPRise				= tTPRiseEnd  - tRiseSettleStart
+TPFall 				= tTPFallEnd  - tFallSettleStart
+TSettleRise 		= tRiseSettleEnd - tRiseSettleStart
+TSettleFall 		= tFallSettleEnd - tFallSettleStart
+QRise_pVDDH 		= ymax(iinteg(clip(i("/IVDDH/src" ?result "tran") tRiseSettleStart tRiseSettleEnd)))
+QFall_pVDDL 		= ymax(iinteg(clip(i("/IVDDL/dst" ?result "tran") tFallSettleStart tFallSettleEnd)))
+LeakageVDDH 		= average( clip(i("/IVDDH/src" ?result "tran") tLeakageStart tLeakageEnd))
+LeakageLine 		= average( clip(i("/ILine/src" ?result "tran") tLeakageStart tLeakageEnd))
+LeakageIntoVDDL 	= average( clip(i("/IVDDL/dst" ?result "tran") tLeakageStart tLeakageEnd))
+
+plot(getData("/Vline") getData("/VL") getData("/VH") getData("/IVDDL/dst") getData("/IVDDH/src") getData("/ILine/src") )
+plot( tRiseStart ?expr '( "tRiseStart" ) )
+plot( tRiseSettleStart ?expr '( "tRiseSettleStart" ) )
+plot( tRiseSettleEnd ?expr '( "tRiseSettleEnd" ) )
+plot( tRiseEnd ?expr '( "tRiseEnd" ) )
+plot( tLeakageStart ?expr '( "tLeakageStart" ) )
+plot( tLeakageEnd ?expr '( "tLeakageEnd" ) )
+plot( tFallStart ?expr '( "tFallStart" ) )
+plot( tFallEnd ?expr '( "tFallEnd" ) )
+plot( tFallSettleStart ?expr '( "tFallSettleStart" ) )
+plot( tFallSettleEnd ?expr '( "tFallSettleEnd" ) )
+plot( TSettleRise ?expr '( "TSettleRise" ) )
+plot( TSettleFall ?expr '( "TSettleFall" ) )
+plot( QFall_pVDDL ?expr '( "QFall_pVDDL" ) )
+plot( LeakageLine ?expr '( "LeakageLine" ) )
+plot( LeakageIntoVDDL ?expr '( "LeakageIntoVDDL" ) )
+plot( LeakageVDDH ?expr '( "LeakageVDDH" ) )
+
+file  =  strcat(  "/root/Desktop/"  "DualSupplyResults.matlab"  )
+out   = outfile(file, "w")
+ocnPrint(?output out TSettleRise TSettleFall TFall TRise TPRise TPFall QRise_pVDDH QFall_pVDDL LeakageVDDH  LeakageLine  LeakageIntoVDDL ?precision 16  ?numSpaces 1 ?numberNotation 'scientific)
+

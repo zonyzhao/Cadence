@@ -1,10 +1,10 @@
 hnlLastStopCellInfo = '(
                            ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1430711313" )
                           ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1430562243" )
-                          ( "UCD_Analog_Parts" "cap" "spectre" "30" "1414043494" )
                           ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
-                          ( "UCD_Analog_Parts" "vpwl" "spectre" "34" "1414043471" )
+                          ( "UCD_Analog_Parts" "cap" "spectre" "30" "1414043494" )
                           ( "basic" "cds_thru" "spectre" "42" "1300441096" )
+                          ( "UCD_Analog_Parts" "vpulse" "spectre" "34" "1414043460" )
                        )
 hnlLastMaxNameLength = 1024
 hnlLastNamePrefix = "hnl_"
@@ -760,8 +760,9 @@ hnlLastNetNameDifferentFrom = '( )
 hnlLastTermNameDifferentFrom = '( )
 hnlLastParamNameDifferentFrom = '( )
 hnlLastLibInfo = '(
-                    ( "16nm" "1428898306" )
-                   ( "16nm_Tests" "1429775004" )
+                    ( "16nm" "1432179885" )
+                   ( "16nm_Tests" "1432179891" )
+                   ( "20nm" "1432196040" )
                   )
 hnlLastConstants = '(
                       "M_SQRT2"
@@ -788,15 +789,12 @@ hnlLastConstants = '(
                       "M_E"
                     )
 hnlLastDesignVars = '(
-                      "timeStop"
-                      "C"
+                      "nfin"
                       "VDDH"
                       "VDDL"
-                      "nfin"
-                      "timeA"
-                      "timeB"
-                      "timeC"
-                      "timeD"
-                      "timeE"
-                      "timeF"
+                      "timeStop"
+                      "period"
+                      "pulseWidth"
+                      "startDelay"
+                      "C"
                     )

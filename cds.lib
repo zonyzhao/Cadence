@@ -26,3 +26,4 @@ DEFINE NCSU_TechLib_tsmc03      /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechL
 DEFINE NCSU_TechLib_tsmc03d     /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc03d
 DEFINE NCSU_TechLib_tsmc04_4M2P /home/cadence/ncsu-cdk-1.6.0.beta/lib/NCSU_TechLib_tsmc04_4M2P
 
+DEFINE 20nm /root/Desktop/Cadence/20nm

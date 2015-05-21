@@ -1,7 +1,7 @@
 * Temporary parameter list file for ITRS 2011 ver2 models
 .lib 20nm
-.param vdd=0.9
-.param vddp=-0.9
+*.param vdd=0.9
+.param vddp=-1*vdd
 .param fin_height=28n
 .param fin_width=15n
 .param lg=24n

@@ -1,6 +1,6 @@
 // Generated for: spectre
-// Generated on: May 19 23:32:12 2015
-// Design library name: 16nm_Tests
+// Generated on: May 21 03:39:19 2015
+// Design library name: 20nm
 // Design cell name: Dual_Supply_Test
 // Design view name: schematic
 simulator lang=spectre
