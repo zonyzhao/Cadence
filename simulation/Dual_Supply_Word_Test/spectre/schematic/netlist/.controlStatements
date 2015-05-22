@@ -1,13 +1,13 @@
-ic B1P2=VDDL B0P2=VDDL B1P1=VDDL B0P1=VDDL 0=0 net030=VDDL net033=VDDL \
-    net029=VDDL net032=VDDL I33.I7.I3.Q0=VDDL I33.I7.I3.Q1=0 \
-    I33.I0.I1.Q0=VDDL I33.I0.I1.Q1=0 I33.I0.I0.Q0=VDDL I33.I0.I0.Q1=0 \
-    vcc!=VDDL net035=0 VL=0 VH=VDDH sH=VDDH 
+ic I34.I7.I3.Q1=VDDL I34.I7.I3.Q0=0 I33.I7.I1.Q1=VDDL I33.I7.I1.Q0=0 0=0 \
+    I33.I7.I2.Q1=VDDL I33.I7.I2.Q0=0 I33.I7.I3.Q0=0 I33.I7.I3.Q1=VDDL \
+    vcc!=VDDL sH=VDDH VH=VDDH VL=0 net035=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
     sensfile="../psf/sens.output" checklimitdest=psf 
-tran tran stop=timeStop errpreset=conservative write="spectre.ic" \
-    writefinal="spectre.fc" annotate=status maxiters=5 
+tran tran stop=timeStop errpreset=conservative ic=all \
+    readic="/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Word_Test/spectre/schematic/netlist/spectre.ic" \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
 element info what=inst where=rawfile
@@ -15,5 +15,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save Vline VL VH IVDDL:1 IVDDH:1 ILine:1 
+save ILine:1 IVDDH:1 IVDDL:1 VH VL Vline 
 saveOptions options save=allpub

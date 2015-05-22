@@ -1,8 +1,9 @@
-CADENCE IHNL01076
+CADENCE IHNL01078
 
 20nm inv_4x_PWR schematic cds0
 20nm 6T_PWR schematic cds1
 20nm 6T_4x_PWR schematic cds2
 20nm 6T_32x_PWR schematic cds3
-20nm inv_1x_PWR schematic cds4
-20nm Dual_Supply_Word_Test schematic cds5
+20nm 6T_32x_CTRL_PWR schematic cds4
+20nm inv_1x_PWR schematic cds5
+20nm Dual_Supply_Word_Test schematic cds7

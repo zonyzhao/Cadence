@@ -1,11 +1,11 @@
 // Generated for: spectre
-// Generated on: May 21 23:49:38 2015
+// Generated on: May 22 00:29:13 2015
 // Design library name: 20nm
 // Design cell name: Dual_Supply_Word_Test
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd! vcc!
-parameters nfin=32 VDDH=.600 VDDL=.450 period=6n C=26.374f pulseWidth=3n \
+parameters nfin=12 VDDH=.600 VDDL=.450 period=6n C=26.374f pulseWidth=3n \
     startDelay=3n timeStop=18n
 include "/software/cadence/ncsu-FreePDK15/hspice_20nm_hp.include"
 
@@ -88,68 +88,39 @@ ends inv_1x_PWR
 // End of subcircuit definition.
 
 // Library name: 20nm
-// Cell name: nand4_1x_PWR
-// View name: schematic
-subckt nand4_1x_PWR A B C D GND VDD Y
-    M5 (Y D VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
-    M4 (Y C VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
-    M1 (Y B VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
-    M0 (Y A VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
-    M7 (net23 D GND GND) nfet w=240n l=24n nfin=1 nf=1 m=1
-    M6 (net25 C net23 GND) nfet w=240n l=24n nfin=1 nf=1 m=1
-    M3 (net24 B net25 GND) nfet w=240n l=24n nfin=1 nf=1 m=1
-    M2 (Y A net24 GND) nfet w=240n l=24n nfin=1 nf=1 m=1
-ends nand4_1x_PWR
-// End of subcircuit definition.
-
-// Library name: 20nm
 // Cell name: Dual_Supply_Word_Test
 // View name: schematic
 I2 (net035 0 vdd! VH) inv_4x_PWR
 I10 (sH 0 vdd! VL) inv_4x_PWR
 V2 (vcc! 0) vsource type=dc dc=VDDL
 V1 (vdd! 0) vsource type=dc dc=VDDH
-I34 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 B0P2 \
-        B1P2 0 VDD\<1\> VDD\<0\>) _sub9
-I33 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 B0P1 \
-        B1P1 0 VDD\<1\> VDD\<0\>) _sub9
-M13 (B1P2 0 vcc! vcc!) pfet w=100n l=24 nfin=1 nf=1 m=1
-M12 (B0P2 0 vcc! vcc!) pfet w=100n l=24 nfin=1 nf=1 m=1
-M8 (B1P1 0 vcc! vcc!) pfet w=100n l=24 nfin=1 nf=1 m=1
-M7 (B0P1 0 vcc! vcc!) pfet w=100n l=24 nfin=1 nf=1 m=1
+I34 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        net029 net028 0 VDD\<1\> VDD\<0\>) _sub9
+I33 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        net027 net026 0 VDD\<1\> VDD\<0\>) _sub9
 M0 (net017 VH vdd! vdd!) pfet w=800n l=24n nfin=nfin nf=1 m=1
 M1 (net024 VL vcc! vcc!) pfet w=800n l=24n nfin=nfin nf=1 m=1
-I5 (B0P2 B1P2 0 0 0 vcc! 0) _sub10
-I4 (B0P1 B1P1 0 0 0 vcc! 0) _sub10
+I5 (net029 net028 net039 net037 net043 vcc! 0) _sub10
+I4 (net027 net026 net019 net037 net043 vcc! 0) _sub10
+IVDDL (net024 Vline) iprobe
 ISplit\<1\> (net031 VDD\<1\>) iprobe
 ISplit\<0\> (net031 VDD\<0\>) iprobe
 ILine (Vline net031) iprobe
-IVDDL (net024 Vline) iprobe
 IVDDH (net017 Vline) iprobe
 C0 (Vline 0) capacitor c=C m=1
 V0 (sH 0) vsource type=pulse dc=0 val0=VDDH val1=0 period=period \
         delay=startDelay rise=8p fall=8p width=pulseWidth
 I1 (sH 0 vdd! net035) inv_1x_PWR
-I11 (B1P1 B1P1 B1P2 B1P2 0 vcc! net052) nand4_1x_PWR
-I48 (B0P1 B0P1 B0P2 B0P2 0 vcc! net053) nand4_1x_PWR
-M11 (B1P2 net0115 net085 net81) nfet w=60n l=24 nfin=1 nf=1 m=1
-M10 (B0P2 net084 net086 net81) nfet w=60n l=24 nfin=1 nf=1 m=1
-M9 (net085 0 net81 net81) nfet w=60n l=24 nfin=1 nf=1 m=1
-M6 (net086 0 net81 net81) nfet w=60n l=24 nfin=1 nf=1 m=1
-M5 (B0P1 net068 net089 net58) nfet w=60n l=24 nfin=1 nf=1 m=1
-M4 (B1P1 net087 net088 net58) nfet w=60n l=24 nfin=1 nf=1 m=1
-M2 (net089 0 net58 net58) nfet w=60n l=24 nfin=1 nf=1 m=1
-M3 (net088 0 net58 net58) nfet w=60n l=24 nfin=1 nf=1 m=1
-ic B1P2=VDDL B0P2=VDDL B1P1=VDDL B0P1=VDDL 0=0 net030=VDDL net033=VDDL \
-    net029=VDDL net032=VDDL I33.I7.I3.Q0=VDDL I33.I7.I3.Q1=0 \
-    I33.I0.I1.Q0=VDDL I33.I0.I1.Q1=0 I33.I0.I0.Q0=VDDL I33.I0.I0.Q1=0 \
-    vcc!=VDDL net035=0 VL=0 VH=VDDH sH=VDDH 
+ic I34.I7.I3.Q1=VDDL I34.I7.I3.Q0=0 I33.I7.I1.Q1=VDDL I33.I7.I1.Q0=0 0=0 \
+    I33.I7.I2.Q1=VDDL I33.I7.I2.Q0=0 I33.I7.I3.Q0=0 I33.I7.I3.Q1=VDDL \
+    vcc!=VDDL sH=VDDH VH=VDDH VL=0 net035=0 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
     sensfile="../psf/sens.output" checklimitdest=psf 
-tran tran stop=timeStop errpreset=conservative write="spectre.ic" \
-    writefinal="spectre.fc" annotate=status maxiters=5 
+tran tran stop=timeStop errpreset=conservative ic=all \
+    readic="/net/kafka/nfs/rstdenis/Cadence/simulation/Dual_Supply_Word_Test/spectre/schematic/netlist/spectre.ic" \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
 element info what=inst where=rawfile
@@ -157,5 +128,5 @@ outputParameter info what=output where=rawfile
 designParamVals info what=parameters where=rawfile
 primitives info what=primitives where=rawfile
 subckts info what=subckts where=rawfile
-save Vline VL VH IVDDL:1 IVDDH:1 ILine:1 
+save ILine:1 IVDDH:1 IVDDL:1 VH VL Vline 
 saveOptions options save=allpub

@@ -22,7 +22,6 @@
 ( "20nm/6T_32x_CTRL_PWR/schematic" "_sub10" )
 ( "20nm/6T_32x_PWR/schematic" "_sub9" )
 ( "20nm/6T_4x_PWR/schematic" "_sub8" )
-( "20nm/nand4_1x_PWR/schematic" "nand4_1x_PWR" )
 ( "20nm/inv_1x_PWR/schematic" "inv_1x_PWR" )
  )
 ( term
@@ -31,7 +30,6 @@
  )
 ( "inv_4x_PWR" "ihnl/cds0/map" )
 ( "_sub10" "ihnl/cds4/map" )
-( "nand4_1x_PWR" "ihnl/cds6/map" )
 ( "_sub7" "ihnl/cds1/map" )
 ( "Dual_Supply_Word_Test" "ihnl/cds7/map" )
 ( "_sub9" "ihnl/cds3/map" )

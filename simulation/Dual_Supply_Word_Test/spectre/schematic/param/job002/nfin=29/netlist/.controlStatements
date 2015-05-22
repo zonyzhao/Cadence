@@ -1,4 +1,7 @@
-ic I33.I7.I3.Q1=VDDL I33.I7.I3.Q0=0 VL=0 VH=VDDH sH=VDDH net035=0 
+ic B1P2=VDDL B0P2=VDDL B1P1=VDDL B0P1=VDDL 0=0 net030=VDDL net033=VDDL \
+    net029=VDDL net032=VDDL I33.I7.I3.Q0=VDDL I33.I7.I3.Q1=0 \
+    I33.I0.I1.Q0=VDDL I33.I0.I1.Q1=0 I33.I0.I0.Q0=VDDL I33.I0.I0.Q1=0 \
+    vcc!=VDDL net035=0 VL=0 VH=VDDH sH=VDDH 
 simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
     tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
     maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \

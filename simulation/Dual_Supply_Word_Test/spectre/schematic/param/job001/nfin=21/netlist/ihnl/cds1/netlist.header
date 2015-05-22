@@ -2,4 +2,4 @@
 // Library name: 20nm
 // Cell name: 6T_PWR
 // View name: schematic
-subckt _sub0 A B0 B1 VDD GND
+subckt _sub7 A B0 B1 VDD GND
