@@ -1,0 +1,5 @@
+
+// Library name: 20nm
+// Cell name: 6T_32x_CTRL_PWR
+// View name: schematic
+subckt _sub10 B0 B1 S W0 W1 VDD GND

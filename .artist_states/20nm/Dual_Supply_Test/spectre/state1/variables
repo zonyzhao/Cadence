@@ -70,7 +70,7 @@ tmp8 = make_sevVariableStruct()
 tmp8 = (ncons nil)
 )
 tmp8->name = "C"
-tmp8->expression = "29.3f"
+tmp8->expression = "100f"
 tmp8->index = 8
 list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7 tmp8)
 )

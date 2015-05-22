@@ -1,0 +1,120 @@
+// Generated for: spectre
+// Generated on: May 21 18:27:07 2015
+// Design library name: 20nm
+// Design cell name: Dual_Supply_Word_Test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd! vcc!
+parameters nfin=12 VDDH=.600 VDDL=.450 period=6n pulseWidth=3n \
+    startDelay=5n C=1.51515151515151e-14 timeStop=3*period
+include "/software/cadence/ncsu-FreePDK15/hspice_20nm_hp.include"
+
+// Library name: 20nm
+// Cell name: inv_4x_PWR
+// View name: schematic
+subckt inv_4x_PWR A GND VDD Y
+    M0 (Y A GND GND) nfet w=240n l=24n nfin=4 nf=1 m=1
+    M1 (Y A VDD VDD) pfet w=400n l=24n nfin=4 nf=1 m=1
+ends inv_4x_PWR
+// End of subcircuit definition.
+
+// Library name: 20nm
+// Cell name: 6T_PWR
+// View name: schematic
+subckt _sub0 A B0 B1 VDD GND
+    M5 (Q0 Q1 GND GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+    M4 (Q1 Q0 GND GND) nfet w=60n l=24n nfin=1 nf=1 m=1
+    M1 (Q1 A B1 GND) nfet w=120n l=24n nfin=2 nf=1 m=1
+    M0 (Q0 A B0 GND) nfet w=120n l=24n nfin=2 nf=1 m=1
+    M3 (Q0 Q1 VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+    M2 (Q1 Q0 VDD VDD) pfet w=100n l=24n nfin=1 nf=1 m=1
+ends _sub0
+// End of subcircuit definition.
+
+// Library name: 20nm
+// Cell name: 6T_4x_PWR
+// View name: schematic
+subckt _sub1 A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD
+    I3 (A\<0\> B0 B1 VDD GND) _sub0
+    I2 (A\<1\> B0 B1 VDD GND) _sub0
+    I1 (A\<2\> B0 B1 VDD GND) _sub0
+    I0 (A\<3\> B0 B1 VDD GND) _sub0
+ends _sub1
+// End of subcircuit definition.
+
+// Library name: 20nm
+// Cell name: 6T_32x_PWR
+// View name: schematic
+subckt _sub2 A\<31\> A\<30\> A\<29\> A\<28\> A\<27\> A\<26\> A\<25\> \
+        A\<24\> A\<23\> A\<22\> A\<21\> A\<20\> A\<19\> A\<18\> A\<17\> \
+        A\<16\> A\<15\> A\<14\> A\<13\> A\<12\> A\<11\> A\<10\> A\<9\> \
+        A\<8\> A\<7\> A\<6\> A\<5\> A\<4\> A\<3\> A\<2\> A\<1\> A\<0\> B0 \
+        B1 GND VDD\<1\> VDD\<0\>
+    I7 (A\<3\> A\<2\> A\<1\> A\<0\> B0 B1 GND VDD\<0\>) _sub1
+    I6 (A\<7\> A\<6\> A\<5\> A\<4\> B0 B1 GND VDD\<0\>) _sub1
+    I5 (A\<11\> A\<10\> A\<9\> A\<8\> B0 B1 GND VDD\<0\>) _sub1
+    I4 (A\<15\> A\<14\> A\<13\> A\<12\> B0 B1 GND VDD\<0\>) _sub1
+    I3 (A\<19\> A\<18\> A\<17\> A\<16\> B0 B1 GND VDD\<1\>) _sub1
+    I2 (A\<23\> A\<22\> A\<21\> A\<20\> B0 B1 GND VDD\<1\>) _sub1
+    I1 (A\<27\> A\<26\> A\<25\> A\<24\> B0 B1 GND VDD\<1\>) _sub1
+    I0 (A\<31\> A\<30\> A\<29\> A\<28\> B0 B1 GND VDD\<1\>) _sub1
+ends _sub2
+// End of subcircuit definition.
+
+// Library name: 20nm
+// Cell name: inv_1x_PWR
+// View name: schematic
+subckt inv_1x_PWR A GND VDD Y
+    M0 (Y A GND GND) nfet w=240n l=24n nfin=1 nf=1 m=1
+    M1 (Y A VDD VDD) pfet w=400n l=24n nfin=1 nf=1 m=1
+ends inv_1x_PWR
+// End of subcircuit definition.
+
+// Library name: 20nm
+// Cell name: Dual_Supply_Word_Test
+// View name: schematic
+I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR
+V2 (vcc! 0) vsource type=dc dc=VDDL
+V1 (vdd! 0) vsource type=dc dc=VDDH
+I34 (net030\<0\> net030\<1\> net030\<2\> net030\<3\> net030\<4\> \
+        net030\<5\> net030\<6\> net030\<7\> net030\<8\> net030\<9\> \
+        net030\<10\> net030\<11\> net030\<12\> net030\<13\> net030\<14\> \
+        net030\<15\> net030\<16\> net030\<17\> net030\<18\> net030\<19\> \
+        net030\<20\> net030\<21\> net030\<22\> net030\<23\> net030\<24\> \
+        net030\<25\> net030\<26\> net030\<27\> net030\<28\> net030\<29\> \
+        net030\<30\> net030\<31\> net014 net015 0 VDD\<1\> VDD\<0\>) _sub2
+I33 (net030\<0\> net030\<1\> net030\<2\> net030\<3\> net030\<4\> \
+        net030\<5\> net030\<6\> net030\<7\> net030\<8\> net030\<9\> \
+        net030\<10\> net030\<11\> net030\<12\> net030\<13\> net030\<14\> \
+        net030\<15\> net030\<16\> net030\<17\> net030\<18\> net030\<19\> \
+        net030\<20\> net030\<21\> net030\<22\> net030\<23\> net030\<24\> \
+        net030\<25\> net030\<26\> net030\<27\> net030\<28\> net030\<29\> \
+        net030\<30\> net030\<31\> net016 net046 0 VDD\<1\> VDD\<0\>) _sub2
+M0 (net017 VH vdd! vdd!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+M1 (net024 VL vcc! vcc!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+ISplit\<1\> (net031 VDD\<1\>) iprobe
+ISplit\<0\> (net031 VDD\<0\>) iprobe
+ILine (Vline net031) iprobe
+IVDDL (net024 Vline) iprobe
+IVDDH (net017 Vline) iprobe
+C0 (Vline 0) capacitor c=C m=1
+V0 (sH 0) vsource type=pulse dc=0 val0=VDDH val1=0 period=period \
+        delay=startDelay rise=8p fall=8p width=pulseWidth
+I1 (sH 0 vdd! net035) inv_1x_PWR
+ic VL=0 VH=VDDH sH=VDDH net035=0 
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 multithread=on scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=timeStop errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save IVDDH:1 IVDDL:1 VH VL Vline ILine:1 
+saveOptions options save=allpub

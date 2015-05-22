@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: May 21 23:49:38 2015
+// Design library name: 20nm
+// Design cell name: Dual_Supply_Word_Test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd! vcc!

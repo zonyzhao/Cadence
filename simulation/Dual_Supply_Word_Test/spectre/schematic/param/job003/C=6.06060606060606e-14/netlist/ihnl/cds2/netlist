@@ -1,0 +1,6 @@
+    I3 (A\<0\> B0 B1 VDD GND) _sub0
+    I2 (A\<1\> B0 B1 VDD GND) _sub0
+    I1 (A\<2\> B0 B1 VDD GND) _sub0
+    I0 (A\<3\> B0 B1 VDD GND) _sub0
+ends _sub1
+// End of subcircuit definition.

@@ -1,0 +1,36 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Dual_Supply_Word_Test"
+  repList "spectre cmos_sch cmos.sch schematic veriloga"
+  stopList "spectre"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/20nm/Dual_Supply_Word_Test/spectre/schematic/netlist"
+ )
+( instViewTable
+ )
+( net
+( "gnd!" "0" )
+ )
+( inst
+ )
+( model
+( "20nm/inv_4x_PWR/schematic" "inv_4x_PWR" )
+( "20nm/6T_PWR/schematic" "_sub28" )
+( "20nm/Dual_Supply_Word_Test/schematic" "Dual_Supply_Word_Test" )
+( "20nm/6T_32x_PWR/schematic" "_sub30" )
+( "20nm/6T_4x_PWR/schematic" "_sub29" )
+( "20nm/inv_1x_PWR/schematic" "inv_1x_PWR" )
+ )
+( term
+ )
+( param
+ )
+( "inv_4x_PWR" "ihnl/cds0/map" )
+( "_sub28" "ihnl/cds1/map" )
+( "_sub30" "ihnl/cds3/map" )
+( "Dual_Supply_Word_Test" "ihnl/cds5/map" )
+( "_sub29" "ihnl/cds2/map" )
+( "inv_1x_PWR" "ihnl/cds4/map" )
+ )

@@ -1,0 +1,33 @@
+
+// Library name: 20nm
+// Cell name: Dual_Supply_Word_Test
+// View name: schematic
+I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR
+V2 (vcc! 0) vsource type=dc dc=VDDL
+V1 (vdd! 0) vsource type=dc dc=VDDH
+I34 (net030\<0\> net030\<1\> net030\<2\> net030\<3\> net030\<4\> \
+        net030\<5\> net030\<6\> net030\<7\> net030\<8\> net030\<9\> \
+        net030\<10\> net030\<11\> net030\<12\> net030\<13\> net030\<14\> \
+        net030\<15\> net030\<16\> net030\<17\> net030\<18\> net030\<19\> \
+        net030\<20\> net030\<21\> net030\<22\> net030\<23\> net030\<24\> \
+        net030\<25\> net030\<26\> net030\<27\> net030\<28\> net030\<29\> \
+        net030\<30\> net030\<31\> net014 net015 0 VDD\<1\> VDD\<0\>) _sub2
+I33 (net030\<0\> net030\<1\> net030\<2\> net030\<3\> net030\<4\> \
+        net030\<5\> net030\<6\> net030\<7\> net030\<8\> net030\<9\> \
+        net030\<10\> net030\<11\> net030\<12\> net030\<13\> net030\<14\> \
+        net030\<15\> net030\<16\> net030\<17\> net030\<18\> net030\<19\> \
+        net030\<20\> net030\<21\> net030\<22\> net030\<23\> net030\<24\> \
+        net030\<25\> net030\<26\> net030\<27\> net030\<28\> net030\<29\> \
+        net030\<30\> net030\<31\> net016 net046 0 VDD\<1\> VDD\<0\>) _sub2
+M0 (net017 VH vdd! vdd!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+M1 (net024 VL vcc! vcc!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+ISplit\<1\> (net031 VDD\<1\>) iprobe
+ISplit\<0\> (net031 VDD\<0\>) iprobe
+ILine (Vline net031) iprobe
+IVDDL (net024 Vline) iprobe
+IVDDH (net017 Vline) iprobe
+C0 (Vline 0) capacitor c=C m=1
+V0 (sH 0) vsource type=pulse dc=0 val0=VDDH val1=0 period=period \
+        delay=startDelay rise=8p fall=8p width=pulseWidth
+I1 (sH 0 vdd! net035) inv_1x_PWR

@@ -1,0 +1,27 @@
+
+// Library name: 20nm
+// Cell name: Dual_Supply_Word_Test
+// View name: schematic
+I2 (net035 0 vdd! VH) inv_4x_PWR
+I10 (sH 0 vdd! VL) inv_4x_PWR
+V2 (vcc! 0) vsource type=dc dc=VDDL
+V1 (vdd! 0) vsource type=dc dc=VDDH
+I34 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        net029 net030 0 VDD\<1\> VDD\<0\>) _sub2
+I33 (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \
+        net033 net032 0 VDD\<1\> VDD\<0\>) _sub2
+M0 (net017 VH vdd! vdd!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+M1 (net024 VL vcc! vcc!) pfet w=800n l=24n nfin=nfin nf=1 m=1
+ISplit\<1\> (net031 VDD\<1\>) iprobe
+ISplit\<0\> (net031 VDD\<0\>) iprobe
+ILine (Vline net031) iprobe
+IVDDL (net024 Vline) iprobe
+IVDDH (net017 Vline) iprobe
+C0 (Vline 0) capacitor c=C m=1
+V0 (sH 0) vsource type=pulse dc=0 val0=VDDH val1=0 period=period \
+        delay=startDelay rise=8p fall=8p width=pulseWidth
+I46 (0 0 vcc! net030) inv_1x_PWR
+I45 (0 0 vcc! net029) inv_1x_PWR
+I44 (0 0 vcc! net032) inv_1x_PWR
+I43 (0 0 vcc! net033) inv_1x_PWR
+I1 (sH 0 vdd! net035) inv_1x_PWR
