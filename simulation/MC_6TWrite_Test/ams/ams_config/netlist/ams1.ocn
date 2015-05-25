@@ -46,3 +46,54 @@ modelFile(
 run()
 selectResult( 'tran )
 plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+converge( 'ic "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0" "0" )
+converge( 'ic "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1" "vdd" )
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+analysis('tran ?write ""  ?writefinal ""  )
+saveOption( ?outputParamInfo nil )
+saveOption( ?elementInfo nil )
+saveOption( ?modelParamInfo nil )
+temp( 27 ) 
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+envOption(
+	'netlisterMode  "OSS-based" 
+	'invocationStyle  "irun" 
+)
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" "")
+)
+analysis('tran ?write "spectre.ic"  ?writefinal "spectre.fc"  )
+envOption(
+	'netlisterMode  "Cellview-based" 
+	'invocationStyle  "ncvlog, ncelab, ncsim" 
+	'solver  "Spectre" 
+)
+saveOption( ?outputParamInfo t )
+saveOption( ?elementInfo t )
+saveOption( ?modelParamInfo t )
+temp( 27 ) 
+run()
+selectResult( 'tran )
+plot(getData("/Aline<0>") getData("/S<0>") getData("/W1_1<3>") getData("/W1_1<2>") getData("/W1_1<1>") getData("/W1_1<0>") getData("/B1_1<3>") getData("/B1_1<2>") getData("/B1_1<1>") getData("/B1_1<0>") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/B1P1") getData("/ICHUNK/IARRAY0/B0P1") )

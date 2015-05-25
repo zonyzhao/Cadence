@@ -29,7 +29,7 @@ $TIMESTAMP
 	1428568474=22-NCSU_TechLib_FreePDK154-pfet6-symbol;
 	1421732092=9-analogLib3-cap;
 	1236576105=9-analogLib3-cap6-symbol;
-	1432533487=verilog.vams;
+	1432534881=verilog.vams;
 $END
 $VERILOG_ANCILLARY_INSTANTIATIONS
 	cds_alias:ams_alias_inst_0;
@@ -51,9 +51,9 @@ $VERILOG_ANCILLARY_INSTANTIATIONS
 $END
 $DEFINITION_VIEW
 	viewName=symbol;
-	masterFile=1432533570;
-	instLastChanged=148094;
-	connectivityLastUpdated=148094;
+	masterFile=1432534108;
+	instLastChanged=156485;
+	connectivityLastUpdated=156485;
 $END
 $PRIMITIVE_TERM_MAP
 	NCSU_TechLib_FreePDK15:nfet:symbol:*:1-B1-b1-D1-d1-G1-g1-S1-s;

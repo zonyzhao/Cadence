@@ -17,7 +17,7 @@ $TIMESTAMP
 	1273039899=5-basic4-ipin6-symbol;
 	-1=5-basic4-opin;
 	1273039898=5-basic4-opin6-symbol;
-	1432533303=verilog.vams;
+	1432534881=verilog.vams;
 $END
 $DEFINITION_VIEW
 	viewName=symbol;

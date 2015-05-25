@@ -4,6 +4,8 @@
 
 simulator lang=spectre 
 
+ic MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q1=vdd \
+MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q0=0 
 simulatorOptions options temp=27 tnom=27 scale=1.0 scalem=1.0
 
 // UltraSim Solver Options 

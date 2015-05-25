@@ -19,7 +19,7 @@ $TIMESTAMP
 	1428568474=22-NCSU_TechLib_FreePDK154-pfet6-symbol;
 	-1=5-basic5-iopin;
 	1273039898=5-basic5-iopin7-symbolr;
-	1432533303=verilog.vams;
+	1432534881=verilog.vams;
 $END
 $DEFINITION_VIEW
 	viewName=symbol;

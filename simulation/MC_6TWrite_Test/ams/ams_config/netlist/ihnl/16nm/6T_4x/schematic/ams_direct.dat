@@ -9,7 +9,7 @@ $TIMESTAMP
 	1432179885=4-16nm2-6T6-symbol;
 	-1=5-basic5-iopin;
 	1273039898=5-basic5-iopin7-symbolr;
-	1432531839=verilog.vams;
+	1432534881=verilog.vams;
 $END
 $DEFINITION_VIEW
 	viewName=symbol;

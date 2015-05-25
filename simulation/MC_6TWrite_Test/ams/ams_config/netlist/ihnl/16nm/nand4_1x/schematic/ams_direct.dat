@@ -21,7 +21,7 @@ $TIMESTAMP
 	1273039898=5-basic4-opin6-symbol;
 	1430711313=22-NCSU_TechLib_FreePDK154-nfet;
 	1428568474=22-NCSU_TechLib_FreePDK154-nfet6-symbol;
-	1432531839=verilog.vams;
+	1432534881=verilog.vams;
 $END
 $DEFINITION_VIEW
 	viewName=symbol;

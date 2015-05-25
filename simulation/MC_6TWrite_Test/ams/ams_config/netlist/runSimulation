@@ -466,7 +466,7 @@ fi
 
 implicitTmpDir=ihnl
 
-incrementalCompile=yes
+incrementalCompile=no
 
 # Compile '16nm_Tests' 'cds_globals' 'MC_6TWrite_Test_ams_config' '${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams'
 compile '16nm_Tests' 'cds_globals' 'MC_6TWrite_Test_ams_config' "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm_Tests ' -specificunit 'cds_globals'  -view 'MC_6TWrite_Test_ams_config'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams"

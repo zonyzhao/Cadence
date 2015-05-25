@@ -10,6 +10,7 @@ forceCleanTempDirForShadow nil
 amsTempDirForShadows ""
 paramGlobalDefVal "0"
 checkForMissingShadows nil
+hnlVerilogTermSyncUp nil
 amsLSB_MSB nil
 amsScalarInstances t
 emh_printEmptySubckt t

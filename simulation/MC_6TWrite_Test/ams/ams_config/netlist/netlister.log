@@ -1,5 +1,40 @@
 Netlisting ("16nm_Tests" "MC_6TWrite_Test" "ams_config").
 
+Info: Processing ("16nm" "inv_1x" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/inv_1x/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T_SetRead" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_SetRead/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "nand4_1x" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/nand4_1x/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T_32x_CTRL" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_32x_CTRL/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T_4x" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_4x/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T_32x" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_32x/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
 Info: Processing ("16nm" "6T_32x4" "schematic") ...
 Info: Verilog-AMS netlist successfully written to
 	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_32x4/schematic/verilog.vams.
