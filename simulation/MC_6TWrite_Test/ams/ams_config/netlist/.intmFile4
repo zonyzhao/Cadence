@@ -1,0 +1,88 @@
+
+// 
+// Design File for: (connectLib R2E_2_LPS module)
+//
+// R2E_2.vams - Efficient Verilog-AMS discrete wreal to electrical connection module
+//
+// REVISION HISTORY:
+// Created:  09/01/08, gangchen
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+ 
+`define AMSLPS_VPSO     0
+`define AMSLPS_NOMVDD   1
+`define AMSLPS_NOMVSS   2
+`define AMSLPS_NOMPMOS  3
+`define AMSLPS_NOMNMOS  4
+`define AMSLPS_WPSO     5
+`define AMSLPS_ARGSIZE  5
+
+connectmodule R2E_2_LPS (Din, Aout);
+  input Din;
+  wreal Din;		// input wreal
+  \logic Din;
+  output Aout;
+  electrical Aout;	// output electrical
+
+  parameter real vsup = 1.8		from (0:inf);	// supply voltage
+  parameter real vdelta = vsup/64 from (0:vsup];	// voltage delta
+  parameter real vlo = 0;
+  parameter real vx = vlo		from [0:vsup];	// X output voltage
+  parameter real tr = 10p		from (0:inf);	// risetime of analog output
+  parameter real tf = tr		from (0:inf);	// falltime of analog output
+  parameter real ttol_t = (tr+tf)/20 from (0:inf); // time tol of transition
+  parameter real tdelay = 0		from [0:inf);	// delay time of analog output
+  parameter real rout = 200		from (0:inf);	// output resistance
+  parameter real rx = rout		from (0:inf);	// X output resistance
+  parameter real rz = 10M		from (0:inf);	// Z output resistance
+  // INSTANCE PARAMETERS for AMSLPS:
+  parameter real    vpso=0.2;                 // X output voltage
+  parameter integer currentmode=0  from [0:0];	    // current mode is not supported in LPS
+  real Vstate, Rstate;
+  real Vout, Rout;
+  reg sie;
+
+  reg  iPwrState;                        // register the power state
+  real vPwrArgArray[`AMSLPS_ARGSIZE:0];  // voltage value of the nominal condition
+
+  initial begin
+    if (Din === `wrealXState)
+      begin Vstate = vx; Rstate = rx; end
+    else if (Din === `wrealZState)
+      begin Vstate = vlo; Rstate = rz; end
+    else
+      begin Vstate = Din; Rstate = rout; end
+    sie = $strength_resolution(Din);
+    iPwrState = 1'b1;
+    vPwrArgArray[`AMSLPS_VPSO]=vpso;
+    vPwrArgArray[`AMSLPS_WPSO]=`wrealXState;
+    vPwrArgArray[`AMSLPS_NOMVDD]=vsup;
+    vPwrArgArray[`AMSLPS_NOMVSS]=0;
+    $amslps_power_state_register(iPwrState, vPwrArgArray);
+  end
+
+  always @(Din or iPwrState) begin
+    if (iPwrState==1'b0) begin
+        Vstate=vPwrArgArray[`AMSLPS_VPSO];
+        Rstate = rx;
+    end
+    else begin
+      if (Din === `wrealXState)
+        begin Vstate = vx; Rstate = rx; end
+      else if (Din === `wrealZState)
+        begin Rstate = rz; end
+      else if (Din-Vstate >= vdelta || Vstate-Din >= vdelta)
+        begin Vstate = Din; Rstate = rout; end
+    end
+  end
+
+  assign Din = sie? `wrealZState : Din;
+
+  analog begin
+    Vout = transition(Vstate, tdelay, tr, tf, ttol_t);
+    Rout = transition(Rstate, tdelay, tr, tf, ttol_t);
+    I(Aout) <+ (V(Aout) - Vout) / Rout;
+  end
+
+endmodule

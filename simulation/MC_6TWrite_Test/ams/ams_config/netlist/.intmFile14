@@ -1,0 +1,51 @@
+
+// 
+// Design File for: (connectLib R2L module)
+//
+// R2L.vams - Basic Real to Logic connection module
+//
+// REVISION HISTORY
+// Created: 01/14/11, aspratt
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+
+connectmodule R2L(Rin, Lout);
+   output Lout;
+   input  Rin; wreal Rin;
+   
+   parameter real vsup = 1.8 from (0:inf);      // nominal supply voltage
+   parameter real vlo = 0;                      // logic low voltage
+   parameter real vhi = vlo+vsup from (vlo:vlo+vsup];   // logic high voltage
+   parameter real vtlo = vsup / 3;              // lower threshold
+   parameter real vthi = vsup /1.5;             // upper threshold
+   
+   reg 	     R_conv;
+   
+   initial
+     begin
+	/* set the initial value to Z */
+        R_conv = 1'bz;
+     end
+   
+   // Determine the value of R and convert to a logic value
+   always
+     begin
+        if(Rin >= vthi)
+	  R_conv = 1'b1;
+        else if (Rin <= vtlo)
+          R_conv = 1'b0;
+        else if(Rin === `wrealZState)
+          R_conv = 1'bz;
+        else
+          R_conv = 1'bx;
+
+        @(Rin);
+     end
+   
+   // drive the converted value back onto the output L pin
+   assign Lout = R_conv;
+   
+   
+endmodule

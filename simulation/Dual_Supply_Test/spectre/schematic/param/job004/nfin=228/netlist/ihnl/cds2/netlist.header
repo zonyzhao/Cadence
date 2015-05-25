@@ -1,5 +1,0 @@
-
-// Library name: 16nm
-// Cell name: 6T_PWR
-// View name: schematic
-subckt _sub13 A B0 B1 VDD GND

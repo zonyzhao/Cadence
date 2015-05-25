@@ -1,0 +1,221 @@
+
+// 
+// Design File for: (connectLib Bidir_2 module)
+//
+// Bidir_2.vams - Efficient bi-directional connection module
+// last revised:  7/19/12, jhou
+//
+// REVISION HISTORY:
+// Created:  1/18/04 jhou
+// Updated:  1/25/06 jhou - changed default tr to 0.2n
+//           4/18/06 jhou - map digital X/Z to analog 0 by default
+//                          in the full fast connect modules
+// Updated:  7/19/12 jhou - enhanced for strength models under -amssie.
+
+/****************************************************************************
+Description:
+
+* In 12.2, the connectmodule is enhanced for strength-based interface element
+ (SIE), which supports strength-based models including tran gate, and it is
+ enabled under -amssie option.
+ The signal value and propagation at the analog-digital interface are
+ resolved automatically based on the signal values and strengthes from
+ drivers on both analog and digital sides. 
+
+* Compared to Bidir, this Bidir_2 bi-directional connect module is designed
+ for better simulation performance while maintaining similar accuracy, with
+ the following different properties:
+
+1, Analog voltages of vx/vz, mapped from digital X/Z, are defaulted to
+   vlo (which is 0 by default) with output impedance rx/rz.
+   When the digital input changes from any value to Z at time > 0,
+   the analog output voltage does not change but only the output
+   impedance changes to rz (which is high impedance by default).
+   In contrast, Bidir maps digital Z/X to analog vsup/2 by default, which
+   is a worst case analysis but does not cover all worst cases.
+
+2, The output resistance upon digital X, rx, is default to 10 times the
+   sum of output-low and output-high resistances, since the output
+   resistance of a gate during transition is usually higher.
+
+3, When digital input changes, both analog output voltage and resistance
+   transition linearly. This usually improves the convergence of 
+   simulation.
+
+4, A 10% of rise/fall time tolerance is added on transition filters for
+   better performance, but the time tolerance is applied only 
+   when strictly following the rise/fall time would significantly
+   reduce the simulation speed.
+
+5, Bidir_2 applies driver-receiver segregation on all digital signal levels, 
+   while in contrast Bidir immediately feeds forward X value from
+   driver to receiver.
+
+6, The optimized hysteresis setup between above functions maximizes the
+   noise filtering capabilities and hence simulation speed. By default,
+   the time tolerance in cross function is 1/4 of transition rise/fall
+   time and voltage tolerance is 1/12 of voltage supply.
+
+****************************************************************************/
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+//strength values
+`define SUPPLY 7
+`define STRONG 6
+`define PULL   5
+`define LARGE  4
+`define WEAK   3
+`define MEDIUM 2
+`define SMALL  1
+`define HIZ    0
+
+//============================================================================
+connectmodule Bidir_2 (Din, Aout);
+  inout Din; \logic Din;                      // logic signal
+  inout Aout; electrical Aout;                // electrical signal
+
+// INSTANCE PARAMETERS:
+ parameter real vsup=1.8          from (0:inf);      // nominal supply voltage
+ parameter real vlo=0             ;  // logic low voltage
+ parameter real vhi=vlo+vsup          from (vlo:vlo+vsup];   // logic high voltage
+ parameter real vthi=vsup/1.5     from (vlo:vhi);   // upper threshold
+ parameter real vtlo=vthi/2       from (vlo:vthi);   // lower threshold
+ parameter real vx=vlo            from [vlo:vhi];    // X output voltage
+ parameter real tr=0.2n           from (0:inf);  // risetime of analog output
+ parameter real tf=tr             from (0:inf);  // falltime of analog output
+ parameter real ttol_t=(tr+tf)/20 from (0:inf);  // time tol of transition
+ parameter real tdelay=0          from [0:inf);  // delay time of analog output
+ parameter real rhi=200           from (0:inf);      // output resistance
+ parameter real rlo=rhi           from (0:inf);      // output resistance
+ parameter real rz=10M            from (0:inf);      // output resistance
+ parameter real rx=10*(rlo+rhi)   from (0:inf);      // output resistance
+ parameter real txdel=4*tr     from (0:1m];     // time midrange til output X
+ parameter real ttol_c=tr/4    from (0:1m];     // time tolerance of crossing
+ parameter real vtol=vsup/12   from (0:(vthi-vtlo)/2]; // voltage tolerance
+ parameter real vtlox=vtlo+vtol   from (vtlo:vthi);  // lo-to-x threshold point
+ parameter real vthix=vthi-vtol   from [vtlox:vthi); // hi-to-x threshold point
+ //Digital driver output resistence converted from strength
+ parameter real  r_SUPPLY=4      from (0: 10k);
+ parameter real  r_STRONG=(rhi+rlo)/2    from (0: inf);
+ parameter real  r_PULL  =1.5e3  from (0: inf);
+ parameter real  r_LARGE =9.0e3  from (r_PULL: inf);
+ parameter real  r_WEAK  =5.5e4  from (r_LARGE: inf);
+ parameter real  r_MEDIUM=3.2e5  from (r_WEAK: inf);
+ parameter real  r_SMALL =1.9e6  from (r_MEDIUM: inf);
+ //Analog driver output resistence up_threshold for converting to strength
+ parameter real  rth_SUPPLY=sqrt(r_SUPPLY*r_STRONG);
+ parameter real  rth_STRONG=sqrt(r_STRONG*r_PULL);  
+ parameter real  rth_PULL  =sqrt(r_PULL*r_LARGE);   
+ parameter real  rth_LARGE =sqrt(r_LARGE*r_WEAK);   
+ parameter real  rth_WEAK  =sqrt(r_WEAK*r_MEDIUM);  
+
+// LOCAL VARIABLES:
+ reg Dreg;                // register to write back logic
+ real Vstate,Rout;        // output voltage & resistance states
+ real rout;               // analog output resistance
+ reg Xin;                 // flag if analog is in midrange
+ real txdig;              // delay from midlevel to X in timescale units
+
+//STRENGTH RELATED VARIABLES:
+ real Ra;                 // state of analog driver output resistance
+ real Rth;                // R threshold for converting to strength
+ wire [7:0] strength_select; // flag to hold analog state
+ reg sie;
+ integer zero_strength, one_strength;
+ integer d_strength;
+ integer a_strength;
+ reg  [1:0] d_logic;
+ wire [31:0] Dval;
+ real ra;               // analog driver output resistance
+
+//============================================================================
+  initial begin
+    txdig=txdel/1n;        // digital delay midlevel to X  (ASSUMES TIMESCALE)
+    Dreg=1'b0;             // initial level
+    Xin=0;                 // initially not in X delay region.
+    Vstate=vlo; Rout=rz;         // initially map digital default to vlo/rz
+    Rth=rth_SUPPLY;        // initial R threshold.
+    a_strength = `STRONG;    // default analog strength
+    $SIE_input(Din, Dval);   //set digital driver sensitivity
+    sie = $strength_resolution(Din);
+  end
+
+// Calculate value from digital drivers in DRS (non-SIE) mode
+ always if (!sie) begin
+   case(Din)
+     1'b0:  begin  Vstate=vlo; Rout=rlo;    end
+     1'b1:  begin  Vstate=vhi; Rout=rhi;    end
+     1'bz:  begin  Rout=rz;  end
+     default:  begin Vstate=vx; Rout=rx;  end
+   endcase
+   @(Din);
+ end else @(sie);
+
+// Calculate value and strength from digital drivers in SIE mode
+ always if (sie) begin
+   d_logic = Dval & 2'b11;
+   zero_strength = (Dval >> 5) & 3'b111;
+   one_strength = (Dval >> 2) & 3'b111;
+   case (d_logic)
+     2'b00: begin Vstate=vlo; Rout=rlo; d_strength = zero_strength; end
+     2'b01: begin Vstate=vhi; Rout=rhi; d_strength = zero_strength; end
+     2'b10: begin d_strength = `HIZ; end
+     2'b11: begin Vstate=vx;  Rout=rx;  d_strength =     // for X, use smaller strength
+          (zero_strength < one_strength) ? zero_strength : one_strength;
+        end
+     default: begin d_strength = `HIZ; end
+   endcase
+   //Convert strength to digital driver output resistance:
+   case (d_strength)
+    `SUPPLY : Rout = r_SUPPLY;
+    `PULL   : Rout = r_PULL;
+    `LARGE  : Rout = r_LARGE;
+    `WEAK   : Rout = r_WEAK;
+    `MEDIUM : Rout = r_MEDIUM;
+    `SMALL  : Rout = r_SMALL;
+    `HIZ    : Rout = rz;
+   endcase
+   Ra = ra;
+ @(Dval); end else @(sie);
+ always @(Dreg & sie) Ra = ra;
+ always @(Ra) begin
+   if(Ra < rth_SUPPLY)      a_strength = `SUPPLY;
+   else if(Ra < rth_STRONG) a_strength = `STRONG;
+   else if(Ra < rth_PULL)   a_strength = `PULL;
+   else if(Ra < rth_WEAK)   a_strength = `WEAK;
+   else                     a_strength = `HIZ;
+ end
+ assign strength_select = a_strength == `SUPPLY ? 8'b10000000
+                        : a_strength == `STRONG ? 8'b01000000
+                        : a_strength == `PULL   ? 8'b00100000
+                        : a_strength <= `WEAK   ? 8'b00001000
+                        :                         8'b00000000;              
+ bufif1 (supply1, supply0) BSU(Din,  Dreg, strength_select[7]);
+ bufif1 (strong1, strong0) BST(Din,  Dreg, strength_select[6]);
+ bufif1 (pull1, pull0)     BPU(Din,  Dreg, strength_select[5]);
+ bufif1 (weak1, weak0)     BWE(Din,  Dreg, strength_select[3]);
+
+ analog begin
+  rout = transition(Rout,tdelay,tr,tf,ttol_t);     // rout shifts linearly also;
+  I(Aout) <+ (V(Aout)-transition(Vstate,tdelay,tr,tf,ttol_t))/rout;
+  ra = $input_resistance(Aout, Vstate, Rout, Rth);
+ end
+
+// Reflect actual levels on analog side back to digital side:
+  always @(above(V(Aout)-vthi,ttol_c,vtol))
+      begin Dreg=1; Xin=0; disable GoToX; end    // analog XtoH
+  always @(above(vtlo-V(Aout),ttol_c,vtol))
+      begin Dreg=0; Xin=0; disable GoToX; end    // analog XtoL
+  always @(above(vthix-V(Aout),ttol_c,vtol))
+      if (Dreg==1'b1) Xin=1;                     // analog HtoX
+  always @(above(V(Aout)-vtlox,ttol_c,vtol))
+      if (Dreg==1'b0) Xin=1;                     // analog LtoX
+// Wait for txdel before driving output to X:
+  always @(posedge(Xin)) begin :GoToX            // input changed to X
+    #(txdig)                                     // wait for X time delay
+    if (Xin==1) Dreg=1'bx;                       // goto X if still between
+  end
+
+endmodule

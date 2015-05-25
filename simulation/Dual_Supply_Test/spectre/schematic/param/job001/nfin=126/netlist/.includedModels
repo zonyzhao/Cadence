@@ -1,3 +1,0 @@
-simulator lang=spectre
-include "nfet.scs"
-include "pfet.scs"

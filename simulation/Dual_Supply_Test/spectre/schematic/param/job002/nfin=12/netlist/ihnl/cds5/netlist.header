@@ -1,5 +1,0 @@
-
-// Library name: 16nm
-// Cell name: nand4_1x_PWR
-// View name: schematic
-subckt nand4_1x_PWR A B C D GND VDD Y

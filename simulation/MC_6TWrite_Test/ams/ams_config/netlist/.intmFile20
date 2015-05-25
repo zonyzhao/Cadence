@@ -1,0 +1,166 @@
+
+// 
+// Design File for: (connectLib L2E_2 module)
+//
+// L2E_2.vams - Efficient logic-to-electrical connection module
+// last revised:  7/19/12, jhou
+//
+// REVISION HISTORY:
+// Created:  1/15/04 jhou
+// Updated:  1/25/06 jhou - changed default tr to 0.2n
+//           4/18/06 jhou - map digital X/Z to analog 0 by default
+//                          in the full fast connect modules
+// Updated:  7/19/12 jhou - enhanced for strength models under -amssie.
+
+/****************************************************************************
+Description:
+
+* In 12.2, the connectmodule is enhanced for strength-based interface element
+ (SIE), which supports strength-based models including tran gate, and it is
+ enabled under -amssie option.
+ The signal value and propagation at the analog-digital interface are
+ resolved automatically based on the signal values and strengthes from
+ drivers on both analog and digital sides.
+
+* Compared to L2E, this L2E_2 logic-to-electrical connect module is designed
+ for better simulation performance while having full support of unidirectional
+ 4-level (0, 1, X, and Z) logic to electrical value conversion, with
+ the following different properties:
+
+1, For digital side driver-receiver segregation, L2E_2 performs a direct
+   mapping from ordinary module drivers to ordinary module receivers
+   without considering analog loading effect feedback, since it is
+   unidirectional at the digital to analog boundary.
+   On connections where analog loading effects need to be considered
+   in the digital reciver side, the ports in ordinary modules need to be
+   declared as inout so that Bidir_2 modules are used for the same.
+
+2, Analog voltages of vx/vz, mapped from digital X/Z, are defaulted to
+   vlo (which is 0 by default) with output impedance rx/rz.
+   When the digital input changes from any value to Z at time > 0,
+   the analog output voltage does not change but only the output
+   impedance changes to rz (which is high impedance by default).
+   In contrast, L2E maps digital Z/X to analog vsup/2 by default, which
+   is a worst case analysis but does not cover all worst cases.
+
+3, The output resistance upon digital X, rx, is default to 10 times the
+   sum of output-low and output-high resistances, since the output
+   resistance of a gate during transition is usually higher.
+
+4, When digital input changes, both analog output voltage and resistance
+   transition linearly. This usually improves the convergence of
+   simulation.
+
+5, A 10% of rise/fall time tolerance is added on transition filters for
+   better performance, but the time tolerance is applied only 
+   when strictly following the rise/fall time would significantly
+   reduce the simulation speed.
+
+****************************************************************************/
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+//strength values
+`define SUPPLY 7
+`define STRONG 6
+`define PULL   5
+`define LARGE  4
+`define WEAK   3
+`define MEDIUM 2
+`define SMALL  1
+`define HIZ    0
+
+connectmodule L2E_2(Din,Aout);
+ input Din; \logic Din;         // digital input signal
+ output Aout; electrical Aout;  // analog output signal
+ 
+ parameter real vsup=1.8          from (0:inf);      // nominal supply voltage
+ parameter real vlo=0             ;  // logic low voltage
+ parameter real vhi=vlo+vsup      from (vlo:vlo+vsup];   // logic high voltage
+ parameter real vthi=vsup/1.5     from (vlo:vhi);   // upper threshold
+ parameter real vtlo=vsup/3       from (vlo:vthi);   // lower threshold
+ parameter real vx=vlo            from [vlo:vhi];    // X output voltage
+ parameter real tr=0.2n           from (0:inf);  // risetime of analog output
+ parameter real tf=tr             from (0:inf);  // falltime of analog output
+ parameter real ttol_t=(tr+tf)/20 from (0:inf);  // time tol of transition
+ parameter real tdelay=0          from [0:inf);  // delay time of analog output
+ parameter real rhi=200           from (0:inf);      // output resistance
+ parameter real rlo=rhi           from (0:inf);      // output resistance
+ parameter real rz=10M            from (0:inf);      // output resistance
+ parameter real rx=10*(rlo+rhi)   from (0:inf);      // output resistance
+ //Digital driver output resistence converted from strength
+ parameter real  r_SUPPLY=4      from (0: 10k);
+ parameter real  r_STRONG=(rhi+rlo)/2    from (0: inf);
+ parameter real  r_PULL  =1.5e3  from (0: inf);
+ parameter real  r_LARGE =9.0e3  from (r_PULL: inf);
+ parameter real  r_WEAK  =5.5e4  from (r_LARGE: inf);
+ parameter real  r_MEDIUM=3.2e5  from (r_WEAK: inf);
+ parameter real  r_SMALL =1.9e6  from (r_MEDIUM: inf);
+ //Analog driver output resistence up_threshold for converting to strength
+ parameter real  rth_SUPPLY=sqrt(r_SUPPLY*r_STRONG);
+ parameter real  rth_STRONG=sqrt(r_STRONG*r_PULL);
+ parameter real  rth_PULL  =sqrt(r_PULL*r_LARGE);
+ parameter real  rth_LARGE =sqrt(r_LARGE*r_WEAK);
+ parameter real  rth_WEAK  =sqrt(r_WEAK*r_MEDIUM);
+
+ real Vstate,Rout;              // output voltage & resistance states
+ real rout;                     // analog output resistance
+
+//STRENGTH RELATED VARIABLES:
+ reg sie;
+ integer zero_strength, one_strength;
+ integer d_strength;
+ reg  [1:0] d_logic;
+ wire [31:0] Dval;
+ 
+//============================================================================
+ initial begin
+   Vstate=vlo; Rout=rz;         // initially map digital default to vlo/rz
+   $SIE_input(Din, Dval);       // set digital driver sensitivity
+   sie = $strength_resolution(Din);
+ end
+
+// Calculate value from digital drivers in DRS (non-SIE) mode
+ assign Din = sie? 1'bz : Din;  // direct driver-receiver propagation
+ always if (!sie) begin
+   case(Din)
+     1'b0:  begin  Vstate=vlo; Rout=rlo;    end
+     1'b1:  begin  Vstate=vhi; Rout=rhi;    end
+     1'bz:  begin  Rout=rz;  end
+     default:  begin Vstate=vx; Rout=rx;  end
+   endcase
+   @(Din); 
+ end else @(sie);
+
+// Calculate value and strength from digital drivers in SIE mode
+ always if (sie) begin
+   d_logic = Dval & 2'b11;
+   zero_strength = (Dval >> 5) & 3'b111;
+   one_strength = (Dval >> 2) & 3'b111;
+   case (d_logic)
+     2'b00: begin Vstate=vlo; Rout=rlo; d_strength = zero_strength; end
+     2'b01: begin Vstate=vhi; Rout=rhi; d_strength = zero_strength; end
+     2'b10: begin d_strength = `HIZ; end
+     2'b11: begin Vstate=vx;  Rout=rx;  d_strength =     // for X, use smaller strength
+          (zero_strength < one_strength) ? zero_strength : one_strength;
+        end
+     default: begin d_strength = `HIZ; end
+   endcase
+   //Convert strength to digital driver output resistance:
+   case (d_strength)
+    `SUPPLY : Rout = r_SUPPLY;
+    `PULL   : Rout = r_PULL;
+    `LARGE  : Rout = r_LARGE;
+    `WEAK   : Rout = r_WEAK;
+    `MEDIUM : Rout = r_MEDIUM;
+    `SMALL  : Rout = r_SMALL;
+    `HIZ    : Rout = rz;
+   endcase
+ @(Dval); end else @(sie);
+
+ analog begin
+  rout = transition(Rout,tdelay,tr,tf,ttol_t);     // rout shifts linearly also;
+  I(Aout) <+ (V(Aout)-transition(Vstate,tdelay,tr,tf,ttol_t))/rout; 
+ end
+endmodule

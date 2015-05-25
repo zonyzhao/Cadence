@@ -1,5 +1,0 @@
-
-// Library name: 20nm
-// Cell name: inv_4x_PWR
-// View name: schematic
-subckt inv_4x_PWR A GND VDD Y

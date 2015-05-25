@@ -1,2 +1,0 @@
-parameters nfin=12 VDDH=.600 VDDL=.450 period=6n pulseWidth=3n \
-    startDelay=5n C=1.41414141414141e-14 timeStop=3*period

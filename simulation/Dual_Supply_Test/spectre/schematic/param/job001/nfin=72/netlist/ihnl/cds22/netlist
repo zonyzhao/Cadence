@@ -1,7 +1,0 @@
-    M5 (\~R0 SM0\<0\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-    M3 (\~R0 SM0\<1\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-    M2 (net18 Go GND GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-    M1 (\~R1 SM1\<1\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-    M0 (\~R1 SM1\<0\> net18 GND) nfet w=40n l=16n nfin=1 nf=1 m=1
-ends _sub7
-// End of subcircuit definition.

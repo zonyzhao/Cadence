@@ -1,8 +1,0 @@
-Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
-Version 14.1.0.303.isr3 64bit -- 16 Dec 2014
-Simulating `input.scs' on bull at 1:25:27 PM, Thur May 21, 2015 (process id: 7689).
-H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre0_5932_1" )
-H->sclSetResultDir( "../psf" )
-H->sclRun( "all" )
-sclCkt0x7294fe0 = H->sclGetCircuit(  "" )
-H->sclQuit(  )

@@ -1,0 +1,576 @@
+#!/bin/ksh
+
+unset LD_ASSUME_KERNEL
+########################################################################
+# Somewhere below, the script should define two environment
+# variables called incrementalCompile and incrementalElab. When set,
+# incremental compilation/elaboration will be attempted. Otherwise
+# all cellviews will be compiled, and an elaboration will be carried
+# out. Default is incremental compilation and non-incremental
+# elaboration. If by default, elaboration should also be incremental,
+# then please change the "incrementalElab=no" to incrementalElab=yes"
+# on line 40 below.
+#
+# This script uses a binary called convertTime which should be
+# found in a CIC path.
+#
+# Somewhere below, define a variable AMS_CDS_LIB to point to the
+# cds.lib file that should be used for ncls.
+#
+# Somewhere below, this script should define three environment variables
+# to make file paths independent of the location of the testcase. The
+# variables should be:
+#   AMS_CIC_HIER    - contains $(cds_root icms)
+#   AMS_AMS_HIER    - contains $(cds_root ncsim)
+#   AMS_INVOKE_DIR  - contains the path to invocation directory
+#   AMS_NETLIST_DIR - contains the path to netlist directory
+#   AMS_CDS_LIB     - contains the path to cds.lib
+#   AMS_RESULTS_DIR - contains the path to results directory
+########################################################################
+
+# The path to the convertTime binary
+typeset convertTime=$(whence convertTime)
+if [[ -z "$convertTime" ]]
+then
+  printf "$0: Cannot find the binary 'convertTime' in path.\n\tIncremental compilation and elaboration will not work.\n\tPlease add <IC Hierarchy>/tools/dfII/bin to PATH"
+  exit 1
+fi
+
+# By default, everything incremental
+typeset incrementalCompile=yes
+typeset incrementalElab=yes
+
+# Be sure to define AMS_AMS_HIER
+if [[ -z $AMS_AMS_HIER ]]; then
+   typeset AMS_AMS_HIER
+fi
+
+# Be sure to define AMS_CIC_HIER
+if [[ -z $AMS_CIC_HIER ]]; then
+   typeset AMS_CIC_HIER
+fi
+
+# Be sure to define AMS_INVOKE_DIR
+if [[ -z $AMS_INVOKE_DIR ]]; then
+   typeset AMS_INVOKE_DIR
+fi
+
+# Be sure to define AMS_NETLIST_DIR
+if [[ -z $AMS_NETLIST_DIR ]]; then
+   typeset AMS_NETLIST_DIR
+fi
+
+# Be sure to define AMS_CDS_LIB
+if [[ -z $AMS_CDS_LIB ]]; then
+   typeset AMS_CDS_LIB
+fi
+
+# Be sure to define AMS_RESULTS_DIR
+if [[ -z $AMS_RESULTS_DIR ]]; then
+   typeset AMS_RESULTS_DIR
+fi
+
+
+if [[ -z $CDS_BIND_TMP_DD ]]; then
+   typeset CDS_BIND_TMP_DD="true"
+fi
+
+# Be sure to define implicit tmp dir if used
+typeset implicitTmpDir=""
+
+# The value to be returned back to the caller
+typeset -i value=0
+
+# The latest compilation timestamp for the design. If incremental
+# elaboration is to be performed AND nothing was compiled in the
+# current script, then this timestamp is compared against the current
+# snapshot timestamp.
+typeset -i latestCompileTimestamp=0
+
+# Whether we compiled at least one file, so we can directly elab without
+# requiring timestamp comparisons.
+typeset needElab=no
+
+# do we have ncvlog or ncvhdl command ?
+typeset haveCompCmd=no
+
+########################################################################
+# Function: setReturnValue x_value t_success t_failure
+# Returns the first argument (should be an integer). Useful to set
+# the return value to an arbitrary specified integer without having
+# to call exit to terminate the script (we do not know whether to
+# exit after compilation or elaboration, simulation). Also prints
+# t_success if $1 == 0. Else prints t_failure.
+########################################################################
+
+function setReturnValue
+{
+  if [[ "$1" = 0 ]]
+  then
+    if [[ -n "$2" ]] ; then print "$2" ; fi
+  else
+    if [[ -n "$3" ]] ; then print "$3" ; fi
+    # If the return status was anything other than 0, don't
+    # to proceed. Definitely exit.
+    exit $1
+  fi
+  # Supply the value back to the caller.
+  return $1
+}
+
+########################################################################
+# Function: getUnitTimestamp lib cell view other options ...
+# Get the timestamp of the unit lib.cell:view from the packed library
+# and compare it against the passed in fileTime. If there is a mismatch
+# then we need to recompile the file.
+########################################################################
+
+function getUnitTimestamp
+{
+  typeset lib="$1" cell="$2" view="$3" unit="$4" implDir="" cmdBinary="$5" nocell="$6"
+  typeset tmStr
+  typeset -i tm
+  shift 3
+
+  if [[ -n "$implicitTmpDir" ]]
+  then
+    implDir="-cds_implicit_tmpdir $implicitTmpDir"
+  fi
+  tmStr=$(ncls -nolog -neverwarn -nocopy $implDir -cdslib "${AMS_CDS_LIB}" -time $unit "$lib.$cell:$view" | sed -n 's/^.*@ \(.*\)$/\1/p')
+  if [[ $nocell = yes && $cmdBinary = "ncvhdl" ]]
+  then
+     tmStr=$(ncls -nolog -neverwarn -nocopy $implDir -cdslib "${AMS_CDS_LIB}" -time "$lib.$cell" | head -1 | sed -n 's/^.*@ \(.*\)$/\1/p')
+  fi
+  if [[ -n "$tmStr" ]]
+  then
+    tm=$($convertTime -time "$tmStr")
+  else
+    tm=0
+  fi
+  print "$tm"
+}
+
+########################################################################
+# Function: needCompile lib cell view fileTime isVHDL
+# Get the timestamp of the unit lib.cell:view from the packed library
+# and compare it against the passed in fileTime. If there is a mismatch
+# then we need to recompile the file.
+########################################################################
+
+function needCompile
+{
+  typeset lib cell view nocell=no isVHDL=$5 unit filePath=$6 cmdBinary=$7
+  typeset -i fileTime=$4
+  typeset -i tm
+
+  if [[ $isVHDL = yes ]]
+  then
+    lib=$(nmp mapName CDBA VHDLAMS "$1")
+    cell=$(nmp mapName CDBA VHDLAMS "$2")
+    view=$(nmp mapName CDBA VHDLAMS "$3")
+  else
+    lib=$(nmp mapName CDBA VerilogAMS "$1")
+    cell=$(nmp mapName CDBA VerilogAMS "$2")
+    view=$(nmp mapName CDBA VerilogAMS "$3")
+  fi
+  
+  if [[ $isVHDL = yes ]]
+  then
+    unit="-vhdl"
+  else
+    unit="-verilog"
+  fi
+
+  if [[ $2 = "" ]]
+    then
+        nocell=yes
+        if [[ $7 = "ncvlog" ]]
+        then
+            $(ncvlog -nolog -neverwarn -ams -nocopy -zparse /tmp/amsCompile_$$  $filePath)
+            cell=$(grep name /tmp/amsCompile_$$ | head -1 | awk '{print $2}' | cut -f2 -d\")
+            $(\rm /tmp/amsCompile_$$)
+        else
+            $(ncvhdl -nolog -neverwarn -ams -nocopy -zparse /tmp/amsCompile_$$  $filePath)
+            cell=$(grep primaryName /tmp/amsCompile_$$ | head -1 | awk '{print $2}' | cut -f2 -d\")
+            $(\rm /tmp/amsCompile_$$)
+        fi
+  fi
+
+
+  tm=$(getUnitTimestamp "$lib" "$cell" "$view" "$unit" "$cmdBinary" "$nocell")
+  print "$tm"
+
+  # Compilation keeps the exact timestamp of the file and for VHDL the
+  # time of file compilation. So just do a >= check ...
+  if (( fileTime > tm ))
+  then
+    true
+  else
+    false
+  fi
+}
+
+########################################################################
+# Function: compile lib cell view filePath ncvlog/vhdl cmd line args
+# Executes the current command line passed and sets the return
+# value according to the result of execution. Only returns the
+# first error code (does not pay attention to subsequent failures).
+########################################################################
+
+function compile
+{
+  typeset lib cell view filePath cmdBinary doCompile=yes isVHDL=no fileName
+  typeset -i unitTimestamp=0
+
+  lib="$1" ; cell="$2" ; view="$3" ; filePath="$4" ; cmdBinary="$5"
+  shift 4
+  if [[ $incrementalCompile = yes ]]
+  then
+    # Check the timestamp against what nc knows.
+    fileTime=$($convertTime -file $filePath)
+
+    if [[ $(basename $filePath) = vhdl.* ]]
+    then
+      isVHDL=yes
+    fi
+
+    # Perform the check against ncls
+    if unitTimestamp=$(needCompile "$lib" "$cell" "$view" $fileTime $isVHDL $filePath $cmdBinary)
+    then
+      doCompile=yes
+      (( unitTimestamp = fileTime ))
+    else
+      doCompile=no
+    fi
+
+    # Update the most recent compiled timestamp
+    if [[ $needElab = no && $incrementalElab = yes ]]
+    then
+      if (( unitTimestamp > latestCompileTimestamp ))
+      then
+        (( latestCompileTimestamp = unitTimestamp ))
+      fi
+    fi
+
+  fi
+
+  if [[ $doCompile = yes ]]
+  then
+    #it is possible that there are multiple compile commands.
+    #the original value of haveCompCmd is no.
+    #when compile is called for the first time, change the value
+    #from no to yes and remove the log files.
+    #then compile is called twice, do nothing.
+    if [[ $haveCompCmd = no ]]
+    then
+      haveCompCmd=yes
+      fileName="${AMS_RESULTS_DIR}/ncvlog.log"
+      if [[ -s "$fileName" ]]
+      then
+        $(\rm $fileName)
+      fi
+
+      fileName="${AMS_RESULTS_DIR}/ncvhdl.log"
+      if [[ -s "$fileName" ]]
+      then
+        $(\rm $fileName)
+      fi
+
+      fileName="${AMS_RESULTS_DIR}/ncelab.log"
+      if [[ -s "$fileName" ]]
+      then
+        $(\rm $fileName)
+      fi
+
+      fileName="${AMS_RESULTS_DIR}/partition.info"
+      if [[ -s "$fileName" ]]
+      then
+        $(\rm $fileName)
+      fi
+    fi
+
+    if "$@"
+    then
+      # incase cell is a null string, print the filepath too.
+      if [[ $cell = "" ]] 
+      then
+         print "Successfully compiled ('$lib' '$cell' '$view' '$filePath')."
+      else
+         print "Successfully compiled ('$lib' '$cell' '$view')."
+      fi
+      needElab=yes
+    else
+      if [[ $cell = "" ]]
+      then
+          print "Failed to compile ('$lib' '$cell' '$view' '$filePath')."
+      else
+          print "Failed to compile ('$lib' '$cell' '$view')."
+      fi
+      value=1
+    fi
+  fi
+}
+
+########################################################################
+# Function: elab lib cell view gLib gCell gView cLib cCell cView command ...
+# Executes the ncelab command for design (lib cell view) with globals
+# as (gLib gCell gView) and connect rules (cLib cCell cView) after
+# performing incremental checks as required.
+# Depends upon the values of incrementalElab, needElab,
+# latestCompileTimestamp. Add the timestamps of cds_globals,
+# connect_rules to computation of latestCompileTimestamp. Then compares
+# the timestamps of sss for design, agaist latestCompileTimestamp IF
+# incremental elab is on.
+########################################################################
+
+function elab
+{
+  typeset lib="$1" cell="$2" view="$3" gLib="$4" gCell="$5" gView="$6"
+  typeset cLib="$7" cCell="$8" cView="$9"
+  typeset vLib vCell vView fileName
+  shift 9
+  typeset -i sssTm=0 gTm=0 cTm=0
+
+  if [[ $incrementalElab = yes && $needElab = no && $latestCompileTimestamp != 0 ]]
+  then
+    # We are supposed to perform an incremental elaboration.
+    # We know that so far, there have been no compilations.
+    # We know that we DID look at all the compile timestamps and that
+    #   latestCompileTimestamp contains a real timestamp.
+    # Let's first get the sss timestamp. If there is none, or the one
+    # exists is older that latestCompileTimestamp, we straightway elab.
+    # On the other hand, if the latestCompileTimestamp is older than the
+    # snapshot timestamp, we need to check if cds_globals or the connect
+    # rules have changed more recently.
+
+    # In our case, the top level is always VerilogAMS.
+    vLib=$(nmp mapName CDBA VerilogAMS "$lib")
+    vCell=$(nmp mapName CDBA VerilogAMS "$cell")
+    vView=$(nmp mapName CDBA VerilogAMS "$view")
+    sssTm=$(getUnitTimestamp "$vLib" "$vCell" "$vView" "-snapshot")
+    if (( sssTm == 0 || sssTm < latestCompileTimestamp ))
+    then
+      # We need to elaborate
+      needElab=yes
+    else
+      # Check for cds_globals/connectrules timestamps
+      # We assume that g* and c* are already in the right namespace.
+      gTm=$(getUnitTimestamp "$gLib" "$gCell" "$gView" "-verilog")
+      if [[ -n "$cLib" && -n "$cCell" && -n "$cView" ]]
+      then
+        cTm=$(getUnitTimestamp "$cLib" "$cCell" "$cView" "-connect")
+      fi
+      if (( gTm > sssTm || cTm > sssTm ))
+      then
+        needElab=yes
+      fi
+    fi
+  else
+    needElab=yes
+  fi
+
+  if [[ $needElab = yes ]]
+  then
+    fileName="${AMS_RESULTS_DIR}/ncelab.log"
+    if [[ -s "$fileName" ]]
+    then
+      $(\rm $fileName)
+    fi
+
+    fileName="${AMS_RESULTS_DIR}/partition.info"
+    if [[ -s "$fileName" ]]
+    then
+      $(\rm $fileName)
+    fi
+
+    # Run elaboration
+    "$@"
+    setReturnValue $? \
+      "Successfully elaborated (\"$lib\" \"$cell\" \"$view\")." \
+      "Failed to elaborate (\"$lib\" \"$cell\" \"$view\")."
+  else
+    # No need to elaborate
+    setReturnValue 0 \
+      "Skipped elaboration of (\"$lib\" \"$cell\" \"$view\").\n\tSnapshot is up-to-date." ""
+  fi
+}
+
+function convertReturnValue
+{
+  typeset rtnVal=$1
+  typeset logFileName="${AMS_RESULTS_DIR}/logFile"
+  if [[ "$1" = 1 && -s "$logFileName" ]]
+  then
+    rtnVal=$2
+  fi
+  # Supply the value back to the caller.
+  return $rtnVal
+}
+
+########################################################################
+# Write lines to do the actual compilation below. The commands should be
+# as follows:
+#  compile lib cell view filePath ncvlog -ams -work lib ...
+#
+# Everything after the first four arguments will be executed by
+# the compile function. At the end, the script should return $value.
+# At the very end of all the commands, the writer should put
+#  setReturnValue $value
+#
+# There are a few other things the writer should put in values for:
+#   incrementalCompile
+#   incrementalElab
+#   AMS_CDS_LIB
+#   AMS_RESULTS_DIR
+#   implicitTmpDir
+#
+# The elaboration line should be written as:
+#   elab lib cell view gLib gCell gView cLib cCell cView command
+#
+# Finally, the simulation command should be written followed by a
+# setReturnValue call.
+########################################################################
+
+# Set location variables
+if [[ -z $LD_LIBRARY_PATH ]] then
+    LD_LIBRARY_PATH=`cds_root ncsim`/tools/lib
+else
+    LD_LIBRARY_PATH=`cds_root ncsim`/tools/lib:$LD_LIBRARY_PATH
+fi
+export LD_LIBRARY_PATH
+
+
+if [[ -z $AMS_AMS_HIER ]]; then
+   AMS_AMS_HIER=/apps/cadence/INCISIVE142
+fi
+
+if [[ -z $AMS_CIC_HIER ]]; then
+   AMS_CIC_HIER=/apps/cadence/IC616
+fi
+
+if [[ -z $AMS_INVOKE_DIR ]]; then
+   AMS_INVOKE_DIR=/root/Desktop/Cadence
+fi
+
+if [[ -z $AMS_NETLIST_DIR ]]; then
+   AMS_NETLIST_DIR=/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist
+fi
+
+if [[ -z ${AMS_CDS_LIB} ]]; then
+   AMS_CDS_LIB=${AMS_INVOKE_DIR}/cds.lib
+fi
+
+if [[ -z ${AMS_RESULTS_DIR} ]]; then
+   AMS_RESULTS_DIR=/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/psf
+fi
+
+implicitTmpDir=ihnl
+
+incrementalCompile=yes
+
+# Compile '16nm_Tests' 'cds_globals' 'MC_6TWrite_Test_ams_config' '${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams'
+compile '16nm_Tests' 'cds_globals' 'MC_6TWrite_Test_ams_config' "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm_Tests ' -specificunit 'cds_globals'  -view 'MC_6TWrite_Test_ams_config'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/cds_globals/MC_6TWrite_Test_ams_config/verilog.vams"
+
+# Compile 'connectLib' 'ConnRules_18V_full_fast' 'connect' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ConnRules_18V_basic/connect/verilog.vams'
+compile 'connectLib' 'ConnRules_18V_full_fast' 'connect' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ConnRules_18V_basic/connect/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'ConnRules_18V_full_fast'  -view 'connect'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ConnRules_18V_basic/connect/verilog.vams"
+
+# Compile 'connectLib' 'ER_Bidir_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/module/verilog.vams'
+compile 'connectLib' 'ER_Bidir_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'ER_Bidir_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'R2E_2_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2_LPS/module/verilog.vams'
+compile 'connectLib' 'R2E_2_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'R2E_2_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'E2R_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R_LPS/module/verilog.vams'
+compile 'connectLib' 'E2R_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'E2R_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'RL_Bidir_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_Bidir_LPS/module/verilog.vams'
+compile 'connectLib' 'RL_Bidir_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_Bidir_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'RL_Bidir_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_Bidir_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'L2R_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R_LPS/module/verilog.vams'
+compile 'connectLib' 'L2R_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'L2R_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'R2L_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L_LPS/module/verilog.vams'
+compile 'connectLib' 'R2L_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'R2L_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'E2L_2_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2_LPS/module/verilog.vams'
+compile 'connectLib' 'E2L_2_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'E2L_2_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'Bidir_2_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2_LPS/module/verilog.vams'
+compile 'connectLib' 'Bidir_2_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'Bidir_2_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'L2E_2_LPS' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2_LPS/module/verilog.vams'
+compile 'connectLib' 'L2E_2_LPS' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2_LPS/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'L2E_2_LPS'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2_LPS/module/verilog.vams"
+
+# Compile 'connectLib' 'RL_bidir' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_bidir/module/verilog.vams'
+compile 'connectLib' 'RL_bidir' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_bidir/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'RL_bidir'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_bidir/module/verilog.vams"
+
+# Compile 'connectLib' 'L2R' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R/module/verilog.vams'
+compile 'connectLib' 'L2R' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'L2R'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R/module/verilog.vams"
+
+# Compile 'connectLib' 'R2L' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L/module/verilog.vams'
+compile 'connectLib' 'R2L' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'R2L'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L/module/verilog.vams"
+
+# Compile 'connectLib' 'ER_bidir' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_bidir/module/verilog.vams'
+compile 'connectLib' 'ER_bidir' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_bidir/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'ER_bidir'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_bidir/module/verilog.vams"
+
+# Compile 'connectLib' 'R2E_2' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2/module/verilog.vams'
+compile 'connectLib' 'R2E_2' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'R2E_2'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2/module/verilog.vams"
+
+# Compile 'connectLib' 'E2R' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R/module/verilog.vams'
+compile 'connectLib' 'E2R' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'E2R'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R/module/verilog.vams"
+
+# Compile 'connectLib' 'Bidir_2' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2/module/verilog.vams'
+compile 'connectLib' 'Bidir_2' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'Bidir_2'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2/module/verilog.vams"
+
+# Compile 'connectLib' 'E2L_2' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2/module/verilog.vams'
+compile 'connectLib' 'E2L_2' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'E2L_2'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2/module/verilog.vams"
+
+# Compile 'connectLib' 'L2E_2' 'module' '${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2/module/verilog.vams'
+compile 'connectLib' 'L2E_2' 'module' "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2/module/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'connectLib' -specificunit 'L2E_2'  -view 'module'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_AMS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2/module/verilog.vams"
+
+# Compile 'basic' 'cds_alias' 'functional' '${AMS_CIC_HIER}/tools.lnx86/dfII/etc/cdslib/basic/cds_alias/functional/verilog.v'
+compile 'basic' 'cds_alias' 'functional' "${AMS_CIC_HIER}/tools.lnx86/dfII/etc/cdslib/basic/cds_alias/functional/verilog.v" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work 'basic' -specificunit 'cds_alias'  -view 'functional'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_CIC_HIER}/tools.lnx86/dfII/etc/cdslib/basic/cds_alias/functional/verilog.v"
+
+# Compile '16nm' 'inv_1x' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/inv_1x/schematic/verilog.vams'
+compile '16nm' 'inv_1x' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/inv_1x/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit 'inv_1x'  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/inv_1x/schematic/verilog.vams"
+
+# Compile '16nm' '6T_SetRead' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_SetRead/schematic/verilog.vams'
+compile '16nm' '6T_SetRead' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_SetRead/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_SetRead '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_SetRead/schematic/verilog.vams"
+
+# Compile '16nm' 'nand4_1x' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/nand4_1x/schematic/verilog.vams'
+compile '16nm' 'nand4_1x' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/nand4_1x/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit 'nand4_1x'  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/nand4_1x/schematic/verilog.vams"
+
+# Compile '16nm' '6T_32x_CTRL' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x_CTRL/schematic/verilog.vams'
+compile '16nm' '6T_32x_CTRL' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x_CTRL/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_32x_CTRL '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x_CTRL/schematic/verilog.vams"
+
+# Compile '16nm' '6T' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T/schematic/verilog.vams'
+compile '16nm' '6T' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T/schematic/verilog.vams"
+
+# Compile '16nm' '6T_4x' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_4x/schematic/verilog.vams'
+compile '16nm' '6T_4x' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_4x/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_4x '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_4x/schematic/verilog.vams"
+
+# Compile '16nm' '6T_32x' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x/schematic/verilog.vams'
+compile '16nm' '6T_32x' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_32x '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x/schematic/verilog.vams"
+
+# Compile '16nm' '6T_32x4' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x4/schematic/verilog.vams'
+compile '16nm' '6T_32x4' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x4/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_32x4 '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_32x4/schematic/verilog.vams"
+
+# Compile '16nm' '6T_CHUNK' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm/6T_CHUNK/schematic/verilog.vams'
+compile '16nm' '6T_CHUNK' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm/6T_CHUNK/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm ' -specificunit '\6T_CHUNK '  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm/6T_CHUNK/schematic/verilog.vams"
+
+# Compile '16nm_Tests' 'MC_6TWrite_Test' 'schematic' '${AMS_NETLIST_DIR}/ihnl/16nm_Tests/MC_6TWrite_Test/schematic/verilog.vams'
+compile '16nm_Tests' 'MC_6TWrite_Test' 'schematic' "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/MC_6TWrite_Test/schematic/verilog.vams" ncvlog -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -cds_implicit_tmponly -use5x -ams  -work '\16nm_Tests ' -specificunit 'MC_6TWrite_Test'  -view 'schematic'  -errormax 50 -update -uptodate_messages -cdslib ${AMS_CDS_LIB} -log ${AMS_RESULTS_DIR}/ncvlog.log -append_log  -incdir ${AMS_INVOKE_DIR}/ -incdir ${AMS_NETLIST_DIR} -messages -status -nowarn DLNOHV "${AMS_NETLIST_DIR}/ihnl/16nm_Tests/MC_6TWrite_Test/schematic/verilog.vams"
+
+setReturnValue $value 'Compilation successful.' 'Compilation failed.'
+
+incrementalElab=no
+
+# Elaborate '16nm_Tests' 'MC_6TWrite_Test' 'ams_config'
+elab '16nm_Tests' 'MC_6TWrite_Test' 'ams_config' '\16nm_Tests ' 'cds_globals' 'MC_6TWrite_Test_ams_config' '' '' '' ncelab -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -timescale 1ps/1ps -discipline logic -nowarn DLNOHV -delay_mode None -novitalaccl -access +r -errorMax 50 -messages -status -v93 -cdslib ${AMS_CDS_LIB} -noparamerr -use5x4vhdl -update -amspartinfo ${AMS_RESULTS_DIR}/partition.info -rnm_partinfo -modelpath "${AMS_INVOKE_DIR}/ncsu-FreePDK15/PTM-MG/smodels.scs" -work 16nm_Tests '16nm_Tests.MC_6TWrite_Test:ams_config' connectLib.ConnRules_18V_full_fast:connect 16nm_Tests.cds_globals:MC_6TWrite_Test_ams_config -logfile ${AMS_RESULTS_DIR}/ncelab.log 
+
+# Simulate '16nm_Tests' 'MC_6TWrite_Test' 'ams_config'
+ncsim  -cds_implicit_tmpdir ${AMS_NETLIST_DIR}/ihnl -analogControl ${AMS_NETLIST_DIR}/amsControlSpectre.scs -unbuffer -nowarn DLNOHV -errorMax 50 -messages -status -cdslib ${AMS_CDS_LIB} -input ${AMS_NETLIST_DIR}/amsControl.tcl -run -exit 16nm_Tests.MC_6TWrite_Test:ams_config -logfile ${AMS_RESULTS_DIR}/ncsim.log +amsrawdir ${AMS_RESULTS_DIR}  -simcompat spectre 
+
+convertReturnValue $? 0
+
+setReturnValue $? 'Successfully simulated ("16nm_Tests" "MC_6TWrite_Test" "ams_config").' 'Failed to simulate ("16nm_Tests" "MC_6TWrite_Test" "ams_config").'

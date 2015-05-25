@@ -1,0 +1,35 @@
+$FILE_FORMAT_VERSION
+	Version 1.1;
+$END
+$VECTOR_PREFERENCE
+	descending;
+$END
+$GLOBAL_SIGNALS
+	gnd!:::;
+	vdd!:::;
+$END
+$VERILOG_NAME_MAP_LIST
+	net:gnd!:cds_globals.\\gnd! ;
+	net:vdd!:cds_globals.\\vdd! ;
+$END
+$TIMESTAMP
+	-1=5-basic4-ipin;
+	1273039899=5-basic4-ipin6-symbol;
+	1430562243=22-NCSU_TechLib_FreePDK154-pfet;
+	1428568474=22-NCSU_TechLib_FreePDK154-pfet6-symbol;
+	1430711313=22-NCSU_TechLib_FreePDK154-nfet;
+	1428568474=22-NCSU_TechLib_FreePDK154-nfet6-symbol;
+	-1=5-basic5-iopin;
+	1273039898=5-basic5-iopin7-symbolr;
+	1432533303=verilog.vams;
+$END
+$DEFINITION_VIEW
+	viewName=symbol;
+	masterFile=1432533297;
+	instLastChanged=40294;
+	connectivityLastUpdated=40294;
+$END
+$PRIMITIVE_TERM_MAP
+	NCSU_TechLib_FreePDK15:pfet:symbol:*:1-B1-b1-D1-d1-G1-g1-S1-s;
+	NCSU_TechLib_FreePDK15:nfet:symbol:*:1-B1-b1-D1-d1-G1-g1-S1-s;
+$END

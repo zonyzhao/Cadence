@@ -1,0 +1,52 @@
+
+// 
+// Design File for: (connectLib L2R module)
+//
+// L2R.vams - Basic Logic to Real connection module
+//
+// REVISION HISTORY
+// Created: 01/14/11, aspratt
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+
+connectmodule L2R(Rout, Lin);
+   input Lin;
+   output  Rout; wreal Rout;
+   
+   parameter real vsup = 1.8 from (0:inf);  // nominal supply voltage
+   parameter real vlo = 0;                  // logic low vlotage
+   parameter real vhi = vlo+vsup from (vlo:vlo+vsup];   // logic high voltage
+
+   real L_conv;
+
+   initial
+     begin
+	/* set the initial value to Z */
+        L_conv = `wrealZState;
+     end
+   
+   // Determine the value of L and convert to a real value
+   always
+     begin
+	case (Lin)
+	  1'b0:
+	    L_conv = vlo;
+	  1'b1:
+	    L_conv = vhi;
+	  1'bz:
+	    L_conv = `wrealZState;
+	  1'bx:
+	    L_conv = `wrealXState;
+	  default:
+	    L_conv = `wrealXState;
+	endcase // case(L_code)
+	
+        @(Lin);
+     end
+   
+   // drive the converted value back onto the output R pin
+   assign Rout = L_conv;
+   
+endmodule

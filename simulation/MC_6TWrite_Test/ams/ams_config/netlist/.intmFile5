@@ -1,0 +1,63 @@
+
+// 
+// Design File for: (connectLib E2R_LPS module)
+//
+// E2R.vams - basic Verilog-AMS electrical to discrete wreal connection module
+// last revised:  08/01/06, jhou
+//
+// REVISION HISTORY:
+// Created:  08/01/06, jhou
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+`define AMSLPS_VPSO       0
+`define AMSLPS_NOMVDD     1
+`define AMSLPS_NOMVSS     2
+`define AMSLPS_VPMOSBIAS  3
+`define AMSLPS_VNMOSBIAS  4
+`define AMSLPS_WPSO       5
+`define AMSLPS_AEGSIZE    5
+
+connectmodule E2R_LPS (Ain, Dout);
+input Ain;
+electrical Ain;    //input electrical
+output Dout;
+wreal Dout;        //output wreal
+\logic Dout;       //discrete domain
+
+  parameter real vdelta=1.8/64   from (0:inf);    // voltage delta
+  parameter real vtol=vdelta/4   from (0:vdelta); // voltage tolerance
+  parameter real ttol=10p        from (0:1m];     // time tolerance
+  parameter integer currentmode=0  from [0:0];	    // current mode is not supported in LPS
+
+  real Dreg;       //real register for A to D wreal conversion
+
+  reg sie;
+  // LOCAL VARIABLES for AMSLPS:
+  reg  iPwrState=1;                        // register of the power state
+  real vPwrArgArray[`AMSLPS_AEGSIZE:0];  // voltages value of the nominal condition
+
+//============================================================================
+  initial begin
+    sie = $strength_resolution(Dout);
+    /* set the initial value for AMSLPS variables */
+    vPwrArgArray[`AMSLPS_VPSO]=0.2;
+    vPwrArgArray[`AMSLPS_WPSO]=`wrealXState;
+    vPwrArgArray[`AMSLPS_NOMVDD]=0;
+    vPwrArgArray[`AMSLPS_NOMVSS]=0;
+    $amslps_power_state_register(iPwrState, vPwrArgArray);
+  end
+
+  assign Dout = Dreg;
+
+  //discretize V(Ain) triggered by absdelta function
+  always @(absdelta(V(Ain), vdelta, ttol, vtol) or iPwrState) begin
+    if (iPwrState===1'b0)
+      Dreg = vPwrArgArray[`AMSLPS_WPSO];
+    else
+      Dreg = V(Ain);
+  end
+
+endmodule
+

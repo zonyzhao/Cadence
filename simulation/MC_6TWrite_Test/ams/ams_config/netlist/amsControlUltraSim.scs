@@ -1,0 +1,18 @@
+
+// This is the Cadence AMS Designer(R) analog simulation control file. 
+// It specifies the options and analyses for the UltraSim analog solver.
+
+simulator lang=spectre 
+
+simulatorOptions options temp=27 tnom=27 scale=1.0 scalem=1.0
+
+// UltraSim Solver Options 
+usim_opt output_upper=0 ade=1 wf_spectre_syntax=1
+
+tran tran stop=4n write="spectre.ic" writefinal="spectre.fc" 
+
+finalTimeOP info what=oppoint where=rawfile
+
+modelParameter info what=models where=rawfile 
+element info what=inst where=rawfile 
+outputParameter info what=output where=rawfile 

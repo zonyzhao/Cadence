@@ -1,0 +1,262 @@
+
+// 
+// Design File for: (connectLib ConnRules_18V_full_fast connect)
+//
+// 'ConnRules_18V.vams' - Verilog-AMS 1.8 volt connection rules file.
+// last revised:  01/25/06 (jhou)
+//
+// REVISION HISTORY:
+// Created:  10/22/02 (ronv)
+// Updated:  01/25/06 (jhou) - Added ConnRules_18V_full_fast.
+// Updated:  08/08/06 (jhou) - Added electrical-wreal connectmodules.
+// Updated:  09/08/06 (jlz)  - Added include disciplines.vams so electrical
+//                             discipline is available for AMSVF flow.
+
+
+// This line is added to make sure that all connect rules are 
+// defined by default When ncverilog is run with
+// +define+CDS_SELECT_CRS, the connect rules are defined
+// selectively based on other +define settings that are sent to 
+// ncverilog
+
+`ifndef CDS_SELECT_CRS
+`define CONNRULES_18V_FULL_FAST
+`define CONNRULES_18V_FULL
+`define CONNRULES_18V_MID
+`define CONNRULES_18V_BASIC
+`define CONNRULES_FULL_FAST
+`define CONNRULES_FULL
+`define CONNRULES_MID
+`define CONNRULES_BASIC
+`endif
+
+// This file is a template for definition of rules for a particular 
+// logic family.  Values for some typical parameters are defined here,
+// then used in the three sets of connections rules below.
+// See the "README.txt" file for a more complete usage description.
+
+`include "disciplines.vams"
+
+`define Vsup  1.8
+`define Vthi  1.2
+`define Vtlo  0.6
+`define Vlow  0
+`define Tr    0.2n
+`define Rlo   200
+`define Rhi   200
+`define Rx    40
+`define Rz    10M
+`define Vdelta      `Vsup/64
+`define Vdelta_tol  `Vdelta/4
+`define Tr_delta    `Tr/20
+`define rsupply     4
+`define rpull       1.5e3
+`define rlarge      9.0e3
+`define rweak       5.5e4
+`define rmedium     3.2e5
+`define rsmall      1.9e6
+
+`ifdef CONNRULES_18V_FULL_FAST
+connectrules ConnRules_18V_full_fast;
+  connect L2E_2 #(
+      .vsup(`Vsup), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz),
+      .r_SUPPLY(`rsupply), .r_PULL(`rpull),
+      .r_LARGE(`rlarge), .r_WEAK(`rweak), .r_MEDIUM(`rmedium),
+      .r_SMALL(`rsmall) );
+  connect E2L_2 #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect Bidir_2 #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz),
+      .r_SUPPLY(`rsupply), .r_PULL(`rpull),
+      .r_LARGE(`rlarge), .r_WEAK(`rweak), .r_MEDIUM(`rmedium),
+      .r_SMALL(`rsmall) );
+  connect E2R #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_2 #(.vsup(`Vsup), .vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_bidir #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz));
+  //Real-2-Logic
+  connect R2L #(.vsup(`Vsup), .vlo(`Vlow), .vtlo(`Vtlo), .vthi(`Vthi)) logic, logic;
+  connect L2R #(.vsup(`Vsup), .vlo(`Vlow)) logic, logic;
+  connect RL_bidir #(.vsup(`Vsup), .vlo(`Vlow), .vtlo(`Vtlo), .vthi(`Vthi)) logic, logic;
+  // AMSLPS
+  connect L2E_2_LPS #(
+      .vsup(`Vsup), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz) );
+  connect Bidir_2_LPS #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo),
+      .tr(`Tr), .tf(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz) );
+  connect E2L_2_LPS #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect R2L_LPS #(.vsup(`Vsup), .vlo(`Vlow), .vtlo(`Vtlo), .vthi(`Vthi)) logic, logic;
+  connect L2R_LPS #(.vsup(`Vsup), .vlo(`Vlow)) logic, logic;
+  connect RL_Bidir_LPS #(.vsup(`Vsup), .vlo(`Vlow), .vtlo(`Vtlo), .vthi(`Vthi)) logic, logic;
+  connect E2R_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_2_LPS #(.vsup(`Vsup), .vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_Bidir_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz));
+endconnectrules
+`endif
+
+`ifdef CONNRULES_18V_FULL
+connectrules ConnRules_18V_full;
+  connect L2E #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr), .tx(`Tr), .tz(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz),
+      .r_SUPPLY(`rsupply), .r_PULL(`rpull),
+      .r_LARGE(`rlarge), .r_WEAK(`rweak), .r_MEDIUM(`rmedium),
+      .r_SMALL(`rsmall) );
+  connect E2L #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect Bidir #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr), .tx(`Tr), .tz(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz),
+      .r_SUPPLY(`rsupply), .r_PULL(`rpull),
+      .r_LARGE(`rlarge), .r_WEAK(`rweak), .r_MEDIUM(`rmedium),
+      .r_SMALL(`rsmall) );
+  connect E2R #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_2 #(.vsup(`Vsup), .vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_bidir #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+  // AMSLPS
+  connect L2E_LPS #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+      .tr(`Tr), .tf(`Tr), .tx(`Tr), .tz(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz) );
+  connect Bidir_LPS #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo),
+      .tr(`Tr), .tf(`Tr), .tx(`Tr), .tz(`Tr),
+      .rlo(`Rlo), .rhi(`Rhi), .rx(`Rx), .rz(`Rz) );
+  connect E2L_LPS #(
+      .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect E2R_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_2_LPS #(.vsup(`Vsup), .vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_Bidir_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+endconnectrules
+`endif
+
+`ifdef CONNRULES_18V_MID
+connectrules ConnRules_18V_mid;
+  connect E2L #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect L2E_1 #( .vsup(`Vsup), .tr(`Tr), .vlo(`Vlow), .rout(`Rlo) );
+  connect Bidir_0 #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+                   .tr(`Tr), .rout(`Rlo) );
+  connect E2R #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_0 #(.vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_bidir #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+  // AMSLPS
+  connect L2E_1_LPS #( .vsup(`Vsup), .tr(`Tr), .vlo(`Vlow), .rout(`Rlo) );
+  connect Bidir_0_LPS #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo),
+                   .tr(`Tr), .rout(`Rlo) );
+  connect E2L_LPS #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect E2R_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_0_LPS #(.vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_Bidir_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+endconnectrules
+`endif
+
+`ifdef CONNRULES_18V_BASIC
+connectrules ConnRules_18V_basic;
+  connect E2L_0 #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect L2E_0 #( .vsup(`Vsup), .vlo(`Vlow), .tr(`Tr), .rout(`Rlo) );
+  connect Bidir_0 #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .vlo(`Vlow),
+                   .tr(`Tr), .rout(`Rlo) );
+  connect E2R #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_0 #(.vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_bidir #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+  // AMSLPS
+  connect L2E_0_LPS #( .vsup(`Vsup), .vlo(`Vlow), .tr(`Tr), .rout(`Rlo) );
+  connect Bidir_0_LPS #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo),
+                   .tr(`Tr), .rout(`Rlo) );
+  connect E2L_0_LPS #( .vsup(`Vsup), .vthi(`Vthi), .vtlo(`Vtlo), .tr(`Tr) );
+  connect E2R_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta)); 
+  connect R2E_0_LPS #(.vdelta(`Vdelta), .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo)); 
+  connect ER_Bidir_LPS #(.vdelta(`Vdelta), .vtol(`Vdelta_tol), .ttol(`Tr_delta),
+        .tr(`Tr_delta), .tf(`Tr_delta), .rout(`Rlo), .rz(`Rz)); 
+endconnectrules
+`endif
+
+//////////////  CONNECT RULES WITH DEFAULT PARAMETERS  //////////////
+//  Here are connection rules that use the default parameters in the 
+//  connection modules themselves (if you edit the connect modules instead
+//  of editing the descriptions above, you can then use these rules):
+
+`ifdef CONNRULES_FULL_FAST
+connectrules ConnRules_full_fast;
+  connect L2E_2;
+  connect E2L_2;
+  connect Bidir_2;
+  connect E2R; 
+  connect R2E_2; 
+  connect ER_bidir; 
+  connect L2E_2_LPS;
+  connect Bidir_2_LPS;
+  connect E2L_2_LPS;
+  connect E2R_LPS; 
+  connect R2E_2_LPS; 
+  connect ER_Bidir_LPS; 
+endconnectrules
+`endif
+
+`ifdef CONNRULES_FULL
+connectrules ConnRules_full;
+  connect L2E;
+  connect E2L;
+  connect Bidir;
+  connect E2R; 
+  connect R2E_2; 
+  connect ER_bidir; 
+  connect L2E_LPS;
+  connect Bidir_LPS;
+  connect E2L_LPS;
+  connect E2R_LPS; 
+  connect R2E_2_LPS; 
+  connect ER_Bidir_LPS; 
+endconnectrules
+`endif
+
+`ifdef CONNRULES_MID
+connectrules ConnRules_mid;
+  connect E2L_0;
+  connect L2E_0;
+  connect Bidir_0;
+  connect E2R; 
+  connect R2E_0; 
+  connect ER_bidir; 
+  connect L2E_0_LPS;
+  connect Bidir_0_LPS;
+  connect E2L_0_LPS;
+  connect E2R_LPS; 
+  connect R2E_0_LPS; 
+  connect ER_Bidir_LPS; 
+endconnectrules
+`endif
+
+`ifdef CONNRULES_BASIC
+connectrules ConnRules_basic;
+  connect E2L;
+  connect L2E_1;
+  connect Bidir_0;
+  connect E2R; 
+  connect R2E_0; 
+  connect ER_bidir; 
+  connect L2E_1_LPS;
+  connect Bidir_0_LPS;
+  connect E2L_LPS;
+  connect E2R_LPS; 
+  connect R2E_0_LPS; 
+  connect ER_Bidir_LPS; 
+endconnectrules
+`endif
+

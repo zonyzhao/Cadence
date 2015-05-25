@@ -1,0 +1,77 @@
+
+// 
+// Design File for: (connectLib RL_bidir module)
+//
+// RL_bidir.vams - Basic Real to Logic bidirectional connection module
+//
+// REVISION HISTORY
+// Created: 01/14/11, aspratt
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+
+connectmodule RL_bidir(R, L);
+   inout L;
+   inout  R; wreal R;
+   
+   parameter real vsup = 1.8 from (0:inf);      // nominal supply voltage
+   parameter real vlo = 0;                      // logic low voltage
+   parameter real vhi = vlo+vsup from (vlo:vlo+vsup];   // logic high voltage
+   parameter real vtlo = vsup / 3;              // lower threshold
+   parameter real vthi = vsup /1.5;             // upper threshold
+
+   wreal       R_val;
+   reg 	       R_conv;
+   wire [1:0]  L_val;
+   real        L_conv;
+
+   initial
+     begin
+        $input_logic_value(L, L_val); // set logic driver sensativity
+	$input_real_value(R, R_val);     // set real driver sensativity
+	R_conv = 1'bz;
+	L_conv = `wrealZState;
+     end
+
+    // Determine the value of R and convert to a logic value
+   always
+     begin
+        if(R_val >= vthi)
+	  R_conv = 1'b1;
+        else if (R_val <= vtlo)
+          R_conv = 1'b0;
+        else if(R_val === `wrealZState)
+          R_conv = 1'bz;
+        else
+          R_conv = 1'bx;
+
+        @(R_val);
+     end // always begin
+
+   // Determine the value of L and convert to a real value
+   always
+     begin
+	
+	case (L_val)
+	  2'b00:
+	    L_conv = vlo;
+	  2'b01:
+	    L_conv = vhi;
+	  2'b10:
+	    L_conv = `wrealZState;
+	  2'b11:
+	    L_conv = `wrealXState;
+	endcase // case(L_val)
+	
+        @(L_val);
+     end // always begin
+
+
+   // drive the converted value back onto the output R pin
+   assign R = L_conv;
+   
+   // drive the converted value back onto the output L pin
+   assign L = R_conv;
+   
+endmodule // R2L_bidir

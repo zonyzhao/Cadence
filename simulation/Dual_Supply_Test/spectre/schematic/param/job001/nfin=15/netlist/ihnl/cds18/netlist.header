@@ -1,5 +1,0 @@
-
-// Library name: 20nm
-// Cell name: 6T_SetRead_PWR
-// View name: schematic
-subckt _sub19 \~R0 \~R1 Go SM0\<0\> SM0\<1\> SM1\<0\> SM1\<1\> GND

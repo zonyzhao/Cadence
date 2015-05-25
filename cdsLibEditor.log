@@ -1,14 +1,27 @@
 \o Program:		@(#)$CDS: cdsLibEditor version 6.1.6 - CAT33 08/24/2014 13:49 (sjfnl834) $
 \o Sub version:		sub-version  s012 
-\o Arguments:		-cdslib /root/Desktop/Cadence/cds.lib -mpssession virtuoso24238 -mpshost bull 
+\o Arguments:		-display :0.0 -mpssession virtuoso13987 -mpshost bull -namespace CDBA -cdslib /root/Desktop/Cadence/cds.lib 
 \o Working Directory:	bull:/root/Desktop/Cadence
 \a nrSetWindowVisibility(cdsLibEditor "show")
 \o Qt version: 		4.7.2
 \a nrSetCurrentWindow(cdsLibEditor)
 \a nrListItemAction(cdsLibEditor->mainTable 0 0)
-\o Active cell: 0 0 "cdsDefTechLib"
-\a nrResizeWindow(cdsLibEditor list(2560 25 500 400))
-\a nrResizeWindow(cdsLibEditor list(2560 25 1016 583))
+\o Active cell: 0 0 "connectLib"
+\a nrResizeWindow(cdsLibEditor list(1280 25 500 400))
+\a nrResizeWindow(cdsLibEditor list(1280 25 1059 718))
+\a cdsLibEditor->fileNewButton->value = t
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 ""
+\o QUESTION (CLE-232): You must choose one edit format for your new file to continue editing.\n\nMost Cadence tools use only "cds.lib" for the library definition list.\nCadence "cds.lib" is the recommended edit format.\n\nYour edit format choice remains in effect until the new file is saved. 
+\o QUESTION (CLE-233): Cadence Library Path Editor enables saving your edits in either format\nwhen using the "Save As" command. 
+\a nrSetWindowVisibility(newEditFormatDialog "show")
+\a nrSetCurrentWindow(newEditFormatDialog)
+\a nrResizeWindow(newEditFormatDialog list(1604 187 411 309))
+\a newEditFormatDialog->helpButton->value = t
+\o Invoking help (newEditFormatHelp).
+\a nrSetCurrentWindow(newEditFormatDialog)
+\a nrSetWindowVisibility(newEditFormatDialog "hide")
+\a nrSetCurrentWindow(cdsLibEditor)
 \a cdsLibEditor->fileExitButton->value = t
 \a nrSetWindowVisibility(cdsLibEditor "hide")
 \a exit(0)

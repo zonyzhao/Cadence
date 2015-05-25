@@ -1,0 +1,76 @@
+
+// 
+// Design File for: (connectLib E2L_2 module)
+//
+// E2L_2.vams - basic Verilog-AMS elect to logic connection module
+// last revised:  7/19/12, jhou
+//
+// REVISION HISTORY:
+// Created:  1/18/04 jhou
+// Updated:  1/25/06 jhou - changed default tr to 0.2n
+// Updated:  7/19/12 jhou - enhanced for strength models under -amssie.
+
+/****************************************************************************
+Description:
+
+This electrical-to-logic connect module is designed for better simulation
+performance. It supports 4-level logic (0, 1, X, and Z), and has
+the following different properties compared to connectmodule E2L:
+
+1, The optimized hysteresis setup between above functions maximizes the
+   noise filtering capabilities and hence simulation speed. By default,
+   the time tolerance in cross function is 1/4 of transition rise/fall
+   time and voltage tolerance is 1/12 of voltage supply.
+
+****************************************************************************/
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+//============================================================================
+connectmodule E2L_2 (Ain, Dout);
+  input Ain; electrical Ain;                     // electrical input
+  output Dout; \logic Dout;                      // logic output
+
+// INSTANCE PARAMETERS:
+  parameter real vsup=1.8       from (0:inf);    // nominal supply voltage
+  parameter real vthi=vsup/1.5  from (-inf:inf);          // upper threshold
+  parameter real vtlo=vsup/3    from (-inf:vthi];          // lower threshold
+  parameter real vtol=vsup/12   from (0:(vthi-vtlo)/2]; // voltage tolerance
+  parameter real tr=0.2n        from (0:1m];     // risetime (for defaults)
+  parameter real txdel=4*tr     from (0:1m];     // time midrange til output X
+  parameter real ttol_c=tr/4    from (0:1m];     // time tolerance of crossing
+  parameter real vtlox=vtlo+vtol   from (vtlo:vthi);  // lo-to-x threshold point
+  parameter real vthix=vthi-vtol   from [vtlox:vthi); // hi-to-x threshold point
+
+// LOCAL VARIABLES:
+  reg Dreg;                // output register
+  reg Xin;                 // flag if analog is in midrange
+  real txdig;              // delay from midlevel to X in timescale units
+  wire [31:0] Dval;
+  reg sie;
+  
+//============================================================================
+  initial begin
+    txdig=txdel/1n;        // digital delay midlevel to X  (ASSUMES TIMESCALE)
+    Dreg=1'b0;             // initial level
+    Xin=0;                 // initially not in X delay region.
+    $SIE_input(Dout, Dval);   //set digital driver sensitivity
+    sie = $strength_resolution(Dout);
+  end
+// Convert analog signal to high/low and X/notX:
+  always @(above(V(Ain)-vthi,ttol_c,vtol))
+      begin Dreg=1; Xin=0; disable GoToX; end    // analog XtoH
+  always @(above(vtlo-V(Ain),ttol_c,vtol))
+      begin Dreg=0; Xin=0; disable GoToX; end    // analog XtoL
+  always @(above(vthix-V(Ain),ttol_c,vtol))
+      if (Dreg==1'b1) Xin=1;                     // analog HtoX
+  always @(above(V(Ain)-vtlox,ttol_c,vtol))
+      if (Dreg==1'b0) Xin=1;                     // analog LtoX
+// Wait for txdel before driving output to X:
+  always @(posedge(Xin)) begin :GoToX            // input changed to X
+    #(txdig)                                     // wait for X time delay
+    if (Xin==1) Dreg=1'bx;                       // goto X if still between
+  end
+  assign  Dout=Dreg;                             // assign register to output
+endmodule

@@ -1,0 +1,136 @@
+
+// 
+// Design File for: (connectLib E2L_2_LPS module)
+//
+// E2L_2.vams - basic Verilog-AMS elect to logic connection module
+// last revised:  01/25/06, jhou
+//
+// REVISION HISTORY:
+// Created:  1/18/04 jhou
+// Updated:  1/25/06 jhou - changed default tr to 0.2n
+//
+// Created:  12/10 nzhang - this connect module is a copy from E2L_2.vams and
+//                          specified for AMSLPS.
+//                          * add $amslps_power_state_register(iPwrState, vPwrArgArray)
+//                            func/task call to check the power status of the drivers
+//                            of Ain, and change the output logic if the driver is shutoff.
+//
+
+/****************************************************************************
+Description:
+
+This electrical-to-logic connect module is designed for better simulation
+performance. It supports 4-level logic (0, 1, X, and Z), and has
+the following different properties compared to connectmodule E2L:
+
+1, The optimized hysteresis setup between above functions maximizes the
+   noise filtering capabilities and hence simulation speed. By default,
+   the time tolerance in cross function is 1/4 of transition rise/fall
+   time and voltage tolerance is 1/12 of voltage supply.
+
+****************************************************************************/
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+`define AMSLPS_VPSO     0
+`define AMSLPS_NOMVDD   1
+`define AMSLPS_NOMVSS   2
+`define AMSLPS_NOMPMOS  3
+`define AMSLPS_NOMNMOS  4
+`define AMSLPS_ARGSIZE  4
+
+//============================================================================
+connectmodule E2L_2_LPS (Ain, Dout);
+  input Ain; electrical Ain;                     // electrical input
+  output Dout; \logic Dout;                      // logic output
+
+// INSTANCE PARAMETERS:
+  parameter real vsup=1.8       from (0:inf);    // nominal supply voltage
+  parameter real vthi=vsup/1.5  from (-inf:inf);          // upper threshold
+  parameter real vtlo=vsup/3    from (-inf:vthi];          // lower threshold
+  parameter real vtol=vsup/12   from (0:(vthi-vtlo)/2]; // voltage tolerance
+  parameter real tr=0.2n        from (0:1m];     // risetime (for defaults)
+  parameter real txdel=4*tr     from (0:1m];     // time midrange til output X
+  parameter real ttol_c=tr/4      from (0:1m];     // time tolerance of crossing
+  parameter real vtlox=vtlo+vtol   from (vtlo:vthi);  // lo-to-x threshold point
+  parameter real vthix=vthi-vtol   from [vtlox:vthi); // hi-to-x threshold point
+
+// LOCAL VARIABLES:
+  reg Dreg;                // output register
+  reg Xin;                 // flag if analog is in midrange
+  real txdig;              // delay from midlevel to X in timescale units
+  wire [31:0] Dval;
+  
+// LOCAL VARIABLES for AMSLPS:
+  reg  iPwrState;                        // register the power state
+  real vPwrArgArray[`AMSLPS_ARGSIZE:0];  // voltage value of the nominal condition
+  real vpthi, vptlo, vptol;
+  real vpthix, vptlox;
+  real vAin;
+
+  reg sie;
+  
+//============================================================================
+  initial begin
+    txdig=txdel/1n;        // digital delay midlevel to X  (ASSUMES TIMESCALE)
+    Dreg=1'b0;             // initial level
+    Xin=0;                 // initially not in X delay region.
+    $SIE_input(Dout, Dval);   //set digital driver sensitivity
+    sie = $strength_resolution(Dout);
+    // AMSLPS
+    iPwrState = 1'b1;
+    vPwrArgArray[`AMSLPS_VPSO]=0.0;
+    vPwrArgArray[`AMSLPS_NOMVDD]=vsup;
+    vPwrArgArray[`AMSLPS_NOMVSS]=0.0;
+    $amslps_power_state_register(iPwrState, vPwrArgArray);
+    vpthi = vPwrArgArray[`AMSLPS_NOMVDD]/1.5;
+    vptlo = vPwrArgArray[`AMSLPS_NOMVDD]/3;
+    vptol = vPwrArgArray[`AMSLPS_NOMVDD]/100;
+    vpthix= vpthi-2*vptol;
+    vptlox= vptlo+2*vptol;
+  end
+
+// AMSLPS
+  always @(iPwrState) begin
+      // recalculate working voltage
+      vpthi = vPwrArgArray[`AMSLPS_NOMVDD]/1.5;
+      vptlo = vPwrArgArray[`AMSLPS_NOMVDD]/3;
+      vptol = vPwrArgArray[`AMSLPS_NOMVDD]/100;
+      vpthix= vpthi-2*vptol;
+      vptlox= vptlo+2*vptol;
+
+      if (iPwrState == 1'b0)
+          // put shut-off state on analog side
+          Dreg=1'bx;
+      else begin
+          // recover logic state
+          vAin = V(Ain);
+          if (vAin > vpthi) Dreg=1'b1;
+          else if (vAin < vptlo) Dreg=1'b0;
+          else Dreg=1'bx;
+      end
+  end
+
+// Convert analog signal to high/low and X/notX:
+  always @(above(V(Ain)-vpthi,ttol_c,vptol)) begin // analog XtoH
+      if (iPwrState == 1'b0) Dreg=1'bx;
+      else Dreg=1;
+      Xin=0; disable GoToX;
+  end
+  always @(above(vptlo-V(Ain),ttol_c,vptol)) begin // analog XtoL
+      if (iPwrState == 1'b0) Dreg=1'bx;
+      else Dreg=0;
+      Xin=0; disable GoToX;
+  end
+  always @(above(vpthix-V(Ain),ttol_c,vptol))
+      if (Dreg==1'b1) Xin=1;                     // analog HtoX
+  always @(above(V(Ain)-vptlox,ttol_c,vptol))
+      if (Dreg==1'b0) Xin=1;
+// Wait for txdel before driving output to X:
+  always @(posedge(Xin)) begin :GoToX            // input changed to X
+    #(txdig)                                     // wait for X time delay
+    if (Xin==1) Dreg=1'bx;                       // goto X if still between
+  end
+  assign  Dout=Dreg;                             // assign register to output
+endmodule

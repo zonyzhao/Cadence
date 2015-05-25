@@ -1,2 +1,0 @@
-parameters C=.59631p VDDH=.600 VDDL=.450 nfin=222 timeA=5n timeB=5.01n \
-    timeC=12n timeD=12.01n timeE=19n timeF=19.01n timeStop=26n

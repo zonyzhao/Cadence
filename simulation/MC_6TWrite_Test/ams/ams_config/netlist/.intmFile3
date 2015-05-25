@@ -1,0 +1,113 @@
+
+// 
+// Design File for: (connectLib ER_Bidir_LPS module)
+//
+// ER_bidir.vams - basic Verilog-AMS connection module for electrical
+// and discrete wreal bidirectional conversion
+// last revised:  08/29/06, jhou
+//
+// REVISION HISTORY:
+// Created:  08/29/06, jhou
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+`define AMSLPS_VPSO     0
+`define AMSLPS_NOMVDD   1
+`define AMSLPS_NOMVSS   2
+`define AMSLPS_NOMPMOS  3
+`define AMSLPS_NOMNMOS  4
+`define AMSLPS_WPSO     5
+`define AMSLPS_ARGSIZE  5
+`define AMSLPS_PWRSTATE_DIG 0
+`define AMSLPS_PWRSTATE_ANA 1
+
+connectmodule ER_Bidir_LPS (Din, Aout);
+inout Din;
+wreal Din;         //inout wreal
+\logic Din;        //discrete domain
+inout Aout;
+electrical Aout;   //inout electrical
+
+  parameter real vdelta=1.8/64   from (0:inf); // voltage delta
+  parameter real vtol=vdelta/4   from (0:vdelta); // voltage tolerance
+  parameter real ttol=10p        from (0:1m];     // time tolerance
+  parameter real tr=10p          from (0:1m);  // risetime
+  parameter real tf=tr           from (0:1m);  // falltime
+  parameter real tdelay=0        from [0:1m);  // delay time of analog output
+  parameter real rout=200        from (0:inf); // output resistance
+  parameter real rz=10M          from (0:inf); // open resistance
+  // INSTANCE PARAMETERS for AMSLPS:
+  parameter real    vpso=0.2;                 // X output voltage
+  parameter integer currentmode=0  from [0:0];	    // current mode is not supported in LPS
+  
+  real Dreg;       //real register for A to D wreal conversion
+  real Vstate;     //real register for D wreal to A conversion
+  real Rout;       //output resistance
+
+  integer D_count = 0;
+
+  reg sie;
+
+  reg  [1:0]iPwrState;                   // register the power state
+  real vPwrArgArray[`AMSLPS_ARGSIZE:0];  // voltage value of the nominal condition
+
+  wreal R_val;
+  wreal D_val;
+  wire  P_val;
+
+  initial begin
+        Vstate = 0;
+        $input_real_value(Din, R_val);
+        D_count = $driver_count(Din);
+        Rout = rz;
+        Dreg = `wrealZState;
+        sie = $strength_resolution(Din);
+        // AMSLPS
+        iPwrState = 2'b11;
+        vPwrArgArray[`AMSLPS_VPSO]=vpso;
+        vPwrArgArray[`AMSLPS_WPSO]=`wrealXState;
+        vPwrArgArray[`AMSLPS_NOMVDD]=0;
+        vPwrArgArray[`AMSLPS_NOMVSS]=0;
+        $amslps_power_state_register(iPwrState, vPwrArgArray);
+  end
+
+  assign D_val = sie?R_val:Din;
+  assign P_val = iPwrState[0];
+
+  always @(D_val or iPwrState) begin
+      if (((sie && (D_val === `wrealZState || D_count == 1))) || (!sie && (D_val === `wrealZState || D_count == 0))) begin
+          Rout = rz;
+      end
+      else if (iPwrState[`AMSLPS_PWRSTATE_DIG]==1'b0) begin
+          Vstate=vPwrArgArray[`AMSLPS_VPSO];
+      end
+      else if (iPwrState[`AMSLPS_PWRSTATE_DIG] != P_val) begin
+          Vstate = Din;
+      end
+      else begin
+      //filter out digital noise within +/-vdelta
+      if (D_val-Vstate>=vdelta || Vstate-D_val>=vdelta) begin
+        Vstate = D_val;
+        Rout = rout;
+      end
+      end
+  end
+
+  //discretize V(Aout) triggered by absdelta function
+  always @(absdelta(V(Aout), vdelta, ttol, vtol) or iPwrState) begin
+    if ( (sie && (D_val === `wrealZState || D_count == 1)) || !sie ) begin
+      if (iPwrState[`AMSLPS_PWRSTATE_ANA]==1'b0)
+        Dreg =vPwrArgArray[`AMSLPS_WPSO];
+      else
+        Dreg = V(Aout);
+    end
+end
+
+  assign Din = Dreg;
+
+  analog begin
+        I(Aout) <+ (V(Aout) - transition(Vstate, tdelay, tr, tf))/Rout;
+  end
+
+endmodule

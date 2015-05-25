@@ -1,0 +1,17 @@
+Netlisting ("16nm_Tests" "MC_6TWrite_Test" "ams_config").
+
+Info: Processing ("16nm" "6T_32x4" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_32x4/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm" "6T_CHUNK" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm/6T_CHUNK/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+
+Info: Processing ("16nm_Tests" "MC_6TWrite_Test" "schematic") ...
+Info: Verilog-AMS netlist successfully written to
+	/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/16nm_Tests/MC_6TWrite_Test/schematic/verilog.vams.
+Info: Found 0 errors and 0 warnings.
+Done netlisting ("16nm_Tests" "MC_6TWrite_Test" "ams_config").

@@ -1,0 +1,9 @@
+
+tran tran stop=4n errpreset=conservative save=none write="spectre.ic" \
+writefinal="spectre.fc" annotate=status maxiters=5 
+
+finalTimeOP info what=oppoint where=rawfile
+
+modelParameter info what=models where=rawfile 
+element info what=inst where=rawfile 
+outputParameter info what=output where=rawfile 

@@ -1,0 +1,26 @@
+ `define CONNRULES_18V_FULL_FAST
+ `define CONNRULES_18V_FULL
+ `define CONNRULES_18V_MID
+ `define CONNRULES_18V_BASIC
+ `define CONNRULES_FULL_FAST
+ `define CONNRULES_FULL
+ `define CONNRULES_MID
+ `define CONNRULES_BASIC
+ `define Vsup  1.8
+ `define Vthi  1.2
+ `define Vtlo  0.6
+ `define Vlow  0
+ `define Tr    0.2n
+ `define Rlo   200
+ `define Rhi   200
+ `define Rx    40
+ `define Rz    10M
+ `define Vdelta      `Vsup/64
+ `define Vdelta_tol  `Vdelta/4
+ `define Tr_delta    `Tr/20
+ `define rsupply     4
+ `define rpull       1.5e3
+ `define rlarge      9.0e3
+ `define rweak       5.5e4
+ `define rmedium     3.2e5
+ `define rsmall      1.9e6

@@ -1,0 +1,63 @@
+
+// 
+// Design File for: (connectLib L2R_LPS module)
+//
+// L2R_LPS.vams - Basic Logic to Real connection module
+//
+// REVISION HISTORY
+// Created: 01/14/11, aspratt
+// Created: 01/11, nzhang - this connect module is a copy from L2R.vams and specified for AMSLPS.
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+`define AMSLPS_VPSO       0
+`define AMSLPS_NOMVDD     1
+`define AMSLPS_NOMVSS     2
+`define AMSLPS_VPMOSBIAS  3
+`define AMSLPS_VNMOSBIAS  4
+`define AMSLPS_AEGSIZE    5
+
+// Power Smart L2R connect module
+connectmodule L2R_LPS(Rout, Lin);
+   input Lin;
+   output  Rout; wreal Rout;
+   
+   parameter real vsup = 1.8 from (0:inf);  // nominal supply voltage
+   parameter real vlo = 0;                  // logic low vlotage
+   parameter real vhi = vsup from (vlo:vsup];   // logic high voltage
+
+   real L_conv;
+
+   // LOCAL VARIABLES for AMSLPS:
+   reg  iPwrState=1;                        // register of the power state
+   real vPwrArgArray[`AMSLPS_AEGSIZE-1:0];  // voltages value of the nominal condition
+
+   initial
+     begin
+        /* set the initial value to Z */
+        L_conv = `wrealZState;
+        /* set the initial value for AMSLPS variables */
+        vPwrArgArray[`AMSLPS_NOMVDD]=vhi;
+        vPwrArgArray[`AMSLPS_NOMVSS]=vlo;
+        vPwrArgArray[`AMSLPS_VPSO]=`wrealXState;
+        $amslps_power_state_register(iPwrState, vPwrArgArray);
+     end
+
+   // Determine the value of L and convert to a real value
+   always
+     begin
+       case (Lin)
+         1'b0:    L_conv = vPwrArgArray[`AMSLPS_NOMVSS];
+         1'b1:    L_conv = vPwrArgArray[`AMSLPS_NOMVDD];
+         1'bz:    L_conv = `wrealZState;
+         1'bx:    L_conv = (iPwrState===1'b0) ? vPwrArgArray[`AMSLPS_VPSO] : `wrealXState;
+         default: L_conv = `wrealXState;
+       endcase
+       @(Lin or iPwrState);
+     end
+
+   // drive the converted value back onto the output R pin
+   assign Rout = L_conv;
+
+endmodule

@@ -1,0 +1,75 @@
+
+// 
+// Design File for: (connectLib E2R module)
+//
+// E2R.vams - basic Verilog-AMS electrical to discrete wreal connection module
+// last revised:  11/06/14, asadigh, zhipeng, jhou
+//
+// REVISION HISTORY:
+// Created:  08/01/06, jhou
+// Revised to support current mode:  04/24/14, zhipeng, jhou
+// Enhanced input current accuracy:  11/03/14, asadigh, jhou
+// Enhanced for wreal current mode:  11/06/14, asadigh, zhipeng, jhou
+
+`include "disciplines.vams"
+`timescale 1ns / 1ps
+
+connectmodule E2R (Ain, Dout);
+input Ain;
+electrical Ain;    //input electrical
+output Dout;
+wreal Dout;        //output wreal
+\logic Dout;       //discrete domain
+
+  parameter real vss=0             from (-inf:inf); // Voltage of negative supply
+  parameter real vsup=1.8          from (0:inf);    // Supply voltage based on vss
+  parameter real vdelta=vsup/64    from (0:inf);    // voltage delta
+  parameter real vtol=vdelta/4     from (0:vdelta); // voltage tolerance
+  parameter real ttol=10p          from (0:1m];     // time tolerance
+  parameter integer currentmode=0  from [0:1];      // 0: voltage, 1: current mode
+  parameter real idelta=10u        from (0:inf);    // current delta
+  parameter real itol=idelta/4     from (0:idelta); // current tolerance
+  parameter real vbias=vsup/2      from (0:vsup);   // bias level for input load
+  parameter real rin=200           from (0:inf);    // input resistance
+
+  parameter real vdd=vss+vsup;               // internal parameter: vss+vsup
+  parameter real vdd10=vdd+vsup*10;          // internal parameter: vdd+vsup*10
+  parameter real vss10=vss-vsup*10;          // internal parameter: vss-vsup*10
+  parameter integer voltagemode=1-currentmode; // internal parameter: not current
+  real Dreg;                          //real register for A to D wreal conversion
+  real VprevD;                        //voltage at previous delta-step
+  real iAin;                          //analog input current
+  reg sie;
+
+//============================================================================
+  initial begin
+    sie = $strength_resolution(Dout);
+    VprevD = vss;
+  end
+
+  assign Dout = Dreg;
+
+  //discretize V(Ain) triggered by absdelta function
+  always @(absdelta(V(Ain)*voltagemode, vdelta, ttol, vtol))
+	Dreg = currentmode?iAin:V(Ain);
+
+  always @(absdelta(iAin*currentmode, idelta, ttol, itol)) begin
+        if ( V(Ain) > vdd10 && VprevD < vdd10 )
+          $display("Warning: AMS IE %M at %g: I(Ain)=%g is causing V(Ain)=%g 10x vsup above vdd. Please check for any mismatch between the electrical circuit and the E2R settings.",
+              $abstime, iAin, V(Ain));
+        if ( V(Ain) < vss10 && VprevD > vss10 )
+          $display("Warning: AMS IE %M at %g: I(Ain)=%g is causing V(Ain)=%g 10x vsup below vss. Please check the E2R load settings (vbias, rin)",
+              $abstime, iAin, V(Ain));
+	Dreg = currentmode?iAin:V(Ain);
+	VprevD = V(Ain);
+  end
+
+  analog begin
+    if (currentmode) begin // set up load for current E2R:
+        iAin = (V(Ain)-vbias)/rin;
+        I(Ain) <+ iAin;
+    end
+  end
+
+endmodule
+
