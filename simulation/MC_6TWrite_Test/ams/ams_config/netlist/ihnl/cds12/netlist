@@ -1,0 +1,33 @@
+// Library - 16nm, Cell - inv_weak_1x, View - schematic
+// LAST TIME SAVED: Apr 24 03:08:40 2015
+// NETLIST TIME: May 25 20:35:19 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module inv_weak_1x (Y, A);
+
+output  Y;
+
+input  A;
+
+
+_ANALOG_BEGIN
+M2 (net13 cds_globals.\vdd!  cds_globals.\gnd!  cds_globals.\gnd! ) 
+    nfet w=60n l=20n nfin=1 nf=1 ls=105n  m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (Y A net13 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 ls=105n  
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net14 cds_globals.\gnd!  cds_globals.\vdd!  cds_globals.\vdd! ) 
+    pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (Y A net14 cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+endmodule

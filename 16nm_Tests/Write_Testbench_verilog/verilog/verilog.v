@@ -1,0 +1,41 @@
+//Verilog HDL for "16nm_Tests", "Write_Tb" "verilog"
+
+
+module Write_Testbench_verilog(A, RW, W1, W2, WdataAck, R1, R2, RDataAck, Ack, VDD, VSS);
+output [16:0] A;
+output [1:0] RW;
+output [3:0] W1, W2;
+input [1:0] WdataAck;
+input [3:0] R1, R2;
+output [1:0] RDataAck;
+input Ack;
+input VDD;
+input VSS;
+
+reg [16:0] A;
+reg [1:0] RW, RDataAck;
+reg  [3:0] W1, W2;
+
+initial begin
+	A  = 17'h00000;
+	RW = 2'b00;
+	W1 = 4'h0;
+	W2 = 4'h0;
+    RDataAck = 2'b00;
+	#1000;
+	A  = 17'h11111;
+	RW = 2'b01;
+	W1 = 4'h1;
+	W2 = 4'h1;
+	wait(Ack);
+		A  = 17'h00000;
+	RW = 2'b00;
+	W1 = 4'h0;
+	W2 = 4'h0;
+
+end
+
+
+
+endmodule
+

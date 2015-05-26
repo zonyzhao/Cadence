@@ -1,0 +1,71 @@
+// Library - 16nm_Tests, Cell - MC_6TWrite_Test, View - schematic
+// LAST TIME SAVED: May 25 20:22:50 2015
+// NETLIST TIME: May 25 20:35:19 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module MC_6TWrite_Test ();
+
+// Buses in the design
+
+wire  [3:0]  R1;
+
+wire  [3:0]  WD1;
+
+wire  [7:0]  S;
+
+wire  [63:0]  Aline;
+
+wire  [3:0]  B0;
+
+wire  [0:3]  net33;
+
+wire  [0:3]  net32;
+
+wire  [1:0]  WdataAck;
+
+wire  [1:0]  RW;
+
+wire  [1:0]  RDataAck;
+
+wire  [3:0]  WD2;
+
+wire  [3:0]  W0;
+
+wire  [3:0]  R2;
+
+wire  [16:0]  A;
+
+wire  [3:0]  B1;
+
+wire  [3:0]  W1;
+
+
+\6T_CHUNK  ICHUNK ( .S(S[7:0]), .A(Aline[63:0]), .\~R0 (net32[0:3]), 
+    .\~R1 (net33[0:3]), .B0(B0[3:0]), .B1(B1[3:0]), .Go(Go), 
+    .W0(W0[3:0]), .W1(W1[3:0]));
+
+\6T_DATAb  I84 ( Ack, B0[3:0], B1[3:0], Go, R1[3:0], R2[3:0], W0[3:0], 
+    W1[3:0], WdataAck[1:0], net41, net40, RW[1:0], net42, ValAddr, 
+    RDataAck[1:0], WD1[3:0], WD2[3:0], net32[0:3], net33[0:3]);
+
+\6T_DEMUX_  I85 ( .Ack(ValAddr), .A(Aline[63:0]), .S(S[7:0]), .\1of4_1 
+    (A[3:0]), .\1of4_2 (A[7:4]), .\1of4_3 (A[11:8]), .\1of4_4 
+    (A[15:12]), .En(A[16]));
+
+_ANALOG_BEGIN
+V0 (cds_globals.\vcc!  cds_globals.\gnd! ) vsource dc=cds_globals.vdd 
+    type=dc
+_ANALOG_END
+
+_ANALOG_BEGIN
+V1 (cds_globals.\vdd!  cds_globals.\gnd! ) vsource dc=cds_globals.vdd 
+    type=dc
+_ANALOG_END
+
+Write_Testbench_verilog I83 ( .A(A[16:0]), .RDataAck(RDataAck[1:0]), 
+    .RW(RW[1:0]), .W1(WD1[3:0]), .W2(WD2[3:0]), .Ack(Ack), 
+    .R1(R1[3:0]), .R2(R2[3:0]), .VDD(cds_globals.\vcc! ), 
+    .VSS(cds_globals.\gnd! ), .WdataAck(WdataAck[1:0]));
+
+endmodule

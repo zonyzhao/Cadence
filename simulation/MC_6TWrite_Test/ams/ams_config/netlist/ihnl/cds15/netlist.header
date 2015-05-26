@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - THaC, View - schematic
+// LAST TIME SAVED: Apr 24 03:06:58 2015
+// NETLIST TIME: May 25 20:35:19 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module THaC (Y, A, \B+ , \C- );
+
+output  Y;
+
+input  A, \B+ , \C- ;
+

@@ -970,8 +970,7 @@
 				</plottingoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 14 00:09:00 2015
-</timestamp>
+			<timestamp>Thu May 14 00:09:00 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.4.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.4.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -1180,8 +1179,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 14 00:11:36 2015
-</timestamp>
+			<timestamp>Thu May 14 00:11:36 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.5.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.5.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>

@@ -1,0 +1,40 @@
+// Library - 16nm, Cell - 6T, View - schematic
+// LAST TIME SAVED: May 25 20:31:18 2015
+// NETLIST TIME: May 25 20:35:18 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T  (A, B0, B1);
+
+inout  A, B0, B1;
+
+
+_ANALOG_BEGIN
+M5 (Q0 Q1 cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M4 (Q1 Q0 cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (Q1 A B1 cds_globals.\gnd! ) nfet w=120n l=20n nfin=2 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (Q0 A B0 cds_globals.\gnd! ) nfet w=120n l=20n nfin=2 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (Q0 Q1 cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (Q1 Q0 cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+endmodule

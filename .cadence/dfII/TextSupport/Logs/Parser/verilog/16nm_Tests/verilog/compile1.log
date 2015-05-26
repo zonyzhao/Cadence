@@ -1,0 +1,20 @@
+ncvlog: 14.20-p001: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+TOOL:	ncvlog	14.20-p001: Started on May 25, 2015 at 20:29:42 PDT
+ncvlog
+    -use5x
+    -SPECIFICUNIT Write_Testbench_verilog
+    -zparse /tmp/vamsZparsaa022
+    -NOWARN DLNOHV
+    -work 16nm_Tests
+    -view verilog
+    -nostdout
+    -logfile /root/Desktop/Cadence/.cadence/dfII/TextSupport/Logs/Parser/verilog/16nm_Tests/verilog/compile1.log
+    -messages
+    -cdslib /root/Desktop/Cadence/cds.lib
+    /net/bull/root/Desktop/Cadence/16nm_Tests/Write_Testbench_verilog/verilog/verilog.v
+
+file: /net/bull/root/Desktop/Cadence/16nm_Tests/Write_Testbench_verilog/verilog/verilog.v
+	module 16nm_Tests.Write_Testbench_verilog:verilog
+		errors: 0, warnings: 0
+	 writing out DPL output:
+TOOL:	ncvlog	14.20-p001: Exiting on May 25, 2015 at 20:29:42 PDT  (total: 00:00:00)

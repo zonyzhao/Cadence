@@ -1,0 +1,11 @@
+(amsTurboOpts apsplus) nil
+(amsTurboOpts errorLevel) "Do not override"
+(amsTurboOpts mtOption) "Auto"
+(amsTurboOpts numThreads) "4"
+(amsTurboOpts preserveInst) nil
+(amsTurboOpts preserveOption) "None"
+(amsTurboOpts proc_affinity) ""
+(amsTurboOpts psrFmax) ""
+(amsTurboOpts psrOption) "Default"
+(amsTurboOpts psrSwitch) nil
+(amsTurboOpts uniMode) "Spectre"

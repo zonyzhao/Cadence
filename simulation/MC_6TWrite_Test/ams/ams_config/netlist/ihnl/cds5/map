@@ -1,0 +1,75 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "behavioral functional system verilog pld_verilog lai_verilog lmsi_verilog schematic symbol"
+  stopList "verilog pld_verilog lai_verilog lmsi_verilog symbol"
+  hierDelim "."
+  hierPrefix "MC_6TWrite_Test"
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+( "S" 3 0  "S" 3 0  )
+( "A" 31 0  "A" 31 0  )
+ )
+( net
+( "A<3>" "A[3]" )
+( "A<9>" "A[9]" )
+( "A<31>" "A[31]" )
+( "A<10>" "A[10]" )
+( "A<6>" "A[6]" )
+( "A<26>" "A[26]" )
+( "A<15>" "A[15]" )
+( "A<12>" "A[12]" )
+( "A<0>" "A[0]" )
+( "A<23>" "A[23]" )
+( "A<16>" "A[16]" )
+( "A<25>" "A[25]" )
+( "A<1>" "A[1]" )
+( "A<19>" "A[19]" )
+( "S<0>" "S[0]" )
+( "A<4>" "A[4]" )
+( "A<29>" "A[29]" )
+( "A<22>" "A[22]" )
+( "A<27>" "A[27]" )
+( "S<2>" "S[2]" )
+( "A<30>" "A[30]" )
+( "S<3>" "S[3]" )
+( "A<24>" "A[24]" )
+( "gnd!" "cds_globals.\\gnd! " )
+( "A<7>" "A[7]" )
+( "A<21>" "A[21]" )
+( "A<28>" "A[28]" )
+( "S<1>" "S[1]" )
+( "A<5>" "A[5]" )
+( "A<17>" "A[17]" )
+( "A<2>" "A[2]" )
+( "A<8>" "A[8]" )
+( "A<11>" "A[11]" )
+( "A<20>" "A[20]" )
+( "A<13>" "A[13]" )
+( "A<18>" "A[18]" )
+( "vdd!" "cds_globals.\\vdd! " )
+( "A<14>" "A[14]" )
+ )
+( inst
+ )
+( model
+( "6T_32x_CTRL" "\\6T_32x_CTRL " )
+( "6T_32x" "\\6T_32x " )
+( "6T_32x4" "\\6T_32x4 " )
+ )
+( term
+ )
+( param
+ )
+( "6T_32x_CTRL" "\\6T_32x_CTRL " )
+( "6T_32x" "\\6T_32x " )
+( "6T_32x4" "\\6T_32x4 " )
+ )

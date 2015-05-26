@@ -38,7 +38,7 @@ vlogifMultipleSDFFileList = 'nil
 
 ;Verilog Netlisting Options
 ;Netlist Entire Design
-simReNetlistAll = t
+simReNetlistAll = 'nil
 
 ;Netlist For LAI/LMSI Models
 simVerilogLaiLmsiNetlisting = 'nil

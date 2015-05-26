@@ -1,0 +1,18 @@
+// Library - 16nm, Cell - and_1x, View - schematic
+// LAST TIME SAVED: Feb 27 19:23:03 2015
+// NETLIST TIME: May 25 20:35:19 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module and_1x (Y, A, B);
+
+output  Y;
+
+input  A, B;
+
+
+nand_1x I7 ( .A(A), .Y(ntYbar), .B(B));
+
+inv_1x I6 ( .Y(Y), .A(ntYbar));
+
+endmodule

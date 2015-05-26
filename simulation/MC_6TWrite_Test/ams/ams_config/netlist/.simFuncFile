@@ -1,1 +1,5 @@
-simFuncDPLList = 'nil
+simFuncDPLList = '(
+    (nil libName "16nm_Tests" cellName "Write_Testbench_verilog"
+    viewName "verilog" filePath "/net/bull/root/Desktop/Cadence/16nm_Tests/Write_Testbench_verilog/verilog/verilog.v"
+    )
+)

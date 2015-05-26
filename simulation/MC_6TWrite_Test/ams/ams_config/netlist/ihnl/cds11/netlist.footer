@@ -1,0 +1,6 @@
+
+nor_1x I6 ( .Y(AnorB), .B(B), .A(A));
+
+inv_1x I7 ( .Y(Y), .A(AnorB));
+
+endmodule
