@@ -24,12 +24,13 @@ r
 -AMSPARTINFO
 ../psf/partition.info
 -RNM_PARTINFO
+-AMSFASTSPICE
 -MODELINCDIR
 /root/Desktop/Cadence/
 -AMSINPUT
 ./spiceModels.scs
 -AMSINPUT
-./amsControlSpectre.scs
+./amsControlUltraSim.scs
 -AMSCONNRULES
 ConnRules_18V_full_fast1
 -MESSAGES

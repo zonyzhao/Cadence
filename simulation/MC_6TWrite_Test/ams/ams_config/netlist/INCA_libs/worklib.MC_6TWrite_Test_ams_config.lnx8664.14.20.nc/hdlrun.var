@@ -75,5 +75,6 @@ define VIEW_MAP ( $VIEW_MAP \
 , .vams => vams \
 , .VAMS => VAMS \
 )
+define ELAB_SNAPSHOT
 define SNAPSHOT worklib.MC_6TWrite_Test:ams_config
 define SNAPSHOT worklib.MC_6TWrite_Test:ams_config

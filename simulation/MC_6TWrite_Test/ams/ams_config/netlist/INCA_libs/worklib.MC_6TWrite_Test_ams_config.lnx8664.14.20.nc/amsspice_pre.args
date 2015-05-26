@@ -22,6 +22,6 @@ spectre
 -amsi
 ./spiceModels.scs
 -amsi
-./amsControlSpectre.scs
+./amsControlUltraSim.scs
 -modelincdir
 "/root/Desktop/Cadence/"

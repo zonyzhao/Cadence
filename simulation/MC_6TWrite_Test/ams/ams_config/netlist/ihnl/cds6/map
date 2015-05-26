@@ -15,8 +15,8 @@
   slashCheck   "t"
  )
 ( defbus
-( "SM0" 0 1  "SM0" 0 1  )
 ( "SM1" 0 1  "SM1" 0 1  )
+( "SM0" 0 1  "SM0" 0 1  )
  )
 ( net
 ( "SM0<1>" "SM0[1]" )
@@ -30,11 +30,11 @@
 ( inst
  )
 ( model
-( "6T_SetRead" "\\6T_SetRead " )
+( "6T_SetRead" "\\6T_SetRead" )
  )
 ( term
  )
 ( param
  )
-( "6T_SetRead" "\\6T_SetRead " )
+( "6T_SetRead" "\\6T_SetRead" )
  )

@@ -1,4 +1,4 @@
-Begin Incremental Netlisting May 25 20:35:28 2015
+Begin Incremental Netlisting May 25 23:31:52 2015
 INFO (VLOGNET-187): While generating an explicit netlist, it is recommended to
 set the Terminal SyncUp option on the Netlist Setup form as 'Merge All' with
 this option.
@@ -50,6 +50,18 @@ INFO (VLOGNET-118): Using connection by name (explicit connections) for all
 stopping and 
 non-stopping cells.
  
+WARNING (VLOGNET-186): Unable to generate explicit netlist for the
+'16nm/6T_SetRead/schematic' cell view because split buses and/or bundle
+terminals are present in it.  
+Set the Terminal SyncUp option on the Netlist
+Setup form as 'Merge All' or set the hnlVerilogTermSyncUp variable as 'mergeAll'
+and netlist again.
+
+WARNING (VLOGNET-105): Cannot drop port ranges because the cell
+'16nm/6T_SetRead/schematic' has split busses 
+across module ports. Therefore,
+ignoring the flag simVerilogDropPortRange.
+ 
 INFO (VLOGNET-169): Module port ordering for lib '16nm_Tests', cell
 'Write_Testbench_verilog', view 'verilog' will be
  done using the user specified
@@ -74,9 +86,12 @@ cap                         spectre              *Stopping View*
 cds_thru                    spectre              *Stopping View*  
 vdc                         spectre              *Stopping View*  
 Write_Testbench_verilog     verilog              *Stopping View*  
+6T_SetRead                  schematic                             
+6T_32x4                     schematic                             
+6T                          schematic                             
 
 ---------- End of netlist configuration information   ----------
 INFO (VLOGNET-80): The library '16nm_Tests', cell 'MC_6TWrite_Test', and view
 'ams_config' has been netlisted successfully.
 
-End netlisting May 25 20:35:29 2015
+End netlisting May 25 23:31:53 2015

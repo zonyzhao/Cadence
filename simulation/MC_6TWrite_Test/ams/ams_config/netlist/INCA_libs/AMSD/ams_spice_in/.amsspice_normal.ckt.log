@@ -5,17 +5,17 @@ Copyright (C) 1989-2014 Cadence Design Systems, Inc. All rights reserved worldwi
 
 Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
 
-User: root   Host: bull   HostID: EDA94F20   PID: 18550
-Memory  available: 21.3241 GB  physical: 33.6883 GB
+User: root   Host: bull   HostID: EDA94F20   PID: 12105
+Memory  available: 19.4033 GB  physical: 33.6883 GB
 CPU Type: Intel(R) Xeon(R) CPU E5-1607 0 @ 3.00GHz
           Processor PhysicalID CoreID Frequency Load
-              0         0        0     1200.0     1.4
-              1         0        1     3000.0     2.3
-              2         0        2     1200.0     0.9
+              0         0        0     3000.0     1.6
+              1         0        1     1200.0     2.6
+              2         0        2     3000.0     1.0
               3         0        3     1200.0     0.4
 
 
-Simulating `./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt' on bull at 8:35:40 PM, Mon May 25, 2015 (process id: 18550).
+Simulating `./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt' on bull at 11:32:00 PM, Mon May 25, 2015 (process id: 12105).
 Current working directory: /net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist
 Environment variable:
     SPECTRE_DEFAULTS=
@@ -24,7 +24,7 @@ Command line:
         -noraw =log  \
         ./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt.log  \
         -I/root/Desktop/Cadence/ -token  \
-        0001AF26C83A239465DFBB2CC00A229E73C4B63DFD3B60CB2080CF5C9E5D13BA59FEB270F31D11B6639FEA2FE10B0F887DC39431F37A3ED44FD9B63EAA3E399863C0B43FE90F319762DDE32CF53E669A30D5FD28EA5960FB7190A83DEEB8537F10B0C7499F5350FB10B0C4518F4950FB10B0920DC30C7ECB2A80A83DED3C50FB10B0A83DED3C50FB10B0FD5E0736BAF145D300004277
+        0001AF26C83A239465DFBB2CC00A229E73C4B63DFD3B60CB2080CF5C9E5D13BA59FEB270F31D11B6639FEA2FE10B0F887DC39431F37A3ED44FD9B63EAA3E399863C0B43FE90F319762DDE32CA66D35C930D5FB7EBF0D60FB2090A83DEEB8537F10B0C7499F5350FB10B0C4518F4950FB10B0920DC30C7ECB2A80A83DED3C50FB10B0A83DED3C50FB10B0FD59FE6243A545D400004280
 
 Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
 Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
@@ -35,10 +35,16 @@ Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/am
 Reading file:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/configs/spectre.cfg
 Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/spiceModels.scs
 Reading file:  /root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs
-Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/amsControlSpectre.scs
-Time for NDB Parsing: CPU = 50.992 ms, elapsed = 85.4969 ms.
-Time accumulated: CPU = 81.986 ms, elapsed = 85.505 ms.
-Peak resident memory used = 40.6 Mbytes.
+Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/amsControlUltraSim.scs
+
+Warning from amsprimtool during circuit read-in.
+    WARNING (SFE-1803): "amsControlUltraSim.scs" 76: The "usim_opt output_upper=0 ade=1 wf_spectre_syntax=1
+        
+        " control cards are not supported. Ignored.
+
+Time for NDB Parsing: CPU = 57.99 ms, elapsed = 140.248 ms.
+Time accumulated: CPU = 87.985 ms, elapsed = 140.257 ms.
+Peak resident memory used = 40.7 Mbytes.
 
 Reading link:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/discipline.h
 Reading file:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/disciplines.vams

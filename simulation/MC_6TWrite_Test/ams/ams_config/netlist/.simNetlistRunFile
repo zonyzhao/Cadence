@@ -1,4 +1,5 @@
-simVerilogNetlistFileList = '((("16nm_Tests" "MC_6TWrite_Test") 
+simVerilogNetlistFileList = '(
+    (("16nm_Tests" "MC_6TWrite_Test") 
 	("cds30/netlist" "cds30/map" "schematic")
     ) 
     (("16nm" "6T_DEMUX_") 

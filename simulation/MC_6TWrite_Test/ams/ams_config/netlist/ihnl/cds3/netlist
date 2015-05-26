@@ -1,6 +1,6 @@
 // Library - 16nm, Cell - 6T_32x_CTRL, View - schematic
-// LAST TIME SAVED: May 24 22:54:57 2015
-// NETLIST TIME: May 25 20:35:18 2015
+// LAST TIME SAVED: May 25 23:20:27 2015
+// NETLIST TIME: May 25 23:26:01 2015
 `timescale 1ns / 1ns 
 
 (* cds_ams_schematic *) 
@@ -12,21 +12,21 @@ input  S;
 
 
 _ANALOG_BEGIN
-M10 (B1 B0 net22 cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 nf=1 m=1
+M10 (B1 B0 net22 cds_globals.\vdd! ) pfet w=100n l=20n nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
 M9 (net22 W1 cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
-    nfin=1 nf=1 m=1
+    nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
-M8 (B0 B1 net23 cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 nf=1 m=1
+M8 (B0 B1 net23 cds_globals.\vdd! ) pfet w=100n l=20n nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
 M7 (net23 W0 cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
-    nfin=1 nf=1 m=1
+    nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
@@ -40,21 +40,21 @@ M0 (B0 S cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n
 _ANALOG_END
 
 _ANALOG_BEGIN
-M6 (B1 W1 net24 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+M6 (B1 W1 net24 cds_globals.\gnd! ) nfet w=60n l=20n nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
 M5 (net24 S cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
-    nfin=1 nf=1 m=1
+    nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
 M4 (net25 S cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
-    nfin=1 nf=1 m=1
+    nfin=2 nf=1 m=1
 _ANALOG_END
 
 _ANALOG_BEGIN
-M3 (B0 W0 net25 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+M3 (B0 W0 net25 cds_globals.\gnd! ) nfet w=60n l=20n nfin=2 nf=1 m=1
 _ANALOG_END
 
 endmodule

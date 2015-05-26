@@ -16,9 +16,10 @@
 -access r 
 -noparamerr 
 -amspartinfo ../psf/partition.info -rnm_partinfo 
+-amsfastspice 
 -modelincdir ${IC_INVOKE_DIR}/
 ./spiceModels.scs 
-./amsControlSpectre.scs 
+./amsControlUltraSim.scs 
 -input ./probe.tcl 
 -run -exit 
 -ncsimargs "+amsrawdir ../psf" 
@@ -47,4 +48,4 @@ ${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/
 ./netlist.vams 
 -f ./textInputs
 ./cds_globals.vams 
--l ../psf/irun.log 
+-l ../psf/irun.log
