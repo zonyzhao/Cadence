@@ -626,3 +626,44 @@
 \o To check for output from compilation, elaboration and simulation run, 
 \o right-click on the test name, result name, or any value in the "Results" 
 \o tab of the Outputs section and choose "Output Log" menu option.
+\o Loading stats.cxt 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 1) on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 2) on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 3) on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 4) on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
