@@ -1,0 +1,18 @@
+// Library - 16nm, Cell - and4_1x, View - schematic
+// LAST TIME SAVED: Apr 23 17:51:10 2015
+// NETLIST TIME: May 26 21:35:38 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module and4_1x (Y, A, B, C, D);
+
+output  Y;
+
+input  A, B, C, D;
+
+
+nand4_1x I15 ( .D(D), .C(C), .A(A), .B(B), .Y(net1));
+
+inv_1x I16 ( .Y(Y), .A(net1));
+
+endmodule

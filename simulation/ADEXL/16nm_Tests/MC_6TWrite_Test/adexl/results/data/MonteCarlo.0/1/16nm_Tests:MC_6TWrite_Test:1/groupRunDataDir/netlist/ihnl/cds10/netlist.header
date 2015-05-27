@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - nor_1x, View - schematic
+// LAST TIME SAVED: Apr 24 05:23:53 2015
+// NETLIST TIME: May 26 22:22:46 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module nor_1x (Y, A, B);
+
+output  Y;
+
+input  A, B;
+

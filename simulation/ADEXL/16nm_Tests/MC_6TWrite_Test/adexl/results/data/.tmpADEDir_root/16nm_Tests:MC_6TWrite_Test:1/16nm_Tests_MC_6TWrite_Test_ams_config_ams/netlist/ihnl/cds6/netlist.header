@@ -1,0 +1,15 @@
+// Library - 16nm, Cell - 6T_SetRead, View - schematic
+// LAST TIME SAVED: May 25 23:31:31 2015
+// NETLIST TIME: May 26 22:22:46 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_SetRead  (\~R0 , \~R1 , Go, SM0[0], SM0[1], SM1[0], SM1[1]);
+
+output  \~R0 , \~R1 ;
+
+input  Go;
+
+input [0:1]  SM0;
+input [0:1]  SM1;
+

@@ -1,0 +1,166 @@
+
+\6T_32x  ISRAM3 ( .A(A[31:0]), .B0(B0P4), .B1(B1P4));
+
+\6T_32x  ISRAM1 ( .A(A[31:0]), .B0(B0P2), .B1(B1P2));
+
+\6T_32x  ISRAM2 ( .A(A[31:0]), .B0(B0P3), .B1(B1P3));
+
+\6T_32x  ISRAM0 ( .A(A[31:0]), .B0(B0P1), .B1(B1P1));
+
+_ANALOG_BEGIN
+M1 (B0P1 B0 net67 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (net67 S[0] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net66 S[0] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M10 (B1P2 B1 net65 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M9 (net65 S[1] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M6 (net64 S[1] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M7 (B0P2 B0 net64 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M13 (B0P3 B0 net63 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M12 (net63 S[2] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M15 (net62 S[2] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M16 (B1P3 B1 net62 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M22 (B1P4 B1 net61 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M21 (net61 S[3] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M18 (net60 S[3] cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M19 (B0P4 B0 net60 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M4 (B1P1 B1 net66 cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+\6T_32x_CTRL  I4 ( .W1(W1), .W0(W0), .S(S[0]), .B0(B0P1), .B1(B1P1));
+
+\6T_32x_CTRL  I11 ( .W1(W1), .W0(W0), .S(S[1]), .B0(B0P2), .B1(B1P2));
+
+\6T_32x_CTRL  I20 ( .W1(W1), .W0(W0), .S(S[2]), .B0(B0P3), .B1(B1P3));
+
+\6T_32x_CTRL  I27 ( .W1(W1), .W0(W0), .S(S[3]), .B0(B0P4), .B1(B1P4));
+
+nand4_1x I16 ( .D(B1P4), .C(B1P3), .A(B1P1), .B(B1P2), .Y(SM1));
+
+nand4_1x I13 ( .D(B0P4), .C(B0P3), .A(B0P1), .B(B0P2), .Y(SM0));
+
+_ANALOG_BEGIN
+M5 (B1P1 S[0] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (B0P1 S[0] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M11 (B1P2 S[1] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M8 (B0P2 S[1] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M17 (B1P3 S[2] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M14 (B0P3 S[2] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M20 (B0P4 S[3] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M23 (B1P4 S[3] cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+C7 (B1P4 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C3 (B1P2 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C5 (B1P3 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C6 (B0P4 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C4 (B0P3 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C2 (B0P2 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C1 (B1P1 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+_ANALOG_BEGIN
+C0 (B0P1 cds_globals.\gnd! ) capacitor c=1.2822f
+_ANALOG_END
+
+endmodule

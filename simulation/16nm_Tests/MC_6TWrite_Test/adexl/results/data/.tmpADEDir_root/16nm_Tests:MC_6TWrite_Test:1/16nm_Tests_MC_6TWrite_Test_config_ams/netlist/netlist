@@ -1,0 +1,5 @@
+cds.lib: ${AMS_CDS_LIB} 
+lib:  16nm_Tests 
+cell: MC_6TWrite_Test 
+view: config 
+topCellLib: 16nm_Tests 

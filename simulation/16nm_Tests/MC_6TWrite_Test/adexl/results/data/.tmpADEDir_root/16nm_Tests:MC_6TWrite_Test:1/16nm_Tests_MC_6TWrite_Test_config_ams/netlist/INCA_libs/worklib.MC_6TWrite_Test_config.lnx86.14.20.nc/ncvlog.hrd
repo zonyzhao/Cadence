@@ -1,0 +1,12 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-INCDIR
+/root/Desktop/Cadence/
+-VTIMESCALE
+1ps/1ps
+-MODELINCDIR
+/root/Desktop/Cadence/
+-SNAPSHOT
+worklib.MC_6TWrite_Test:config

@@ -1,0 +1,63 @@
+// Library - 16nm, Cell - 6T_DEMUX_, View - schematic
+// LAST TIME SAVED: Apr 18 21:16:00 2015
+// NETLIST TIME: May 26 21:57:04 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_DEMUX_  (A, Ack, S, \1of4_1 , \1of4_2 , \1of4_3 , \1of4_4 , 
+    En);
+
+output  Ack;
+
+input  En;
+
+output [63:0]  A;
+output [7:0]  S;
+
+input [3:0]  \1of4_4 ;
+input [3:0]  \1of4_1 ;
+input [3:0]  \1of4_2 ;
+input [3:0]  \1of4_3 ;
+
+// Buses in the design
+
+wire  [0:3]  net020;
+
+
+Demux_3e1of4 I0 ( .AddrValid(Ack), .A(A[63:0]), .\1of4_1 (\1of4_1 
+    [3:0]), .\1of4_2 (\1of4_2 [3:0]), .\1of4_3 (\1of4_3 [3:0]), 
+    .En(En));
+
+inv_1x I10_3 ( .Y(net020[0]), .A(\1of4_4 [3]));
+
+inv_1x I10_2 ( .Y(net020[1]), .A(\1of4_4 [2]));
+
+inv_1x I10_1 ( .Y(net020[2]), .A(\1of4_4 [1]));
+
+inv_1x I10_0 ( .Y(net020[3]), .A(\1of4_4 [0]));
+
+inv_1x I9 ( .Y(net015), .A(En));
+
+inv_1x I6 ( .Y(net016), .A(En));
+
+nor_1x I4 ( .Y(net23), .B(\1of4_3 [1]), .A(\1of4_3 [0]));
+
+nor_1x I5 ( .Y(net22), .B(\1of4_3 [3]), .A(\1of4_3 [2]));
+
+nor3_1x I1_3 ( .C(net016), .A(net020[0]), .B(net23), .Y(S[3]));
+
+nor3_1x I1_2 ( .C(net016), .A(net020[1]), .B(net23), .Y(S[2]));
+
+nor3_1x I1_1 ( .C(net016), .A(net020[2]), .B(net23), .Y(S[1]));
+
+nor3_1x I1_0 ( .C(net016), .A(net020[3]), .B(net23), .Y(S[0]));
+
+nor3_1x I2_3 ( .C(net015), .A(net020[0]), .B(net22), .Y(S[7]));
+
+nor3_1x I2_2 ( .C(net015), .A(net020[1]), .B(net22), .Y(S[6]));
+
+nor3_1x I2_1 ( .C(net015), .A(net020[2]), .B(net22), .Y(S[5]));
+
+nor3_1x I2_0 ( .C(net015), .A(net020[3]), .B(net22), .Y(S[4]));
+
+endmodule

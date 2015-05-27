@@ -1,0 +1,17 @@
+mc1 montecarlo numruns=100 seed=1 variations=process sampling=lhs \
+numbins=100 donominal=yes scalarfile="../monteCarlo/mcdata" \
+paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
+processparamfile="../monteCarlo/processParam" \
+processscalarfile="../monteCarlo/processData"  paramdumpmode=yes \
+savefamilyplots=yes savedatainseparatedir=yes wfseparation=yes {
+
+tran tran stop=4n write="spectre.ic" writefinal="spectre.fc" 
+
+finalTimeOP info what=oppoint where=rawfile
+
+modelParameter info what=models where=rawfile 
+element info what=inst where=rawfile 
+outputParameter info what=output where=rawfile 
+designParamVals info what=parameters where=rawfile
+export noExprs=oceanEval("0")
+}

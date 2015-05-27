@@ -1,0 +1,51 @@
+// Library - 16nm, Cell - nand4_1x, View - schematic
+// LAST TIME SAVED: Apr 23 17:51:26 2015
+// NETLIST TIME: May 26 21:57:03 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module nand4_1x (Y, A, B, C, D);
+
+output  Y;
+
+input  A, B, C, D;
+
+
+_ANALOG_BEGIN
+M5 (Y D cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M4 (Y C cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (Y B cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (Y A cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M7 (net23 D cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=240n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M6 (net25 C net23 cds_globals.\gnd! ) nfet w=240n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net24 B net25 cds_globals.\gnd! ) nfet w=240n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (Y A net24 cds_globals.\gnd! ) nfet w=240n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+endmodule

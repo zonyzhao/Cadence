@@ -1,0 +1,60 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+  hierPrefix "MC_6TWrite_Test"
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+( "In" 3 0  "In" 3 0  )
+( "~Out0" 0 1  "\\~Out0 " 0 1  )
+( "~Out1" 0 1  "\\~Out1 " 0 1  )
+( "Out0" 1 0  "Out0" 1 0  )
+( "Rack" 1 0  "Rack" 1 0  )
+( "b1" 0 1  "b1" 0 1  )
+( "Out1" 1 0  "Out1" 1 0  )
+( "b0" 0 1  "b0" 0 1  )
+( "n" 0 3  "n" 0 3  )
+ )
+( net
+( "Rack<1>" "Rack[1]" )
+( "~Out0<0>" "\\~Out0 [0]" )
+( "In<2>" "In[2]" )
+( "b1<1>" "b1[1]" )
+( "Out0<1>" "Out0[1]" )
+( "In<0>" "In[0]" )
+( "n<1>" "n[1]" )
+( "Out0<0>" "Out0[0]" )
+( "~Out1<1>" "\\~Out1 [1]" )
+( "~Out0<1>" "\\~Out0 [1]" )
+( "b0<1>" "b0[1]" )
+( "b0<0>" "b0[0]" )
+( "Out1<1>" "Out1[1]" )
+( "In<1>" "In[1]" )
+( "n<3>" "n[3]" )
+( "~Out1<0>" "\\~Out1 [0]" )
+( "n<0>" "n[0]" )
+( "n<2>" "n[2]" )
+( "Out1<0>" "Out1[0]" )
+( "b1<0>" "b1[0]" )
+( "In<3>" "In[3]" )
+( "Rack<0>" "Rack[0]" )
+ )
+( inst
+ )
+( model
+ )
+( term
+ )
+( param
+ )
+ )

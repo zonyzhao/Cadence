@@ -1,9 +1,0 @@
-HEADER
-"PSFversion" "1.00"
-"M10n M9n M8n M7n M2n M0n" "NCSU_TechLib_FreePDK15_pfet_spectre"
-"M6n M5n M4n M3n" "NCSU_TechLib_FreePDK15_nfet_spectre"
-"B0v" ":1v"
-"B1v" ":2v"
-"Sv" ":3v"
-"W0v" ":4v"
-"W1v" ":5v"

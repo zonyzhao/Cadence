@@ -1,0 +1,16 @@
+// Library - 16nm, Cell - Demux_2e1of4, View - schematic
+// LAST TIME SAVED: Feb  3 01:32:33 2015
+// NETLIST TIME: May 26 21:57:04 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module Demux_2e1of4 (A, \1of4_1 , \1of4_2 , En, EnOut);
+
+
+input  En, EnOut;
+
+output [15:0]  A;
+
+input [3:0]  \1of4_1 ;
+input [3:0]  \1of4_2 ;
+

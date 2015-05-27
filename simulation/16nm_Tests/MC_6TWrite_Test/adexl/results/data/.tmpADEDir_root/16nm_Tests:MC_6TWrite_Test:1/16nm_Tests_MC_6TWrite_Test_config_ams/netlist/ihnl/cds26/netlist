@@ -1,0 +1,25 @@
+// Library - 16nm, Cell - or16_1x, View - schematic
+// LAST TIME SAVED: Feb 19 23:25:58 2015
+// NETLIST TIME: May 26 21:35:38 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module or16_1x (Y, X);
+
+output  Y;
+
+
+input [15:0]  X;
+
+
+nand4_1x I2 ( .D(nX1512), .C(nX118), .A(nX30), .B(nX74), .Y(Y));
+
+nor4_1x I0 ( .D(X[3]), .C(X[2]), .A(X[0]), .B(X[1]), .Y(nX30));
+
+nor4_1x I1 ( .D(X[7]), .C(X[6]), .A(X[4]), .B(X[5]), .Y(nX74));
+
+nor4_1x I3 ( .D(X[11]), .C(X[10]), .A(X[8]), .B(X[9]), .Y(nX118));
+
+nor4_1x I4 ( .D(X[15]), .C(X[14]), .A(X[12]), .B(X[13]), .Y(nX1512));
+
+endmodule

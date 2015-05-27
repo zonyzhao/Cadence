@@ -1,0 +1,43 @@
+// Library - 16nm, Cell - nor3_1x, View - schematic
+// LAST TIME SAVED: Apr 24 03:03:49 2015
+// NETLIST TIME: May 26 21:57:04 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module nor3_1x (Y, A, B, C);
+
+output  Y;
+
+input  A, B, C;
+
+
+_ANALOG_BEGIN
+M5 (Y C net21 cds_globals.\vdd! ) pfet w=300n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net21 B net018 cds_globals.\vdd! ) pfet w=300n l=20n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (net018 A cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=300n l=20n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M6 (Y C cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (Y A cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (Y B cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+endmodule

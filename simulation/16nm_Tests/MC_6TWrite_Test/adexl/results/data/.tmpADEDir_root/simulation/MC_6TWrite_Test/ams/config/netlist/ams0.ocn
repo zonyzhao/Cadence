@@ -1,0 +1,42 @@
+simulator( 'ams )
+design(	 "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.6/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/netlist")
+resultsDir( "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.6/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir" )
+modelFile( 
+    '("/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" nil)
+)
+analysis('tran ?stop "4n"  ?errpreset "conservative"  )
+desVar(	  "vdd" 0.500	)
+desVar(	  "time2" 2n	)
+desVar(	  "time3" 2.22n	)
+desVar(	  "time4" 2.85n	)
+desVar(	  "time5" 3n	)
+envOption(
+	'netlisterMode  "OSS-based" 
+	'invocationStyle  "irun" 
+	'builtinuser  nil 
+)
+option(	'temp  "27.0" 
+)
+option( ?categ 'elaborator
+	'unitsSimPrecision  "ps" 
+	'unitsSimTime  "ps" 
+)
+save( 'v "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0" "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1" "/Aline<0>" "/A<16>" "/B0<0>" "/B1<0>" "/W1<0>" "/Ack" "/S<0>" "/W0<0>" "/RW<0>" "/ValAddr" )
+converge( 'ic "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1" "0" )
+converge( 'ic "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0" "vdd" )
+converge( 'ic "/ICHUNK/IARRAY0/B0P1" "vdd" )
+converge( 'ic "/ICHUNK/IARRAY0/B1P1" "vdd" )
+temp( 27.0 ) 
+run()
+selectResult( 'tran )
+plot(getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") getData("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") getData("/Aline<0>") getData("/A<16>") getData("/B0<0>") getData("/B1<0>") getData("/W1<0>") getData("/Ack") getData("/S<0>") getData("/W0<0>") getData("/RW<0>") getData("/ValAddr") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth") )
+plot( OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth") )
+Q0\ cross = xval(cross(VT("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0") (0.2 * VAR("vdd")) 1 "falling" t "time"))
+plot( Q0\ cross ?expr '( "Q0 cross" ) )
+Q1\ Cross = xval(cross(VT("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") (0.8 * VAR("vdd")) 1 "rising" t "time"))
+plot( Q1\ Cross ?expr '( "Q1 Cross" ) )

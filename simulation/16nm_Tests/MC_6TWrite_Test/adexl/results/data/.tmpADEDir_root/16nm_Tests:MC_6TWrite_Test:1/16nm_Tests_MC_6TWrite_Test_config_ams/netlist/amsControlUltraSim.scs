@@ -1,0 +1,33 @@
+
+// This is the Cadence AMS Designer(R) analog simulation control file. 
+// It specifies the options and analyses for the UltraSim analog solver.
+
+simulator lang=spectre 
+
+global 0 vdd! vcc!
+
+ic MC_6TWrite_Test.ICHUNK.IARRAY0.B1P1=vdd \
+MC_6TWrite_Test.ICHUNK.IARRAY0.B0P1=vdd \
+MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q0=vdd \
+MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q1=0 
+simulatorOptions options temp=27.0 tnom=27 scale=1.0 scalem=1.0
+
+// UltraSim Solver Options 
+usim_opt output_upper=0 ade=1 wf_spectre_syntax=1
+mc1 montecarlo numruns=100 seed=1 variations=process sampling=lhs \
+numbins=100 donominal=yes scalarfile="../monteCarlo/mcdata" \
+paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
+processparamfile="../monteCarlo/processParam" \
+processscalarfile="../monteCarlo/processData"  paramdumpmode=yes \
+savefamilyplots=yes savedatainseparatedir=yes wfseparation=yes {
+
+tran tran stop=4n write="spectre.ic" writefinal="spectre.fc" 
+
+finalTimeOP info what=oppoint where=rawfile
+
+modelParameter info what=models where=rawfile 
+element info what=inst where=rawfile 
+outputParameter info what=output where=rawfile 
+designParamVals info what=parameters where=rawfile
+export noExprs=oceanEval("0")
+}

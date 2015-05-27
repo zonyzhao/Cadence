@@ -1,0 +1,39 @@
+ERROR: Cannot find /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/INCA_libs/AMSD/ams_spice_in/.amsspice_pre.ckt ! 
+Notice: /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/configs/spectre.cfg is filtered . 
+Copy /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/spiceModels.scs ... 
+ln -s /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/INCA_libs/AMSD/ams_spice_in/.a//net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/spiceModels.scs /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/INCA_libs/AMSD/ams_spice_in/.a/. 
+Use of uninitialized value $i in numeric lt (<) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 284, <LF> line 36.
+Use of uninitialized value $i in array element at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 286, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $i in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $i in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Use of uninitialized value $binary_num in numeric eq (==) at /apps/cadence/INCISIVE142/tools.lnx86/spectre/amspacktool/bin/32bit/amspacktool line 289, <LF> line 36.
+Copy /software/cadence/ncsu-FreePDK15/PTM-MG/smodels.scs ... 
+Copy /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/amsControlSpectre.scs ... 
+Notice: /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/discipline.h is filtered . 
+Notice: /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/disciplines.vams is filtered . 
+Notice: /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/constants.h is filtered . 
+Notice: /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/constants.vams is filtered . 
+
+Copy ./INCA_libs/AMSD/ams_spice_in/.amsspice_pre.ckt.log ... 
+Generating TAR file... 
+Done!
+
+Pack Directory: /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/INCA_libs/AMSD/ams_spice_in/.a 

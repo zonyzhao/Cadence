@@ -1,0 +1,57 @@
+// Library - 16nm, Cell - 6T_CHUNK, View - schematic
+// LAST TIME SAVED: May 24 22:57:48 2015
+// NETLIST TIME: May 26 21:57:03 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_CHUNK  (A, B0, B1, Go, S, W0, W1, \~R0 , \~R1 );
+
+inout  Go;
+
+inout [7:0]  S;
+inout [3:0]  W1;
+inout [3:0]  B1;
+inout [3:0]  B0;
+inout [3:0]  \~R0 ;
+inout [3:0]  \~R1 ;
+inout [3:0]  W0;
+inout [63:0]  A;
+
+
+\6T_32x4  IARRAY7 ( .S(S[7:4]), .A(A[63:32]), .W0(W0[3]), .W1(W1[3]), 
+    .SM0(SM0_1_bit3), .SM1(SM1_1_bit3), .B0(B0[3]), .B1(B1[3]));
+
+\6T_32x4  IARRAY6 ( .S(S[7:4]), .A(A[63:32]), .W0(W0[2]), .W1(W1[2]), 
+    .SM0(SM0_1_bit2), .SM1(SM1_1_bit2), .B0(B0[2]), .B1(B1[2]));
+
+\6T_32x4  IARRAY5 ( .S(S[7:4]), .A(A[63:32]), .W0(W0[1]), .W1(W1[1]), 
+    .SM0(SM0_1_bit1), .SM1(SM1_1_bit1), .B0(B0[1]), .B1(B1[1]));
+
+\6T_32x4  IARRAY4 ( .S(S[7:4]), .A(A[63:32]), .W0(W0[0]), .W1(W1[0]), 
+    .SM0(SM0_1_bit0), .SM1(SM1_1_bit0), .B0(B0[0]), .B1(B1[0]));
+
+\6T_32x4  IARRAY3 ( .S(S[3:0]), .A(A[31:0]), .W0(W0[3]), .W1(W1[3]), 
+    .SM0(SM0_0_bit3), .SM1(SM1_0_bit3), .B0(B0[3]), .B1(B1[3]));
+
+\6T_32x4  IARRAY2 ( .S(S[3:0]), .A(A[31:0]), .W0(W0[2]), .W1(W1[2]), 
+    .SM0(SM0_0_bit2), .SM1(SM1_0_bit2), .B0(B0[2]), .B1(B1[2]));
+
+\6T_32x4  IARRAY1 ( .S(S[3:0]), .A(A[31:0]), .W0(W0[1]), .W1(W1[1]), 
+    .SM0(SM0_0_bit1), .SM1(SM1_0_bit1), .B0(B0[1]), .B1(B1[1]));
+
+\6T_32x4  IARRAY0 ( .S(S[3:0]), .A(A[31:0]), .W0(W0[0]), .W1(W1[0]), 
+    .SM0(SM0_0_bit0), .SM1(SM1_0_bit0), .B0(B0[0]), .B1(B1[0]));
+
+\6T_SetRead  I7 ( \~R0 [3], \~R1 [3], Go, SM0_0_bit3, SM0_1_bit3, 
+    SM1_0_bit3, SM1_1_bit3);
+
+\6T_SetRead  I6 ( \~R0 [2], \~R1 [2], Go, SM0_0_bit2, SM0_1_bit2, 
+    SM1_0_bit2, SM1_1_bit2);
+
+\6T_SetRead  I5 ( \~R0 [1], \~R1 [1], Go, SM0_0_bit1, SM0_1_bit1, 
+    SM1_0_bit1, SM1_1_bit1);
+
+\6T_SetRead  I4 ( \~R0 [0], \~R1 [0], Go, SM0_0_bit0, SM0_1_bit0, 
+    SM1_0_bit0, SM1_1_bit0);
+
+endmodule

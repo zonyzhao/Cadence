@@ -1,0 +1,32 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "behavioral functional system verilog pld_verilog lai_verilog lmsi_verilog schematic symbol"
+  stopList "verilog pld_verilog lai_verilog lmsi_verilog symbol"
+  hierDelim "."
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+ )
+( net
+( "gnd!" "cds_globals.\\gnd! " )
+( "vdd!" "cds_globals.\\vdd! " )
+ )
+( inst
+ )
+( model
+( "TH44~" "\\TH44~ " )
+ )
+( term
+ )
+( param
+ )
+( "TH44~" "\\TH44~ " )
+ )

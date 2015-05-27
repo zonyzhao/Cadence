@@ -1,0 +1,13 @@
+// Library - 16nm, Cell - or16_1x, View - schematic
+// LAST TIME SAVED: Feb 19 23:25:58 2015
+// NETLIST TIME: May 26 22:22:47 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module or16_1x (Y, X);
+
+output  Y;
+
+
+input [15:0]  X;
+

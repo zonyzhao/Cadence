@@ -1,0 +1,39 @@
+
+TH22 I26 ( .Y(\~Out1 [1]), .B(Rack[1]), .A(b1[1]));
+
+TH22 I7 ( .Y(\~Out1 [0]), .B(Rack[0]), .A(b1[0]));
+
+TH22 I24 ( .Y(\~Out0 [1]), .B(Rack[1]), .A(b0[1]));
+
+TH22 I6 ( .Y(\~Out0 [0]), .B(Rack[0]), .A(b0[0]));
+
+TH22 I3 ( .Y(n[3]), .B(nxa), .A(In[3]));
+
+TH22 I2 ( .Y(n[2]), .B(nxa), .A(In[2]));
+
+TH22 I1 ( .Y(n[1]), .B(nxa), .A(In[1]));
+
+TH22 I0 ( .Y(n[0]), .B(nxa), .A(In[0]));
+
+inv_1x I30 ( .Y(Out1[1]), .A(\~Out1 [1]));
+
+inv_1x I29 ( .Y(Out0[0]), .A(\~Out0 [0]));
+
+inv_1x I31 ( .Y(Out0[1]), .A(\~Out0 [1]));
+
+inv_1x I28 ( .Y(Out1[0]), .A(\~Out1 [0]));
+
+or4_1x I12 ( .D(n[3]), .C(n[2]), .A(n[0]), .B(n[1]), .Y(Lack));
+
+nor_1x I19 ( .Y(b1[0]), .B(n[1]), .A(n[3]));
+
+nor_1x I22 ( .Y(b1[1]), .B(n[3]), .A(n[2]));
+
+nor_1x I21 ( .Y(b0[1]), .B(n[1]), .A(n[0]));
+
+nor_1x I20 ( .Y(b0[0]), .B(n[2]), .A(n[0]));
+
+and4_1x I27 ( .D(\~Out0 [1]), .C(\~Out1 [1]), .A(\~Out1 [0]), .B(\~Out0 
+    [0]), .Y(nxa));
+
+endmodule

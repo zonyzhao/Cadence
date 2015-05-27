@@ -1,0 +1,27 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-outdir
+./INCA_libs/AMSD/ams_spice_in
+-runmode
+-cdslib
+./INCA_libs/worklib.MC_6TWrite_Test_config.lnx86.14.20.nc/cdsrun.lib
+-hdlvar
+./INCA_libs/worklib.MC_6TWrite_Test_config.lnx86.14.20.nc/hdlrun.var
+-work
+worklib
+-32bit
+-amscommfile
+./INCA_libs/AMSD/ams_spice_in/amscomm.list
+-amsspice-errfile
+./INCA_libs/AMSD/ams_spice_in/amsspice_pre.log
+-dumpprim
+-simcompat_ams
+spectre
+-amsi
+./spiceModels.scs
+-amsi
+./amsControlUltraSim.scs
+-modelincdir
+"/root/Desktop/Cadence/"

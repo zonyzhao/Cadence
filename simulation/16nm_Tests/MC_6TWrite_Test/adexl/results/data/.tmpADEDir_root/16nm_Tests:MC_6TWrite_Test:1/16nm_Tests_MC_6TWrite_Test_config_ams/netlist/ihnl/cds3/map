@@ -1,0 +1,33 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "$default"
+  stopList "spectre spice verilog verilogNetlist"
+  hierDelim "."
+  hierPrefix "MC_6TWrite_Test"
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+ )
+( net
+( "gnd!" "cds_globals.\\gnd! " )
+( "vdd!" "cds_globals.\\vdd! " )
+ )
+( inst
+ )
+( model
+( "6T_32x_CTRL" "\\6T_32x_CTRL " )
+ )
+( term
+ )
+( param
+ )
+( "6T_32x_CTRL" "\\6T_32x_CTRL " )
+ )

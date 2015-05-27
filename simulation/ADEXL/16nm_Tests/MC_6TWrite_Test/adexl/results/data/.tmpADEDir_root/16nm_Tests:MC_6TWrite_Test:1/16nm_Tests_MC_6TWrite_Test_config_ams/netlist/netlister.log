@@ -1,0 +1,141 @@
+Begin Incremental Netlisting May 26 21:57:03 2015
+INFO (VLOGNET-187): While generating an explicit netlist, it is recommended to
+set the Terminal SyncUp option on the Netlist Setup form as 'Merge All' with
+this option.
+Alternatively, you can set the hnlVerilogTermSyncUp variable as
+'mergeAll'. This helps in generating a pure explicit netlist.
+
+INFO (VLOGNET-60): The stimulus name mapped table will not be printed in the
+
+"/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_config_ams/netlist/testfixture.verilog" file. To print the stimulus name
+mapped table, set 
+simVerilogPrintStimulusNameMappingTable = t either in CIW or
+the .simrc file 
+before invoking Verilog netlister.
+ 
+INFO (VLOGNET-62): Database internal net names will be printed for floating
+instance ports. To prevent 
+them from being printed, set
+simVerilogProcessNullPorts = t either in CIW or 
+the .simrc file.
+ 
+INFO (VLOGNET-64): All cellviews in the design will be printed in the Netlist
+Configuration list. 
+If you want to print only those cellviews that need to be
+re-netlisted in the 
+list, set simVerilogIncrementalNetlistConfigList = t either
+in CIW or the 
+.simrc file.
+ 
+INFO (VLOGNET-68): The initial state of stimulus of all inout pins is set to
+"z". To get inout 
+pins with initial state of "0", set
+hnlVerilogIOInitStimulusStr = "0" 
+either in CIW or the .simrc file.
+ 
+WARNING (OSSHNL-360): Bus 'wack' uses both ascending and descending ranges.
+The
+bus will be declared with an 'ascending' range as specified by the skill
+flag
+'hnlSetBusDirectionDescending'.
+For a bus consisting of ranges used in both the
+directions, OSS uses the range
+direction of the widest slice for the complete
+bus. When the widest slices use
+conflicting directions, OSS uses the range
+direction defined by the skill flag
+'hnlSetBusDirectionDescending'.
+
+INFO (AMS-2150): Generating the 'changedVarsSummary' file in the 'netlist'
+directory. This file prints the values of the netlister control variables, which
+are different from their default values. To disable the file creation, type
+'envSetVal("ams.netlisterOpts" "print_control_vars" 'boolean nil )' in the
+'.cdsinit' file.
+
+INFO (VLOGNET-117): Re-netlisting the entire design.
+
+INFO (VLOGNET-118): Using connection by name (explicit connections) for all
+stopping and 
+non-stopping cells.
+ 
+WARNING (VLOGNET-186): Unable to generate explicit netlist for the
+'16nm/6T_SetRead/schematic' cell view because split buses and/or bundle
+terminals are present in it.  
+Set the Terminal SyncUp option on the Netlist
+Setup form as 'Merge All' or set the hnlVerilogTermSyncUp variable as 'mergeAll'
+and netlist again.
+
+WARNING (VLOGNET-105): Cannot drop port ranges because the cell
+'16nm/6T_SetRead/schematic' has split busses 
+across module ports. Therefore,
+ignoring the flag simVerilogDropPortRange.
+ 
+WARNING (VLOGNET-105): Cannot drop port ranges because the cell
+'16nm/6T_DATAb/schematic' has split busses 
+across module ports. Therefore,
+ignoring the flag simVerilogDropPortRange.
+ 
+WARNING (VLOGNET-110): The cell '16nm_Tests/MC_6TWrite_Test/schematic' has no
+ports. Make sure that this was the intended 
+design.
+ 
+INFO (VLOGNET-169): Module port ordering for lib '16nm_Tests', cell
+'Write_Testbench_verilog', view 'verilog' will be
+ done using the user specified
+port order as follows:
+
+ => ("A<16:0>" "RW<1:0>" "W1<3:0>" "W2<3:0>" "WdataAck<1:0>" "R1<3:0>" "R2<3:0>"
+"RDataAck<1:0>" 
+     "Ack" "VDD" "VSS") 
+
+INFO (VLOGNET-126): ---------- Beginning netlist configuration information
+----------
+
+
+
+CELL NAME                   VIEW NAME            NOTE             
+---------                   ---------            ----             
+
+nfet                        spectre              *Stopping View*  
+pfet                        spectre              *Stopping View*  
+cap                         spectre              *Stopping View*  
+cds_thru                    spectre              *Stopping View*  
+vdc                         spectre              *Stopping View*  
+Write_Testbench_verilog     verilog              *Stopping View*  
+MC_6TWrite_Test             schematic                             
+6T_DEMUX_                   schematic                             
+nor3_1x                     schematic                             
+Demux_3e1of4                schematic                             
+or16_1x                     schematic                             
+Demux_2e1of4                schematic                             
+6T_DATAb                    schematic                             
+WCHB_Write                  schematic                             
+or4_1x                      schematic                             
+nor4_1x                     schematic                             
+TH44~                       schematic                             
+WCHB_Read                   schematic                             
+and4_1x                     schematic                             
+and_1x                      schematic                             
+PCHB_Write                  schematic                             
+THaC                        schematic                             
+PCHBd                       schematic                             
+TH22                        schematic                             
+inv_weak_1x                 schematic                             
+or_1x                       schematic                             
+nor_1x                      schematic                             
+nand_1x                     schematic                             
+inv_1x                      schematic                             
+6T_CHUNK                    schematic                             
+6T_SetRead                  schematic                             
+6T_32x4                     schematic                             
+nand4_1x                    schematic                             
+6T_32x_CTRL                 schematic                             
+6T_32x                      schematic                             
+6T_4x                       schematic                             
+6T                          schematic                             
+
+---------- End of netlist configuration information   ----------
+INFO (VLOGNET-80): The library '16nm_Tests', cell 'MC_6TWrite_Test', and view
+'config' has been netlisted successfully.
+
+End netlisting May 26 21:57:04 2015

@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - inv_1x, View - schematic
+// LAST TIME SAVED: Apr 29 23:24:48 2015
+// NETLIST TIME: May 26 22:22:46 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module inv_1x (Y, A);
+
+output  Y;
+
+input  A;
+

@@ -52,5 +52,5 @@
 (envOpts selectRules) "Built-in"
 (envOpts snapshot) ""
 (envOpts snapshotPrefix) ""
-(envOpts solver) "Spectre"
+(envOpts solver) "UltraSim"
 (envOpts vcoType) ""

@@ -1,0 +1,21 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-timescale
+1ps/1ps
+-DISCIPLINE
+logic
+-DELAY_MODE
+None
+-NOVITALACCL
+-ACCESS
+r
+-AMSPARTINFO
+/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/config/psf/partition.info
+-RNM_PARTINFO
+-AMSFASTSPICE
+-MODELINCDIR
+/root/Desktop/Cadence/
+-AMSCONNRULES
+ConnRules_18V_full_fast1

@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - PCHBd, View - schematic
+// LAST TIME SAVED: Apr 25 22:07:21 2015
+// NETLIST TIME: May 26 21:57:03 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module PCHBd (Ai, \R0i+1 , \R1i+1 , \Ai+1 , R0i, R1i);
+
+output  Ai, \R0i+1 , \R1i+1 ;
+
+input  \Ai+1 , R0i, R1i;
+

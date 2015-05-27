@@ -1,0 +1,113 @@
+// Library - 16nm, Cell - TH44~, View - schematic
+// LAST TIME SAVED: Apr 24 03:06:35 2015
+// NETLIST TIME: May 26 21:35:38 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \TH44~  (Y, A, B, C, D);
+
+output  Y;
+
+input  A, B, C, D;
+
+
+_ANALOG_BEGIN
+M19 (net13 A cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=80n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M18 (net13 B cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=80n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M17 (net13 C cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=80n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M16 (net13 D cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=80n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M15 (net011 net19 cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=40n 
+    l=16n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M14 (net42 A cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=160n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M13 (net43 B net42 cds_globals.\gnd! ) nfet w=160n l=16n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M12 (net44 C net43 cds_globals.\gnd! ) nfet w=160n l=16n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M11 (net19 D net44 cds_globals.\gnd! ) nfet w=160n l=16n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M10 (net19 net011 net13 cds_globals.\gnd! ) nfet w=80n l=16n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+inv_1x I6 ( .Y(Y), .A(net011));
+
+_ANALOG_BEGIN
+M9 (net011 net19 cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=80n 
+    l=16n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M8 (net19 net011 net15 cds_globals.\vdd! ) pfet w=160n l=16n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M7 (net15 D cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=160n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M6 (net15 C cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=160n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M5 (net15 B cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=160n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M4 (net15 A cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=160n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net19 D net45 cds_globals.\vdd! ) pfet w=320n l=16n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (net45 C net46 cds_globals.\vdd! ) pfet w=320n l=16n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (net46 B net47 cds_globals.\vdd! ) pfet w=320n l=16n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (net47 A cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=320n l=16n 
+    nfin=1 nf=1 m=1
+_ANALOG_END
+
+endmodule

@@ -1,0 +1,6 @@
+
+nand4_1x I15 ( .D(D), .C(C), .A(A), .B(B), .Y(net1));
+
+inv_1x I16 ( .Y(Y), .A(net1));
+
+endmodule

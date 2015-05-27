@@ -1,0 +1,43 @@
+// Library - 16nm, Cell - Demux_3e1of4, View - schematic
+// LAST TIME SAVED: Apr 18 21:45:09 2015
+// NETLIST TIME: May 26 21:35:38 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module Demux_3e1of4 (A, AddrValid, \1of4_1 , \1of4_2 , \1of4_3 , En);
+
+output  AddrValid;
+
+input  En;
+
+output [63:0]  A;
+
+input [3:0]  \1of4_1 ;
+input [3:0]  \1of4_2 ;
+input [3:0]  \1of4_3 ;
+
+
+Demux_2e1of4 I3 ( .En(En), .EnOut(\1of4_3 [3]), .A(A[63:48]), .\1of4_1 
+    (\1of4_1 [3:0]), .\1of4_2 (\1of4_2 [3:0]));
+
+Demux_2e1of4 I2 ( .En(En), .EnOut(\1of4_3 [2]), .A(A[47:32]), .\1of4_1 
+    (\1of4_1 [3:0]), .\1of4_2 (\1of4_2 [3:0]));
+
+Demux_2e1of4 I1 ( .En(En), .EnOut(\1of4_3 [1]), .A(A[31:16]), .\1of4_1 
+    (\1of4_1 [3:0]), .\1of4_2 (\1of4_2 [3:0]));
+
+Demux_2e1of4 I0 ( .En(En), .EnOut(\1of4_3 [0]), .A(A[15:0]), .\1of4_1 
+    (\1of4_1 [3:0]), .\1of4_2 (\1of4_2 [3:0]));
+
+or16_1x I8 ( .Y(net22), .X(A[63:48]));
+
+or16_1x I7 ( .Y(net23), .X(A[47:32]));
+
+or16_1x I6 ( .Y(net24), .X(A[31:16]));
+
+or16_1x I17 ( .Y(net25), .X(A[15:0]));
+
+or4_1x I11 ( .D(net22), .C(net23), .A(net25), .B(net24), 
+    .Y(AddrValid));
+
+endmodule

@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<setupdb version="5">monteCarlo
+	<active>Active Setup
+		<corners>
+			<corner enabled="1">_default</corner>
+		</corners>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<currentmode>Monte Carlo Sampling</currentmode>
+		<tests>
+			<test>16nm_Tests:MC_6TWrite_Test:1
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>MC_6TWrite_Test</value>
+					</option>
+					<option>lib
+						<value>16nm_Tests</value>
+					</option>
+					<option>sim
+						<value>ams</value>
+					</option>
+					<option>view
+						<value>ams_config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/states/monteCarlo/test_states</value>
+					</option>
+					<option>state
+						<value>16nm_Tests:MC_6TWrite_Test:1_active</value>
+					</option>
+				</tooloptions>
+				<origoptions>
+					<option>cell
+						<value>MC_6TWrite_Test</value>
+					</option>
+					<option>lib
+						<value>16nm_Tests</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/test_states</value>
+					</option>
+					<option>state
+						<value>tmpstate.647933292</value>
+					</option>
+				</origoptions>
+				<outputs>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth")
+						<evalType>point</evalType>
+					</output>
+					<output>cross(VT("/ICHUNK/IARRAY0/B0P1") vdd 1 "either" nil nil)
+						<evalType>point</evalType>
+					</output>
+					<output>cross(v("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") (0.95 * vdd) 1 "rising" nil nil)
+						<evalType>point</evalType>
+					</output>
+				</outputs>
+			</test>
+		</tests>
+		<vars>
+			<var>time2
+				<value>2n</value>
+				<dependentTests></dependentTests>
+			</var>
+			<var>time3
+				<value>2.22n</value>
+				<dependentTests></dependentTests>
+			</var>
+			<var>time4
+				<value>2.85n</value>
+				<dependentTests></dependentTests>
+			</var>
+			<var>time5
+				<value>3n</value>
+				<dependentTests></dependentTests>
+			</var>
+			<var enabled="1">vdd
+				<value>.500</value>
+				<dependentTests>
+					<dependentTest omitted="0">16nm_Tests:MC_6TWrite_Test:1</dependentTest>
+				</dependentTests>
+			</var>
+		</vars>
+		<runoptions>
+			<mode>Monte Carlo Sampling
+				<runoption>ignoreflag
+					<value>0</value>
+				</runoption>
+				<runoption>dutsummary
+					<dutinstance>row0
+						<test>16nm_Tests:MC_6TWrite_Test:1</test>
+						<type>Schematic</type>
+						<LCV>Schematic</LCV>
+						<Instances>/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0, /ICHUNK/IARRAY0/ISRAM0/I7/I3/M3, /ICHUNK/IARRAY0/ISRAM0/I7/I3/M5, /ICHUNK/IARRAY0/ISRAM0/I7/I3/M4, /ICHUNK/IARRAY0/ISRAM0/I7/I3/M2, /ICHUNK/IARRAY0/ISRAM0/I7/I3/M1</Instances>
+					</dutinstance>
+				</runoption>
+				<runoption>mcmethod
+					<value>global</value>
+				</runoption>
+				<runoption>mcnumpoints
+					<value>100</value>
+				</runoption>
+				<runoption>mcnumbins
+					<value></value>
+				</runoption>
+				<runoption>mcStopEarly
+					<value>0</value>
+				</runoption>
+				<runoption>mcStopMethod
+					<value>Significance Test</value>
+				</runoption>
+				<runoption>samplingmode
+					<value>lhs</value>
+				</runoption>
+				<runoption>saveprocess
+					<value>1</value>
+				</runoption>
+				<runoption>savemismatch
+					<value>1</value>
+				</runoption>
+				<runoption>mcreferencepoint
+					<value>0</value>
+				</runoption>
+				<runoption>donominal
+					<value>1</value>
+				</runoption>
+				<runoption>saveallplots
+					<value>1</value>
+				</runoption>
+				<runoption>montecarloseed
+					<value>1</value>
+				</runoption>
+				<runoption>mcstartingrunnumber
+					<value>1</value>
+				</runoption>
+				<runoption>dumpParamMode
+					<value>yes</value>
+				</runoption>
+			</mode>
+		</runoptions>
+		<distributeoptions>
+			<genusjoblimits>
+				<genusjoblimit>ICRP
+					<value>4</value>
+				</genusjoblimit>
+			</genusjoblimits>
+			<specifyjoblimit>1</specifyjoblimit>
+			<parallelrun>1</parallelrun>
+		</distributeoptions>
+		<allsweepsenabled>0</allsweepsenabled>
+		<allcornersenabled>0</allcornersenabled>
+		<startingpoint></startingpoint>
+	</active>
+	<history>History</history>
+</setupdb>

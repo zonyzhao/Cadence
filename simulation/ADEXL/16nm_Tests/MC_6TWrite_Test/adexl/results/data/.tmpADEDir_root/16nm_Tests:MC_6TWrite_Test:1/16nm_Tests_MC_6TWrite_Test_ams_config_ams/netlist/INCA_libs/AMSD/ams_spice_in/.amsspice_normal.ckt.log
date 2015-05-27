@@ -1,0 +1,46 @@
+
+Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
+Version 255.isr2 64bit -- 28 Nov 2014
+Copyright (C) 1989-2014 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence, Virtuoso and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: root   Host: bull   HostID: EDA94F20   PID: 2039
+Memory  available: 12.8967 GB  physical: 33.6883 GB
+CPU Type: Intel(R) Xeon(R) CPU E5-1607 0 @ 3.00GHz
+          Processor PhysicalID CoreID Frequency Load
+              0         0        0     1200.0     1.6
+              1         0        1     1200.0     2.7
+              2         0        2     1200.0     0.9
+              3         0        3     1200.0     0.4
+
+
+Simulating `./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt' on bull at 10:09:14 PM, Tue May 26, 2015 (process id: 2039).
+Current working directory: /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_ams_config_ams/netlist
+Environment variable:
+    SPECTRE_DEFAULTS=
+Command line:
+    amsprimtool ./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt  \
+        -noraw =log  \
+        ./INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt.log  \
+        -I/root/Desktop/Cadence/ -token  \
+        0001AF26C83A239465DFBB2CC00A229E73C4B63DFD3B60CB2080CF5C9E5D13BA59FEB270F31D11B6639FEA2FE10B0F887DC39431F37A3ED44FD9B63EAA3E399863C0B43FE90F319762DDE371F46767C33088A82BBC5F60FB2290A83DEEB8537F10B0C7499F5350FB10B0C4518F4950FB10B0920DC30C7ECB2A80A83DED3C50FB10B0A83DED3C50FB10B0FD58BC44018345D500004237
+
+Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /apps/cadence/INCISIVE142/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_ams_config_ams/netlist/INCA_libs/AMSD/ams_spice_in/.amsspice_normal.ckt
+Reading file:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_ams_config_ams/netlist/spiceModels.scs
+Reading file:  /software/cadence/ncsu-FreePDK15/PTM-MG/smodels.scs
+Reading file:  /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_ams_config_ams/netlist/amsControlSpectre.scs
+Time for NDB Parsing: CPU = 90.986 ms, elapsed = 136.864 ms.
+Time accumulated: CPU = 124.98 ms, elapsed = 136.879 ms.
+Peak resident memory used = 40.6 Mbytes.
+
+Reading link:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading file:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading link:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/constants.h
+Reading file:  /apps/cadence/INCISIVE142/tools.lnx86/spectre/etc/ahdl/constants.vams

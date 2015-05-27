@@ -1,0 +1,116 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "MC_6TWrite_Test"
+  repList "behavioral functional system verilog pld_verilog lai_verilog lmsi_verilog schematic symbol"
+  stopList "verilog pld_verilog lai_verilog lmsi_verilog symbol"
+  globalList "gnd! vdd! vcc!"
+  hierDelim "."
+  hierPrefix "MC_6TWrite_Test"
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  netlistDir "/net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( instViewTable
+ )
+( defbus
+( "W1" 3 0  "W1" 3 0  )
+( "B1" 3 0  "B1" 3 0  )
+( "A" 16 0  "A" 16 0  )
+( "R2" 3 0  "R2" 3 0  )
+( "W0" 3 0  "W0" 3 0  )
+( "WD2" 3 0  "WD2" 3 0  )
+( "RDataAck" 1 0  "RDataAck" 1 0  )
+( "RW" 1 0  "RW" 1 0  )
+( "WdataAck" 1 0  "WdataAck" 1 0  )
+( "net32" 0 3  "net32" 0 3  )
+( "net33" 0 3  "net33" 0 3  )
+( "B0" 3 0  "B0" 3 0  )
+( "Aline" 63 0  "Aline" 63 0  )
+( "S" 7 0  "S" 7 0  )
+( "WD1" 3 0  "WD1" 3 0  )
+( "R1" 3 0  "R1" 3 0  )
+ )
+( net
+( "gnd!" "cds_globals.\\gnd! " )
+( "vcc!" "cds_globals.\\vcc! " )
+( "vdd!" "cds_globals.\\vdd! " )
+ )
+( inst
+ )
+( model
+( "16nm/WCHB_Write/schematic" "WCHB_Write" )
+( "16nm/PCHB_Write/schematic" "PCHB_Write" )
+( "16nm/TH22/schematic" "TH22" )
+( "16nm/6T_SetRead/schematic" "\\6T_SetRead" )
+( "16nm/nand_1x/schematic" "nand_1x" )
+( "16nm/6T/schematic" "\\6T" )
+( "16nm/6T_CHUNK/schematic" "\\6T_CHUNK" )
+( "16nm/inv_weak_1x/schematic" "inv_weak_1x" )
+( "16nm/or4_1x/schematic" "or4_1x" )
+( "16nm/nand4_1x/schematic" "nand4_1x" )
+( "16nm/6T_DEMUX_/schematic" "\\6T_DEMUX_" )
+( "16nm/nor3_1x/schematic" "nor3_1x" )
+( "16nm/nor4_1x/schematic" "nor4_1x" )
+( "16nm/Demux_3e1of4/schematic" "Demux_3e1of4" )
+( "16nm/WCHB_Read/schematic" "WCHB_Read" )
+( "16nm/or_1x/schematic" "or_1x" )
+( "16nm/TH44~/schematic" "\\TH44~" )
+( "16nm/PCHBd/schematic" "PCHBd" )
+( "16nm/inv_1x/schematic" "inv_1x" )
+( "16nm/and_1x/schematic" "and_1x" )
+( "16nm/6T_32x/schematic" "\\6T_32x" )
+( "16nm/6T_4x/schematic" "\\6T_4x" )
+( "16nm/THaC/schematic" "THaC" )
+( "16nm/6T_32x4/schematic" "\\6T_32x4" )
+( "16nm/6T_32x_CTRL/schematic" "\\6T_32x_CTRL" )
+( "16nm/nor_1x/schematic" "nor_1x" )
+( "16nm/6T_DATAb/schematic" "\\6T_DATAb" )
+( "16nm_Tests/MC_6TWrite_Test/schematic" "MC_6TWrite_Test" )
+( "16nm/or16_1x/schematic" "or16_1x" )
+( "16nm/Demux_2e1of4/schematic" "Demux_2e1of4" )
+( "16nm/and4_1x/schematic" "and4_1x" )
+ )
+( term
+ )
+( param
+( "vdd" "cds_globals.vdd" )
+ )
+( "\\6T_DATAb" "ihnl/cds24/map" )
+( "nor4_1x" "ihnl/cds21/map" )
+( "or_1x" "ihnl/cds11/map" )
+( "TH22" "ihnl/cds13/map" )
+( "\\6T_DEMUX_" "ihnl/cds29/map" )
+( "Demux_3e1of4" "ihnl/cds27/map" )
+( "\\6T" "ihnl/cds0/map" )
+( "PCHBd" "ihnl/cds14/map" )
+( "nand_1x" "ihnl/cds9/map" )
+( "Demux_2e1of4" "ihnl/cds25/map" )
+( "WCHB_Read" "ihnl/cds19/map" )
+( "and_1x" "ihnl/cds17/map" )
+( "THaC" "ihnl/cds15/map" )
+( "\\TH44~" "ihnl/cds20/map" )
+( "and4_1x" "ihnl/cds18/map" )
+( "inv_1x" "ihnl/cds8/map" )
+( "or4_1x" "ihnl/cds22/map" )
+( "\\6T_SetRead" "ihnl/cds6/map" )
+( "\\6T_CHUNK" "ihnl/cds7/map" )
+( "\\6T_4x" "ihnl/cds1/map" )
+( "\\6T_32x4" "ihnl/cds5/map" )
+( "\\6T_32x_CTRL" "ihnl/cds3/map" )
+( "inv_weak_1x" "ihnl/cds12/map" )
+( "\\6T_32x" "ihnl/cds2/map" )
+( "WCHB_Write" "ihnl/cds23/map" )
+( "nand4_1x" "ihnl/cds4/map" )
+( "nor_1x" "ihnl/cds10/map" )
+( "PCHB_Write" "ihnl/cds16/map" )
+( "or16_1x" "ihnl/cds26/map" )
+( "nor3_1x" "ihnl/cds28/map" )
+( "MC_6TWrite_Test" "ihnl/cds30/map" )
+ )

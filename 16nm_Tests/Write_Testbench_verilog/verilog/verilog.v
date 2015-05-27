@@ -28,21 +28,12 @@ initial begin
 	W1 = 4'h1;
 	W2 = 4'h1;
 	wait(Ack);
-		A  = 17'h00000;
-	RW = 2'b00;
-	W1 = 4'h0;
-	W2 = 4'h0;
-	wait(~Ack);
-	A  = 17'h11111;
-	RW = 2'b01;
-	W1 = 4'h1;
-	W2 = 4'h1;
-	wait(Ack);
 	A  = 17'h00000;
 	RW = 2'b00;
 	W1 = 4'h0;
 	W2 = 4'h0;
 	wait(~Ack);
+	#1000;
 	$finish;
 end
 

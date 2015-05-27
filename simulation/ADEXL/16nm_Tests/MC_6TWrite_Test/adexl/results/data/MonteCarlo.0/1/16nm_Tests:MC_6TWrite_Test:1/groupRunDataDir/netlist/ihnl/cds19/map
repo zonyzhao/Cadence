@@ -1,0 +1,58 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "behavioral functional system verilog pld_verilog lai_verilog lmsi_verilog schematic symbol"
+  stopList "verilog pld_verilog lai_verilog lmsi_verilog symbol"
+  hierDelim "."
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+( "Lack" 1 0  "Lack" 1 0  )
+( "m" 0 3  "m" 0 3  )
+( "Out" 3 0  "Out" 3 0  )
+( "~Out" 0 3  "\\~Out " 0 3  )
+( "L0" 1 0  "L0" 1 0  )
+( "n1" 0 1  "n1" 0 1  )
+( "n0" 0 1  "n0" 0 1  )
+( "L1" 1 0  "L1" 1 0  )
+ )
+( net
+( "~Out<1>" "\\~Out [1]" )
+( "Lack<1>" "Lack[1]" )
+( "L1<1>" "L1[1]" )
+( "~Out<3>" "\\~Out [3]" )
+( "Out<3>" "Out[3]" )
+( "n1<0>" "n1[0]" )
+( "L0<1>" "L0[1]" )
+( "Out<2>" "Out[2]" )
+( "m<2>" "m[2]" )
+( "Lack<0>" "Lack[0]" )
+( "L0<0>" "L0[0]" )
+( "L1<0>" "L1[0]" )
+( "m<0>" "m[0]" )
+( "Out<1>" "Out[1]" )
+( "n1<1>" "n1[1]" )
+( "m<3>" "m[3]" )
+( "~Out<0>" "\\~Out [0]" )
+( "n0<0>" "n0[0]" )
+( "m<1>" "m[1]" )
+( "n0<1>" "n0[1]" )
+( "~Out<2>" "\\~Out [2]" )
+( "Out<0>" "Out[0]" )
+ )
+( inst
+ )
+( model
+ )
+( term
+ )
+( param
+ )
+ )
