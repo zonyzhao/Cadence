@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - 6T_32x_CTRL, View - schematic
+// LAST TIME SAVED: May 28 02:32:15 2015
+// NETLIST TIME: May 28 02:41:06 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_32x_CTRL  (B0, B1, W0, W1, S);
+
+inout  B0, B1, W0, W1;
+
+input  S;
+

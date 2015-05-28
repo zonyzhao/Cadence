@@ -1,0 +1,15 @@
+// Library - 16nm, Cell - 6T_32x4, View - schematic
+// LAST TIME SAVED: May 28 02:32:04 2015
+// NETLIST TIME: May 28 02:41:06 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_32x4  (SM0, SM1, A, B0, B1, S, W0, W1);
+
+output  SM0, SM1;
+
+inout  B0, B1, W0, W1;
+
+inout [31:0]  A;
+inout [3:0]  S;
+

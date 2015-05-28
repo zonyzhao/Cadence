@@ -1,0 +1,2 @@
+simulator lang=spectre
+include "/software/cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs" amsd_subckt_bind=yes

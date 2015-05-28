@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - TH22, View - schematic
+// LAST TIME SAVED: Apr 24 03:40:50 2015
+// NETLIST TIME: May 28 02:41:06 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module TH22 (Y, A, B);
+
+output  Y;
+
+input  A, B;
+

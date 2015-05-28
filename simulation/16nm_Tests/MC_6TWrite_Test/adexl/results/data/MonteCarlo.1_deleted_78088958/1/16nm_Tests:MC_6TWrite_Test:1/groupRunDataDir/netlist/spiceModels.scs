@@ -1,2 +1,0 @@
-simulator lang=spectre
-include "/software/cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" amsd_subckt_bind=yes

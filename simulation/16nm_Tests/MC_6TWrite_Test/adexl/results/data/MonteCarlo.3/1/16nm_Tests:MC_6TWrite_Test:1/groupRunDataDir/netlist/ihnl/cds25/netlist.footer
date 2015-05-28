@@ -1,0 +1,50 @@
+
+and4_1x I15 ( .D(En), .C(EnOut), .A(\1of4_1 [3]), .B(\1of4_2 [3]), 
+    .Y(A[15]));
+
+and4_1x I14 ( .D(En), .C(EnOut), .A(\1of4_1 [2]), .B(\1of4_2 [3]), 
+    .Y(A[14]));
+
+and4_1x I13 ( .D(En), .C(EnOut), .A(\1of4_1 [1]), .B(\1of4_2 [3]), 
+    .Y(A[13]));
+
+and4_1x I12 ( .D(En), .C(EnOut), .A(\1of4_1 [0]), .B(\1of4_2 [3]), 
+    .Y(A[12]));
+
+and4_1x I11 ( .D(En), .C(EnOut), .A(\1of4_1 [3]), .B(\1of4_2 [2]), 
+    .Y(A[11]));
+
+and4_1x I10 ( .D(En), .C(EnOut), .A(\1of4_1 [2]), .B(\1of4_2 [2]), 
+    .Y(A[10]));
+
+and4_1x I9 ( .D(En), .C(EnOut), .A(\1of4_1 [1]), .B(\1of4_2 [2]), 
+    .Y(A[9]));
+
+and4_1x I8 ( .D(En), .C(EnOut), .A(\1of4_1 [0]), .B(\1of4_2 [2]), 
+    .Y(A[8]));
+
+and4_1x I7 ( .D(En), .C(EnOut), .A(\1of4_1 [3]), .B(\1of4_2 [1]), 
+    .Y(A[7]));
+
+and4_1x I6 ( .D(En), .C(EnOut), .A(\1of4_1 [2]), .B(\1of4_2 [1]), 
+    .Y(A[6]));
+
+and4_1x I5 ( .D(En), .C(EnOut), .A(\1of4_1 [1]), .B(\1of4_2 [1]), 
+    .Y(A[5]));
+
+and4_1x I4 ( .D(En), .C(EnOut), .A(\1of4_1 [0]), .B(\1of4_2 [1]), 
+    .Y(A[4]));
+
+and4_1x I3 ( .D(En), .C(EnOut), .A(\1of4_1 [3]), .B(\1of4_2 [0]), 
+    .Y(A[3]));
+
+and4_1x I2 ( .D(En), .C(EnOut), .A(\1of4_1 [2]), .B(\1of4_2 [0]), 
+    .Y(A[2]));
+
+and4_1x I1 ( .D(En), .C(EnOut), .A(\1of4_1 [1]), .B(\1of4_2 [0]), 
+    .Y(A[1]));
+
+and4_1x I0 ( .D(En), .C(EnOut), .A(\1of4_1 [0]), .B(\1of4_2 [0]), 
+    .Y(A[0]));
+
+endmodule

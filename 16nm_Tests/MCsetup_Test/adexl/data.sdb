@@ -195,6 +195,9 @@
 			<specifyjoblimit>0</specifyjoblimit>
 			<parallelrun>0</parallelrun>
 		</distributeoptions>
+		<disabledtests>
+			<test>16nm_Tests:MCsetup_Test:1</test>
+		</disabledtests>
 	</active>
 	<history>History
 		<historyentry>MonteCarlo.0
@@ -394,8 +397,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:06:55 2015
-</timestamp>
+			<timestamp>Thu May 28 02:06:55 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.0.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -607,8 +609,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:07:38 2015
-</timestamp>
+			<timestamp>Thu May 28 02:07:38 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.1.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -820,8 +821,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:12:14 2015
-</timestamp>
+			<timestamp>Thu May 28 02:12:14 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.2.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -1033,8 +1033,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:15:11 2015
-</timestamp>
+			<timestamp>Thu May 28 02:15:11 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.3.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -1246,8 +1245,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:15:28 2015
-</timestamp>
+			<timestamp>Thu May 28 02:15:28 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.4.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -1459,8 +1457,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:24:02 2015
-</timestamp>
+			<timestamp>Thu May 28 02:24:02 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.5.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.5.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
@@ -1672,8 +1669,7 @@
 				</distributeoptions>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Thu May 28 02:24:40 2015
-</timestamp>
+			<timestamp>Thu May 28 02:24:40 2015</timestamp>
 			<resultsname>/net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.6.rdb</resultsname>
 			<simresults>$AXL_SETUPDB_DIR/results/data/MonteCarlo.6.rdb</simresults>
 			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>

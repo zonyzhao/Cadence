@@ -1,5 +1,8 @@
 Cadence (R) Virtuoso (R) Spectre (R) Circuit Simulator
 Version 14.1.0.303.isr3 64bit -- 16 Dec 2014
-Simulating `input.scs' on bull at 2:23:52 AM, Thur May 28, 2015 (process id: 26807).
-H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre9_6000_6" )
-H->sclSetResultDir( "../../../../MonteCarlo.3/psf/16nm_Tests:MCsetup_Test:1/psf" )
+Simulating `input.scs' on bull at 2:39:15 AM, Thur May 28, 2015 (process id: 2221).
+H = mpsImport( "spectre" "ipi" "v0.0" ?session "spectre19_6000_8" )
+H->sclSetResultDir( "../../simulation/MCsetup_Test/spectre/schematic/psf" )
+H->sclRun( "all" )
+sclCkt0x72fbff0 = H->sclGetCircuit(  "" )
+H->sclQuit(  )

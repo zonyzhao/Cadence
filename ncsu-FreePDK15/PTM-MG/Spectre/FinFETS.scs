@@ -9,8 +9,8 @@ parameters l=lg nfin=1 addvth=0
 //+ vthShiftPC = DVTHN_PC*sigmaPC
 //+ vthShiftMM = DVTHN_MM*sigmaMM
 //+ ndvtshift  = vthShiftPC + vthShiftMM + addvth
-+ nmmdvtshift=nMMdvtshift
-nfet (d g s x) mnfet l=l nfin=nfin 
+
+nfet (d g s x) mnfet l=l nfin=nfin nmmdvtshift=nMMdvtshift
 //**********************************************************
 model mnfet bsimcmg type=n 
 + level=72  			lmin=1e-008          lmax=3e-008        
@@ -163,8 +163,8 @@ parameters l=lg nfin=1 addvth=0
 //+ vthShiftPC = DVTHP_PC * sigmaPC
 //+ vthShiftMM = DVTHP_MM * sigmaMM
 //+ pdvtshift  = vthShiftPC + vthShiftMM + addvth
-+ pmmdvtshift=pMMdvtshift
-pfet (d g s x) mpfet l=l nfin=nfin 
+
+pfet (d g s x) mpfet l=l nfin=nfin pmmdvtshift=pMMdvtshift
 //**********************************************************
 model mpfet bsimcmg type=p
 + level=72  			lmin=1e-008          lmax=3e-008        

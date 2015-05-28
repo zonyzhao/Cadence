@@ -1,0 +1,36 @@
+("16nm" "nor3_1x" "schematic" nil) nil
+("16nm" "Demux_2e1of4" "schematic" nil) nil
+("16nm" "6T_DATAb" "schematic" nil) nil
+("16nm" "and_1x" "schematic" nil) nil
+("16nm" "6T_32x" "schematic" nil) nil
+("16nm" "PCHB_Write" "schematic" nil) nil
+("16nm" "or16_1x" "schematic" nil) nil
+("16nm" "WCHB_Read" "schematic" nil) nil
+("16nm" "inv_weak_1x" "schematic" nil) nil
+("16nm" "6T_CHUNK" "schematic" nil) nil
+("16nm" "6T_4x" "schematic" nil) nil
+("16nm" "nand_1x" "schematic" nil) nil
+("16nm" "nand4_1x" "schematic" nil) nil
+("16nm" "TH22" "schematic" nil) nil
+("NCSU_TechLib_FreePDK15" "pfet" "spectre" nil) ("spectre" "veriloga" "spice")
+("16nm" "6T" "schematic" nil) nil
+("16nm" "TH44~" "schematic" nil) nil
+("NCSU_TechLib_FreePDK15" "nfet" "spectre" nil) ("spectre" "veriloga" "spice")
+("16nm" "WCHB_Write" "schematic" nil) nil
+("16nm" "6T_SetRead" "schematic" nil) nil
+("16nm" "or_1x" "schematic" nil) nil
+("16nm_Tests" "Write_Testbench_verilog" "verilog" nil) nil
+("16nm" "PCHBd" "schematic" nil) nil
+("basic" "cds_thru" "spectre" nil) ("spectre" "veriloga" "spice")
+("16nm" "Demux_3e1of4" "schematic" nil) nil
+("analogLib" "cap" "spectre" nil) ("spectre" "veriloga" "spice")
+("16nm" "or4_1x" "schematic" nil) nil
+("analogLib" "vdc" "spectre" spectreSrcPrim) ("spectre" "veriloga" "spice")
+("16nm" "nor4_1x" "schematic" nil) nil
+("16nm" "and4_1x" "schematic" nil) nil
+("16nm" "THaC" "schematic" nil) nil
+("16nm" "inv_1x" "schematic" nil) nil
+("16nm" "nor_1x" "schematic" nil) nil
+("16nm" "6T_32x4" "schematic" nil) nil
+("16nm" "6T_32x_CTRL" "schematic" nil) nil
+("16nm" "6T_DEMUX_" "schematic" nil) nil

@@ -16,13 +16,13 @@
 -novitalaccl 
 -access r 
 -noparamerr 
--amspartinfo /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf/partition.info -rnm_partinfo 
+-amspartinfo /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf/partition.info -rnm_partinfo 
 -modelincdir ${IC_INVOKE_DIR}/
 ./spiceModels.scs 
 ./amsControlSpectre.scs 
 -input ./probe.tcl 
 -run -exit 
--ncsimargs "+amsrawdir /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf" 
+-ncsimargs "+amsrawdir /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf" 
  -simcompatible_ams spectre 
 -name worklib.MC_6TWrite_Test:ams_config 
 -amsconnrules ConnRules_18V_full_fast 
@@ -50,4 +50,4 @@ ${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/
 ./netlist.vams 
 -f ./textInputs
 ./cds_globals.vams 
--l /net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf/irun.log 
+-l /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/simulation/MC_6TWrite_Test/ams/ams_config/psf/irun.log 

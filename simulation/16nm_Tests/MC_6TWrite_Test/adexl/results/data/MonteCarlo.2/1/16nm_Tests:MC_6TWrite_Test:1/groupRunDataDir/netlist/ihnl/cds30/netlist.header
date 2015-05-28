@@ -1,0 +1,42 @@
+// Library - 16nm_Tests, Cell - MC_6TWrite_Test, View - schematic
+// LAST TIME SAVED: May 25 20:22:50 2015
+// NETLIST TIME: May 28 02:41:07 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module MC_6TWrite_Test ();
+
+// Buses in the design
+
+wire  [3:0]  R1;
+
+wire  [3:0]  WD1;
+
+wire  [7:0]  S;
+
+wire  [63:0]  Aline;
+
+wire  [3:0]  B0;
+
+wire  [0:3]  net33;
+
+wire  [0:3]  net32;
+
+wire  [1:0]  WdataAck;
+
+wire  [1:0]  RW;
+
+wire  [1:0]  RDataAck;
+
+wire  [3:0]  WD2;
+
+wire  [3:0]  W0;
+
+wire  [3:0]  R2;
+
+wire  [16:0]  A;
+
+wire  [3:0]  B1;
+
+wire  [3:0]  W1;
+

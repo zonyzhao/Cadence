@@ -1,0 +1,61 @@
+// Library - 16nm, Cell - THaC, View - schematic
+// LAST TIME SAVED: Apr 24 03:06:58 2015
+// NETLIST TIME: May 28 02:41:06 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module THaC (Y, A, \B+ , \C- );
+
+output  Y;
+
+input  A, \B+ , \C- ;
+
+
+_ANALOG_BEGIN
+M8 (net11 A cds_globals.\gnd!  A) nfet w=120n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M5 (net7 A net33 A) nfet w=120n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M6 (net7 Y net11 Y) nfet w=120n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M9 (net11 \C-  cds_globals.\gnd!  \C- ) nfet w=120n l=20n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M7 (net33 \~B+  cds_globals.\gnd!  \~B+ ) nfet w=120n l=20n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+inv_1x I2 ( .Y(Y), .A(net7));
+
+inv_1x I9 ( .Y(\~B+ ), .A(\B+ ));
+
+_ANALOG_BEGIN
+M4 (net7 Y net17 Y) pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M3 (net7 \C-  net32 \C- ) pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M0 (net32 A cds_globals.\vdd!  A) pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M2 (net17 \~B+  cds_globals.\vdd!  \~B+ ) pfet w=100n l=20n nfin=1 nf=1 
+    m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (net17 A cds_globals.\vdd!  A) pfet w=100n l=20n nfin=1 nf=1 m=1
+_ANALOG_END
+
+endmodule

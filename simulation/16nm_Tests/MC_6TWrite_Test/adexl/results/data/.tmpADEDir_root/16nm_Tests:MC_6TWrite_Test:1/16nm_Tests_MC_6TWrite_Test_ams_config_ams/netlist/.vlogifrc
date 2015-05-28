@@ -215,10 +215,10 @@ vlogifShmRemCopyDir = 'nil
 vlogifTestFixtureFileList = '(" ")
 
 ;Current test fixture
-vlogifCurrentTestFixture = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.template"
+vlogifCurrentTestFixture = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.template"
 
 ;Current Stimulus File
-vlogifCurrentStimulus = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.verilog"
+vlogifCurrentStimulus = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.verilog"
 
 ;Full Test files 
 vlogifFullTestFileList = '(" ")
@@ -230,7 +230,7 @@ vicSelfStimulusHandle = "SelfStimulus"
 vlogifTFRunObjectList = 'nil
 
 ;Design Instance Path
-simVerilogTopLevelModuleName = "MC_6TWrite_Test"
+simVerilogTopLevelModuleName = ""
 
 ;VCompare Executable
 vlogifVCompareExecutable = "/apps/cadence/INCISIVE142/tools.lnx86/bin/simcompare"
@@ -410,7 +410,7 @@ simNCVerilogVCompScriptFile = "compare.rule"
 simNCVerilogVCompMaxCompareMismatches = 200
 
 ;Path to Database
-simNCVerilogVCompCompareResultsDirPath = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist"
+simNCVerilogVCompCompareResultsDirPath = "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist"
 
 ;Difference Database
 simNCVerilogVCompCompareResultsDirName = "diff.db.out"

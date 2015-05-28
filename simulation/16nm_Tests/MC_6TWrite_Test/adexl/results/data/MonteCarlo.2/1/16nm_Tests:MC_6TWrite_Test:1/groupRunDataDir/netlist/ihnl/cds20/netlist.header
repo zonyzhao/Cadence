@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - TH44~, View - schematic
+// LAST TIME SAVED: Apr 24 03:06:35 2015
+// NETLIST TIME: May 28 02:41:07 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \TH44~  (Y, A, B, C, D);
+
+output  Y;
+
+input  A, B, C, D;
+

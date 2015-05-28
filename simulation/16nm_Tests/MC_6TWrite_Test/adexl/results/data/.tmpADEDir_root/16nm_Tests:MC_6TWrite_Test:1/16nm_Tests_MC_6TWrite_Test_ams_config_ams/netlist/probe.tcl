@@ -14,6 +14,8 @@ database -open ams_database -into ${AMS_RESULTS_DIR} -default
 #
 probe -create -emptyok -database ams_database {MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q0}
 probe -create -emptyok -database ams_database {MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q1}
+probe -create -emptyok -database ams_database {MC_6TWrite_Test.ICHUNK.IARRAY0.B1P1}
+probe -create -emptyok -database ams_database {MC_6TWrite_Test.ICHUNK.IARRAY0.B0P1}
 probe -create -emptyok -database ams_database {MC_6TWrite_Test.Aline[0]}
 probe -create -emptyok -database ams_database {MC_6TWrite_Test.A[16]}
 probe -create -emptyok -database ams_database {MC_6TWrite_Test.B0[0]}

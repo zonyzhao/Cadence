@@ -2,7 +2,7 @@
 // File created by:  irun
 // Do not modify this file
 //
-/net/kafka/nfs/rstdenis/Cadence/simulation/MC_6TWrite_Test/ams/ams_config/netlist/ihnl/connectLib/ConnRules_18V_full_fast1/connect/verilog.vams
+/apps/cadence/INCISIVE142/tools.lnx86/affirma_ams/etc/connect_lib/ConnRules18.vams
 /apps/cadence/INCISIVE142/tools.lnx86/affirma_ams/etc/connect_lib/L2E_2.vams
 /apps/cadence/INCISIVE142/tools.lnx86/affirma_ams/etc/connect_lib/E2L_2.vams
 /apps/cadence/INCISIVE142/tools.lnx86/affirma_ams/etc/connect_lib/Bidir_2.vams

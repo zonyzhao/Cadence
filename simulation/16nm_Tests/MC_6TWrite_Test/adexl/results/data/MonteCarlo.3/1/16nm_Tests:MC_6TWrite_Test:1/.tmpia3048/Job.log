@@ -1,0 +1,230 @@
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (1 1) on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting temp(T) = 30.0
+\o Setting var vdd = "0.500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (1 1)
+\o 
+\o generate netlist...
+\o INFO (AMS-2031): The instances bound to the views specified in the 'Netlist using spectre CDF simInfo'
+\o  field in the Netlister form (Simulation->Options->Netlister) will be netlisted as
+\o  analog primitives using the Spectre CDF simulation information.
+\o 
+\o Begin Incremental Netlisting May 28 02:43:14 2015
+\o INFO (VLOGNET-187): While generating an explicit netlist, it is recommended to set the Terminal SyncUp option on the Netlist Setup form as 'Merge All' with this option.
+\o Alternatively, you can set the hnlVerilogTermSyncUp variable as 'mergeAll'. This helps in generating a pure explicit netlist.
+\o 
+\o INFO (VLOGNET-60): The stimulus name mapped table will not be printed in the 
+\o "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.verilog" file. To print the stimulus name mapped table, set 
+\o simVerilogPrintStimulusNameMappingTable = t either in CIW or the .simrc file 
+\o before invoking Verilog netlister.
+\o  
+\o INFO (VLOGNET-62): Database internal net names will be printed for floating instance ports. To prevent 
+\o them from being printed, set simVerilogProcessNullPorts = t either in CIW or 
+\o the .simrc file.
+\o  
+\o INFO (VLOGNET-64): All cellviews in the design will be printed in the Netlist Configuration list. 
+\o If you want to print only those cellviews that need to be re-netlisted in the 
+\o list, set simVerilogIncrementalNetlistConfigList = t either in CIW or the 
+\o .simrc file.
+\o  
+\o INFO (VLOGNET-68): The initial state of stimulus of all inout pins is set to "z". To get inout 
+\o pins with initial state of "0", set hnlVerilogIOInitStimulusStr = "0" 
+\o either in CIW or the .simrc file.
+\o  
+\o WARNING (OSSHNL-360): Bus 'wack' uses both ascending and descending ranges.
+\o The bus will be declared with an 'ascending' range as specified by the skill
+\o flag 'hnlSetBusDirectionDescending'.
+\o For a bus consisting of ranges used in both the directions, OSS uses the range
+\o direction of the widest slice for the complete bus. When the widest slices use
+\o conflicting directions, OSS uses the range direction defined by the skill flag
+\o 'hnlSetBusDirectionDescending'.
+\o 
+\o INFO (AMS-2150): Generating the 'changedVarsSummary' file in the 'netlist' directory. This file prints the values of the netlister control variables, which are different from their default values. To disable the file creation, type 'envSetVal("ams.netlisterOpts" "print_control_vars" 'boolean nil )' in the '.cdsinit' file.
+\o 
+\o INFO (VLOGNET-117): Re-netlisting the entire design.
+\o 
+\o INFO (VLOGNET-118): Using connection by name (explicit connections) for all stopping and 
+\o non-stopping cells.
+\o  
+\o Traverse Config lib:16nm_Tests cell:MC_6TWrite_Test view:ams_config
+\o WARNING (VLOGNET-186): Unable to generate explicit netlist for the '16nm/6T_SetRead/schematic' cell view because split buses and/or bundle terminals are present in it.  
+\o Set the Terminal SyncUp option on the Netlist Setup form as 'Merge All' or set the hnlVerilogTermSyncUp variable as 'mergeAll' and netlist again.
+\o 
+\o WARNING (VLOGNET-105): Cannot drop port ranges because the cell '16nm/6T_SetRead/schematic' has split busses 
+\o across module ports. Therefore, ignoring the flag simVerilogDropPortRange.
+\o  
+\o WARNING (VLOGNET-105): Cannot drop port ranges because the cell '16nm/6T_DATAb/schematic' has split busses 
+\o across module ports. Therefore, ignoring the flag simVerilogDropPortRange.
+\o  
+\o WARNING (VLOGNET-110): The cell '16nm_Tests/MC_6TWrite_Test/schematic' has no ports. Make sure that this was the intended 
+\o design.
+\o  
+\o INFO (VLOGNET-169): Module port ordering for lib '16nm_Tests', cell 'Write_Testbench_verilog', view 'verilog' will be
+\o  done using the user specified port order as follows:
+\o 
+\o  => ("A<16:0>" "RW<1:0>" "W1<3:0>" "W2<3:0>" "WdataAck<1:0>" "R1<3:0>" "R2<3:0>" "RDataAck<1:0>" 
+\o      "Ack" "VDD" "VSS") 
+\o 
+\o INFO (VLOGNET-126): ---------- Beginning netlist configuration information ----------
+\o 
+\o 
+\o 
+\o CELL NAME                   VIEW NAME            NOTE             
+\o ---------                   ---------            ----             
+\o 
+\o nfet                        spectre              *Stopping View*  
+\o pfet                        spectre              *Stopping View*  
+\o cap                         spectre              *Stopping View*  
+\o cds_thru                    spectre              *Stopping View*  
+\o vdc                         spectre              *Stopping View*  
+\o Write_Testbench_verilog     verilog              *Stopping View*  
+\o MC_6TWrite_Test             schematic                             
+\o 6T_DEMUX_                   schematic                             
+\o nor3_1x                     schematic                             
+\o Demux_3e1of4                schematic                             
+\o or16_1x                     schematic                             
+\o Demux_2e1of4                schematic                             
+\o 6T_DATAb                    schematic                             
+\o WCHB_Write                  schematic                             
+\o or4_1x                      schematic                             
+\o nor4_1x                     schematic                             
+\o TH44~                       schematic                             
+\o WCHB_Read                   schematic                             
+\o and4_1x                     schematic                             
+\o and_1x                      schematic                             
+\o PCHB_Write                  schematic                             
+\o THaC                        schematic                             
+\o PCHBd                       schematic                             
+\o TH22                        schematic                             
+\o inv_weak_1x                 schematic                             
+\o or_1x                       schematic                             
+\o nor_1x                      schematic                             
+\o nand_1x                     schematic                             
+\o inv_1x                      schematic                             
+\o 6T_CHUNK                    schematic                             
+\o 6T_SetRead                  schematic                             
+\o 6T_32x4                     schematic                             
+\o nand4_1x                    schematic                             
+\o 6T_32x_CTRL                 schematic                             
+\o 6T_32x                      schematic                             
+\o 6T_4x                       schematic                             
+\o 6T                          schematic                             
+\o 
+\o ---------- End of netlist configuration information   ----------
+\o INFO (VLOGNET-80): The library '16nm_Tests', cell 'MC_6TWrite_Test', and view 'ams_config' has been netlisted successfully.
+\o 
+\o End netlisting May 28 02:43:15 2015
+\o INFO (AMS-1241): AMS netlisting has completed successfully.
+\o To view the modules, right-click the test name on the Tests and Analyses 
+\o assistant pane and choose Netlist->Display menu option.
+\o 
+\o       ...successful.
+\o create cds_globals...
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [
+\o           16nm_Tests:MC_6TWrite_Test:1 ] for Point ID (1 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete simulation data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o INFO (AMS-2031): The instances bound to the views specified in the 'Netlist using spectre CDF simInfo'
+\o  field in the Netlister form (Simulation->Options->Netlister) will be netlisted as
+\o  analog primitives using the Spectre CDF simulation information.
+\o 
+\o Begin Incremental Netlisting May 28 02:43:20 2015
+\o INFO (VLOGNET-187): While generating an explicit netlist, it is recommended to set the Terminal SyncUp option on the Netlist Setup form as 'Merge All' with this option.
+\o Alternatively, you can set the hnlVerilogTermSyncUp variable as 'mergeAll'. This helps in generating a pure explicit netlist.
+\o 
+\o INFO (VLOGNET-60): The stimulus name mapped table will not be printed in the 
+\o "/net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MC_6TWrite_Test:1/groupRunDataDir/netlist/testfixture.verilog" file. To print the stimulus name mapped table, set 
+\o simVerilogPrintStimulusNameMappingTable = t either in CIW or the .simrc file 
+\o before invoking Verilog netlister.
+\o  
+\o INFO (VLOGNET-62): Database internal net names will be printed for floating instance ports. To prevent 
+\o them from being printed, set simVerilogProcessNullPorts = t either in CIW or 
+\o the .simrc file.
+\o  
+\o INFO (VLOGNET-64): All cellviews in the design will be printed in the Netlist Configuration list. 
+\o If you want to print only those cellviews that need to be re-netlisted in the 
+\o list, set simVerilogIncrementalNetlistConfigList = t either in CIW or the 
+\o .simrc file.
+\o  
+\o INFO (VLOGNET-68): The initial state of stimulus of all inout pins is set to "z". To get inout 
+\o pins with initial state of "0", set hnlVerilogIOInitStimulusStr = "0" 
+\o either in CIW or the .simrc file.
+\o  
+\o WARNING (OSSHNL-360): Bus 'wack' uses both ascending and descending ranges.
+\o The bus will be declared with an 'ascending' range as specified by the skill
+\o flag 'hnlSetBusDirectionDescending'.
+\o For a bus consisting of ranges used in both the directions, OSS uses the range
+\o direction of the widest slice for the complete bus. When the widest slices use
+\o conflicting directions, OSS uses the range direction defined by the skill flag
+\o 'hnlSetBusDirectionDescending'.
+\o 
+\o INFO (VLOGNET-118): Using connection by name (explicit connections) for all stopping and 
+\o non-stopping cells.
+\o  
+\o Traverse Config lib:16nm_Tests cell:MC_6TWrite_Test view:ams_config
+\o INFO (VLOGNET-169): Module port ordering for lib '16nm_Tests', cell 'Write_Testbench_verilog', view 'verilog' will be
+\o  done using the user specified port order as follows:
+\o 
+\o  => ("A<16:0>" "RW<1:0>" "W1<3:0>" "W2<3:0>" "WdataAck<1:0>" "R1<3:0>" "R2<3:0>" "RDataAck<1:0>" 
+\o      "Ack" "VDD" "VSS") 
+\o 
+\o INFO (VLOGNET-126): ---------- Beginning netlist configuration information ----------
+\o 
+\o 
+\o                 (incremental data only)
+\o 
+\o CELL NAME                   VIEW NAME            NOTE             
+\o ---------                   ---------            ----             
+\o 
+\o nfet                        spectre              *Stopping View*  
+\o pfet                        spectre              *Stopping View*  
+\o cap                         spectre              *Stopping View*  
+\o cds_thru                    spectre              *Stopping View*  
+\o vdc                         spectre              *Stopping View*  
+\o Write_Testbench_verilog     verilog              *Stopping View*  
+\o 
+\o ---------- End of netlist configuration information   ----------
+\o INFO (VLOGNET-80): The library '16nm_Tests', cell 'MC_6TWrite_Test', and view 'ams_config' has been netlisted successfully.
+\o 
+\o End netlisting May 28 02:43:20 2015
+\o INFO (AMS-1241): AMS netlisting has completed successfully.
+\o To view the modules, right-click the test name on the Tests and Analyses 
+\o assistant pane and choose Netlist->Display menu option.
+\o 
+\o       ...successful.
+\o create cds_globals...
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o validating simulator hierarchy...
+\o       ...successful.
+\o running...
+\o To check for output from compilation, elaboration and simulation run, 
+\o right-click on the test name, result name, or any value in the "Results" 
+\o tab of the Outputs section and choose "Output Log" menu option.

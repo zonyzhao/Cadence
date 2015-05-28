@@ -2,6 +2,8 @@
 // File created by:  irun
 // Do not modify this file
 //
++define+CDS_SELECT_CRS
++define+CONNRULES_18V_FULL_FAST
 -UNBUFFERED
 -ERRORMAX
 50
@@ -15,7 +17,7 @@ DLCLAP
 ./spiceModels.scs
 -AMSINPUT
 -ANALOGCONTROL
-./amsControlUltraSim.scs
+./amsControlSpectre.scs
 -INPUT
 ./probe.tcl
 -RUN
@@ -28,7 +30,7 @@ spectre
 +EMGRLOG
 ../psf/irun.log
 -XLSTIME
-1432789569
+1432805900
 -XLKEEP
 -XLMODE
 ./INCA_libs/worklib.MC_6TWrite_Test_ams_config.lnx8664.14.20.nc
