@@ -1,0 +1,10 @@
+HEADER
+"PSFversion" "1.00"
+"M2n M0n" "NCSU_TechLib_FreePDK15_nfet_spectre"
+"M3n M1n" "NCSU_TechLib_FreePDK15_pfet_spectre"
+"Yv" "(FUNCTION or(mappedRoot(\".1@index\") mappedRoot(\".Y\")))v"
+"Yv" ".Yv"
+"Yv" ".\\1 v"
+"Av" "(FUNCTION or(mappedRoot(\".2@index\") mappedRoot(\".A\")))v"
+"Av" ".Av"
+"Av" ".\\2 v"

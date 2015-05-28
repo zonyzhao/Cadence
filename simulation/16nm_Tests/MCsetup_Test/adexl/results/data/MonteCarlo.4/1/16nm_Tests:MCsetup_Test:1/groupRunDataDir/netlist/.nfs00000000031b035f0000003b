@@ -1,0 +1,38 @@
+Begin Incremental Netlisting May 28 02:05:05 2015
+WARNING (OSSHNL-269): Variable 'simModelNamePrefix' is not defined in the
+current netlisting session. It had a value
+'hdl_' last time netlisting was done
+in current run directory. Netlists from last
+session cannot be used for
+incremental netlisting. Therefore re-netlisting the
+design.
+
+End netlisting May 28 02:05:05 2015
+Begin Incremental Netlisting May 28 02:06:16 2015
+WARNING (OSSHNL-269): Variable 'simModelNamePrefix' is not defined in the
+current netlisting session. It had a value
+'hdl_' last time netlisting was done
+in current run directory. Netlists from last
+session cannot be used for
+incremental netlisting. Therefore re-netlisting the
+design.
+
+End netlisting May 28 02:06:16 2015
+Begin Incremental Netlisting May 28 02:11:43 2015
+WARNING (OSSHNL-269): Variable 'simModelNamePrefix' is not defined in the
+current netlisting session. It had a value
+'hdl_' last time netlisting was done
+in current run directory. Netlists from last
+session cannot be used for
+incremental netlisting. Therefore re-netlisting the
+design.
+
+WARNING (OSSHNL-225): The design variable 'pdvtshift', used in the last
+netlisting session in the current
+run directory is not used in this netlisting
+session. The netlist(s) generated
+in the last netlisting session cannot be
+reused for incremental netlisting.
+Therefore re-netlisting the design.
+
+End netlisting May 28 02:11:43 2015

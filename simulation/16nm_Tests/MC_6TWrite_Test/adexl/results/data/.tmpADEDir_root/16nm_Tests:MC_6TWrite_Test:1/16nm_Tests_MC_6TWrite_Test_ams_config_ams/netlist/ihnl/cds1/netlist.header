@@ -1,0 +1,12 @@
+// Library - 16nm, Cell - 6T_4x, View - schematic
+// LAST TIME SAVED: Feb 19 23:02:55 2015
+// NETLIST TIME: May 27 22:38:29 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module \6T_4x  (A, B0, B1);
+
+inout  B0, B1;
+
+inout [3:0]  A;
+

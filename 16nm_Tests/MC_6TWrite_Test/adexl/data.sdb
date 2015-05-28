@@ -57,28 +57,34 @@
 					</option>
 				</origoptions>
 				<outputs>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth")
+					<output>M1
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth")
+					<output>M0
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth")
+					<output>M2
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth")
+					<output>M3
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth")
+					<output>M4
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth")
+					<output>M5
 						<evalType>point</evalType>
 					</output>
 					<output>cross(VT("/ICHUNK/IARRAY0/B0P1") vdd 1 "either" nil nil)
 						<evalType>point</evalType>
 					</output>
 					<output>cross(v("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") (0.95 * vdd) 1 "rising" nil nil)
+						<evalType>point</evalType>
+					</output>
+					<output>passfail
+						<evalType>point</evalType>
+					</output>
+					<output>BL0
 						<evalType>point</evalType>
 					</output>
 				</outputs>
@@ -175,7 +181,7 @@
 				<value>no</value>
 			</plottingoption>
 			<plottingoption>waveformtemplate
-				<value>                            </value>
+				<value></value>
 			</plottingoption>
 			<plottingoption>autoplotsignals
 				<value>yes</value>
@@ -427,7 +433,7 @@
 						<value>no</value>
 					</plottingoption>
 					<plottingoption>waveformtemplate
-						<value>                            </value>
+						<value></value>
 					</plottingoption>
 					<plottingoption>autoplotsignals
 						<value>yes</value>
@@ -504,8 +510,7 @@
 				<startingpoint></startingpoint>
 				<sortVariableValues>0</sortVariableValues>
 			</checkpoint>
-			<timestamp>Tue May 26 22:22:40 2015
-</timestamp>
+			<timestamp>Tue May 26 22:22:40 2015</timestamp>
 			<resultsname>/net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0.rdb</resultsname>
 			<simresults>/net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/MonteCarlo.0.rdb</simresults>
 			<resultsisuserpath>1</resultsisuserpath>

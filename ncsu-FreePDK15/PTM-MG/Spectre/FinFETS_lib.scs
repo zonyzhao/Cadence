@@ -1,0 +1,40 @@
+simulator lang=spectre
+
+library FinFETs
+   //=========================================
+   // Process corners for FinFETs
+   //=========================================
+   section NN
+	  parameters lg=20n vddp=-1*vdd
+      parameters fin_height=26n fin_width=12n
+	  
+	  parameters sigmaPC=0.0333 sigmaMM=0.0505
+     
+	  parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters CORNER_N=0 CORNER_P=0
+	  
+      include "16nfet.scs"
+      include "16pfet.scs"
+   endsection NN
+
+   //=========================================
+   // Statistics
+   //=========================================
+   //==== Normal distribution
+
+   section MCStats
+      statistics {
+         process {
+            vary DVTHN_PC  dist=gauss std=1
+            vary DVTHP_PC  dist=gauss std=1
+         }
+         mismatch {
+            vary DVTHN_MM dist=gauss std=1
+            vary DVTHP_MM dist=gauss std=1
+         }
+      }
+   endsection MCStats
+
+endlibrary FinFETs
+

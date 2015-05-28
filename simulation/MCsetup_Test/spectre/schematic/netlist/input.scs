@@ -1,5 +1,5 @@
 // Generated for: spectre
-// Generated on: Apr 30 02:49:36 2015
+// Generated on: May 27 22:31:16 2015
 // Design library name: 16nm_Tests
 // Design cell name: MCsetup_Test
 // Design view name: schematic
@@ -7,7 +7,6 @@ simulator lang=spectre
 global 0 vdd!
 parameters time2=5n vdd=.500
 include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
-include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/stats.scs"
 
 // Library name: 16nm
 // Cell name: inv_1x

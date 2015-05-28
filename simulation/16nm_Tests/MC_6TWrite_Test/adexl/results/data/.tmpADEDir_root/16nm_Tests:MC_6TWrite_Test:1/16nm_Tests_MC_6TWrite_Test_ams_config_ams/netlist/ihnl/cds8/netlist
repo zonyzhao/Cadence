@@ -1,0 +1,24 @@
+// Library - 16nm, Cell - inv_1x, View - schematic
+// LAST TIME SAVED: May 27 22:30:59 2015
+// NETLIST TIME: May 27 22:38:29 2015
+`timescale 1ns / 1ns 
+
+(* cds_ams_schematic *) 
+module inv_1x (Y, A);
+
+output  Y;
+
+input  A;
+
+
+_ANALOG_BEGIN
+M0 (Y A cds_globals.\gnd!  cds_globals.\gnd! ) nfet w=60n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+_ANALOG_BEGIN
+M1 (Y A cds_globals.\vdd!  cds_globals.\vdd! ) pfet w=100n l=20n nfin=1 
+    nf=1 m=1
+_ANALOG_END
+
+endmodule

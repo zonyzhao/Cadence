@@ -1,0 +1,46 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  repList "behavioral functional system verilog pld_verilog lai_verilog lmsi_verilog schematic symbol"
+  stopList "verilog pld_verilog lai_verilog lmsi_verilog symbol"
+  hierDelim "."
+  hierPrefix "MC_6TWrite_Test"
+  globalHierPrefix "cds_globals."
+  prefixHierarchyWithCV "YES"
+  busRef   "ORDERED"
+  netType   "BUS"
+  leftStr  "["
+  rangeStr  ":"
+  rightStr  "]"
+  slashCheck   "t"
+ )
+( defbus
+( "X" 15 0  "X" 15 0  )
+ )
+( net
+( "X<6>" "X[6]" )
+( "X<15>" "X[15]" )
+( "X<9>" "X[9]" )
+( "X<13>" "X[13]" )
+( "X<4>" "X[4]" )
+( "X<1>" "X[1]" )
+( "X<0>" "X[0]" )
+( "X<2>" "X[2]" )
+( "X<5>" "X[5]" )
+( "X<8>" "X[8]" )
+( "X<12>" "X[12]" )
+( "X<7>" "X[7]" )
+( "X<3>" "X[3]" )
+( "X<14>" "X[14]" )
+( "X<11>" "X[11]" )
+( "X<10>" "X[10]" )
+ )
+( inst
+ )
+( model
+ )
+( term
+ )
+( param
+ )
+ )

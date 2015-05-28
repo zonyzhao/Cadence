@@ -1,0 +1,2 @@
+include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs" section=NN
+include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs" section=MCStats

@@ -123,7 +123,7 @@ mpfet d g s x pfet L=l NFIN=nfin
 ***********************************************************************************
 .LIB ptm16hp
 
-.subckt nfet d g s x l=lg nfin=1 dvtshift=ndvtshift
+.subckt nfet d g s x l=lg nfin=1
 .include 'modelfiles/hp/16nfet.pm'
 mnfet d g s x nfet L=l NFIN=nfin 
 .ends nfet

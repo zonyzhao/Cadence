@@ -1,0 +1,72 @@
+simulator lang=spectre
+
+library freepdk
+   //=========================================
+   // Process corners for LVT
+   //=========================================
+   section lvtTT
+      parameters wmin=90n lmin=50n
+      parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters VTCORNER_N=0 VTCORNER_P=0
+      include "NMOS_VTL.scs"
+      include "PMOS_VTL.scs"
+   endsection lvtTT
+
+   section lvtFF
+      parameters wmin=90n lmin=50n
+      parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters VTCORNER_N=-3 VTCORNER_P=-3
+      include "NMOS_VTL.scs"
+      include "PMOS_VTL.scs"
+   endsection lvtFF
+
+   section lvtSS
+      parameters wmin=90n lmin=50n
+      parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters VTCORNER_N=3 VTCORNER_P=3
+      include "NMOS_VTL.scs"
+      include "PMOS_VTL.scs"
+   endsection lvtSS
+
+   section lvtFS
+      parameters wmin=90n lmin=50n
+      parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters VTCORNER_N=-3 VTCORNER_P=3
+      include "NMOS_VTL.scs"
+      include "PMOS_VTL.scs"
+   endsection lvtFS
+
+   section lvtSF
+      parameters wmin=90n lmin=50n
+      parameters DVTHN_PC=0 DVTHP_PC=0
+      parameters DVTHN_MM=0 DVTHP_MM=0
+      parameters VTCORNER_N=3 VTCORNER_P=-3
+      include "NMOS_VTL.scs"
+      include "PMOS_VTL.scs"
+   endsection lvtSF
+
+   //=========================================
+   // Statistics
+   //=========================================
+   //==== Normal distribution
+   section normStat
+
+      statistics {
+         process {
+            vary DVTHN_PC dist=gauss std=1
+            vary DVTHP_PC dist=gauss std=1
+         }
+         mismatch {
+            vary DVTHN_MM dist=gauss std=1
+            vary DVTHP_MM dist=gauss std=1
+         }
+      }
+
+   endsection normStat
+
+endlibrary freepdk
+

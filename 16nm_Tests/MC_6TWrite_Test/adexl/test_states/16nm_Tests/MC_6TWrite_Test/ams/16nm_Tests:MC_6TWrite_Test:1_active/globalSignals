@@ -1,1 +1,1 @@
-globalSignals (("" "D" "vdd!" "CDBA" "wire" "" "NO" "F" "wire" "") ("" "D" "gnd!" "CDBA" "wire" "" "YES" "F" "wire" "") ("" "D" "vcc!" "CDBA" "wire" "" "NO" "F" "wire" ""))
+globalSignals nil

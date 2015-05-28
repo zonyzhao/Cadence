@@ -56,28 +56,31 @@
 					</option>
 				</origoptions>
 				<outputs>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M1" "vth")
+					<output>M1
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M0" "vth")
+					<output>M0
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M2" "vth")
+					<output>M2
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M3" "vth")
+					<output>M3
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M4" "vth")
+					<output>M4
 						<evalType>point</evalType>
 					</output>
-					<output>OP("/ICHUNK/IARRAY0/ISRAM0/I7/I3/M5" "vth")
+					<output>M5
 						<evalType>point</evalType>
 					</output>
 					<output>cross(VT("/ICHUNK/IARRAY0/B0P1") vdd 1 "either" nil nil)
 						<evalType>point</evalType>
 					</output>
 					<output>cross(v("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") (0.95 * vdd) 1 "rising" nil nil)
+						<evalType>point</evalType>
+					</output>
+					<output>value(xval(intersect(VT("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1") VT("/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0"))) 1)
 						<evalType>point</evalType>
 					</output>
 				</outputs>
@@ -170,8 +173,8 @@
 					<value>4</value>
 				</genusjoblimit>
 			</genusjoblimits>
-			<specifyjoblimit>1</specifyjoblimit>
-			<parallelrun>1</parallelrun>
+			<specifyjoblimit>0</specifyjoblimit>
+			<parallelrun>0</parallelrun>
 		</distributeoptions>
 		<allsweepsenabled>0</allsweepsenabled>
 		<allcornersenabled>0</allcornersenabled>

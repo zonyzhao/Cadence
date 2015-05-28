@@ -1,6 +1,6 @@
 hnlLastStopCellInfo = '(
-                           ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1430387365" )
-                          ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1430387350" )
+                           ( "NCSU_TechLib_FreePDK15" "nfet" "spectre" "47" "1430711313" )
+                          ( "NCSU_TechLib_FreePDK15" "pfet" "spectre" "47" "1430562243" )
                           ( "UCD_Analog_Parts" "vpwl" "spectre" "34" "1414043471" )
                           ( "UCD_Analog_Parts" "vdc" "spectre" "33" "1414043476" )
                        )
@@ -758,8 +758,8 @@ hnlLastNetNameDifferentFrom = '( )
 hnlLastTermNameDifferentFrom = '( )
 hnlLastParamNameDifferentFrom = '( )
 hnlLastLibInfo = '(
-                    ( "16nm" "1428898306" )
-                   ( "16nm_Tests" "1429775004" )
+                    ( "16nm" "1432179885" )
+                   ( "16nm_Tests" "1432179891" )
                   )
 hnlLastConstants = '(
                       "M_SQRT2"

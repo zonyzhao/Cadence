@@ -10,7 +10,7 @@ tmp1 = (ncons nil)
 )
 tmp1->inLastSet = nil
 tmp1->definedIn = "XYZ"
-tmp1->name = nil
+tmp1->name = "Q0"
 tmp1->expression = nil
 tmp1->signal = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0"
 tmp1->scriptFile = ""
@@ -65,7 +65,7 @@ tmp1 = make_sevOutputStruct()
 tmp1 = (ncons nil)
 )
 tmp1->inLastSet = nil
-tmp1->name = nil
+tmp1->name = "Q1"
 tmp1->expression = nil
 tmp1->signal = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1"
 tmp1->scriptFile = nil
@@ -119,7 +119,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M0"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -143,7 +143,7 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = 3.2700976870443865e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
@@ -165,7 +165,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M1"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -189,7 +189,7 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = 3.1443636684811804e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
@@ -211,7 +211,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M2"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -235,7 +235,7 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = -3.1237250707799769e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
@@ -257,7 +257,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M3"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -281,7 +281,7 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = -3.3099262633378035e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
@@ -303,7 +303,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M4"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -327,7 +327,7 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = 3.2700976884315724e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
@@ -349,7 +349,7 @@ tmp1 = make_sevOutputStruct()
 (unless tmp1
 tmp1 = (ncons nil)
 )
-tmp1->name = nil
+tmp1->name = "M5"
 tmp1->expression = (let
 (tmp1 tmp2 tmp3)
 tmp1 = 'OP
@@ -373,155 +373,11 @@ tmp1->origin = nil
 tmp1->type = nil
 tmp1->areaTable = nil
 tmp1->selectionDetail = nil
-tmp1->value = 3.1442012264843444e-01
+tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
 tmp1->index = 8
-tmp1->timeStamp = nil
-tmp1->graphType = nil
-tmp1->yaxisLabel = nil
-tmp1->label = nil
-tmp1->yaxisUnit = nil
-list(tmp1)
-)
-_outputList = nconc( _outputList savedComponent) 
-savedComponent = nil 
-savedComponent = (let
-(tmp1)
-(unless tmp1
-tmp1 = make_sevOutputStruct()
-)
-(unless tmp1
-tmp1 = (ncons nil)
-)
-tmp1->definedIn = ""
-tmp1->name = "Q0 cross"
-tmp1->expression = (let
-(tmp1 tmp2)
-tmp1 = 'xval
-tmp2 = (let
-(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7)
-tmp1 = 'cross
-tmp2 = (let
-(tmp1 tmp2)
-tmp1 = 'VT
-tmp2 = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0"
-list(tmp1 tmp2)
-)
-tmp3 = (let
-(tmp1 tmp2 tmp3)
-tmp1 = 'times
-tmp2 = 2.0000000000000001e-01
-tmp3 = (let
-(tmp1 tmp2)
-tmp1 = 'VAR
-tmp2 = "vdd"
-list(tmp1 tmp2)
-)
-list(tmp1 tmp2 tmp3)
-)
-tmp4 = 1
-tmp5 = "falling"
-tmp6 = 't
-tmp7 = "time"
-list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7)
-)
-list(tmp1 tmp2)
-)
-tmp1->signal = nil
-tmp1->scriptFile = ""
-tmp1->type2 = nil
-tmp1->evalType = nil
-tmp1->displayIt = 't
-tmp1->internalName = nil
-tmp1->masterName = nil
-tmp1->masterScriptFile = nil
-tmp1->saveScriptFile = nil
-tmp1->saveMasterScriptFile = nil
-tmp1->isReferenced = nil
-tmp1->lastEvalTime = nil
-tmp1->origin = nil
-tmp1->type = nil
-tmp1->areaTable = nil
-tmp1->selectionDetail = nil
-tmp1->value = nil
-tmp1->plot = nil
-tmp1->save = 't
-tmp1->march = nil
-tmp1->index = 9
-tmp1->timeStamp = nil
-tmp1->graphType = nil
-tmp1->yaxisLabel = nil
-tmp1->label = nil
-tmp1->yaxisUnit = nil
-list(tmp1)
-)
-_outputList = nconc( _outputList savedComponent) 
-savedComponent = nil 
-savedComponent = (let
-(tmp1)
-(unless tmp1
-tmp1 = make_sevOutputStruct()
-)
-(unless tmp1
-tmp1 = (ncons nil)
-)
-tmp1->definedIn = ""
-tmp1->name = "Q1 Cross"
-tmp1->expression = (let
-(tmp1 tmp2)
-tmp1 = 'xval
-tmp2 = (let
-(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7)
-tmp1 = 'cross
-tmp2 = (let
-(tmp1 tmp2)
-tmp1 = 'VT
-tmp2 = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1"
-list(tmp1 tmp2)
-)
-tmp3 = (let
-(tmp1 tmp2 tmp3)
-tmp1 = 'times
-tmp2 = 8.0000000000000004e-01
-tmp3 = (let
-(tmp1 tmp2)
-tmp1 = 'VAR
-tmp2 = "vdd"
-list(tmp1 tmp2)
-)
-list(tmp1 tmp2 tmp3)
-)
-tmp4 = 1
-tmp5 = "rising"
-tmp6 = 't
-tmp7 = "time"
-list(tmp1 tmp2 tmp3 tmp4 tmp5 tmp6 tmp7)
-)
-list(tmp1 tmp2)
-)
-tmp1->signal = nil
-tmp1->scriptFile = ""
-tmp1->type2 = nil
-tmp1->evalType = nil
-tmp1->displayIt = 't
-tmp1->internalName = nil
-tmp1->masterName = nil
-tmp1->masterScriptFile = nil
-tmp1->saveScriptFile = nil
-tmp1->saveMasterScriptFile = nil
-tmp1->isReferenced = nil
-tmp1->lastEvalTime = nil
-tmp1->origin = nil
-tmp1->type = nil
-tmp1->areaTable = nil
-tmp1->selectionDetail = nil
-tmp1->value = nil
-tmp1->plot = nil
-tmp1->save = 't
-tmp1->march = nil
-tmp1->index = 10
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -576,7 +432,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 11
+tmp1->index = 9
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -631,7 +487,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 12
+tmp1->index = 10
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -686,7 +542,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 13
+tmp1->index = 11
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -741,7 +597,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 14
+tmp1->index = 12
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -796,7 +652,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 15
+tmp1->index = 13
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -851,7 +707,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 16
+tmp1->index = 14
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -906,7 +762,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 17
+tmp1->index = 15
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -961,7 +817,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 18
+tmp1->index = 16
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -1016,7 +872,7 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 19
+tmp1->index = 17
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil
@@ -1071,7 +927,74 @@ tmp1->value = nil
 tmp1->plot = 't
 tmp1->save = 't
 tmp1->march = nil
-tmp1->index = 20
+tmp1->index = 18
+tmp1->timeStamp = nil
+tmp1->graphType = nil
+tmp1->yaxisLabel = nil
+tmp1->label = nil
+tmp1->yaxisUnit = nil
+list(tmp1)
+)
+_outputList = nconc( _outputList savedComponent) 
+savedComponent = nil 
+savedComponent = (let
+(tmp1)
+(unless tmp1
+tmp1 = make_sevOutputStruct()
+)
+(unless tmp1
+tmp1 = (ncons nil)
+)
+tmp1->name = nil
+tmp1->expression = (let
+(tmp1 tmp2 tmp3)
+tmp1 = 'value
+tmp2 = (let
+(tmp1 tmp2)
+tmp1 = 'xval
+tmp2 = (let
+(tmp1 tmp2 tmp3)
+tmp1 = 'intersect
+tmp2 = (let
+(tmp1 tmp2)
+tmp1 = 'VT
+tmp2 = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q1"
+list(tmp1 tmp2)
+)
+tmp3 = (let
+(tmp1 tmp2)
+tmp1 = 'VT
+tmp2 = "/ICHUNK/IARRAY0/ISRAM0/I7/I3/Q0"
+list(tmp1 tmp2)
+)
+list(tmp1 tmp2 tmp3)
+)
+list(tmp1 tmp2)
+)
+tmp3 = 1
+list(tmp1 tmp2 tmp3)
+)
+tmp1->signal = nil
+tmp1->scriptFile = nil
+tmp1->type2 = nil
+tmp1->evalType = 'point
+tmp1->displayIt = 't
+tmp1->internalName = nil
+tmp1->masterName = nil
+tmp1->masterScriptFile = nil
+tmp1->saveScriptFile = nil
+tmp1->saveMasterScriptFile = nil
+tmp1->isReferenced = nil
+tmp1->lastEvalTime = nil
+tmp1->origin = nil
+tmp1->type = nil
+tmp1->areaTable = nil
+tmp1->selectionDetail = nil
+tmp1->value = nil
+tmp1->plot = 't
+tmp1->save = nil
+tmp1->march = nil
+tmp1->index = 19
 tmp1->timeStamp = nil
 tmp1->graphType = nil
 tmp1->yaxisLabel = nil

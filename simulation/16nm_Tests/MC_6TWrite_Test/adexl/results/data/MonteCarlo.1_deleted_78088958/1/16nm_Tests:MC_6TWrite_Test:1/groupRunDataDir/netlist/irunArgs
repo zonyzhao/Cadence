@@ -1,0 +1,53 @@
+
+-clean 
+-UNBUFFERED 
+-cdslib ./cds.lib 
+-errormax 50 
+-status 
+-nowarn DLNOHV 
+-nowarn DLCLAP 
+-v93 
+-64bit 
+-incdir ${IC_INVOKE_DIR}/
+-timescale 1ps/1ps 
+-vtimescale 1ps/1ps 
+-discipline logic 
+-delay_mode None 
+-novitalaccl 
+-access r 
+-noparamerr 
+-amspartinfo ../psf/partition.info -rnm_partinfo 
+-modelincdir ${IC_INVOKE_DIR}/
+./spiceModels.scs 
+./amsControlSpectre.scs 
+-input ./probe.tcl 
+-run -exit 
+-ncsimargs "+amsrawdir ../psf" 
+ -simcompatible_ams spectre 
+-name worklib.MC_6TWrite_Test:ams_config 
+-amsconnrules ConnRules_18V_full_fast 
++define+CDS_SELECT_CRS 
++define+CONNRULES_18V_FULL_FAST 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ConnRules_18V_basic/connect/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_bidir/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_bidir/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2E_2_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/Bidir_2_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2L_2_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2L_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/L2R_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/RL_Bidir_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/E2R_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/R2E_2_LPS/module/verilog.vams 
+${AMS_IUS_HIER}/tools.lnx86/affirma_ams/etc/connect_lib/connectLib/ER_Bidir_LPS/module/verilog.vams  
+./netlist.vams 
+-f ./textInputs
+./cds_globals.vams 
+-l ../psf/irun.log 

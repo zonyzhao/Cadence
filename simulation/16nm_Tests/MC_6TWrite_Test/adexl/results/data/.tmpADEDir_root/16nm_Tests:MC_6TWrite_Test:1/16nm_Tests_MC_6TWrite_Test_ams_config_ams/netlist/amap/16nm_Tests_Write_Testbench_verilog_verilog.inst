@@ -1,0 +1,13 @@
+HEADER
+"PSFversion" "1.00"
+"VSSv" ".VSSv"
+"VDDv" ".VDDv"
+"Ackv" ".Ackv"
+"RDataAck<1:0>v" ".RDataAck<1:0>v"
+"R2<3:0>v" ".R2<3:0>v"
+"R1<3:0>v" ".R1<3:0>v"
+"WdataAck<1:0>v" ".WdataAck<1:0>v"
+"W2<3:0>v" ".W2<3:0>v"
+"W1<3:0>v" ".W1<3:0>v"
+"RW<1:0>v" ".RW<1:0>v"
+"A<16:0>v" ".A<16:0>v"

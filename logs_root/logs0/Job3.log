@@ -1,0 +1,997 @@
+\# Program start time UTC 2015.05.28 09:04:15.541
+\# Local time Thursday 28 May 2015, 2:04 am
+\o Program:		@(#)$CDS: virtuoso version 6.1.6 01/19/2015 20:41 (sjfnl169) $
+\o Hierarchy:		/apps/cadence/IC616/tools.lnx86/dfII/
+\o Sub version:		sub-version  IC6.1.6.500.10  (32-bit addresses)
+\# Command line:	/apps/cadence/IC616/tools.lnx86/dfII/bin/32bit/virtuoso -noautostart -mpssession virtuoso6000 -mpshost bull -davinciService DaVinciService_6000_1432789649 -log /root/Desktop/Cadence/logs_root/logs0/Job3.log -licenseLockFileName /root/Desktop/Cadence/.tmp_root/.bull_6000 -nograph -nostdin -axlChildIdFlag 3
+\# Host name (type):	bull (x86_64)
+\# Operating system:	Linux 2.6.32-504.16.2.el6.x86_64 #1 SMP Tue Mar 10 17:01:00 EDT 2015
+\# Linux /etc/issue:	Red Hat Enterprise Linux Client release 6.6 (Santiago)
+\# Linux /etc/issue:	Kernel \r on an \m
+\# X display name (WxH):	bull:80 (1024x868)
+\# Available geometry:			TL(0:0) BR(1023:867)
+\# X server:			RealVNC Ltd (VNC nograph server, PID 21946)
+\# Depth of Visual (Root):	16 (16)
+\# Number of Planes Used:	16
+\# X version:		11.0 (vendor release 3370)
+\# X resource pool:	base 0x800000, mask 0x3fffff (4194303), shift 0
+\# 			current id 0x0, current max 0x3ffffa (4194298)
+\# Max data seg size:	     unlimited
+\# Max process size:	     unlimited
+\# Initial sbrk value:	        416 MB
+\# Available memory:	     46,017 MB
+\# System memory:	     48,512 MB
+\# Maximum memory size:	      3,733 MB
+\# Max mem available:	      3,733 MB
+\# Initial memory used:	         53 MB
+\#        process size:	        456 MB
+\# Qt version:		4.7.2
+\# Window Manager:	other
+\# User Name:		root
+\o Working Directory:	bull:/root/Desktop/Cadence
+\# Process Id:		21947
+\o 
+\o COPYRIGHT © 1992-2014  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+\o           © 1992-2014  UNIX SYSTEMS Laboratories INC.,
+\o                          Reproduced with permission.
+\o 
+\o This Cadence Design Systems program and online documentation are
+\o proprietary/confidential information and may be disclosed/used only
+\o as authorized in a license agreement controlling such use and disclosure.
+\o 
+\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)
+\o Use/reproduction/disclosure is subject to restriction
+\o set forth at FAR 1252.227-19 or its equivalent.
+\o Loading geView.cxt 
+\o Loading menuBuilder.cxt 
+\o Loading schView.cxt 
+\o Loading selectSv.cxt 
+\o Loading LVS.cxt 
+\o Loading layerProc.cxt 
+\o Loading pte2.cxt 
+\o Loading xlUI.cxt 
+\o Loading auCore.cxt 
+\o Loading vhdl.cxt 
+\o Loading seismic.cxt 
+\o Loading ci.cxt 
+\o Loading ams.cxt 
+\o Loading oasis.cxt 
+\o Loading analog.cxt 
+\o Loading asimenv.cxt 
+\o Loading par.cxt 
+\o Loading socket.cxt 
+\o Loading alvs.cxt 
+\o Loading awv.cxt 
+\o Loading adexl.cxt 
+\o *Info*    Exporting services from client ... 
+\o 
+\o 
+\o ---------------------------------------------------------------------------
+\o Welcome to the FreePDK 45nm Free, Open-Source Process Design Kit
+\o ---------------------------------------------------------------------------
+\o 
+\o loading vars from .cdsenv for tool ddserv
+\o loading vars from .cdsenv for tool license
+\o loading vars from .cdsenv for tool asimenv
+\o loading vars from ./.cdsenv for tool ddserv
+\o loading vars from ./.cdsenv for tool license
+\o loading vars from ./.cdsenv for tool asimenv
+\o Loading spectrei.cxt 
+\o Loading devCheck.cxt 
+\o Loading relXpert.cxt 
+\o Loading mmsimenv.cxt 
+\o Loading spectreMixi.cxt 
+\o *Info*    Client has finished starting ... 
+\o 
+\p > 
+\# Available memory:         45,913 MB at UTC 2015.05.28 09:04:25.822
+\# Memory report: using         176 MB, process size 610 MB at UTC 2015.05.28 09:04:25.823
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.0
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o Loading simui.cxt 
+\o Loading viva.cxt 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o Loading hspiceD.cxt 
+\o Loading spectreinl.cxt 
+\o Loading msgHandler.cxt 
+\o Loading UltraSim.cxt 
+\o Loading AMSOSS.cxt 
+\o Loading AMS.cxt 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (0 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Loading monte.cxt 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (0 1)
+\o 
+\o generate netlist...
+\o Loading seCore.cxt 
+\o Begin Incremental Netlisting May 28 02:06:58 2015
+\o WARNING (OSSHNL-226): There are more design variables used in the current netlisting session as
+\o compared to the last session in the current run directory. The netlist(s)
+\o generated in the last netlisting session cannot be reused for incremental
+\o netlisting. Therefore re-netlisting the design.
+\o 
+\o End netlisting May 28 02:06:59 2015
+\o 
+\o Netlisting Statistics:
+\o 	Number of components:    5
+\o 
+\o 	Elapsed time:          1.0s (5.00/s)
+\o Errors: 0	Warnings: 0
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (0 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.0/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:07:00 2015
+\o End netlisting May 28 02:07:00 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o Loading paraplot.cxt 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 2) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 3) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 4) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 5) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3071): Simulation completed successfully.
+\o reading simulation data...
+\o       ...successful.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 6) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 7) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 8) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 9) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Monte Carlo Simulation completed successfully...
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (0 10) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.1
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (1 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (1 1)
+\o 
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:07:40 2015
+\o End netlisting May 28 02:07:40 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (1 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.1/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:07:41 2015
+\o End netlisting May 28 02:07:41 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o Loading stats.cxt 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 2) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 3) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3071): Simulation completed successfully.
+\o reading simulation data...
+\o       ...successful.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 4) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 5) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 6) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 7) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 8) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 9) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Monte Carlo Simulation completed successfully...
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (1 10) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.2
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (2 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (2 1)
+\o 
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:12:16 2015
+\o WARNING (OSSHNL-226): There are more design variables used in the current netlisting session as
+\o compared to the last session in the current run directory. The netlist(s)
+\o generated in the last netlisting session cannot be reused for incremental
+\o netlisting. Therefore re-netlisting the design.
+\o 
+\o End netlisting May 28 02:12:16 2015
+\o 
+\o Netlisting Statistics:
+\o 	Number of components:    5
+\o 
+\o 	Elapsed time:          1.0s (5.00/s)
+\o Errors: 0	Warnings: 0
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (2 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.2/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:12:18 2015
+\o End netlisting May 28 02:12:18 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 2) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 3) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 4) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 5) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 6) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 7) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3071): Simulation completed successfully.
+\o reading simulation data...
+\o       ...successful.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 8) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 9) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Monte Carlo Simulation completed successfully...
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (2 10) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.3
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (3 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (3 1)
+\o 
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:15:13 2015
+\o End netlisting May 28 02:15:13 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (3 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.3/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:15:14 2015
+\o End netlisting May 28 02:15:15 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   1.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 2) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 3) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 4) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 5) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 6) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 7) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3071): Simulation completed successfully.
+\o reading simulation data...
+\o       ...successful.
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 8) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 9) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Monte Carlo Simulation completed successfully...
+\o *Info*    Client has finished evaluating ... 
+\o 
+\o 
+\o *Info*    Run complete for Point ID (3 10) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o 
+\o 
+\o *Info*    Configuring the session ...
+\o 
+\o 	Library      = 16nm_Tests
+\o 	Cell         = MCsetup_Test
+\o 	View         = schematic
+\o 	Simulator    = spectre
+\o 	State Path   = $AXL_SETUPDB_DIR/test_states
+\o 	State Name   = 16nm_Tests:MCsetup_Test:1_tmpstate.648531096_MonteCarlo.4
+\o 	Results DB   = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4.rdb
+\o 	Results Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1
+\o 	Results Loc  = /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data
+\o 	Project Dir  = /net/kafka/nfs/rstdenis/Cadence/simulation
+\o 	Setup DB loc = /net/bull/root/Desktop/Cadence/16nm_Tests/MCsetup_Test/adexl
+\o 	File Encoding = 0
+\o 
+\o 
+\o *Info*    Spectre controlMode is set "batch".
+\o 
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Info*    Run start for Point ID (4 1) on testbench [
+\o           16nm_Tests:MCsetup_Test:1 ].
+\o 
+\o Resetting statistical vars
+\o 
+\o *Info*    Setting parameter values ...
+\o 
+\o Setting var ndvtshift = "0"
+\o Setting var pdvtshift = "0"
+\o Setting temp(T) = 30.0
+\o Setting var time2 = "5n"
+\o Setting var vdd = ".500"
+\o 
+\o *Info*    Netlist Directory =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/netlist
+\o 
+\o 
+\o *Info*    Data Directory    =
+\o           /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir
+\o 
+\o 
+\o *Info*    Creating Netlist for Point ID (4 1)
+\o 
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:15:30 2015
+\o End netlisting May 28 02:15:30 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o 
+\o *Info*    Running simulation on testbench [ 16nm_Tests:MCsetup_Test:1
+\o           ] for Point ID (4 1).
+\o 
+\o *Info*    Spectre controlMode is set "batch" due to monte carlo run.
+\o 
+\o Delete psf data in /net/kafka/nfs/rstdenis/Cadence/simulation/16nm_Tests/MCsetup_Test/adexl/results/data/MonteCarlo.4/1/16nm_Tests:MCsetup_Test:1/groupRunDataDir/psf.
+\o generate netlist...
+\o Begin Incremental Netlisting May 28 02:15:31 2015
+\o End netlisting May 28 02:15:31 2015
+\o 
+\o 	The netlist is up to date.
+\o 	Time taken to compare the design with netlist:   0.0s
+\o       ...successful.
+\o compose simulator input file...
+\o       ...successful.
+\o start simulator if needed...
+\o       ...successful.
+\o simulate...
+\o To view the simulator output, right-click on the test name, result 
+\o name, or any value in the "Results" tab of the Outputs section and 
+\o choose "Output Log" menu option.
+\o INFO (ADE-3067): Errors encountered during simulation. For more information, right-click
+\o         on a test name in the 'Results' tab of the Outputs pane and choose 'Output Log'
+\o         to view the simulation run log.
+\o reading simulation data...
+\o       ...successful.
+\o *Info*    Monte Carlo Simulation unsuccessful...
+\o *Info*    See simulation output log for more information.
+\o 
+\o *Error*   Error ID  = 5052
+\o *Error*   Error Msg = 
+\o Nominal simulation might have failed. Either
+\o           fix the problem in the test setup or disable the test and
+\o           re-run.
+\o 
+\o To view the simulator output, right-click on the
+\o           test name, result name, or any corner column in the
+\o           "Detail" view 
+\o of the "Results" tab and choose "Output Log"
+\o           menu option.
+\o 
+\o 
+\o 
+\o 
+\o 
+\o *Error*   Error ID  = 5011
+\o *Error*   Error Msg = Simulator failed to complete the simulation.
+\o 
+\o           Error found by spectre during Monte Carlo analysis
+\o           `mc1'.
+\o Error found by spectre during Monte Carlo analysis
+\o           `mc1'.
+\o ERROR (SFE-2458): dut Instance 'I0.M0' should be
+\o           subckt instance not device instance (statement
+\o           ignored).
+\o ERROR (SFE-2458): dut Instance 'I0.M1' should be
+\o           subckt instance not device instance (statement ignored).
+\o 
+\o 
+\o 
+\o 
+\o 
+\o INFO (ADE-3072): Simulation is stopped by user. Simulation results may not be complete.
+\o Simulation design variables differ from those on the cellView,
+\o they have been saved in the file "/tmp/saved-design-variables".
+\o To save future changes, copy variables to cellView before exiting.
+\o Loading lce.cxt 
+\o 
+\o *Info*    Received signal SIGTERM.
+\o 
+\o 
