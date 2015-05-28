@@ -1,9 +1,3 @@
-mc1 montecarlo numruns=100 seed=1 variations=process sampling=lhs \
-numbins=100 donominal=yes scalarfile="../monteCarlo/mcdata" \
-paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
-processparamfile="../monteCarlo/processParam" \
-processscalarfile="../monteCarlo/processData"  paramdumpmode=yes \
-savefamilyplots=yes savedatainseparatedir=yes wfseparation=yes {
 
 tran tran stop=4n \
 readic="/net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_config_ams/netlist/spectre.ic" \
@@ -14,6 +8,3 @@ finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile 
 element info what=inst where=rawfile 
 outputParameter info what=output where=rawfile 
-designParamVals info what=parameters where=rawfile
-export noExprs=oceanEval("0")
-}

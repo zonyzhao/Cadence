@@ -1,6 +1,0 @@
-
-nor4_1x I0 ( .D(D), .C(C), .A(A), .B(B), .Y(net11));
-
-inv_1x I1 ( .Y(Y), .A(net11));
-
-endmodule

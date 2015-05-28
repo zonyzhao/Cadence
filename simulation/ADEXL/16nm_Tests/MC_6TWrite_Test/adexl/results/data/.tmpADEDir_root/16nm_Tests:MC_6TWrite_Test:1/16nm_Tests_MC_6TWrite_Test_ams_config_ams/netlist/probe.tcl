@@ -6,7 +6,7 @@
 #
 # Database settings
 #
-if { [info exists ::env(AMS_RESULTS_DIR) ] } { set AMS_RESULTS_DIR $env(AMS_RESULTS_DIR)} else {set AMS_RESULTS_DIR "../psf"}
+if { [info exists ::env(AMS_RESULTS_DIR) ] } { set AMS_RESULTS_DIR $env(AMS_RESULTS_DIR)} else {set AMS_RESULTS_DIR "../../../../MonteCarlo.0/psf/16nm_Tests:MC_6TWrite_Test:1/psf"}
 database -open ams_database -into ${AMS_RESULTS_DIR} -default
 
 #

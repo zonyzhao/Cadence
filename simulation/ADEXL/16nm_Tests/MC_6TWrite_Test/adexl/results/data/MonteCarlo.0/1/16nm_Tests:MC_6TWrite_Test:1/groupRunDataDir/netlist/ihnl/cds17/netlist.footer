@@ -1,6 +1,0 @@
-
-nand_1x I7 ( .A(A), .Y(ntYbar), .B(B));
-
-inv_1x I6 ( .Y(Y), .A(ntYbar));
-
-endmodule

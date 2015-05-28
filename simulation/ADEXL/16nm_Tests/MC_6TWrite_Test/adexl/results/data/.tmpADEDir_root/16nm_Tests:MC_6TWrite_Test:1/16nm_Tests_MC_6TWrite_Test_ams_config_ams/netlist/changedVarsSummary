@@ -1,4 +1,0 @@
-During netlisting, following variables have different values compared to defaults
-Syntax:    Variable        =  Value  (Default value)
-
-simReNetlistAll  =  t (nil)

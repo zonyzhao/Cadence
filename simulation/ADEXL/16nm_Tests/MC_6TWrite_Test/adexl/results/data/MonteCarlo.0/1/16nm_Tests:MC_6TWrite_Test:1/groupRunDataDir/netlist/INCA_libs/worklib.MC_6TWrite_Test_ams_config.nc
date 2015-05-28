@@ -1,1 +1,0 @@
-worklib.MC_6TWrite_Test_ams_config.lnx8664.14.20.nc

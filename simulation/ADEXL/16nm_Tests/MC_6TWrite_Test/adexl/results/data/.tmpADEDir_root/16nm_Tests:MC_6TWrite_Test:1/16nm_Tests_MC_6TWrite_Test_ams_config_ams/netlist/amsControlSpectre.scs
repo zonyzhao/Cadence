@@ -74,12 +74,6 @@ MC_6TWrite_Test.ICHUNK.IARRAY0.ISRAM0.I7.I3.Q1=0
 simulatorOptions options temp=30.0 tnom=27 scale=1.0 scalem=1.0 \
 reltol=1e-3 vabstol=1e-6 iabstol=1e-12 gmin=1e-12 rforce=1 maxnotes=5 \
 maxwarns=5 digits=5 pivrel=1e-3 checklimitdest=psf 
-mc1 montecarlo numruns=100 seed=1 variations=process sampling=lhs \
-numbins=100 donominal=yes scalarfile="../monteCarlo/mcdata" \
-paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
-processparamfile="../monteCarlo/processParam" \
-processscalarfile="../monteCarlo/processData"  paramdumpmode=yes \
-savefamilyplots=yes savedatainseparatedir=yes wfseparation=yes {
 
 tran tran stop=4n errpreset=conservative save=none \
 readic="/net/kafka/nfs/rstdenis/Cadence/simulation/ADEXL/16nm_Tests/MC_6TWrite_Test/adexl/results/data/.tmpADEDir_root/16nm_Tests:MC_6TWrite_Test:1/16nm_Tests_MC_6TWrite_Test_config_ams/netlist/spectre.ic" \
@@ -90,6 +84,3 @@ finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile 
 element info what=inst where=rawfile 
 outputParameter info what=output where=rawfile 
-designParamVals info what=parameters where=rawfile
-export noExprs=oceanEval("0")
-}

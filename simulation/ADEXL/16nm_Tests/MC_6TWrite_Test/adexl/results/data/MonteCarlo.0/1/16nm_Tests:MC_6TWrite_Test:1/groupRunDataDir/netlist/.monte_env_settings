@@ -1,2 +1,0 @@
-envSetVal("asimenv.monte" "highPrecision" 'boolean nil)
-envSetVal("asimenv.monte" "precisionDigits" 'int 0)
